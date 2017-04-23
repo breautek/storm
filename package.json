@@ -17,7 +17,8 @@
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "jsonwebtoken": "^7.3.0",
-    "mysql": "^2.13.0"
+    "mysql": "^2.13.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {}
 }
