@@ -14,6 +14,7 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/breautek/bt-api-framework#readme",
   "dependencies": {
+    "args": "^2.6.1",
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "jsonwebtoken": "^7.3.0",
