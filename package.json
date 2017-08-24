@@ -1,6 +1,6 @@
 {
   "name": "bt-api-framework",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Breautek REST API framework",
   "main": "index.js",
   "scripts": {
