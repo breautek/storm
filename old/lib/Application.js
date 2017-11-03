@@ -194,7 +194,7 @@ class Application extends EventEmitter {
 			catch(ex) {
 				reject(`Missing ${cPath}.`);
 				process.nextTick(() => {
-					process.exit(ExitCodes.MISSING$_config);
+					process.exit(ExitCodes.MISSING_config);
 				});
 			}
 
