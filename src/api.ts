@@ -8,7 +8,7 @@ import {ExitCode} from './ExitCode';
 import {Iterator} from './Iterator';
 import {Token} from './Token';
 import {TokenManager} from './TokenManager';
-import {StormError} from './StormError';
+import {StormError, ErrorResponse} from './StormError';
 import {StatusCode} from './StatusCode';
 import {ErrorCode} from './ErrorCode';
 import {MissingParameter} from './MissingParameter';
@@ -17,6 +17,12 @@ import {InternalError} from './InternalError';
 import {ExpiredToken} from './ExpiredToken';
 import {Database} from './Database';
 import {DatabaseConnection} from './DatabaseConnection';
+import {Middleware} from './Middleware';
+import {LoggerMiddleware} from './LoggerMiddleware';
+import {Request} from './Request';
+import {Response} from './Response';
+import {ResponseData} from './ResponseData';
+import {Handler} from './Handler';
 
 export {
     getInstance,
@@ -28,7 +34,7 @@ export {
     Iterator,
     Token,
     TokenManager,
-    StormError,
+    StormError, ErrorResponse,
     StatusCode,
     ErrorCode,
     MissingParameter,
@@ -36,5 +42,11 @@ export {
     InternalError,
     ExpiredToken,
     Database,
-    DatabaseConnection
+    DatabaseConnection,
+    Middleware,
+    LoggerMiddleware,
+    Request,
+    Response,
+    ResponseData,
+    Handler
 };

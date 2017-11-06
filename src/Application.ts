@@ -5,6 +5,7 @@ import {LogSeverity} from './LogSeverity'
 import {TokenManager} from './TokenManager';
 import {ApplicationEvent} from './ApplicationEvent';
 import {ExitCode} from './ExitCode';
+import {Database} from './Database';
 import * as Path from 'path';
 import * as args from 'args';
 import * as Express from 'express';
@@ -17,7 +18,7 @@ export abstract class Application extends EventEmitter {
     private config: any; //TODO
     private tokenManager: TokenManager;
     private server: any; //todo
-    private db: any; // todo
+    private db: Database; // todo
 
     public constructor(name: string, configPath: string, logSeverity: LogSeverity) {
         super();
@@ -36,14 +37,20 @@ export abstract class Application extends EventEmitter {
         this.getLogger().trace('Applicatino is booting...');
         this.getLogger().trace('Loading Configuration...');
 
-        try {
-            this.config = this.loadConfig(this.configPath);
+        // try {
+        
+        this.loadConfig(this.configPath).then((config: any) => {
+            this.config = config;
             this.getLogger().trace('Configuration loaded.');
             this.emit(ApplicationEvent.CONFIG_LOADED);
             this.onConfigLoad(this.config);
-
-            this.db = this.initDB(this.getConfig());
-
+            return Promise.resolve();
+        }).then(() => {
+            return this.initDB(this.getConfig());
+        }).then((db: Database) => {
+            this.db = db;
+            return Promise.resolve();
+        }).then(() => {
             this.getLogger().trace('Starting server...');
             this.server = Express();
             this.server.use(BodyParser.json({
@@ -55,26 +62,26 @@ export abstract class Application extends EventEmitter {
             this.server.use(BodyParser.text({
                 type : 'text/*'
             }));
-
+            return Promise.resolve();
+        }).then(() => {
             this.getLogger().trace('Attaching handlers...');
-            this.attachHandlers();
-
+            return this.attachHandlers();
+        }).then(() => {
             var bindingIP: string = this.getConfig().binding_ip;
             var port: number = this.getConfig().port;
-
+    
             this.server.listen(port, bindingIP);
-
+    
             this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
-        }
-        catch(ex) {
-            this.getLogger().fatal(ex);
-        }
+        }).catch((error) => {
+            this.getLogger().fatal(error);
+        });
     }
 
-    protected abstract async attachHandlers(): Promise<void>;
+    protected abstract attachHandlers(): Promise<void>;
 
-    public async loadConfig(path: string): Promise<any> {
-        return await new Promise<any>((resolve, reject) => {
+    public loadConfig(path: string): Promise<any> {
+        return new Promise<any>((resolve, reject) => {
             this.getLogger().trace('Configuration loaded.');
             
             var config: any = {};
@@ -153,7 +160,7 @@ export abstract class Application extends EventEmitter {
         return this.tokenManager;
     }
 
-    public getDB(): any {
+    public getDB(): Database {
         return this.db;
     }
 
@@ -183,8 +190,8 @@ export abstract class Application extends EventEmitter {
         return options;
     }
 
-    protected async initDB(config: any): Promise<any> {
-        return await Promise.resolve(null);
+    protected initDB(config: any): Promise<Database> {
+        return Promise.resolve(null);
     }
 
     private _createLogger(): Logger {
