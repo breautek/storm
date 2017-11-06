@@ -1,9 +1,8 @@
 
 import {getInstance} from './instance';
 import {Application} from './Application';
-import {ErrorResponse} from './ErrorResponse';
 import {ErrorCode} from './ErrorCode';
-import {HTTPCode} from './HTTPCode';
+import {StatusCode} from './StatusCode';
 
 export abstract class StormError extends Error {
     private details: any;
@@ -25,7 +24,7 @@ export abstract class StormError extends Error {
         return this.details;
     }
 
-    getHTTPCode(): HTTPCode {
+    getHTTPCode(): StatusCode {
         return StatusCode.INTERNAL_ERROR;
     }
 }
