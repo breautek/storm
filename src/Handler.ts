@@ -20,6 +20,7 @@ import {getInstance} from './instance';
 import {Request} from './Request';
 import {Response} from './Response';
 import {Database} from './Database';
+import {IHandler} from './IHandler';
 
 export class Handler {
     private app: Application;

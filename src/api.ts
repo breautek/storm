@@ -40,6 +40,7 @@ import {Response} from './Response';
 import {ResponseData} from './ResponseData';
 import {Handler} from './Handler';
 import {AuthenticationMiddleware} from './AuthenticationMiddleware';
+import {IHandler} from './IHandler';
 
 export {
     getInstance,
@@ -68,5 +69,6 @@ export {
     Response,
     ResponseData,
     Handler,
-    AuthenticationMiddleware
+    AuthenticationMiddleware,
+    IHandler
 };

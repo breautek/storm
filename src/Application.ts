@@ -21,6 +21,10 @@ import {TokenManager} from './TokenManager';
 import {ApplicationEvent} from './ApplicationEvent';
 import {ExitCode} from './ExitCode';
 import {Database} from './Database';
+import {Handler} from './Handler';
+import {IHandler} from './IHandler';
+import {Request} from './Request';
+import {Response} from './Response';
 import * as Path from 'path';
 import * as args from 'args';
 import * as Express from 'express';
@@ -90,6 +94,22 @@ export abstract class Application extends EventEmitter {
             this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
         }).catch((error) => {
             this.getLogger().fatal(error);
+        });
+    }
+
+    public attachHandler(path: string, HandlerClass: IHandler): void {
+        var handler: Handler = new HandlerClass(this);
+        this.server.get(path, (request: Express.Request, response: Express.Response) => {
+            handler.get(new Request(request), new Response(response));
+        });
+        this.server.post(path, (request: Express.Request, response: Express.Response) => {
+            handler.post(new Request(request), new Response(response));
+        });
+        this.server.put(path, (request: Express.Request, response: Express.Response) => {
+            handler.put(new Request(request), new Response(response));
+        });
+        this.server.delete(path, (request: Express.Request, response: Express.Response) => {
+            handler.delete(new Request(request), new Response(response));
         });
     }
 
