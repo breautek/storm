@@ -132,7 +132,7 @@ export abstract class Application extends EventEmitter {
             this.getLogger().trace(`Local Config Path:\t ${lPath}`);
             
             this.getLogger().trace('Loading configuration defaults.');
-            defaults = require('../bt-config-defaults.json');
+            defaults = require(Path.resolve(__dirname, '../bt-config-defaults.json'));
 
             this.getLogger().trace('Loading main confing...');
             try {
