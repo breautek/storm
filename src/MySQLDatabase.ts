@@ -33,8 +33,8 @@ export class MySQLDatabase extends Database {
         this.cluster.remove(nodeID);
     }
 
-    protected async _getConnection(query: string): Promise<MySQLConnection> {
-        return await new Promise((resolve, reject) => {
+    protected _getConnection(query: string): Promise<MySQLConnection> {
+        return new Promise<MySQLConnection>((resolve, reject) => {
             this.cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
                 if (error) {
                     reject(error);

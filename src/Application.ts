@@ -30,10 +30,10 @@ export abstract class Application extends EventEmitter {
     private logger: Logger;
     private name: string;
     private configPath: string;
-    private config: any; //TODO
+    private config: any;
     private tokenManager: TokenManager;
     private server: any; //todo
-    private db: Database; // todo
+    private db: Database;
 
     public constructor(name: string, configPath: string, logSeverity: LogSeverity) {
         super();

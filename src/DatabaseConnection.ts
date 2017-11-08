@@ -13,16 +13,16 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-export abstract class DatabaseConnection<API> {
-    private api: API;
+export abstract class DatabaseConnection {
+    private api: any;
     private readOnly: boolean;
 
-    public constructor(api: API, isReadOnly: boolean) {
+    public constructor(api: any, isReadOnly: boolean) {
         this.api = api;
         this.readOnly = isReadOnly;
     }
 
-    public getAPI(): API {
+    public getAPI(): any {
         return this.api;
     }
 
@@ -30,9 +30,9 @@ export abstract class DatabaseConnection<API> {
         return this.readOnly;
     }
 
-    public abstract async startTransaction(): Promise<void>;
-    public abstract async commit(): Promise<void>;
-    public abstract async rollback(): Promise<void>;
-    public abstract async close(): Promise<void>;
-    public abstract async query(): Promise<any>;
+    public abstract startTransaction(): Promise<void>;
+    public abstract commit(): Promise<void>;
+    public abstract rollback(): Promise<void>;
+    public abstract close(): Promise<void>;
+    public abstract query(query: string, params?: any): Promise<any>;
 }

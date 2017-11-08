@@ -17,7 +17,7 @@ import {DatabaseConnection} from './DatabaseConnection';
 import {getInstance} from './instance';
 import * as MySQL from 'mysql';
 
-class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
+export class MySQLConnection extends DatabaseConnection {
     private transaction: boolean;
 
     public constructor(connection: MySQL.PoolConnection, isReadOnly: boolean = true) {
@@ -26,9 +26,8 @@ class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         connection.config.queryFormat = function(query: string, values: any) {
             if (!values) return query;
 
-            return query.replace(/\:(\w+)/g, function(txt: string, key: string): string {
+            return query.replace(/\:(\w+)/g, function(this: any, txt: string, key: string): string {
                 if (values.hasOwnProperty(key)) {
-                    // @ts-ignore
                     return this.escape(values[key]);
                 }
                 return txt;
@@ -40,8 +39,8 @@ class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         return this.transaction;
     }
 
-    public async query(query: string, params?: any): Promise<any> {
-        return await new Promise((resolve, reject) => {
+    public query(query: string, params?: any): Promise<any> {
+        return new Promise((resolve, reject) => {
             var queryObject: MySQL.Query = this.getAPI().query(query, params, (error: MySQL.MysqlError, results: any) => {
                 if (error) {
                     return reject(error);
@@ -53,7 +52,7 @@ class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         });
     }
 
-    public async startTransaction(): Promise<void> {
+    public startTransaction(): Promise<void> {
         if (this.isReadOnly()) {
             return Promise.reject(new Error('A readonly connection cannot start a transaction.'));
         }
@@ -64,7 +63,7 @@ class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
         this.transaction = true;
 
-        return await new Promise<void>((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             try {
                 this.query('START TRANSACTION');
                 return resolve();
@@ -77,16 +76,16 @@ class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         });
     }
 
-    public async endTransaction(requiresRollback: boolean = false): Promise<void> {
-        return await (requiresRollback) ? this.rollback() : this.commit();
+    public endTransaction(requiresRollback: boolean = false): Promise<void> {
+        return (requiresRollback) ? this.rollback() : this.commit();
     }
 
-    public async rollback(): Promise<void> {
+    public rollback(): Promise<void> {
         if (!this.isTransaction()) {
             return Promise.reject(new Error('Cannot rollback when there is no active transaction.'));
         }
 
-        return await new Promise<void>((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             try {
                 this.query('ROLLBACK');
                 return resolve();
@@ -98,12 +97,12 @@ class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         });
     }
 
-    public async commit(): Promise<void> {
+    public commit(): Promise<void> {
         if (!this.isTransaction()) {
             return Promise.reject(new Error('Cannot commit when there is no active transaction.'));
         }
 
-        return await new Promise<void>((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             try {
                 this.query('COMMIT');
                 return resolve();
@@ -115,12 +114,12 @@ class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         });
     }
 
-    public async close(): Promise<void> {
+    public close(): Promise<void> {
         if (this.isTransaction()) {
 			return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
         }
         
-        return await new Promise<void>((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             this.getAPI().release();
             resolve();
         });

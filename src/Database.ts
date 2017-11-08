@@ -59,7 +59,7 @@ export abstract class Database {
         this._removeNode(slaveID);
     }
 
-    public getConnection(requireWriteAccess: boolean = false): Promise<DatabaseConnection<void>> {
+    public getConnection(requireWriteAccess: boolean = false): Promise<DatabaseConnection> {
         var query: string = 'SLAVE*';
         if (requireWriteAccess) {
             query = 'MASTER';
@@ -70,5 +70,5 @@ export abstract class Database {
 
     protected abstract _addNode(name: string, config: any): void;
     protected abstract _removeNode(name: string): void;
-    protected abstract async _getConnection(query: string): Promise<DatabaseConnection<void>>;
+    protected abstract _getConnection(query: string): Promise<DatabaseConnection>;
 }
