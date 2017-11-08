@@ -31,8 +31,14 @@ export class Request {
         return this.request.headers;
     }
 
-    public getHeader(name: string): string | string[] {
-        return this.request.headers[name];
+    public getHeader(name: string): string {
+        var value: string | string[] = this.request.headers[name];
+        if (typeof value === 'string') {
+            return value;
+        }
+        else {
+            return value[0];
+        }
     }
 
     public getQueryVariables(): any {

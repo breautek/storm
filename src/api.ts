@@ -39,6 +39,7 @@ import {Request} from './Request';
 import {Response} from './Response';
 import {ResponseData} from './ResponseData';
 import {Handler} from './Handler';
+import {AuthenticationMiddleware} from './AuthenticationMiddleware';
 
 export {
     getInstance,
@@ -66,5 +67,6 @@ export {
     Request,
     Response,
     ResponseData,
-    Handler
+    Handler,
+    AuthenticationMiddleware
 };
