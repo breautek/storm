@@ -18,7 +18,7 @@
     "breautek"
   ],
   "author": "norman@normanbreau.com",
-  "license": "UNLICENSED",
+  "license": "GPL-3.0",
   "homepage": "https://bitbucket.org/breautek/bt-api-framework#readme",
   "dependencies": {
     "@types/args": "^3.0.0",
