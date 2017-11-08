@@ -31,7 +31,7 @@ export abstract class AuthenticationMiddleware extends Middleware {
         this.logger = getInstance().getLogger();
     }
 
-    public execute(request: Request, response: Response, options: any): Promise<any> {
+    public execute(request: Request, response: Response, options?: any): Promise<any> {
         var config: any = getInstance().getConfig();
         var authHeader: string = config.authentication_header;
         var token: Token = new Token(request.getHeader(authHeader));
@@ -53,5 +53,5 @@ export abstract class AuthenticationMiddleware extends Middleware {
         });
     }
 
-    protected abstract authenticate(tokenData: any, options: any): Promise<any>;
+    protected abstract authenticate(tokenData: any, options?: any): Promise<any>;
 }

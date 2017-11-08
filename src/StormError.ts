@@ -26,7 +26,7 @@ export interface ErrorResponse {
 export abstract class StormError extends Error {
     private details: any;
 
-    public constructor(details: any = null) {
+    public constructor(details?: any) {
         super();
 
         this.details = details;
