@@ -31,6 +31,8 @@ import {InternalError} from './InternalError';
 import {ExpiredToken} from './ExpiredToken';
 import {Database} from './Database';
 import {DatabaseConnection} from './DatabaseConnection';
+import {MySQLDatabase} from './MySQLDatabase';
+import {MySQLConnection} from './MySQLConnection';
 import {Middleware} from './Middleware';
 import {LoggerMiddleware} from './LoggerMiddleware';
 import {Request} from './Request';
@@ -57,6 +59,8 @@ export {
     ExpiredToken,
     Database,
     DatabaseConnection,
+    MySQLDatabase,
+    MySQLConnection,
     Middleware,
     LoggerMiddleware,
     Request,
