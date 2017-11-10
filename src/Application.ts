@@ -65,8 +65,15 @@ export abstract class Application extends EventEmitter {
             this.onConfigLoad(this.config);
             return Promise.resolve();
         }).then(() => {
+            this.getLogger().trace('Initializing DB...');
             return this.initDB(this.getConfig());
         }).then((db: Database) => {
+            if (db) {
+                this.getLogger().trace('DB Initialized.');
+            }
+            else {
+                this.getLogger().trace('DB is not initialized.');
+            }
             this.db = db;
             return Promise.resolve();
         }).then(() => {
