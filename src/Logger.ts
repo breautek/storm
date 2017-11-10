@@ -39,6 +39,14 @@ export class Logger extends EventEmitter {
         }
 
         this.useStdOutForErrors = useStdOutForErrors;
+
+        process.stderr.on('drain', () => {
+            console.log('drain');
+        });
+
+        process.stderr.on('finish', () => {
+            console.log('finish');
+        });
     }
 
     public setLogLevel(severity: LogSeverity): void {
