@@ -51,9 +51,13 @@ export abstract class Application extends EventEmitter {
             this.getLogger().setLogLevel(logSeverity);
         }
 
+        process.on('unhandledRejection', (error: any) => {
+            this.getLogger().fatal(error);
+        });
+
         this.configPath = configPath || process.cwd();
 
-        this.getLogger().trace('Applicatino is booting...');
+        this.getLogger().trace('Application is booting...');
         this.getLogger().trace('Loading Configuration...');
 
         // try {
