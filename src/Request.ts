@@ -32,7 +32,7 @@ export class Request {
     }
 
     public getHeader(name: string): string {
-        var value: string | string[] = this.request.headers[name];
+        var value: string | string[] = this.request.headers[name.toLowerCase()];
         if (typeof value === 'string') {
             return value;
         }
