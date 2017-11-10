@@ -59,9 +59,13 @@ export abstract class Database {
         this._removeNode(slaveID);
     }
 
-    public getConnection(requireWriteAccess: boolean = false): Promise<DatabaseConnection> {
+    public getConnection(requireWriteAccess: boolean = false, nodeID?: string): Promise<DatabaseConnection> {
         var query: string = 'SLAVE*';
-        if (requireWriteAccess) {
+        
+        if (nodeID) {
+            query = nodeID;
+        }
+        else if (requireWriteAccess) {
             query = 'MASTER';
         }
 
