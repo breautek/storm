@@ -23,19 +23,23 @@ export class Iterator<T> {
     }
 
     public hasNext(): boolean {
-        return this.cursor + 1 < this.collection.length;
+        // return this.cursor + 1 < this.collection.length;
+        return !!this.collection[this.peekNextIndex()];
     }
 
     public next(): T {
-        return this.collection[++this.cursor];
+        // return this.collection[++this.cursor];
+        return this.collection[this.incrementIndex()];
     }
 
     public hasPrevious(): boolean {
-        return this.cursor > 0;
+        // return this.cursor > 0;
+        return !!this.collection[this.peekPreviousIndex()];
     }
 
     public previous(): T {
-        return this.collection[this.cursor--];
+        // return this.collection[this.cursor--];
+        return this.collection[this.decrementIndex()];
     }
 
     public reset(): void {
@@ -48,5 +52,21 @@ export class Iterator<T> {
 
     public bringToEnd(): void {
         this.cursor = this.collection.length - 1;
+    }
+
+    public peekNextIndex(): number {
+        return this.cursor + 1;
+    }
+
+    public peekPreviousIndex(): number {
+        return this.cursor;
+    }
+
+    public incrementIndex(): number {
+        return ++this.cursor;
+    }
+
+    public decrementIndex(): number {
+        return this.cursor--;
     }
 }

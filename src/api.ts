@@ -41,6 +41,8 @@ import {ResponseData} from './ResponseData';
 import {Handler} from './Handler';
 import {AuthenticationMiddleware} from './AuthenticationMiddleware';
 import {IHandler} from './IHandler';
+import {DictionaryIterator, Dictionary, DictionaryIteratorResult} from './DictionaryIterator'
+import {ReverseIterator} from './ReverseIterator';
 
 export {
     getInstance,
