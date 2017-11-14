@@ -72,5 +72,7 @@ export {
     ResponseData,
     Handler,
     AuthenticationMiddleware,
-    IHandler
+    IHandler,
+    DictionaryIterator, Dictionary, DictionaryIteratorResult,
+    ReverseIterator
 };
