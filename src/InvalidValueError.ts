@@ -13,10 +13,24 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-export enum ErrorCode {
-    INTERNAL,
-    MISSING_PARAMETER,
-    EXPIRED_TOKEN,
-    INVALID_CREDENTIALS,
-    INVALID_VALUE
+import {StormError} from './StormError';
+import {ErrorCode} from './ErrorCode';
+import {StatusCode} from './StatusCode';
+
+export class InvalidValueError extends StormError {
+    public constructor(details?: any) {
+        super(details);
+    }
+
+    public getMessage(): string {
+        return 'Unexpected value.';
+    }
+
+    public getCode(): ErrorCode {
+        return ErrorCode.INVALID_VALUE;
+    }
+
+    public getHTTPCode(): StatusCode {
+        return StatusCode.ERR_BAD_REQUEST;
+    }
 }

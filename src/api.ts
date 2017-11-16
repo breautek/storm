@@ -43,6 +43,7 @@ import {AuthenticationMiddleware} from './AuthenticationMiddleware';
 import {IHandler} from './IHandler';
 import {DictionaryIterator, Dictionary, DictionaryIteratorResult} from './DictionaryIterator'
 import {ReverseIterator} from './ReverseIterator';
+import {InvalidValueError} from './InvalidValueError';
 
 export {
     getInstance,
@@ -74,5 +75,6 @@ export {
     AuthenticationMiddleware,
     IHandler,
     DictionaryIterator, Dictionary, DictionaryIteratorResult,
-    ReverseIterator
+    ReverseIterator,
+    InvalidValueError
 };
