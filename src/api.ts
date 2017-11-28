@@ -45,6 +45,7 @@ import {DictionaryIterator, Dictionary, DictionaryIteratorResult} from './Dictio
 import {ReverseIterator} from './ReverseIterator';
 import {InvalidValueError} from './InvalidValueError';
 import {DuplicateEntryError, DuplicateEntryErrorOptions} from './DuplicateEntryError';
+import {UnauthorizedAccess} from './UnauthorizedAccess';
 
 export {
     getInstance,
@@ -78,5 +79,6 @@ export {
     DictionaryIterator, Dictionary, DictionaryIteratorResult,
     ReverseIterator,
     InvalidValueError,
-    DuplicateEntryError, DuplicateEntryErrorOptions
+    DuplicateEntryError, DuplicateEntryErrorOptions,
+    UnauthorizedAccess
 };
