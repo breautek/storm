@@ -22,6 +22,7 @@ import {Token} from './Token';
 import {Logger} from './Logger';
 import {getInstance} from './instance';
 import {TokenManager} from './TokenManager';
+import {StormError} from './StormError';
 
 export abstract class AuthenticationMiddleware extends Middleware {
     private logger: Logger;
@@ -45,10 +46,19 @@ export abstract class AuthenticationMiddleware extends Middleware {
                 resolve(data);
             }).catch((error) => {
                 this.logger.error(error);
-                reject(new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
-                    code : error.name,
-                    reason : error.message
-                }));
+                var responseData: ResponseData = null;
+
+                if (error instanceof StormError) {
+                    responseData = new ResponseData(error.getHTTPCode(), error.getErrorResponse());
+                }
+                else {
+                    responseData = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
+                        code : error.name,
+                        reason : error.message
+                    });
+                }
+
+                reject(responseData);
             });
         });
     }

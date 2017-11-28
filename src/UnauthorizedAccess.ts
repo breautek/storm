@@ -18,8 +18,8 @@ import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
 export class UnauthorizedAccess extends StormError {
-    public constructor(details?: any) {
-        super(details);
+    public constructor(userToken: string) {
+        super(userToken);
     }
 
     public getMessage(): string {
