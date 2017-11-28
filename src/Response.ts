@@ -48,7 +48,7 @@ export class Response {
         }
     }
 
-    public success(data: any): void {
+    public success(data?: any): void {
         if (data === undefined) {
             this.setStatus(StatusCode.OK_NO_CONTENT);
         }
@@ -71,27 +71,27 @@ export class Response {
         return this.response.headersSent;
     }
 
-    public error(data: any): void {
+    public error(data?: any): void {
         this.setStatus(StatusCode.ERR_BAD_REQUEST).send(data);
     }
 
-    public unauthorized(data: any): void {
+    public unauthorized(data?: any): void {
         this.setStatus(StatusCode.ERR_UNAUTHORIZED).send(data);
     }
 
-    public forbidden(data: any): void {
+    public forbidden(data?: any): void {
         this.setStatus(StatusCode.ERR_FORBIDDEN).send(data);
     }
 
-    public conflict(data: any): void {
+    public conflict(data?: any): void {
         this.setStatus(StatusCode.ERR_CONFLICT).send(data);
     }
 
-    public notFound(data: any): void {
+    public notFound(data?: any): void {
         this.setStatus(StatusCode.ERR_NOT_FOUND).send(data);
     }
 
-    public internalError(data: any): void {
+    public internalError(data?: any): void {
         this.setStatus(StatusCode.INTERNAL_ERROR).send(data);
     }
 }
