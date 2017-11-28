@@ -44,6 +44,7 @@ import {IHandler} from './IHandler';
 import {DictionaryIterator, Dictionary, DictionaryIteratorResult} from './DictionaryIterator'
 import {ReverseIterator} from './ReverseIterator';
 import {InvalidValueError} from './InvalidValueError';
+import {DuplicateEntryError, DuplicateEntryErrorOptions} from './DuplicateEntryError';
 
 export {
     getInstance,
@@ -76,5 +77,6 @@ export {
     IHandler,
     DictionaryIterator, Dictionary, DictionaryIteratorResult,
     ReverseIterator,
-    InvalidValueError
+    InvalidValueError,
+    DuplicateEntryError, DuplicateEntryErrorOptions
 };
