@@ -105,6 +105,7 @@ export class MySQLConnection extends DatabaseConnection {
         return new Promise<void>((resolve, reject) => {
             try {
                 this.query('COMMIT');
+                this.transaction = false;
                 return resolve();
             }
             catch(ex) {
