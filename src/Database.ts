@@ -69,10 +69,10 @@ export abstract class Database {
             query = 'MASTER';
         }
 
-        return this._getConnection(query);
+        return this._getConnection(query, requireWriteAccess);
     }
 
     protected abstract _addNode(name: string, config: any): void;
     protected abstract _removeNode(name: string): void;
-    protected abstract _getConnection(query: string): Promise<DatabaseConnection>;
+    protected abstract _getConnection(query: string, requireWriteAccess: boolean): Promise<DatabaseConnection>;
 }

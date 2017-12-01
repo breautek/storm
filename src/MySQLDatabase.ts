@@ -36,7 +36,7 @@ export class MySQLDatabase extends Database {
         this.cluster.remove(nodeID);
     }
 
-    protected _getConnection(query: string): Promise<MySQLConnection> {
+    protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MySQLConnection> {
         getInstance().getLogger().trace(`Querying connection pool for "${query}".`);
         return new Promise<MySQLConnection>((resolve, reject) => {
             this.cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
@@ -45,7 +45,7 @@ export class MySQLDatabase extends Database {
                     return;
                 }
 
-                resolve(new MySQLConnection(connection));
+                resolve(new MySQLConnection(connection, !requireWriteAccess));
             });
         });
     }
