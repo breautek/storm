@@ -21,23 +21,27 @@ import {Request} from './Request';
 import {Response} from './Response';
 import {Database} from './Database';
 import {IHandler} from './IHandler';
+import {Middleware} from './Middleware';
 
 export class Handler {
     private app: Application;
     private logRequests: boolean;
-    private loggerMiddleware: LoggerMiddleware;
+    private loggerMiddleware: Middleware;
 
-    constructor(app: Application, logRequest: boolean = true) {
+    constructor(app: Application) {
         this.app = getInstance();
 
-        this.logRequests = logRequest;
-        this.loggerMiddleware = new LoggerMiddleware();
+        this.loggerMiddleware = this.initLoggerMiddleware();
+    }
+
+    protected initLoggerMiddleware(): Middleware {
+        return new LoggerMiddleware();
     }
 
     private log(request: Request, response: Response): Promise<void> {
         var promise: Promise<void>;
 
-        if (this.logRequests) {
+        if (this.loggerMiddleware) {
             promise = this.loggerMiddleware.execute(request, response);
         }
         else {
