@@ -37,7 +37,7 @@ export class Request {
             return value;
         }
         else {
-            return value[0];
+            return value && value[0] ? value[0] : null;
         }
     }
 
