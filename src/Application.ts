@@ -103,6 +103,7 @@ export abstract class Application extends EventEmitter {
             this.server.listen(port, bindingIP);
     
             this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
+            this.onReady();
         }).catch((error) => {
             this.getLogger().fatal(error);
         });
@@ -266,4 +267,6 @@ export abstract class Application extends EventEmitter {
 
         return o;
     }
+
+    protected onReady(): void {}
 }
