@@ -80,4 +80,8 @@ export class Request {
     public unpipe(source: any): void {
         this.request.unpipe(source);
     }
+
+    public getRequestSource(): express.Request {
+        return this.request;
+    }
 }
