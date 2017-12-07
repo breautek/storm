@@ -26,6 +26,10 @@ export class MySQLDatabase extends Database {
         this.cluster = MySQL.createPoolCluster();
     }
 
+    public escape(query: string): string {
+        return MySQL.escape(query);
+    }
+
     protected _addNode(nodeID: string, config: MySQL.PoolConfig): void {
         getInstance().getLogger().trace(`Adding node to connection pool: "${nodeID}"`);
         this.cluster.add(nodeID, config);

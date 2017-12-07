@@ -75,4 +75,5 @@ export abstract class Database {
     protected abstract _addNode(name: string, config: any): void;
     protected abstract _removeNode(name: string): void;
     protected abstract _getConnection(query: string, requireWriteAccess: boolean): Promise<DatabaseConnection>;
+    public abstract escape(query: string): string;
 }
