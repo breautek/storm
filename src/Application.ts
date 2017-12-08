@@ -84,10 +84,11 @@ export abstract class Application extends EventEmitter {
             this.getLogger().trace('Starting server...');
             this.server = Express();
             this.server.use(BodyParser.json({
-                type : 'application/json'
+                type : 'application/json',
             }));
             this.server.use(BodyParser.raw({
-                type: 'application/*'
+                type: 'application/*',
+                limit : this.getRequestSizeLimit()
             }));
             this.server.use(BodyParser.text({
                 type : 'text/*'
@@ -107,6 +108,10 @@ export abstract class Application extends EventEmitter {
         }).catch((error) => {
             this.getLogger().fatal(error);
         });
+    }
+
+    public getRequestSizeLimit(): number {
+        return 5242880;
     }
 
     public attachHandler(path: string, HandlerClass: IHandler): void {
