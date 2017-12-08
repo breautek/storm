@@ -85,13 +85,15 @@ export abstract class Application extends EventEmitter {
             this.server = Express();
             this.server.use(BodyParser.json({
                 type : 'application/json',
+                limit : this.getRequestSizeLimit()
             }));
             this.server.use(BodyParser.raw({
                 type: 'application/*',
                 limit : this.getRequestSizeLimit()
             }));
             this.server.use(BodyParser.text({
-                type : 'text/*'
+                type : 'text/*',
+                limit : this.getRequestSizeLimit()
             }));
             return Promise.resolve();
         }).then(() => {
