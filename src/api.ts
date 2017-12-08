@@ -46,6 +46,7 @@ import {ReverseIterator} from './ReverseIterator';
 import {InvalidValueError} from './InvalidValueError';
 import {DuplicateEntryError, DuplicateEntryErrorOptions} from './DuplicateEntryError';
 import {UnauthorizedAccess} from './UnauthorizedAccess';
+import {EntityNotFoundError} from './EntityNotFoundError';
 
 export {
     getInstance,
@@ -80,5 +81,6 @@ export {
     ReverseIterator,
     InvalidValueError,
     DuplicateEntryError, DuplicateEntryErrorOptions,
-    UnauthorizedAccess
+    UnauthorizedAccess,
+    EntityNotFoundError
 };
