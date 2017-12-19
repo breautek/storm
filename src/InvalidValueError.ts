@@ -18,12 +18,17 @@ import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
 export class InvalidValueError extends StormError {
-    public constructor(details?: any) {
-        super(details);
+    public constructor(variable: string, expected: any, got: any) {
+        super({
+            variable: variable,
+            expected: expected,
+            got: got
+        });
     }
 
     public getMessage(): string {
-        return 'Unexpected value.';
+        var details: any = this.getDetails();
+        return `Unexpected variable for "${details.variable}". Expected ${details.expected} but got "${details.got}".`;
     }
 
     public getCode(): ErrorCode {
