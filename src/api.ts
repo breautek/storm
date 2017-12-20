@@ -22,7 +22,7 @@ import {ExitCode} from './ExitCode';
 import {Iterator} from './Iterator';
 import {Token} from './Token';
 import {TokenManager} from './TokenManager';
-import {StormError, ErrorResponse} from './StormError';
+import {StormError, ErrorResponse, AdditionalErrorDetails} from './StormError';
 import {StatusCode} from './StatusCode';
 import {ErrorCode} from './ErrorCode';
 import {MissingParameter} from './MissingParameter';
@@ -58,7 +58,7 @@ export {
     Iterator,
     Token,
     TokenManager,
-    StormError, ErrorResponse,
+    StormError, ErrorResponse, AdditionalErrorDetails,
     StatusCode,
     ErrorCode,
     MissingParameter,

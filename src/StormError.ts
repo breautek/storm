@@ -18,9 +18,14 @@ import {Application} from './Application';
 import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
+export interface AdditionalErrorDetails {
+    [key: string]: any;
+}
+
 export interface ErrorResponse {
     message: string;
     code: number;
+    details: AdditionalErrorDetails;
 }
 
 export abstract class StormError extends Error {
@@ -39,18 +44,23 @@ export abstract class StormError extends Error {
     abstract getMessage(): string;
     abstract getCode(): number;
 
-    getDetails(): any {
+    public getDetails(): any {
         return this.details;
     }
 
-    getHTTPCode(): StatusCode {
+    public getHTTPCode(): StatusCode {
         return StatusCode.INTERNAL_ERROR;
+    }
+
+    public getAdditionalDetails(): AdditionalErrorDetails {
+        return {};
     }
 
     public getErrorResponse(): ErrorResponse {
         return {
             message : this.getMessage(),
-            code : this.getCode()
+            code : this.getCode(),
+            details: this.getAdditionalDetails()
         };
     }
 }
