@@ -15,6 +15,7 @@
 
 import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
+import * as FileSystem from 'fs';
 
 export class Request {
     private request: express.Request;
@@ -73,11 +74,11 @@ export class Request {
         return this.request.secure;
     }
 
-    public pipe(destination: any): any {
+    public pipe(destination: FileSystem.WriteStream): any {
         return this.request.pipe(destination);
     }
 
-    public unpipe(source: any): void {
+    public unpipe(source: FileSystem.WriteStream): void {
         this.request.unpipe(source);
     }
 
