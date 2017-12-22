@@ -1,0 +1,9 @@
+export declare enum ErrorCode {
+    INTERNAL = 0,
+    MISSING_PARAMETER = 1,
+    EXPIRED_TOKEN = 2,
+    INVALID_CREDENTIALS = 3,
+    INVALID_VALUE = 4,
+    DUPLICATE_ENTRY = 5,
+    UNAUTHORIZED_ACCESS = 6,
+}
