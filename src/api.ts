@@ -47,6 +47,7 @@ import {InvalidValueError} from './InvalidValueError';
 import {DuplicateEntryError, DuplicateEntryErrorOptions} from './DuplicateEntryError';
 import {UnauthorizedAccess} from './UnauthorizedAccess';
 import {EntityNotFoundError} from './EntityNotFoundError';
+import {DiskSpaceError} from './DiskSpaceError';
 
 export {
     getInstance,
@@ -82,5 +83,6 @@ export {
     InvalidValueError,
     DuplicateEntryError, DuplicateEntryErrorOptions,
     UnauthorizedAccess,
-    EntityNotFoundError
+    EntityNotFoundError,
+    DiskSpaceError
 };

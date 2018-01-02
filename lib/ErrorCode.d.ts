@@ -6,4 +6,5 @@ export declare enum ErrorCode {
     INVALID_VALUE = 4,
     DUPLICATE_ENTRY = 5,
     UNAUTHORIZED_ACCESS = 6,
+    INSUFFICIENT_DISK_SPACE = 7,
 }

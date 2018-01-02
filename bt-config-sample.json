@@ -20,6 +20,8 @@
 	/*
 	@type object
 	@description 	The database configuration
+
+	Note: This is not implemented yet.
 	 */
 	"database": {
 		/*
