@@ -103,9 +103,14 @@ export abstract class Application extends EventEmitter {
             var bindingIP: string = this.getConfig().binding_ip;
             var port: number = this.getConfig().port;
     
-            this.server.listen(port, bindingIP);
-    
-            this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
+            if (bindingIP !== null) {
+                this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
+                this.server.listen(port, bindingIP);
+            }
+            else {
+                this.getLogger().info(`Server does not have a bounding IP set. The server will not be listening for connections.`);
+            }
+
             this.onReady();
         }).catch((error) => {
             this.getLogger().fatal(error);
