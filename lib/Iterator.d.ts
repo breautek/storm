@@ -1,7 +1,7 @@
 export declare class Iterator<T> {
     private collection;
     private cursor;
-    constructor(collection?: Array<T>);
+    constructor(collection?: Array<T>, index?: number);
     hasNext(): boolean;
     next(): T;
     hasPrevious(): boolean;

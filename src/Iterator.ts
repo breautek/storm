@@ -17,9 +17,9 @@ export class Iterator<T> {
     private collection: Array<T>;
     private cursor: number;
 
-    constructor(collection: Array<T> = []) {
+    constructor(collection: Array<T> = [], index: number = -1) {
         this.collection = collection;
-        this.cursor = -1;
+        this.cursor = index;
     }
 
     public hasNext(): boolean {
