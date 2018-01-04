@@ -2,8 +2,8 @@
 import {Iterator} from './Iterator';
 
 export class ReverseIterator<T> extends Iterator<T> {
-    public constructor(collection: Array<T>) {
-        super(collection);
+    public constructor(collection: Array<T>, index?: number) {
+        super(collection, index);
         super.bringToEnd();
     }
     
