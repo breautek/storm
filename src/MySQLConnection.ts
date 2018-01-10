@@ -19,9 +19,12 @@ import * as MySQL from 'mysql';
 
 export class MySQLConnection extends DatabaseConnection {
     private transaction: boolean;
+    private _opened: boolean;
 
     public constructor(connection: MySQL.PoolConnection, isReadOnly: boolean = true) {
         super(connection, isReadOnly);
+        
+        this._opened = true;
 
         connection.config.queryFormat = function(query: string, values: any) {
             if (!values) return query;
@@ -37,6 +40,10 @@ export class MySQLConnection extends DatabaseConnection {
 
     public isTransaction(): boolean {
         return this.transaction;
+    }
+
+    public isOpen(): boolean {
+        return this._opened;
     }
 
     public query(query: string, params?: any): Promise<any> {
@@ -88,6 +95,7 @@ export class MySQLConnection extends DatabaseConnection {
         return new Promise<void>((resolve, reject) => {
             try {
                 this.query('ROLLBACK');
+                this.transaction = false;
                 return resolve();
             }
             catch(ex) {
@@ -119,6 +127,8 @@ export class MySQLConnection extends DatabaseConnection {
         if (this.isTransaction()) {
 			return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
         }
+
+        this._opened = false;
         
         return new Promise<void>((resolve, reject) => {
             this.getAPI().release();
