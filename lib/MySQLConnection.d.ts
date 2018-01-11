@@ -3,7 +3,12 @@ import * as MySQL from 'mysql';
 export declare class MySQLConnection extends DatabaseConnection {
     private transaction;
     private _opened;
-    constructor(connection: MySQL.PoolConnection, isReadOnly?: boolean);
+    private _lingeringWarning;
+    private _instantiationStack;
+    constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly?: boolean);
+    private _restartLingerWarning();
+    private _triggerLingerWarning();
+    getInstantiationStack(): string;
     isTransaction(): boolean;
     isOpen(): boolean;
     query(query: string, params?: any): Promise<any>;

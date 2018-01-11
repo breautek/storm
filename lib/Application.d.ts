@@ -13,7 +13,8 @@ export declare abstract class Application extends EventEmitter {
     private tokenManager;
     private server;
     private db;
-    constructor(name: string, configPath: string, logSeverity: LogSeverity);
+    private _logConfigDefaulting;
+    constructor(name: string, configPath: string, logSeverity?: LogSeverity);
     getRequestSizeLimit(): number;
     attachHandler(path: string, HandlerClass: IHandler): void;
     protected abstract attachHandlers(): Promise<void>;
@@ -29,5 +30,8 @@ export declare abstract class Application extends EventEmitter {
     protected initDB(config: any): Promise<Database>;
     private _createLogger();
     private _mergeConfig(o1, o2);
+    protected _setDefaultLogLevel(): void;
+    protected _parseLogLevelConfig(config: any): LogSeverity;
+    private _llStrToSeverity(ll);
     protected onReady(): void;
 }

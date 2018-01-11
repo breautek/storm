@@ -18,6 +18,20 @@
 	"authentication_header": "X-BT-AUTH",
 
 	/*
+	@type string
+	@description 	The application log level. 
+					Valid Values:
+						- trace
+						- debug
+						- info
+						- warning
+						- error
+						- fatal
+						- all
+	*/
+	"log_level": "info | warning | error | fatal",
+
+	/*
 	@type object
 	@description 	The database configuration
 

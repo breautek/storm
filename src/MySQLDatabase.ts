@@ -49,7 +49,7 @@ export class MySQLDatabase extends Database {
                     return;
                 }
 
-                resolve(new MySQLConnection(connection, !requireWriteAccess));
+                resolve(new MySQLConnection(connection, new Error().stack, !requireWriteAccess));
             });
         });
     }

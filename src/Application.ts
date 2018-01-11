@@ -30,6 +30,8 @@ import * as args from 'args';
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 
+const DEFAULT_LOG_LEVEL = LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL;
+
 export abstract class Application extends EventEmitter {
     private logger: Logger;
     private name: string;
@@ -38,8 +40,9 @@ export abstract class Application extends EventEmitter {
     private tokenManager: TokenManager;
     private server: any; //todo
     private db: Database;
+    private _logConfigDefaulting: boolean;
 
-    public constructor(name: string, configPath: string, logSeverity: LogSeverity) {
+    public constructor(name: string, configPath: string, logSeverity?: LogSeverity) {
         super();
 
         setInstance(this);
@@ -48,7 +51,12 @@ export abstract class Application extends EventEmitter {
         this.logger = this._createLogger();
 
         if (logSeverity) {
+            this._logConfigDefaulting = false;
             this.getLogger().setLogLevel(logSeverity);
+        }
+        else {
+            this._logConfigDefaulting = true;
+            this._setDefaultLogLevel();
         }
 
         process.on('unhandledRejection', (error: any) => {
@@ -69,7 +77,13 @@ export abstract class Application extends EventEmitter {
             this.onConfigLoad(this.config);
             return Promise.resolve();
         }).then(() => {
+            if (this._logConfigDefaulting) {
+                var logSeverity: LogSeverity = this._parseLogLevelConfig(this.getConfig());
+                this.logger.setLogLevel(logSeverity);
+            }
+
             this.getLogger().trace('Initializing DB...');
+
             return this.initDB(this.getConfig());
         }).then((db: Database) => {
             if (db) {
@@ -278,6 +292,74 @@ export abstract class Application extends EventEmitter {
         }
 
         return o;
+    }
+
+    protected _setDefaultLogLevel(): void {
+        this.logger.setLogLevel(DEFAULT_LOG_LEVEL);
+    }
+
+    protected _parseLogLevelConfig(config: any): LogSeverity {
+        var llConfig: string = config.log_level;
+        var severity: LogSeverity = null;
+
+        if (!llConfig) {
+            return null;
+        }
+
+        llConfig = llConfig.toLowerCase().trim();
+
+        if (llConfig.indexOf('all') > -1) {
+            return LogSeverity.ALL;
+        }
+
+        if (llConfig.indexOf('|') === -1) {
+            severity = this._llStrToSeverity(llConfig);
+        }
+        else {
+            var llParts: Array<string> = llConfig.split('|');
+            for (var i: number = 0; i < llParts.length; i++) {
+                var llPart: string = llParts[i];
+                llPart = llPart.trim();
+                if (llPart === '') {
+                    continue;
+                }
+
+                var llSev: LogSeverity = this._llStrToSeverity(llPart);
+                if (!llSev) {
+                    continue;
+                }
+
+                if (!severity) {
+                    severity = llSev;
+                }
+                else {
+                    severity = severity | llSev;
+                }
+            }
+        }
+
+        return severity;
+    }
+
+    private _llStrToSeverity(ll: string): LogSeverity {
+        switch(ll) {
+            case 'all':
+                return LogSeverity.ALL;
+            case 'trace':
+                return LogSeverity.TRACE;
+            case 'debug':
+                return LogSeverity.DEBUG;
+            case 'info':
+                return LogSeverity.INFO;
+            case 'warning':
+                return LogSeverity.WARNING;
+            case 'error':
+                return LogSeverity.ERROR;
+            case 'fatal':
+                return LogSeverity.FATAL;
+            default:
+                return null;
+        }
     }
 
     protected onReady(): void {}

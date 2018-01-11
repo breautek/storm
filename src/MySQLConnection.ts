@@ -17,13 +17,18 @@ import {DatabaseConnection} from './DatabaseConnection';
 import {getInstance} from './instance';
 import * as MySQL from 'mysql';
 
+const LINGER_WARN_TIMER: number = 60000;
+
 export class MySQLConnection extends DatabaseConnection {
     private transaction: boolean;
     private _opened: boolean;
+    private _lingeringWarning: NodeJS.Timer;
+    private _instantiationStack: string;
 
-    public constructor(connection: MySQL.PoolConnection, isReadOnly: boolean = true) {
+    public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         super(connection, isReadOnly);
         
+        this._instantiationStack = instantiationStack;
         this._opened = true;
 
         connection.config.queryFormat = function(query: string, values: any) {
@@ -36,6 +41,20 @@ export class MySQLConnection extends DatabaseConnection {
                 return txt;
             }.bind(this));
         };
+    }
+
+    private _restartLingerWarning(): void {
+        this._lingeringWarning = setTimeout(() => {
+            this._triggerLingerWarning();
+        }, LINGER_WARN_TIMER);
+    }
+
+    private _triggerLingerWarning(): void {
+        getInstance().getLogger().warn(`Database connection still open after ${LINGER_WARN_TIMER}ms of inactivity.\n\n${this._instantiationStack}`)
+    }
+
+    public getInstantiationStack(): string {
+        return this._instantiationStack;
     }
 
     public isTransaction(): boolean {
