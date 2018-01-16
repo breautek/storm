@@ -25,6 +25,7 @@ import {Handler} from './Handler';
 import {IHandler} from './IHandler';
 import {Request} from './Request';
 import {Response} from './Response';
+import {ConfigLoader} from './ConfigLoader';
 import * as Path from 'path';
 import * as args from 'args';
 import * as Express from 'express';
@@ -67,8 +68,6 @@ export abstract class Application extends EventEmitter {
 
         this.getLogger().trace('Application is booting...');
         this.getLogger().trace('Loading Configuration...');
-
-        // try {
         
         this.loadConfig(this.configPath).then((config: any) => {
             this.config = config;
@@ -154,61 +153,64 @@ export abstract class Application extends EventEmitter {
     protected abstract attachHandlers(): Promise<void>;
 
     public loadConfig(path: string): Promise<any> {
-        return new Promise<any>((resolve, reject) => {
-            this.getLogger().trace('Configuration loaded.');
-            
-            var config: any = {};
-
-            var cPath: string = Path.resolve(path, 'bt-config.json');
-            var lPath: string = Path.resolve(path, 'bt-local-config.json');
-            
-            var c: any;
-            var l: any;
-            var defaults: any;
-
-            this.getLogger().trace(`Main Config Path:\t ${cPath}`);
-            this.getLogger().trace(`Local Config Path:\t ${lPath}`);
-            
-            this.getLogger().trace('Loading configuration defaults.');
-            defaults = require(Path.resolve(__dirname, '../bt-config-defaults.json'));
-
-            this.getLogger().trace('Loading main confing...');
-            try {
-                c = require(cPath);
-                this.getLogger().trace('Main config loaded.');
-            }
-            catch(ex) {
-                reject(`Missing ${cPath}.`);
-                process.nextTick(() => {
-                    process.exit(ExitCode.MISSING_CONFIG);
-                });
-            }
-
-            this.getLogger().trace('Loading optional local config.');
-            try {
-                l = require(lPath);
-                this.getLogger().trace('Local config loaded.');
-            }
-            catch(ex) {
-                this.getLogger().trace('Local config could not be loaded.');
-                this.getLogger().trace(ex);
-            }
-
-            if (l) {
-                config = this._mergeConfig(defaults, this._mergeConfig(c, l));
-            }
-            else {
-                config = this._mergeConfig(defaults, c);
-            }
-
-            this.getLogger().trace('Reading command line arguments...');
-            config = this._mergeConfig(config, this.getCmdLineArgs());
-
-            this.getLogger().trace('Configurations merged.');
-            this.getLogger().trace(config);
-
-            resolve(config);
+        return ConfigLoader.load(path, this.getCmdLineArgs()).catch((exitCode: ExitCode) => {
+            process.exit(exitCode);
         });
+        // return new Promise<any>((resolve, reject) => {
+        //     this.getLogger().trace('Configuration loaded.');
+            
+        //     var config: any = {};
+
+        //     var cPath: string = Path.resolve(path, 'bt-config.json');
+        //     var lPath: string = Path.resolve(path, 'bt-local-config.json');
+            
+        //     var c: any;
+        //     var l: any;
+        //     var defaults: any;
+
+        //     this.getLogger().trace(`Main Config Path:\t ${cPath}`);
+        //     this.getLogger().trace(`Local Config Path:\t ${lPath}`);
+            
+        //     this.getLogger().trace('Loading configuration defaults.');
+        //     defaults = require(Path.resolve(__dirname, '../bt-config-defaults.json'));
+
+        //     this.getLogger().trace('Loading main confing...');
+        //     try {
+        //         c = require(cPath);
+        //         this.getLogger().trace('Main config loaded.');
+        //     }
+        //     catch(ex) {
+        //         reject(`Missing ${cPath}.`);
+        //         process.nextTick(() => {
+        //             process.exit(ExitCode.MISSING_CONFIG);
+        //         });
+        //     }
+
+        //     this.getLogger().trace('Loading optional local config.');
+        //     try {
+        //         l = require(lPath);
+        //         this.getLogger().trace('Local config loaded.');
+        //     }
+        //     catch(ex) {
+        //         this.getLogger().trace('Local config could not be loaded.');
+        //         this.getLogger().trace(ex);
+        //     }
+
+        //     if (l) {
+        //         config = this._mergeConfig(defaults, this._mergeConfig(c, l));
+        //     }
+        //     else {
+        //         config = this._mergeConfig(defaults, c);
+        //     }
+
+        //     this.getLogger().trace('Reading command line arguments...');
+        //     config = this._mergeConfig(config, this.getCmdLineArgs());
+
+        //     this.getLogger().trace('Configurations merged.');
+        //     this.getLogger().trace(config);
+
+        //     resolve(config);
+        // });
     }
 
     public getName(): string {
@@ -271,28 +273,28 @@ export abstract class Application extends EventEmitter {
         return new Logger(this.getName());
     }
 
-    private _mergeConfig(o1: any, o2: any): any {
-        var o: any = o1;
+    // private _mergeConfig(o1: any, o2: any): any {
+    //     var o: any = o1;
 
-        for (var i in o2) {
-            var o1p = o1[i];
-            var o2p = o2[i];
+    //     for (var i in o2) {
+    //         var o1p = o1[i];
+    //         var o2p = o2[i];
 
-            if (o1p && (typeof o2p === 'object') && !(o2p instanceof Array)) {
-                if (typeof o1p === 'object' && !(o1p instanceof Array)) {
-                    o[i] = this._mergeConfig(o1p, o2p);
-                }
-                else {
-                    o[i] = o2p;
-                }
-            }
-            else {
-                o[i] = o2p;
-            }
-        }
+    //         if (o1p && (typeof o2p === 'object') && !(o2p instanceof Array)) {
+    //             if (typeof o1p === 'object' && !(o1p instanceof Array)) {
+    //                 o[i] = this._mergeConfig(o1p, o2p);
+    //             }
+    //             else {
+    //                 o[i] = o2p;
+    //             }
+    //         }
+    //         else {
+    //             o[i] = o2p;
+    //         }
+    //     }
 
-        return o;
-    }
+    //     return o;
+    // }
 
     protected _setDefaultLogLevel(): void {
         this.logger.setLogLevel(DEFAULT_LOG_LEVEL);

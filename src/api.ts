@@ -48,6 +48,7 @@ import {DuplicateEntryError, DuplicateEntryErrorOptions} from './DuplicateEntryE
 import {UnauthorizedAccess} from './UnauthorizedAccess';
 import {EntityNotFoundError} from './EntityNotFoundError';
 import {DiskSpaceError} from './DiskSpaceError';
+import {ConfigLoader} from './ConfigLoader';
 
 export {
     getInstance,
@@ -84,5 +85,6 @@ export {
     DuplicateEntryError, DuplicateEntryErrorOptions,
     UnauthorizedAccess,
     EntityNotFoundError,
-    DiskSpaceError
+    DiskSpaceError,
+    ConfigLoader
 };

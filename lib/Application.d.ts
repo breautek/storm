@@ -29,7 +29,6 @@ export declare abstract class Application extends EventEmitter {
     getCmdLineArgs(): any;
     protected initDB(config: any): Promise<Database>;
     private _createLogger();
-    private _mergeConfig(o1, o2);
     protected _setDefaultLogLevel(): void;
     protected _parseLogLevelConfig(config: any): LogSeverity;
     private _llStrToSeverity(ll);
