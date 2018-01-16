@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {Application} from './Application';
+import {Logger} from './Logger';
 
 var instance: Application;
 
@@ -28,7 +29,17 @@ var getInstance = (): Application => {
     return instance;
 }
 
+var getApplicationLogger = (): Logger => {
+    if (instance) {
+        return instance.getLogger();
+    }
+    else {
+        return new Logger('Generic');
+    }
+}
+
 export {
     setInstance,
-    getInstance
+    getInstance,
+    getApplicationLogger
 }

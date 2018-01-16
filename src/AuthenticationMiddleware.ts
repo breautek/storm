@@ -20,7 +20,7 @@ import {Response} from './Response';
 import {ResponseData} from './ResponseData';
 import {Token} from './Token';
 import {Logger} from './Logger';
-import {getInstance} from './instance';
+import {getInstance, getApplicationLogger} from './instance';
 import {TokenManager} from './TokenManager';
 import {StormError} from './StormError';
 
@@ -29,7 +29,7 @@ export abstract class AuthenticationMiddleware extends Middleware {
 
     public constructor() {
         super();
-        this.logger = getInstance().getLogger();
+        this.logger = getApplicationLogger();
     }
 
     public execute(request: Request, response: Response, options?: any): Promise<any> {

@@ -15,7 +15,7 @@
 
 import * as UUID from 'uuid';
 import {DatabaseConnection} from './DatabaseConnection';
-import {getInstance} from './instance';
+import {getInstance, getApplicationLogger} from './instance';
 
 const MASTER_NAME: string = 'MASTER';
 
@@ -51,7 +51,7 @@ export abstract class Database {
 
     public removeSlave(slaveID: string): void {
         if (!this.clusterConfigMap[slaveID]) {
-            getInstance().getLogger().warn(`Node ${slaveID} is not a part of this cluster.`);
+            getApplicationLogger().warn(`Node ${slaveID} is not a part of this cluster.`);
             return;
         }
 

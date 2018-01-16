@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {DatabaseConnection} from './DatabaseConnection';
-import {getInstance} from './instance';
+import {getInstance, getApplicationLogger} from './instance';
 import * as MySQL from 'mysql';
 
 const LINGER_WARN_TIMER: number = 60000;
@@ -50,7 +50,7 @@ export class MySQLConnection extends DatabaseConnection {
     }
 
     private _triggerLingerWarning(): void {
-        getInstance().getLogger().warn(`Database connection still open after ${LINGER_WARN_TIMER}ms of inactivity.\n\n${this._instantiationStack}`)
+        getApplicationLogger().warn(`Database connection still open after ${LINGER_WARN_TIMER}ms of inactivity.\n\n${this._instantiationStack}`)
     }
 
     public getInstantiationStack(): string {
@@ -74,7 +74,7 @@ export class MySQLConnection extends DatabaseConnection {
 
                 return resolve(results);
             });
-            getInstance().getLogger().trace(queryObject.sql);
+            getApplicationLogger().trace(queryObject.sql);
         });
     }
 
@@ -96,7 +96,7 @@ export class MySQLConnection extends DatabaseConnection {
             }
             catch(ex) {
                 this.transaction = false;
-                getInstance().getLogger().error(ex);
+                getApplicationLogger().error(ex);
                 reject(ex);
             }
         });
@@ -118,7 +118,7 @@ export class MySQLConnection extends DatabaseConnection {
                 return resolve();
             }
             catch(ex) {
-                getInstance().getLogger().error(ex);
+                getApplicationLogger().error(ex);
                 return reject(ex);
             }
         });
@@ -136,7 +136,7 @@ export class MySQLConnection extends DatabaseConnection {
                 return resolve();
             }
             catch(ex) {
-                getInstance().getLogger().error(ex);
+                getApplicationLogger().error(ex);
                 return reject(ex);
             }
         });

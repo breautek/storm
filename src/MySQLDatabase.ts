@@ -16,7 +16,7 @@
 import {Database} from './Database';
 import {MySQLConnection} from './MySQLConnection';
 import * as MySQL from 'mysql';
-import {getInstance} from './instance';
+import {getInstance, getApplicationLogger} from './instance';
 
 export class MySQLDatabase extends Database {
     private cluster: MySQL.PoolCluster;
@@ -31,17 +31,17 @@ export class MySQLDatabase extends Database {
     }
 
     protected _addNode(nodeID: string, config: MySQL.PoolConfig): void {
-        getInstance().getLogger().trace(`Adding node to connection pool: "${nodeID}"`);
+        getApplicationLogger().trace(`Adding node to connection pool: "${nodeID}"`);
         this.cluster.add(nodeID, config);
     }
 
     protected _removeNode(nodeID: string): void {
-        getInstance().getLogger().trace(`Removing node to connection pool: "${nodeID}"`);
+        getApplicationLogger().trace(`Removing node to connection pool: "${nodeID}"`);
         this.cluster.remove(nodeID);
     }
 
     protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MySQLConnection> {
-        getInstance().getLogger().trace(`Querying connection pool for "${query}".`);
+        getApplicationLogger().trace(`Querying connection pool for "${query}".`);
         return new Promise<MySQLConnection>((resolve, reject) => {
             this.cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
                 if (error) {
