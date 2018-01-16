@@ -22,7 +22,7 @@ import {ExitCode} from './ExitCode';
 export class ConfigLoader {
     private constructor() {}
 
-    public static load(path: string, argv: any): Promise<any> {
+    public static load(path: string, argv?: any): Promise<any> {
         var logger: Logger = ConfigLoader._getLogger();
 
         return new Promise<any>((resolve, reject) => {
