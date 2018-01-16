@@ -51,7 +51,7 @@ import {DiskSpaceError} from './DiskSpaceError';
 import {ConfigLoader} from './ConfigLoader';
 
 export {
-    getInstance, getApplicationLogger
+    getInstance, getApplicationLogger,
     Application,
     Logger,
     LogSeverity,
