@@ -1,4 +1,4 @@
-import { getInstance } from './instance';
+import { getInstance, getApplicationLogger } from './instance';
 import { Application } from './Application';
 import { Logger } from './Logger';
 import { LogSeverity } from './LogSeverity';
@@ -34,4 +34,4 @@ import { UnauthorizedAccess } from './UnauthorizedAccess';
 import { EntityNotFoundError } from './EntityNotFoundError';
 import { DiskSpaceError } from './DiskSpaceError';
 import { ConfigLoader } from './ConfigLoader';
-export { getInstance, Application, Logger, LogSeverity, LogEvent, LogEventInterface, ExitCode, Iterator, Token, TokenManager, StormError, ErrorResponse, AdditionalErrorDetails, StatusCode, ErrorCode, MissingParameter, InvalidCredentials, InternalError, ExpiredToken, Database, DatabaseConnection, MySQLDatabase, MySQLConnection, Middleware, LoggerMiddleware, Request, Response, ResponseData, Handler, AuthenticationMiddleware, IHandler, DictionaryIterator, Dictionary, DictionaryIteratorResult, ReverseIterator, InvalidValueError, DuplicateEntryError, DuplicateEntryErrorOptions, UnauthorizedAccess, EntityNotFoundError, DiskSpaceError, ConfigLoader };
+export { getInstance, getApplicationLogger, Application, Logger, LogSeverity, LogEvent, LogEventInterface, ExitCode, Iterator, Token, TokenManager, StormError, ErrorResponse, AdditionalErrorDetails, StatusCode, ErrorCode, MissingParameter, InvalidCredentials, InternalError, ExpiredToken, Database, DatabaseConnection, MySQLDatabase, MySQLConnection, Middleware, LoggerMiddleware, Request, Response, ResponseData, Handler, AuthenticationMiddleware, IHandler, DictionaryIterator, Dictionary, DictionaryIteratorResult, ReverseIterator, InvalidValueError, DuplicateEntryError, DuplicateEntryErrorOptions, UnauthorizedAccess, EntityNotFoundError, DiskSpaceError, ConfigLoader };

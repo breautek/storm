@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {getInstance} from './instance';
+import {getInstance, getApplicationLogger} from './instance';
 import {Application} from './Application';
 import {Logger} from './Logger';
 import {LogSeverity} from './LogSeverity';
@@ -51,7 +51,7 @@ import {DiskSpaceError} from './DiskSpaceError';
 import {ConfigLoader} from './ConfigLoader';
 
 export {
-    getInstance,
+    getInstance, getApplicationLogger
     Application,
     Logger,
     LogSeverity,
