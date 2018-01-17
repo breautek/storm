@@ -15,8 +15,10 @@
 
 import {Application} from './Application';
 import {Logger} from './Logger';
+import {LogSeverity} from './LogSeverity';
 
 var instance: Application;
+var genericLogger: Logger;
 
 var setInstance = (app: Application): void => {
     if (instance) {
@@ -34,7 +36,12 @@ var getApplicationLogger = (): Logger => {
         return instance.getLogger();
     }
     else {
-        return new Logger('Generic');
+        if (!genericLogger) {
+            genericLogger = new Logger('Generic');
+            genericLogger.info('Using generic logger. Only errors will be reported.');
+            genericLogger.setLogLevel(LogSeverity.ERROR | LogSeverity.FATAL);
+        }
+        return genericLogger;
     }
 }
 

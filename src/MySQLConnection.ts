@@ -30,6 +30,7 @@ export class MySQLConnection extends DatabaseConnection {
         
         this._instantiationStack = instantiationStack;
         this._opened = true;
+        this.transaction = false;
 
         connection.config.queryFormat = function(query: string, values: any) {
             if (!values) return query;
