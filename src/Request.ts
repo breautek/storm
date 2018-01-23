@@ -17,6 +17,10 @@ import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
 import * as FileSystem from 'fs';
 
+export interface ParameterMap {
+    [key: string]: string;
+}
+
 export class Request {
     private request: express.Request;
 
@@ -46,11 +50,11 @@ export class Request {
         return this.request.query;
     }
 
-    public getParams(): any {
+    public getParams(): ParameterMap {
         return this.request.params;
     }
 
-    public getParam(name: string): any {
+    public getParam(name: string): string {
         return this.request.params[name];
     }
 

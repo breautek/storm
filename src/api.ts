@@ -35,7 +35,7 @@ import {MySQLDatabase} from './MySQLDatabase';
 import {MySQLConnection} from './MySQLConnection';
 import {Middleware} from './Middleware';
 import {LoggerMiddleware} from './LoggerMiddleware';
-import {Request} from './Request';
+import {Request, ParameterMap} from './Request';
 import {Response} from './Response';
 import {ResponseData} from './ResponseData';
 import {Handler} from './Handler';
@@ -73,7 +73,7 @@ export {
     MySQLConnection,
     Middleware,
     LoggerMiddleware,
-    Request,
+    Request, ParameterMap,
     Response,
     ResponseData,
     Handler,
