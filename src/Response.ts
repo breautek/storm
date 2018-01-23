@@ -48,6 +48,14 @@ export class Response {
         }
     }
 
+    public pipe(stream: NodeJS.ReadableStream): void {
+        stream.on('end', () => {
+            stream.unpipe(this.response);
+        });
+        
+        stream.pipe(this.response);
+    }
+
     public success(data?: any): void {
         if (data === undefined) {
             this.setStatus(StatusCode.OK_NO_CONTENT);

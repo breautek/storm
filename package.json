@@ -1,6 +1,6 @@
 {
   "name": "@breautek/storm",
-  "version": "0.0.12",
+  "version": "0.0.13-alpha",
   "description": "Object-Oriented Web API framework",
   "main": "lib/api.js",
   "scripts": {

@@ -1,4 +1,5 @@
 /// <reference types="express" />
+/// <reference types="node" />
 import { StatusCode } from './StatusCode';
 import { ResponseData } from './ResponseData';
 import { StormError, ErrorResponse } from './StormError';
@@ -12,6 +13,7 @@ export declare class Response {
     constructor(response: express.Response);
     setStatus(status: StatusCode): Response;
     send(data?: SendableData): void;
+    pipe(stream: NodeJS.ReadableStream): void;
     success(data?: any): void;
     setHeader(key: string, value: string): void;
     setHeaders(keyValuePair: HeaderKeyValuePair): void;
