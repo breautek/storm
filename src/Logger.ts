@@ -88,7 +88,12 @@ export class Logger extends EventEmitter {
                 str += ' ';
             }
 
-            str += utils.inspect(msg);
+            if (typeof msg !== 'string') {
+                str += utils.inspect(msg);
+            }
+            else {
+                str += msg;
+            }
 
             if (msg instanceof Error) {
                 str = '\n\n' + msg.stack + '\n\n';
