@@ -16,10 +16,14 @@
 export abstract class DatabaseConnection {
     private api: any;
     private readOnly: boolean;
+    private _timeout: number;
 
     public constructor(api: any, isReadOnly: boolean) {
         this.api = api;
         this.readOnly = isReadOnly;
+
+        //TODO: Fuel the default by configs, and probably should actually use a more sane value... like 60.
+        this._timeout = 3600000;
     }
 
     public getAPI(): any {
@@ -28,6 +32,18 @@ export abstract class DatabaseConnection {
 
     public isReadOnly(): boolean {
         return this.readOnly;
+    }
+
+    public setTimeout(timeout: number): void {
+        if (isNaN(timeout)) {
+            throw new TypeError('setTimeout expects a number in parameter 1.');
+        }
+
+        this._timeout = timeout;
+    }
+
+    public getTimeout(): number {
+        return this._timeout;
     }
 
     public abstract startTransaction(): Promise<void>;

@@ -111,11 +111,13 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_mysqlconnection_.mysqlconnection.html#endtransaction" class="tsd-kind-icon">end<wbr>Transaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_mysqlconnection_.mysqlconnection.html#getapi" class="tsd-kind-icon">getAPI</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_mysqlconnection_.mysqlconnection.html#getinstantiationstack" class="tsd-kind-icon">get<wbr>Instantiation<wbr>Stack</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_mysqlconnection_.mysqlconnection.html#gettimeout" class="tsd-kind-icon">get<wbr>Timeout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_mysqlconnection_.mysqlconnection.html#isopen" class="tsd-kind-icon">is<wbr>Open</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_mysqlconnection_.mysqlconnection.html#isreadonly" class="tsd-kind-icon">is<wbr>Read<wbr>Only</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_mysqlconnection_.mysqlconnection.html#istransaction" class="tsd-kind-icon">is<wbr>Transaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_mysqlconnection_.mysqlconnection.html#query" class="tsd-kind-icon">query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_mysqlconnection_.mysqlconnection.html#rollback" class="tsd-kind-icon">rollback</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_mysqlconnection_.mysqlconnection.html#settimeout" class="tsd-kind-icon">set<wbr>Timeout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_mysqlconnection_.mysqlconnection.html#starttransaction" class="tsd-kind-icon">start<wbr>Transaction</a></li>
 							</ul>
 						</section>
@@ -304,7 +306,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_databaseconnection_.databaseconnection.html">DatabaseConnection</a>.<a href="_databaseconnection_.databaseconnection.html#getapi">getAPI</a></p>
 								<ul>
-									<li>Defined in DatabaseConnection.ts:25</li>
+									<li>Defined in DatabaseConnection.ts:29</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -325,6 +327,24 @@
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="gettimeout" class="tsd-anchor"></a>
+					<h3>get<wbr>Timeout</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeout<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_databaseconnection_.databaseconnection.html">DatabaseConnection</a>.<a href="_databaseconnection_.databaseconnection.html#gettimeout">getTimeout</a></p>
+								<ul>
+									<li>Defined in DatabaseConnection.ts:45</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -356,7 +376,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_databaseconnection_.databaseconnection.html">DatabaseConnection</a>.<a href="_databaseconnection_.databaseconnection.html#isreadonly">isReadOnly</a></p>
 								<ul>
-									<li>Defined in DatabaseConnection.ts:29</li>
+									<li>Defined in DatabaseConnection.ts:33</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -422,6 +442,30 @@
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="settimeout" class="tsd-anchor"></a>
+					<h3>set<wbr>Timeout</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Timeout<span class="tsd-signature-symbol">(</span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_databaseconnection_.databaseconnection.html">DatabaseConnection</a>.<a href="_databaseconnection_.databaseconnection.html#settimeout">setTimeout</a></p>
+								<ul>
+									<li>Defined in DatabaseConnection.ts:37</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>timeout: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -499,6 +543,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_mysqlconnection_.mysqlconnection.html#getinstantiationstack" class="tsd-kind-icon">get<wbr>Instantiation<wbr>Stack</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_mysqlconnection_.mysqlconnection.html#gettimeout" class="tsd-kind-icon">get<wbr>Timeout</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_mysqlconnection_.mysqlconnection.html#isopen" class="tsd-kind-icon">is<wbr>Open</a>
 							</li>
@@ -513,6 +560,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_mysqlconnection_.mysqlconnection.html#rollback" class="tsd-kind-icon">rollback</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_mysqlconnection_.mysqlconnection.html#settimeout" class="tsd-kind-icon">set<wbr>Timeout</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_mysqlconnection_.mysqlconnection.html#starttransaction" class="tsd-kind-icon">start<wbr>Transaction</a>

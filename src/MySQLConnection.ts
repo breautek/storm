@@ -68,7 +68,7 @@ export class MySQLConnection extends DatabaseConnection {
 
     public query(query: string, params?: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            var queryObject: MySQL.Query = this.getAPI().query(query, params, (error: MySQL.MysqlError, results: any) => {
+            var queryObject: MySQL.Query = this.getAPI().query({sql:query,timeout:this.getTimeout()}, params, (error: MySQL.MysqlError, results: any) => {
                 if (error) {
                     return reject(error);
                 }
