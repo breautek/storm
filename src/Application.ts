@@ -33,6 +33,9 @@ import * as BodyParser from 'body-parser';
 
 const DEFAULT_LOG_LEVEL = LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL;
 
+/**
+ * Test comment
+ */
 export abstract class Application extends EventEmitter {
     private logger: Logger;
     private name: string;
@@ -43,6 +46,12 @@ export abstract class Application extends EventEmitter {
     private db: Database;
     private _logConfigDefaulting: boolean;
 
+    /**
+     * 
+     * @param name The application name
+     * @param configPath The directory where bt-config.json and bt-local-config.json can be found. Defaults to current working directory.
+     * @param logSeverity Log severity. Defaults to INFO | WARNING | ERROR | FATAL
+     */
     public constructor(name: string, configPath: string, logSeverity?: LogSeverity) {
         super();
 
@@ -130,10 +139,18 @@ export abstract class Application extends EventEmitter {
         });
     }
 
+    /**
+     * The maximum size limit for incoming requests that this service needs to handle.
+     */
     public getRequestSizeLimit(): number {
         return 5242880;
     }
 
+    /**
+     * 
+     * @param path The URL API path. E.g. /api/myService/myCommand/
+     * @param HandlerClass The concrete class (not the instance) of Handler to be used for this API.
+     */
     public attachHandler(path: string, HandlerClass: IHandler): void {
         var handler: Handler = new HandlerClass(this);
         this.server.get(path, (request: Express.Request, response: Express.Response) => {
@@ -150,95 +167,74 @@ export abstract class Application extends EventEmitter {
         });
     }
 
+    /**
+     * Subclasses are expected to attach the API handlers for their service. This will be invoked during application startup.
+     */
     protected abstract attachHandlers(): Promise<void>;
 
+    /**
+     * 
+     * @param path The directory path that contains bt-config.json and bt-local-config.json
+     */
     public loadConfig(path: string): Promise<any> {
         return ConfigLoader.load(path, this.getCmdLineArgs()).catch((exitCode: ExitCode) => {
             process.exit(exitCode);
         });
-        // return new Promise<any>((resolve, reject) => {
-        //     this.getLogger().trace('Configuration loaded.');
-            
-        //     var config: any = {};
-
-        //     var cPath: string = Path.resolve(path, 'bt-config.json');
-        //     var lPath: string = Path.resolve(path, 'bt-local-config.json');
-            
-        //     var c: any;
-        //     var l: any;
-        //     var defaults: any;
-
-        //     this.getLogger().trace(`Main Config Path:\t ${cPath}`);
-        //     this.getLogger().trace(`Local Config Path:\t ${lPath}`);
-            
-        //     this.getLogger().trace('Loading configuration defaults.');
-        //     defaults = require(Path.resolve(__dirname, '../bt-config-defaults.json'));
-
-        //     this.getLogger().trace('Loading main confing...');
-        //     try {
-        //         c = require(cPath);
-        //         this.getLogger().trace('Main config loaded.');
-        //     }
-        //     catch(ex) {
-        //         reject(`Missing ${cPath}.`);
-        //         process.nextTick(() => {
-        //             process.exit(ExitCode.MISSING_CONFIG);
-        //         });
-        //     }
-
-        //     this.getLogger().trace('Loading optional local config.');
-        //     try {
-        //         l = require(lPath);
-        //         this.getLogger().trace('Local config loaded.');
-        //     }
-        //     catch(ex) {
-        //         this.getLogger().trace('Local config could not be loaded.');
-        //         this.getLogger().trace(ex);
-        //     }
-
-        //     if (l) {
-        //         config = this._mergeConfig(defaults, this._mergeConfig(c, l));
-        //     }
-        //     else {
-        //         config = this._mergeConfig(defaults, c);
-        //     }
-
-        //     this.getLogger().trace('Reading command line arguments...');
-        //     config = this._mergeConfig(config, this.getCmdLineArgs());
-
-        //     this.getLogger().trace('Configurations merged.');
-        //     this.getLogger().trace(config);
-
-        //     resolve(config);
-        // });
     }
 
+    /**
+     * @Returns the name of the Application
+     */
     public getName(): string {
         return this.name;
     }
 
+    /**
+     * @Returns the application's logger instance
+     */
     public getLogger(): Logger {
         return this.logger;
     }
 
+    /**
+     * @Returns the config object.
+     */
     public getConfig(): any {
         return this.config;
     }
 
+    /**
+     * Invoked once the config has been loaded and ready to be used.
+     * 
+     * @param config The config object (as defined in bt-config.json/bt-local-config.json)
+     */
     protected onConfigLoad(config: any): void {}
 
+    /**
+     * Sets the TokenManager to be used for authentication.
+     * @param tokenManager 
+     */
     public setTokenManager(tokenManager: TokenManager): void {
         this.tokenManager = tokenManager;
     }
 
+    /**
+     * @returns the token manager
+     */
     public getTokenManager(): TokenManager {
         return this.tokenManager;
     }
 
+    /**
+     * @returns the database pool. This will need to be casted based on your preferred database dialect.
+     */
     public getDB(): Database {
         return this.db;
     }
 
+    /**
+     * @returns command line arguments
+     */
     public getCmdLineArgs(): any {
         var options: any = {};
 
@@ -265,41 +261,34 @@ export abstract class Application extends EventEmitter {
         return options;
     }
 
+    /**
+     * Subclasses are expected to override this to configure their database setup, if the service uses a database.
+     * @param config The bt-config object
+     */
     protected initDB(config: any): Promise<Database> {
         return Promise.resolve(null);
     }
 
+    /**
+     * Creates the logger instance used by the application
+     * @returns Logger
+     */
     private _createLogger(): Logger {
         return new Logger(this.getName());
     }
 
-    // private _mergeConfig(o1: any, o2: any): any {
-    //     var o: any = o1;
-
-    //     for (var i in o2) {
-    //         var o1p = o1[i];
-    //         var o2p = o2[i];
-
-    //         if (o1p && (typeof o2p === 'object') && !(o2p instanceof Array)) {
-    //             if (typeof o1p === 'object' && !(o1p instanceof Array)) {
-    //                 o[i] = this._mergeConfig(o1p, o2p);
-    //             }
-    //             else {
-    //                 o[i] = o2p;
-    //             }
-    //         }
-    //         else {
-    //             o[i] = o2p;
-    //         }
-    //     }
-
-    //     return o;
-    // }
-
+    /**
+     * Sets the default log level on the Logger
+     */
     protected _setDefaultLogLevel(): void {
         this.logger.setLogLevel(DEFAULT_LOG_LEVEL);
     }
 
+    /**
+     * Parses the log severity flags from the config object.
+     * @param config bt-config object
+     * @returns the severity mask
+     */
     protected _parseLogLevelConfig(config: any): LogSeverity {
         var llConfig: string = config.log_level;
         var severity: LogSeverity = null;
@@ -343,6 +332,10 @@ export abstract class Application extends EventEmitter {
         return severity;
     }
 
+    /**
+     * Translates the severity string to its corresponding enumeration value.
+     * @param ll sevierty string
+     */
     private _llStrToSeverity(ll: string): LogSeverity {
         switch(ll) {
             case 'all':
@@ -364,5 +357,8 @@ export abstract class Application extends EventEmitter {
         }
     }
 
+    /**
+     * Invoked when the application is considered ready for operation.
+     */
     protected onReady(): void {}
 }

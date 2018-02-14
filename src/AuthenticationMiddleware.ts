@@ -24,6 +24,12 @@ import {getInstance, getApplicationLogger} from './instance';
 import {TokenManager} from './TokenManager';
 import {StormError} from './StormError';
 
+/**
+ * A base authentication strategy that handles 90% of the authentication process.
+ * This will verify that the token hasn't been manipulated or tainted.
+ * The authenticate API must be implemented by subclasses to further validate the token data 
+ * for their specific use cases.
+ */
 export abstract class AuthenticationMiddleware extends Middleware {
     private logger: Logger;
 
@@ -32,6 +38,12 @@ export abstract class AuthenticationMiddleware extends Middleware {
         this.logger = getApplicationLogger();
     }
 
+    /**
+     * 
+     * @param request 
+     * @param response 
+     * @param options Arbituary object containing any relevant information used for authentication.
+     */
     public execute(request: Request, response: Response, options?: any): Promise<any> {
         var config: any = getInstance().getConfig();
         var authHeader: string = config.authentication_header;
@@ -63,5 +75,10 @@ export abstract class AuthenticationMiddleware extends Middleware {
         });
     }
 
+    /**
+     * Subclasses are expected to implement this API to further validate the token data, as required by their application or API.
+     * @param tokenData 
+     * @param options 
+     */
     protected abstract authenticate(tokenData: any, options?: any): Promise<any>;
 }
