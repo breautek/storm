@@ -10,7 +10,9 @@ export interface HeaderKeyValuePair {
 }
 export declare class Response {
     private response;
-    constructor(response: express.Response);
+    private created;
+    private requestURL;
+    constructor(response: express.Response, requestURL: string);
     setStatus(status: StatusCode): Response;
     send(data?: SendableData): void;
     pipe(stream: NodeJS.ReadableStream): void;

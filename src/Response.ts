@@ -17,6 +17,7 @@ import {StatusCode} from './StatusCode';
 import {ResponseData} from './ResponseData';
 import {StormError, ErrorResponse} from './StormError';
 import * as express from 'express';
+import {getApplicationLogger} from './instance';
 
 export type SendableData = ResponseData | StormError | ErrorResponse | any;
 
@@ -26,9 +27,13 @@ export interface HeaderKeyValuePair {
 
 export class Response {
     private response: express.Response;
+    private created: Date;
+    private requestURL: string;
 
-    public constructor(response: express.Response) {
+    public constructor(response: express.Response, requestURL: string) {
         this.response = response;
+        this.created = new Date();
+        this.requestURL = requestURL;
     }
 
     public setStatus(status: StatusCode): Response {
@@ -44,8 +49,10 @@ export class Response {
             this.setStatus(data.getHTTPCode()).send(data.getErrorResponse());
         }
         else {
-            this.response.send(data);
+            this.response.send(data);       
         }
+        
+        getApplicationLogger().info(`API ${this.requestURL} responded in ${new Date().getTime() - this.created.getTime()}ms`);
     }
 
     public pipe(stream: NodeJS.ReadableStream): void {

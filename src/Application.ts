@@ -154,16 +154,20 @@ export abstract class Application extends EventEmitter {
     public attachHandler(path: string, HandlerClass: IHandler): void {
         var handler: Handler = new HandlerClass(this);
         this.server.get(path, (request: Express.Request, response: Express.Response) => {
-            handler.get(new Request(request), new Response(response));
+            var r: Request = new Request(request);
+            handler.get(r, new Response(response, r.getURL()));
         });
         this.server.post(path, (request: Express.Request, response: Express.Response) => {
-            handler.post(new Request(request), new Response(response));
+            var r: Request = new Request(request);
+            handler.post(r, new Response(response, r.getURL()));
         });
         this.server.put(path, (request: Express.Request, response: Express.Response) => {
-            handler.put(new Request(request), new Response(response));
+            var r: Request = new Request(request);
+            handler.put(r, new Response(response, r.getURL()));
         });
         this.server.delete(path, (request: Express.Request, response: Express.Response) => {
-            handler.delete(new Request(request), new Response(response));
+            var r: Request = new Request(request);
+            handler.delete(r, new Response(response, r.getURL()));
         });
     }
 

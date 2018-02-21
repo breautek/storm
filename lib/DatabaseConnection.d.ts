@@ -2,14 +2,20 @@ export declare abstract class DatabaseConnection {
     private api;
     private readOnly;
     private _timeout;
-    constructor(api: any, isReadOnly: boolean);
+    private _lingerTimer;
+    private _instantiationStack;
+    constructor(api: any, isReadOnly: boolean, instantiationStack: string);
+    private _triggerLingerWarning();
+    getInstantiationStack(): string;
+    private _armLingerWarning();
     getAPI(): any;
     isReadOnly(): boolean;
     setTimeout(timeout: number): void;
     getTimeout(): number;
+    query(query: string, params?: any): Promise<any>;
     abstract startTransaction(): Promise<void>;
     abstract commit(): Promise<void>;
     abstract rollback(): Promise<void>;
     abstract close(): Promise<void>;
-    abstract query(query: string, params?: any): Promise<any>;
+    protected abstract _query(query: string, params?: any): Promise<any>;
 }

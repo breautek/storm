@@ -13,17 +13,52 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import {
+    getApplicationLogger
+} from './instance';
+
+const LINGER_WARNING: number = 10000;
+
 export abstract class DatabaseConnection {
     private api: any;
     private readOnly: boolean;
     private _timeout: number;
+    private _lingerTimer: NodeJS.Timer;
+    private _instantiationStack: string;
 
-    public constructor(api: any, isReadOnly: boolean) {
+    public constructor(api: any, isReadOnly: boolean, instantiationStack: string) {
         this.api = api;
         this.readOnly = isReadOnly;
+        this._instantiationStack = instantiationStack;
 
         //TODO: Fuel the default by configs, and probably should actually use a more sane value... like 60.
         this._timeout = 3600000;
+
+        this._armLingerWarning();
+    }
+
+    // private _restartLingerWarning(): void {
+    //     this._lingeringWarning = setTimeout(() => {
+    //         this._triggerLingerWarning();
+    //     }, LINGER_WARN_TIMER);
+    // }
+
+    private _triggerLingerWarning(): void {
+        getApplicationLogger().warn(`Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`)
+    }
+
+    public getInstantiationStack(): string {
+        return this._instantiationStack;
+    }
+
+    private _armLingerWarning() {
+        if (this._lingerTimer) {
+            clearTimeout(this._lingerTimer);
+        }
+
+        this._lingerTimer = setTimeout(() => {
+
+        }, LINGER_WARNING);
     }
 
     public getAPI(): any {
@@ -46,9 +81,14 @@ export abstract class DatabaseConnection {
         return this._timeout;
     }
 
+    public query(query: string, params?: any): Promise<any> {
+        this._armLingerWarning();
+        return this._query(query, params);
+    }
+
     public abstract startTransaction(): Promise<void>;
     public abstract commit(): Promise<void>;
     public abstract rollback(): Promise<void>;
     public abstract close(): Promise<void>;
-    public abstract query(query: string, params?: any): Promise<any>;
+    protected abstract _query(query: string, params?: any): Promise<any>;
 }

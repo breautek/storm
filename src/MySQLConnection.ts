@@ -17,18 +17,16 @@ import {DatabaseConnection} from './DatabaseConnection';
 import {getInstance, getApplicationLogger} from './instance';
 import * as MySQL from 'mysql';
 
-const LINGER_WARN_TIMER: number = 60000;
+// const LINGER_WARN_TIMER: number = 60000;
 
 export class MySQLConnection extends DatabaseConnection {
     private transaction: boolean;
     private _opened: boolean;
     private _lingeringWarning: NodeJS.Timer;
-    private _instantiationStack: string;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
-        super(connection, isReadOnly);
-        
-        this._instantiationStack = instantiationStack;
+        super(connection, isReadOnly, instantiationStack);
+
         this._opened = true;
         this.transaction = false;
 
@@ -44,20 +42,6 @@ export class MySQLConnection extends DatabaseConnection {
         };
     }
 
-    private _restartLingerWarning(): void {
-        this._lingeringWarning = setTimeout(() => {
-            this._triggerLingerWarning();
-        }, LINGER_WARN_TIMER);
-    }
-
-    private _triggerLingerWarning(): void {
-        getApplicationLogger().warn(`Database connection still open after ${LINGER_WARN_TIMER}ms of inactivity.\n\n${this._instantiationStack}`)
-    }
-
-    public getInstantiationStack(): string {
-        return this._instantiationStack;
-    }
-
     public isTransaction(): boolean {
         return this.transaction;
     }
@@ -66,7 +50,7 @@ export class MySQLConnection extends DatabaseConnection {
         return this._opened;
     }
 
-    public query(query: string, params?: any): Promise<any> {
+    protected _query(query: string, params?: any): Promise<any> {
         return new Promise((resolve, reject) => {
             var queryObject: MySQL.Query = this.getAPI().query({sql:query,timeout:this.getTimeout()}, params, (error: MySQL.MysqlError, results: any) => {
                 if (error) {
