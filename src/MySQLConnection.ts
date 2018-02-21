@@ -127,7 +127,7 @@ export class MySQLConnection extends DatabaseConnection {
         });
     }
 
-    public close(): Promise<void> {
+    protected _close(): Promise<void> {
         if (this.isTransaction()) {
 			return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
         }

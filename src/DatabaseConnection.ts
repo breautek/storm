@@ -57,7 +57,7 @@ export abstract class DatabaseConnection {
         }
 
         this._lingerTimer = setTimeout(() => {
-
+            this._triggerLingerWarning();
         }, LINGER_WARNING);
     }
 
@@ -86,9 +86,14 @@ export abstract class DatabaseConnection {
         return this._query(query, params);
     }
 
+    public close(): Promise<void> {
+        clearTimeout(this._lingerTimer);
+        return this._close();
+    }
+
     public abstract startTransaction(): Promise<void>;
     public abstract commit(): Promise<void>;
     public abstract rollback(): Promise<void>;
-    public abstract close(): Promise<void>;
+    protected abstract _close(): Promise<void>;
     protected abstract _query(query: string, params?: any): Promise<any>;
 }
