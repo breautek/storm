@@ -8,9 +8,10 @@ export declare class Logger extends EventEmitter {
     constructor(name?: string, logLevel?: LogSeverity, useStdOutForErrors?: boolean);
     setLogLevel(severity: LogSeverity): void;
     getLogLevel(): LogSeverity;
-    private _formatDate(now);
-    private _formatString(messages, severity);
+    protected _formatDate(now: Date): string;
+    protected _formatString(messages: IArguments, severity: LogSeverity): string;
     protected _log(messages: IArguments, severity: LogSeverity): void;
+    protected _logMessage(msg: string, severity: LogSeverity): void;
     log(messages: IArguments, severity: LogSeverity): void;
     trace(message: any): void;
     debug(message: any): void;

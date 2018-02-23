@@ -49,11 +49,11 @@ export class Logger extends EventEmitter {
         return this.logLevel;
     }
 
-    private _formatDate(now: Date): string {
+    protected _formatDate(now: Date): string {
         return `${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()} - ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
     }
 
-    private _formatString(messages: IArguments, severity: LogSeverity): string {
+    protected _formatString(messages: IArguments, severity: LogSeverity): string {
         var sevText: string = '';
         var str: string = '';
 
@@ -105,7 +105,10 @@ export class Logger extends EventEmitter {
 
     protected _log(messages: IArguments, severity: LogSeverity): void {
         var msg: string = this._formatString(messages, severity);
+        this._logMessage(msg, severity);
+    }
 
+    protected _logMessage(msg: string, severity: LogSeverity): void {
         if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this.useStdOutForErrors) {
             process.stderr.write(msg);
         }
