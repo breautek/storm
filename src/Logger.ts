@@ -103,7 +103,7 @@ export class Logger extends EventEmitter {
         return `${sevText}[${this.name}][${this._formatDate(new Date())}] ${str}\n`;
     }
 
-    private _log(messages: IArguments, severity: LogSeverity): void {
+    protected _log(messages: IArguments, severity: LogSeverity): void {
         var msg: string = this._formatString(messages, severity);
 
         if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this.useStdOutForErrors) {

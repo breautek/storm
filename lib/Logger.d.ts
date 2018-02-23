@@ -10,7 +10,7 @@ export declare class Logger extends EventEmitter {
     getLogLevel(): LogSeverity;
     private _formatDate(now);
     private _formatString(messages, severity);
-    private _log(messages, severity);
+    protected _log(messages: IArguments, severity: LogSeverity): void;
     log(messages: IArguments, severity: LogSeverity): void;
     trace(message: any): void;
     debug(message: any): void;
