@@ -277,7 +277,7 @@ export abstract class Application extends EventEmitter {
      * Creates the logger instance used by the application
      * @returns Logger
      */
-    private _createLogger(): Logger {
+    protected _createLogger(): Logger {
         return new Logger(this.getName());
     }
 
