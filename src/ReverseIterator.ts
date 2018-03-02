@@ -4,7 +4,9 @@ import {Iterator} from './Iterator';
 export class ReverseIterator<T> extends Iterator<T> {
     public constructor(collection: Array<T>, index?: number) {
         super(collection, index);
-        super.bringToEnd();
+        if (index === null || index === undefined) {
+            super.bringToEnd();
+        }
     }
     
     public incrementIndex(): number {
