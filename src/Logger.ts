@@ -96,7 +96,7 @@ export class Logger extends EventEmitter {
             }
 
             if (msg instanceof Error) {
-                str = '\n\n' + msg.stack + '\n\n';
+                str = msg.stack + '\n\n';
             }
         }
 

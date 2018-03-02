@@ -38,7 +38,7 @@ export abstract class StormError extends Error {
 
         var instance: Application = getInstance();
         instance.getLogger().error(`${this.getMessage()}.. See details below:`);
-        instance.getLogger().error(this.getDetails());
+        instance.getLogger().info(this.getDetails());
     }
 
     abstract getMessage(): string;
