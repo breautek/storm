@@ -22,120 +22,179 @@ import {Response} from './Response';
 import {Database} from './Database';
 import {IHandler} from './IHandler';
 import {Middleware} from './Middleware';
+import {RequestResponse} from './RequestResponse';
+import {StormError} from './StormError';
 
 export class Handler {
     private app: Application;
     private logRequests: boolean;
-    private loggerMiddleware: Middleware;
+    // private loggerMiddleware: Middleware;
+    private _middlewares: Array<Middleware>;
 
     constructor(app: Application) {
         this.app = getInstance();
 
-        this.loggerMiddleware = this.initLoggerMiddleware();
+        this._middlewares = this.initMiddlewares();
+        // this.loggerMiddleware = this.initLoggerMiddleware();
     }
 
-    protected initLoggerMiddleware(): Middleware {
-        return new LoggerMiddleware();
+    // protected initLoggerMiddleware(): Middleware {
+    //     return new LoggerMiddleware();
+    // }
+
+    protected initMiddlewares(): Array<Middleware> {
+        return [];
     }
 
-    private log(request: Request, response: Response): Promise<void> {
-        var promise: Promise<void>;
+    // private log(request: Request, response: Response): Promise<void> {
+    //     var promise: Promise<void>;
 
-        if (this.loggerMiddleware) {
-            promise = this.loggerMiddleware.execute(request, response);
-        }
-        else {
-            promise = Promise.resolve();
-        }
+    //     if (this.loggerMiddleware) {
+    //         promise = this.loggerMiddleware.execute(request, response);
+    //     }
+    //     else {
+    //         promise = Promise.resolve();
+    //     }
 
-        return promise;
-    }
+    //     return promise;
+    // }
 
     public getDB(): Database {
         return this.app.getDB();
     }
 
+    private _getNextMiddleware(index: number): Middleware {
+        return this._middlewares[index];
+    }
+
+    private _executeMiddlewares(request: Request, response: Response, index: number = 0): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
+            var promises: Array<Promise<RequestResponse>> = [];
+
+            for (var i = 0; i < this._middlewares.length; i++) {
+                var middleware: Middleware = this._middlewares[i];
+                promises.push(middleware.execute(request, response));
+            }
+
+            Promise.all(promises).then(() => {
+                resolve();
+            }).catch(reject);
+        });
+    }
+
+    protected _onMiddlewareReject(request: Request, response: Response, error: StormError) {
+        response.send(error);
+    }
+
     public get(request: Request, response: Response): void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._get(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public put(request: Request, response: Response): void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._put(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public post(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._post(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public delete(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._delete(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public patch(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._patch(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public copy(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._copy(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public head(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._head(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public options(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._options(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public link(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._link(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public unlink(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._unlink(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public purge(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._purge(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public lock(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._lock(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public unlock(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._unlock(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 
     public view(request: Request, response: Response):void {
-        this.log(request, response).then((data) => {
+        this._executeMiddlewares(request, response).then(() => {
             this._view(request, response);
+        }).catch((error: StormError) => {
+            this._onMiddlewareReject(request, response, error);
         });
     }
 

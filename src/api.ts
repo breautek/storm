@@ -49,6 +49,8 @@ import {UnauthorizedAccess} from './UnauthorizedAccess';
 import {EntityNotFoundError} from './EntityNotFoundError';
 import {DiskSpaceError} from './DiskSpaceError';
 import {ConfigLoader} from './ConfigLoader';
+import {RequestResponse} from './RequestResponse';
+import {CORSMiddleware} from './CORSMiddleware';
 
 export {
     getInstance, getApplicationLogger,
@@ -86,5 +88,7 @@ export {
     UnauthorizedAccess,
     EntityNotFoundError,
     DiskSpaceError,
-    ConfigLoader
+    ConfigLoader,
+    RequestResponse,
+    CORSMiddleware
 };

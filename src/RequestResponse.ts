@@ -15,10 +15,8 @@
 
 import {Request} from './Request';
 import {Response} from './Response';
-import {RequestResponse} from './RequestResponse';
 
-export abstract class Middleware {
-    public constructor() {}
-
-    public abstract execute(request: Request, response: Response): Promise<RequestResponse>;
+export interface RequestResponse {
+    request: Request;
+    response: Response;
 }

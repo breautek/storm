@@ -17,16 +17,20 @@ import {Middleware} from './Middleware';
 import {Request} from './Request';
 import {Response} from './Response';
 import {getInstance, getApplicationLogger} from './instance';
+import {RequestResponse} from './RequestResponse';
 
 export class LoggerMiddleware extends Middleware {
     public constructor() {
         super();
     }
 
-    public execute(request: Request, response: Response, options?: any): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
+    public execute(request: Request, response: Response, options?: any): Promise<RequestResponse> {
+        return new Promise<RequestResponse>((resolve, reject) => {
             getApplicationLogger().info(`${request.getIP()} - ${request.getMethod()} ${request.getURL()}`);
-            resolve();
+            resolve({
+                request:request,
+                response:response
+            });
         });
     }
 }

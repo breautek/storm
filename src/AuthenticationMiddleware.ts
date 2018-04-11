@@ -30,11 +30,10 @@ import {StormError} from './StormError';
  * The authenticate API must be implemented by subclasses to further validate the token data 
  * for their specific use cases.
  */
-export abstract class AuthenticationMiddleware extends Middleware {
+export abstract class AuthenticationMiddleware {
     private logger: Logger;
 
     public constructor() {
-        super();
         this.logger = getApplicationLogger();
     }
 
