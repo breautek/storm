@@ -33,7 +33,7 @@ export class CORSMiddleware extends Middleware {
     }
 
     public getDefaultAllowedOrigin(): string {
-        return '*';
+        return null;
     }
 
     public getDefaultAllowedHeaders(): Array<string> {
@@ -58,9 +58,15 @@ export class CORSMiddleware extends Middleware {
     }
 
     public execute(request: Request, response: Response): Promise<RequestResponse> {
-        response.setHeader('Access-Control-Allow-Origin', this._allowedOrigin);
+        if (this._allowedOrigin) {
+            response.setHeader('Access-Control-Allow-Origin', this._allowedOrigin);
+        }
+        else {
+            response.setHeader('Access-Control-Allow-Origin', request.getHeader('Origin'));
+        }
         response.setHeader('Access-Control-Allow-Headers', this._allowedHeaders.join(', '));
         response.setHeader('Access-Control-Allow-Methods', this._allowedMethods.join(', '));
+        response.setHeader('Vary', 'Origin');
         return Promise.resolve({
             request:request,
             response:response 
