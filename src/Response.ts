@@ -41,6 +41,10 @@ export class Response {
         return this;
     }
 
+    public getStatus(): StatusCode {
+        return this.response.statusCode;
+    }
+
     public send(data?: SendableData): void {
         if (data instanceof ResponseData) {
             this.setStatus(data.getStatus()).send(data.getData());

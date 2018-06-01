@@ -14,6 +14,7 @@ export declare class Response {
     private requestURL;
     constructor(response: express.Response, requestURL: string);
     setStatus(status: StatusCode): Response;
+    getStatus(): StatusCode;
     send(data?: SendableData): void;
     pipe(stream: NodeJS.ReadableStream): void;
     success(data?: any): void;
