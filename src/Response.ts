@@ -56,7 +56,7 @@ export class Response {
             this.response.send(data);       
         }
         
-        getApplicationLogger().info(`API ${this.requestURL} responded in ${new Date().getTime() - this.created.getTime()}ms`);
+        getApplicationLogger().info(`API ${this.requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.created.getTime()}ms`);
     }
 
     public pipe(stream: NodeJS.ReadableStream): void {
