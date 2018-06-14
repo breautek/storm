@@ -19,11 +19,22 @@ import {Response} from './Response';
 import {RequestResponse} from './RequestResponse';
 import {getInstance} from './instance';
 
+/**
+ * CORSMiddleware is used to enable CORS on APIs. 
+ * It will automatically add the necessary headers necessary to
+ * communicate with CORS enabled clients.
+ */
 export class CORSMiddleware extends Middleware {
     private _allowedOrigin: string;
     private _allowedHeaders: Array<string>;
     private _allowedMethods: Array<string>;
 
+    /**
+     * @constructor
+     * @param allowedOrigin     The allowed origin. By default it will use the request origin.
+     * @param allowedHeaders    Array of allowed headers. 
+     * @param allowedMethods    Array of allowed HTTP methods.
+     */
     public constructor(allowedOrigin?: string, allowedHeaders?: Array<string>, allowedMethods?: Array<string>) {
         super();
         
@@ -32,6 +43,9 @@ export class CORSMiddleware extends Middleware {
         this._allowedMethods = (!allowedMethods) ? this.getDefaultAllowedMethods() : allowedMethods;
     }
 
+    /**
+     * Sets the allowed origin. By default, 
+     */
     public getDefaultAllowedOrigin(): string {
         return null;
     }

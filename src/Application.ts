@@ -31,10 +31,13 @@ import * as args from 'args';
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 
+/**
+ * The default log level to log informational, warnings, errors, and fatal messages.
+ */
 const DEFAULT_LOG_LEVEL = LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL;
 
 /**
- * Test comment
+ * Main entry point for the Application. Should be extended and have the abstract methods implemented.
  */
 export abstract class Application extends EventEmitter {
     private logger: Logger;
@@ -173,6 +176,7 @@ export abstract class Application extends EventEmitter {
 
     /**
      * Subclasses are expected to attach the API handlers for their service. This will be invoked during application startup.
+     * @returns Promise<void>
      */
     protected abstract attachHandlers(): Promise<void>;
 
@@ -187,21 +191,21 @@ export abstract class Application extends EventEmitter {
     }
 
     /**
-     * @Returns the name of the Application
+     * @returns the application name
      */
     public getName(): string {
         return this.name;
     }
 
     /**
-     * @Returns the application's logger instance
+     * @returns the application's logger
      */
     public getLogger(): Logger {
         return this.logger;
     }
 
     /**
-     * @Returns the config object.
+     * @returns the config object.
      */
     public getConfig(): any {
         return this.config;
