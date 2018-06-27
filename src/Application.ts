@@ -30,6 +30,7 @@ import * as Path from 'path';
 import * as args from 'args';
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
+import * as formidable from 'express-formidable';
 
 /**
  * The default log level to log informational, warnings, errors, and fatal messages.
@@ -112,6 +113,9 @@ export abstract class Application extends EventEmitter {
                 type : 'application/json',
                 limit : this.getRequestSizeLimit()
             }));
+            this.server.use(formidable({
+                multiples: true
+            }))
             // this.server.use(BodyParser.raw({
             //     type: 'application/*',
             //     limit : this.getRequestSizeLimit()
