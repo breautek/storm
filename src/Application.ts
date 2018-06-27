@@ -115,7 +115,7 @@ export abstract class Application extends EventEmitter {
             }));
             this.server.use(formidable({
                 multiples: true
-            }))
+            }));
             // this.server.use(BodyParser.raw({
             //     type: 'application/*',
             //     limit : this.getRequestSizeLimit()

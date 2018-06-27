@@ -10,6 +10,8 @@ export declare class Request {
     private request;
     constructor(request: express.Request);
     getBody(): any;
+    getFields(): any;
+    getFiles(): any;
     getHeaders(): IncomingHttpHeaders;
     getHeader(name: string): string;
     getQueryVariables(): any;

@@ -32,6 +32,14 @@ export class Request {
         return this.request.body;
     }
 
+    public getFields(): any {
+        return this.request.fields;
+    }
+
+    public getFiles(): any {
+        return this.request.files;
+    }
+
     public getHeaders(): IncomingHttpHeaders {
         return this.request.headers;
     }
