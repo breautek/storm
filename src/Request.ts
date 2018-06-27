@@ -16,6 +16,7 @@
 import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
 import * as FileSystem from 'fs';
+import * as formidable from 'formidable';
 
 export interface ParameterMap {
     [key: string]: string;
@@ -32,11 +33,11 @@ export class Request {
         return this.request.body;
     }
 
-    public getFields(): any {
+    public getFields(): formidable.Fields {
         return this.request.fields;
     }
 
-    public getFiles(): any {
+    public getFiles(): formidable.Files {
         return this.request.files;
     }
 

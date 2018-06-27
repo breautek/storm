@@ -51,6 +51,7 @@ import {DiskSpaceError} from './DiskSpaceError';
 import {ConfigLoader} from './ConfigLoader';
 import {RequestResponse} from './RequestResponse';
 import {CORSMiddleware} from './CORSMiddleware';
+import * as formidable from 'formidable';
 
 export {
     getInstance, getApplicationLogger,
@@ -90,5 +91,6 @@ export {
     DiskSpaceError,
     ConfigLoader,
     RequestResponse,
-    CORSMiddleware
+    CORSMiddleware,
+    formidable
 };
