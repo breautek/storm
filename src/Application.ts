@@ -269,17 +269,7 @@ export abstract class Application extends EventEmitter {
 
         var argv = args.parse(process.argv);
 
-        // if (argv.port) {
-        //     options.port = argv.port;
-        // }
-
-        // if (argv.bindingIp) {
-        //     options.binding_ip = argv.bindingIp;
-        // }
-
-        // if (argv.authenticationHeader) {
-        //     options.authentication_header = argv.authenticationHeader;
-        // }
+        //TODO: Filter out the single character access
 
         for (var i in argv) {
             options[i.replace(/[A-Z]/g, "_$&").toLowerCase()] = argv[i];   
