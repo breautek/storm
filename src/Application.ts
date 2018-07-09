@@ -267,20 +267,22 @@ export abstract class Application extends EventEmitter {
     public getCmdLineArgs(): any {
         var options: any = {};
 
-        
-        
         var argv = args.parse(process.argv);
 
-        if (argv.port) {
-            options.port = argv.port;
-        }
+        // if (argv.port) {
+        //     options.port = argv.port;
+        // }
 
-        if (argv.bindingIp) {
-            options.binding_ip = argv.bindingIp;
-        }
+        // if (argv.bindingIp) {
+        //     options.binding_ip = argv.bindingIp;
+        // }
 
-        if (argv.authenticationHeader) {
-            options.authentication_header = argv.authenticationHeader;
+        // if (argv.authenticationHeader) {
+        //     options.authentication_header = argv.authenticationHeader;
+        // }
+
+        for (var i in argv) {
+            options[i.replace(/[A-Z]/g, "_$&").toLowerCase()] = argv[i];   
         }
 
         return options;
