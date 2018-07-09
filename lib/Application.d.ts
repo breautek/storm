@@ -14,7 +14,10 @@ export declare abstract class Application extends EventEmitter {
     private server;
     private db;
     private _logConfigDefaulting;
+    private _argv;
     constructor(name: string, configPath: string, logSeverity?: LogSeverity);
+    private $buildArgOptions();
+    protected _buildArgOptions(args: any): void;
     getRequestSizeLimit(): number;
     attachHandler(path: string, HandlerClass: IHandler): void;
     protected abstract attachHandlers(): Promise<void>;

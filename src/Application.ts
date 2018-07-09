@@ -49,6 +49,7 @@ export abstract class Application extends EventEmitter {
     private server: any; //todo
     private db: Database;
     private _logConfigDefaulting: boolean;
+    private _argv: any;
 
     /**
      * 
@@ -60,6 +61,10 @@ export abstract class Application extends EventEmitter {
         super();
 
         setInstance(this);
+
+        this.$buildArgOptions();
+
+        this._argv = args.parse(process.argv);
 
         this.name = name;
         this.logger = this._createLogger();
@@ -145,6 +150,18 @@ export abstract class Application extends EventEmitter {
             this.getLogger().fatal(error);
         });
     }
+
+    private $buildArgOptions() {
+        args.option('port', 'The running port to consume', null, (value: any) => {
+            return parseInt(value);
+        });
+        args.option('binding_ip', 'The binding IP to listen on');
+        args.option('authentication_header', 'The header name of the authentication token');
+
+        this._buildArgOptions(args);
+    }
+
+    protected _buildArgOptions(args: any): void {}
 
     /**
      * The maximum size limit for incoming requests that this service needs to handle.
@@ -250,11 +267,7 @@ export abstract class Application extends EventEmitter {
     public getCmdLineArgs(): any {
         var options: any = {};
 
-        args.option('port', 'The running port to consume', null, (value: any) => {
-            return parseInt(value);
-        });
-        args.option('binding_ip', 'The binding IP to listen on');
-        args.option('authentication_header', 'The header name of the authentication token');
+        
         
         var argv = args.parse(process.argv);
 
