@@ -272,7 +272,9 @@ export abstract class Application extends EventEmitter {
         //TODO: Filter out the single character access
 
         for (var i in argv) {
-            options[i.replace(/[A-Z]/g, "_$&").toLowerCase()] = argv[i];   
+            if (argv[i] !== null && argv[i] !== undefined) {
+                options[i.replace(/[A-Z]/g, "_$&").toLowerCase()] = argv[i];
+            }
         }
 
         return options;
