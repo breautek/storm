@@ -17,6 +17,7 @@ import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
 import * as FileSystem from 'fs';
 import * as formidable from 'formidable';
+import {FormData} from './FormData';
 
 export interface ParameterMap {
     [key: string]: string;
@@ -33,12 +34,23 @@ export class Request {
         return this.request.body;
     }
 
-    public getFields(): formidable.Fields {
-        return this.request.fields;
-    }
+    public getForm(): Promise<FormData> {
+        return new Promise<FormData>((resolve, reject) => {
+            var r: express.Request = this.getRequestSource();
+            var form: formidable.IncomingForm = new formidable.IncomingForm();
+            form.hash = 'md5';
 
-    public getFiles(): formidable.Files {
-        return this.request.files;
+            form.parse(r, (error: any, fields: formidable.Fields, files: formidable.Files): any => {
+                if (error) {
+                    return reject(error);
+                }
+
+                return resolve({
+                    fields,
+                    files: files
+                });
+            });
+        });
     }
 
     public getHeaders(): IncomingHttpHeaders {

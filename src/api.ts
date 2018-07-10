@@ -52,6 +52,7 @@ import {ConfigLoader} from './ConfigLoader';
 import {RequestResponse} from './RequestResponse';
 import {CORSMiddleware} from './CORSMiddleware';
 import * as formidable from 'formidable';
+import {FormData} from './FormData';
 
 export {
     getInstance, getApplicationLogger,
@@ -92,5 +93,6 @@ export {
     ConfigLoader,
     RequestResponse,
     CORSMiddleware,
-    formidable
+    formidable,
+    FormData
 };
