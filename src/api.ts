@@ -53,6 +53,7 @@ import {RequestResponse} from './RequestResponse';
 import {CORSMiddleware} from './CORSMiddleware';
 import * as formidable from 'formidable';
 import {FormData} from './FormData';
+import {BackendAuthenticationMiddleware} from './BackendAuthenticationMiddleware';
 
 export {
     getInstance, getApplicationLogger,
@@ -94,5 +95,6 @@ export {
     RequestResponse,
     CORSMiddleware,
     formidable,
-    FormData
+    FormData,
+    BackendAuthenticationMiddleware
 };
