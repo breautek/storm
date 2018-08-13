@@ -46,15 +46,15 @@ export abstract class AuthenticationMiddleware {
     public execute(request: Request, response: Response, options?: any): Promise<any> {
         var config: any = getInstance().getConfig();
         var authHeader: string = config.authentication_header;
-        var backendAuthHeader: string = config.backend_authentication_header;
+        // var backendAuthHeader: string = config.backend_authentication_header;
         
-        var backend: string = request.getHeader(backendAuthHeader);
+        // var backend: string = request.getHeader(backendAuthHeader);
 
-        if (backend) {
-            if (backend === config.backend_authentication_secret) {
-                return Promise.resolve(null);
-            }
-        }
+        // if (backend) {
+        //     if (backend === config.backend_authentication_secret) {
+        //         return Promise.resolve(null);
+        //     }
+        // }
 
         var token: Token = new Token(request.getHeader(authHeader));
 
