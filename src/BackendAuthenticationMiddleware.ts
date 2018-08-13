@@ -51,6 +51,11 @@ export class BackendAuthenticationMiddleware {
         var backend: string = request.getHeader(backendAuthHeader);
 
         if (backend) {
+            if (config.backend_authentication_secret === null) {
+                this.logger.warn('Backend secret not implemented.');
+                return Promise.reject(new ResponseData(StatusCode.INTERNAL_ERROR));
+            }
+
             if (backend === config.backend_authentication_secret) {
                 return Promise.resolve(null);
             }

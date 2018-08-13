@@ -19,6 +19,18 @@
 
 	/*
 	@type string
+	@description The header name of the backend secret
+	*/
+	"backend_authentication_header": "X-BT-BACKEND-AUTH",
+
+	/*
+	@type string
+	@description The backend secret used for backend APIs
+	*/
+	"backend_authentication_secret": null,
+
+	/*
+	@type string
 	@description 	The application log level. 
 					Valid Values:
 						- trace
