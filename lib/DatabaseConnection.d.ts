@@ -5,9 +5,9 @@ export declare abstract class DatabaseConnection {
     private _lingerTimer;
     private _instantiationStack;
     constructor(api: any, isReadOnly: boolean, instantiationStack: string);
-    private _triggerLingerWarning();
+    private _triggerLingerWarning;
     getInstantiationStack(): string;
-    private _armLingerWarning();
+    private _armLingerWarning;
     getAPI(): any;
     isReadOnly(): boolean;
     setTimeout(timeout: number): void;

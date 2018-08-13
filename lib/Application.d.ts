@@ -16,7 +16,7 @@ export declare abstract class Application extends EventEmitter {
     private _logConfigDefaulting;
     private _argv;
     constructor(name: string, configPath: string, logSeverity?: LogSeverity);
-    private $buildArgOptions();
+    private $buildArgOptions;
     protected _buildArgOptions(args: any): void;
     getRequestSizeLimit(): number;
     attachHandler(path: string, HandlerClass: IHandler): void;
@@ -34,6 +34,6 @@ export declare abstract class Application extends EventEmitter {
     protected _createLogger(): Logger;
     protected _setDefaultLogLevel(): void;
     protected _parseLogLevelConfig(config: any): LogSeverity;
-    private _llStrToSeverity(ll);
+    private _llStrToSeverity;
     protected onReady(): void;
 }

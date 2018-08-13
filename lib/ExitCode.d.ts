@@ -1,3 +1,3 @@
 export declare enum ExitCode {
-    MISSING_CONFIG = 0,
+    MISSING_CONFIG = 0
 }

@@ -1,4 +1,3 @@
-/// <reference types="express" />
 /// <reference types="node" />
 import { StatusCode } from './StatusCode';
 import { ResponseData } from './ResponseData';

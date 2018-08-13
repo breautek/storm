@@ -11,8 +11,8 @@ export declare class Handler {
     constructor(app: Application);
     protected initMiddlewares(): Array<Middleware>;
     getDB(): Database;
-    private _getNextMiddleware(index);
-    private _executeMiddlewares(request, response, index?);
+    private _getNextMiddleware;
+    private _executeMiddlewares;
     protected _onMiddlewareReject(request: Request, response: Response, error: StormError): void;
     get(request: Request, response: Response): void;
     put(request: Request, response: Response): void;

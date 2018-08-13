@@ -5,5 +5,5 @@ export declare enum LogSeverity {
     WARNING = 8,
     ERROR = 16,
     FATAL = 32,
-    ALL = 63,
+    ALL = 63
 }
