@@ -14,8 +14,16 @@ export abstract class ServiceProvider {
         this._app = app;
     }
 
-    protected abstract _getDomain(): string;
     protected abstract _getBase(): string;
+    protected abstract _getPort(): number;
+
+    protected _getApp(): Application {
+        return this._app;
+    }
+
+    protected _getDomain(): string {
+        return '127.0.0.1';
+    }
 
     private _getSecret(): string {
         return this._app.getConfig().backend_authentication_secret;
@@ -32,8 +40,6 @@ export abstract class ServiceProvider {
     public getVersion(): string {
         return 'v1';
     }
-
-    protected abstract _getPort(): number;
 
     protected _createURL(url: string, queryParams?: any): string {
         var queryString: string = '';
