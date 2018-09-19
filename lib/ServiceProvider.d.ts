@@ -14,9 +14,9 @@ export declare abstract class ServiceProvider {
     protected _getProtocol(): string;
     getVersion(): string;
     protected _createURL(url: string, queryParams?: any): string;
-    request(method: HTTPMethod, url: string, data: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
-    get(url: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
-    post(url: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
-    put(url: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
-    delete(url: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    get(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    post(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    put(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    delete(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
 }
