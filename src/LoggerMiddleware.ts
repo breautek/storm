@@ -26,7 +26,7 @@ export class LoggerMiddleware extends Middleware {
 
     public execute(request: Request, response: Response, options?: any): Promise<RequestResponse> {
         return new Promise<RequestResponse>((resolve, reject) => {
-            getApplicationLogger().info(`${request.getIP()} - ${request.getMethod()} ${request.getURL()}`);
+            getApplicationLogger().info(`${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()}`);
             resolve({
                 request:request,
                 response:response

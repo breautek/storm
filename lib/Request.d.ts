@@ -17,6 +17,7 @@ export declare class Request {
     getParams(): ParameterMap;
     getParam(name: string): string;
     getIP(): string;
+    getForwardedIP(): string;
     getHostname(): string;
     getMethod(): string;
     getURL(): string;

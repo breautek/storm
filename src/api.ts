@@ -54,6 +54,11 @@ import {CORSMiddleware} from './CORSMiddleware';
 import * as formidable from 'formidable';
 import {FormData} from './FormData';
 import {BackendAuthenticationMiddleware} from './BackendAuthenticationMiddleware';
+import {Config} from './Config';
+import {ServiceProvider} from './ServiceProvider';
+import {HTTPMethod} from './HTTPMethod';
+import {ServiceResponse} from './ServiceResponse';
+import {ServiceHeaders} from './ServiceHeaders';
 
 export {
     getInstance, getApplicationLogger,
@@ -96,5 +101,10 @@ export {
     CORSMiddleware,
     formidable,
     FormData,
-    BackendAuthenticationMiddleware
+    BackendAuthenticationMiddleware,
+    Config,
+    HTTPMethod,
+    ServiceProvider,
+    ServiceHeaders,
+    ServiceResponse
 };

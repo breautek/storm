@@ -18,11 +18,12 @@ import {Logger} from './Logger';
 import * as Path from 'path';
 import {Application} from './Application';
 import {ExitCode} from './ExitCode';
+import {Config} from './Config';
 
 export class ConfigLoader {
     private constructor() {}
 
-    public static load(path: string, argv?: any): Promise<any> {
+    public static load(path: string, argv?: any): Promise<Config> {
         var logger: Logger = ConfigLoader._getLogger();
 
         return new Promise<any>((resolve, reject) => {
@@ -79,7 +80,7 @@ export class ConfigLoader {
             logger.trace('Configurations merged.');
             logger.trace(config);
 
-            resolve(config);
+            resolve(<Config>config);
         })
     }
 

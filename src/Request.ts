@@ -83,6 +83,10 @@ export class Request {
         return this.request.ip;
     }
 
+    public getForwardedIP(): string {
+        return this.getHeader('X-Forwarded-FOR');
+    }
+
     public getHostname(): string {
         return this.request.hostname;
     }

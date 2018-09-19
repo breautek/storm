@@ -26,6 +26,7 @@ import {IHandler} from './IHandler';
 import {Request} from './Request';
 import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
+import {Config} from './Config';
 import * as Path from 'path';
 import * as args from 'args';
 import * as Express from 'express';
@@ -43,7 +44,7 @@ export abstract class Application extends EventEmitter {
     private logger: Logger;
     private name: string;
     private configPath: string;
-    private config: any;
+    private config: Config;
     private tokenManager: TokenManager;
     private server: any; //todo
     private db: Database;
@@ -86,7 +87,7 @@ export abstract class Application extends EventEmitter {
         this.getLogger().trace('Application is booting...');
         this.getLogger().trace('Loading Configuration...');
         
-        this.loadConfig(this.configPath).then((config: any) => {
+        this.loadConfig(this.configPath).then((config: Config) => {
             this.config = config;
             this.getLogger().trace('Configuration loaded.');
             this.emit(ApplicationEvent.CONFIG_LOADED);
@@ -220,7 +221,7 @@ export abstract class Application extends EventEmitter {
     /**
      * @returns the config object.
      */
-    public getConfig(): any {
+    public getConfig(): Config {
         return this.config;
     }
 
@@ -229,7 +230,7 @@ export abstract class Application extends EventEmitter {
      * 
      * @param config The config object (as defined in bt-config.json/bt-local-config.json)
      */
-    protected onConfigLoad(config: any): void {}
+    protected onConfigLoad(config: Config): void {}
 
     /**
      * Sets the TokenManager to be used for authentication.
@@ -276,7 +277,7 @@ export abstract class Application extends EventEmitter {
      * Subclasses are expected to override this to configure their database setup, if the service uses a database.
      * @param config The bt-config object
      */
-    protected initDB(config: any): Promise<Database> {
+    protected initDB(config: Config): Promise<Database> {
         return Promise.resolve(null);
     }
 
@@ -300,7 +301,7 @@ export abstract class Application extends EventEmitter {
      * @param config bt-config object
      * @returns the severity mask
      */
-    protected _parseLogLevelConfig(config: any): LogSeverity {
+    protected _parseLogLevelConfig(config: Config): LogSeverity {
         var llConfig: string = config.log_level;
         var severity: LogSeverity = null;
 
