@@ -68,16 +68,24 @@ export abstract class ServiceProvider {
                 headers: headers || {}
             };
 
+            this._app.getLogger().trace(`ServiceProvider Request`);
+            this._app.getLogger().trace(`METHOD: ${httpOpts.method}`);
+            this._app.getLogger().trace(`HOSTNAME: ${httpOpts.hostname}`);
+            this._app.getLogger().trace(`PORT: ${httpOpts.port}`);
+            this._app.getLogger().trace(`PATH: ${httpOpts.path}`);
+            this._app.getLogger().trace(`HEADERS: ${JSON.stringify(httpOpts.headers)}`);
+
             httpOpts.headers[this._app.getConfig().authentication_header] = accessToken;
             httpOpts.headers[this._app.getConfig().backend_authentication_header] = this._getSecret();
             
             var responseData: Buffer;
 
             var request: http.ClientRequest = http.request(httpOpts, (response: http.IncomingMessage) => {
-                console.log(`STATUS: ${response.statusCode}`);
-                console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
+                this._app.getLogger().trace(`ServiceProvider Response Status: ${response.statusCode}`)
+                this._app.getLogger().trace(`ServiceProvider Response Headers: ${JSON.stringify(response.headers)}`);
 
                 response.on('data', (chunk: Buffer) => {
+                    this._app.getLogger().trace(`ServiceProvider Received Chunk: ${chunk}`);
                     if (!responseData) {
                         responseData = chunk;
                     }
@@ -87,10 +95,12 @@ export abstract class ServiceProvider {
                 });
 
                 response.on('end', () => {
+                    this._app.getLogger().trace(`ServiceProvider request has completed.`);
                     resolve(new ServiceResponse(responseData, response));
                 });
 
                 response.on('error', (e: Error) => {
+                    this._app.getLogger().error(e.message);
                     reject(e);
                 });
             });
