@@ -24,6 +24,7 @@ import {IHandler} from './IHandler';
 import {Middleware} from './Middleware';
 import {RequestResponse} from './RequestResponse';
 import {StormError} from './StormError';
+import {Config} from './Config';
 
 export class Handler {
     private app: Application;
@@ -58,6 +59,12 @@ export class Handler {
 
     //     return promise;
     // }
+
+    public getAccessToken(request: Request): string {
+        var config: Config = getInstance().getConfig();
+        var authHeader: string = config.authentication_header;
+        return request.getHeader(authHeader);
+    }
 
     public getDB(): Database {
         return this.app.getDB();

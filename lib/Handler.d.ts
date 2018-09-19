@@ -10,6 +10,7 @@ export declare class Handler {
     private _middlewares;
     constructor(app: Application);
     protected initMiddlewares(): Array<Middleware>;
+    getAccessToken(request: Request): string;
     getDB(): Database;
     private _getNextMiddleware;
     private _executeMiddlewares;

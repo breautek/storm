@@ -1,6 +1,7 @@
 # 0.8.0 (September 19, 2018)
 - Added Config interface
 - Added ServiceProvider
+- Added Handler.getAccessToken(Request)
 
 # 0.7.2
 - Initial creation of CHANGELOG
