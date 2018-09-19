@@ -34,7 +34,7 @@ export abstract class ServiceProvider {
     }
 
     protected _getProtocol(): string {
-        return 'https';
+        return 'http';
     }
 
     public getVersion(): string {
@@ -55,18 +55,23 @@ export abstract class ServiceProvider {
             }
         }
 
-		return `${this._getProtocol()}${this._getDomain()}/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
+        return `api/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
+
+		// return `${this._getProtocol()}${this._getDomain()}/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
     }
 
     public request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return new Promise<ServiceResponse>((resolve, reject) => {
             var httpOpts: http.RequestOptions = {
                 port: this._getPort(),
-                hostname: this._getDomain(),
+                hostname: `${this._getProtocol()}://${this._getDomain()}`,
                 method: method,
                 path: url,
                 headers: headers || {}
             };
+
+            httpOpts.headers[this._app.getConfig().authentication_header] = accessToken;
+            httpOpts.headers[this._app.getConfig().backend_authentication_header] = this._getSecret();
 
             this._app.getLogger().trace(`ServiceProvider Request`);
             this._app.getLogger().trace(`METHOD: ${httpOpts.method}`);
@@ -74,9 +79,6 @@ export abstract class ServiceProvider {
             this._app.getLogger().trace(`PORT: ${httpOpts.port}`);
             this._app.getLogger().trace(`PATH: ${httpOpts.path}`);
             this._app.getLogger().trace(`HEADERS: ${JSON.stringify(httpOpts.headers)}`);
-
-            httpOpts.headers[this._app.getConfig().authentication_header] = accessToken;
-            httpOpts.headers[this._app.getConfig().backend_authentication_header] = this._getSecret();
             
             var responseData: Buffer;
 
