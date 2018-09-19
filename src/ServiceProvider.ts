@@ -55,7 +55,7 @@ export abstract class ServiceProvider {
             }
         }
 
-        return `api/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
+        return `/api/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
 
 		// return `${this._getProtocol()}${this._getDomain()}/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
     }
@@ -64,7 +64,7 @@ export abstract class ServiceProvider {
         return new Promise<ServiceResponse>((resolve, reject) => {
             var httpOpts: http.RequestOptions = {
                 port: this._getPort(),
-                hostname: `${this._getProtocol()}://${this._getDomain()}`,
+                hostname: `${this._getDomain()}`,
                 method: method,
                 path: url,
                 headers: headers || {}
