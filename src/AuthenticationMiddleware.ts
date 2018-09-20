@@ -47,23 +47,45 @@ export abstract class AuthenticationMiddleware {
     public execute(request: Request, response: Response, options?: any): Promise<any> {
         var config: Config = getInstance().getConfig();
         var authHeader: string = config.authentication_header;
-        // var backendAuthHeader: string = config.backend_authentication_header;
-        
-        // var backend: string = request.getHeader(backendAuthHeader);
-
-        // if (backend) {
-        //     if (backend === config.backend_authentication_secret) {
-        //         return Promise.resolve(null);
-        //     }
-        // }
-
-        var token: Token = new Token(request.getHeader(authHeader));
+        var backendAuthHeader: string = config.backend_authentication_header;
+        var backend: string = request.getHeader(backendAuthHeader);
 
         return new Promise<any>((resolve, reject) => {
+            var token: Token = new Token(request.getHeader(authHeader));
             var tokenManager: TokenManager = getInstance().getTokenManager();
+            var isBackendCall: boolean = false;
 
-            tokenManager.verify(token).then((data) => {
-                return this.authenticate(data, options);
+            if (backend) {
+                if (options.allowedBackends) {
+                    if (options.allowedBackends.indexOf(backend) > -1) {
+                        isBackendCall = true;
+                    }
+                    else {
+                        return reject(new ResponseData(StatusCode.ERR_FORBIDDEN, {
+                            code: 1,
+                            reason: ''
+                        }));
+                    }
+                }
+                else {
+                    return reject(new ResponseData(StatusCode.ERR_FORBIDDEN, {
+                        code: 0,
+                        reason: 'This API is not back-end enabled'
+                    }));
+                }
+            }
+
+            var tokenManagerPromise: Promise<any>;
+
+            if (isBackendCall) {
+                tokenManagerPromise = tokenManager.decode(token);
+            }
+            else {
+                tokenManagerPromise = tokenManager.verify(token);
+            }
+
+            tokenManagerPromise.then((data: any) => {
+                return this.authenticate(data, options, isBackendCall);
             }).then((data) => {
                 resolve(data);
             }).catch((error) => {
@@ -90,5 +112,5 @@ export abstract class AuthenticationMiddleware {
      * @param tokenData 
      * @param options 
      */
-    protected abstract authenticate(tokenData: any, options?: any): Promise<any>;
+    protected abstract authenticate(tokenData: any, options: any, isBackendCall: boolean): Promise<any>;
 }

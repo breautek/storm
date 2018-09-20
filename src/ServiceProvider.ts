@@ -56,8 +56,6 @@ export abstract class ServiceProvider {
         }
 
         return `/api/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
-
-		// return `${this._getProtocol()}${this._getDomain()}/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
     }
 
     public request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
