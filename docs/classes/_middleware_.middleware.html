@@ -79,7 +79,7 @@
 								<a href="_loggermiddleware_.loggermiddleware.html" class="tsd-signature-type">LoggerMiddleware</a>
 							</li>
 							<li>
-								<a href="_authenticationmiddleware_.authenticationmiddleware.html" class="tsd-signature-type">AuthenticationMiddleware</a>
+								<a href="_corsmiddleware_.corsmiddleware.html" class="tsd-signature-type">CORSMiddleware</a>
 							</li>
 						</ul>
 					</li>
@@ -116,7 +116,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Middleware.ts:19</li>
+									<li>Defined in Middleware.ts:20</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a></h4>
@@ -128,15 +128,15 @@
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="execute" class="tsd-anchor"></a>
-					<h3>execute</h3>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> execute</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="_request_.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="_request_.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_requestresponse_.requestresponse.html" class="tsd-signature-type">RequestResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Middleware.ts:22</li>
+									<li>Defined in Middleware.ts:23</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -147,11 +147,8 @@
 								<li>
 									<h5>response: <a href="_response_.response.html" class="tsd-signature-type">Response</a></h5>
 								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">any</span></h5>
-								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_requestresponse_.requestresponse.html" class="tsd-signature-type">RequestResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>

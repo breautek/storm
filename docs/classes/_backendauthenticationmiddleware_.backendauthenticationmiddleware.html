@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;Application&quot; | @breautek/storm</title>
+	<title>BackendAuthenticationMiddleware | @breautek/storm</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,51 +56,130 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_application_.html">&quot;Application&quot;</a>
+					<a href="../modules/_backendauthenticationmiddleware_.html">&quot;BackendAuthenticationMiddleware&quot;</a>
+				</li>
+				<li>
+					<a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html">BackendAuthenticationMiddleware</a>
 				</li>
 			</ul>
-			<h1>External module &quot;Application&quot;</h1>
+			<h1>Class BackendAuthenticationMiddleware</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A base authentication strategy that handles 90% of the authentication process.
+							This will verify that the token hasn&#39;t been manipulated or tainted.
+							The authenticate API must be implemented by subclasses to further validate the token data
+						for their specific use cases.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">BackendAuthenticationMiddleware</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_application_.application.html" class="tsd-kind-icon">Application</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Variables</h3>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_application_.html#default_log_level" class="tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html#logger" class="tsd-kind-icon">logger</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html#execute" class="tsd-kind-icon">execute</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="default_log_level" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> DEFAULT_<wbr>LOG_<wbr>LEVEL</h3>
-					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL</span></div>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Backend<wbr>Authentication<wbr>Middleware<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html" class="tsd-signature-type">BackendAuthenticationMiddleware</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in BackendAuthenticationMiddleware.ts:35</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html" class="tsd-signature-type">BackendAuthenticationMiddleware</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="logger" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> logger</h3>
+					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="_logger_.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:38</li>
+							<li>Defined in BackendAuthenticationMiddleware.ts:35</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The default log level to log informational, warnings, errors, and fatal messages.</p>
-						</div>
-					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="execute" class="tsd-anchor"></a>
+					<h3>execute</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="_request_.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in BackendAuthenticationMiddleware.ts:47</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <a href="_request_.request.html" class="tsd-signature-type">Request</a></h5>
+								</li>
+								<li>
+									<h5>response: <a href="_response_.response.html" class="tsd-signature-type">Response</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Arbituary object containing any relevant information used for authentication.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -111,18 +190,30 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_application_.html">"<wbr>Application"</a>
+						<a href="../modules/_backendauthenticationmiddleware_.html">"<wbr>Backend<wbr>Authentication<wbr>Middleware"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_application_.application.html" class="tsd-kind-icon">Application</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html" class="tsd-kind-icon">Backend<wbr>Authentication<wbr>Middleware</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html#logger" class="tsd-kind-icon">logger</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_backendauthenticationmiddleware_.backendauthenticationmiddleware.html#execute" class="tsd-kind-icon">execute</a>
+							</li>
+						</ul>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_application_.html#default_log_level" class="tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL</a>
-					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

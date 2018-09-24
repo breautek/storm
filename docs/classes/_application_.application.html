@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Test comment</p>
+						<p>Main entry point for the Application. Should be extended and have the abstract methods implemented.</p>
 					</div>
 				</div>
 			</section>
@@ -102,6 +102,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#_argv" class="tsd-kind-icon">_argv</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#_logconfigdefaulting" class="tsd-kind-icon">_log<wbr>Config<wbr>Defaulting</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#config" class="tsd-kind-icon">config</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#configpath" class="tsd-kind-icon">config<wbr>Path</a></li>
@@ -116,7 +117,9 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#_createlogger" class="tsd-kind-icon">_create<wbr>Logger</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#_buildargoptions" class="tsd-kind-icon">$build<wbr>Arg<wbr>Options</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#_buildargoptions-1" class="tsd-kind-icon">_build<wbr>Arg<wbr>Options</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#_createlogger" class="tsd-kind-icon">_create<wbr>Logger</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#_llstrtoseverity" class="tsd-kind-icon">_ll<wbr>Str<wbr>ToSeverity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#_parseloglevelconfig" class="tsd-kind-icon">_parse<wbr>Log<wbr>Level<wbr>Config</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#_setdefaultloglevel" class="tsd-kind-icon">_set<wbr>Default<wbr>Log<wbr>Level</a></li>
@@ -165,19 +168,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:47</li>
+									<li>Defined in Application.ts:52</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The application name</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>configPath: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The directory where bt-config.json and bt-local-config.json can be found. Defaults to current working directory.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> logSeverity: <a href="../enums/_logseverity_.logseverity.html" class="tsd-signature-type">LogSeverity</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Log severity. Defaults to INFO | WARNING | ERROR | FATAL</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_application_.application.html" class="tsd-signature-type">Application</a></h4>
@@ -188,22 +208,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_argv" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _argv</h3>
+					<div class="tsd-signature tsd-kind-icon">_argv<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Application.ts:52</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_logconfigdefaulting" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _log<wbr>Config<wbr>Defaulting</h3>
 					<div class="tsd-signature tsd-kind-icon">_log<wbr>Config<wbr>Defaulting<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:47</li>
+							<li>Defined in Application.ts:51</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="config" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> config</h3>
-					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:43</li>
+							<li>Defined in Application.ts:47</li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +243,7 @@
 					<div class="tsd-signature tsd-kind-icon">config<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:42</li>
+							<li>Defined in Application.ts:46</li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +253,7 @@
 					<div class="tsd-signature tsd-kind-icon">db<span class="tsd-signature-symbol">:</span> <a href="_database_.database.html" class="tsd-signature-type">Database</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:46</li>
+							<li>Defined in Application.ts:50</li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +263,7 @@
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="_logger_.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:40</li>
+							<li>Defined in Application.ts:44</li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +273,7 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:41</li>
+							<li>Defined in Application.ts:45</li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +283,7 @@
 					<div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:45</li>
+							<li>Defined in Application.ts:49</li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +293,7 @@
 					<div class="tsd-signature tsd-kind-icon">token<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="_tokenmanager_.tokenmanager.html" class="tsd-signature-type">TokenManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:44</li>
+							<li>Defined in Application.ts:48</li>
 						</ul>
 					</aside>
 				</section>
@@ -274,7 +304,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from EventEmitter.defaultMaxListeners</p>
 						<ul>
-							<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:812</li>
+							<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:914</li>
 						</ul>
 					</aside>
 				</section>
@@ -282,19 +312,65 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_createlogger" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _create<wbr>Logger</h3>
+					<a name="_buildargoptions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> $build<wbr>Arg<wbr>Options</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">$build<wbr>Arg<wbr>Options<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Application.ts:147</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="_buildargoptions-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _build<wbr>Arg<wbr>Options</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">_build<wbr>Arg<wbr>Options<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Application.ts:157</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>args: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="_createlogger" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _create<wbr>Logger</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">_create<wbr>Logger<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_logger_.logger.html" class="tsd-signature-type">Logger</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:275</li>
+									<li>Defined in Application.ts:288</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates the logger instance used by the application</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_logger_.logger.html" class="tsd-signature-type">Logger</a></h4>
+							<p>Logger</p>
 						</li>
 					</ul>
 				</section>
@@ -308,13 +384,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:349</li>
+									<li>Defined in Application.ts:351</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Translates the severity string to its corresponding enumeration value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>ll: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>sevierty string</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/_logseverity_.logseverity.html" class="tsd-signature-type">LogSeverity</a></h4>
@@ -325,22 +409,31 @@
 					<a name="_parseloglevelconfig" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _parse<wbr>Log<wbr>Level<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_parse<wbr>Log<wbr>Level<wbr>Config<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_logseverity_.logseverity.html" class="tsd-signature-type">LogSeverity</a></li>
+						<li class="tsd-signature tsd-kind-icon">_parse<wbr>Log<wbr>Level<wbr>Config<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_logseverity_.logseverity.html" class="tsd-signature-type">LogSeverity</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:306</li>
+									<li>Defined in Application.ts:304</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parses the log severity flags from the config object.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <span class="tsd-signature-type">any</span></h5>
+									<h5>config: <a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>bt-config object</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/_logseverity_.logseverity.html" class="tsd-signature-type">LogSeverity</a></h4>
+							<p>the severity mask</p>
 						</li>
 					</ul>
 				</section>
@@ -354,9 +447,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:302</li>
+									<li>Defined in Application.ts:295</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the default log level on the Logger</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -373,7 +471,7 @@
 								<p>Inherited from EventEmitter.addListener</p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:814</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:916</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -417,16 +515,24 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:140</li>
+									<li>Defined in Application.ts:171</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The URL API path. E.g. /api/myService/myCommand/</p>
+									</div>
 								</li>
 								<li>
 									<h5>HandlerClass: <a href="../interfaces/_ihandler_.ihandler.html" class="tsd-signature-type">IHandler</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The concrete class (not the instance) of Handler to be used for this API.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -435,7 +541,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="attachhandlers" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> attach<wbr>Handlers</h3>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> attach<wbr>Handlers</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">attach<wbr>Handlers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
@@ -443,10 +549,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:156</li>
+									<li>Defined in Application.ts:195</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Subclasses are expected to attach the API handlers for their service. This will be invoked during application startup.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Promise<void></p>
 						</li>
 					</ul>
 				</section>
@@ -462,7 +574,7 @@
 								<p>Inherited from EventEmitter.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:824</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:926</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -490,7 +602,7 @@
 								<p>Inherited from EventEmitter.eventNames</p>
 								<p>Overrides EventEmitter.eventNames</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:825</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:927</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -507,10 +619,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:245</li>
+									<li>Defined in Application.ts:260</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>command line arguments</p>
 						</li>
 					</ul>
 				</section>
@@ -518,16 +633,19 @@
 					<a name="getconfig" class="tsd-anchor"></a>
 					<h3>get<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Config<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Config<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:227</li>
+									<li>Defined in Application.ts:224</li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a></h4>
+							<p>the config object.</p>
 						</li>
 					</ul>
 				</section>
@@ -541,10 +659,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:241</li>
+									<li>Defined in Application.ts:253</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_database_.database.html" class="tsd-signature-type">Database</a></h4>
+							<p>the database pool. This will need to be casted based on your preferred database dialect.</p>
 						</li>
 					</ul>
 				</section>
@@ -558,10 +679,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:223</li>
+									<li>Defined in Application.ts:217</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_logger_.logger.html" class="tsd-signature-type">Logger</a></h4>
+							<p>the application&#39;s logger</p>
 						</li>
 					</ul>
 				</section>
@@ -577,7 +701,7 @@
 								<p>Inherited from EventEmitter.getMaxListeners</p>
 								<p>Overrides EventEmitter.getMaxListeners</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:822</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:924</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -594,10 +718,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:219</li>
+									<li>Defined in Application.ts:210</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the application name</p>
 						</li>
 					</ul>
 				</section>
@@ -611,9 +738,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:136</li>
+									<li>Defined in Application.ts:162</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The maximum size limit for incoming requests that this service needs to handle.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
@@ -628,10 +760,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:237</li>
+									<li>Defined in Application.ts:246</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_tokenmanager_.tokenmanager.html" class="tsd-signature-type">TokenManager</a></h4>
+							<p>the token manager</p>
 						</li>
 					</ul>
 				</section>
@@ -639,19 +774,27 @@
 					<a name="initdb" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> initDB</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">initDB<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_database_.database.html" class="tsd-signature-type">Database</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">initDB<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_database_.database.html" class="tsd-signature-type">Database</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:271</li>
+									<li>Defined in Application.ts:280</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Subclasses are expected to override this to configure their database setup, if the service uses a database.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <span class="tsd-signature-type">any</span></h5>
+									<h5>config: <a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The bt-config object</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_database_.database.html" class="tsd-signature-type">Database</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -670,7 +813,7 @@
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<p>Overrides EventEmitter.listenerCount</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:826</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:928</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -695,7 +838,7 @@
 								<p>Inherited from EventEmitter.listeners</p>
 								<p>Overrides EventEmitter.listeners</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:823</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:925</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -718,13 +861,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:158</li>
+									<li>Defined in Application.ts:201</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The directory path that contains bt-config.json and bt-local-config.json</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -743,7 +891,7 @@
 								<p>Inherited from EventEmitter.on</p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:815</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:917</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -781,19 +929,27 @@
 					<a name="onconfigload" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Config<wbr>Load</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Config<wbr>Load<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Config<wbr>Load<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:231</li>
+									<li>Defined in Application.ts:233</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Invoked once the config has been loaded and ready to be used.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <span class="tsd-signature-type">any</span></h5>
+									<h5>config: <a href="../interfaces/_config_.config.html" class="tsd-signature-type">Config</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The config object (as defined in bt-config.json/bt-local-config.json)</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -810,9 +966,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:370</li>
+									<li>Defined in Application.ts:375</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Invoked when the application is considered ready for operation.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -829,7 +990,7 @@
 								<p>Inherited from EventEmitter.once</p>
 								<p>Overrides EventEmitter.once</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:816</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:918</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -875,7 +1036,7 @@
 								<p>Inherited from EventEmitter.prependListener</p>
 								<p>Overrides EventEmitter.prependListener</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:817</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:919</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -921,7 +1082,7 @@
 								<p>Inherited from EventEmitter.prependOnceListener</p>
 								<p>Overrides EventEmitter.prependOnceListener</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:818</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:920</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -967,7 +1128,7 @@
 								<p>Inherited from EventEmitter.removeAllListeners</p>
 								<p>Overrides EventEmitter.removeAllListeners</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:820</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:922</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -992,7 +1153,7 @@
 								<p>Inherited from EventEmitter.removeListener</p>
 								<p>Overrides EventEmitter.removeListener</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:819</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:921</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1038,7 +1199,7 @@
 								<p>Inherited from EventEmitter.setMaxListeners</p>
 								<p>Overrides EventEmitter.setMaxListeners</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:821</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:923</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1061,13 +1222,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:233</li>
+									<li>Defined in Application.ts:239</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the TokenManager to be used for authentication.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tokenManager: <a href="_tokenmanager_.tokenmanager.html" class="tsd-signature-type">TokenManager</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1085,7 +1253,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<ul>
-									<li>Defined in /mnt/c/Users/tp/development/bt-api-framework/node_modules/@types/node/index.d.ts:811</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:913</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1125,6 +1293,9 @@
 								<a href="_application_.application.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_application_.application.html#_argv" class="tsd-kind-icon">_argv</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_application_.application.html#_logconfigdefaulting" class="tsd-kind-icon">_log<wbr>Config<wbr>Defaulting</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -1152,6 +1323,12 @@
 								<a href="_application_.application.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_application_.application.html#_buildargoptions" class="tsd-kind-icon">$build<wbr>Arg<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_application_.application.html#_buildargoptions-1" class="tsd-kind-icon">_build<wbr>Arg<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_application_.application.html#_createlogger" class="tsd-kind-icon">_create<wbr>Logger</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">

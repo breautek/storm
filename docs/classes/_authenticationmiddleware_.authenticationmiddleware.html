@@ -69,16 +69,21 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A base authentication strategy that handles 90% of the authentication process.
+							This will verify that the token hasn&#39;t been manipulated or tainted.
+							The authenticate API must be implemented by subclasses to further validate the token data
+						for their specific use cases.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">AuthenticationMiddleware</span>
-							</li>
-						</ul>
+						<span class="target">AuthenticationMiddleware</span>
 					</li>
 				</ul>
 			</section>
@@ -89,7 +94,7 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_authenticationmiddleware_.authenticationmiddleware.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_authenticationmiddleware_.authenticationmiddleware.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
@@ -102,7 +107,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_authenticationmiddleware_.authenticationmiddleware.html#authenticate" class="tsd-kind-icon">authenticate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_authenticationmiddleware_.authenticationmiddleware.html#execute" class="tsd-kind-icon">execute</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_authenticationmiddleware_.authenticationmiddleware.html#execute" class="tsd-kind-icon">execute</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,18 +115,17 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Authentication<wbr>Middleware<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_authenticationmiddleware_.authenticationmiddleware.html" class="tsd-signature-type">AuthenticationMiddleware</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_middleware_.middleware.html">Middleware</a>.<a href="_middleware_.middleware.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in AuthenticationMiddleware.ts:28</li>
+									<li>Defined in AuthenticationMiddleware.ts:35</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_authenticationmiddleware_.authenticationmiddleware.html" class="tsd-signature-type">AuthenticationMiddleware</a></h4>
@@ -137,7 +141,7 @@
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="_logger_.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in AuthenticationMiddleware.ts:28</li>
+							<li>Defined in AuthenticationMiddleware.ts:35</li>
 						</ul>
 					</aside>
 				</section>
@@ -146,44 +150,55 @@
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="authenticate" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> authenticate</h3>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> authenticate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">authenticate<span class="tsd-signature-symbol">(</span>tokenData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">authenticate<span class="tsd-signature-symbol">(</span>tokenData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, isBackendCall<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in AuthenticationMiddleware.ts:66</li>
+									<li>Defined in AuthenticationMiddleware.ts:115</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Subclasses are expected to implement this API to further validate the token data, as required by their application or API.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tokenData: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+								<li>
+									<h5>isBackendCall: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="execute" class="tsd-anchor"></a>
 					<h3>execute</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="_request_.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_middleware_.middleware.html">Middleware</a>.<a href="_middleware_.middleware.html#execute">execute</a></p>
 								<ul>
-									<li>Defined in AuthenticationMiddleware.ts:35</li>
+									<li>Defined in AuthenticationMiddleware.ts:47</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -194,6 +209,9 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Arbituary object containing any relevant information used for authentication.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -220,7 +238,7 @@
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_authenticationmiddleware_.authenticationmiddleware.html" class="tsd-kind-icon">Authentication<wbr>Middleware</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_authenticationmiddleware_.authenticationmiddleware.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -229,7 +247,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_authenticationmiddleware_.authenticationmiddleware.html#authenticate" class="tsd-kind-icon">authenticate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_authenticationmiddleware_.authenticationmiddleware.html#execute" class="tsd-kind-icon">execute</a>
 							</li>
 						</ul>

@@ -90,9 +90,9 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_handler_.handler.html#_middlewares" class="tsd-kind-icon">_middlewares</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_handler_.handler.html#app" class="tsd-kind-icon">app</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_handler_.handler.html#logrequests" class="tsd-kind-icon">log<wbr>Requests</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_handler_.handler.html#loggermiddleware" class="tsd-kind-icon">logger<wbr>Middleware</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -100,10 +100,13 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_copy" class="tsd-kind-icon">_copy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_delete" class="tsd-kind-icon">_delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_handler_.handler.html#_executemiddlewares" class="tsd-kind-icon">_execute<wbr>Middlewares</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_get" class="tsd-kind-icon">_get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_handler_.handler.html#_getnextmiddleware" class="tsd-kind-icon">_get<wbr>Next<wbr>Middleware</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_head" class="tsd-kind-icon">_head</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_link" class="tsd-kind-icon">_link</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_lock" class="tsd-kind-icon">_lock</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_onmiddlewarereject" class="tsd-kind-icon">_on<wbr>Middleware<wbr>Reject</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_options" class="tsd-kind-icon">_options</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_patch" class="tsd-kind-icon">_patch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#_post" class="tsd-kind-icon">_post</a></li>
@@ -115,12 +118,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#copy" class="tsd-kind-icon">copy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#delete" class="tsd-kind-icon">delete</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#getaccesstoken" class="tsd-kind-icon">get<wbr>Access<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#getdb" class="tsd-kind-icon">getDB</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#head" class="tsd-kind-icon">head</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#initloggermiddleware" class="tsd-kind-icon">init<wbr>Logger<wbr>Middleware</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_handler_.handler.html#initmiddlewares" class="tsd-kind-icon">init<wbr>Middlewares</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#link" class="tsd-kind-icon">link</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#lock" class="tsd-kind-icon">lock</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_handler_.handler.html#log" class="tsd-kind-icon">log</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#options" class="tsd-kind-icon">options</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#patch" class="tsd-kind-icon">patch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_handler_.handler.html#post" class="tsd-kind-icon">post</a></li>
@@ -146,7 +149,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:29</li>
+									<li>Defined in Handler.ts:33</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -163,12 +166,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_middlewares" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _middlewares</h3>
+					<div class="tsd-signature tsd-kind-icon">_middlewares<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Handler.ts:33</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="app" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> app</h3>
 					<div class="tsd-signature tsd-kind-icon">app<span class="tsd-signature-symbol">:</span> <a href="_application_.application.html" class="tsd-signature-type">Application</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Handler.ts:27</li>
+							<li>Defined in Handler.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -178,17 +191,7 @@
 					<div class="tsd-signature tsd-kind-icon">log<wbr>Requests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Handler.ts:28</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="loggermiddleware" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> logger<wbr>Middleware</h3>
-					<div class="tsd-signature tsd-kind-icon">logger<wbr>Middleware<span class="tsd-signature-symbol">:</span> <a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in Handler.ts:29</li>
+							<li>Defined in Handler.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -205,7 +208,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:162</li>
+									<li>Defined in Handler.ts:228</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -231,7 +234,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:154</li>
+									<li>Defined in Handler.ts:220</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -244,6 +247,35 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_executemiddlewares" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _execute<wbr>Middlewares</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_execute<wbr>Middlewares<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="_request_.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a>, index<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Handler.ts:77</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <a href="_request_.request.html" class="tsd-signature-type">Request</a></h5>
+								</li>
+								<li>
+									<h5>response: <a href="_response_.response.html" class="tsd-signature-type">Response</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> index: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -257,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:142</li>
+									<li>Defined in Handler.ts:208</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -273,6 +305,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_getnextmiddleware" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _get<wbr>Next<wbr>Middleware</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_get<wbr>Next<wbr>Middleware<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Handler.ts:73</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="_head" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _head</h3>
@@ -283,7 +338,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:166</li>
+									<li>Defined in Handler.ts:232</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -309,7 +364,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:174</li>
+									<li>Defined in Handler.ts:240</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -335,7 +390,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:186</li>
+									<li>Defined in Handler.ts:252</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -352,6 +407,35 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="_onmiddlewarereject" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _on<wbr>Middleware<wbr>Reject</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">_on<wbr>Middleware<wbr>Reject<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="_request_.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a>, error<span class="tsd-signature-symbol">: </span><a href="_stormerror_.stormerror.html" class="tsd-signature-type">StormError</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Handler.ts:92</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <a href="_request_.request.html" class="tsd-signature-type">Request</a></h5>
+								</li>
+								<li>
+									<h5>response: <a href="_response_.response.html" class="tsd-signature-type">Response</a></h5>
+								</li>
+								<li>
+									<h5>error: <a href="_stormerror_.stormerror.html" class="tsd-signature-type">StormError</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="_options" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _options</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
@@ -361,7 +445,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:170</li>
+									<li>Defined in Handler.ts:236</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -387,7 +471,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:158</li>
+									<li>Defined in Handler.ts:224</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -413,7 +497,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:146</li>
+									<li>Defined in Handler.ts:212</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -439,7 +523,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:182</li>
+									<li>Defined in Handler.ts:248</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -465,7 +549,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:150</li>
+									<li>Defined in Handler.ts:216</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -491,7 +575,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:178</li>
+									<li>Defined in Handler.ts:244</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -517,7 +601,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:190</li>
+									<li>Defined in Handler.ts:256</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -543,7 +627,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:194</li>
+									<li>Defined in Handler.ts:260</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -569,7 +653,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:88</li>
+									<li>Defined in Handler.ts:136</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -595,7 +679,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:76</li>
+									<li>Defined in Handler.ts:120</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -621,7 +705,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:58</li>
+									<li>Defined in Handler.ts:96</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -638,6 +722,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getaccesstoken" class="tsd-anchor"></a>
+					<h3>get<wbr>Access<wbr>Token</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Access<wbr>Token<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="_request_.request.html" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Handler.ts:63</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <a href="_request_.request.html" class="tsd-signature-type">Request</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getdb" class="tsd-anchor"></a>
 					<h3>getDB</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -647,7 +754,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:54</li>
+									<li>Defined in Handler.ts:69</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_database_.database.html" class="tsd-signature-type">Database</a></h4>
@@ -664,7 +771,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:94</li>
+									<li>Defined in Handler.ts:144</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -681,19 +788,19 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-					<a name="initloggermiddleware" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> init<wbr>Logger<wbr>Middleware</h3>
+					<a name="initmiddlewares" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> init<wbr>Middlewares</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">init<wbr>Logger<wbr>Middleware<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a></li>
+						<li class="tsd-signature tsd-kind-icon">init<wbr>Middlewares<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:37</li>
+									<li>Defined in Handler.ts:46</li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_middleware_.middleware.html" class="tsd-signature-type">Middleware</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -707,7 +814,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:106</li>
+									<li>Defined in Handler.ts:160</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -733,7 +840,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:124</li>
+									<li>Defined in Handler.ts:184</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -749,32 +856,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="log" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> log</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">log<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="_request_.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in Handler.ts:41</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>request: <a href="_request_.request.html" class="tsd-signature-type">Request</a></h5>
-								</li>
-								<li>
-									<h5>response: <a href="_response_.response.html" class="tsd-signature-type">Response</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="options" class="tsd-anchor"></a>
 					<h3>options</h3>
@@ -785,7 +866,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:100</li>
+									<li>Defined in Handler.ts:152</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -811,7 +892,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:82</li>
+									<li>Defined in Handler.ts:128</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -837,7 +918,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:70</li>
+									<li>Defined in Handler.ts:112</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -863,7 +944,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:118</li>
+									<li>Defined in Handler.ts:176</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -889,7 +970,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:64</li>
+									<li>Defined in Handler.ts:104</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -915,7 +996,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:112</li>
+									<li>Defined in Handler.ts:168</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -941,7 +1022,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:130</li>
+									<li>Defined in Handler.ts:192</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -967,7 +1048,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Handler.ts:136</li>
+									<li>Defined in Handler.ts:200</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1007,13 +1088,13 @@
 								<a href="_handler_.handler.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_handler_.handler.html#_middlewares" class="tsd-kind-icon">_middlewares</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_handler_.handler.html#app" class="tsd-kind-icon">app</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_handler_.handler.html#logrequests" class="tsd-kind-icon">log<wbr>Requests</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_handler_.handler.html#loggermiddleware" class="tsd-kind-icon">logger<wbr>Middleware</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_handler_.handler.html#_copy" class="tsd-kind-icon">_copy</a>
@@ -1021,8 +1102,14 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_handler_.handler.html#_delete" class="tsd-kind-icon">_delete</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_handler_.handler.html#_executemiddlewares" class="tsd-kind-icon">_execute<wbr>Middlewares</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_handler_.handler.html#_get" class="tsd-kind-icon">_get</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_handler_.handler.html#_getnextmiddleware" class="tsd-kind-icon">_get<wbr>Next<wbr>Middleware</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_handler_.handler.html#_head" class="tsd-kind-icon">_head</a>
@@ -1032,6 +1119,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_handler_.handler.html#_lock" class="tsd-kind-icon">_lock</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_handler_.handler.html#_onmiddlewarereject" class="tsd-kind-icon">_on<wbr>Middleware<wbr>Reject</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_handler_.handler.html#_options" class="tsd-kind-icon">_options</a>
@@ -1067,22 +1157,22 @@
 								<a href="_handler_.handler.html#get" class="tsd-kind-icon">get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_handler_.handler.html#getaccesstoken" class="tsd-kind-icon">get<wbr>Access<wbr>Token</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_handler_.handler.html#getdb" class="tsd-kind-icon">getDB</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_handler_.handler.html#head" class="tsd-kind-icon">head</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="_handler_.handler.html#initloggermiddleware" class="tsd-kind-icon">init<wbr>Logger<wbr>Middleware</a>
+								<a href="_handler_.handler.html#initmiddlewares" class="tsd-kind-icon">init<wbr>Middlewares</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_handler_.handler.html#link" class="tsd-kind-icon">link</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_handler_.handler.html#lock" class="tsd-kind-icon">lock</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_handler_.handler.html#log" class="tsd-kind-icon">log</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_handler_.handler.html#options" class="tsd-kind-icon">options</a>

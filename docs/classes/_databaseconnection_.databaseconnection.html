@@ -95,6 +95,8 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_databaseconnection_.databaseconnection.html#_instantiationstack" class="tsd-kind-icon">_instantiation<wbr>Stack</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_databaseconnection_.databaseconnection.html#_lingertimer" class="tsd-kind-icon">_linger<wbr>Timer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_databaseconnection_.databaseconnection.html#_timeout" class="tsd-kind-icon">_timeout</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_databaseconnection_.databaseconnection.html#api" class="tsd-kind-icon">api</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_databaseconnection_.databaseconnection.html#readonly" class="tsd-kind-icon">read<wbr>Only</a></li>
@@ -103,9 +105,14 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_databaseconnection_.databaseconnection.html#_armlingerwarning" class="tsd-kind-icon">_arm<wbr>Linger<wbr>Warning</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_databaseconnection_.databaseconnection.html#_close" class="tsd-kind-icon">_close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_databaseconnection_.databaseconnection.html#_query" class="tsd-kind-icon">_query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_databaseconnection_.databaseconnection.html#_triggerlingerwarning" class="tsd-kind-icon">_trigger<wbr>Linger<wbr>Warning</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_databaseconnection_.databaseconnection.html#close" class="tsd-kind-icon">close</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_databaseconnection_.databaseconnection.html#commit" class="tsd-kind-icon">commit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_databaseconnection_.databaseconnection.html#getapi" class="tsd-kind-icon">getAPI</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_databaseconnection_.databaseconnection.html#getinstantiationstack" class="tsd-kind-icon">get<wbr>Instantiation<wbr>Stack</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_databaseconnection_.databaseconnection.html#gettimeout" class="tsd-kind-icon">get<wbr>Timeout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_databaseconnection_.databaseconnection.html#isreadonly" class="tsd-kind-icon">is<wbr>Read<wbr>Only</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_databaseconnection_.databaseconnection.html#query" class="tsd-kind-icon">query</a></li>
@@ -123,13 +130,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Database<wbr>Connection<span class="tsd-signature-symbol">(</span>api<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, isReadOnly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_databaseconnection_.databaseconnection.html" class="tsd-signature-type">DatabaseConnection</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Database<wbr>Connection<span class="tsd-signature-symbol">(</span>api<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, isReadOnly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, instantiationStack<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_databaseconnection_.databaseconnection.html" class="tsd-signature-type">DatabaseConnection</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:19</li>
+									<li>Defined in DatabaseConnection.ts:27</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,6 +147,9 @@
 								<li>
 									<h5>isReadOnly: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
+								<li>
+									<h5>instantiationStack: <span class="tsd-signature-type">string</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_databaseconnection_.databaseconnection.html" class="tsd-signature-type">DatabaseConnection</a></h4>
 						</li>
@@ -149,12 +159,32 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_instantiationstack" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _instantiation<wbr>Stack</h3>
+					<div class="tsd-signature tsd-kind-icon">_instantiation<wbr>Stack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in DatabaseConnection.ts:27</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_lingertimer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _linger<wbr>Timer</h3>
+					<div class="tsd-signature tsd-kind-icon">_linger<wbr>Timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Timer</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in DatabaseConnection.ts:26</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_timeout" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _timeout</h3>
 					<div class="tsd-signature tsd-kind-icon">_timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in DatabaseConnection.ts:19</li>
+							<li>Defined in DatabaseConnection.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">api<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in DatabaseConnection.ts:17</li>
+							<li>Defined in DatabaseConnection.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -174,13 +204,90 @@
 					<div class="tsd-signature tsd-kind-icon">read<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in DatabaseConnection.ts:18</li>
+							<li>Defined in DatabaseConnection.ts:24</li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_armlingerwarning" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _arm<wbr>Linger<wbr>Warning</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_arm<wbr>Linger<wbr>Warning<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in DatabaseConnection.ts:54</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="_close" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> _close</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">_close<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in DatabaseConnection.ts:97</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="_query" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> _query</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">_query<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in DatabaseConnection.ts:98</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>query: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> params: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_triggerlingerwarning" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _trigger<wbr>Linger<wbr>Warning</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_trigger<wbr>Linger<wbr>Warning<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in DatabaseConnection.ts:46</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
@@ -191,7 +298,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:52</li>
+									<li>Defined in DatabaseConnection.ts:89</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -200,7 +307,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="commit" class="tsd-anchor"></a>
-					<h3>commit</h3>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> commit</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">commit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
@@ -208,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:50</li>
+									<li>Defined in DatabaseConnection.ts:95</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -225,10 +332,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:29</li>
+									<li>Defined in DatabaseConnection.ts:64</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getinstantiationstack" class="tsd-anchor"></a>
+					<h3>get<wbr>Instantiation<wbr>Stack</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Instantiation<wbr>Stack<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in DatabaseConnection.ts:50</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -242,7 +366,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:45</li>
+									<li>Defined in DatabaseConnection.ts:80</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -259,7 +383,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:33</li>
+									<li>Defined in DatabaseConnection.ts:68</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -276,7 +400,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:53</li>
+									<li>Defined in DatabaseConnection.ts:84</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -294,7 +418,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="rollback" class="tsd-anchor"></a>
-					<h3>rollback</h3>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> rollback</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">rollback<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
@@ -302,7 +426,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:51</li>
+									<li>Defined in DatabaseConnection.ts:96</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -319,7 +443,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:37</li>
+									<li>Defined in DatabaseConnection.ts:72</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -334,7 +458,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="starttransaction" class="tsd-anchor"></a>
-					<h3>start<wbr>Transaction</h3>
+					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> start<wbr>Transaction</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">start<wbr>Transaction<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
@@ -342,7 +466,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in DatabaseConnection.ts:49</li>
+									<li>Defined in DatabaseConnection.ts:94</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -373,6 +497,12 @@
 								<a href="_databaseconnection_.databaseconnection.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_databaseconnection_.databaseconnection.html#_instantiationstack" class="tsd-kind-icon">_instantiation<wbr>Stack</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_databaseconnection_.databaseconnection.html#_lingertimer" class="tsd-kind-icon">_linger<wbr>Timer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_databaseconnection_.databaseconnection.html#_timeout" class="tsd-kind-icon">_timeout</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -380,6 +510,18 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_databaseconnection_.databaseconnection.html#readonly" class="tsd-kind-icon">read<wbr>Only</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_databaseconnection_.databaseconnection.html#_armlingerwarning" class="tsd-kind-icon">_arm<wbr>Linger<wbr>Warning</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_databaseconnection_.databaseconnection.html#_close" class="tsd-kind-icon">_close</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_databaseconnection_.databaseconnection.html#_query" class="tsd-kind-icon">_query</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_databaseconnection_.databaseconnection.html#_triggerlingerwarning" class="tsd-kind-icon">_trigger<wbr>Linger<wbr>Warning</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_databaseconnection_.databaseconnection.html#close" class="tsd-kind-icon">close</a>
@@ -389,6 +531,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_databaseconnection_.databaseconnection.html#getapi" class="tsd-kind-icon">getAPI</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_databaseconnection_.databaseconnection.html#getinstantiationstack" class="tsd-kind-icon">get<wbr>Instantiation<wbr>Stack</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_databaseconnection_.databaseconnection.html#gettimeout" class="tsd-kind-icon">get<wbr>Timeout</a>
@@ -412,6 +557,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../modules/_databaseconnection_.html#linger_warning" class="tsd-kind-icon">LINGER_<wbr>WARNING</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

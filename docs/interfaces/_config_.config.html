@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;Application&quot; | @breautek/storm</title>
+	<title>Config | @breautek/storm</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,51 +56,106 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_application_.html">&quot;Application&quot;</a>
+					<a href="../modules/_config_.html">&quot;Config&quot;</a>
+				</li>
+				<li>
+					<a href="_config_.config.html">Config</a>
 				</li>
 			</ul>
-			<h1>External module &quot;Application&quot;</h1>
+			<h1>Interface Config</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Config</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_application_.application.html" class="tsd-kind-icon">Application</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Variables</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_application_.html#default_log_level" class="tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_.config.html#authentication_header" class="tsd-kind-icon">authentication_<wbr>header</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_.config.html#backend_authentication_header" class="tsd-kind-icon">backend_<wbr>authentication_<wbr>header</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_.config.html#backend_authentication_secret" class="tsd-kind-icon">backend_<wbr>authentication_<wbr>secret</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_.config.html#binding_ip" class="tsd-kind-icon">binding_<wbr>ip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_.config.html#log_level" class="tsd-kind-icon">log_<wbr>level</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_config_.config.html#port" class="tsd-kind-icon">port</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="default_log_level" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> DEFAULT_<wbr>LOG_<wbr>LEVEL</h3>
-					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL</span></div>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="authentication_header" class="tsd-anchor"></a>
+					<h3>authentication_<wbr>header</h3>
+					<div class="tsd-signature tsd-kind-icon">authentication_<wbr>header<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Application.ts:38</li>
+							<li>Defined in Config.ts:7</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The default log level to log informational, warnings, errors, and fatal messages.</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="backend_authentication_header" class="tsd-anchor"></a>
+					<h3>backend_<wbr>authentication_<wbr>header</h3>
+					<div class="tsd-signature tsd-kind-icon">backend_<wbr>authentication_<wbr>header<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Config.ts:8</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="backend_authentication_secret" class="tsd-anchor"></a>
+					<h3>backend_<wbr>authentication_<wbr>secret</h3>
+					<div class="tsd-signature tsd-kind-icon">backend_<wbr>authentication_<wbr>secret<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Config.ts:9</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="binding_ip" class="tsd-anchor"></a>
+					<h3>binding_<wbr>ip</h3>
+					<div class="tsd-signature tsd-kind-icon">binding_<wbr>ip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Config.ts:3</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="log_level" class="tsd-anchor"></a>
+					<h3>log_<wbr>level</h3>
+					<div class="tsd-signature tsd-kind-icon">log_<wbr>level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Config.ts:12</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="port" class="tsd-anchor"></a>
+					<h3>port</h3>
+					<div class="tsd-signature tsd-kind-icon">port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Config.ts:4</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -111,18 +166,39 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_application_.html">"<wbr>Application"</a>
+						<a href="../modules/_config_.html">"<wbr>Config"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_application_.application.html" class="tsd-kind-icon">Application</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_config_.config.html" class="tsd-kind-icon">Config</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_.config.html#authentication_header" class="tsd-kind-icon">authentication_<wbr>header</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_.config.html#backend_authentication_header" class="tsd-kind-icon">backend_<wbr>authentication_<wbr>header</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_.config.html#backend_authentication_secret" class="tsd-kind-icon">backend_<wbr>authentication_<wbr>secret</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_.config.html#binding_ip" class="tsd-kind-icon">binding_<wbr>ip</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_.config.html#log_level" class="tsd-kind-icon">log_<wbr>level</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_config_.config.html#port" class="tsd-kind-icon">port</a>
+							</li>
+						</ul>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_application_.html#default_log_level" class="tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL</a>
-					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

@@ -90,6 +90,8 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_response_.response.html#created" class="tsd-kind-icon">created</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_response_.response.html#requesturl" class="tsd-kind-icon">requestURL</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_response_.response.html#response" class="tsd-kind-icon">response</a></li>
 							</ul>
 						</section>
@@ -99,6 +101,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#conflict" class="tsd-kind-icon">conflict</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#error" class="tsd-kind-icon">error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#forbidden" class="tsd-kind-icon">forbidden</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#getstatus" class="tsd-kind-icon">get<wbr>Status</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#internalerror" class="tsd-kind-icon">internal<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#isheaderssent" class="tsd-kind-icon">is<wbr>Headers<wbr>Sent</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#notfound" class="tsd-kind-icon">not<wbr>Found</a></li>
@@ -120,19 +123,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Response<span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">express.Response</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Response<span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">express.Response</span>, requestURL<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_response_.response.html" class="tsd-signature-type">Response</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:28</li>
+									<li>Defined in Response.ts:31</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>response: <span class="tsd-signature-type">express.Response</span></h5>
+								</li>
+								<li>
+									<h5>requestURL: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_response_.response.html" class="tsd-signature-type">Response</a></h4>
@@ -143,12 +149,32 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="created" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> created</h3>
+					<div class="tsd-signature tsd-kind-icon">created<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Response.ts:30</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="requesturl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> requestURL</h3>
+					<div class="tsd-signature tsd-kind-icon">requestURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Response.ts:31</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="response" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> response</h3>
 					<div class="tsd-signature tsd-kind-icon">response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">express.Response</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Response.ts:28</li>
+							<li>Defined in Response.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -165,7 +191,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:94</li>
+									<li>Defined in Response.ts:105</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -188,7 +214,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:82</li>
+									<li>Defined in Response.ts:93</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -211,7 +237,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:90</li>
+									<li>Defined in Response.ts:101</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -225,6 +251,23 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getstatus" class="tsd-anchor"></a>
+					<h3>get<wbr>Status</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Status<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_statuscode_.statuscode.html" class="tsd-signature-type">StatusCode</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Response.ts:44</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../enums/_statuscode_.statuscode.html" class="tsd-signature-type">StatusCode</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="internalerror" class="tsd-anchor"></a>
 					<h3>internal<wbr>Error</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -234,7 +277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:102</li>
+									<li>Defined in Response.ts:113</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -257,7 +300,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:78</li>
+									<li>Defined in Response.ts:89</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -274,7 +317,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:98</li>
+									<li>Defined in Response.ts:109</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -297,7 +340,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:51</li>
+									<li>Defined in Response.ts:62</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -320,7 +363,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:39</li>
+									<li>Defined in Response.ts:48</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -343,7 +386,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:70</li>
+									<li>Defined in Response.ts:81</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -369,7 +412,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:74</li>
+									<li>Defined in Response.ts:85</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -392,7 +435,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:34</li>
+									<li>Defined in Response.ts:39</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -415,7 +458,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:59</li>
+									<li>Defined in Response.ts:70</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -438,7 +481,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Response.ts:86</li>
+									<li>Defined in Response.ts:97</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -475,6 +518,12 @@
 								<a href="_response_.response.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_response_.response.html#created" class="tsd-kind-icon">created</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_response_.response.html#requesturl" class="tsd-kind-icon">requestURL</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_response_.response.html#response" class="tsd-kind-icon">response</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -485,6 +534,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_response_.response.html#forbidden" class="tsd-kind-icon">forbidden</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_response_.response.html#getstatus" class="tsd-kind-icon">get<wbr>Status</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_response_.response.html#internalerror" class="tsd-kind-icon">internal<wbr>Error</a>
