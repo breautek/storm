@@ -31,6 +31,6 @@ export class EntityNotFoundError extends StormError {
     }
 
     public getHTTPCode(): StatusCode {
-        return StatusCode.ERR_BAD_REQUEST;
+        return StatusCode.ERR_NOT_FOUND;
     }
 }
