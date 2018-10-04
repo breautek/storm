@@ -1,3 +1,6 @@
+# 0.8.3 (October 4, 2018)
+- Added User Agent string to network logging
+
 # 0.8.2 (October 4, 2018)
 - Changed EntityNotFound error to return status code 404 instead of 400.
 
