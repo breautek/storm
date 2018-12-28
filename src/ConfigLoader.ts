@@ -75,13 +75,23 @@ export class ConfigLoader {
             }
 
             logger.trace('Reading command line arguments...');
-            config = ConfigLoader._mergeConfig(config, argv);
+            config = ConfigLoader._mergeConfig(config, ConfigLoader._removeNaNs(argv));
 
             logger.trace('Configurations merged.');
             logger.trace(config);
 
             resolve(<Config>config);
         })
+    }
+
+    private static _removeNaNs(o: any): any {
+        for (var i in o) {
+            if (isNaN(o[i])) {
+                delete o[i];
+            }
+        }
+
+        return o;
     }
 
     private static _getLogger(): Logger {

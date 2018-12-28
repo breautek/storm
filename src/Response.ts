@@ -45,6 +45,10 @@ export class Response {
         return this.response.statusCode;
     }
 
+    public redirect(url: string): void {
+        this.response.redirect(url);
+    }
+
     public send(data?: SendableData): void {
         if (data instanceof ResponseData) {
             this.setStatus(data.getStatus()).send(data.getData());
