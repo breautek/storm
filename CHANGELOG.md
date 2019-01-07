@@ -1,3 +1,6 @@
+# 0.9.2 (January 7, 2019)
+- Fixed nullable argv
+
 # 0.8.3 (October 4, 2018)
 - Added User Agent string to network logging
 

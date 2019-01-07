@@ -130,7 +130,7 @@ export abstract class Application extends EventEmitter {
             var bindingIP: string = this.getConfig().binding_ip;
             var port: number = this.getConfig().port;
     
-            if (bindingIP !== null) {
+            if (bindingIP !== null && bindingIP !== "null") {
                 this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
                 this.server.listen(port, bindingIP);
             }
