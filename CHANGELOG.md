@@ -1,3 +1,6 @@
+# 0.10.0 (January 8, 2019)
+- Removed args package for Commander as a replacement
+
 # 0.9.2 (January 7, 2019)
 - Fixed nullable argv
 
