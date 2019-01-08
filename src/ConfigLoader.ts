@@ -19,12 +19,11 @@ import * as Path from 'path';
 import {Application} from './Application';
 import {ExitCode} from './ExitCode';
 import {Config} from './Config';
-import Commander = require('commander');
 
 export class ConfigLoader {
     private constructor() {}
 
-    public static load(path: string, program?: Commander.CommanderStatic): Promise<Config> {
+    public static load(path: string): Promise<Config> {
         var logger: Logger = ConfigLoader._getLogger();
 
         return new Promise<any>((resolve, reject) => {
@@ -76,7 +75,7 @@ export class ConfigLoader {
             }
 
             logger.trace('Reading command line arguments...');
-            config = ConfigLoader._mergeConfig(config, ConfigLoader._getCmdLineArgs(program));
+            config = ConfigLoader._mergeConfig(config, ConfigLoader._getCmdLineArgs());
 
             logger.trace('Configurations merged.');
             logger.trace(config);
@@ -85,37 +84,24 @@ export class ConfigLoader {
         });
     }
 
-    private static _getCmdLineArgs(program: Commander.CommanderStatic): any {
-        var o: any = {};
-
-        if (!program) {
-            return o;
+    private static _getCmdLineArgs(): any {
+        var app: Application = getInstance();
+        if (!app) {
+            return {};
         }
 
-        if (program.binding !== undefined) {
-            o['binding_ip'] = program.binding;
-        }
-
-        if (program.port !== undefined) {
-            o['port'] = program.port;
-        }
-
-        if (program.authenticationHeader !== undefined) {
-            o['authentication_header'] = program.authenticationHeader;
-        }
-
-        return o;
+        return app.getCmdLineArgs();
     }
 
-    private static _removeNaNs(o: any): any {
-        for (var i in o) {
-            if (isNaN(o[i])) {
-                delete o[i];
-            }
-        }
+    // private static _removeNaNs(o: any): any {
+    //     for (var i in o) {
+    //         if (isNaN(o[i])) {
+    //             delete o[i];
+    //         }
+    //     }
 
-        return o;
-    }
+    //     return o;
+    // }
 
     private static _getLogger(): Logger {
         var logger: Logger;

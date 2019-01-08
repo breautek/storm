@@ -66,7 +66,6 @@ export abstract class Application extends EventEmitter {
         this.$buildArgOptions();
 
         this._program.parse(process.argv);
-        // this._argv = args.parse(process.argv);
 
         this.name = name;
         this.logger = this._createLogger();
@@ -208,7 +207,7 @@ export abstract class Application extends EventEmitter {
      * @param path The directory path that contains bt-config.json and bt-local-config.json
      */
     public loadConfig(path: string): Promise<any> {
-        return ConfigLoader.load(path, this.getCmdLineArgs()).catch((exitCode: ExitCode) => {
+        return ConfigLoader.load(path).catch((exitCode: ExitCode) => {
             process.exit(exitCode);
         });
     }
@@ -267,20 +266,26 @@ export abstract class Application extends EventEmitter {
      * @returns command line arguments
      */
     public getCmdLineArgs(): any {
-        var options: any = {};
         var program: Commander.CommanderStatic = this._program;
+        var o: any = {};
 
-        console.log('program', program);
+        if (!program) {
+            return o;
+        }
 
-        // var argv = args.parse(process.argv);
+        if (program.binding !== undefined) {
+            o['binding_ip'] = program.binding;
+        }
 
-        // for (var i in argv) {
-        //     if (argv[i] !== null && argv[i] !== undefined) {
-        //         options[i.replace(/[A-Z]/g, "_$&").toLowerCase()] = argv[i];
-        //     }
-        // }
+        if (program.port !== undefined) {
+            o['port'] = program.port;
+        }
 
-        return options;
+        if (program.authenticationHeader !== undefined) {
+            o['authentication_header'] = program.authenticationHeader;
+        }
+
+        return o;
     }
 
     /**
