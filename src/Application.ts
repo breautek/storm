@@ -152,22 +152,9 @@ export abstract class Application extends EventEmitter {
         var pkg: any = require('../package.json');
         
         this._program.version(pkg.version, '-v, --version');
-        this._program.option('-p, --port', 'The running port to consume');
-        this._program.option('-b, --binding', 'The binding IP to listen on');
-
-        // args.option('port', 'The running port to consume', null, (value: any) => {
-        //     if (value === null) return null;
-        //     return parseInt(value);
-        // });
-        // args.option('binding_ip', 'The binding IP to listen on', null, (value: any) => {
-        //     if (value === "null") {
-        //         return null;
-        //     }
-        //     else {
-        //         return value;
-        //     }
-        // });
-        // args.option('authentication_header', 'The header name of the authentication token', null);
+        this._program.option('--port <port>', 'The running port to consume');
+        this._program.option('--binding <ip>', 'The binding IP to listen on');
+        this._program.option('--authentication_header', 'The header name of the authentication token');
 
         this._buildArgOptions(this._program);
     }

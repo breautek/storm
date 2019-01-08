@@ -92,7 +92,17 @@ export class ConfigLoader {
             return o;
         }
 
-        console.log(program);
+        if (program.binding !== undefined) {
+            o['binding_ip'] = program.binding;
+        }
+
+        if (program.port !== undefined) {
+            o['port'] = program.port;
+        }
+
+        if (program.authenticationHeader !== undefined) {
+            o['authentication_header'] = program.authenticationHeader;
+        }
 
         return o;
     }
