@@ -146,10 +146,18 @@ export abstract class Application extends EventEmitter {
 
     private $buildArgOptions() {
         args.option('port', 'The running port to consume', null, (value: any) => {
+            if (value === null) return null;
             return parseInt(value);
         });
-        args.option('binding_ip', 'The binding IP to listen on');
-        args.option('authentication_header', 'The header name of the authentication token');
+        args.option('binding_ip', 'The binding IP to listen on', null, (value: any) => {
+            if (value === "null") {
+                return null;
+            }
+            else {
+                return value;
+            }
+        });
+        args.option('authentication_header', 'The header name of the authentication token', null);
 
         this._buildArgOptions(args);
     }
