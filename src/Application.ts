@@ -28,7 +28,7 @@ import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
 import {Config} from './Config';
 import * as Path from 'path';
-import * as args from 'args';
+import Commander = require('commander');
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 
@@ -49,7 +49,8 @@ export abstract class Application extends EventEmitter {
     private server: any; //todo
     private db: Database;
     private _logConfigDefaulting: boolean;
-    private _argv: any;
+    // private _argv: any;
+    private _program: Commander.CommanderStatic;
 
     /**
      * 
@@ -64,7 +65,8 @@ export abstract class Application extends EventEmitter {
 
         this.$buildArgOptions();
 
-        this._argv = args.parse(process.argv);
+        this._program.parse(process.argv);
+        // this._argv = args.parse(process.argv);
 
         this.name = name;
         this.logger = this._createLogger();
@@ -145,24 +147,36 @@ export abstract class Application extends EventEmitter {
     }
 
     private $buildArgOptions() {
-        args.option('port', 'The running port to consume', null, (value: any) => {
-            if (value === null) return null;
-            return parseInt(value);
-        });
-        args.option('binding_ip', 'The binding IP to listen on', null, (value: any) => {
-            if (value === "null") {
-                return null;
-            }
-            else {
-                return value;
-            }
-        });
-        args.option('authentication_header', 'The header name of the authentication token', null);
+        this._program = Commander;
 
-        this._buildArgOptions(args);
+        var pkg: any = require('../package.json');
+        
+        this._program.version(pkg.version, '-v, --version');
+        this._program.option('-p, --port', 'The running port to consume');
+        this._program.option('-b, --binding', 'The binding IP to listen on');
+
+        // args.option('port', 'The running port to consume', null, (value: any) => {
+        //     if (value === null) return null;
+        //     return parseInt(value);
+        // });
+        // args.option('binding_ip', 'The binding IP to listen on', null, (value: any) => {
+        //     if (value === "null") {
+        //         return null;
+        //     }
+        //     else {
+        //         return value;
+        //     }
+        // });
+        // args.option('authentication_header', 'The header name of the authentication token', null);
+
+        this._buildArgOptions(this._program);
     }
 
-    protected _buildArgOptions(args: any): void {}
+    protected _buildArgOptions(program: Commander.CommanderStatic): void {}
+
+    public getProgram(): Commander.CommanderStatic {
+        return this._program;
+    }
 
     /**
      * The maximum size limit for incoming requests that this service needs to handle.
@@ -267,16 +281,17 @@ export abstract class Application extends EventEmitter {
      */
     public getCmdLineArgs(): any {
         var options: any = {};
+        var program: Commander.CommanderStatic = this._program;
 
-        var argv = args.parse(process.argv);
+        console.log('program', program);
 
-        //TODO: Filter out the single character access
+        // var argv = args.parse(process.argv);
 
-        for (var i in argv) {
-            if (argv[i] !== null && argv[i] !== undefined) {
-                options[i.replace(/[A-Z]/g, "_$&").toLowerCase()] = argv[i];
-            }
-        }
+        // for (var i in argv) {
+        //     if (argv[i] !== null && argv[i] !== undefined) {
+        //         options[i.replace(/[A-Z]/g, "_$&").toLowerCase()] = argv[i];
+        //     }
+        // }
 
         return options;
     }

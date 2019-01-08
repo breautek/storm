@@ -6,6 +6,7 @@ import { TokenManager } from './TokenManager';
 import { Database } from './Database';
 import { IHandler } from './IHandler';
 import { Config } from './Config';
+import Commander = require('commander');
 export declare abstract class Application extends EventEmitter {
     private logger;
     private name;
@@ -15,10 +16,11 @@ export declare abstract class Application extends EventEmitter {
     private server;
     private db;
     private _logConfigDefaulting;
-    private _argv;
+    private _program;
     constructor(name: string, configPath: string, logSeverity?: LogSeverity);
     private $buildArgOptions;
-    protected _buildArgOptions(args: any): void;
+    protected _buildArgOptions(program: Commander.CommanderStatic): void;
+    getProgram(): Commander.CommanderStatic;
     getRequestSizeLimit(): number;
     attachHandler(path: string, HandlerClass: IHandler): void;
     protected abstract attachHandlers(): Promise<void>;

@@ -19,11 +19,12 @@ import * as Path from 'path';
 import {Application} from './Application';
 import {ExitCode} from './ExitCode';
 import {Config} from './Config';
+import Commander = require('commander');
 
 export class ConfigLoader {
     private constructor() {}
 
-    public static load(path: string, argv?: any): Promise<Config> {
+    public static load(path: string, program?: Commander.CommanderStatic): Promise<Config> {
         var logger: Logger = ConfigLoader._getLogger();
 
         return new Promise<any>((resolve, reject) => {
@@ -75,13 +76,25 @@ export class ConfigLoader {
             }
 
             logger.trace('Reading command line arguments...');
-            config = ConfigLoader._mergeConfig(config, ConfigLoader._removeNaNs(argv));
+            config = ConfigLoader._mergeConfig(config, ConfigLoader._getCmdLineArgs(program));
 
             logger.trace('Configurations merged.');
             logger.trace(config);
 
             resolve(<Config>config);
-        })
+        });
+    }
+
+    private static _getCmdLineArgs(program: Commander.CommanderStatic): any {
+        var o: any = {};
+
+        if (!program) {
+            return o;
+        }
+
+        console.log(program);
+
+        return o;
     }
 
     private static _removeNaNs(o: any): any {
