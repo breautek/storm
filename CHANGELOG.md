@@ -1,3 +1,6 @@
+# 0.10.1 (January 14, 2019)
+- Fixed propagated errors via AuthenticationMiddleware.validate. Rejected errors if they should be presented to the user, should be a StormError, or ResponseData type. Otherwise the error will now be wrapped inside an InternalError and the error message will be logged, but not displayed to the client.
+
 # 0.10.0 (January 8, 2019)
 - Removed args package for Commander as a replacement
 

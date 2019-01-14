@@ -24,6 +24,7 @@ import {getInstance, getApplicationLogger} from './instance';
 import {TokenManager} from './TokenManager';
 import {StormError} from './StormError';
 import {Config} from './Config';
+import {InternalError} from './InternalError';
 
 /**
  * A base authentication strategy that handles 90% of the authentication process.
@@ -95,10 +96,14 @@ export abstract class AuthenticationMiddleware {
                 if (error instanceof StormError) {
                     responseData = new ResponseData(error.getHTTPCode(), error.getErrorResponse());
                 }
+                else if (error instanceof ResponseData) {
+                    responseData = error;
+                }
                 else {
-                    responseData = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
-                        code : error.name,
-                        reason : error.message
+                    var e: InternalError = new InternalError(error);
+                    responseData = new ResponseData(e.getHTTPCode(), {
+                        code : e.getCode(),
+                        reason : e.getMessage()
                     });
                 }
 
