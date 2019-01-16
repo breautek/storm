@@ -1,3 +1,6 @@
+# 0.10.2 (January 15, 2019)
+- Fixed regression bug from 0.10.1 where JWT verify would not return the proper status code back to the user.
+
 # 0.10.1 (January 14, 2019)
 - Fixed propagated errors via AuthenticationMiddleware.validate. Rejected errors if they should be presented to the user, should be a StormError, or ResponseData type. Otherwise the error will now be wrapped inside an InternalError and the error message will be logged, but not displayed to the client.
 

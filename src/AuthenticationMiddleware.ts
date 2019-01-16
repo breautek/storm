@@ -89,9 +89,17 @@ export abstract class AuthenticationMiddleware {
                 return this.authenticate(data, options, isBackendCall);
             }).then((data) => {
                 resolve(data);
-            }).catch((error) => {
+            }).catch((error: any) => {
                 this.logger.error(error);
                 var responseData: ResponseData = null;
+
+                //If an error is a TokenExpiredError, then we can handle it here. Otherwise propagate based on the rules below
+                if (error && error.name === "TokenExpiredError") {
+                    error = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
+                        code: error.name,
+                        reason : error.message
+                    });
+                }
 
                 if (error instanceof StormError) {
                     responseData = new ResponseData(error.getHTTPCode(), error.getErrorResponse());
