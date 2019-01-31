@@ -1,7 +1,7 @@
 {
   "name": "@breautek/storm",
   "version": "0.11.1",
-  "description": "Object-Oriented Web API framework",
+  "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
   "scripts": {
     "build": "tsc",
@@ -16,6 +16,9 @@
     "web",
     "api",
     "storm",
+    "rest",
+    "object",
+    "oriented",
     "breautek"
   ],
   "author": "norman@normanbreau.com",
