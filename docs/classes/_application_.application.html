@@ -102,8 +102,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#_argv" class="tsd-kind-icon">_argv</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#_logconfigdefaulting" class="tsd-kind-icon">_log<wbr>Config<wbr>Defaulting</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#_program" class="tsd-kind-icon">_program</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#config" class="tsd-kind-icon">config</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#configpath" class="tsd-kind-icon">config<wbr>Path</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_application_.application.html#db" class="tsd-kind-icon">db</a></li>
@@ -134,6 +134,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#getlogger" class="tsd-kind-icon">get<wbr>Logger</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_application_.application.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#getname" class="tsd-kind-icon">get<wbr>Name</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#getprogram" class="tsd-kind-icon">get<wbr>Program</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#getrequestsizelimit" class="tsd-kind-icon">get<wbr>Request<wbr>Size<wbr>Limit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_application_.application.html#gettokenmanager" class="tsd-kind-icon">get<wbr>Token<wbr>Manager</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_application_.application.html#initdb" class="tsd-kind-icon">initDB</a></li>
@@ -170,7 +171,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:52</li>
+									<li>Defined in Application.ts:53</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -210,22 +211,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_argv" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _argv</h3>
-					<div class="tsd-signature tsd-kind-icon">_argv<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in Application.ts:52</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_logconfigdefaulting" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _log<wbr>Config<wbr>Defaulting</h3>
 					<div class="tsd-signature tsd-kind-icon">_log<wbr>Config<wbr>Defaulting<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in Application.ts:51</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_program" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _program</h3>
+					<div class="tsd-signature tsd-kind-icon">_program<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Commander.CommanderStatic</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Application.ts:53</li>
 						</ul>
 					</aside>
 				</section>
@@ -306,7 +307,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from EventEmitter.defaultMaxListeners</p>
 						<ul>
-							<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1110</li>
+							<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1110</li>
 						</ul>
 					</aside>
 				</section>
@@ -323,7 +324,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:147</li>
+									<li>Defined in Application.ts:148</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -334,19 +335,19 @@
 					<a name="_buildargoptions-1" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _build<wbr>Arg<wbr>Options</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_build<wbr>Arg<wbr>Options<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">_build<wbr>Arg<wbr>Options<span class="tsd-signature-symbol">(</span>program<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Commander.CommanderStatic</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:157</li>
+									<li>Defined in Application.ts:161</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>args: <span class="tsd-signature-type">any</span></h5>
+									<h5>program: <span class="tsd-signature-type">Commander.CommanderStatic</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -363,7 +364,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:288</li>
+									<li>Defined in Application.ts:303</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -386,7 +387,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:351</li>
+									<li>Defined in Application.ts:366</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -417,7 +418,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:304</li>
+									<li>Defined in Application.ts:319</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -449,7 +450,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:295</li>
+									<li>Defined in Application.ts:310</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -473,7 +474,7 @@
 								<p>Inherited from EventEmitter.addListener</p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1112</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1112</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -517,7 +518,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:171</li>
+									<li>Defined in Application.ts:179</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -551,7 +552,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:195</li>
+									<li>Defined in Application.ts:203</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -576,7 +577,7 @@
 								<p>Inherited from EventEmitter.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1124</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1124</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -604,7 +605,7 @@
 								<p>Inherited from EventEmitter.eventNames</p>
 								<p>Overrides EventEmitter.eventNames</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1125</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1125</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -621,7 +622,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:260</li>
+									<li>Defined in Application.ts:268</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -641,7 +642,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:224</li>
+									<li>Defined in Application.ts:232</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -661,7 +662,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:253</li>
+									<li>Defined in Application.ts:261</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -681,7 +682,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:217</li>
+									<li>Defined in Application.ts:225</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -703,7 +704,7 @@
 								<p>Inherited from EventEmitter.getMaxListeners</p>
 								<p>Overrides EventEmitter.getMaxListeners</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1121</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1121</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -720,13 +721,30 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:210</li>
+									<li>Defined in Application.ts:218</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							<p>the application name</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getprogram" class="tsd-anchor"></a>
+					<h3>get<wbr>Program</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Program<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Commander.CommanderStatic</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Application.ts:163</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Commander.CommanderStatic</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -740,7 +758,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:162</li>
+									<li>Defined in Application.ts:170</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -762,7 +780,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:246</li>
+									<li>Defined in Application.ts:254</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -782,7 +800,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:280</li>
+									<li>Defined in Application.ts:295</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -815,7 +833,7 @@
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<p>Overrides EventEmitter.listenerCount</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1126</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1126</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -840,7 +858,7 @@
 								<p>Inherited from EventEmitter.listeners</p>
 								<p>Overrides EventEmitter.listeners</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1122</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1122</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -863,7 +881,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:201</li>
+									<li>Defined in Application.ts:209</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -893,7 +911,7 @@
 								<p>Inherited from EventEmitter.off</p>
 								<p>Overrides EventEmitter.off</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1118</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1118</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -939,7 +957,7 @@
 								<p>Inherited from EventEmitter.on</p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1113</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1113</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -983,7 +1001,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:233</li>
+									<li>Defined in Application.ts:241</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1014,7 +1032,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:375</li>
+									<li>Defined in Application.ts:390</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1038,7 +1056,7 @@
 								<p>Inherited from EventEmitter.once</p>
 								<p>Overrides EventEmitter.once</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1114</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1114</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1084,7 +1102,7 @@
 								<p>Inherited from EventEmitter.prependListener</p>
 								<p>Overrides EventEmitter.prependListener</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1115</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1115</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1130,7 +1148,7 @@
 								<p>Inherited from EventEmitter.prependOnceListener</p>
 								<p>Overrides EventEmitter.prependOnceListener</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1116</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1116</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1176,7 +1194,7 @@
 								<p>Inherited from EventEmitter.rawListeners</p>
 								<p>Overrides EventEmitter.rawListeners</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1123</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1123</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1201,7 +1219,7 @@
 								<p>Inherited from EventEmitter.removeAllListeners</p>
 								<p>Overrides EventEmitter.removeAllListeners</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1119</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1119</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1226,7 +1244,7 @@
 								<p>Inherited from EventEmitter.removeListener</p>
 								<p>Overrides EventEmitter.removeListener</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1117</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1117</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1272,7 +1290,7 @@
 								<p>Inherited from EventEmitter.setMaxListeners</p>
 								<p>Overrides EventEmitter.setMaxListeners</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1120</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1120</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1295,7 +1313,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Application.ts:239</li>
+									<li>Defined in Application.ts:247</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1326,7 +1344,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<ul>
-									<li>Defined in /home/norman/development/ttg/bt-api-framework/node_modules/@types/node/index.d.ts:1109</li>
+									<li>Defined in /home/totalpave/development/bt-api-framework/node_modules/@types/node/index.d.ts:1109</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1373,10 +1391,10 @@
 								<a href="_application_.application.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_application_.application.html#_argv" class="tsd-kind-icon">_argv</a>
+								<a href="_application_.application.html#_logconfigdefaulting" class="tsd-kind-icon">_log<wbr>Config<wbr>Defaulting</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_application_.application.html#_logconfigdefaulting" class="tsd-kind-icon">_log<wbr>Config<wbr>Defaulting</a>
+								<a href="_application_.application.html#_program" class="tsd-kind-icon">_program</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_application_.application.html#config" class="tsd-kind-icon">config</a>
@@ -1452,6 +1470,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_application_.application.html#getname" class="tsd-kind-icon">get<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_application_.application.html#getprogram" class="tsd-kind-icon">get<wbr>Program</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_application_.application.html#getrequestsizelimit" class="tsd-kind-icon">get<wbr>Request<wbr>Size<wbr>Limit</a>
