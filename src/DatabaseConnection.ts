@@ -92,6 +92,7 @@ export abstract class DatabaseConnection {
     }
 
     public abstract startTransaction(): Promise<void>;
+    public abstract isTransaction(): boolean;
     public abstract commit(): Promise<void>;
     public abstract rollback(): Promise<void>;
     protected abstract _close(): Promise<void>;

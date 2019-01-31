@@ -15,6 +15,7 @@ export declare abstract class DatabaseConnection {
     query(query: string, params?: any): Promise<any>;
     close(): Promise<void>;
     abstract startTransaction(): Promise<void>;
+    abstract isTransaction(): boolean;
     abstract commit(): Promise<void>;
     abstract rollback(): Promise<void>;
     protected abstract _close(): Promise<void>;

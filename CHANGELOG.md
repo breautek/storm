@@ -1,3 +1,6 @@
+# 0.11.0 (January 31, 2019)
+- Added isTransaction(): boolean as an abstract function to DatabaseConnection. Note that MySQLConnection already has this method implemented.
+
 # 0.10.2 (January 15, 2019)
 - Fixed regression bug from 0.10.1 where JWT verify would not return the proper status code back to the user.
 
