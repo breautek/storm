@@ -42,7 +42,7 @@
     "uuid": "3.3.2"
   },
   "devDependencies": {
-    "typedoc": "^0.13.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.2.2"
   }
 }
