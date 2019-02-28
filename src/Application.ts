@@ -74,7 +74,6 @@ export abstract class Application extends EventEmitter {
             this._isTestEnvironment = true;
         }
 
-
         this._program.parse(process.argv);
 
         this.name = name;

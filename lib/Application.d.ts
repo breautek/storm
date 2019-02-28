@@ -16,6 +16,7 @@ export declare abstract class Application extends EventEmitter {
     private server;
     private db;
     private _logConfigDefaulting;
+    private _isTestEnvironment;
     private _program;
     constructor(name: string, configPath: string, logSeverity?: LogSeverity);
     private $buildArgOptions;

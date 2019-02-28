@@ -12,5 +12,9 @@
         "alwaysStrict": true,
         "noImplicitReturns": true,
         "moduleResolution": "node"
-    }
+    },
+    "exclude": [
+        "./spec",
+        "./lib"
+    ]
 }
