@@ -49,6 +49,8 @@ export abstract class Application extends EventEmitter {
     private server: any; //todo
     private db: Database;
     private _logConfigDefaulting: boolean;
+    private _isTestEnvironment: boolean;
+
     // private _argv: any;
     private _program: Commander.CommanderStatic;
 
@@ -63,7 +65,15 @@ export abstract class Application extends EventEmitter {
 
         setInstance(this);
 
+        this._isTestEnvironment = false;
+        
         this.$buildArgOptions();
+
+        if (!!(<any>global).jasmine) {
+            //We are in a test development
+            this._isTestEnvironment = true;
+        }
+
 
         this._program.parse(process.argv);
 
@@ -87,7 +97,7 @@ export abstract class Application extends EventEmitter {
 
         this.getLogger().trace('Application is booting...');
         this.getLogger().trace('Loading Configuration...');
-        
+
         this.loadConfig(this.configPath).then((config: Config) => {
             this.config = config;
             this.getLogger().trace('Configuration loaded.');
