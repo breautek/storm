@@ -3,10 +3,16 @@
   "version": "0.11.1",
   "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "include": "src/**/*.ts",
+    "extension": [".ts"]
+  },
   "scripts": {
     "build": "tsc",
     "build-docs": "typedoc --readme ./README.md --out ./docs ./src",
-    "test": "jasmine-ts"
+    "test": "nyc jasmine-ts"
   },
   "repository": {
     "type": "git",
@@ -47,6 +53,7 @@
     "jasmine-spec-reporter": "^4.2.1",
     "jasmine-ts": "^0.3.0",
     "jasmine-ts-console-reporter": "^3.1.1",
+    "nyc": "^13.3.0",
     "ts-node": "^8.0.2",
     "typedoc": "^0.14.2",
     "typescript": "^3.2.2"

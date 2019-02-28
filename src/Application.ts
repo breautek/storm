@@ -31,6 +31,7 @@ import * as Path from 'path';
 import Commander = require('commander');
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
+import * as http from 'http';
 
 /**
  * The default log level to log informational, warnings, errors, and fatal messages.
@@ -46,10 +47,11 @@ export abstract class Application extends EventEmitter {
     private configPath: string;
     private config: Config;
     private tokenManager: TokenManager;
-    private server: any; //todo
+    private server: Express.Application;
     private db: Database;
     private _logConfigDefaulting: boolean;
     private _isTestEnvironment: boolean;
+    private socket: http.Server;
 
     // private _argv: any;
     private _program: Commander.CommanderStatic;
@@ -79,13 +81,17 @@ export abstract class Application extends EventEmitter {
         this.name = name;
         this.logger = this._createLogger();
 
+        if ((<any>this)._setDefaultLogLevel) {
+            this.logger.warn('_setDefaultLogLevel is deprecated and ignored. Use _getDefaultLogLevel isMainThread.');
+        }
+
         if (logSeverity) {
             this._logConfigDefaulting = false;
             this.getLogger().setLogLevel(logSeverity);
         }
         else {
             this._logConfigDefaulting = true;
-            this._setDefaultLogLevel();
+            this.getLogger().setLogLevel(this._getDefaultLogLevel());
         }
 
         process.on('unhandledRejection', (error: any) => {
@@ -142,13 +148,15 @@ export abstract class Application extends EventEmitter {
     
             if (bindingIP !== null && bindingIP !== "null") {
                 this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
-                this.server.listen(port, bindingIP);
+                this.socket = http.createServer(this.server);
+                this.socket.listen(port, bindingIP);
             }
             else {
                 this.getLogger().info(`Server does not have a bounding IP set. The server will not be listening for connections.`);
             }
 
             this.onReady();
+            this.emit('ready');
         }).catch((error) => {
             this.getLogger().fatal(error);
         });
@@ -202,6 +210,19 @@ export abstract class Application extends EventEmitter {
         this.server.delete(path, (request: Express.Request, response: Express.Response) => {
             var r: Request = new Request(request);
             handler.delete(r, new Response(response, r.getURL()));
+        });
+    }
+
+    public close(): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
+            if (this.socket && this.socket.listening) {
+                this.socket.close(() => {
+                    resolve();
+                });
+            }
+            else {
+                resolve();
+            }
         });
     }
 
@@ -316,8 +337,9 @@ export abstract class Application extends EventEmitter {
     /**
      * Sets the default log level on the Logger
      */
-    protected _setDefaultLogLevel(): void {
-        this.logger.setLogLevel(DEFAULT_LOG_LEVEL);
+    protected _getDefaultLogLevel(): LogSeverity {
+        return DEFAULT_LOG_LEVEL;
+        // this.logger.setLogLevel(DEFAULT_LOG_LEVEL);
     }
 
     /**
