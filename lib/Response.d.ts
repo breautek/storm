@@ -21,7 +21,8 @@ export declare class Response {
     setHeader(key: string, value: string): void;
     setHeaders(keyValuePair: HeaderKeyValuePair): void;
     isHeadersSent(): boolean;
-    error(data?: any): void;
+    error(error?: any): void;
+    badRequest(data?: any): void;
     unauthorized(data?: any): void;
     forbidden(data?: any): void;
     conflict(data?: any): void;

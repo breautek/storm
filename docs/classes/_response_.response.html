@@ -98,6 +98,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#badrequest" class="tsd-kind-icon">bad<wbr>Request</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#conflict" class="tsd-kind-icon">conflict</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#error" class="tsd-kind-icon">error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_response_.response.html#forbidden" class="tsd-kind-icon">forbidden</a></li>
@@ -130,7 +131,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L31">Response.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L32">Response.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -155,7 +156,7 @@
 					<div class="tsd-signature tsd-kind-icon">created<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L30">Response.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L31">Response.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,7 +166,7 @@
 					<div class="tsd-signature tsd-kind-icon">requestURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L31">Response.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L32">Response.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,13 +176,36 @@
 					<div class="tsd-signature tsd-kind-icon">response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">express.Response</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L29">Response.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L30">Response.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="badrequest" class="tsd-anchor"></a>
+					<h3>bad<wbr>Request</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">bad<wbr>Request<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L107">Response.ts:107</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="conflict" class="tsd-anchor"></a>
 					<h3>conflict</h3>
@@ -192,7 +216,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L109">Response.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L119">Response.ts:119</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -209,19 +233,19 @@
 					<a name="error" class="tsd-anchor"></a>
 					<h3>error</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">error<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">error<span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L97">Response.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L98">Response.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <span class="tsd-signature-type">any</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> error: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -238,7 +262,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L105">Response.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L115">Response.ts:115</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -261,7 +285,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L44">Response.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L45">Response.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/_statuscode_.statuscode.html" class="tsd-signature-type">StatusCode</a></h4>
@@ -278,7 +302,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L117">Response.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L127">Response.ts:127</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -301,7 +325,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L93">Response.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L94">Response.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -318,7 +342,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L113">Response.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L123">Response.ts:123</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -341,7 +365,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L66">Response.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L67">Response.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -364,7 +388,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L48">Response.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L49">Response.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -387,7 +411,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L52">Response.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L53">Response.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -410,7 +434,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L85">Response.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L86">Response.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -436,7 +460,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L89">Response.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L90">Response.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -459,7 +483,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L39">Response.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L40">Response.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -482,7 +506,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L74">Response.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L75">Response.ts:75</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -505,7 +529,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/ed12f1d/src/Response.ts#L101">Response.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/22f0869/src/Response.ts#L111">Response.ts:111</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -549,6 +573,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_response_.response.html#response" class="tsd-kind-icon">response</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_response_.response.html#badrequest" class="tsd-kind-icon">bad<wbr>Request</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_response_.response.html#conflict" class="tsd-kind-icon">conflict</a>

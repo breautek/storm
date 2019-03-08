@@ -41,5 +41,11 @@
 						- fatal
 						- all
 	*/
-	"log_level": "info | warning | error | fatal"
+	"log_level": "info | warning | error | fatal",
+
+	/*
+	@type Array<string>
+	@description 	Suppresses logging to log messages matching the listed regex patterns 
+	*/
+    "log_filters": ["/TokenExpiredError/g"]
 }
