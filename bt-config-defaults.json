@@ -6,5 +6,6 @@
 	"backend_authentication_header": "X-BT-BACKEND-AUTH",
 	"backend_authentication_secret": null,
 
-	"log_level": "info | warning | error | fatal"
+	"log_level": "info | warning | error | fatal",
+    "log_filters": ["/TokenExpiredError/g"]
 }

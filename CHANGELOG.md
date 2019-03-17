@@ -1,3 +1,8 @@
+# 0.12.0 (February 22, 2019)
+## Breaking Changes
+- Changed Response.error to do ResponseData/StormError check and otherwise wrap the error in an InternalError.
+- Added Response.badRequest API, which is what Response.error used to be.
+
 # 0.11.0 (January 31, 2019)
 - Added isTransaction(): boolean as an abstract function to DatabaseConnection. Note that MySQLConnection already has this method implemented.
 

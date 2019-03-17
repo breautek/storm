@@ -18,6 +18,7 @@ import {ResponseData} from './ResponseData';
 import {StormError, ErrorResponse} from './StormError';
 import * as express from 'express';
 import {getApplicationLogger} from './instance';
+import { InternalError } from './InternalError';
 
 export type SendableData = ResponseData | StormError | ErrorResponse | any;
 
@@ -94,7 +95,16 @@ export class Response {
         return this.response.headersSent;
     }
 
-    public error(data?: any): void {
+    public error(error?: any): void {
+        if (error && (error instanceof ResponseData || error instanceof StormError)) {
+            this.send(error);
+        }
+        else {
+            this.send(new InternalError(error));
+        }
+    }
+
+    public badRequest(data?: any): void {
         this.setStatus(StatusCode.ERR_BAD_REQUEST).send(data);
     }
 

@@ -17,11 +17,14 @@ import {EventEmitter} from 'events';
 import {LogSeverity} from './LogSeverity';
 import {LogEvent, LogEventInterface} from './LogEvent';
 import * as utils from 'util';
+import {getInstance} from './instance';
+import { Config } from './Config';
 
 export class Logger extends EventEmitter {
     private name: string;
     private logLevel: LogSeverity;
     private useStdOutForErrors: boolean;
+    private _filters: Array<RegExp>;
 
     public constructor(name: string = '', logLevel?: LogSeverity, useStdOutForErrors: boolean = false) {
         super();
@@ -38,7 +41,48 @@ export class Logger extends EventEmitter {
             this.logLevel = logLevel;
         }
 
+        this._filters = this._loadFilters();
+
         this.useStdOutForErrors = useStdOutForErrors;
+    }
+
+    protected _loadFilters(): Array<RegExp> {
+        var config: Config = getInstance().getConfig();
+        var filters: Array<RegExp> = null;
+        if (!config.log_filters) {
+            filters = this._getDefaultLogFilters();
+        }
+        else {
+            filters = [];
+            for (var i: number = 0; i < config.log_filters.length; i++) {
+                var logFilter: string = config.log_filters[i];
+                filters.push(new RegExp(this._parseRegex(logFilter)));
+            }
+        }
+        return filters;
+    }
+
+    private _parseRegex(strReg: string): RegExp {
+        var malformError: Error = new Error('Malformed regex in log_filters');
+        if (strReg[0] !== '/') {
+            throw malformError;
+        }
+
+        var lastSlashIndex = strReg.lastIndexOf('/');
+        if (lastSlashIndex === strReg.indexOf('/')) {
+            throw malformError;
+        }
+
+        var reg: string = strReg.slice(1, lastSlashIndex);
+        var flags = strReg.slice(lastSlashIndex + 1);
+
+        return new RegExp(reg, flags);
+    }
+
+    protected _getDefaultLogFilters(): Array<RegExp> {
+        return [
+            /TokenExpiredError/g
+        ];
     }
 
     public setLogLevel(severity: LogSeverity): void {
@@ -105,16 +149,34 @@ export class Logger extends EventEmitter {
 
     protected _log(messages: IArguments, severity: LogSeverity): void {
         var msg: string = this._formatString(messages, severity);
+        
         this._logMessage(msg, severity);
     }
 
     protected _logMessage(msg: string, severity: LogSeverity): void {
-        if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this.useStdOutForErrors) {
-            process.stderr.write(msg);
+        if (this._shouldLog(msg, severity)) {
+            if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this.useStdOutForErrors) {
+                process.stderr.write(msg);
+            }
+            else {
+                process.stdout.write(msg);
+            }
         }
-        else {
-            process.stdout.write(msg);
+    }
+
+    protected _shouldLog(msg: string, severity: LogSeverity): boolean {
+        if (severity === LogSeverity.TRACE) {
+            return true;
         }
+
+        for (var i: number = 0; i < this._filters.length; i++) {
+            var filter: RegExp = this._filters[i];
+            if (filter.test(msg)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public log(messages: IArguments, severity: LogSeverity): void {

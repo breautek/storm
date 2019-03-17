@@ -10,4 +10,5 @@ export interface Config {
     
     //Logging
     log_level: string;
+    log_filters: Array<string>;
 }
