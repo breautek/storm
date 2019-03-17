@@ -22,4 +22,8 @@ export class MockDB extends Database {
             resolve(new MockConnection(!requireWriteAccess, new Error().stack));
         });
     }
+
+    public escape(query: string): string {
+        return query;
+    }
 }

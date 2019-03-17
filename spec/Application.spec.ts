@@ -3,6 +3,11 @@ import {TestApplication} from './support/TestApplication';
 import {Logger} from '../src/Logger';
 import {TokenManager} from '../src/TokenManager';
 import { LogSeverity } from '../src/LogSeverity';
+import {HTTPMethod} from '../src/HTTPMethod';
+import {StatusCode} from '../src/StatusCode';
+import { MockDB } from './support/MockDB';
+import * as http from 'http';
+import * as AppInstance from '../src/instance';
 
 describe('Application', () => {
     var app: TestApplication = null;
@@ -77,5 +82,30 @@ describe('Application', () => {
 
     it('Sets default log properly', () => {
         expect(app.getDefaultLogLevel()).toBe(LogSeverity.TRACE);
+    });
+
+    it('it has a MockDB', () => {
+        expect(app.getDB() instanceof MockDB).toBe(true);
+    });
+
+    it('Accepts GET Requests', (done) => {
+        var req: http.ClientRequest = http.request({
+            method: HTTPMethod.GET,
+            host: '127.0.0.1',
+            port: 8080,
+            path: 'echo'
+        }, (res: http.IncomingMessage): void => {
+            expect(res.statusCode).toBe(StatusCode.OK_NO_CONTENT);
+            done();
+        });
+        req.end();
+    });
+
+    it('has instance set', () => {
+        expect(AppInstance.getInstance()).toBe(app);
+    });
+
+    it('has application logger via instance', () => {
+        expect(AppInstance.getApplicationLogger()).toBe(app.getLogger());
     });
 });

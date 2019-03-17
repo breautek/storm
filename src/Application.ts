@@ -85,6 +85,7 @@ export abstract class Application extends EventEmitter {
             this.logger.warn('_setDefaultLogLevel is deprecated and ignored. Use _getDefaultLogLevel isMainThread.');
         }
 
+        /* istanbul ignore else */
         if (logSeverity) {
             this._logConfigDefaulting = false;
             this.getLogger().setLogLevel(logSeverity);
@@ -94,6 +95,7 @@ export abstract class Application extends EventEmitter {
             this.getLogger().setLogLevel(this._getDefaultLogLevel());
         }
 
+        /* istanbul ignore next */
         process.on('unhandledRejection', (error: any) => {
             this.getLogger().fatal(error);
         });
@@ -103,6 +105,11 @@ export abstract class Application extends EventEmitter {
         this.getLogger().trace('Application is booting...');
         this.getLogger().trace('Loading Configuration...');
 
+        /* istanbul ignore next */
+        this._load();
+    }
+
+    private _load(): void {
         this.loadConfig(this.configPath).then((config: Config) => {
             this.config = config;
             this.getLogger().trace('Configuration loaded.');
@@ -110,6 +117,7 @@ export abstract class Application extends EventEmitter {
             this.onConfigLoad(this.config);
             return Promise.resolve();
         }).then(() => {
+            /* istanbul ignore next */
             if (this._logConfigDefaulting) {
                 var logSeverity: LogSeverity = this._parseLogLevelConfig(this.getConfig());
                 this.logger.setLogLevel(logSeverity);
@@ -117,6 +125,7 @@ export abstract class Application extends EventEmitter {
 
             this.getLogger().trace('Initializing DB...');
 
+            /* istanbul ignore next */
             return this.initDB(this.getConfig());
         }).then((db: Database) => {
             if (db) {
@@ -126,8 +135,11 @@ export abstract class Application extends EventEmitter {
                 this.getLogger().trace('DB is not initialized.');
             }
             this.db = db;
+
+            /* istanbul ignore next */
             return Promise.resolve();
         }).then(() => {
+            /* istanbul ignore next */
             this.getLogger().trace('Starting server...');
             this.server = Express();
             this.server.use(BodyParser.json({
@@ -138,6 +150,8 @@ export abstract class Application extends EventEmitter {
                 type : 'text/*',
                 limit : this.getRequestSizeLimit()
             }));
+
+            /* istanbul ignore next */
             return Promise.resolve();
         }).then(() => {
             this.getLogger().trace('Attaching handlers...');
@@ -373,6 +387,7 @@ export abstract class Application extends EventEmitter {
                     continue;
                 }
 
+                /* istanbul ignore next */
                 var llSev: LogSeverity = this._llStrToSeverity(llPart);
                 if (!llSev) {
                     continue;
