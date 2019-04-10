@@ -1,3 +1,6 @@
+# 0.12.3 (April 10, 2019)
+- Fixed regression bug
+
 # 0.12.2 (April 10, 2019)
 - Added shouldListen(): boolean hook to Application, allowing you to decide whether to bind to the IP address on startup, regardless of configuration. Defaults to true.
 
