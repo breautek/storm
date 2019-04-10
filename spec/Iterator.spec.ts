@@ -7,6 +7,13 @@ describe('Iterator', () => {
         iterator = new Iterator<number>([1,2,3]);
     });
 
+    it('Constructs with custom index position', () => {
+        var iter: Iterator<number> = new Iterator<number>([1,2,3], 0);
+        expect(iter.hasPrevious()).toBe(true);
+        expect(iter.next()).toBe(2);
+        expect(iter.next()).toBe(3);
+    });
+
     it('hasNext()', () => {
         expect(iterator.hasNext()).toBe(true);
         iterator.next();
@@ -43,7 +50,7 @@ describe('Iterator', () => {
         expect(iterator.next()).toBe(1);
     });
 
-    it('brignToStart()', () => {
+    it('bringToStart()', () => {
         iterator.next();
         iterator.next();
         iterator.reset();

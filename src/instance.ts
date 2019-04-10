@@ -20,7 +20,9 @@ import {LogSeverity} from './LogSeverity';
 var instance: Application;
 var genericLogger: Logger;
 
+/* istanbul ignore next */
 var setInstance = (app: Application): void => {
+    /* istanbul ignore if */
     if (instance) {
         //warn
     }
@@ -32,10 +34,12 @@ var getInstance = (): Application => {
 }
 
 var getApplicationLogger = (): Logger => {
+    /* istanbul ignore else */
     if (instance) {
         return instance.getLogger();
     }
     else {
+        /* istanbul ignore if */
         if (!genericLogger) {
             genericLogger = new Logger('Generic');
             genericLogger.info('Using generic logger. Only errors will be reported.');
