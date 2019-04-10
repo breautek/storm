@@ -7,7 +7,9 @@
     "check-coverage": true,
     "per-file": true,
     "include": "src/**/*.ts",
-    "extension": [".ts"]
+    "extension": [
+      ".ts"
+    ]
   },
   "scripts": {
     "build": "tsc",
