@@ -1,3 +1,6 @@
+# 0.12.2 (April 10, 2019)
+- Added shouldListen(): boolean hook to Application, allowing you to decide whether to bind to the IP address on startup, regardless of configuration. Defaults to true.
+
 # 0.12.0 (February 22, 2019)
 ## Breaking Changes
 - Changed Response.error to do ResponseData/StormError check and otherwise wrap the error in an InternalError.

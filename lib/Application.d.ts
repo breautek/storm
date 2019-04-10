@@ -28,6 +28,7 @@ export declare abstract class Application extends EventEmitter {
     getName(): string;
     getLogger(): Logger;
     getConfig(): Config;
+    shouldListen(): boolean;
     protected onConfigLoad(config: Config): void;
     setTokenManager(tokenManager: TokenManager): void;
     getTokenManager(): TokenManager;
