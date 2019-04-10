@@ -7,6 +7,9 @@ export declare class Logger extends EventEmitter {
     private useStdOutForErrors;
     private _filters;
     constructor(name?: string, logLevel?: LogSeverity, useStdOutForErrors?: boolean);
+    addFilter(reg: RegExp): void;
+    removeFilter(reg: RegExp): void;
+    setFilters(filters: Array<RegExp>): void;
     protected _loadFilters(): Array<RegExp>;
     private _parseRegex;
     protected _getDefaultLogFilters(): Array<RegExp>;
