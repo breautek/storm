@@ -164,9 +164,10 @@ export abstract class Application extends EventEmitter {
                 if (this.shouldListen()) {
                     this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
                     this.socket = http.createServer(this.server);
+                    this.socket.listen(port, bindingIP);
                 }
                 else {
-                    this.getLogger().trace('Server did not bind because shouldListen() return false.');
+                    this.getLogger().trace('Server did not bind because shouldListen() returned false.');
                 }
             }
             else {

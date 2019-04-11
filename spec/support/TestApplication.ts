@@ -28,7 +28,7 @@ class TestHandler extends Handler {
 
 export class TestApplication extends Application {
     constructor() {
-        super("TestApplication", "./spec/support/");
+        super("TestApplication", "./spec/support/", LogSeverity.ERROR | LogSeverity.FATAL);
     }
 
     protected attachHandlers(): Promise<void> {

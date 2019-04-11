@@ -98,10 +98,6 @@ describe('Application', () => {
             expect(res.statusCode).toBe(StatusCode.OK_NO_CONTENT);
             done();
         });
-        console.log(req);
-        req.on('error', (err: Error) => {
-            console.log(err);
-        });
         req.end();
     });
 
