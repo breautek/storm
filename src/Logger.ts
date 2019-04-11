@@ -41,9 +41,29 @@ export class Logger extends EventEmitter {
             this.logLevel = logLevel;
         }
 
-        this._filters = this._loadFilters();
+        this._filters = this._getDefaultLogFilters();
 
         this.useStdOutForErrors = useStdOutForErrors;
+    }
+
+    public addFilter(reg: RegExp): void {
+        this._filters.push(reg);
+    }
+
+    public removeFilter(reg: RegExp): void {
+        var index: number = this._filters.indexOf(reg);
+        if (index > -1) {
+            this._filters.splice(index, 1);
+        }
+    }
+
+    public setFilters(filters: Array<RegExp>): void {
+        if (filters) {
+            this._filters  = filters.slice();
+        }
+        else {
+            this._filters = [];
+        }
     }
 
     protected _loadFilters(): Array<RegExp> {
