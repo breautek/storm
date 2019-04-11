@@ -1,6 +1,8 @@
+// tslint:disable
+
 import {Application} from '../../src/Application';
 import {Database} from '../../src/Database';
-import {Config} from '../../src/Config';
+import {IConfig} from '../../src/IConfig';
 import {Logger} from '../../src/Logger';
 import {LogSeverity} from '../../src/LogSeverity';
 import {Handler} from '../../src/Handler';
@@ -38,7 +40,7 @@ export class TestApplication extends Application {
         return new TestLogger(this.getName());
     }
 
-    public initDB(config: Config): Promise<Database> {
+    public initDB(config: IConfig): Promise<Database> {
         return Promise.resolve(new MockDB());
     }
 

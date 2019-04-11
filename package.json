@@ -15,7 +15,7 @@
     "build": "tsc && npm run-script build-docs",
     "build-docs": "typedoc --readme ./README.md --out ./docs ./src",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "nyc jasmine-ts",
+    "test": "jasmine-ts",
     "coverage": "nyc check-coverage"
   },
   "repository": {

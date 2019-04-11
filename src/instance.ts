@@ -22,8 +22,8 @@ var genericLogger: Logger;
 
 /* istanbul ignore next */
 var setInstance = (app: Application): void => {
-    /* istanbul ignore if */
     if (instance) {
+        /* istanbul ignore next */
         instance.getLogger().warn('Storm application already initialized');
     }
     instance = app;

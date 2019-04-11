@@ -31,7 +31,7 @@ describe('Application', () => {
     });
 
     it('getName()', () => {
-        expect(app.getName()).toBe("TestApplication");
+        expect(app.getName()).toBe('TestApplication');
     });
 
     it('getLogger() is instanceof Logger', () => {
@@ -76,7 +76,7 @@ describe('Application', () => {
     });
 
     it('getCmdLineArgs()', () => {
-        //Test offers no command line args
+        // Test offers no command line args
         expect(JSON.stringify(app.getCmdLineArgs())).toBe('{}');
     });
 
@@ -92,11 +92,15 @@ describe('Application', () => {
         var req: http.ClientRequest = http.request({
             method: HTTPMethod.GET,
             host: '127.0.0.1',
-            port: 8080,
-            path: 'echo'
+            port: 64321,
+            path: '/echo'
         }, (res: http.IncomingMessage): void => {
             expect(res.statusCode).toBe(StatusCode.OK_NO_CONTENT);
             done();
+        });
+        console.log(req);
+        req.on('error', (err: Error) => {
+            console.log(err);
         });
         req.end();
     });
