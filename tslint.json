@@ -1,0 +1,74 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "no-var-keyword": false,
+        "prefer-for-of": false,
+        "trailing-comma": false,
+        "one-line": [
+            true,
+            "check-open-brace"
+        ],
+        "array-type": [true, "generic"],
+        "class-name": true,
+        "no-trailing-whitespace": false,
+        "quotemark": [true, "single"],
+        "whitespace": [
+            true, 
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-type",
+            "check-type-operator",
+            "check-preblock"
+        ],
+        "prefer-const": false,
+        "variable-name": [
+            true,
+            "check-format",
+            "allow-leading-underscore",
+            "allow-pascal-case",
+            "require-const-for-all-caps"
+        ],
+        "max-line-length": [
+            true,
+            {
+                "limit": 150,
+                "ignore-pattern": "^import |^export \\{(.*?)\\}|class [a-zA-Z]+ implements |//"
+            }
+        ],
+        "radix": false,
+        "object-literal-shorthand": false,
+        "object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "no-angle-bracket-type-assertion": false,
+        "indent": [
+            true,
+            "spaces"
+        ],
+        "no-empty": [
+            true,
+            "allow-empty-functions"
+        ],
+        "forin": false,
+        "no-shadowed-variable": [
+            true,
+            {
+                "underscore": false
+            }
+        ],
+        "curly": [
+            true,
+            "ignore-same-line"
+        ],
+        "no-bitwise": false,
+        "member-ordering": false
+    },
+    "rulesDirectory": [],
+    "linterOptions": {
+        "format": "verbose"
+    }
+}
