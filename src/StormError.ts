@@ -18,14 +18,14 @@ import {Application} from './Application';
 import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
-export interface AdditionalErrorDetails {
+export interface IAdditionalErrorDetails {
     [key: string]: any;
 }
 
-export interface ErrorResponse {
+export interface IErrorResponse {
     message: string;
     code: number;
-    details: AdditionalErrorDetails;
+    details: IAdditionalErrorDetails;
 }
 
 export abstract class StormError extends Error {
@@ -37,12 +37,12 @@ export abstract class StormError extends Error {
         this.details = details;
 
         var instance: Application = getInstance();
-        instance.getLogger().error(`${this.getMessage()}.. See details below:`);
+        instance.getLogger().error(`${this.getMessage()}... See details below:`);
         instance.getLogger().info(this.getDetails());
     }
 
-    abstract getMessage(): string;
-    abstract getCode(): number;
+    public abstract getMessage(): string;
+    public abstract getCode(): number;
 
     public getDetails(): any {
         return this.details;
@@ -52,11 +52,11 @@ export abstract class StormError extends Error {
         return StatusCode.INTERNAL_ERROR;
     }
 
-    public getAdditionalDetails(): AdditionalErrorDetails {
+    public getAdditionalDetails(): IAdditionalErrorDetails {
         return {};
     }
 
-    public getErrorResponse(): ErrorResponse {
+    public getErrorResponse(): IErrorResponse {
         return {
             message : this.getMessage(),
             code : this.getCode(),

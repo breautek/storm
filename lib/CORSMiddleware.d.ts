@@ -1,7 +1,7 @@
 import { Middleware } from './Middleware';
 import { Request } from './Request';
 import { Response } from './Response';
-import { RequestResponse } from './RequestResponse';
+import { IRequestResponse } from './IRequestResponse';
 export declare class CORSMiddleware extends Middleware {
     private _allowedOrigin;
     private _allowedHeaders;
@@ -10,5 +10,5 @@ export declare class CORSMiddleware extends Middleware {
     getDefaultAllowedOrigin(): string;
     getDefaultAllowedHeaders(): Array<string>;
     getDefaultAllowedMethods(): Array<string>;
-    execute(request: Request, response: Response): Promise<RequestResponse>;
+    execute(request: Request, response: Response): Promise<IRequestResponse>;
 }

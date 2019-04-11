@@ -1,6 +1,6 @@
 import * as formidable from 'formidable';
 
-export interface FormData {
+export interface IFormData {
     fields: formidable.Fields;
     files: formidable.Files;
 }

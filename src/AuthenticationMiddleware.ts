@@ -23,7 +23,7 @@ import {Logger} from './Logger';
 import {getInstance, getApplicationLogger} from './instance';
 import {TokenManager} from './TokenManager';
 import {StormError} from './StormError';
-import {Config} from './Config';
+import {IConfig} from './IConfig';
 import {InternalError} from './InternalError';
 
 /**
@@ -46,7 +46,7 @@ export abstract class AuthenticationMiddleware {
      * @param options Arbituary object containing any relevant information used for authentication.
      */
     public execute(request: Request, response: Response, options?: any): Promise<any> {
-        var config: Config = getInstance().getConfig();
+        var config: IConfig = getInstance().getConfig();
         var authHeader: string = config.authentication_header;
         var backendAuthHeader: string = config.backend_authentication_header;
         var backend: string = request.getHeader(backendAuthHeader);
@@ -93,8 +93,8 @@ export abstract class AuthenticationMiddleware {
                 this.logger.error(error);
                 var responseData: ResponseData = null;
 
-                //If an error is a TokenExpiredError, then we can handle it here. Otherwise propagate based on the rules below
-                if (error && error.name === "TokenExpiredError") {
+                // If an error is a TokenExpiredError, then we can handle it here. Otherwise propagate based on the rules below
+                if (error && error.name === 'TokenExpiredError') {
                     error = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
                         code: error.name,
                         reason : error.message

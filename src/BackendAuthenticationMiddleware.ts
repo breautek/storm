@@ -23,7 +23,7 @@ import {Logger} from './Logger';
 import {getInstance, getApplicationLogger} from './instance';
 import {TokenManager} from './TokenManager';
 import {StormError} from './StormError';
-import {Config} from './Config';
+import {IConfig} from './IConfig';
 
 /**
  * A base authentication strategy that handles 90% of the authentication process.
@@ -45,7 +45,7 @@ export class BackendAuthenticationMiddleware {
      * @param options Arbituary object containing any relevant information used for authentication.
      */
     public execute(request: Request, response: Response, options?: any): Promise<any> {
-        var config: Config = getInstance().getConfig();
+        var config: IConfig = getInstance().getConfig();
 
         var backendAuthHeader: string = config.backend_authentication_header;
         

@@ -2,19 +2,19 @@
 import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
 import * as FileSystem from 'fs';
-import { FormData } from './FormData';
-export interface ParameterMap {
+import { IFormData } from './IFormData';
+export interface IParameterMap {
     [key: string]: string;
 }
 export declare class Request {
     private request;
     constructor(request: express.Request);
     getBody(): any;
-    getForm(): Promise<FormData>;
+    getForm(): Promise<IFormData>;
     getHeaders(): IncomingHttpHeaders;
     getHeader(name: string): string;
     getQueryVariables(): any;
-    getParams(): ParameterMap;
+    getParams(): IParameterMap;
     getParam(name: string): string;
     getIP(): string;
     getForwardedIP(): string;

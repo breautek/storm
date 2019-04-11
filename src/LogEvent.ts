@@ -13,13 +13,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {LogSeverity} from './LogSeverity';
-
 export enum LogEvent {
-    LOG = "log"
-}
-
-export interface LogEventInterface {
-    severity: LogSeverity;
-    messages: IArguments;
+    LOG = 'log'
 }

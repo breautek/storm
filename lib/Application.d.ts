@@ -5,7 +5,7 @@ import { LogSeverity } from './LogSeverity';
 import { TokenManager } from './TokenManager';
 import { Database } from './Database';
 import { IHandler } from './IHandler';
-import { Config } from './Config';
+import { IConfig } from './IConfig';
 import Commander = require('commander');
 export declare abstract class Application extends EventEmitter {
     private logger;
@@ -31,17 +31,17 @@ export declare abstract class Application extends EventEmitter {
     loadConfig(path: string): Promise<any>;
     getName(): string;
     getLogger(): Logger;
-    getConfig(): Config;
+    getConfig(): IConfig;
     shouldListen(): boolean;
-    protected onConfigLoad(config: Config): void;
+    protected onConfigLoad(config: IConfig): void;
     setTokenManager(tokenManager: TokenManager): void;
     getTokenManager(): TokenManager;
     getDB(): Database;
     getCmdLineArgs(): any;
-    protected initDB(config: Config): Promise<Database>;
+    protected initDB(config: IConfig): Promise<Database>;
     protected _createLogger(): Logger;
     protected _getDefaultLogLevel(): LogSeverity;
-    protected _parseLogLevelConfig(config: Config): LogSeverity;
+    protected _parseLogLevelConfig(config: IConfig): LogSeverity;
     private _llStrToSeverity;
     protected onReady(): void;
 }

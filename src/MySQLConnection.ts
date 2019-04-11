@@ -52,13 +52,18 @@ export class MySQLConnection extends DatabaseConnection {
 
     protected _query(query: string, params?: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            var queryObject: MySQL.Query = this.getAPI().query({sql:query,timeout:this.getTimeout()}, params, (error: MySQL.MysqlError, results: any) => {
-                if (error) {
-                    return reject(error);
-                }
+            var queryObject: MySQL.Query = this.getAPI().query({
+                sql: query, 
+                timeout: this.getTimeout()}, 
+                params, 
+                (error: MySQL.MysqlError, results: any) => {
+                    if (error) {
+                        return reject(error);
+                    }
 
-                return resolve(results);
-            });
+                    return resolve(results);
+                }
+            );
             getApplicationLogger().trace(queryObject.sql);
         });
     }
@@ -79,7 +84,7 @@ export class MySQLConnection extends DatabaseConnection {
                 this.query('START TRANSACTION');
                 return resolve();
             }
-            catch(ex) {
+            catch (ex) {
                 this.transaction = false;
                 getApplicationLogger().error(ex);
                 reject(ex);
@@ -102,7 +107,7 @@ export class MySQLConnection extends DatabaseConnection {
                 this.transaction = false;
                 return resolve();
             }
-            catch(ex) {
+            catch (ex) {
                 getApplicationLogger().error(ex);
                 return reject(ex);
             }
@@ -120,7 +125,7 @@ export class MySQLConnection extends DatabaseConnection {
                 this.transaction = false;
                 return resolve();
             }
-            catch(ex) {
+            catch (ex) {
                 getApplicationLogger().error(ex);
                 return reject(ex);
             }
@@ -129,7 +134,7 @@ export class MySQLConnection extends DatabaseConnection {
 
     protected _close(): Promise<void> {
         if (this.isTransaction()) {
-			return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
+            return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
         }
 
         this._opened = false;

@@ -15,10 +15,11 @@
 
 import {Request} from './Request';
 import {Response} from './Response';
-import {RequestResponse} from './RequestResponse';
+import {IRequestResponse} from './IRequestResponse';
 
 export abstract class Middleware {
+    // tslint:disable-next-line no-empty
     public constructor() {}
 
-    public abstract execute(request: Request, response: Response): Promise<RequestResponse>;
+    public abstract execute(request: Request, response: Response): Promise<IRequestResponse>;
 }

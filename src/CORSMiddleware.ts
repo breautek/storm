@@ -16,7 +16,7 @@
 import {Middleware} from './Middleware';
 import {Request} from './Request';
 import {Response} from './Response';
-import {RequestResponse} from './RequestResponse';
+import {IRequestResponse} from './IRequestResponse';
 import {getInstance} from './instance';
 
 /**
@@ -71,7 +71,7 @@ export class CORSMiddleware extends Middleware {
         ];
     }
 
-    public execute(request: Request, response: Response): Promise<RequestResponse> {
+    public execute(request: Request, response: Response): Promise<IRequestResponse> {
         if (this._allowedOrigin) {
             response.setHeader('Access-Control-Allow-Origin', this._allowedOrigin);
         }
@@ -82,8 +82,8 @@ export class CORSMiddleware extends Middleware {
         response.setHeader('Access-Control-Allow-Methods', this._allowedMethods.join(', '));
         response.setHeader('Vary', 'Origin');
         return Promise.resolve({
-            request:request,
-            response:response 
+            request: request,
+            response: response 
         });
     }
 }

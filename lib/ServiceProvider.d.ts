@@ -1,5 +1,5 @@
 import { Application } from './Application';
-import { ServiceHeaders } from './ServiceHeaders';
+import { IServiceHeaders } from './IServiceHeaders';
 import { HTTPMethod } from './HTTPMethod';
 import { ServiceResponse } from './ServiceResponse';
 export declare abstract class ServiceProvider {
@@ -14,9 +14,9 @@ export declare abstract class ServiceProvider {
     protected _getProtocol(): string;
     getVersion(): string;
     protected _createURL(url: string, queryParams?: any): string;
-    request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
-    get(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
-    post(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
-    put(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
-    delete(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    get(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    post(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    put(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    delete(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
 }

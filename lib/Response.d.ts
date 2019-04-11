@@ -1,10 +1,10 @@
 /// <reference types="node" />
 import { StatusCode } from './StatusCode';
 import { ResponseData } from './ResponseData';
-import { StormError, ErrorResponse } from './StormError';
+import { StormError, IErrorResponse } from './StormError';
 import * as express from 'express';
-export declare type SendableData = ResponseData | StormError | ErrorResponse | any;
-export interface HeaderKeyValuePair {
+export declare type SendableData = ResponseData | StormError | IErrorResponse | any;
+export interface IHeaderKeyValuePair {
     [key: string]: string;
 }
 export declare class Response {
@@ -19,7 +19,7 @@ export declare class Response {
     pipe(stream: NodeJS.ReadableStream): void;
     success(data?: any): void;
     setHeader(key: string, value: string): void;
-    setHeaders(keyValuePair: HeaderKeyValuePair): void;
+    setHeaders(keyValuePair: IHeaderKeyValuePair): void;
     isHeadersSent(): boolean;
     error(error?: any): void;
     badRequest(data?: any): void;

@@ -1,1 +1,1 @@
-{"version":3,"file":"HTTPMethod.js","sourceRoot":"","sources":["../src/HTTPMethod.ts"],"names":[],"mappings":";;AACA,IAAY,UAKX;AALD,WAAY,UAAU;IAClB,yBAAW,CAAA;IACX,2BAAa,CAAA;IACb,yBAAW,CAAA;IACX,+BAAiB,CAAA;AACrB,CAAC,EALW,UAAU,GAAV,kBAAU,KAAV,kBAAU,QAKrB"}
+{"version":3,"file":"HTTPMethod.js","sourceRoot":"","sources":["../src/HTTPMethod.ts"],"names":[],"mappings":";;AACA,IAAY,UAKX;AALD,WAAY,UAAU;IAClB,yBAAe,CAAA;IACf,2BAAgB,CAAA;IAChB,yBAAe,CAAA;IACf,+BAAkB,CAAA;AACtB,CAAC,EALW,UAAU,GAAV,kBAAU,KAAV,kBAAU,QAKrB"}

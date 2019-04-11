@@ -16,7 +16,7 @@
 import {EventEmitter} from 'events';
 import {setInstance} from './instance';
 import {Logger} from './Logger';
-import {LogSeverity} from './LogSeverity'
+import {LogSeverity} from './LogSeverity';
 import {TokenManager} from './TokenManager';
 import {ApplicationEvent} from './ApplicationEvent';
 import {ExitCode} from './ExitCode';
@@ -26,7 +26,7 @@ import {IHandler} from './IHandler';
 import {Request} from './Request';
 import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
-import {Config} from './Config';
+import {IConfig} from './IConfig';
 import * as Path from 'path';
 import Commander = require('commander');
 import * as Express from 'express';
@@ -45,7 +45,7 @@ export abstract class Application extends EventEmitter {
     private logger: Logger;
     private name: string;
     private configPath: string;
-    private config: Config;
+    private config: IConfig;
     private tokenManager: TokenManager;
     private server: Express.Application;
     private db: Database;
@@ -72,7 +72,7 @@ export abstract class Application extends EventEmitter {
         this.$buildArgOptions();
 
         if (!!(<any>global).jasmine) {
-            //We are in a test development
+            // We are in a test development
             this._isTestEnvironment = true;
         }
 
@@ -110,7 +110,7 @@ export abstract class Application extends EventEmitter {
     }
 
     private _load(): void {
-        this.loadConfig(this.configPath).then((config: Config) => {
+        this.loadConfig(this.configPath).then((config: IConfig) => {
             this.config = config;
             this.getLogger().trace('Configuration loaded.');
             this.emit(ApplicationEvent.CONFIG_LOADED);
@@ -160,7 +160,7 @@ export abstract class Application extends EventEmitter {
             var bindingIP: string = this.getConfig().binding_ip;
             var port: number = this.getConfig().port;
     
-            if (bindingIP !== null && bindingIP !== "null") {
+            if (bindingIP !== null && bindingIP !== 'null') {
                 if (this.shouldListen()) {
                     this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
                     this.socket = http.createServer(this.server);
@@ -277,7 +277,7 @@ export abstract class Application extends EventEmitter {
     /**
      * @returns the config object.
      */
-    public getConfig(): Config {
+    public getConfig(): IConfig {
         return this.config;
     }
 
@@ -293,7 +293,7 @@ export abstract class Application extends EventEmitter {
      * 
      * @param config The config object (as defined in bt-config.json/bt-local-config.json)
      */
-    protected onConfigLoad(config: Config): void {}
+    protected onConfigLoad(config: IConfig): void {}
 
     /**
      * Sets the TokenManager to be used for authentication.
@@ -329,15 +329,15 @@ export abstract class Application extends EventEmitter {
         }
 
         if (program.binding !== undefined) {
-            o['binding_ip'] = program.binding;
+            o.binding_ip = program.binding;
         }
 
         if (program.port !== undefined) {
-            o['port'] = program.port;
+            o.port = program.port;
         }
 
         if (program.authenticationHeader !== undefined) {
-            o['authentication_header'] = program.authenticationHeader;
+            o.authentication_header = program.authenticationHeader;
         }
 
         return o;
@@ -347,7 +347,7 @@ export abstract class Application extends EventEmitter {
      * Subclasses are expected to override this to configure their database setup, if the service uses a database.
      * @param config The bt-config object
      */
-    protected initDB(config: Config): Promise<Database> {
+    protected initDB(config: IConfig): Promise<Database> {
         return Promise.resolve(null);
     }
 
@@ -372,7 +372,7 @@ export abstract class Application extends EventEmitter {
      * @param config bt-config object
      * @returns the severity mask
      */
-    protected _parseLogLevelConfig(config: Config): LogSeverity {
+    protected _parseLogLevelConfig(config: IConfig): LogSeverity {
         var llConfig: string = config.log_level;
         var severity: LogSeverity = null;
 
@@ -421,7 +421,7 @@ export abstract class Application extends EventEmitter {
      * @param ll sevierty string
      */
     private _llStrToSeverity(ll: string): LogSeverity {
-        switch(ll) {
+        switch (ll) {
             case 'all':
                 return LogSeverity.ALL;
             case 'trace':

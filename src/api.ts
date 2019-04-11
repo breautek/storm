@@ -17,12 +17,13 @@ import {getInstance, getApplicationLogger} from './instance';
 import {Application} from './Application';
 import {Logger} from './Logger';
 import {LogSeverity} from './LogSeverity';
-import {LogEvent, LogEventInterface} from './LogEvent';
+import {ILogEvent} from './ILogEvent';
+import {LogEvent} from './LogEvent';
 import {ExitCode} from './ExitCode';
 import {Iterator} from './Iterator';
 import {Token} from './Token';
 import {TokenManager} from './TokenManager';
-import {StormError, ErrorResponse, AdditionalErrorDetails} from './StormError';
+import {StormError, IErrorResponse, IAdditionalErrorDetails} from './StormError';
 import {StatusCode} from './StatusCode';
 import {ErrorCode} from './ErrorCode';
 import {MissingParameter} from './MissingParameter';
@@ -35,42 +36,43 @@ import {MySQLDatabase} from './MySQLDatabase';
 import {MySQLConnection} from './MySQLConnection';
 import {Middleware} from './Middleware';
 import {LoggerMiddleware} from './LoggerMiddleware';
-import {Request, ParameterMap} from './Request';
+import {Request, IParameterMap} from './Request';
 import {Response} from './Response';
 import {ResponseData} from './ResponseData';
 import {Handler} from './Handler';
 import {AuthenticationMiddleware} from './AuthenticationMiddleware';
 import {IHandler} from './IHandler';
-import {DictionaryIterator, Dictionary, DictionaryIteratorResult} from './DictionaryIterator'
+import {DictionaryIterator, IDictionary, IDictionaryIteratorResult} from './DictionaryIterator';
 import {ReverseIterator} from './ReverseIterator';
 import {InvalidValueError} from './InvalidValueError';
-import {DuplicateEntryError, DuplicateEntryErrorOptions} from './DuplicateEntryError';
+import {DuplicateEntryError, IDuplicateEntryErrorOptions} from './DuplicateEntryError';
 import {UnauthorizedAccess} from './UnauthorizedAccess';
 import {EntityNotFoundError} from './EntityNotFoundError';
 import {DiskSpaceError} from './DiskSpaceError';
 import {ConfigLoader} from './ConfigLoader';
-import {RequestResponse} from './RequestResponse';
+import {IRequestResponse} from './IRequestResponse';
 import {CORSMiddleware} from './CORSMiddleware';
 import * as formidable from 'formidable';
-import {FormData} from './FormData';
+import {IFormData} from './IFormData';
 import {BackendAuthenticationMiddleware} from './BackendAuthenticationMiddleware';
-import {Config} from './Config';
+import {IConfig} from './IConfig';
 import {ServiceProvider} from './ServiceProvider';
 import {HTTPMethod} from './HTTPMethod';
 import {ServiceResponse} from './ServiceResponse';
-import {ServiceHeaders} from './ServiceHeaders';
+import {IServiceHeaders} from './IServiceHeaders';
 
 export {
     getInstance, getApplicationLogger,
     Application,
     Logger,
     LogSeverity,
-    LogEvent, LogEventInterface,
+    LogEvent, 
+    ILogEvent,
     ExitCode,
     Iterator,
     Token,
     TokenManager,
-    StormError, ErrorResponse, AdditionalErrorDetails,
+    StormError, IErrorResponse, IAdditionalErrorDetails,
     StatusCode,
     ErrorCode,
     MissingParameter,
@@ -83,28 +85,28 @@ export {
     MySQLConnection,
     Middleware,
     LoggerMiddleware,
-    Request, ParameterMap,
+    Request, IParameterMap,
     Response,
     ResponseData,
     Handler,
     AuthenticationMiddleware,
     IHandler,
-    DictionaryIterator, Dictionary, DictionaryIteratorResult,
+    DictionaryIterator, IDictionary, IDictionaryIteratorResult,
     ReverseIterator,
     InvalidValueError,
-    DuplicateEntryError, DuplicateEntryErrorOptions,
+    DuplicateEntryError, IDuplicateEntryErrorOptions,
     UnauthorizedAccess,
     EntityNotFoundError,
     DiskSpaceError,
     ConfigLoader,
-    RequestResponse,
+    IRequestResponse,
     CORSMiddleware,
     formidable,
-    FormData,
+    IFormData,
     BackendAuthenticationMiddleware,
-    Config,
+    IConfig,
     HTTPMethod,
     ServiceProvider,
-    ServiceHeaders,
+    IServiceHeaders,
     ServiceResponse
 };

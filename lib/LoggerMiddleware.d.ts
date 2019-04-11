@@ -1,8 +1,8 @@
 import { Middleware } from './Middleware';
 import { Request } from './Request';
 import { Response } from './Response';
-import { RequestResponse } from './RequestResponse';
+import { IRequestResponse } from './IRequestResponse';
 export declare class LoggerMiddleware extends Middleware {
     constructor();
-    execute(request: Request, response: Response, options?: any): Promise<RequestResponse>;
+    execute(request: Request, response: Response, options?: any): Promise<IRequestResponse>;
 }

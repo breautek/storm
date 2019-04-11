@@ -15,10 +15,11 @@
 
 import {EventEmitter} from 'events';
 import {LogSeverity} from './LogSeverity';
-import {LogEvent, LogEventInterface} from './LogEvent';
+import {LogEvent} from './LogEvent';
+import {ILogEvent} from './ILogEvent';
 import * as utils from 'util';
 import {getInstance} from './instance';
-import { Config } from './Config';
+import { IConfig } from './IConfig';
 
 export class Logger extends EventEmitter {
     private name: string;
@@ -67,7 +68,7 @@ export class Logger extends EventEmitter {
     }
 
     protected _loadFilters(): Array<RegExp> {
-        var config: Config = getInstance().getConfig();
+        var config: IConfig = getInstance().getConfig();
         var filters: Array<RegExp> = null;
         if (!config.log_filters) {
             filters = this._getDefaultLogFilters();
@@ -114,35 +115,35 @@ export class Logger extends EventEmitter {
     }
 
     protected _formatDate(now: Date): string {
-        return `${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()} - ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        return `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} - ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
     }
 
     protected _formatString(messages: IArguments, severity: LogSeverity): string {
         var sevText: string = '';
         var str: string = '';
 
-        switch(severity) {
-			case LogSeverity.TRACE:
-				sevText = '[TRACE]';
-				break;
-			case LogSeverity.DEBUG:
-				sevText = '[DEBUG]';
-				break;
-			case LogSeverity.INFO:
-				sevText = '[INFO]';
-				break;
-			case LogSeverity.WARNING:
-				sevText = '[WARN]';
-				break;
-			case LogSeverity.ERROR:
-				sevText = '[ERROR]';
-				break;
-			case LogSeverity.FATAL:
-				sevText = '[FATAL]';
-				break;
-			default:
-				this.warn('Unknown Severity value used.');
-				break;
+        switch (severity) {
+            case LogSeverity.TRACE:
+                sevText = '[TRACE]';
+                break;
+            case LogSeverity.DEBUG:
+                sevText = '[DEBUG]';
+                break;
+            case LogSeverity.INFO:
+                sevText = '[INFO]';
+                break;
+            case LogSeverity.WARNING:
+                sevText = '[WARN]';
+                break;
+            case LogSeverity.ERROR:
+                sevText = '[ERROR]';
+                break;
+            case LogSeverity.FATAL:
+                sevText = '[FATAL]';
+                break;
+            default:
+                this.warn('Unknown Severity value used.');
+                break;
         }
         
         for (var i: number = 0; i < messages.length; i++) {
@@ -202,7 +203,7 @@ export class Logger extends EventEmitter {
     public log(messages: IArguments, severity: LogSeverity): void {
         if (severity & this.getLogLevel()) {
             this._log(messages, severity);
-            var logData: LogEventInterface = {
+            var logData: ILogEvent = {
                 severity : severity,
                 messages : messages
             };

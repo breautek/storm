@@ -1,6 +1,6 @@
 
 import {Application} from './Application';
-import {ServiceHeaders} from './ServiceHeaders';
+import {IServiceHeaders} from './IServiceHeaders';
 import {HTTPMethod} from './HTTPMethod';
 import {ServiceResponse} from './ServiceResponse';
 import * as http from 'http';
@@ -58,7 +58,8 @@ export abstract class ServiceProvider {
         return `/api/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
     }
 
-    public request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    // tslint:disable-next-line max-line-length
+    public request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return new Promise<ServiceResponse>((resolve, reject) => {
             var httpOpts: http.RequestOptions = {
                 port: this._getPort(),
@@ -81,7 +82,7 @@ export abstract class ServiceProvider {
             var responseData: Buffer;
 
             var request: http.ClientRequest = http.request(httpOpts, (response: http.IncomingMessage) => {
-                this._app.getLogger().trace(`ServiceProvider Response Status: ${response.statusCode}`)
+                this._app.getLogger().trace(`ServiceProvider Response Status: ${response.statusCode}`);
                 this._app.getLogger().trace(`ServiceProvider Response Headers: ${JSON.stringify(response.headers)}`);
 
                 response.on('data', (chunk: Buffer) => {
@@ -114,19 +115,19 @@ export abstract class ServiceProvider {
         });
     }
 
-    public get(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public get(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.GET, this._createURL(url, data), accessToken, NO_DATA, headers, additionalOptions);
     }
 
-    public post(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public post(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.POST, url, accessToken, data, headers, additionalOptions);
     }
 
-    public put(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public put(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.PUT, url, accessToken, data, headers, additionalOptions);
     }
 
-    public delete(url: string, accessToken: string, data?: any, headers?: ServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public delete(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.DELETE, url, accessToken, data, headers, additionalOptions);
     }
 }

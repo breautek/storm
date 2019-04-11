@@ -22,7 +22,7 @@ export class Token {
         this.signature = signature;
     }
 
-    getSignature(): string {
+    public getSignature(): string {
         return this.signature;
     }
 }

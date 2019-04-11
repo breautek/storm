@@ -1,7 +1,7 @@
 import { Request } from './Request';
 import { Response } from './Response';
-import { RequestResponse } from './RequestResponse';
+import { IRequestResponse } from './IRequestResponse';
 export declare abstract class Middleware {
     constructor();
-    abstract execute(request: Request, response: Response): Promise<RequestResponse>;
+    abstract execute(request: Request, response: Response): Promise<IRequestResponse>;
 }

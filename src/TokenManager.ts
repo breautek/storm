@@ -34,7 +34,7 @@ export class TokenManager {
 
                 return resolve(new Token(token));
             });
-        })
+        });
     }
 
     public verify(token: Token): Promise<any> {
@@ -55,7 +55,7 @@ export class TokenManager {
                 var decoded: any = jwt.decode(token.getSignature());
                 resolve(decoded);
             }
-            catch(ex) {
+            catch (ex) {
                 reject(ex);
             }
         });

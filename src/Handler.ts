@@ -22,46 +22,27 @@ import {Response} from './Response';
 import {Database} from './Database';
 import {IHandler} from './IHandler';
 import {Middleware} from './Middleware';
-import {RequestResponse} from './RequestResponse';
+import {IRequestResponse} from './IRequestResponse';
 import {StormError} from './StormError';
-import {Config} from './Config';
+import {IConfig} from './IConfig';
 
 export class Handler {
     private app: Application;
     private logRequests: boolean;
-    // private loggerMiddleware: Middleware;
     private _middlewares: Array<Middleware>;
 
     constructor(app: Application) {
         this.app = getInstance();
 
         this._middlewares = this.initMiddlewares();
-        // this.loggerMiddleware = this.initLoggerMiddleware();
     }
-
-    // protected initLoggerMiddleware(): Middleware {
-    //     return new LoggerMiddleware();
-    // }
 
     protected initMiddlewares(): Array<Middleware> {
         return [];
     }
 
-    // private log(request: Request, response: Response): Promise<void> {
-    //     var promise: Promise<void>;
-
-    //     if (this.loggerMiddleware) {
-    //         promise = this.loggerMiddleware.execute(request, response);
-    //     }
-    //     else {
-    //         promise = Promise.resolve();
-    //     }
-
-    //     return promise;
-    // }
-
     public getAccessToken(request: Request): string {
-        var config: Config = getInstance().getConfig();
+        var config: IConfig = getInstance().getConfig();
         var authHeader: string = config.authentication_header;
         return request.getHeader(authHeader);
     }
@@ -76,7 +57,7 @@ export class Handler {
 
     private _executeMiddlewares(request: Request, response: Response, index: number = 0): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            var promises: Array<Promise<RequestResponse>> = [];
+            var promises: Array<Promise<IRequestResponse>> = [];
 
             for (var i = 0; i < this._middlewares.length; i++) {
                 var middleware: Middleware = this._middlewares[i];
@@ -90,7 +71,7 @@ export class Handler {
     }
 
     protected _onMiddlewareReject(request: Request, response: Response, error: StormError) {
-        response.send(error);
+        response.error(error);
     }
 
     public get(request: Request, response: Response): void {
@@ -109,7 +90,7 @@ export class Handler {
         });
     }
 
-    public post(request: Request, response: Response):void {
+    public post(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._post(request, response);
         }).catch((error: StormError) => {
@@ -117,7 +98,7 @@ export class Handler {
         });
     }
 
-    public delete(request: Request, response: Response):void {
+    public delete(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._delete(request, response);
         }).catch((error: StormError) => {
@@ -125,7 +106,7 @@ export class Handler {
         });
     }
 
-    public patch(request: Request, response: Response):void {
+    public patch(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._patch(request, response);
         }).catch((error: StormError) => {
@@ -133,7 +114,7 @@ export class Handler {
         });
     }
 
-    public copy(request: Request, response: Response):void {
+    public copy(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._copy(request, response);
         }).catch((error: StormError) => {
@@ -141,7 +122,7 @@ export class Handler {
         });
     }
 
-    public head(request: Request, response: Response):void {
+    public head(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._head(request, response);
         }).catch((error: StormError) => {
@@ -149,7 +130,7 @@ export class Handler {
         });
     }
 
-    public options(request: Request, response: Response):void {
+    public options(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._options(request, response);
         }).catch((error: StormError) => {
@@ -157,7 +138,7 @@ export class Handler {
         });
     }
 
-    public link(request: Request, response: Response):void {
+    public link(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._link(request, response);
         }).catch((error: StormError) => {
@@ -165,7 +146,7 @@ export class Handler {
         });
     }
 
-    public unlink(request: Request, response: Response):void {
+    public unlink(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._unlink(request, response);
         }).catch((error: StormError) => {
@@ -173,7 +154,7 @@ export class Handler {
         });
     }
 
-    public purge(request: Request, response: Response):void {
+    public purge(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._purge(request, response);
         }).catch((error: StormError) => {
@@ -181,7 +162,7 @@ export class Handler {
         });
     }
 
-    public lock(request: Request, response: Response):void {
+    public lock(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._lock(request, response);
         }).catch((error: StormError) => {
@@ -189,7 +170,7 @@ export class Handler {
         });
     }
 
-    public unlock(request: Request, response: Response):void {
+    public unlock(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._unlock(request, response);
         }).catch((error: StormError) => {
@@ -197,7 +178,7 @@ export class Handler {
         });
     }
 
-    public view(request: Request, response: Response):void {
+    public view(request: Request, response: Response): void {
         this._executeMiddlewares(request, response).then(() => {
             this._view(request, response);
         }).catch((error: StormError) => {
@@ -261,4 +242,3 @@ export class Handler {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
     }
 }
-

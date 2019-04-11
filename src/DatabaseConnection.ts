@@ -31,20 +31,14 @@ export abstract class DatabaseConnection {
         this.readOnly = isReadOnly;
         this._instantiationStack = instantiationStack;
 
-        //TODO: Fuel the default by configs, and probably should actually use a more sane value... like 60.
+        // TODO: Fuel the default by configs, and probably should actually use a more sane value... like 60.
         this._timeout = 3600000;
 
         this._armLingerWarning();
     }
 
-    // private _restartLingerWarning(): void {
-    //     this._lingeringWarning = setTimeout(() => {
-    //         this._triggerLingerWarning();
-    //     }, LINGER_WARN_TIMER);
-    // }
-
     private _triggerLingerWarning(): void {
-        getApplicationLogger().warn(`Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`)
+        getApplicationLogger().warn(`Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`);
     }
 
     public getInstantiationStack(): string {

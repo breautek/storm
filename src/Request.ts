@@ -17,9 +17,9 @@ import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
 import * as FileSystem from 'fs';
 import * as formidable from 'formidable';
-import {FormData} from './FormData';
+import {IFormData} from './IFormData';
 
-export interface ParameterMap {
+export interface IParameterMap {
     [key: string]: string;
 }
 
@@ -34,8 +34,8 @@ export class Request {
         return this.request.body;
     }
 
-    public getForm(): Promise<FormData> {
-        return new Promise<FormData>((resolve, reject) => {
+    public getForm(): Promise<IFormData> {
+        return new Promise<IFormData>((resolve, reject) => {
             var r: express.Request = this.getRequestSource();
             var form: formidable.IncomingForm = new formidable.IncomingForm();
             form.hash = 'md5';
@@ -58,7 +58,7 @@ export class Request {
     }
 
     public getHeader(name: string): string {
-        var value: string | string[] = this.request.headers[name.toLowerCase()];
+        var value: string | Array<string> = this.request.headers[name.toLowerCase()];
         if (typeof value === 'string') {
             return value;
         }
@@ -71,7 +71,7 @@ export class Request {
         return this.request.query;
     }
 
-    public getParams(): ParameterMap {
+    public getParams(): IParameterMap {
         return this.request.params;
     }
 

@@ -19,7 +19,7 @@ import {StatusCode} from './StatusCode';
 
 export class MissingParameter extends StormError {
     public constructor(parameter: string) {
-        super({parameter:parameter});
+        super({parameter: parameter});
     }
 
     public getMessage(): string {

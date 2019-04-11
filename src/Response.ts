@@ -15,14 +15,14 @@
 
 import {StatusCode} from './StatusCode';
 import {ResponseData} from './ResponseData';
-import {StormError, ErrorResponse} from './StormError';
+import {StormError, IErrorResponse} from './StormError';
 import * as express from 'express';
 import {getApplicationLogger} from './instance';
 import { InternalError } from './InternalError';
 
-export type SendableData = ResponseData | StormError | ErrorResponse | any;
+export type SendableData = ResponseData | StormError | IErrorResponse | any;
 
-export interface HeaderKeyValuePair {
+export interface IHeaderKeyValuePair {
     [key: string]: string;
 }
 
@@ -87,8 +87,8 @@ export class Response {
         this.response.set(key, value);
     }
 
-    public setHeaders(keyValuePair: HeaderKeyValuePair): void {
-        this.response.set(keyValuePair)
+    public setHeaders(keyValuePair: IHeaderKeyValuePair): void {
+        this.response.set(keyValuePair);
     }
 
     public isHeadersSent(): boolean {

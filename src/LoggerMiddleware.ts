@@ -17,19 +17,20 @@ import {Middleware} from './Middleware';
 import {Request} from './Request';
 import {Response} from './Response';
 import {getInstance, getApplicationLogger} from './instance';
-import {RequestResponse} from './RequestResponse';
+import {IRequestResponse} from './IRequestResponse';
 
 export class LoggerMiddleware extends Middleware {
     public constructor() {
         super();
     }
 
-    public execute(request: Request, response: Response, options?: any): Promise<RequestResponse> {
-        return new Promise<RequestResponse>((resolve, reject) => {
+    public execute(request: Request, response: Response, options?: any): Promise<IRequestResponse> {
+        return new Promise<IRequestResponse>((resolve, reject) => {
+            // tslint:disable-next-line max-line-length
             getApplicationLogger().info(`${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
             resolve({
-                request:request,
-                response:response
+                request: request,
+                response: response
             });
         });
     }

@@ -1,7 +1,7 @@
 import { StormError } from './StormError';
 import { ErrorCode } from './ErrorCode';
 import { StatusCode } from './StatusCode';
-export interface DuplicateEntryErrorOptions {
+export interface IDuplicateEntryErrorOptions {
     entity: string;
     name: string;
 }

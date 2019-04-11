@@ -1,11 +1,11 @@
 import { StatusCode } from './StatusCode';
-export interface AdditionalErrorDetails {
+export interface IAdditionalErrorDetails {
     [key: string]: any;
 }
-export interface ErrorResponse {
+export interface IErrorResponse {
     message: string;
     code: number;
-    details: AdditionalErrorDetails;
+    details: IAdditionalErrorDetails;
 }
 export declare abstract class StormError extends Error {
     private details;
@@ -14,6 +14,6 @@ export declare abstract class StormError extends Error {
     abstract getCode(): number;
     getDetails(): any;
     getHTTPCode(): StatusCode;
-    getAdditionalDetails(): AdditionalErrorDetails;
-    getErrorResponse(): ErrorResponse;
+    getAdditionalDetails(): IAdditionalErrorDetails;
+    getErrorResponse(): IErrorResponse;
 }

@@ -1,18 +1,18 @@
 import {Iterator} from './Iterator';
 
-export interface Dictionary {
+export interface IDictionary {
     [key: string]: any;
 }
 
-export interface DictionaryIteratorResult {
+export interface IDictionaryIteratorResult {
     key: string;
-    value : any;
+    value: any;
 }
 
 export class DictionaryIterator extends Iterator<string> {
-    private dictionary: Dictionary;
+    private dictionary: IDictionary;
 
-    public constructor(dictionary: Dictionary, startingIndex?: number) {
+    public constructor(dictionary: IDictionary, startingIndex?: number) {
         super(Object.keys(dictionary));
         this.dictionary = dictionary;
     }

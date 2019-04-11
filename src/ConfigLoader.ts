@@ -18,12 +18,12 @@ import {Logger} from './Logger';
 import * as Path from 'path';
 import {Application} from './Application';
 import {ExitCode} from './ExitCode';
-import {Config} from './Config';
+import {IConfig} from './IConfig';
 
 export class ConfigLoader {
     private constructor() {}
 
-    public static load(path: string): Promise<Config> {
+    public static load(path: string): Promise<IConfig> {
         var logger: Logger = ConfigLoader._getLogger();
 
         return new Promise<any>((resolve, reject) => {
@@ -49,7 +49,7 @@ export class ConfigLoader {
                 c = require(cPath);
                 logger.trace('Main config loaded.');
             }
-            catch(ex) {
+            catch (ex) {
                 reject(`Missing ${cPath}.`);
                 process.nextTick(() => {
                     reject(ExitCode.MISSING_CONFIG);
@@ -62,7 +62,7 @@ export class ConfigLoader {
                 l = require(lPath);
                 logger.trace('Local config loaded.');
             }
-            catch(ex) {
+            catch (ex) {
                 logger.trace('Local config could not be loaded.');
                 logger.trace(ex);
             }
@@ -80,7 +80,7 @@ export class ConfigLoader {
             logger.trace('Configurations merged.');
             logger.trace(config);
 
-            resolve(<Config>config);
+            resolve(<IConfig>config);
         });
     }
 

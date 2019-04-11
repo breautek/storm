@@ -24,14 +24,14 @@ var genericLogger: Logger;
 var setInstance = (app: Application): void => {
     /* istanbul ignore if */
     if (instance) {
-        //warn
+        instance.getLogger().warn('Storm application already initialized');
     }
     instance = app;
-}
+};
 
 var getInstance = (): Application => {
     return instance;
-}
+};
 
 var getApplicationLogger = (): Logger => {
     /* istanbul ignore else */
@@ -47,10 +47,10 @@ var getApplicationLogger = (): Logger => {
         }
         return genericLogger;
     }
-}
+};
 
 export {
     setInstance,
     getInstance,
     getApplicationLogger
-}
+};

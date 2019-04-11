@@ -1,14 +1,14 @@
 import { Iterator } from './Iterator';
-export interface Dictionary {
+export interface IDictionary {
     [key: string]: any;
 }
-export interface DictionaryIteratorResult {
+export interface IDictionaryIteratorResult {
     key: string;
     value: any;
 }
 export declare class DictionaryIterator extends Iterator<string> {
     private dictionary;
-    constructor(dictionary: Dictionary, startingIndex?: number);
+    constructor(dictionary: IDictionary, startingIndex?: number);
     next(): any;
     previous(): any;
 }
