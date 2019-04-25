@@ -39,5 +39,6 @@ export declare abstract class Application extends EventEmitter {
     protected _setDefaultLogLevel(): void;
     protected _parseLogLevelConfig(config: Config): LogSeverity;
     private _llStrToSeverity;
+    protected onBeforeReady(): void;
     protected onReady(): void;
 }

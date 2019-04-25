@@ -1,3 +1,6 @@
+# 0.12.4 (April 25, 2019)
+- Added onBeforeReady hook to Application, that fires just before the application starts listening for connections.
+
 # 0.12.3 (April 10, 2019)
 - Fixed regression bug
 
