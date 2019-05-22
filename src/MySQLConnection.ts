@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {DatabaseConnection} from './DatabaseConnection';
+import {DatabaseQueryError} from './DatabaseQueryError';
 import {getInstance, getApplicationLogger} from './instance';
 import * as MySQL from 'mysql';
 
@@ -54,7 +55,7 @@ export class MySQLConnection extends DatabaseConnection {
         return new Promise((resolve, reject) => {
             var queryObject: MySQL.Query = this.getAPI().query({sql:query,timeout:this.getTimeout()}, params, (error: MySQL.MysqlError, results: any) => {
                 if (error) {
-                    return reject(error);
+                    return reject(new DatabaseQueryError(queryObject.sql, error));
                 }
 
                 return resolve(results);

@@ -1,3 +1,7 @@
+# 0.13.0 (May 22, 2019)
+- DatabaseQueryError added
+- MySQLConnection will now reject using a DatabaseQueryError
+
 # 0.12.5 (May 16, 2019)
 - Fixed JsonWebTokenError handling
 
