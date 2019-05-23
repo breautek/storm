@@ -12,5 +12,5 @@ export declare class MySQLConnection extends DatabaseConnection {
     endTransaction(requiresRollback?: boolean): Promise<void>;
     rollback(): Promise<void>;
     commit(): Promise<void>;
-    protected _close(): Promise<void>;
+    protected _close(forceClose: boolean): Promise<void>;
 }

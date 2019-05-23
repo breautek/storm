@@ -128,16 +128,35 @@ export class MySQLConnection extends DatabaseConnection {
         });
     }
 
-    protected _close(): Promise<void> {
-        if (this.isTransaction()) {
+    protected _close(forceClose: boolean): Promise<void> {
+        if (!forceClose && this.isTransaction()) {
 			return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
         }
 
         this._opened = false;
         
         return new Promise<void>((resolve, reject) => {
-            this.getAPI().release();
-            resolve();
+            var rollbackPromise: Promise<void> = null;
+            if (forceClose) {
+                if (this.isTransaction()) {
+                    rollbackPromise = this.rollback();
+                }
+                else {
+                    rollbackPromise = Promise.resolve();
+                }
+            }
+            else {
+                rollbackPromise = Promise.resolve();
+            }
+
+            rollbackPromise.then(() => {
+                this.getAPI().release();
+                resolve();
+            }).catch((error: any) => {
+                getInstance().getLogger().error(error);
+                this.getAPI().release();
+                resolve();
+            });
         });
     }
 }

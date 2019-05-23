@@ -1,3 +1,6 @@
+# 0.15.x (Unreleased)
+- Added optional forceClose flag to DatabaseConnection.close()
+
 # 0.14.0 (May 23, 2019)
 - Source Map support
 
