@@ -31,6 +31,7 @@ import * as Path from 'path';
 import Commander = require('commander');
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
+require('source-map-support').install();
 
 /**
  * The default log level to log informational, warnings, errors, and fatal messages.

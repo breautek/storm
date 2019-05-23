@@ -1,3 +1,6 @@
+# 0.14.0 (May 23, 2019)
+- Source Map support
+
 # 0.13.0 (May 22, 2019)
 - DatabaseQueryError added
 - MySQLConnection will now reject using a DatabaseQueryError
