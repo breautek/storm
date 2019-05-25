@@ -5,8 +5,7 @@ import { Database } from './Database';
 import { Middleware } from './Middleware';
 import { StormError } from './StormError';
 export declare class Handler {
-    private app;
-    private logRequests;
+    private _app;
     private _middlewares;
     constructor(app: Application);
     protected initMiddlewares(): Array<Middleware>;

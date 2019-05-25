@@ -15,25 +15,21 @@
 
 import {StatusCode} from './StatusCode';
 import {Application} from './Application';
-import {LoggerMiddleware} from './LoggerMiddleware';
 import {getInstance} from './instance';
 import {Request} from './Request';
 import {Response} from './Response';
 import {Database} from './Database';
-import {IHandler} from './IHandler';
 import {Middleware} from './Middleware';
 import {IRequestResponse} from './IRequestResponse';
 import {StormError} from './StormError';
 import {IConfig} from './IConfig';
 
 export class Handler {
-    private app: Application;
-    private logRequests: boolean;
+    private _app: Application;
     private _middlewares: Array<Middleware>;
 
     constructor(app: Application) {
-        this.app = getInstance();
-
+        this._app = app;
         this._middlewares = this.initMiddlewares();
     }
 
@@ -48,7 +44,7 @@ export class Handler {
     }
 
     public getDB(): Database {
-        return this.app.getDB();
+        return this._app.getDB();
     }
 
     private _getNextMiddleware(index: number): Middleware {
