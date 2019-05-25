@@ -80,15 +80,15 @@ export abstract class DatabaseConnection {
         return this._query(query, params);
     }
 
-    public close(): Promise<void> {
+    public close(forceClose: boolean = false): Promise<void> {
         clearTimeout(this._lingerTimer);
-        return this._close();
+        return this._close(forceClose);
     }
 
     public abstract startTransaction(): Promise<void>;
     public abstract isTransaction(): boolean;
     public abstract commit(): Promise<void>;
     public abstract rollback(): Promise<void>;
-    protected abstract _close(): Promise<void>;
+    protected abstract _close(forceClose: boolean): Promise<void>;
     protected abstract _query(query: string, params?: any): Promise<any>;
 }

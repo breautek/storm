@@ -1,3 +1,19 @@
+# 0.15.x (Unreleased)
+- Added optional forceClose flag to DatabaseConnection.close()
+
+# 0.14.0 (May 23, 2019)
+- Source Map support
+
+# 0.13.0 (May 22, 2019)
+- DatabaseQueryError added
+- MySQLConnection will now reject using a DatabaseQueryError
+
+# 0.12.5 (May 16, 2019)
+- Fixed JsonWebTokenError handling
+
+# 0.12.4 (April 25, 2019)
+- Added onBeforeReady hook to Application, that fires just before the application starts listening for connections.
+
 # 0.12.3 (April 10, 2019)
 - Fixed regression bug
 

@@ -33,6 +33,9 @@ import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
 
+// tslint:disable-next-line: no-var-requires
+require('source-map-support').install();
+
 /**
  * The default log level to log informational, warnings, errors, and fatal messages.
  */
@@ -157,6 +160,8 @@ export abstract class Application extends EventEmitter {
             this.getLogger().trace('Attaching handlers...');
             return this.attachHandlers();
         }).then(() => {
+            this.onBeforeReady();
+            
             var bindingIP: string = this.getConfig().binding_ip;
             var port: number = this.getConfig().port;
     
@@ -441,6 +446,8 @@ export abstract class Application extends EventEmitter {
                 return null;
         }
     }
+
+    protected onBeforeReady(): void {}
 
     /**
      * Invoked when the application is considered ready for operation.

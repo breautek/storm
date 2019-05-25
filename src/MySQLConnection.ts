@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {DatabaseConnection} from './DatabaseConnection';
+import {DatabaseQueryError} from './DatabaseQueryError';
 import {getInstance, getApplicationLogger} from './instance';
 import * as MySQL from 'mysql';
 
@@ -53,17 +54,15 @@ export class MySQLConnection extends DatabaseConnection {
     protected _query(query: string, params?: any): Promise<any> {
         return new Promise((resolve, reject) => {
             var queryObject: MySQL.Query = this.getAPI().query({
-                sql: query, 
-                timeout: this.getTimeout()}, 
-                params, 
-                (error: MySQL.MysqlError, results: any) => {
-                    if (error) {
-                        return reject(error);
-                    }
-
-                    return resolve(results);
+                sql: query,
+                timeout: this.getTimeout()
+            }, params, (error: MySQL.MysqlError, results: any) => {
+                if (error) {
+                    return reject(new DatabaseQueryError(queryObject.sql, error));
                 }
-            );
+
+                return resolve(results);
+            });
             getApplicationLogger().trace(queryObject.sql);
         });
     }
@@ -132,16 +131,35 @@ export class MySQLConnection extends DatabaseConnection {
         });
     }
 
-    protected _close(): Promise<void> {
-        if (this.isTransaction()) {
+    protected _close(forceClose: boolean): Promise<void> {
+        if (!forceClose && this.isTransaction()) {
             return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
         }
 
         this._opened = false;
         
         return new Promise<void>((resolve, reject) => {
-            this.getAPI().release();
-            resolve();
+            var rollbackPromise: Promise<void> = null;
+            if (forceClose) {
+                if (this.isTransaction()) {
+                    rollbackPromise = this.rollback();
+                }
+                else {
+                    rollbackPromise = Promise.resolve();
+                }
+            }
+            else {
+                rollbackPromise = Promise.resolve();
+            }
+
+            rollbackPromise.then(() => {
+                this.getAPI().release();
+                resolve();
+            }).catch((error: any) => {
+                getInstance().getLogger().error(error);
+                this.getAPI().release();
+                resolve();
+            });
         });
     }
 }

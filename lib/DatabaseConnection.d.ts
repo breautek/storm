@@ -13,11 +13,11 @@ export declare abstract class DatabaseConnection {
     setTimeout(timeout: number): void;
     getTimeout(): number;
     query(query: string, params?: any): Promise<any>;
-    close(): Promise<void>;
+    close(forceClose?: boolean): Promise<void>;
     abstract startTransaction(): Promise<void>;
     abstract isTransaction(): boolean;
     abstract commit(): Promise<void>;
     abstract rollback(): Promise<void>;
-    protected abstract _close(): Promise<void>;
+    protected abstract _close(forceClose: boolean): Promise<void>;
     protected abstract _query(query: string, params?: any): Promise<any>;
 }

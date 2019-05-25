@@ -93,12 +93,22 @@ export abstract class AuthenticationMiddleware {
                 this.logger.error(error);
                 var responseData: ResponseData = null;
 
-                // If an error is a TokenExpiredError, then we can handle it here. Otherwise propagate based on the rules below
-                if (error && error.name === 'TokenExpiredError') {
-                    error = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
-                        code: error.name,
-                        reason : error.message
-                    });
+                // If an error is a TokenExpiredError|JsonWebTokenError, then we can handle it here. Otherwise propagate based on the rules below
+                if (error && error.name) {
+                    switch(error.name) {
+                        case 'TokenExpiredError':
+                            error = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
+                                code: error.name,
+                                reason: error.message
+                            });
+                            break;
+                        case 'JsonWebTokenError':
+                            error = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
+                                code: error.name,
+                                reason : error.message
+                            });
+                            break;
+                    }
                 }
 
                 if (error instanceof StormError) {
