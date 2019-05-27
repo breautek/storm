@@ -20,14 +20,15 @@ import {ILogEvent} from './ILogEvent';
 import * as utils from 'util';
 import {getInstance} from './instance';
 import { IConfig } from './IConfig';
+import { Application } from './Application';
 
 export class Logger extends EventEmitter {
     private name: string;
     private logLevel: LogSeverity;
-    private useStdOutForErrors: boolean;
+    private useStdErrForErrors: boolean;
     private _filters: Array<RegExp>;
 
-    public constructor(name: string = '', logLevel?: LogSeverity, useStdOutForErrors: boolean = false) {
+    public constructor(name: string = '', logLevel?: LogSeverity, useStdErrForErrors: boolean = false) {
         super();
 
         this.name = name;
@@ -44,7 +45,7 @@ export class Logger extends EventEmitter {
 
         this._filters = this._getDefaultLogFilters();
 
-        this.useStdOutForErrors = useStdOutForErrors;
+        this.useStdErrForErrors = useStdErrForErrors;
     }
 
     public getName(): string {
@@ -71,20 +72,38 @@ export class Logger extends EventEmitter {
         }
     }
 
-    protected _loadFilters(): Array<RegExp> {
-        var config: IConfig = getInstance().getConfig();
+    public getFilters(): Array<RegExp> {
+        return this._filters.slice();
+    }
+
+    public loadFilters(): void {
+        var app: Application = getInstance();
+        var config: IConfig = null;
+
+        if (app) {
+            config = app.getConfig();
+        }
+
+        if (!config) {
+            this.trace('No config for logger... Using default log filters');
+            this.setFilters(this._getDefaultLogFilters());
+            return;
+        }
+
         var filters: Array<RegExp> = null;
-        if (!config.log_filters) {
+        if (!config.log_filters || (config.log_filters && config.log_filters.length === 0)) {
             filters = this._getDefaultLogFilters();
         }
         else {
             filters = [];
             for (var i: number = 0; i < config.log_filters.length; i++) {
                 var logFilter: string = config.log_filters[i];
+                console.log(logFilter);
                 filters.push(new RegExp(this._parseRegex(logFilter)));
             }
         }
-        return filters;
+
+        this.setFilters(filters);
     }
 
     private _parseRegex(strReg: string): RegExp {
@@ -180,7 +199,7 @@ export class Logger extends EventEmitter {
 
     protected _logMessage(msg: string, severity: LogSeverity): void {
         if (this._shouldLog(msg, severity)) {
-            if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this.useStdOutForErrors) {
+            if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this.useStdErrForErrors) {
                 process.stderr.write(msg);
             }
             else {

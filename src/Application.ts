@@ -118,6 +118,8 @@ export abstract class Application extends EventEmitter {
                 this.logger.setLogLevel(logSeverity);
             }
 
+            this.logger.loadFilters();
+
             this.getLogger().trace('Initializing DB...');
 
             return this.initDB(this.getConfig());
