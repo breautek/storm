@@ -24,11 +24,21 @@ class TestHandler extends Handler {
     protected _post(request: Request, response: Response): void {
         response.send(request.getBody());
     }
+
+    protected _put(request: Request, response: Response): void {
+        response.send(request.getBody());
+    }
+
+    protected _delete(request: Request, response: Response): void {
+        response.send(request.getBody());
+    }
 }
 
+const ERRORS_ONLY: LogSeverity = LogSeverity.ERROR | LogSeverity.FATAL;
+
 export class TestApplication extends Application {
-    constructor() {
-        super("TestApplication", "./spec/support/", LogSeverity.ERROR | LogSeverity.FATAL);
+    constructor(severity?: LogSeverity) {
+        super("TestApplication", "./spec/support/", severity === undefined ? ERRORS_ONLY : severity);
     }
 
     protected attachHandlers(): Promise<void> {
@@ -50,5 +60,53 @@ export class TestApplication extends Application {
 
     protected _getDefaultLogLevel(): LogSeverity {
         return LogSeverity.TRACE;
+    }
+}
+
+export class NoServerApp extends Application {
+    constructor() {
+        super('NoServerApp', './spec/support/', null);
+    }
+
+    protected attachHandlers(): Promise<void> {
+        this.attachHandler('/echo', TestHandler);
+        return Promise.resolve();
+    }
+
+    public shouldListen(): boolean {
+        return false;
+    }
+
+    public llStrToSeverity(ll: string): LogSeverity {
+        return this._llStrToSeverity(ll);
+    }
+}
+
+export class ConfigTestApp extends Application {
+    public testConfig: IConfig;
+
+    constructor(jsonConfig: string) {
+        super('ConfigTestApp', jsonConfig, null);
+    }
+
+    protected attachHandlers(): Promise<void> {
+        this.attachHandler('/echo', TestHandler);
+        return Promise.resolve();
+    }
+
+    protected _createLogger(): Logger {
+        return super._createLogger();
+    }
+
+    public shouldListen(): boolean {
+        return false;
+    }
+
+    public loadConfig(path: string): Promise<IConfig> {
+        return Promise.resolve(JSON.parse(path));
+    }
+
+    public llStrToSeverity(ll: string): LogSeverity {
+        return this._llStrToSeverity(ll);
     }
 }

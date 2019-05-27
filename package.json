@@ -15,8 +15,8 @@
     "build": "tsc && npm run-script build-docs",
     "build-docs": "typedoc --readme ./README.md --out ./docs ./src",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "jasmine-ts",
-    "coverage": "nyc check-coverage"
+    "test": "nyc --reporter=lcov jasmine-ts",
+    "coverage": "codecov"
   },
   "repository": {
     "type": "git",
@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@types/jasmine": "^3.3.12",
+    "codecov": "^3.5.0",
     "jasmine": "^3.4.0",
     "jasmine-spec-reporter": "^4.2.1",
     "jasmine-ts": "^0.3.0",

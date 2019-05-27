@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 // Copyright (C) 2017  Norman Breau
 
 // This program is free software: you can redistribute it and/or modify
@@ -20,10 +22,8 @@ import {LogSeverity} from './LogSeverity';
 var instance: Application;
 var genericLogger: Logger;
 
-/* istanbul ignore next */
 var setInstance = (app: Application): void => {
     if (instance) {
-        /* istanbul ignore next */
         instance.getLogger().warn('Storm application already initialized');
     }
     instance = app;
@@ -34,12 +34,10 @@ var getInstance = (): Application => {
 };
 
 var getApplicationLogger = (): Logger => {
-    /* istanbul ignore else */
     if (instance) {
         return instance.getLogger();
     }
     else {
-        /* istanbul ignore if */
         if (!genericLogger) {
             genericLogger = new Logger('Generic');
             genericLogger.info('Using generic logger. Only errors will be reported.');

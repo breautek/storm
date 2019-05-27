@@ -47,6 +47,10 @@ export class Logger extends EventEmitter {
         this.useStdOutForErrors = useStdOutForErrors;
     }
 
+    public getName(): string {
+        return this.name;
+    }
+
     public addFilter(reg: RegExp): void {
         this._filters.push(reg);
     }
