@@ -1,7 +1,8 @@
 
 import {Logger} from '../src/Logger';
 import {LogSeverity} from '../src/LogSeverity';
-import { ConfigTestApp } from './support/TestApplication';
+import {ConfigTestApp} from './support/TestApplication';
+import {MockLogger} from './support/MockLogger';
 
 describe('Logger', () => {
     it('Sets default Log Level', () => {
@@ -129,5 +130,20 @@ describe('Logger', () => {
             expect(filters[1].toString()).toBe('/test2/g');
             done();
         });
+    });
+
+    it('FormatText handles logging unknown severity', () => {
+        var mock: MockLogger = new MockLogger();
+        expect(mock.formatString(['test', '123'], 123123).indexOf('test 123')).toBeGreaterThan(-1);
+    });
+
+    it('FormatText handles logging objects', () => {
+        var mock: MockLogger = new MockLogger();
+        expect(mock.formatString([{a: true,b: 123,c: 'test'}], LogSeverity.INFO).indexOf(`{ a: true, b: 123, c: 'test' }`)).toBeGreaterThan(-1);
+    });
+
+    it('FormatText handles logging errors', () => {
+        var mock: MockLogger = new MockLogger();
+        expect(mock.formatString([new Error('test error')], LogSeverity.INFO).indexOf(`test error`)).toBeGreaterThan(-1);
     });
 });
