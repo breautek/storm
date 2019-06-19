@@ -1,3 +1,6 @@
+# 0.16.1
+- Cleaned lib as 0.16.0 included old artifacts that is still importable
+
 # 0.16.0
 ## Breaking Changes
 - All interfaces are now prefixed with an "I"... example "Config.ts" is now "IConfig.ts".
