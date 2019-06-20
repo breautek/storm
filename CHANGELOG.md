@@ -1,7 +1,10 @@
-# 0.16.1
+# 0.17.0 (June 20, 2019)
+- Added Stream support to DatabaseConnection
+
+# 0.16.1 (June 19, 2019)
 - Cleaned lib as 0.16.0 included old artifacts that is still importable
 
-# 0.16.0
+# 0.16.0 (June 19, 2019)
 ## Breaking Changes
 - All interfaces are now prefixed with an "I"... example "Config.ts" is now "IConfig.ts".
 - The project is now lintified to enforce these rules.

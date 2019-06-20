@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { Readable } from 'stream';
 export declare abstract class DatabaseConnection {
     private api;
     private readOnly;
@@ -13,6 +15,7 @@ export declare abstract class DatabaseConnection {
     setTimeout(timeout: number): void;
     getTimeout(): number;
     query(query: string, params?: any): Promise<any>;
+    stream(query: string, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
     abstract startTransaction(): Promise<void>;
     abstract isTransaction(): boolean;
@@ -20,4 +23,5 @@ export declare abstract class DatabaseConnection {
     abstract rollback(): Promise<void>;
     protected abstract _close(forceClose: boolean): Promise<void>;
     protected abstract _query(query: string, params?: any): Promise<any>;
+    protected abstract _stream(query: string, params?: any, streamOptions?: any): Readable;
 }

@@ -16,6 +16,7 @@
 import {
     getApplicationLogger
 } from './instance';
+import {Readable} from 'stream';
 
 const LINGER_WARNING: number = 10000;
 
@@ -80,6 +81,11 @@ export abstract class DatabaseConnection {
         return this._query(query, params);
     }
 
+    public stream(query: string, params?: any, streamOptions?: any): Readable {
+        this._armLingerWarning();
+        return this._stream(query, params, this.stream);
+    }
+
     public close(forceClose: boolean = false): Promise<void> {
         clearTimeout(this._lingerTimer);
         return this._close(forceClose);
@@ -91,4 +97,5 @@ export abstract class DatabaseConnection {
     public abstract rollback(): Promise<void>;
     protected abstract _close(forceClose: boolean): Promise<void>;
     protected abstract _query(query: string, params?: any): Promise<any>;
+    protected abstract _stream(query: string, params?: any, streamOptions?: any): Readable;
 }

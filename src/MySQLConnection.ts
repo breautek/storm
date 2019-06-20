@@ -17,8 +17,9 @@ import {DatabaseConnection} from './DatabaseConnection';
 import {DatabaseQueryError} from './DatabaseQueryError';
 import {getInstance, getApplicationLogger} from './instance';
 import * as MySQL from 'mysql';
+import {Readable} from 'stream';
 
-// const LINGER_WARN_TIMER: number = 60000;
+const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 
 export class MySQLConnection extends DatabaseConnection {
     private transaction: boolean;
@@ -65,6 +66,23 @@ export class MySQLConnection extends DatabaseConnection {
             });
             getApplicationLogger().trace(queryObject.sql);
         });
+    }
+
+    protected _stream(query: string, params?: any, streamOptions?: any): Readable {
+        if (!streamOptions) {
+            streamOptions = {};
+        }
+
+        if (!streamOptions.highWatermark) {
+            streamOptions.highWatermark = DEFAULT_HIGH_WATERMARK;
+        }
+
+        let queryObject: MySQL.Query = this.getAPI().query({
+            sql: query,
+            timeout: this.getTimeout()
+        }, params);
+
+        return queryObject.stream(streamOptions);
     }
 
     public startTransaction(): Promise<void> {
