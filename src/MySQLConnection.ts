@@ -82,6 +82,8 @@ export class MySQLConnection extends DatabaseConnection {
             timeout: this.getTimeout()
         }, params);
 
+        getApplicationLogger().trace(queryObject.sql);
+
         return queryObject.stream(streamOptions);
     }
 

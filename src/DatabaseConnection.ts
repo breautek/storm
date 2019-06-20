@@ -83,7 +83,7 @@ export abstract class DatabaseConnection {
 
     public stream(query: string, params?: any, streamOptions?: any): Readable {
         this._armLingerWarning();
-        return this._stream(query, params, this.stream);
+        return this._stream(query, params, streamOptions);
     }
 
     public close(forceClose: boolean = false): Promise<void> {
