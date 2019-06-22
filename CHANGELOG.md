@@ -1,3 +1,6 @@
+# Unreleased
+- Removed uncommon HTTP methods from Handler. This was never fully implemented to begin with.
+
 # 0.17.0 (June 20, 2019)
 - Added Stream support to DatabaseConnection
 

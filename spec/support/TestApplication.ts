@@ -89,7 +89,7 @@ export class MockApplication extends Application {
         this.attachHandler(url, handler);
     }
 
-    private _doMock(method: HTTPMethod, url: string, data?: any): Promise<IMockResponse> {
+    private _doMock(method: HTTPMethod, url: string, data?: any, headers?: any): Promise<IMockResponse> {
         return new Promise<IMockResponse>((resolve, reject) => {
             var request: http.ClientRequest = http.request(new URL(url, 'http://localhost:64321'), {
                 method: method
@@ -111,6 +111,12 @@ export class MockApplication extends Application {
                 });
             });
 
+            if (headers) {
+                for (let i in headers) {
+                    request.setHeader(i, headers[i]);
+                }
+            }
+
             if (data) {
                 if (typeof data === 'string') {
                     request.write(data);
@@ -124,12 +130,20 @@ export class MockApplication extends Application {
         });
     }
 
-    public doMockGet(url: string): Promise<IMockResponse> {
-        return this._doMock(HTTPMethod.GET, url);
+    public doMockGet(url: string, headers?: any): Promise<IMockResponse> {
+        return this._doMock(HTTPMethod.GET, url, null, headers);
     }
 
     public doMockPost(url: string, data?: any): Promise<IMockResponse> {
         return this._doMock(HTTPMethod.POST, url, data);
+    }
+
+    public doMockPut(url: string, data?: any): Promise<IMockResponse> {
+        return this._doMock(HTTPMethod.PUT, url, data);
+    }
+
+    public doMockDelete(url: string, data?: any): Promise<IMockResponse> {
+        return this._doMock(HTTPMethod.DELETE, url, data);
     }
 
     protected _createLogger(): Logger {

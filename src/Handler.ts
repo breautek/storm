@@ -31,6 +31,9 @@ export class Handler {
     constructor(app: Application) {
         this._app = app;
         this._middlewares = this.initMiddlewares();
+        if (this._middlewares.length > 0) {
+            console.log(new Error('Handler middlewares is deprecated and will be removed in the future.').stack);
+        }
     }
 
     protected initMiddlewares(): Array<Middleware> {
@@ -55,7 +58,13 @@ export class Handler {
         return new Promise<void>((resolve, reject) => {
             var promises: Array<Promise<IRequestResponse>> = [];
 
+            var firedDeprecation: boolean = false;
+
             for (var i = 0; i < this._middlewares.length; i++) {
+                if (!firedDeprecation) {
+                    console.log(new Error('Handler._executeMiddlewares is deprecated. Will be removed in the future.').stack);
+                    firedDeprecation = true;
+                }
                 var middleware: Middleware = this._middlewares[i];
                 promises.push(middleware.execute(request, response));
             }
@@ -102,86 +111,6 @@ export class Handler {
         });
     }
 
-    public patch(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._patch(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public copy(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._copy(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public head(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._head(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public options(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._options(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public link(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._link(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public unlink(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._unlink(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public purge(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._purge(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public lock(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._lock(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public unlock(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._unlock(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
-    public view(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._view(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
-        });
-    }
-
     protected _get(request: Request, response: Response): void {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
     }
@@ -195,46 +124,6 @@ export class Handler {
     }
 
     protected _delete(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _patch(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _copy(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _head(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _options(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _link(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _unlink(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _purge(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _lock(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _unlock(request: Request, response: Response): void {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-    }
-
-    protected _view(request: Request, response: Response): void {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
     }
 }
