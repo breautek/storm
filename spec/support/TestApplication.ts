@@ -14,6 +14,7 @@ import {StatusCode} from '../../src/StatusCode';
 import {HTTPMethod} from '../../src/HTTPMethod';
 import {MockLogger} from './MockLogger';
 import * as http from 'http';
+import FormData = require('form-data');
 
 export class TestLogger extends Logger {};
 
@@ -87,7 +88,7 @@ export class MockApplication extends Application {
         this.attachHandler(url, handler);
     }
 
-    private _doMock(method: HTTPMethod, url: string, data?: string): Promise<IMockResponse> {
+    private _doMock(method: HTTPMethod, url: string, data?: any): Promise<IMockResponse> {
         return new Promise<IMockResponse>((resolve, reject) => {
             var request: http.ClientRequest = http.request(new URL(url, 'http://localhost:64321'), {
                 method: method
@@ -108,7 +109,15 @@ export class MockApplication extends Application {
                 });
             });
 
-            if (data) request.write(data);
+            if (data) {
+                if (typeof data === 'string') {
+                    request.write(data);
+                }
+                else {
+                    request.setHeader('Content-Type', 'multipart/form-data; boundary=' + data.getBoundary());
+                    data.pipe(request);
+                }
+            }
             request.end();
         });
     }
@@ -117,7 +126,7 @@ export class MockApplication extends Application {
         return this._doMock(HTTPMethod.GET, url);
     }
 
-    public doMockPost(url: string, data?: string): Promise<IMockResponse> {
+    public doMockPost(url: string, data?: any): Promise<IMockResponse> {
         return this._doMock(HTTPMethod.POST, url, data);
     }
 

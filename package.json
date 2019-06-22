@@ -54,8 +54,10 @@
     "uuid": "3.3.2"
   },
   "devDependencies": {
+    "@types/form-data": "^2.2.1",
     "@types/jasmine": "^3.3.13",
     "codecov": "^3.5.0",
+    "form-data": "^2.4.0",
     "jasmine": "^3.4.0",
     "jasmine-spec-reporter": "^4.2.1",
     "jasmine-ts": "^0.3.0",

@@ -15,7 +15,7 @@
 
 import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
-import * as FileSystem from 'fs';
+import {Writable} from 'stream';
 import * as formidable from 'formidable';
 import {IFormData} from './IFormData';
 
@@ -103,11 +103,11 @@ export class Request {
         return this.request.secure;
     }
 
-    public pipe(destination: FileSystem.WriteStream): any {
+    public pipe(destination: Writable): any {
         return this.request.pipe(destination);
     }
 
-    public unpipe(source: FileSystem.WriteStream): void {
+    public unpipe(source: Writable): void {
         this.request.unpipe(source);
     }
 
