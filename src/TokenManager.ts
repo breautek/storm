@@ -23,7 +23,7 @@ export class TokenManager {
         this.secret = secret;
     }
 
-    public sign(payload: any, expiresIn: string): Promise<Token> {
+    public sign(payload: any, expiresIn: string | number): Promise<Token> {
         return new Promise<Token>((resolve, reject) => {
             jwt.sign(payload, this.secret, {
                 expiresIn : expiresIn
