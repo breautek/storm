@@ -1,4 +1,5 @@
 import { DatabaseConnection } from '../../src/DatabaseConnection';
+import { Readable } from 'stream';
 
 export class MockConnection extends DatabaseConnection {
     public transaction: boolean;
@@ -39,5 +40,9 @@ export class MockConnection extends DatabaseConnection {
             query: query,
             params: params
         });
+    }
+
+    protected _stream(query: string, params?: any, streamOptions?: any): Readable {
+        throw new Error('Stream not supported');
     }
 }

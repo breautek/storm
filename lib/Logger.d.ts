@@ -4,13 +4,15 @@ import { LogSeverity } from './LogSeverity';
 export declare class Logger extends EventEmitter {
     private name;
     private logLevel;
-    private useStdOutForErrors;
+    private useStdErrForErrors;
     private _filters;
-    constructor(name?: string, logLevel?: LogSeverity, useStdOutForErrors?: boolean);
+    constructor(name?: string, logLevel?: LogSeverity, useStdErrForErrors?: boolean);
+    getName(): string;
     addFilter(reg: RegExp): void;
     removeFilter(reg: RegExp): void;
     setFilters(filters: Array<RegExp>): void;
-    protected _loadFilters(): Array<RegExp>;
+    getFilters(): Array<RegExp>;
+    loadFilters(): void;
     private _parseRegex;
     protected _getDefaultLogFilters(): Array<RegExp>;
     setLogLevel(severity: LogSeverity): void;

@@ -1,4 +1,21 @@
-# 0.15.x (Unreleased)
+# 0.17.0 (June 20, 2019)
+- Added Stream support to DatabaseConnection
+
+# 0.16.1 (June 19, 2019)
+- Cleaned lib as 0.16.0 included old artifacts that is still importable
+
+# 0.16.0 (June 19, 2019)
+## Breaking Changes
+- All interfaces are now prefixed with an "I"... example "Config.ts" is now "IConfig.ts".
+- The project is now lintified to enforce these rules.
+- Some unit tests have been added, but still is a work in progress.
+- Reason we are stil in version "0" is because I still consider this project in an alpha stage. The disclaimer of breaking changes may apply at anytime applies here.
+
+## Other notable changes
+- Added an API to Application to close/stop listening.
+- Several classes has been reworked so that they can be unit testable.
+
+# 0.15.0
 - Added optional forceClose flag to DatabaseConnection.close()
 
 # 0.14.0 (May 23, 2019)

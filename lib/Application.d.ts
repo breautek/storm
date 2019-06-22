@@ -28,7 +28,7 @@ export declare abstract class Application extends EventEmitter {
     attachHandler(path: string, HandlerClass: IHandler): void;
     close(): Promise<void>;
     protected abstract attachHandlers(): Promise<void>;
-    loadConfig(path: string): Promise<any>;
+    loadConfig(path: string): Promise<IConfig>;
     getName(): string;
     getLogger(): Logger;
     getConfig(): IConfig;
@@ -42,7 +42,7 @@ export declare abstract class Application extends EventEmitter {
     protected _createLogger(): Logger;
     protected _getDefaultLogLevel(): LogSeverity;
     protected _parseLogLevelConfig(config: IConfig): LogSeverity;
-    private _llStrToSeverity;
+    protected _llStrToSeverity(ll: string): LogSeverity;
     protected onBeforeReady(): void;
     protected onReady(): void;
 }
