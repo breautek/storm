@@ -10,8 +10,17 @@ import { MockDB } from './MockDB';
 import { Request } from '../../src/Request';
 import { Response } from '../../src/Response';
 import {IHandler} from '../../src/IHandler';
+import {StatusCode} from '../../src/StatusCode';
+import {HTTPMethod} from '../../src/HTTPMethod';
+import {MockLogger} from './MockLogger';
+import * as http from 'http';
 
 export class TestLogger extends Logger {};
+
+export interface IMockResponse {
+    status: StatusCode;
+    response: string;
+}
 
 class TestHandler extends Handler {
     public constructor(app: Application) {
@@ -74,12 +83,42 @@ export class MockApplication extends Application {
         return Promise.resolve();
     }
 
-    public attachMockHandler(handler: IHandler): void {
-        this.attachHandler('/mock', handler);
+    public attachMockHandler(url: string, handler: IHandler): void {
+        this.attachHandler(url, handler);
     }
 
-    public doMockRequest(): void {
-        
+    private _doMock(method: HTTPMethod, url: string, data?: string): Promise<IMockResponse> {
+        return new Promise<IMockResponse>((resolve, reject) => {
+            var request: http.ClientRequest = http.request(new URL(url, 'http://localhost:64321'), {
+                method: method
+            }, (response) => {
+                response.setEncoding('utf8');
+
+                let data: string = '';
+
+                response.on('data', (chunk: string) => {
+                    data += chunk;
+                });
+
+                response.on('end', () => {
+                    resolve({
+                        status: response.statusCode,
+                        response: data
+                    });
+                });
+            });
+
+            if (data) request.write(data);
+            request.end();
+        });
+    }
+
+    public doMockGet(url: string): Promise<IMockResponse> {
+        return this._doMock(HTTPMethod.GET, url);
+    }
+
+    public doMockPost(url: string, data?: string): Promise<IMockResponse> {
+        return this._doMock(HTTPMethod.POST, url, data);
     }
 
     protected _createLogger(): Logger {
@@ -131,7 +170,7 @@ export class ConfigTestApp extends Application {
     }
 
     protected _createLogger(): Logger {
-        return super._createLogger();
+        return new MockLogger();
     }
 
     public shouldListen(): boolean {

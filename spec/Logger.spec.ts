@@ -6,18 +6,18 @@ import {MockLogger} from './support/MockLogger';
 
 describe('Logger', () => {
     it('Sets default Log Level', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         expect(a.getLogLevel()).toBe(LogSeverity.DEBUG | LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL);
     });
 
     it('has default filter', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         var filters: Array<RegExp> = a.getFilters();
         expect(filters[0].toString()).toBe('/TokenExpiredError/g');
     });
 
     it('Can add filter', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         var addFilter = /test/;
         a.addFilter(addFilter);
         var filters: Array<RegExp> = a.getFilters();
@@ -26,7 +26,7 @@ describe('Logger', () => {
     });
 
     it('Can remove filter', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         var addFilter = /test/;
         a.addFilter(addFilter);
         var filters: Array<RegExp> = a.getFilters();
@@ -36,7 +36,7 @@ describe('Logger', () => {
     });
 
     it('Can set filters', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.setFilters([
             /test1/,
             /test2/,
@@ -52,60 +52,60 @@ describe('Logger', () => {
     });
 
     it('Can set log level', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.setLogLevel(LogSeverity.TRACE);
         expect(a.getLogLevel()).toBe(LogSeverity.TRACE);
     });
 
     it('Can log trace messages', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.setLogLevel(LogSeverity.TRACE);
         a.trace('This is a trace message');
     });
 
     it('Can log debug messages', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.setLogLevel(LogSeverity.DEBUG);
         a.debug('This is a debug message');
     });
 
     it('Can log info messages', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.setLogLevel(LogSeverity.INFO);
         a.info('This is a info message');
     });
 
     it('Can log warning messages', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.setLogLevel(LogSeverity.WARNING);
         a.warn('This is a warning message');
     });
 
     it('Can log error messages', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.setLogLevel(LogSeverity.ERROR);
         a.error('This is a error message');
     });
 
     it('Can log fatal messages', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.setLogLevel(LogSeverity.FATAL);
         a.fatal('This is a fatal message');
     });
 
     it('Invalid severity', () => {
-        var a: Logger = new Logger();
+        var a: Logger = new MockLogger();
         a.log((<any>['invalid severity test']), 123456);  
     });
 
     it('Can use stdout for errors', () => {
         // TODO: Verify that stderr is actualyl being used.
-        var a: Logger = new Logger('', LogSeverity.ERROR, true);
+        var a: Logger = new MockLogger('', LogSeverity.ERROR, true);
         a.error('stderr test');
     });
 
     it('Can have a name', () => {
-        var a: Logger = new Logger('TestLogger');
+        var a: Logger = new MockLogger('TestLogger');
         expect(a.getName()).toBe('TestLogger');
     });
 
@@ -145,5 +145,17 @@ describe('Logger', () => {
     it('FormatText handles logging errors', () => {
         var mock: MockLogger = new MockLogger();
         expect(mock.formatString([new Error('test error')], LogSeverity.INFO).indexOf(`test error`)).toBeGreaterThan(-1);
+    });
+
+    it('can setLogStream', () => {
+        var mock: MockLogger = new MockLogger();
+        mock.setLogStream(process.stdout);
+        expect(mock.getLogStream()).toBe(process.stdout);
+    });
+
+    it('can setErrorStream', () => {
+        var mock: MockLogger = new MockLogger();
+        mock.setErrorStream(process.stdout);
+        expect(mock.getErrorStream()).toBe(process.stdout);
     });
 });

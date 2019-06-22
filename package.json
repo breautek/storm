@@ -62,7 +62,7 @@
     "jasmine-ts-console-reporter": "^3.1.1",
     "nyc": "^14.1.1",
     "ts-node": "^8.3.0",
-    "tslint": "^5.17.0",
+    "tslint": "^5.18.0",
     "tsutils": "^3.14.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.5.2"

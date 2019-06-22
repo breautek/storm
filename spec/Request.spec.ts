@@ -12,13 +12,21 @@ type HandlerCallback = (request: Request, response: Response) => void;
 
 var makeHandler = (callback: HandlerCallback) => {
     return class MockHandler extends Handler {
-        protected _post(request: Request, response: Response): void {
+        private _handleRequest(request: Request, response: Response): void {
             callback(request, response);
+        }
+        
+        protected _get(request: Request, response: Response): void {
+            this._handleRequest(request, response);
+        }
+
+        protected _post(request: Request, response: Response): void {
+            this._handleRequest(request, response);
         }
     };
 };
 
-describe('Application', () => {
+describe('Request', () => {
     var app: MockApplication = null;
 
     beforeAll((done) => {
@@ -45,11 +53,11 @@ describe('Application', () => {
     */
 
     it('getHeaders()', (done) => {
-        app.attachMockHandler(makeHandler((request: Request, response: Response) => {
+        app.attachMockHandler('/getHeaders', makeHandler((request: Request, response: Response) => {
             var headers: http.IncomingHttpHeaders = request.getHeaders();
-            process.stdout.write(JSON.stringify(headers));
+            expect(headers.host).toBe('localhost:64321');
             done();
         }));
-        app.doMockRequest();
+        app.doMockGet('/getHeaders');
     });
 });

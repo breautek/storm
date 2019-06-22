@@ -21,17 +21,23 @@ import * as utils from 'util';
 import {getInstance} from './instance';
 import { IConfig } from './IConfig';
 import { Application } from './Application';
+import {Writable} from 'stream';
 
 export class Logger extends EventEmitter {
     private name: string;
     private logLevel: LogSeverity;
     private useStdErrForErrors: boolean;
     private _filters: Array<RegExp>;
+    private _logStream: Writable;
+    private _errorStream: Writable;
 
     public constructor(name: string = '', logLevel?: LogSeverity, useStdErrForErrors: boolean = false) {
         super();
 
         this.name = name;
+
+        this._logStream = this._getDefaultLogStream();
+        this._errorStream = this._getDefaultErrorStream();
 
         this.logLevel = LogSeverity.DEBUG       |
                         LogSeverity.INFO        |
@@ -46,6 +52,30 @@ export class Logger extends EventEmitter {
         this._filters = this._getDefaultLogFilters();
 
         this.useStdErrForErrors = useStdErrForErrors;
+    }
+
+    protected _getDefaultLogStream(): Writable {
+        return process.stdout;
+    }
+
+    protected _getDefaultErrorStream(): Writable {
+        return process.stderr;
+    }
+
+    public setLogStream(writable: Writable) {
+        this._logStream = writable;
+    }
+
+    public setErrorStream(writable: Writable) {
+        this._errorStream = writable;
+    }
+
+    public getLogStream(): Writable {
+        return this._logStream;
+    }
+
+    public getErrorStream(): Writable {
+        return this._errorStream;
     }
 
     public getName(): string {
@@ -98,7 +128,6 @@ export class Logger extends EventEmitter {
             filters = [];
             for (var i: number = 0; i < config.log_filters.length; i++) {
                 var logFilter: string = config.log_filters[i];
-                console.log(logFilter);
                 filters.push(new RegExp(this._parseRegex(logFilter)));
             }
         }
@@ -200,10 +229,10 @@ export class Logger extends EventEmitter {
     protected _logMessage(msg: string, severity: LogSeverity): void {
         if (this._shouldLog(msg, severity)) {
             if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this.useStdErrForErrors) {
-                process.stderr.write(msg);
+                this.getErrorStream().write(msg);
             }
             else {
-                process.stdout.write(msg);
+                this.getLogStream().write(msg);
             }
         }
     }

@@ -60,6 +60,7 @@ import {ServiceProvider} from './ServiceProvider';
 import {HTTPMethod} from './HTTPMethod';
 import {ServiceResponse} from './ServiceResponse';
 import {IServiceHeaders} from './IServiceHeaders';
+import {DumpStream} from './DumpStream';
 
 export {
     getInstance, getApplicationLogger,
