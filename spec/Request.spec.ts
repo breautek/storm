@@ -15,8 +15,6 @@ import * as http from 'http';
 import * as Path from 'path';
 import FormData = require('form-data');
 
-console.log(FormData);
-
 type HandlerCallback = (request: Request, response: Response) => void;
 
 var makeHandler = (callback: HandlerCallback) => {

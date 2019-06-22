@@ -58,7 +58,7 @@ export class Response {
             this.setStatus(data.getHTTPCode()).send(data.getErrorResponse());
         }
         else {
-            this.response.send(data);       
+            this.response.send(data);
         }
         
         getApplicationLogger().info(`API ${this.requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.created.getTime()}ms`);

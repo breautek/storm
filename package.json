@@ -15,7 +15,7 @@
     "build": "npm run-script clean && tsc && npm run-script build-docs",
     "build-docs": "typedoc --readme ./README.md --out ./docs ./src",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "nyc --reporter=lcov jasmine-ts",
+    "test": "nyc --reporter=lcov --reporter=text jasmine-ts",
     "coverage": "codecov",
     "clean": "rm -r ./lib && rm -r ./docs"
   },
@@ -54,7 +54,6 @@
     "uuid": "3.3.2"
   },
   "devDependencies": {
-    "@types/form-data": "^2.2.1",
     "@types/jasmine": "^3.3.13",
     "codecov": "^3.5.0",
     "form-data": "^2.4.0",

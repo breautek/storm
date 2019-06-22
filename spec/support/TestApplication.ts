@@ -20,7 +20,8 @@ export class TestLogger extends Logger {};
 
 export interface IMockResponse {
     status: StatusCode;
-    response: string;
+    data: string;
+    headers: any;
 }
 
 class TestHandler extends Handler {
@@ -104,7 +105,8 @@ export class MockApplication extends Application {
                 response.on('end', () => {
                     resolve({
                         status: response.statusCode,
-                        response: data
+                        data: data,
+                        headers: response.headers
                     });
                 });
             });
