@@ -9,6 +9,7 @@ import {Handler} from '../../src/Handler';
 import { MockDB } from './MockDB';
 import { Request } from '../../src/Request';
 import { Response } from '../../src/Response';
+import {IHandler} from '../../src/IHandler';
 
 export class TestLogger extends Logger {};
 
@@ -44,6 +45,41 @@ export class TestApplication extends Application {
     protected attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         return Promise.resolve();
+    }
+
+    protected _createLogger(): Logger {
+        return new TestLogger(this.getName());
+    }
+
+    public initDB(config: IConfig): Promise<Database> {
+        return Promise.resolve(new MockDB());
+    }
+
+    public getDefaultLogLevel(): LogSeverity {
+        return this._getDefaultLogLevel();
+    }
+
+    protected _getDefaultLogLevel(): LogSeverity {
+        return LogSeverity.TRACE;
+    }
+}
+
+export class MockApplication extends Application {
+    constructor(severity?: LogSeverity) {
+        super("TestApplication", "./spec/support/", severity === undefined ? ERRORS_ONLY : severity);
+    }
+
+    protected attachHandlers(): Promise<void> {
+        this.attachHandler('/echo', TestHandler);
+        return Promise.resolve();
+    }
+
+    public attachMockHandler(handler: IHandler): void {
+        this.attachHandler('/mock', handler);
+    }
+
+    public doMockRequest(): void {
+        
     }
 
     protected _createLogger(): Logger {
