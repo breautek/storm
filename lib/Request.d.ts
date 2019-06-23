@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
-import * as FileSystem from 'fs';
+import { Writable } from 'stream';
 import { IFormData } from './IFormData';
 export interface IParameterMap {
     [key: string]: string;
@@ -22,7 +22,7 @@ export declare class Request {
     getMethod(): string;
     getURL(): string;
     isSecure(): boolean;
-    pipe(destination: FileSystem.WriteStream): any;
-    unpipe(source: FileSystem.WriteStream): void;
+    pipe(destination: Writable): any;
+    unpipe(source: Writable): void;
     getRequestSource(): express.Request;
 }

@@ -1,5 +1,7 @@
-# Unreleased
+# 0.17.1 (June 22, 2019)
 - Removed uncommon HTTP methods from Handler. This was never fully implemented to begin with.
+- Fixed improper ExitCode from being passed on ConfigLoader error
+- Several more tests have been added
 
 # 0.17.0 (June 20, 2019)
 - Added Stream support to DatabaseConnection

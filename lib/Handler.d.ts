@@ -18,28 +18,8 @@ export declare class Handler {
     put(request: Request, response: Response): void;
     post(request: Request, response: Response): void;
     delete(request: Request, response: Response): void;
-    patch(request: Request, response: Response): void;
-    copy(request: Request, response: Response): void;
-    head(request: Request, response: Response): void;
-    options(request: Request, response: Response): void;
-    link(request: Request, response: Response): void;
-    unlink(request: Request, response: Response): void;
-    purge(request: Request, response: Response): void;
-    lock(request: Request, response: Response): void;
-    unlock(request: Request, response: Response): void;
-    view(request: Request, response: Response): void;
     protected _get(request: Request, response: Response): void;
     protected _post(request: Request, response: Response): void;
     protected _put(request: Request, response: Response): void;
     protected _delete(request: Request, response: Response): void;
-    protected _patch(request: Request, response: Response): void;
-    protected _copy(request: Request, response: Response): void;
-    protected _head(request: Request, response: Response): void;
-    protected _options(request: Request, response: Response): void;
-    protected _link(request: Request, response: Response): void;
-    protected _unlink(request: Request, response: Response): void;
-    protected _purge(request: Request, response: Response): void;
-    protected _lock(request: Request, response: Response): void;
-    protected _unlock(request: Request, response: Response): void;
-    protected _view(request: Request, response: Response): void;
 }

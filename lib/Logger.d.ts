@@ -1,12 +1,21 @@
 /// <reference types="node" />
 import { EventEmitter } from 'events';
 import { LogSeverity } from './LogSeverity';
+import { Writable } from 'stream';
 export declare class Logger extends EventEmitter {
     private name;
     private logLevel;
     private useStdErrForErrors;
     private _filters;
+    private _logStream;
+    private _errorStream;
     constructor(name?: string, logLevel?: LogSeverity, useStdErrForErrors?: boolean);
+    protected _getDefaultLogStream(): Writable;
+    protected _getDefaultErrorStream(): Writable;
+    setLogStream(writable: Writable): void;
+    setErrorStream(writable: Writable): void;
+    getLogStream(): Writable;
+    getErrorStream(): Writable;
     getName(): string;
     addFilter(reg: RegExp): void;
     removeFilter(reg: RegExp): void;
