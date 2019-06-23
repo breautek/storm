@@ -50,11 +50,12 @@ export class ConfigLoader {
                 logger.trace('Main config loaded.');
             }
             catch (ex) {
-                reject(`Missing ${cPath}.`);
+                logger.error(`Missing ${cPath}.`);
                 process.nextTick(() => {
                     reject(ExitCode.MISSING_CONFIG);
                     // process.exit(ExitCode.MISSING_CONFIG);
                 });
+                return;
             }
 
             logger.trace('Loading optional local config.');
@@ -118,6 +119,10 @@ export class ConfigLoader {
     }
 
     private static _mergeConfig(o1: any, o2: any): any {
+        // Clone to protect data from changing defaults object
+        o1 = JSON.parse(JSON.stringify(o1));
+        o2 = JSON.parse(JSON.stringify(o2));
+
         var o: any = o1;
 
         for (var i in o2) {
