@@ -15,6 +15,8 @@
 
 import * as jwt from 'jsonwebtoken';
 import {Token} from './Token';
+import {IVerifyOptions} from './IVerifyOptions';
+import {VerifyOptionsParser} from './VerifyOptionsParser';
 
 export class TokenManager {
     private secret: string;
@@ -37,9 +39,17 @@ export class TokenManager {
         });
     }
 
-    public verify(token: Token): Promise<any> {
+    public verify(token: Token, options?: IVerifyOptions): Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            jwt.verify(token.getSignature(), this.secret, (error, decoded) => {
+            //placed inside the promise in the event that a reject would be required.
+            if(!options) {
+                options = {
+                    enableExpiration: true
+                };
+            } else if(!options.enableExpiration) {
+                options.enableExpiration = true;
+            }
+            jwt.verify(token.getSignature(), this.secret, VerifyOptionsParser.parse(options), (error, decoded) => {
                 if (error) {
                     return reject(error);
                 }
