@@ -1,5 +1,5 @@
 'use strict';
 
-export interface IVerifyOptions {
+export interface IJWTVerifyOptions {
     enableExpiration: boolean;
 }

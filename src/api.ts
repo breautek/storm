@@ -23,7 +23,7 @@ import {ExitCode} from './ExitCode';
 import {Iterator} from './Iterator';
 import {Token} from './Token';
 import {TokenManager} from './TokenManager';
-import {IVerifyOptions} from './IVerifyOptions';
+import {IJWTVerifyOptions} from './IJWTVerifyOptions';
 import {StormError, IErrorResponse, IAdditionalErrorDetails} from './StormError';
 import {StatusCode} from './StatusCode';
 import {ErrorCode} from './ErrorCode';
@@ -74,7 +74,7 @@ export {
     Iterator,
     Token,
     TokenManager,
-    IVerifyOptions,
+    IJWTVerifyOptions,
     StormError, IErrorResponse, IAdditionalErrorDetails,
     StatusCode,
     ErrorCode,
