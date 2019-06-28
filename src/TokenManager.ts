@@ -46,7 +46,7 @@ export class TokenManager {
                 options = {
                     enableExpiration: true
                 };
-            } else if (!options.enableExpiration) {
+            } else if (options.enableExpiration === undefined) {
                 options.enableExpiration = true;
             }
             jwt.verify(token.getSignature(), this.secret, VerifyOptionsParser.parse(options), (error, decoded) => {

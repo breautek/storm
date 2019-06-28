@@ -100,6 +100,7 @@ describe('TokenManager', () => {
             return manager.verify(token, {enableExpiration: true});
         }).catch((error: any) => {
             expect(error.name).toBe('TokenExpiredError');
+            done();
         });
     });
 
