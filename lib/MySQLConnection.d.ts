@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { DatabaseConnection } from './DatabaseConnection';
 import * as MySQL from 'mysql';
 import { Readable } from 'stream';

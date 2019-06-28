@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
 import { Writable } from 'stream';
