@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { IncomingMessage } from 'http';
 export declare class ServiceResponse {
     private _data;

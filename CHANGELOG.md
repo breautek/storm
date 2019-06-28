@@ -1,3 +1,6 @@
+# 0.18.0 (June 28, 2019)
+- Added options to TokenManager.verify
+
 # 0.17.1 (June 22, 2019)
 - Removed uncommon HTTP methods from Handler. This was never fully implemented to begin with.
 - Fixed improper ExitCode from being passed on ConfigLoader error

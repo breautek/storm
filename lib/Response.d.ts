@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { StatusCode } from './StatusCode';
 import { ResponseData } from './ResponseData';
 import { StormError, IErrorResponse } from './StormError';
