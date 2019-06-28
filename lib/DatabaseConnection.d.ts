@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { Readable } from 'stream';
 export declare abstract class DatabaseConnection {
     private api;

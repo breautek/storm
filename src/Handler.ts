@@ -23,6 +23,7 @@ import {Middleware} from './Middleware';
 import {IRequestResponse} from './IRequestResponse';
 import {StormError} from './StormError';
 import {IConfig} from './IConfig';
+import {getApplicationLogger} from './instance';
 
 export class Handler {
     private _app: Application;
@@ -32,7 +33,7 @@ export class Handler {
         this._app = app;
         this._middlewares = this.initMiddlewares();
         if (this._middlewares.length > 0) {
-            console.log(new Error('Handler middlewares is deprecated and will be removed in the future.').stack);
+            getApplicationLogger().warn(new Error('Handler middlewares is deprecated and will be removed in the future.').stack);
         }
     }
 
@@ -62,7 +63,7 @@ export class Handler {
 
             for (var i = 0; i < this._middlewares.length; i++) {
                 if (!firedDeprecation) {
-                    console.log(new Error('Handler._executeMiddlewares is deprecated. Will be removed in the future.').stack);
+                    getApplicationLogger().warn(new Error('Handler._executeMiddlewares is deprecated. Will be removed in the future.').stack);
                     firedDeprecation = true;
                 }
                 var middleware: Middleware = this._middlewares[i];

@@ -95,7 +95,7 @@ export abstract class AuthenticationMiddleware {
 
                 // If an error is a TokenExpiredError|JsonWebTokenError, then we can handle it here. Otherwise propagate based on the rules below
                 if (error && error.name) {
-                    switch(error.name) {
+                    switch (error.name) {
                         case 'TokenExpiredError':
                             error = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
                                 code: error.name,
