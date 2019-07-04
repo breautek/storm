@@ -1,5 +1,5 @@
 language: nodejs
-node_js: 10
+node_js: 10.16.0
 sudo: false
 install:
   - npm install
