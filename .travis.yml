@@ -1,4 +1,4 @@
-language: nodejs
+language: node_js
 node_js: 
   - '10'
 sudo: false
@@ -7,3 +7,4 @@ install:
 script:
   - npm test
   - npm run-script build
+  
