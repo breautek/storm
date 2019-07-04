@@ -7,5 +7,7 @@
 	"backend_authentication_secret": null,
 
 	"log_level": "info | warning | error | fatal",
-    "log_filters": ["/TokenExpiredError/g"]
+	"log_filters": ["/TokenExpiredError/g"],
+	
+	"query_timeout": 3600000
 }

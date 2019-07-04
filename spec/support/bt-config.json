@@ -1,9 +1,9 @@
 {
-	"binding_ip": "0.0.0.0",
-	"port": 64321,
+    "binding_ip": "0.0.0.0",
+    "port": 64321,
 
-	"authentication_header": "X-BT-AUTH",
-	"backend_authentication_header": "X-BT-BACKEND-AUTH",
-	"backend_authentication_secret": null,
-	"log_level": "error | fatal"
+    "authentication_header": "X-BT-AUTH",
+    "backend_authentication_header": "X-BT-BACKEND-AUTH",
+    "backend_authentication_secret": null,
+    "log_level": "error | fatal"
 }

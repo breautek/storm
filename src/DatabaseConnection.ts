@@ -14,11 +14,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {
-    getApplicationLogger
+    getApplicationLogger,
+    getInstance
 } from './instance';
 import {Readable} from 'stream';
 
 const LINGER_WARNING: number = 10000;
+const DEFAULT_QUERY_TIMEOUT: number = 3600000;
 
 export abstract class DatabaseConnection {
     private api: any;
@@ -32,8 +34,10 @@ export abstract class DatabaseConnection {
         this.readOnly = isReadOnly;
         this._instantiationStack = instantiationStack;
 
-        // TODO: Fuel the default by configs, and probably should actually use a more sane value... like 60.
-        this._timeout = 3600000;
+        this._timeout = getInstance().getConfig().query_timeout;
+        if (isNaN(this._timeout)) {
+            this._timeout = DEFAULT_QUERY_TIMEOUT;
+        }
 
         this._armLingerWarning();
     }

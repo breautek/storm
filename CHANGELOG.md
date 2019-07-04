@@ -1,3 +1,6 @@
+# 0.18.1 (July 4, 2019)
+- Moved database timeout to be controlled via bt config
+
 # 0.18.0 (June 28, 2019)
 - Added options to TokenManager.verify
 

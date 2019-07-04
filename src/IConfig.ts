@@ -11,4 +11,7 @@ export interface IConfig {
     // Logging
     log_level: string;
     log_filters: Array<string>;
+
+    // Database
+    query_timeout: number;
 }
