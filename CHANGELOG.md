@@ -1,4 +1,10 @@
-# 0.18.1 (July 4, 2019)
+# 0.18.3 (July 8, 2019)
+- Added setLogger method to Application
+
+# 0.18.2 (July 4, 2019)
+- Fixed 0.18.1 didn't build against the latest sources.
+
+# 0.18.1 (July 4, 2019) - Broken
 - Moved database timeout to be controlled via bt config
 
 # 0.18.0 (June 28, 2019)

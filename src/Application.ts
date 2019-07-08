@@ -268,6 +268,14 @@ export abstract class Application extends EventEmitter {
     }
 
     /**
+     * 
+     * @param logger Logger class to use
+     */
+    public setLogger(logger: Logger): void {
+        this.logger = logger;
+    }
+
+    /**
      * @returns the application's logger
      */
     public getLogger(): Logger {

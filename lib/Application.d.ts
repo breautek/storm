@@ -30,6 +30,7 @@ export declare abstract class Application extends EventEmitter {
     protected abstract attachHandlers(): Promise<void>;
     loadConfig(path: string): Promise<IConfig>;
     getName(): string;
+    setLogger(logger: Logger): void;
     getLogger(): Logger;
     getConfig(): IConfig;
     shouldListen(): boolean;

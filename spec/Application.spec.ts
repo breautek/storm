@@ -16,10 +16,12 @@ import { CommanderStatic } from 'commander';
 
 describe('Application', () => {
     var app: TestApplication = null;
+    let originalLogger: Logger = null;
 
     beforeAll((done) => {
         app = new TestApplication();
         app.on('ready', () => {
+            originalLogger = app.getLogger();
             done();
         });
     });
@@ -206,5 +208,13 @@ describe('Application', () => {
             backend_authentication_secret: null,
             log_filters: []
         }));
+    });
+
+    it('Can set logger', () => {
+        const LOGGER_NAME: string = 'this is a test logger';
+        let logger: Logger = new Logger(LOGGER_NAME);
+        app.setLogger(logger);
+        expect(app.getLogger()).toBe(logger);
+        app.setLogger(originalLogger);
     });
 });
