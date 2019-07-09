@@ -94,8 +94,8 @@ describe('Logger', () => {
     });
 
     it('Invalid severity', () => {
-        var a: Logger = new MockLogger();
-        a.log((<any>['invalid severity test']), 123456);  
+        var a: MockLogger = new MockLogger();
+        a.mockLog((<any>['invalid severity test']), 123456);  
     });
 
     it('Can use stdout for errors', () => {

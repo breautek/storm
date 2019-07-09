@@ -1,3 +1,6 @@
+# Unreleased
+- made Logger.log protected
+
 # 0.18.3 (July 8, 2019)
 - Added setLogger method to Application
 

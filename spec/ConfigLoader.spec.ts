@@ -15,7 +15,7 @@ describe('ConfigLoader', () => {
             expect(config.log_level).toBe('info | warning | error | fatal');
             expect(config.log_filters[0]).toBe('/TokenExpiredError/g');
 
-            //Test specific configs
+            // Test specific configs
             expect(config.test1).toBe(true);
             expect(config.test2).toBe(false);
             expect(config.data.hello).toBe('world');

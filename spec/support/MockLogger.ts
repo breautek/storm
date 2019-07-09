@@ -17,4 +17,8 @@ export class MockLogger extends Logger {
     public formatString(messages: any, severity: LogSeverity): string {
         return this._formatString(messages, severity);
     }
+
+    public mockLog(messages: any, severity: LogSeverity): void {
+        return this.log(messages, severity);
+    }
 }

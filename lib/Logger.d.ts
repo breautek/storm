@@ -28,10 +28,10 @@ export declare class Logger extends EventEmitter {
     getLogLevel(): LogSeverity;
     protected _formatDate(now: Date): string;
     protected _formatString(messages: IArguments, severity: LogSeverity): string;
-    protected _log(messages: IArguments, severity: LogSeverity): void;
+    protected _logMessages(messages: IArguments, severity: LogSeverity): void;
     protected _logMessage(msg: string, severity: LogSeverity): void;
     protected _shouldLog(msg: string, severity: LogSeverity): boolean;
-    log(messages: IArguments, severity: LogSeverity): void;
+    protected log(messages: IArguments, severity: LogSeverity): void;
     trace(message: any): void;
     debug(message: any): void;
     info(message: any): void;

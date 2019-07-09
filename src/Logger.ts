@@ -220,7 +220,7 @@ export class Logger extends EventEmitter {
         return `${sevText}[${this.name}][${this._formatDate(new Date())}] ${str}\n`;
     }
 
-    protected _log(messages: IArguments, severity: LogSeverity): void {
+    protected _logMessages(messages: IArguments, severity: LogSeverity): void {
         var msg: string = this._formatString(messages, severity);
         
         this._logMessage(msg, severity);
@@ -252,9 +252,9 @@ export class Logger extends EventEmitter {
         return true;
     }
 
-    public log(messages: IArguments, severity: LogSeverity): void {
+    protected log(messages: IArguments, severity: LogSeverity): void {
         if (severity & this.getLogLevel()) {
-            this._log(messages, severity);
+            this._logMessages(messages, severity);
             var logData: ILogEvent = {
                 severity : severity,
                 messages : messages
