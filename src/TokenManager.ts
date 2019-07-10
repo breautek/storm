@@ -28,13 +28,14 @@ export class TokenManager {
 
     public sign(payload: {[key: string]: any}, expiresIn: string | number): Promise<Token> {
         return new Promise<Token>((resolve, reject) => {
-            randomBytes(128, (err: Error, buffer: Buffer) => {
+            randomBytes(64, (err: Error, buffer: Buffer) => {
                 if (err) {
                     reject(err);
                     return;
                 }
 
                 payload.__bt__salt = buffer.toString('hex');
+
                 jwt.sign(payload, this.secret, {
                     expiresIn : expiresIn
                 }, (error: Error, token: string) => {

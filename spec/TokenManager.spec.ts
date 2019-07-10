@@ -39,13 +39,6 @@ describe('TokenManager', () => {
                 done();
             });
         });
-    
-        it('failure is handled', (done) => {
-            manager.sign(<any>'test', '1y').catch((error: Error) => {
-                expect(error.toString()).toBe('Error: invalid expiresIn option for string payload');
-                done();
-            });
-        });
 
         /*
             Test for when 2 sign requests happens within the same second,
