@@ -17,6 +17,7 @@ import * as jwt from 'jsonwebtoken';
 import {Token} from './Token';
 import {IJWTVerifyOptions} from './IJWTVerifyOptions';
 import {JWTVerifyOptionsParser} from './JWTVerifyOptionsParser';
+import {randomBytes} from 'crypto';
 
 export class TokenManager {
     private secret: string;
@@ -25,16 +26,24 @@ export class TokenManager {
         this.secret = secret;
     }
 
-    public sign(payload: any, expiresIn: string | number): Promise<Token> {
+    public sign(payload: {[key: string]: any}, expiresIn: string | number): Promise<Token> {
         return new Promise<Token>((resolve, reject) => {
-            jwt.sign(payload, this.secret, {
-                expiresIn : expiresIn
-            }, (error: Error, token: string) => {
-                if (error) {
-                    return reject(error);
+            randomBytes(128, (err: Error, buffer: Buffer) => {
+                if (err) {
+                    reject(err);
+                    return;
                 }
 
-                return resolve(new Token(token));
+                payload.__bt__salt = buffer.toString('hex');
+                jwt.sign(payload, this.secret, {
+                    expiresIn : expiresIn
+                }, (error: Error, token: string) => {
+                    if (error) {
+                        return reject(error);
+                    }
+    
+                    return resolve(new Token(token));
+                });
             });
         });
     }

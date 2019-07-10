@@ -26,81 +26,104 @@ describe('TokenManager', () => {
             headers: JSON.parse(headers.toString()),
             payload: JSON.parse(payload.toString())
         };
-    }
+    };
 
-    it('can sign', (done) => {
-        manager.sign({test:true}, '1y').then((token: Token) => {
-            var parts: JWTParts = parseJWT(token.getSignature());
-            expect(parts.headers.alg).toBe('HS256');
-            expect(parts.headers.typ).toBe('JWT');
-            expect(parts.payload.test).toBe(true);
-            expect(new Date(parts.payload.exp * 1000).getFullYear()).toBe(new Date().getFullYear() + 1);
-            done();
-        });
-    });
-
-    it('can sign (failure)', (done) => {
-        manager.sign('test', '1y').catch((error) => {
-            expect(error.toString()).toBe('Error: invalid expiresIn option for string payload');
-            done();
-        });
-    });
-
-    it('can verify (no opts)', (done) => {
-        manager.sign({test:true}, '1y').then((token: Token) => {
-            return manager.verify(token);
-        }).then((data: any) => {
-            expect(data.test).toBe(true);
-            done();
-        });
-    });
-
-    it('can verify (explicit enableExpiration=true)', (done) => {
-        manager.sign({test: true}, '1y').then((token: Token) => {
-            return manager.verify(token, {enableExpiration: true});
-        }).then((data: any) => {
-            expect(data.test).toBe(true);
-            done();
-        });
-    });
-
-    it('can verify (explicit enableExpiration=false)', (done) => {
-        manager.sign({test: true}, '1ms').then((token: Token) => {
-            return new Promise((resolve) => {
-                //We need the token to expire before calling verify
-                setTimeout(() => {
-                    resolve(token);
-                }, 100); 
-            }); 
-        }).then((token: Token) => {
-            return manager.verify(token, {enableExpiration: false});
-        }).then((data: any) => {
-            //The lifespan is 1ms and we added a 100ms delay. token should be expired by now.
-            expect(data.test).toBe(true);
-            done();
-        });
-    });
-
-    it('can verify (failure, expired token) (no opts)', (done) => {
-        manager.verify(INVALID_TOKEN).catch((error: any) => {
-            expect(error.name).toBe('TokenExpiredError');
-            done();
-        });
-    });
-
-    it('can verify (failure, expired token, explicit enableExpiration=true)', (done) => {
-        manager.sign({test: true}, '1ms').then((token: Token) => {
-            return new Promise((resolve) => {
-                //We need the token to expire before calling verify
-                setTimeout(() => {
-                    resolve(token);
-                }, 100); 
+    describe('can sign', () => {
+        it('success', (done) => {
+            manager.sign({test: true}, '1y').then((token: Token) => {
+                var parts: JWTParts = parseJWT(token.getSignature());
+                expect(parts.headers.alg).toBe('HS256');
+                expect(parts.headers.typ).toBe('JWT');
+                expect(parts.payload.test).toBe(true);
+                expect(new Date(parts.payload.exp * 1000).getFullYear()).toBe(new Date().getFullYear() + 1);
+                done();
             });
-        }).then((token: Token) => {
-            return manager.verify(token, {enableExpiration: true});
-        }).catch((error: any) => {
-            expect(error.name).toBe('TokenExpiredError');
-            done();
+        });
+    
+        it('failure is handled', (done) => {
+            manager.sign(<any>'test', '1y').catch((error: Error) => {
+                expect(error.toString()).toBe('Error: invalid expiresIn option for string payload');
+                done();
+            });
+        });
+
+        /*
+            Test for when 2 sign requests happens within the same second,
+            should create 2 different signatures.
+        */
+        it('will have unique signatures', (done) => {
+            let promises: Array<Promise<Token>> = [
+                manager.sign({test: true}, '1y'),
+                manager.sign({test: true}, '1y')
+            ];
+
+            Promise.all(promises).then((results: Array<Token>) => {
+                let a: Token = results[0];
+                let b: Token = results[1];
+
+                expect(a.getSignature()).not.toBe(b.getSignature());
+                done();
+            });
+        });
+    });
+
+    describe('verification', () => {
+        it('no opts', (done) => {
+            manager.sign({test:true}, '1y').then((token: Token) => {
+                return manager.verify(token);
+            }).then((data: any) => {
+                expect(data.test).toBe(true);
+                done();
+            });
+        });
+    
+        it('explicit enableExpiration=true', (done) => {
+            manager.sign({test: true}, '1y').then((token: Token) => {
+                return manager.verify(token, {enableExpiration: true});
+            }).then((data: any) => {
+                expect(data.test).toBe(true);
+                done();
+            });
+        });
+    
+        it('explicit enableExpiration=false', (done) => {
+            manager.sign({test: true}, '1ms').then((token: Token) => {
+                return new Promise((resolve) => {
+                    // We need the token to expire before calling verify
+                    setTimeout(() => {
+                        resolve(token);
+                    }, 100); 
+                }); 
+            }).then((token: Token) => {
+                return manager.verify(token, {enableExpiration: false});
+            }).then((data: any) => {
+                // The lifespan is 1ms and we added a 100ms delay. token should be expired by now.
+                expect(data.test).toBe(true);
+                done();
+            });
+        });
+    
+        it('failure, expired token (no opts)', (done) => {
+            manager.verify(INVALID_TOKEN).catch((error: any) => {
+                expect(error.name).toBe('TokenExpiredError');
+                done();
+            });
+        });
+    
+        it('failure, expired token, explicit enableExpiration=true', (done) => {
+            manager.sign({test: true}, '1ms').then((token: Token) => {
+                return new Promise((resolve) => {
+                    // We need the token to expire before calling verify
+                    setTimeout(() => {
+                        resolve(token);
+                    }, 100); 
+                });
+            }).then((token: Token) => {
+                return manager.verify(token, {enableExpiration: true});
+            }).catch((error: any) => {
+                expect(error.name).toBe('TokenExpiredError');
+                done();
+            });
         });
     });
 
