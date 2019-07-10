@@ -1,5 +1,6 @@
-# Unreleased
+# 0.18.4 (July 10, 2019)
 - made Logger.log protected
+- Ensure generated JWT tokens will be unique.
 
 # 0.18.3 (July 8, 2019)
 - Added setLogger method to Application
