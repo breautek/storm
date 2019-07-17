@@ -1,6 +1,6 @@
 {
   "name": "@breautek/storm",
-  "version": "1.0.0-dev",
+  "version": "0.19.0",
   "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
   "nyc": {
@@ -15,9 +15,9 @@
     "build": "npm run-script clean && tsc && npm run-script build-docs",
     "build-lib": "rm -r ./lib && tsc",
     "build-docs": "typedoc --readme ./README.md --out ./docs ./src",
-    "lint": "eslint --ext .ts ./src/*.ts",
+    "lint": "eslint --ext .ts './src/**/*.ts'",
     "unit": "jasmine-ts",
-    "test": "nyc --reporter=lcov --reporter=text jasmine-ts",
+    "test": "npm run-script lint && nyc --reporter=lcov --reporter=text jasmine-ts",
     "coverage": "codecov",
     "clean": "rm -r ./lib && rm -r ./docs",
     "prepublishOnly": "npm run-script build-lib"

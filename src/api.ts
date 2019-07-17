@@ -62,6 +62,8 @@ import {HTTPMethod} from './HTTPMethod';
 import {ServiceResponse} from './ServiceResponse';
 import {IServiceHeaders} from './IServiceHeaders';
 import {DumpStream} from './DumpStream';
+import {ManagedDatabaseConnection} from './ManagedDatabaseConnection';
+import {IDatabaseConnection} from './IDatabaseConnection';
 
 export {
     getInstance, getApplicationLogger,
@@ -112,5 +114,7 @@ export {
     ServiceProvider,
     IServiceHeaders,
     ServiceResponse,
-    DumpStream
+    DumpStream,
+    ManagedDatabaseConnection,
+    IDatabaseConnection
 };

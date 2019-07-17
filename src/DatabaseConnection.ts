@@ -18,11 +18,12 @@ import {
     getInstance
 } from './instance';
 import {Readable} from 'stream';
+import {IDatabaseConnection} from './IDatabaseConnection';
 
 const LINGER_WARNING: number = 10000;
 const DEFAULT_QUERY_TIMEOUT: number = 3600000;
 
-export abstract class DatabaseConnection {
+export abstract class DatabaseConnection implements IDatabaseConnection {
     private api: any;
     private readOnly: boolean;
     private _timeout: number;

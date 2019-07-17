@@ -1,6 +1,7 @@
 /// <reference types="node" />
 import { Readable } from 'stream';
-export declare abstract class DatabaseConnection {
+import { IDatabaseConnection } from './IDatabaseConnection';
+export declare abstract class DatabaseConnection implements IDatabaseConnection {
     private api;
     private readOnly;
     private _timeout;
