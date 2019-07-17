@@ -16,7 +16,7 @@
 import {Middleware} from './Middleware';
 import {Request} from './Request';
 import {Response} from './Response';
-import {getInstance, getApplicationLogger} from './instance';
+import {getApplicationLogger} from './instance';
 import {IRequestResponse} from './IRequestResponse';
 
 export class LoggerMiddleware extends Middleware {

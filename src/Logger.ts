@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/* eslint-disable prefer-rest-params */
+
 import {EventEmitter} from 'events';
 import {LogSeverity} from './LogSeverity';
 import {LogEvent} from './LogEvent';
@@ -153,9 +155,7 @@ export class Logger extends EventEmitter {
     }
 
     protected _getDefaultLogFilters(): Array<RegExp> {
-        return [
-            /TokenExpiredError/g
-        ];
+        return [/TokenExpiredError/g];
     }
 
     public setLogLevel(severity: LogSeverity): void {

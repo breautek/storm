@@ -13,16 +13,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {Middleware} from './Middleware';
 import {StatusCode} from './StatusCode';
 import {Request} from './Request';
 import {Response} from './Response';
 import {ResponseData} from './ResponseData';
-import {Token} from './Token';
 import {Logger} from './Logger';
 import {getInstance, getApplicationLogger} from './instance';
-import {TokenManager} from './TokenManager';
-import {StormError} from './StormError';
 import {IConfig} from './IConfig';
 
 /**

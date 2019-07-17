@@ -27,7 +27,6 @@ import {Request} from './Request';
 import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
 import {IConfig} from './IConfig';
-import * as Path from 'path';
 import Commander = require('commander');
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
@@ -179,6 +178,7 @@ export abstract class Application extends EventEmitter {
     private $buildArgOptions() {
         this._program = Commander;
 
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         var pkg: any = require('../package.json');
         
         this._program.version(pkg.version, '-v, --version');
@@ -337,6 +337,7 @@ export abstract class Application extends EventEmitter {
         }
 
         if (program.binding !== undefined) {
+            // eslint-disable-next-line @typescript-eslint/camelcase
             o.binding_ip = program.binding;
         }
 
@@ -345,6 +346,7 @@ export abstract class Application extends EventEmitter {
         }
 
         if (program.authenticationHeader !== undefined) {
+            // eslint-disable-next-line @typescript-eslint/camelcase
             o.authentication_header = program.authenticationHeader;
         }
 

@@ -1,0 +1,22 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "prettier/@typescript-eslint",
+        "plugin:@breautek/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "@breautek"
+    ],
+    "env": {
+        "node": true,
+        "jasmine": true
+    }
+}

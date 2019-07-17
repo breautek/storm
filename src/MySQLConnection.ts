@@ -35,7 +35,8 @@ export class MySQLConnection extends DatabaseConnection {
         connection.config.queryFormat = function(query: string, values: any) {
             if (!values) return query;
 
-            return query.replace(/\:(\w+)/g, function(this: any, txt: string, key: string): string {
+            return query.replace(/:(\w+)/g, function(this: any, txt: string, key: string): string {
+                // eslint-disable-next-line no-prototype-builtins
                 if (values.hasOwnProperty(key)) {
                     return this.escape(values[key]);
                 }
@@ -77,7 +78,7 @@ export class MySQLConnection extends DatabaseConnection {
             streamOptions.highWatermark = DEFAULT_HIGH_WATERMARK;
         }
 
-        let queryObject: MySQL.Query = this.getAPI().query({
+        const queryObject: MySQL.Query = this.getAPI().query({
             sql: query,
             timeout: this.getTimeout()
         }, params);

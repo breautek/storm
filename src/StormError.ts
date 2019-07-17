@@ -15,7 +15,6 @@
 
 import {getInstance} from './instance';
 import {Application} from './Application';
-import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
 export interface IAdditionalErrorDetails {

@@ -15,7 +15,7 @@
 
 import * as UUID from 'uuid';
 import {DatabaseConnection} from './DatabaseConnection';
-import {getInstance, getApplicationLogger} from './instance';
+import {getApplicationLogger} from './instance';
 
 const MASTER_NAME: string = 'MASTER';
 

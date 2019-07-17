@@ -16,7 +16,7 @@
 import {Database} from './Database';
 import {MySQLConnection} from './MySQLConnection';
 import * as MySQL from 'mysql';
-import {getInstance, getApplicationLogger} from './instance';
+import {getApplicationLogger} from './instance';
 
 export class MySQLDatabase extends Database {
     private cluster: MySQL.PoolCluster;

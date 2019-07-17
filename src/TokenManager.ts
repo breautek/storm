@@ -34,6 +34,7 @@ export class TokenManager {
                     return;
                 }
 
+                // eslint-disable-next-line @typescript-eslint/camelcase
                 payload.__bt__salt = buffer.toString('hex');
 
                 jwt.sign(payload, this.secret, {

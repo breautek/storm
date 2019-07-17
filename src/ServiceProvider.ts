@@ -91,7 +91,10 @@ export abstract class ServiceProvider {
                         responseData = chunk;
                     }
                     else {
-                        responseData = Buffer.concat([responseData,chunk]);
+                        responseData = Buffer.concat([
+                            responseData,
+                            chunk
+                        ]);
                     }
                 });
 

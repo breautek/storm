@@ -111,5 +111,6 @@ export {
     HTTPMethod,
     ServiceProvider,
     IServiceHeaders,
-    ServiceResponse
+    ServiceResponse,
+    DumpStream
 };
