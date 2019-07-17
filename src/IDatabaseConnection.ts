@@ -23,7 +23,7 @@ export interface IDatabaseConnection {
     getTimeout(): number;
     query(query: string, params?: any): Promise<any>;
     stream(query: string, params?: any, streamOptions?: any): Readable;
-    close(forceClose: boolean): Promise<void>;
+    close(forceClose?: boolean): Promise<void>;
     startTransaction(): Promise<void>;
     isTransaction(): boolean;
     commit(): Promise<void>;

@@ -1,3 +1,6 @@
+# 0.19.2 (July 17, 2019)
+- Fixed forceClose optional parameter in IDatabaseConnection interface.
+
 # 0.19.1 (July 17, 2019)
 - Made ManagedDatabaseConnection contruction parameter optional.
 
