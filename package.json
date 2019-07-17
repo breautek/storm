@@ -1,6 +1,6 @@
 {
   "name": "@breautek/storm",
-  "version": "0.18.3",
+  "version": "0.18.4",
   "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
   "nyc": {
@@ -13,12 +13,14 @@
   },
   "scripts": {
     "build": "npm run-script clean && tsc && npm run-script build-docs",
+    "build-lib": "rm -r ./lib && tsc",
     "build-docs": "typedoc --readme ./README.md --out ./docs ./src",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "unit": "jasmine-ts",
     "test": "nyc --reporter=lcov --reporter=text jasmine-ts",
     "coverage": "codecov",
-    "clean": "rm -r ./lib && rm -r ./docs"
+    "clean": "rm -r ./lib && rm -r ./docs",
+    "prepublishOnly": "npm run-script build-lib"
   },
   "repository": {
     "type": "git",
@@ -56,10 +58,9 @@
   },
   "devDependencies": {
     "@breautek/jasmine-ts": "1.0.0",
-    "@types/form-data": "^2.5.0",
     "@types/jasmine": "^3.3.13",
     "codecov": "^3.5.0",
-    "form-data": "^2.4.0",
+    "form-data": "^2.5.0",
     "jasmine": "^3.4.0",
     "jasmine-spec-reporter": "^4.2.1",
     "jasmine-ts-console-reporter": "^3.1.1",
@@ -68,6 +69,6 @@
     "tslint": "^5.18.0",
     "tsutils": "^3.14.0",
     "typedoc": "^0.14.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   }
 }
