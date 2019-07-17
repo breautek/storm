@@ -3,6 +3,7 @@ import {
     MockApplication
 } from './support/TestApplication';
 import { DatabaseConnection } from '../src/DatabaseConnection';
+import * as api from '../src/api';
 
 describe('Database', () => {
     var app: MockApplication = null;
@@ -27,6 +28,12 @@ describe('Database', () => {
             done();
         }).catch((error: any) => {
             fail(error);
+        });
+    });
+
+    describe('ManagedDatabaseConnection', () => {
+        it('is exposed in public API', () => {
+            expect(api.ManagedDatabaseConnection).toBeTruthy();
         });
     });
 });
