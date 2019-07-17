@@ -6,7 +6,7 @@ export declare class ManagedDatabaseConnection implements IDatabaseConnection {
     private _connection;
     private _managed;
     private _requresWrite;
-    constructor(requiresWrite: boolean);
+    constructor(requiresWrite?: boolean);
     setConnection(connection: DatabaseConnection): void;
     hasConnection(): boolean;
     getInstantiationStack(): string;

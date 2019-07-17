@@ -28,7 +28,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     private _managed: boolean;
     private _requresWrite: boolean;
 
-    public constructor(requiresWrite: boolean) {
+    public constructor(requiresWrite: boolean = false) {
         this._managed = false;
         this._requresWrite = requiresWrite;
     }

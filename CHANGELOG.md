@@ -1,3 +1,6 @@
+# 0.19.1 (July 17, 2019)
+- Made ManagedDatabaseConnection contruction parameter optional.
+
 # 0.19.0 (July 17, 2019)
 - Added managed connections
 - Migrated from TSLint to ESLint
