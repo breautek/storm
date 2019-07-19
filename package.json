@@ -3,6 +3,7 @@
   "version": "0.19.2",
   "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
+  "types": "lib/api.d.ts",
   "nyc": {
     "check-coverage": true,
     "per-file": true,
@@ -12,7 +13,7 @@
     ]
   },
   "scripts": {
-    "build": "npm run-script clean && tsc && npm run-script build-docs",
+    "build": "tsc && npm run-script build-docs",
     "build-lib": "rm -r ./lib && tsc",
     "build-docs": "typedoc --readme ./README.md --out ./docs ./src",
     "lint": "eslint --ext .ts './src/**/*.ts'",

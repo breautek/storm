@@ -1,3 +1,6 @@
+# 0.19.3 (July 19, 2019)
+- Added "types" declaration in package.json
+
 # 0.19.2 (July 17, 2019)
 - Fixed forceClose optional parameter in IDatabaseConnection interface.
 
