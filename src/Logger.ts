@@ -89,7 +89,7 @@ export class Logger extends EventEmitter {
     }
 
     public removeFilter(reg: RegExp): void {
-        var index: number = this._filters.indexOf(reg);
+        let index: number = this._filters.indexOf(reg);
         if (index > -1) {
             this._filters.splice(index, 1);
         }
@@ -109,8 +109,8 @@ export class Logger extends EventEmitter {
     }
 
     public loadFilters(): void {
-        var app: Application = getInstance();
-        var config: IConfig = null;
+        let app: Application = getInstance();
+        let config: IConfig = null;
 
         if (app) {
             config = app.getConfig();
@@ -122,14 +122,14 @@ export class Logger extends EventEmitter {
             return;
         }
 
-        var filters: Array<RegExp> = null;
+        let filters: Array<RegExp> = null;
         if (!config.log_filters || (config.log_filters && config.log_filters.length === 0)) {
             filters = this._getDefaultLogFilters();
         }
         else {
             filters = [];
-            for (var i: number = 0; i < config.log_filters.length; i++) {
-                var logFilter: string = config.log_filters[i];
+            for (let i: number = 0; i < config.log_filters.length; i++) {
+                let logFilter: string = config.log_filters[i];
                 filters.push(new RegExp(this._parseRegex(logFilter)));
             }
         }
@@ -138,18 +138,18 @@ export class Logger extends EventEmitter {
     }
 
     private _parseRegex(strReg: string): RegExp {
-        var malformError: Error = new Error('Malformed regex in log_filters');
+        let malformError: Error = new Error('Malformed regex in log_filters');
         if (strReg[0] !== '/') {
             throw malformError;
         }
 
-        var lastSlashIndex = strReg.lastIndexOf('/');
+        let lastSlashIndex = strReg.lastIndexOf('/');
         if (lastSlashIndex === strReg.indexOf('/')) {
             throw malformError;
         }
 
-        var reg: string = strReg.slice(1, lastSlashIndex);
-        var flags = strReg.slice(lastSlashIndex + 1);
+        let reg: string = strReg.slice(1, lastSlashIndex);
+        let flags = strReg.slice(lastSlashIndex + 1);
 
         return new RegExp(reg, flags);
     }
@@ -171,8 +171,8 @@ export class Logger extends EventEmitter {
     }
 
     protected _formatString(messages: IArguments, severity: LogSeverity): string {
-        var sevText: string = '';
-        var str: string = '';
+        let sevText: string = '';
+        let str: string = '';
 
         switch (severity) {
             case LogSeverity.TRACE:
@@ -198,8 +198,8 @@ export class Logger extends EventEmitter {
                 break;
         }
         
-        for (var i: number = 0; i < messages.length; i++) {
-            var msg: any = messages[i];
+        for (let i: number = 0; i < messages.length; i++) {
+            let msg: any = messages[i];
 
             if (str.length !== 0) {
                 str += ' ';
@@ -221,7 +221,7 @@ export class Logger extends EventEmitter {
     }
 
     protected _logMessages(messages: IArguments, severity: LogSeverity): void {
-        var msg: string = this._formatString(messages, severity);
+        let msg: string = this._formatString(messages, severity);
         
         this._logMessage(msg, severity);
     }
@@ -242,8 +242,8 @@ export class Logger extends EventEmitter {
             return true;
         }
 
-        for (var i: number = 0; i < this._filters.length; i++) {
-            var filter: RegExp = this._filters[i];
+        for (let i: number = 0; i < this._filters.length; i++) {
+            let filter: RegExp = this._filters[i];
             if (filter.test(msg)) {
                 return false;
             }
@@ -255,7 +255,7 @@ export class Logger extends EventEmitter {
     protected log(messages: IArguments, severity: LogSeverity): void {
         if (severity & this.getLogLevel()) {
             this._logMessages(messages, severity);
-            var logData: ILogEvent = {
+            let logData: ILogEvent = {
                 severity : severity,
                 messages : messages
             };

@@ -45,15 +45,15 @@ export abstract class AuthenticationMiddleware {
      * @param options Arbituary object containing any relevant information used for authentication.
      */
     public execute(request: Request, response: Response, options?: any): Promise<any> {
-        var config: IConfig = getInstance().getConfig();
-        var authHeader: string = config.authentication_header;
-        var backendAuthHeader: string = config.backend_authentication_header;
-        var backend: string = request.getHeader(backendAuthHeader);
+        let config: IConfig = getInstance().getConfig();
+        let authHeader: string = config.authentication_header;
+        let backendAuthHeader: string = config.backend_authentication_header;
+        let backend: string = request.getHeader(backendAuthHeader);
 
         return new Promise<any>((resolve, reject) => {
-            var token: Token = new Token(request.getHeader(authHeader));
-            var tokenManager: TokenManager = getInstance().getTokenManager();
-            var isBackendCall: boolean = false;
+            let token: Token = new Token(request.getHeader(authHeader));
+            let tokenManager: TokenManager = getInstance().getTokenManager();
+            let isBackendCall: boolean = false;
 
             if (backend) {
                 if (options.allowedBackends) {
@@ -75,7 +75,7 @@ export abstract class AuthenticationMiddleware {
                 }
             }
 
-            var tokenManagerPromise: Promise<any>;
+            let tokenManagerPromise: Promise<any>;
 
             if (isBackendCall) {
                 tokenManagerPromise = tokenManager.decode(token);
@@ -90,7 +90,7 @@ export abstract class AuthenticationMiddleware {
                 resolve(data);
             }).catch((error: any) => {
                 this.logger.error(error);
-                var responseData: ResponseData = null;
+                let responseData: ResponseData = null;
 
                 // If an error is a TokenExpiredError|JsonWebTokenError, then we can handle it here. Otherwise propagate based on the rules below
                 if (error && error.name) {
@@ -117,7 +117,7 @@ export abstract class AuthenticationMiddleware {
                     responseData = error;
                 }
                 else {
-                    var e: InternalError = new InternalError(error);
+                    let e: InternalError = new InternalError(error);
                     responseData = new ResponseData(e.getHTTPCode(), {
                         code : e.getCode(),
                         reason : e.getMessage()

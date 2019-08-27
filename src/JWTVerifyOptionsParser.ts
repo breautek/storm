@@ -9,7 +9,7 @@ export class JWTVerifyOptionsParser {
 
     // Parses IJWTVerifyOptions to jwt options
     public static parse(options: IJWTVerifyOptions): any {
-        var opts: any = {};
+        let opts: any = {};
 
         if (options.enableExpiration !== undefined) {
             opts.ignoreExpiration = !options.enableExpiration;

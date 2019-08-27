@@ -43,7 +43,7 @@ export class MySQLDatabase extends Database {
     protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MySQLConnection> {
         getApplicationLogger().trace(`Querying connection pool for "${query}".`);
         return new Promise<MySQLConnection>((resolve, reject) => {
-            var instantationStack: string = new Error().stack;
+            let instantationStack: string = new Error().stack;
             this.cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
                 if (error) {
                     reject(error);

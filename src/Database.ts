@@ -41,7 +41,7 @@ export abstract class Database {
     }
 
     public addSlave(slaveID: string, config: any): string {
-        var id = `SLAVE.${UUID.v4()}.${slaveID}`;
+        let id = `SLAVE.${UUID.v4()}.${slaveID}`;
 
         this.clusterConfigMap[id] = config;
         this._addNode(id, config);
@@ -60,7 +60,7 @@ export abstract class Database {
     }
 
     public getConnection(requireWriteAccess: boolean = false, nodeID?: string): Promise<DatabaseConnection> {
-        var query: string = 'SLAVE*';
+        let query: string = 'SLAVE*';
         
         if (nodeID) {
             query = nodeID;

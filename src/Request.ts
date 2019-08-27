@@ -36,8 +36,8 @@ export class Request {
 
     public getForm(): Promise<IFormData> {
         return new Promise<IFormData>((resolve, reject) => {
-            var r: express.Request = this.getRequestSource();
-            var form: formidable.IncomingForm = new formidable.IncomingForm();
+            let r: express.Request = this.getRequestSource();
+            let form: formidable.IncomingForm = new formidable.IncomingForm();
             form.hash = 'md5';
 
             form.parse(r, (error: any, fields: formidable.Fields, files: formidable.Files): any => {
@@ -58,7 +58,7 @@ export class Request {
     }
 
     public getHeader(name: string): string {
-        var value: string | Array<string> = this.request.headers[name.toLowerCase()];
+        let value: string | Array<string> = this.request.headers[name.toLowerCase()];
         if (typeof value === 'string') {
             return value;
         }

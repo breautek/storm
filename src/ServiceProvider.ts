@@ -42,10 +42,10 @@ export abstract class ServiceProvider {
     }
 
     protected _createURL(url: string, queryParams?: any): string {
-        var queryString: string = '';
+        let queryString: string = '';
 
         if (queryParams) {
-            for (var i in queryParams) {
+            for (let i in queryParams) {
                 if (queryString === '') {
                     queryString = '?' + i + '=' + queryParams[i];
                 }
@@ -58,10 +58,9 @@ export abstract class ServiceProvider {
         return `/api/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
     }
 
-    // tslint:disable-next-line max-line-length
     public request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return new Promise<ServiceResponse>((resolve, reject) => {
-            var httpOpts: http.RequestOptions = {
+            let httpOpts: http.RequestOptions = {
                 port: this._getPort(),
                 hostname: `${this._getDomain()}`,
                 method: method,
@@ -79,9 +78,9 @@ export abstract class ServiceProvider {
             this._app.getLogger().trace(`PATH: ${httpOpts.path}`);
             this._app.getLogger().trace(`HEADERS: ${JSON.stringify(httpOpts.headers)}`);
             
-            var responseData: Buffer;
+            let responseData: Buffer;
 
-            var request: http.ClientRequest = http.request(httpOpts, (response: http.IncomingMessage) => {
+            let request: http.ClientRequest = http.request(httpOpts, (response: http.IncomingMessage) => {
                 this._app.getLogger().trace(`ServiceProvider Response Status: ${response.statusCode}`);
                 this._app.getLogger().trace(`ServiceProvider Response Headers: ${JSON.stringify(response.headers)}`);
 

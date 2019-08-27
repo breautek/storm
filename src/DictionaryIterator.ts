@@ -18,7 +18,7 @@ export class DictionaryIterator extends Iterator<string> {
     }
 
     public next(): any {
-        var key: any = super.next();
+        let key: any = super.next();
         return {
             key : key,
             value : this.dictionary[key]
@@ -26,7 +26,7 @@ export class DictionaryIterator extends Iterator<string> {
     }
 
     public previous(): any {
-        var key: any = super.previous();
+        let key: any = super.previous();
         return {
             key : key,
             value : this.dictionary[key]

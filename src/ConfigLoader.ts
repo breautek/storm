@@ -21,22 +21,23 @@ import {ExitCode} from './ExitCode';
 import {IConfig} from './IConfig';
 
 export class ConfigLoader {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     private constructor() {}
 
     public static load(path: string): Promise<IConfig> {
-        var logger: Logger = ConfigLoader._getLogger();
+        let logger: Logger = ConfigLoader._getLogger();
 
         return new Promise<any>((resolve, reject) => {
             logger.trace('Configuration loaded.');
             
-            var config: any = {};
+            let config: any = {};
 
-            var cPath: string = Path.resolve(path, 'bt-config.json');
-            var lPath: string = Path.resolve(path, 'bt-local-config.json');
+            let cPath: string = Path.resolve(path, 'bt-config.json');
+            let lPath: string = Path.resolve(path, 'bt-local-config.json');
             
-            var c: any;
-            var l: any;
-            var defaults: any;
+            let c: any;
+            let l: any;
+            let defaults: any;
 
             logger.trace(`Main Config Path:\t ${cPath}`);
             logger.trace(`Local Config Path:\t ${lPath}`);
@@ -86,7 +87,7 @@ export class ConfigLoader {
     }
 
     private static _getCmdLineArgs(): any {
-        var app: Application = getInstance();
+        let app: Application = getInstance();
         if (!app) {
             return {};
         }
@@ -105,8 +106,8 @@ export class ConfigLoader {
     // }
 
     private static _getLogger(): Logger {
-        var logger: Logger;
-        var app: Application = getInstance();
+        let logger: Logger;
+        let app: Application = getInstance();
         if (app) {
             logger = getApplicationLogger();
         }
@@ -123,11 +124,11 @@ export class ConfigLoader {
         o1 = JSON.parse(JSON.stringify(o1));
         o2 = JSON.parse(JSON.stringify(o2));
 
-        var o: any = o1;
+        let o: any = o1;
 
-        for (var i in o2) {
-            var o1p = o1[i];
-            var o2p = o2[i];
+        for (let i in o2) {
+            let o1p = o1[i];
+            let o2p = o2[i];
 
             if (o1p && (typeof o2p === 'object') && !(o2p instanceof Array)) {
                 if (typeof o1p === 'object' && !(o1p instanceof Array)) {

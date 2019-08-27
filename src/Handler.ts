@@ -42,8 +42,8 @@ export class Handler {
     }
 
     public getAccessToken(request: Request): string {
-        var config: IConfig = getInstance().getConfig();
-        var authHeader: string = config.authentication_header;
+        let config: IConfig = getInstance().getConfig();
+        let authHeader: string = config.authentication_header;
         return request.getHeader(authHeader);
     }
 
@@ -57,16 +57,16 @@ export class Handler {
 
     private _executeMiddlewares(request: Request, response: Response, index: number = 0): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            var promises: Array<Promise<IRequestResponse>> = [];
+            let promises: Array<Promise<IRequestResponse>> = [];
 
-            var firedDeprecation: boolean = false;
+            let firedDeprecation: boolean = false;
 
-            for (var i = 0; i < this._middlewares.length; i++) {
+            for (let i = 0; i < this._middlewares.length; i++) {
                 if (!firedDeprecation) {
                     getApplicationLogger().warn(new Error('Handler._executeMiddlewares is deprecated. Will be removed in the future.').stack);
                     firedDeprecation = true;
                 }
-                var middleware: Middleware = this._middlewares[i];
+                let middleware: Middleware = this._middlewares[i];
                 promises.push(middleware.execute(request, response));
             }
 

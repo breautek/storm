@@ -1,3 +1,8 @@
+# 0.19.4 (August 27, 2019)
+- Updated dependency for vulnerability patches
+- Stricter ESLint rules
+- Updated UUID package
+
 # 0.19.3 (July 19, 2019)
 - Added "types" declaration in package.json
 

@@ -18,7 +18,7 @@ import {Response} from './Response';
 import {IRequestResponse} from './IRequestResponse';
 
 export abstract class Middleware {
-    // tslint:disable-next-line no-empty
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     public constructor() {}
 
     public abstract execute(request: Request, response: Response): Promise<IRequestResponse>;
