@@ -13,6 +13,8 @@ export declare abstract class StormError extends Error {
     abstract getMessage(): string;
     abstract getCode(): number;
     getDetails(): any;
+    getPublicDetails(): IAdditionalErrorDetails;
+    getPrivateDetails(): any;
     getHTTPCode(): StatusCode;
     getAdditionalDetails(): IAdditionalErrorDetails;
     getErrorResponse(): IErrorResponse;

@@ -1,3 +1,8 @@
+# 0.20.0 (September 4, 2019)
+- Added `Logger.deprecate` method
+- Deprecate `StormError.getDetails`, use `StormError.getPrivateDetails` instead.
+- Deprecate `StormError.getAdditionalDetails`, use `StormError.getPublicDetails` instead.
+
 # 0.19.4 (August 27, 2019)
 - Updated dependency for vulnerability patches
 - Stricter ESLint rules

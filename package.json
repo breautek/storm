@@ -1,6 +1,6 @@
 {
   "name": "@breautek/storm",
-  "version": "0.19.4",
+  "version": "0.20.0",
   "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
   "types": "lib/api.d.ts",
@@ -60,7 +60,7 @@
   "devDependencies": {
     "@breautek/eslint-plugin": "^2.0.0",
     "@breautek/jasmine-ts": "1.0.0",
-    "@types/jasmine": "^3.3.13",
+    "@types/jasmine": "^3.4.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "codecov": "^3.5.0",

@@ -286,4 +286,24 @@ export class Logger extends EventEmitter {
     public fatal(message: any): void {
         this.log(arguments, LogSeverity.FATAL);
     }
+
+    public deprecate(alternative?: string): void {
+        let e: Error = new Error();
+        let args: any = [this._getDeprecatedMethodMessage(e)];
+        if (alternative) {
+            args.push(this._getDeprecatedAlternativeMessage(alternative));
+        }
+        args.push('\n\n');
+        args.push(e.stack);
+        this.log(args, LogSeverity.DEPRECATE);
+    }
+
+    private _getDeprecatedMethodMessage(e: Error): string {
+        let stack = e.stack .split('\n')[2].replace(/^\s+at\s+(.+?)\s.+/g, '$1');
+        return `Method ${stack} is deprecated.`
+    }
+
+    private _getDeprecatedAlternativeMessage(alternative: string): string {
+        return `Use ${alternative} instead.`;
+    }
 }
