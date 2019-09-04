@@ -1,3 +1,6 @@
+# 0.20.1 (September 4, 2019)
+- Added missing `LogSeverity` text tag
+
 # 0.20.0 (September 4, 2019)
 - Added `Logger.deprecate` method
 - Deprecate `StormError.getDetails`, use `StormError.getPrivateDetails` instead.
