@@ -194,7 +194,7 @@ export class Logger extends EventEmitter {
                 sevText = '[FATAL]';
                 break;
             case LogSeverity.DEPRECATE:
-                sevText = '[DEPRECATION]';
+                sevText = '[DEPRECATE]';
                 break;
             default:
                 this.warn('Unknown Severity value used.');
