@@ -73,7 +73,7 @@ export abstract class Application extends EventEmitter {
         
         this.$buildArgOptions();
 
-        if (!!(<any>global).jasmine) {
+        if ((<any>global).jasmine) {
             // We are in a test development
             this._isTestEnvironment = true;
         }
@@ -113,7 +113,7 @@ export abstract class Application extends EventEmitter {
             return Promise.resolve();
         }).then(() => {
             if (this._logConfigDefaulting) {
-                var logSeverity: LogSeverity = this._parseLogLevelConfig(this.getConfig());
+                let logSeverity: LogSeverity = this._parseLogLevelConfig(this.getConfig());
                 this.logger.setLogLevel(logSeverity);
             }
 
@@ -151,8 +151,8 @@ export abstract class Application extends EventEmitter {
         }).then(() => {
             this.onBeforeReady();
             
-            var bindingIP: string = this.getConfig().binding_ip;
-            var port: number = this.getConfig().port;
+            let bindingIP: string = this.getConfig().binding_ip;
+            let port: number = this.getConfig().port;
     
             if (bindingIP !== null && bindingIP !== 'null') {
                 if (this.shouldListen()) {
@@ -179,7 +179,7 @@ export abstract class Application extends EventEmitter {
         this._program = Commander;
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        var pkg: any = require('../package.json');
+        let pkg: any = require('../package.json');
         
         this._program.version(pkg.version, '-v, --version');
         this._program.option('--port <port>', 'The running port to consume');
@@ -189,6 +189,7 @@ export abstract class Application extends EventEmitter {
         this._buildArgOptions(this._program);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     protected _buildArgOptions(program: Commander.CommanderStatic): void {}
 
     public getProgram(): Commander.CommanderStatic {
@@ -208,21 +209,21 @@ export abstract class Application extends EventEmitter {
      * @param HandlerClass The concrete class (not the instance) of Handler to be used for this API.
      */
     public attachHandler(path: string, HandlerClass: IHandler): void {
-        var handler: Handler = new HandlerClass(this);
+        let handler: Handler = new HandlerClass(this);
         this.server.get(path, (request: Express.Request, response: Express.Response) => {
-            var r: Request = new Request(request);
+            let r: Request = new Request(request);
             handler.get(r, new Response(response, r.getURL()));
         });
         this.server.post(path, (request: Express.Request, response: Express.Response) => {
-            var r: Request = new Request(request);
+            let r: Request = new Request(request);
             handler.post(r, new Response(response, r.getURL()));
         });
         this.server.put(path, (request: Express.Request, response: Express.Response) => {
-            var r: Request = new Request(request);
+            let r: Request = new Request(request);
             handler.put(r, new Response(response, r.getURL()));
         });
         this.server.delete(path, (request: Express.Request, response: Express.Response) => {
-            var r: Request = new Request(request);
+            let r: Request = new Request(request);
             handler.delete(r, new Response(response, r.getURL()));
         });
     }
@@ -329,8 +330,8 @@ export abstract class Application extends EventEmitter {
      * @returns command line arguments
      */
     public getCmdLineArgs(): any {
-        var program: Commander.CommanderStatic = this._program;
-        var o: any = {};
+        let program: Commander.CommanderStatic = this._program;
+        let o: any = {};
 
         if (!program) {
             return o;
@@ -382,8 +383,8 @@ export abstract class Application extends EventEmitter {
      * @returns the severity mask
      */
     protected _parseLogLevelConfig(config: IConfig): LogSeverity {
-        var llConfig: string = config.log_level;
-        var severity: LogSeverity = null;
+        let llConfig: string = config.log_level;
+        let severity: LogSeverity = null;
 
         if (!llConfig) {
             return null;
@@ -399,16 +400,16 @@ export abstract class Application extends EventEmitter {
             severity = this._llStrToSeverity(llConfig);
         }
         else {
-            var llParts: Array<string> = llConfig.split('|');
-            for (var i: number = 0; i < llParts.length; i++) {
-                var llPart: string = llParts[i];
+            let llParts: Array<string> = llConfig.split('|');
+            for (let i: number = 0; i < llParts.length; i++) {
+                let llPart: string = llParts[i];
                 llPart = llPart.trim();
                 if (llPart === '') {
                     continue;
                 }
 
                 /* istanbul ignore next */
-                var llSev: LogSeverity = this._llStrToSeverity(llPart);
+                let llSev: LogSeverity = this._llStrToSeverity(llPart);
                 if (!llSev) {
                     continue;
                 }

@@ -35,7 +35,7 @@ export abstract class StormError extends Error {
 
         this.details = details;
 
-        var instance: Application = getInstance();
+        const instance: Application = getInstance();
         instance.getLogger().error(`${this.getMessage()}... See details below:`);
         instance.getLogger().info(this.getDetails());
     }
@@ -44,6 +44,22 @@ export abstract class StormError extends Error {
     public abstract getCode(): number;
 
     public getDetails(): any {
+        getInstance().getLogger().deprecate('getPrivateDetails()');
+        return this.getPrivateDetails();
+    }
+
+    /**
+     * Sends details to the client.
+     */
+    public getPublicDetails(): IAdditionalErrorDetails {
+        return {};
+    }
+
+    /**
+     * Private details are only logged to the server log.
+     * They are kept secret from the client.
+     */
+    public getPrivateDetails(): any {
         return this.details;
     }
 
@@ -52,7 +68,8 @@ export abstract class StormError extends Error {
     }
 
     public getAdditionalDetails(): IAdditionalErrorDetails {
-        return {};
+        getInstance().getLogger().deprecate('getPublicDetails()');
+        return this.getPublicDetails();
     }
 
     public getErrorResponse(): IErrorResponse {

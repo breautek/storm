@@ -19,21 +19,21 @@ import {Application} from './Application';
 import {Logger} from './Logger';
 import {LogSeverity} from './LogSeverity';
 
-var instance: Application;
-var genericLogger: Logger;
+let instance: Application;
+let genericLogger: Logger;
 
-var setInstance = (app: Application): void => {
+const setInstance = (app: Application): void => {
     if (instance) {
         instance.getLogger().warn('Storm application already initialized');
     }
     instance = app;
 };
 
-var getInstance = (): Application => {
+const getInstance = (): Application => {
     return instance;
 };
 
-var getApplicationLogger = (): Logger => {
+const getApplicationLogger = (): Logger => {
     if (instance) {
         return instance.getLogger();
     }

@@ -158,4 +158,43 @@ describe('Logger', () => {
         mock.setErrorStream(process.stdout);
         expect(mock.getErrorStream()).toBe(process.stdout);
     });
+
+    describe('Deprecation', () => {
+        var mock: MockLogger = new MockLogger();
+        class Deprecation {
+            public deprecationWithNoAlternative(): void {
+                mock.deprecate();
+            }
+
+            public deprecationWithAlternative(): void {
+                mock.deprecate('properMethod');
+            }
+        };
+
+        let deprecation: Deprecation = new Deprecation();
+        let methodMessageSpy: jasmine.Spy = null;
+        let alternativeMessageSpy: jasmine.Spy = null;
+
+        beforeEach(() => {
+            methodMessageSpy = spyOn<any>(mock, '_getDeprecatedMethodMessage');
+            alternativeMessageSpy = spyOn<any>(mock, '_getDeprecatedAlternativeMessage');
+            methodMessageSpy.and.callThrough();
+            alternativeMessageSpy.and.callThrough();
+        });
+
+        it('deprecation with no alternative', () => {
+            deprecation.deprecationWithNoAlternative();
+            expect(methodMessageSpy).toHaveBeenCalled();
+            expect(methodMessageSpy.calls.mostRecent().returnValue).toBe('Method Deprecation.deprecationWithNoAlternative is deprecated.');
+            expect(alternativeMessageSpy).not.toHaveBeenCalled();
+        });
+
+        it('deprecation with alternative', () => {
+            deprecation.deprecationWithAlternative();
+            expect(methodMessageSpy).toHaveBeenCalled();
+            expect(methodMessageSpy.calls.mostRecent().returnValue).toBe('Method Deprecation.deprecationWithAlternative is deprecated.');
+            expect(alternativeMessageSpy).toHaveBeenCalledWith('properMethod');
+            expect(alternativeMessageSpy.calls.mostRecent().returnValue).toBe('Use properMethod instead.');
+        });
+    });
 });

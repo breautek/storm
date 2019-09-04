@@ -73,7 +73,7 @@ export class TokenManager {
     public decode(token: Token): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             try {
-                var decoded: any = jwt.decode(token.getSignature());
+                const decoded: any = jwt.decode(token.getSignature());
                 resolve(decoded);
             }
             catch (ex) {

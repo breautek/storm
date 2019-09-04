@@ -55,7 +55,7 @@ export class MySQLConnection extends DatabaseConnection {
 
     protected _query(query: string, params?: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            var queryObject: MySQL.Query = this.getAPI().query({
+            let queryObject: MySQL.Query = this.getAPI().query({
                 sql: query,
                 timeout: this.getTimeout()
             }, params, (error: MySQL.MysqlError, results: any) => {
@@ -160,7 +160,7 @@ export class MySQLConnection extends DatabaseConnection {
         this._opened = false;
         
         return new Promise<void>((resolve, reject) => {
-            var rollbackPromise: Promise<void> = null;
+            let rollbackPromise: Promise<void> = null;
             if (forceClose) {
                 if (this.isTransaction()) {
                     rollbackPromise = this.rollback();

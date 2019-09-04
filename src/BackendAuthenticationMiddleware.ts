@@ -41,11 +41,11 @@ export class BackendAuthenticationMiddleware {
      * @param options Arbituary object containing any relevant information used for authentication.
      */
     public execute(request: Request, response: Response, options?: any): Promise<any> {
-        var config: IConfig = getInstance().getConfig();
+        let config: IConfig = getInstance().getConfig();
 
-        var backendAuthHeader: string = config.backend_authentication_header;
+        let backendAuthHeader: string = config.backend_authentication_header;
         
-        var backend: string = request.getHeader(backendAuthHeader);
+        let backend: string = request.getHeader(backendAuthHeader);
 
         if (backend) {
             if (config.backend_authentication_secret === null) {

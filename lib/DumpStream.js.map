@@ -1,1 +1,1 @@
-{"version":3,"file":"DumpStream.js","sourceRoot":"","sources":["../src/DumpStream.ts"],"names":[],"mappings":";;AACA,iCAAiC;AAGjC,MAAa,UAAU;IAEnB,gBAAuB,CAAC;IAEjB,MAAM,CAAC,WAAW;QACrB,OAAO,UAAU,CAAC,iBAAiB,CAAC,WAAW,CAAC,CAAC;IACrD,CAAC;CACJ;AAPD,gCAOC"}
+{"version":3,"file":"DumpStream.js","sourceRoot":"","sources":["../src/DumpStream.ts"],"names":[],"mappings":";;AACA,iCAAiC;AAGjC,MAAa,UAAU;IAGnB,gBAAuB,CAAC;IAEjB,MAAM,CAAC,WAAW;QACrB,OAAO,UAAU,CAAC,iBAAiB,CAAC,WAAW,CAAC,CAAC;IACrD,CAAC;CACJ;AARD,gCAQC"}
