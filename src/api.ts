@@ -13,108 +13,73 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {getInstance, getApplicationLogger} from './instance';
-import {Application} from './Application';
-import {Logger} from './Logger';
-import {LogSeverity} from './LogSeverity';
-import {ILogEvent} from './ILogEvent';
-import {LogEvent} from './LogEvent';
-import {ExitCode} from './ExitCode';
-import {Iterator} from './Iterator';
-import {Token} from './Token';
-import {TokenManager} from './TokenManager';
-import {IJWTVerifyOptions} from './IJWTVerifyOptions';
-import {StormError, IErrorResponse, IAdditionalErrorDetails} from './StormError';
-import {StatusCode} from './StatusCode';
-import {ErrorCode} from './ErrorCode';
-import {MissingParameter} from './MissingParameter';
-import {InvalidCredentials} from './InvalidCredentials';
-import {InternalError} from './InternalError';
-import {ExpiredToken} from './ExpiredToken';
-import {Database} from './Database';
-import {DatabaseConnection} from './DatabaseConnection';
-import {MySQLDatabase} from './MySQLDatabase';
-import {MySQLConnection} from './MySQLConnection';
-import {Middleware} from './Middleware';
-import {LoggerMiddleware} from './LoggerMiddleware';
-import {Request, IParameterMap} from './Request';
-import {Response} from './Response';
-import {ResponseData} from './ResponseData';
-import {Handler} from './Handler';
-import {AuthenticationMiddleware} from './AuthenticationMiddleware';
-import {IHandler} from './IHandler';
-import {DictionaryIterator, IDictionary, IDictionaryIteratorResult} from './DictionaryIterator';
-import {ReverseIterator} from './ReverseIterator';
-import {InvalidValueError} from './InvalidValueError';
-import {DuplicateEntryError, IDuplicateEntryErrorOptions} from './DuplicateEntryError';
-import {UnauthorizedAccess} from './UnauthorizedAccess';
-import {EntityNotFoundError} from './EntityNotFoundError';
-import {DiskSpaceError} from './DiskSpaceError';
-import {ConfigLoader} from './ConfigLoader';
-import {IRequestResponse} from './IRequestResponse';
-import {CORSMiddleware} from './CORSMiddleware';
-import * as formidable from 'formidable';
-import {IFormData} from './IFormData';
-import {BackendAuthenticationMiddleware} from './BackendAuthenticationMiddleware';
-import {IConfig} from './IConfig';
-import {ServiceProvider} from './ServiceProvider';
-import {HTTPMethod} from './HTTPMethod';
-import {ServiceResponse} from './ServiceResponse';
-import {IServiceHeaders} from './IServiceHeaders';
-import {DumpStream} from './DumpStream';
-import {ManagedDatabaseConnection} from './ManagedDatabaseConnection';
-import {IDatabaseConnection} from './IDatabaseConnection';
+// Application
+export {getInstance, getApplicationLogger} from './instance';
+export {Application} from './Application';
 
+// Config
+export {ConfigLoader} from './ConfigLoader';
+
+// Database
+export {Database} from './Database';
+export {DatabaseConnection} from './DatabaseConnection';
+export {MySQLDatabase} from './MySQLDatabase';
+export {MySQLConnection} from './MySQLConnection';
+export {ManagedDatabaseConnection} from './ManagedDatabaseConnection';
+
+// Errors
+export {ErrorCode} from './ErrorCode';
 export {
-    getInstance, getApplicationLogger,
-    Application,
-    Logger,
-    LogSeverity,
-    LogEvent, 
-    ILogEvent,
-    ExitCode,
-    Iterator,
-    Token,
-    TokenManager,
-    IJWTVerifyOptions,
-    StormError, IErrorResponse, IAdditionalErrorDetails,
-    StatusCode,
-    ErrorCode,
-    MissingParameter,
-    InvalidCredentials,
-    InternalError,
-    ExpiredToken,
-    Database,
-    DatabaseConnection,
-    MySQLDatabase,
-    MySQLConnection,
-    Middleware,
-    LoggerMiddleware,
-    Request, IParameterMap,
-    Response,
-    ResponseData,
-    Handler,
-    AuthenticationMiddleware,
-    IHandler,
-    DictionaryIterator, IDictionary, IDictionaryIteratorResult,
-    ReverseIterator,
-    InvalidValueError,
-    DuplicateEntryError, IDuplicateEntryErrorOptions,
-    UnauthorizedAccess,
-    EntityNotFoundError,
-    DiskSpaceError,
-    ConfigLoader,
-    IRequestResponse,
-    CORSMiddleware,
-    formidable,
-    IFormData,
-    BackendAuthenticationMiddleware,
-    IConfig,
-    HTTPMethod,
-    ServiceProvider,
-    IServiceHeaders,
-    ServiceResponse,
-    DumpStream,
-    ManagedDatabaseConnection,
-    IDatabaseConnection
-};
+    StormError,
+    IErrorResponse,
+    IAdditionalErrorDetails
+} from './StormError';
+export {MissingParameter} from './MissingParameter';
+export {InvalidCredentials} from './InvalidCredentials';
+export {InternalError} from './InternalError';
+export {ExpiredToken} from './ExpiredToken';
+export {InvalidValueError} from './InvalidValueError';
+export {UnauthorizedAccess} from './UnauthorizedAccess';
+export {EntityNotFoundError} from './EntityNotFoundError';
+export {DiskSpaceError} from './DiskSpaceError';
+export {DuplicateEntryError, IDuplicateEntryErrorOptions} from './DuplicateEntryError';
+
+// HTTP
+export {StatusCode} from './StatusCode';
+export {Middleware} from './Middleware';
+export {Request, IParameterMap} from './Request';
+export {Response} from './Response';
+export {ResponseData} from './ResponseData';
+export {Handler} from './Handler';
+export {CORSMiddleware} from './CORSMiddleware';
+export {ServiceProvider} from './ServiceProvider';
+export {HTTPMethod} from './HTTPMethod';
+export {ServiceResponse} from './ServiceResponse';
+export {BackendAuthenticationMiddleware} from './BackendAuthenticationMiddleware';
+
+// Interfaces
+export {ILogEvent} from './ILogEvent';
+export {IJWTVerifyOptions} from './IJWTVerifyOptions';
+export {IHandler} from './IHandler';
+export {IRequestResponse} from './IRequestResponse';
+export {IConfig} from './IConfig';
+export {IFormData} from './IFormData';
+export {IDatabaseConnection} from './IDatabaseConnection';
+export {IServiceHeaders} from './IServiceHeaders';
+
+// Token
+export {Token} from './Token';
+export {TokenManager} from './TokenManager';
+export {AuthenticationMiddleware} from './AuthenticationMiddleware';
+
+// Utils
+export {ExitCode} from './ExitCode';
+export {LogEvent} from './LogEvent';
+export {Logger} from './Logger';
+export {LogSeverity} from './LogSeverity';
+export {LoggerMiddleware} from './LoggerMiddleware';
+export {DumpStream} from './DumpStream';
+
+// Third-party
+import * as formidable from 'formidable';
+export {formidable};

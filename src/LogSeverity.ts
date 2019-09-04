@@ -18,6 +18,7 @@ export enum LogSeverity {
     DEBUG = 2,
     INFO = 4,
     WARNING = 8,
+    DEPRECATE = 8, // This is shared with warning
     ERROR = 16,
     FATAL = 32,
     ALL = TRACE | DEBUG | INFO | WARNING | ERROR | FATAL

@@ -7,7 +7,6 @@ import {Request} from '../src/Request';
 import {Response} from '../src/Response';
 import {Handler} from '../src/Handler';
 import {HTTPMethod} from '../src/HTTPMethod';
-import {DumpStream} from '../src/DumpStream';
 import {IFormData} from '../src/IFormData';
 import * as FileSystem from 'fs';
 import {Writable} from 'stream';
@@ -71,7 +70,6 @@ describe('Request', () => {
 
     it('can make parameter request()', (done) => {
         app.attachMockHandler('/param/:name/', makeHandler((request: Request, response: Response) => {
-            var headers: http.IncomingHttpHeaders = request.getHeaders();
             expect(request.getParams()).toEqual({name:'bob'});
             expect(request.getParam('name')).toBe('bob');
             response.success(); 
@@ -97,7 +95,6 @@ describe('Request', () => {
 
     it('can pipe/unpipe', (done) => {
         app.attachMockHandler('/pipes/', makeHandler((request: Request, response: Response) => {
-            var headers: http.IncomingHttpHeaders = request.getHeaders();
             var writable: Writable = FileSystem.createWriteStream(Path.resolve('./dump.txt'));
             writable.on('error', (error) => {
                 console.log(error);
