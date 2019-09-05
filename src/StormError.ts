@@ -68,17 +68,27 @@ export abstract class StormError extends Error {
         return StatusCode.INTERNAL_ERROR;
     }
 
-    public getAdditionalDetails(): IAdditionalErrorDetails {
-        getInstance().getLogger().deprecate('getPublicDetails()');
-        return this.getPublicDetails();
-    }
+    // public getAdditionalDetails(): IAdditionalErrorDetails {
+    //     getInstance().getLogger().deprecate('getPublicDetails()');
+    //     return this.getPublicDetails();
+    // }
 
     public getErrorResponse(): IErrorResponse {
+        let details: IAdditionalErrorDetails = null;
+
+        if ((<any>this)['getAdditionalDetails']) {
+            getInstance().getLogger().deprecate('getPublicDetails', `${this.constructor.name}.getAdditionalDetails()`);
+            details = (<any>this)['getAdditionalDetails']();
+        }
+        else {
+            details = this.getPublicDetails();
+        }
+
         return {
             name: this.constructor.name,
             message : this.getMessage(),
             code : this.getCode(),
-            details: this.getAdditionalDetails()
+            details: details
         };
     }
 }
