@@ -6,8 +6,8 @@ export class MockError extends StormError {
         super(error);
     }
 
-    public getAdditionalDetails(): IAdditionalErrorDetails {
-        var details: IAdditionalErrorDetails = super.getAdditionalDetails();
+    public getPublicDetails(): IAdditionalErrorDetails {
+        var details: IAdditionalErrorDetails = super.getPublicDetails();
         details.mock = true;
         return details;
     }
