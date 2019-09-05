@@ -3,6 +3,7 @@ export interface IAdditionalErrorDetails {
     [key: string]: any;
 }
 export interface IErrorResponse {
+    name: string;
     message: string;
     code: number;
     details: IAdditionalErrorDetails;

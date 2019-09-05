@@ -1,3 +1,6 @@
+# 0.21.0 (September 5, 2019)
+- Added `name` attribute to `IErrorResponse` interface.
+
 # 0.20.1 (September 4, 2019)
 - Added missing `LogSeverity` text tag
 

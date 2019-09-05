@@ -171,6 +171,12 @@ describe('Logger', () => {
             }
         };
 
+        class DeprecatedClass {
+            constructor() {
+                mock.deprecate('Deprecation');
+            }
+        }
+
         let deprecation: Deprecation = new Deprecation();
         let methodMessageSpy: jasmine.Spy = null;
         let alternativeMessageSpy: jasmine.Spy = null;

@@ -22,6 +22,7 @@ export interface IAdditionalErrorDetails {
 }
 
 export interface IErrorResponse {
+    name: string;
     message: string;
     code: number;
     details: IAdditionalErrorDetails;
@@ -74,6 +75,7 @@ export abstract class StormError extends Error {
 
     public getErrorResponse(): IErrorResponse {
         return {
+            name: this.constructor.name,
             message : this.getMessage(),
             code : this.getCode(),
             details: this.getAdditionalDetails()
