@@ -38,16 +38,16 @@ export abstract class StormError extends Error {
 
         const instance: Application = getInstance();
         instance.getLogger().error(`${this.getMessage()}... See details below:`);
-        instance.getLogger().info(this.getDetails());
+        instance.getLogger().info(this.getPrivateDetails());
     }
 
     public abstract getMessage(): string;
     public abstract getCode(): number;
 
-    public getDetails(): any {
-        getInstance().getLogger().deprecate('getPrivateDetails()');
-        return this.getPrivateDetails();
-    }
+    // public getDetails(): any {
+    //     getInstance().getLogger().deprecate('getPrivateDetails()');
+    //     return this.getPrivateDetails();
+    // }
 
     /**
      * Sends details to the client.

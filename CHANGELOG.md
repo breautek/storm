@@ -1,3 +1,6 @@
+# 0.21.1 (September 9, 2019)
+- Removed usages of deprecated `StormError` APIs.
+
 # 0.21.0 (September 5, 2019)
 - Added `name` attribute to `IErrorResponse` interface.
 

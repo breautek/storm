@@ -27,7 +27,7 @@ export class InvalidValueError extends StormError {
     }
 
     public getMessage(): string {
-        let details: any = this.getDetails();
+        let details: any = this.getPrivateDetails();
         return `Unexpected value for "${details.variable}". Expected ${details.expected} but got "${details.got}".`;
     }
 

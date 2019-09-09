@@ -23,7 +23,7 @@ export class MissingParameter extends StormError {
     }
 
     public getMessage(): string {
-        return `Missing parameter (${this.getDetails().parameter}).`;
+        return `Missing parameter (${this.getPrivateDetails().parameter}).`;
     }
 
     public getCode(): ErrorCode {
