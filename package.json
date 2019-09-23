@@ -13,7 +13,10 @@
     ],
     "lines": 80,
     "watermarks": {
-      "lines": [80, 90]
+      "lines": [
+        80,
+        90
+      ]
     },
     "exclude": [
       "**/*Middleware*"
@@ -66,7 +69,7 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "@breautek/eslint-plugin": "3.0.0-beta.0",
+    "@breautek/eslint-plugin": "3.0.0",
     "@breautek/jasmine-ts": "1.0.0",
     "@types/jasmine": "^3.4.0",
     "@typescript-eslint/eslint-plugin": "2.3.0",

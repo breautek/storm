@@ -90,10 +90,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@breautek/eslint-plugin@3.0.0-beta.0":
-  version "3.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@breautek/eslint-plugin/-/eslint-plugin-3.0.0-beta.0.tgz#49556dd253fd8df4fc66409c7ccc77eef512ff5c"
-  integrity sha512-ZY2aoR+nYKvuoMWkOaxYp9AuI/W0wtkPj1ubF8uSpyas7beOu1xIMcClZdBhgMfI2eOLfjYcZNVPY7AqbjKY3g==
+"@breautek/eslint-plugin@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@breautek/eslint-plugin/-/eslint-plugin-3.0.0.tgz#af49e21aac29766696705bdb1115595a1d7cc874"
+  integrity sha512-FO7skWxx3XPYNNk1A18oAoYu3UIz+juqfyGcXt/XiXl5J+TxzCqPwYKj3xbbcfmnO/qUN/GGWefH8OYjbRVVsQ==
   optionalDependencies:
     "@typescript-eslint/eslint-plugin" "^2.3.0"
 
