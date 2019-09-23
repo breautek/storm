@@ -7,20 +7,14 @@ import {
 import {Request} from '../src/Request';
 import {Response} from '../src/Response';
 import {Handler} from '../src/Handler';
-import {HTTPMethod} from '../src/HTTPMethod';
-import {DumpStream} from '../src/DumpStream';
-import {IFormData} from '../src/IFormData';
 import * as FileSystem from 'fs';
-import {Writable} from 'stream';
-import * as http from 'http';
 import * as Path from 'path';
-import FormData = require('form-data');
 import {ResponseData} from '../src/ResponseData';
 import {MockError} from './support/MockError';
 
 type HandlerCallback = (request: Request, response: Response) => void;
 
-var makeHandler = (callback: HandlerCallback) => {
+let makeHandler = (callback: HandlerCallback) => {
     return class MockHandler extends Handler {
         private _handleRequest(request: Request, response: Response): void {
             callback(request, response);
@@ -37,7 +31,7 @@ var makeHandler = (callback: HandlerCallback) => {
 };
 
 describe('Response', () => {
-    var app: MockApplication = null;
+    let app: MockApplication = null;
 
     beforeAll((done) => {
         app = new MockApplication();
@@ -87,7 +81,7 @@ describe('Response', () => {
 
     it('can send ResponseData', (done) => {
         app.attachMockHandler('/withResponseData', makeHandler((request: Request, response: Response) => {
-            var responseData: ResponseData = new ResponseData(400, 'test123');
+            let responseData: ResponseData = new ResponseData(400, 'test123');
             response.send(responseData);
         }));
         app.doMockGet('/withResponseData').then((response: IMockResponse) => {
@@ -99,12 +93,12 @@ describe('Response', () => {
 
     it('can send stormError', (done) => {
         app.attachMockHandler('/stormError', makeHandler((request: Request, response: Response) => {
-            var mockError: MockError = new MockError('mockerror');
+            let mockError: MockError = new MockError('mockerror');
             response.send(mockError);
         }));
         app.doMockGet('/stormError').then((response: IMockResponse) => {
             expect(response.status).toBe(500);
-            var data: any = JSON.parse(response.data);
+            let data: any = JSON.parse(response.data);
             expect(data.message).toBe('This is a mock error');
             expect(data.code).toBe(1);
             expect(data.details.mock).toBe(true);
@@ -149,7 +143,7 @@ describe('Response', () => {
         }));
         app.doMockGet('/error1').then((response: IMockResponse) => {
             expect(response.status).toBe(500);
-            var data: any = JSON.parse(response.data);
+            let data: any = JSON.parse(response.data);
             expect(data.message).toBe('An internal server error has occured. Please try again.');
             expect(data.code).toBe(0);
             done();
@@ -162,7 +156,7 @@ describe('Response', () => {
         }));
         app.doMockGet('/error2').then((response: IMockResponse) => {
             expect(response.status).toBe(500);
-            var data: any = JSON.parse(response.data);
+            let data: any = JSON.parse(response.data);
             expect(data.message).toBe('An internal server error has occured. Please try again.');
             expect(data.code).toBe(0);
             done();
@@ -175,7 +169,7 @@ describe('Response', () => {
         }));
         app.doMockGet('/error3').then((response: IMockResponse) => {
             expect(response.status).toBe(500);
-            var data: any = JSON.parse(response.data);
+            let data: any = JSON.parse(response.data);
             expect(data.message).toBe('This is a mock error');
             expect(data.code).toBe(1);
             done();

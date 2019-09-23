@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 
 import {
     TestApplication, 
@@ -15,7 +16,7 @@ import * as AppInstance from '../src/instance';
 import { CommanderStatic } from 'commander';
 
 describe('Application', () => {
-    var app: TestApplication = null;
+    let app: TestApplication = null;
     let originalLogger: Logger = null;
 
     beforeAll((done) => {
@@ -46,37 +47,37 @@ describe('Application', () => {
     });
 
     it('config has binding_ip', () => {
-        var config: Object = app.getConfig();
+        let config: Record<string, any> = app.getConfig();
         expect(config.hasOwnProperty('binding_ip')).toBe(true);
     });
 
     it('config has port', () => {
-        var config: Object = app.getConfig();
+        let config: Record<string, any> = app.getConfig();
         expect(config.hasOwnProperty('port')).toBe(true);
     });
 
     it('config has authentication_header', () => {
-        var config: Object = app.getConfig();
+        let config: Record<string, any> = app.getConfig();
         expect(config.hasOwnProperty('authentication_header')).toBe(true);
     });
 
     it('config has backend_authentication_header', () => {
-        var config: Object = app.getConfig();
+        let config: Record<string, any> = app.getConfig();
         expect(config.hasOwnProperty('backend_authentication_header')).toBe(true);
     });
 
     it('config has backend_authentication_secret', () => {
-        var config: Object = app.getConfig();
+        let config: Record<string, any> = app.getConfig();
         expect(config.hasOwnProperty('backend_authentication_secret')).toBe(true);
     });
 
     it('config has log_level', () => {
-        var config: Object = app.getConfig();
+        let config: Record<string, any> = app.getConfig();
         expect(config.hasOwnProperty('log_level')).toBe(true);
     });
 
     it('Supports TokenManager', () => {
-        var manager: TokenManager = new TokenManager('secret');
+        let manager: TokenManager = new TokenManager('secret');
         app.setTokenManager(manager);
         expect(app.getTokenManager()).toBe(manager);
         app.setTokenManager(null);
@@ -96,7 +97,7 @@ describe('Application', () => {
     });
 
     it('Accepts GET Requests', (done) => {
-        var req: http.ClientRequest = http.request({
+        let req: http.ClientRequest = http.request({
             method: HTTPMethod.GET,
             host: '127.0.0.1',
             port: 64321,
@@ -109,7 +110,7 @@ describe('Application', () => {
     });
 
     it('Accepts POST Requests', (done) => {
-        var req: http.ClientRequest = http.request({
+        let req: http.ClientRequest = http.request({
             method: HTTPMethod.POST,
             host: '127.0.0.1',
             port: 64321,
@@ -122,7 +123,7 @@ describe('Application', () => {
     });
 
     it('Accepts PUT Requests', (done) => {
-        var req: http.ClientRequest = http.request({
+        let req: http.ClientRequest = http.request({
             method: HTTPMethod.PUT,
             host: '127.0.0.1',
             port: 64321,
@@ -135,7 +136,7 @@ describe('Application', () => {
     });
 
     it('Accepts DELETE Requests', (done) => {
-        var req: http.ClientRequest = http.request({
+        let req: http.ClientRequest = http.request({
             method: HTTPMethod.DELETE,
             host: '127.0.0.1',
             port: 64321,
@@ -168,13 +169,13 @@ describe('Application', () => {
 
     it('getApplicationLogger returns generic logger', () => {
         AppInstance.setInstance(null);
-        var logger: Logger = AppInstance.getApplicationLogger();
+        let logger: Logger = AppInstance.getApplicationLogger();
         expect(logger.getName()).toBe('Generic');
     });
 
     it('Default log config', (done) => {
         let a: NoServerApp = new NoServerApp();
-        var logger: Logger = a.getLogger();
+        let logger: Logger = a.getLogger();
         expect(logger.getLogLevel()).toBe(LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL);
         a.close().then(() => {
             done();
@@ -182,7 +183,7 @@ describe('Application', () => {
     });
 
     it('has a program', () => {
-        var program: CommanderStatic = app.getProgram();
+        let program: CommanderStatic = app.getProgram();
         expect(program).toBeTruthy();
     });
 
@@ -199,7 +200,7 @@ describe('Application', () => {
     });
 
     it('Config test', () => {
-        let a: ConfigTestApp = new ConfigTestApp(JSON.stringify({
+        new ConfigTestApp(JSON.stringify({
             binding_ip: null,
             port: null,
             authentication_header: 'X-BT-AUTH',

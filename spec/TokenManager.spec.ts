@@ -2,25 +2,25 @@
 import {Token} from '../src/Token';
 import {TokenManager} from '../src/TokenManager';
 
-interface JWTHeaders {
+interface IJWTHeaders {
     alg: string;
     typ: string;
 }
 
-interface JWTParts {
-    headers: JWTHeaders,
+interface IJWTParts {
+    headers: IJWTHeaders;
     payload: any;
 }
 
 const INVALID_TOKEN: Token = new Token('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXN0Ijp0cnVlLCJpYXQiOjE1NjEyMzUxNjMsImV4cCI6MTU2MTIzNTIyM30.9QrmHI-YN1RuoI4foRVSaL29MXfOWZo9eYFlNqKbv5s');
 
 describe('TokenManager', () => {
-    var manager: TokenManager = new TokenManager('secret');
+    let manager: TokenManager = new TokenManager('secret');
 
-    var parseJWT = (jwt: string): JWTParts => {
-        var parts: Array<string> = jwt.split('.');
-        var headers: Buffer = Buffer.from(parts[0], 'base64');
-        var payload: Buffer = Buffer.from(parts[1], 'base64');
+    let parseJWT = (jwt: string): IJWTParts => {
+        let parts: Array<string> = jwt.split('.');
+        let headers: Buffer = Buffer.from(parts[0], 'base64');
+        let payload: Buffer = Buffer.from(parts[1], 'base64');
 
         return {
             headers: JSON.parse(headers.toString()),
@@ -31,7 +31,7 @@ describe('TokenManager', () => {
     describe('can sign', () => {
         it('success', (done) => {
             manager.sign({test: true}, '1y').then((token: Token) => {
-                var parts: JWTParts = parseJWT(token.getSignature());
+                let parts: IJWTParts = parseJWT(token.getSignature());
                 expect(parts.headers.alg).toBe('HS256');
                 expect(parts.headers.typ).toBe('JWT');
                 expect(parts.payload.test).toBe(true);

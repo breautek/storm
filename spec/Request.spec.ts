@@ -16,7 +16,7 @@ import FormData = require('form-data');
 
 type HandlerCallback = (request: Request, response: Response) => void;
 
-var makeHandler = (callback: HandlerCallback) => {
+let makeHandler = (callback: HandlerCallback) => {
     return class MockHandler extends Handler {
         private _handleRequest(request: Request, response: Response): void {
             callback(request, response);
@@ -33,7 +33,7 @@ var makeHandler = (callback: HandlerCallback) => {
 };
 
 describe('Request', () => {
-    var app: MockApplication = null;
+    let app: MockApplication = null;
 
     beforeAll((done) => {
         app = new MockApplication();
@@ -51,7 +51,7 @@ describe('Request', () => {
 
     it('can make request()', (done) => {
         app.attachMockHandler('/getHeaders', makeHandler((request: Request, response: Response) => {
-            var headers: http.IncomingHttpHeaders = request.getHeaders();
+            let headers: http.IncomingHttpHeaders = request.getHeaders();
             expect(headers.host).toBe('localhost:64321');
             expect(request.isSecure()).toBe(false);
             expect(request.getMethod()).toBe(HTTPMethod.GET);
@@ -88,14 +88,14 @@ describe('Request', () => {
             });
         }));
 
-        var form = new FormData();
+        let form = new FormData();
         form.append('key', 'value');
         form.submit('http://localhost:64321/form/');
     });
 
     it('can pipe/unpipe', (done) => {
         app.attachMockHandler('/pipes/', makeHandler((request: Request, response: Response) => {
-            var writable: Writable = FileSystem.createWriteStream(Path.resolve('./dump.txt'));
+            let writable: Writable = FileSystem.createWriteStream(Path.resolve('./dump.txt'));
             writable.on('error', (error) => {
                 console.log(error);
             });

@@ -14,9 +14,8 @@ import {StatusCode} from '../../src/StatusCode';
 import {HTTPMethod} from '../../src/HTTPMethod';
 import {MockLogger} from './MockLogger';
 import * as http from 'http';
-import FormData = require('form-data');
 
-export class TestLogger extends Logger {};
+export class TestLogger extends Logger {}
 
 export interface IMockResponse {
     status: StatusCode;
@@ -91,7 +90,7 @@ export class MockApplication extends Application {
 
     private _doMock(method: HTTPMethod, url: string, data?: any, headers?: any): Promise<IMockResponse> {
         return new Promise<IMockResponse>((resolve, reject) => {
-            var request: http.ClientRequest = http.request(new URL(url, 'http://localhost:64321'), {
+            let request: http.ClientRequest = http.request(new URL(url, 'http://localhost:64321'), {
                 method: method
             }, (response) => {
                 response.setEncoding('utf8');

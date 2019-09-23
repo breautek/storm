@@ -6,7 +6,7 @@ import { DatabaseConnection } from '../src/DatabaseConnection';
 import * as api from '../src/api';
 
 describe('Database', () => {
-    var app: MockApplication = null;
+    let app: MockApplication = null;
 
     beforeAll((done) => {
         app = new MockApplication();

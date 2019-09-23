@@ -106,13 +106,6 @@
     source-map-support "^0.5.12"
     tslib "^1.10.0"
 
-"@breautek/jasmine-ts@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@breautek/jasmine-ts/-/jasmine-ts-1.0.0.tgz#9328cccbb88a129539f8bf6fe7ca634b995d1b98"
-  integrity sha512-k8HKYumfDj4SNxHNpCX/DYet9qSOxREmWssPeq375nqeGe3AGQQElap0zLWUjpcDbIfopWGNvjbD8jnb9TU8ew==
-  dependencies:
-    yargs "^13.2.4"
-
 "@types/body-parser@*", "@types/body-parser@^1.17.1":
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.17.1.tgz#18fcf61768fb5c30ccc508c21d6fd2e8b3bf7897"
@@ -2505,7 +2498,7 @@ yargs-parser@^13.0.0, yargs-parser@^13.1.1:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
-yargs@^13.2.2, yargs@^13.2.4:
+yargs@^13.2.2:
   version "13.3.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-13.3.0.tgz#4c657a55e07e5f2cf947f8a366567c04a0dedc83"
   integrity sha512-2eehun/8ALW8TLoIl7MVaRUrg+yCnenu8B4kBlRxj3GJGDKU1Og7sMXPNm1BYyM1DOJmTZ4YeN/Nwxv+8XJsUA==

@@ -1,4 +1,5 @@
-{
+
+module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
@@ -7,7 +8,9 @@
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": "./tsconfig.json"
+        "project": "./tsconfig-tests.json",
+        "sourceType": "module",
+        "tsconfigRootDir": __dirname
     },
     "plugins": [
         "@typescript-eslint",
@@ -43,6 +46,7 @@
             }
         ],
         "no-empty-function": "off",
-        "@typescript-eslint/no-empty-function": "off"
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/camelcase": "off"
     }
-}
+};

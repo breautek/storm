@@ -1,6 +1,6 @@
 {
   "name": "@breautek/storm",
-  "version": "0.21.2",
+  "version": "1.0.0-dev",
   "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
   "types": "lib/api.d.ts",
@@ -26,9 +26,9 @@
     "build": "tsc && npm run-script build-docs",
     "build-lib": "rm -r ./lib && tsc",
     "build-docs": "typedoc --readme ./README.md --out ./docs ./src",
-    "lint": "eslint --ext .ts './src/**/*.ts'",
-    "unit": "jasmine-ts",
-    "test": "npm run-script lint && nyc --reporter=lcov --reporter=text jasmine-ts",
+    "lint": "eslint --ext .ts '?(src|spec)/**/*.ts'",
+    "unit": "ts-node ./spec/support/jasmine.ts",
+    "test": "npm run-script lint && nyc --reporter=lcov --reporter=text ts-node ./spec/support/jasmine.ts",
     "coverage": "codecov",
     "clean": "rm -r ./lib && rm -r ./docs",
     "prepublishOnly": "npm run-script build-lib"
@@ -70,7 +70,6 @@
   },
   "devDependencies": {
     "@breautek/eslint-plugin": "3.0.0",
-    "@breautek/jasmine-ts": "1.0.0",
     "@types/jasmine": "^3.4.0",
     "@typescript-eslint/eslint-plugin": "2.3.0",
     "@typescript-eslint/parser": "2.3.0",

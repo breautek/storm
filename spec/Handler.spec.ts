@@ -9,7 +9,7 @@ import {StatusCode} from '../src/StatusCode';
 
 type HandlerCallback = (handler: Handler, request: Request, response: Response, method: HTTPMethod) => void;
 
-var makeHandler = (callback: HandlerCallback) => {
+let makeHandler = (callback: HandlerCallback) => {
     return class MockHandler extends Handler {
         private _handleRequest(request: Request, response: Response, method: HTTPMethod): void {
             callback(this, request, response, method);
@@ -34,7 +34,7 @@ var makeHandler = (callback: HandlerCallback) => {
 }
 
 describe('Handler', () => {
-    var app: MockApplication = null;
+    let app: MockApplication = null;
 
     beforeAll((done) => {
         app = new MockApplication();
