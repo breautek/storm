@@ -1,4 +1,4 @@
-import {MissingParameter} from '../../src/MissingParameter';
+import {MissingParameterError} from '../../src/MissingParameterError';
 import {IErrorResponse} from '../../src/StormError';
 import {
     MockApplication
@@ -6,14 +6,14 @@ import {
 import {ErrorCode} from '../../src/ErrorCode';
 import {StatusCode} from '../../src/StatusCode';
 
-describe('MissingParameter', () => {
-    let error: MissingParameter = null;
+describe('MissingParameterError', () => {
+    let error: MissingParameterError = null;
     let app: MockApplication = null;
 
     let setup = (done: any) => {
         app = new MockApplication();
         app.on('ready', () => {
-            error = new MissingParameter('testParam');
+            error = new MissingParameterError('testParam');
             done();
         });
     };
@@ -43,7 +43,7 @@ describe('MissingParameter', () => {
     describe('getErrorResponse()', () => {
         it('name', () => {
             let r: IErrorResponse = error.getErrorResponse();
-            expect(r.name).toBe('MissingParameter');
+            expect(r.name).toBe('MissingParameterError');
         });
 
         it('message', () => {

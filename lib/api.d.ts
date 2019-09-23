@@ -8,7 +8,7 @@ export { MySQLConnection } from './MySQLConnection';
 export { ManagedDatabaseConnection } from './ManagedDatabaseConnection';
 export { ErrorCode } from './ErrorCode';
 export { StormError, IErrorResponse, IAdditionalErrorDetails } from './StormError';
-export { MissingParameter } from './MissingParameter';
+export { MissingParameterError } from './MissingParameterError';
 export { InvalidCredentials } from './InvalidCredentials';
 export { InternalError } from './InternalError';
 export { ExpiredToken } from './ExpiredToken';

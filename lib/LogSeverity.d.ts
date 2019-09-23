@@ -3,8 +3,8 @@ export declare enum LogSeverity {
     DEBUG = 2,
     INFO = 4,
     WARNING = 8,
-    DEPRECATE = 8,
-    ERROR = 16,
-    FATAL = 32,
-    ALL = 63
+    DEPRECATE = 16,
+    ERROR = 32,
+    FATAL = 64,
+    ALL = 111
 }
