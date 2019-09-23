@@ -1,9 +1,4 @@
-import { StormError } from './StormError';
-import { ErrorCode } from './ErrorCode';
-import { StatusCode } from './StatusCode';
-export declare class MissingParameter extends StormError {
+import { MissingParameterError } from './MissingParameterError';
+export declare class MissingParameter extends MissingParameterError {
     constructor(parameter: string);
-    getMessage(): string;
-    getCode(): ErrorCode;
-    getHTTPCode(): StatusCode;
 }

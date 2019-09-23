@@ -39,6 +39,7 @@ export declare class Logger extends EventEmitter {
     error(message: any): void;
     fatal(message: any): void;
     deprecate(alternative?: string, methodOverride?: string): void;
+    deprecateClass(deprecatedClass: string, alternative?: string): void;
     private _getDeprecatedMethodMessage;
     private _getDeprecatedAlternativeMessage;
 }
