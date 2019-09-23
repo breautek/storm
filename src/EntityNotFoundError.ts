@@ -23,7 +23,7 @@ export class EntityNotFoundError extends StormError {
     }
 
     public getMessage(): string {
-        return `${this.getDetails().name} does not exists.`;
+        return `${this.getPrivateDetails().name} does not exists.`;
     }
 
     public getCode(): ErrorCode {

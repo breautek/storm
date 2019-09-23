@@ -28,7 +28,7 @@ export class DuplicateEntryError extends StormError {
     }
 
     public getMessage(): string {
-        let details: any = this.getDetails();
+        let details: any = this.getPrivateDetails();
         return `${details.entity} with the name "${details.name}" already exists.`;
     }
 

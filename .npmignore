@@ -1,3 +1,5 @@
 ./docs
 ./old
 ./nyc_output
+./spec
+./coverage
