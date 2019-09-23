@@ -8,7 +8,7 @@ describe('Public API', () => {
     });
 
     it('MissingParameter', () => {
-        expect(api.MissingParameter).toBeTruthy();
+        expect(api.MissingParameterError).toBeTruthy();
     });
 
     it('UnauthorizedAccess', () => {
