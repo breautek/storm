@@ -1,5 +1,4 @@
-
-import {UnauthorizedAccess} from '../../src/UnauthorizedAccess';
+import {MissingParameter} from '../../src/MissingParameter';
 import {IErrorResponse} from '../../src/StormError';
 import {
     MockApplication
@@ -7,14 +6,14 @@ import {
 import {ErrorCode} from '../../src/ErrorCode';
 import {StatusCode} from '../../src/StatusCode';
 
-describe('UnauthorizedAccess', () => {
-    let error: UnauthorizedAccess = null;
+describe('MissingParameter', () => {
+    let error: MissingParameter = null;
     let app: MockApplication = null;
 
     let setup = (done: any) => {
         app = new MockApplication();
         app.on('ready', () => {
-            error = new UnauthorizedAccess('test');
+            error = new MissingParameter('testParam');
             done();
         });
     };
@@ -30,21 +29,21 @@ describe('UnauthorizedAccess', () => {
     afterAll(deconstruct);
 
     it('has message', () => {
-        expect(error.getMessage()).toBe('Access Denied.');
+        expect(error.getMessage()).toBe('Missing parameter (testParam).');
     });
 
     it('has code', () => {
-        expect(error.getCode()).toBe(ErrorCode.UNAUTHORIZED_ACCESS);
+        expect(error.getCode()).toBe(ErrorCode.MISSING_PARAMETER);
     });
 
     it('has HTTP code', () => {
-        expect(error.getHTTPCode()).toBe(StatusCode.ERR_FORBIDDEN);
+        expect(error.getHTTPCode()).toBe(StatusCode.ERR_BAD_REQUEST);
     });
 
     describe('getErrorResponse()', () => {
         it('name', () => {
             let r: IErrorResponse = error.getErrorResponse();
-            expect(r.name).toBe('UnauthorizedAccess');
+            expect(r.name).toBe('MissingParameter');
         });
 
         it('message', () => {
