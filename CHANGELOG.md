@@ -1,3 +1,7 @@
+# 0.21.2 (September 22, 2019)
+- Added `Logger.deprecateClass` method.
+- Deprecated `MissingParameter` class. Use `MissingParameterError` instead.
+
 # 0.21.1 (September 9, 2019)
 - Removed usages of deprecated `StormError` APIs.
 

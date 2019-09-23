@@ -27,6 +27,7 @@ import {IJWTVerifyOptions} from './IJWTVerifyOptions';
 import {StormError, IErrorResponse, IAdditionalErrorDetails} from './StormError';
 import {StatusCode} from './StatusCode';
 import {ErrorCode} from './ErrorCode';
+import {MissingParameterError} from './MissingParameterError';
 import {MissingParameter} from './MissingParameter';
 import {InvalidCredentials} from './InvalidCredentials';
 import {InternalError} from './InternalError';
@@ -80,6 +81,7 @@ export {
     StormError, IErrorResponse, IAdditionalErrorDetails,
     StatusCode,
     ErrorCode,
+    MissingParameterError,
     MissingParameter,
     InvalidCredentials,
     InternalError,

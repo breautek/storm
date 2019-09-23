@@ -13,24 +13,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {StormError} from './StormError';
-import {ErrorCode} from './ErrorCode';
-import {StatusCode} from './StatusCode';
+import {MissingParameterError} from './MissingParameterError';
+import { getInstance } from './instance';
 
-export class MissingParameter extends StormError {
+export class MissingParameter extends MissingParameterError {
     public constructor(parameter: string) {
-        super({parameter: parameter});
-    }
-
-    public getMessage(): string {
-        return `Missing parameter (${this.getPrivateDetails().parameter}).`;
-    }
-
-    public getCode(): ErrorCode {
-        return ErrorCode.MISSING_PARAMETER;
-    }
-
-    public getHTTPCode(): StatusCode {
-        return StatusCode.ERR_BAD_REQUEST;
+        super(parameter);
+        getInstance().getLogger().deprecateClass('MissingParameter', 'MissingParameterError');
     }
 }
