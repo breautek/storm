@@ -21,5 +21,5 @@ export enum LogSeverity {
     DEPRECATE = 16,
     ERROR = 32,
     FATAL = 64,
-    ALL = TRACE | DEBUG | INFO | WARNING | ERROR | FATAL
+    ALL = TRACE | DEBUG | INFO | WARNING | DEPRECATE | ERROR | FATAL
 }

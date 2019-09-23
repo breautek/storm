@@ -18,4 +18,11 @@ describe('ServiceResponse', () => {
     it('getUTF8', () => {
         expect(sr.getUTF8()).toBe('test data');
     });
+
+    it('getJSON', () => {
+        sr = new ServiceResponse(Buffer.from('{"test":true}'), null);
+        expect(sr.getJSON()).toEqual({
+            test: true
+        });
+    });
 });

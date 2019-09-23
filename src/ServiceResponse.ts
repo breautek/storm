@@ -16,4 +16,8 @@ export class ServiceResponse {
     public getUTF8(): string {
         return this._data.toString('utf8');
     }
+
+    public getJSON(): any {
+        return JSON.parse(this.getUTF8());
+    }
 }

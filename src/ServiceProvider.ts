@@ -21,6 +21,10 @@ export abstract class ServiceProvider {
         return this._app;
     }
 
+    public getApp(): Application {
+        return this._app;
+    }
+
     protected _getDomain(): string {
         return '127.0.0.1';
     }
@@ -70,6 +74,10 @@ export abstract class ServiceProvider {
 
             httpOpts.headers[this._app.getConfig().authentication_header] = accessToken;
             httpOpts.headers[this._app.getConfig().backend_authentication_header] = this._getSecret();
+            
+            if (!httpOpts.headers['Content-Type']) {
+                httpOpts.headers['Content-Type'] = 'application/json';
+            }
 
             this._app.getLogger().trace(`ServiceProvider Request`);
             this._app.getLogger().trace(`METHOD: ${httpOpts.method}`);
@@ -78,7 +86,7 @@ export abstract class ServiceProvider {
             this._app.getLogger().trace(`PATH: ${httpOpts.path}`);
             this._app.getLogger().trace(`HEADERS: ${JSON.stringify(httpOpts.headers)}`);
             
-            let responseData: Buffer;
+            let responseData: Buffer = Buffer.from('');
 
             let request: http.ClientRequest = http.request(httpOpts, (response: http.IncomingMessage) => {
                 this._app.getLogger().trace(`ServiceProvider Response Status: ${response.statusCode}`);
@@ -86,15 +94,10 @@ export abstract class ServiceProvider {
 
                 response.on('data', (chunk: Buffer) => {
                     this._app.getLogger().trace(`ServiceProvider Received Chunk: ${chunk}`);
-                    if (!responseData) {
-                        responseData = chunk;
-                    }
-                    else {
-                        responseData = Buffer.concat([
-                            responseData,
-                            chunk
-                        ]);
-                    }
+                    responseData = Buffer.concat([
+                        responseData,
+                        chunk
+                    ]);
                 });
 
                 response.on('end', () => {
@@ -113,8 +116,12 @@ export abstract class ServiceProvider {
                 request.write(data);
             }
 
-            request.end();
+            this._sendRequest(request);
         });
+    }
+
+    private _sendRequest(request: http.ClientRequest): void {
+        request.end();
     }
 
     public get(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
@@ -122,14 +129,14 @@ export abstract class ServiceProvider {
     }
 
     public post(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
-        return this.request(HTTPMethod.POST, url, accessToken, data, headers, additionalOptions);
+        return this.request(HTTPMethod.POST, this._createURL(url), accessToken, data, headers, additionalOptions);
     }
 
     public put(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
-        return this.request(HTTPMethod.PUT, url, accessToken, data, headers, additionalOptions);
+        return this.request(HTTPMethod.PUT, this._createURL(url), accessToken, data, headers, additionalOptions);
     }
 
     public delete(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
-        return this.request(HTTPMethod.DELETE, url, accessToken, data, headers, additionalOptions);
+        return this.request(HTTPMethod.DELETE, this._createURL(url), accessToken, data, headers, additionalOptions);
     }
 }

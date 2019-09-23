@@ -33,15 +33,15 @@ class TestHandler extends Handler {
     }
 
     protected _post(request: Request, response: Response): void {
-        response.send(request.getBody());
+        response.setStatus(200).send(request.getBody());
     }
 
     protected _put(request: Request, response: Response): void {
-        response.send(request.getBody());
+        response.setStatus(200).send(request.getBody());
     }
 
     protected _delete(request: Request, response: Response): void {
-        response.send(request.getBody());
+        response.setStatus(200).send(request.getBody());
     }
 }
 
@@ -81,6 +81,7 @@ export class MockApplication extends Application {
 
     protected attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
+        this.attachHandler('/api/mock/v1/echo', TestHandler);
         return Promise.resolve();
     }
 
