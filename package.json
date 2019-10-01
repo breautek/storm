@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc && npm run-script build-docs",
     "build-lib": "rm -r ./lib && tsc",
-    "build-docs": "typedoc --mode file -readme ./README.md --out ./docs ./src",
+    "build-docs": "typedoc --excludePrivate --excludeNotExported --mode file -readme ./README.md --out ./docs ./src",
     "lint": "eslint --ext .ts './src/**/*.ts'",
     "unit": "jasmine-ts",
     "test": "npm run-script lint && nyc --reporter=lcov --reporter=text jasmine-ts",

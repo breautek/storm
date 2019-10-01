@@ -40,8 +40,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -89,15 +87,9 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="logger.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="logger.html#_errorstream" class="tsd-kind-icon">_error<wbr>Stream</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="logger.html#_filters" class="tsd-kind-icon">_filters</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="logger.html#_logstream" class="tsd-kind-icon">_log<wbr>Stream</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="logger.html#loglevel" class="tsd-kind-icon">log<wbr>Level</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="logger.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="logger.html#usestderrforerrors" class="tsd-kind-icon">use<wbr>Std<wbr>Err<wbr>For<wbr>Errors</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="logger.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
 							</ul>
 						</section>
@@ -109,11 +101,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="logger.html#_getdefaulterrorstream" class="tsd-kind-icon">_get<wbr>Default<wbr>Error<wbr>Stream</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="logger.html#_getdefaultlogfilters" class="tsd-kind-icon">_get<wbr>Default<wbr>Log<wbr>Filters</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="logger.html#_getdefaultlogstream" class="tsd-kind-icon">_get<wbr>Default<wbr>Log<wbr>Stream</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="logger.html#_getdeprecatedalternativemessage" class="tsd-kind-icon">_get<wbr>Deprecated<wbr>Alternative<wbr>Message</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="logger.html#_getdeprecatedmethodmessage" class="tsd-kind-icon">_get<wbr>Deprecated<wbr>Method<wbr>Message</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="logger.html#_logmessage" class="tsd-kind-icon">_log<wbr>Message</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="logger.html#_logmessages" class="tsd-kind-icon">_log<wbr>Messages</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="logger.html#_parseregex" class="tsd-kind-icon">_parse<wbr>Regex</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="logger.html#_shouldlog" class="tsd-kind-icon">_should<wbr>Log</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="logger.html#addfilter" class="tsd-kind-icon">add<wbr>Filter</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="logger.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a></li>
@@ -169,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L34">Logger.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L34">Logger.ts:34</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -189,68 +178,8 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_errorstream" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _error<wbr>Stream</h3>
-					<div class="tsd-signature tsd-kind-icon">_error<wbr>Stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Writable</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L34">Logger.ts:34</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_filters" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _filters</h3>
-					<div class="tsd-signature tsd-kind-icon">_filters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L32">Logger.ts:32</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_logstream" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _log<wbr>Stream</h3>
-					<div class="tsd-signature tsd-kind-icon">_log<wbr>Stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Writable</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L33">Logger.ts:33</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="loglevel" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> log<wbr>Level</h3>
-					<div class="tsd-signature tsd-kind-icon">log<wbr>Level<span class="tsd-signature-symbol">:</span> <a href="../enums/logseverity.html" class="tsd-signature-type">LogSeverity</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L30">Logger.ts:30</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="name" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L29">Logger.ts:29</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="usestderrforerrors" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> use<wbr>Std<wbr>Err<wbr>For<wbr>Errors</h3>
-					<div class="tsd-signature tsd-kind-icon">use<wbr>Std<wbr>Err<wbr>For<wbr>Errors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L31">Logger.ts:31</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="defaultmaxlisteners" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> default<wbr>Max<wbr>Listeners</h3>
@@ -275,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L169">Logger.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L169">Logger.ts:169</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -298,7 +227,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L173">Logger.ts:173</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L173">Logger.ts:173</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -324,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L63">Logger.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L63">Logger.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Writable</span></h4>
@@ -341,7 +270,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L157">Logger.ts:157</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L157">Logger.ts:157</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -358,56 +287,10 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L59">Logger.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L59">Logger.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Writable</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_getdeprecatedalternativemessage" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _get<wbr>Deprecated<wbr>Alternative<wbr>Message</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_get<wbr>Deprecated<wbr>Alternative<wbr>Message<span class="tsd-signature-symbol">(</span>alternative<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L332">Logger.ts:332</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>alternative: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_getdeprecatedmethodmessage" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _get<wbr>Deprecated<wbr>Method<wbr>Message</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_get<wbr>Deprecated<wbr>Method<wbr>Message<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L327">Logger.ts:327</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>e: <span class="tsd-signature-type">Error</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -421,7 +304,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L232">Logger.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L232">Logger.ts:232</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -447,7 +330,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L226">Logger.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L226">Logger.ts:226</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -463,29 +346,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_parseregex" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _parse<wbr>Regex</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_parse<wbr>Regex<span class="tsd-signature-symbol">(</span>strReg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RegExp</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L140">Logger.ts:140</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>strReg: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">RegExp</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="_shouldlog" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _should<wbr>Log</h3>
@@ -496,7 +356,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L243">Logger.ts:243</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L243">Logger.ts:243</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -522,7 +382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L87">Logger.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L87">Logger.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -591,7 +451,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L273">Logger.ts:273</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L273">Logger.ts:273</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -614,7 +474,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L293">Logger.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L293">Logger.ts:293</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -640,7 +500,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L313">Logger.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L313">Logger.ts:313</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -694,7 +554,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L285">Logger.ts:285</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L285">Logger.ts:285</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -736,7 +596,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L289">Logger.ts:289</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L289">Logger.ts:289</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -759,7 +619,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L79">Logger.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L79">Logger.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Writable</span></h4>
@@ -776,7 +636,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L107">Logger.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L107">Logger.ts:107</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -793,7 +653,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L165">Logger.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L165">Logger.ts:165</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/logseverity.html" class="tsd-signature-type">LogSeverity</a></h4>
@@ -810,7 +670,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L75">Logger.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L75">Logger.ts:75</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Writable</span></h4>
@@ -846,7 +706,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L83">Logger.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L83">Logger.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -863,7 +723,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L277">Logger.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L277">Logger.ts:277</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -936,7 +796,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L111">Logger.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L111">Logger.ts:111</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -953,7 +813,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L258">Logger.ts:258</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L258">Logger.ts:258</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1259,7 +1119,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L91">Logger.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L91">Logger.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1328,7 +1188,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L71">Logger.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L71">Logger.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1351,7 +1211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L98">Logger.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L98">Logger.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1374,7 +1234,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L161">Logger.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L161">Logger.ts:161</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1397,7 +1257,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L67">Logger.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L67">Logger.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1445,7 +1305,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L269">Logger.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L269">Logger.ts:269</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1468,7 +1328,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/217b7e9/src/Logger.ts#L281">Logger.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ba2bf5c/src/Logger.ts#L281">Logger.ts:281</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1535,24 +1395,6 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="logger.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#_errorstream" class="tsd-kind-icon">_error<wbr>Stream</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#_filters" class="tsd-kind-icon">_filters</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#_logstream" class="tsd-kind-icon">_log<wbr>Stream</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#loglevel" class="tsd-kind-icon">log<wbr>Level</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#usestderrforerrors" class="tsd-kind-icon">use<wbr>Std<wbr>Err<wbr>For<wbr>Errors</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="logger.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
 							</li>
@@ -1571,20 +1413,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="logger.html#_getdefaultlogstream" class="tsd-kind-icon">_get<wbr>Default<wbr>Log<wbr>Stream</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#_getdeprecatedalternativemessage" class="tsd-kind-icon">_get<wbr>Deprecated<wbr>Alternative<wbr>Message</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#_getdeprecatedmethodmessage" class="tsd-kind-icon">_get<wbr>Deprecated<wbr>Method<wbr>Message</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="logger.html#_logmessage" class="tsd-kind-icon">_log<wbr>Message</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="logger.html#_logmessages" class="tsd-kind-icon">_log<wbr>Messages</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="logger.html#_parseregex" class="tsd-kind-icon">_parse<wbr>Regex</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="logger.html#_shouldlog" class="tsd-kind-icon">_should<wbr>Log</a>
