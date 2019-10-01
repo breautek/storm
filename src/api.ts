@@ -35,14 +35,14 @@ export {
     IAdditionalErrorDetails
 } from './StormError';
 export {MissingParameterError} from './MissingParameterError';
-export {InvalidCredentials} from './InvalidCredentials';
+export {InvalidCredentialsError} from './InvalidCredentialsError';
 export {InternalError} from './InternalError';
 export {ExpiredTokenError} from './ExpiredTokenError';
 export {InvalidValueError} from './InvalidValueError';
 export {UnauthorizedAccessError} from './UnauthorizedAccessError';
 export {EntityNotFoundError} from './EntityNotFoundError';
 export {DiskSpaceError} from './DiskSpaceError';
-export {DuplicateEntryError, IDuplicateEntryErrorOptions} from './DuplicateEntryError';
+export {DuplicateEntryError} from './DuplicateEntryError';
 
 // HTTP
 export {StatusCode} from './StatusCode';

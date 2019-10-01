@@ -28,7 +28,7 @@ describe('Public API', () => {
     });
 
     it('InvalidCredentials', () => {
-        expect(api.InvalidCredentials).toBeTruthy();
+        expect(api.InvalidCredentialsError).toBeTruthy();
     });
 
     it('InvalidValueError', () => {

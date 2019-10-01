@@ -17,7 +17,7 @@ import {StormError} from './StormError';
 import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
-export class InvalidCredentials extends StormError {
+export class InvalidCredentialsError extends StormError {
     public constructor(details?: any) {
         super(details);
     }

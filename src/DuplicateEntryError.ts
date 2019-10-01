@@ -17,18 +17,21 @@ import {StormError} from './StormError';
 import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
-export interface IDuplicateEntryErrorOptions {
+interface IDuplicateEntryErrorOptions {
     entity: string;
     name: string;
 }
 
 export class DuplicateEntryError extends StormError {
-    public constructor(details?: any) {
-        super(details);
+    public constructor(entity: string, name: string) {
+        super({
+            entity,
+            name
+        });
     }
 
     public getMessage(): string {
-        let details: any = this.getPrivateDetails();
+        let details: IDuplicateEntryErrorOptions = this.getPrivateDetails();
         return `${details.entity} with the name "${details.name}" already exists.`;
     }
 
