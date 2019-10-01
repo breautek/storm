@@ -23,6 +23,12 @@ import {IDatabaseConnection} from './IDatabaseConnection';
 const LINGER_WARNING: number = 10000;
 const DEFAULT_QUERY_TIMEOUT: number = 3600000;
 
+/**
+ * Do not call `new Database` directly. Use `Database.getConnection` to create a `DatabaseConnection` object.
+ * @abstract
+ * @implements `IDatabaseConnection`
+ * @class
+ */
 export abstract class DatabaseConnection implements IDatabaseConnection {
     private api: any;
     private readOnly: boolean;
@@ -47,6 +53,11 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
         getApplicationLogger().warn(`Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`);
     }
 
+    /**
+     * Gets the callback stacktrace to determine what opened
+     * this connection. Useful for debugging lingering connections.
+     * @returns string - A stacktrace
+     */
     public getInstantiationStack(): string {
         return this._instantiationStack;
     }
@@ -61,14 +72,28 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
         }, LINGER_WARNING);
     }
 
+    /**
+     * Gets the underlying Database API
+     * @returns any
+     */
     public getAPI(): any {
         return this.api;
     }
 
+    /**
+     * Returns true if connection was created without
+     * write access
+     * @returns boolean
+     */
     public isReadOnly(): boolean {
         return this.readOnly;
     }
 
+    /**
+     * Sets the timeout of this connectino
+     * 
+     * @param timeout in milliseconds
+     */
     public setTimeout(timeout: number): void {
         if (isNaN(timeout)) {
             throw new TypeError('setTimeout expects a number in parameter 1.');
@@ -77,30 +102,126 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
         this._timeout = timeout;
     }
 
+    /**
+     * Returns the current timeout setting
+     * @returns number in milliseconds
+     */
     public getTimeout(): number {
         return this._timeout;
     }
 
+    /**
+     * Queries the database for a dataset.
+     * 
+     * @param query The database query
+     * @param params Parameters for the query
+     * @async
+     * @returns Promise<any>
+     */
     public query(query: string, params?: any): Promise<any> {
         this._armLingerWarning();
         return this._query(query, params);
     }
 
+    /**
+     * 
+     * @param query The database query
+     * @param params Parameters for the query
+     * @param streamOptions Stream options
+     * @returns Readable
+     */
     public stream(query: string, params?: any, streamOptions?: any): Readable {
         this._armLingerWarning();
         return this._stream(query, params, streamOptions);
     }
 
+    /**
+     * Closes the connection. May error if connection has an active transaction.
+     * if `forceClose` boolean is true, it will force close the connection, regardless
+     * of transaction state.
+     * 
+     * @param forceClose optional boolean
+     * @async
+     * @returns Promise<void>
+     */
     public close(forceClose: boolean = false): Promise<void> {
         clearTimeout(this._lingerTimer);
         return this._close(forceClose);
     }
 
+    /**
+     * Implementation method to start a transaction.
+     * 
+     * @abstract
+     * @async
+     * @returns Promise<void>
+     */
     public abstract startTransaction(): Promise<void>;
+
+    /**
+     * Implementation method to determine if the connection is in an active transaction.
+     * 
+     * @abstract
+     * @returns boolean
+     */
     public abstract isTransaction(): boolean;
+
+    /**
+     * Ends a transaction. if `requiresRollback` is `true`, then `rollback()` is invoked. Otherwise, `commit()` is invoked.
+     * 
+     * @abstract
+     * @async
+     * @param requiresRollback optional boolean
+     * @returns Promise<void>
+     */
+    public abstract endTransaction(requiresRollback?: boolean): Promise<void>;
+    
+    /**
+     * Commits a transaction. This will end a transaction.
+     * 
+     * @abstract
+     * @async
+     * @returns Promise<void>
+     */
     public abstract commit(): Promise<void>;
+
+    /**
+     * Rollsback a transaction. This will end a transaction.
+     * 
+     * @abstract
+     * @async
+     * @returns Promise<void>
+     */
     public abstract rollback(): Promise<void>;
+
+    /**
+     * Implementation to close the connection, if `forceClose` is true, close the connection no matter what.
+     * Silently error if it means the connection is closed.
+     * 
+     * @param forceClose boolean, if `true`, should close the connection no matter what.
+     * @async
+     * @returns Promise<void>
+     */
     protected abstract _close(forceClose: boolean): Promise<void>;
+    
+    /**
+     * Implementation method to return a dataset from the database
+     * 
+     * @param query The database query
+     * @param params The query parameters
+     * @async
+     * @returns Promise
+     */
     protected abstract _query(query: string, params?: any): Promise<any>;
+
+    /**
+     * Implementation method to return a dataset from the database like `query()`,
+     * but returns a `Readable` stream instead.
+     * 
+     * @param query The database query
+     * @param params The query parameters
+     * @param streamOptions `Readable` stream options
+     * @returns `Readable`
+     */
     protected abstract _stream(query: string, params?: any, streamOptions?: any): Readable;
 }
