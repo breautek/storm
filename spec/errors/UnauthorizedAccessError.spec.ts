@@ -1,5 +1,5 @@
 
-import {UnauthorizedAccess} from '../../src/UnauthorizedAccess';
+import {UnauthorizedAccessError} from '../../src/UnauthorizedAccessError';
 import {IErrorResponse} from '../../src/StormError';
 import {
     MockApplication
@@ -7,14 +7,14 @@ import {
 import {ErrorCode} from '../../src/ErrorCode';
 import {StatusCode} from '../../src/StatusCode';
 
-describe('UnauthorizedAccess', () => {
-    let error: UnauthorizedAccess = null;
+describe('UnauthorizedAccessError', () => {
+    let error: UnauthorizedAccessError = null;
     let app: MockApplication = null;
 
     let setup = (done: any) => {
         app = new MockApplication();
         app.on('ready', () => {
-            error = new UnauthorizedAccess('test');
+            error = new UnauthorizedAccessError('test');
             done();
         });
     };
@@ -44,7 +44,7 @@ describe('UnauthorizedAccess', () => {
     describe('getErrorResponse()', () => {
         it('name', () => {
             let r: IErrorResponse = error.getErrorResponse();
-            expect(r.name).toBe('UnauthorizedAccess');
+            expect(r.name).toBe('UnauthorizedAccessError');
         });
 
         it('message', () => {

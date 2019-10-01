@@ -37,9 +37,9 @@ export {
 export {MissingParameterError} from './MissingParameterError';
 export {InvalidCredentials} from './InvalidCredentials';
 export {InternalError} from './InternalError';
-export {ExpiredToken} from './ExpiredToken';
+export {ExpiredTokenError} from './ExpiredTokenError';
 export {InvalidValueError} from './InvalidValueError';
-export {UnauthorizedAccess} from './UnauthorizedAccess';
+export {UnauthorizedAccessError} from './UnauthorizedAccessError';
 export {EntityNotFoundError} from './EntityNotFoundError';
 export {DiskSpaceError} from './DiskSpaceError';
 export {DuplicateEntryError, IDuplicateEntryErrorOptions} from './DuplicateEntryError';

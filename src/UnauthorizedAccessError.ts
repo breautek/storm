@@ -17,7 +17,7 @@ import {StormError} from './StormError';
 import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
-export class UnauthorizedAccess extends StormError {
+export class UnauthorizedAccessError extends StormError {
     public constructor(userToken: string) {
         super(userToken);
     }
