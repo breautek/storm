@@ -1,20 +1,19 @@
 
-import {ExpiredTokenError} from '../../src/ExpiredTokenError';
+import {DatabaseQueryError} from '../../src/DatabaseQueryError';
 import {IErrorResponse} from '../../src/StormError';
 import {
     MockApplication
 } from '../support/TestApplication';
-import {ErrorCode} from '../../src/ErrorCode';
 import {StatusCode} from '../../src/StatusCode';
 
-describe('ExpiredTokenError', () => {
-    let error: ExpiredTokenError = null;
+describe('DatabaseQueryError', () => {
+    let error: DatabaseQueryError = null;
     let app: MockApplication = null;
 
     let setup = (done: any) => {
         app = new MockApplication();
         app.on('ready', () => {
-            error = new ExpiredTokenError();
+            error = new DatabaseQueryError('SELECT * FROM test', 'Mock Error');
             done();
         });
     };
@@ -30,21 +29,25 @@ describe('ExpiredTokenError', () => {
     afterAll(deconstruct);
 
     it('has message', () => {
-        expect(error.getMessage()).toBe('Your login session has expired.');
+        expect(error.getMessage()).toBe('Internal Server Error');
     });
 
     it('has code', () => {
-        expect(error.getCode()).toBe(ErrorCode.EXPIRED_TOKEN);
+        expect(error.getCode()).toBe(0);
     });
 
     it('has HTTP code', () => {
-        expect(error.getHTTPCode()).toBe(StatusCode.ERR_UNAUTHORIZED);
+        expect(error.getHTTPCode()).toBe(StatusCode.INTERNAL_ERROR);
+    });
+
+    it('private details', () => {
+        expect(error.getPrivateDetails().query).toBe('SELECT * FROM test');
     });
 
     describe('getErrorResponse()', () => {
         it('name', () => {
             let r: IErrorResponse = error.getErrorResponse();
-            expect(r.name).toBe('ExpiredTokenError');
+            expect(r.name).toBe('DatabaseQueryError');
         });
 
         it('message', () => {

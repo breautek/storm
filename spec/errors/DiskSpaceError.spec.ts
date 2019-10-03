@@ -7,7 +7,7 @@ import {
 import {ErrorCode} from '../../src/ErrorCode';
 import {StatusCode} from '../../src/StatusCode';
 
-describe('EntityNotFoundError', () => {
+describe('DiskSpaceError', () => {
     let error: DiskSpaceError = null;
     let app: MockApplication = null;
 

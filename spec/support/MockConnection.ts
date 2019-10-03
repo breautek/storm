@@ -35,6 +35,14 @@ export class MockConnection extends DatabaseConnection {
         return Promise.resolve();
     }
 
+    public async endTransaction(requiresRollback: boolean): Promise<void> {
+        if (requiresRollback) {
+            await this.rollback();
+        }
+        this.transaction = false;
+        return Promise.resolve();
+    }
+
     protected _query(query: string, params?: any): Promise<any> {
         return Promise.resolve({
             query: query,
