@@ -20,8 +20,8 @@ import {
 import {Readable} from 'stream';
 import {IDatabaseConnection} from './IDatabaseConnection';
 
-const LINGER_WARNING: number = 10000;
-const DEFAULT_QUERY_TIMEOUT: number = 3600000;
+export const LINGER_WARNING: number = 10000;
+export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
 
 /**
  * Do not call `new Database` directly. Use `Database.getConnection` to create a `DatabaseConnection` object.

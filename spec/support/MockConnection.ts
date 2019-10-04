@@ -51,6 +51,6 @@ export class MockConnection extends DatabaseConnection {
     }
 
     protected _stream(query: string, params?: any, streamOptions?: any): Readable {
-        throw new Error('Stream not supported');
+        return null;
     }
 }
