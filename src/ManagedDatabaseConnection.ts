@@ -26,11 +26,11 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
      * will be a no-op.
      */
     private _managed: boolean;
-    private _requresWrite: boolean;
+    private _requiresWrite: boolean;
 
     public constructor(requiresWrite: boolean = false) {
         this._managed = false;
-        this._requresWrite = requiresWrite;
+        this._requiresWrite = requiresWrite;
     }
 
     public setConnection(connection: DatabaseConnection): void {
@@ -55,6 +55,14 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
         this._connection = connection;
         this._managed = true;
+    }
+
+    public isWriteRequired(): boolean {
+        return this._requiresWrite;
+    }
+
+    public isManaged(): boolean {
+        return this._managed;
     }
 
     public hasConnection(): boolean {
@@ -106,8 +114,8 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         throw new Error('stream is not supported on Managed Connections');
     }
 
-    public close(forceClose: boolean): Promise<void> {
-        if (this.hasConnection() && !this._managed) {
+    public close(forceClose?: boolean): Promise<void> {
+        if (this.hasConnection() && !this.isManaged()) {
             return this._connection.close(forceClose);
         }
         else {
@@ -118,7 +126,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     public startTransaction(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             this._getConnection().then((connection: DatabaseConnection) => {
-                if (!this._managed) {
+                if (!this.isManaged()) {
                     connection.startTransaction().then(resolve).catch(reject);
                 }
                 else {
@@ -140,7 +148,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     public commit(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             this._getConnection().then((connection: DatabaseConnection) => {
-                if (!this._managed) {
+                if (!this.isManaged()) {
                     connection.commit().then(resolve).catch(reject);
                 }
                 else {
@@ -153,7 +161,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     public rollback(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             this._getConnection().then((connection: DatabaseConnection) => {
-                if (!this._managed) {
+                if (!this.isManaged()) {
                     connection.rollback().then(resolve).catch(reject);
                 }
                 else {
@@ -168,7 +176,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
             let promise: Promise<DatabaseConnection> = null;
             
             if (!this._connection) {
-                promise = getInstance().getDB().getConnection(this._requresWrite);
+                promise = getInstance().getDB().getConnection(this._requiresWrite);
             }
             else {
                 promise = Promise.resolve(this._connection);
