@@ -79,6 +79,36 @@ describe('MySQLConnection', () => {
         expect(conn.isOpen()).toBe(true);
     });
 
+    it('can stream (default options)', () => {
+        let streamSpy: jasmine.Spy = jasmine.createSpy('stream');
+        mockAPI.query.and.returnValue({
+            sql: 'test',
+            stream: streamSpy
+        });
+
+        conn.stream('test query', null);
+
+        expect(streamSpy).toHaveBeenCalledWith({
+            highWatermark: 512
+        });
+    });
+
+    it('can stream', () => {
+        let streamSpy: jasmine.Spy = jasmine.createSpy('stream');
+        mockAPI.query.and.returnValue({
+            sql: 'test',
+            stream: streamSpy
+        });
+
+        let streamOptions: any = {
+            streamTest: 1
+        };
+
+        conn.stream('test query', null, streamOptions);
+
+        expect(streamSpy).toHaveBeenCalledWith(streamOptions);
+    });
+
     it('isTransaction', () => {
         expect(conn.isTransaction()).toBe(false);
     });
@@ -91,6 +121,9 @@ describe('MySQLConnection', () => {
     });
 
     it('can start transaction (isTransaction failure)', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            callback(null, []);
+        });
         let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
         conn.startTransaction().then(() => {
             return conn.startTransaction();
@@ -101,6 +134,9 @@ describe('MySQLConnection', () => {
     });
 
     it('can start transaction successfully', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            callback(null, []);
+        });
         let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
         conn.startTransaction().then(() => {
             expect(conn.isTransaction()).toBe(true);
