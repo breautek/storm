@@ -28,20 +28,24 @@ class TestHandler extends Handler {
         super(app);
     }
 
-    protected _get(request: Request, response: Response): void {
+    protected _get(request: Request, response: Response): Promise<void> {
         response.success();
+        return Promise.resolve();
     }
 
-    protected _post(request: Request, response: Response): void {
+    protected _post(request: Request, response: Response): Promise<void> {
         response.setStatus(200).send(request.getBody());
+        return Promise.resolve();
     }
 
-    protected _put(request: Request, response: Response): void {
+    protected _put(request: Request, response: Response): Promise<void> {
         response.setStatus(200).send(request.getBody());
+        return Promise.resolve();
     }
 
-    protected _delete(request: Request, response: Response): void {
+    protected _delete(request: Request, response: Response): Promise<void> {
         response.setStatus(200).send(request.getBody());
+        return Promise.resolve();
     }
 }
 

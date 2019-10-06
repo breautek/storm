@@ -20,10 +20,10 @@ import {Request} from './Request';
 import {Response} from './Response';
 import {Database} from './Database';
 import {Middleware} from './Middleware';
-import {IRequestResponse} from './IRequestResponse';
 import {StormError} from './StormError';
 import {IConfig} from './IConfig';
-import {getApplicationLogger} from './instance';
+import { InternalError } from './InternalError';
+import { IRequestResponse } from './IRequestResponse';
 
 export class Handler {
     private _app: Application;
@@ -31,13 +31,10 @@ export class Handler {
 
     constructor(app: Application) {
         this._app = app;
-        this._middlewares = this.initMiddlewares();
-        if (this._middlewares.length > 0) {
-            getApplicationLogger().warn(new Error('Handler middlewares is deprecated and will be removed in the future.').stack);
-        }
+        this._middlewares = this._initMiddlewares();
     }
 
-    protected initMiddlewares(): Array<Middleware> {
+    protected _initMiddlewares(): Array<Middleware> {
         return [];
     }
 
@@ -51,80 +48,119 @@ export class Handler {
         return this._app.getDB();
     }
 
-    private _getNextMiddleware(index: number): Middleware {
-        return this._middlewares[index];
-    }
+    private async _executeMiddlewares(request: Request, response: Response): Promise<IRequestResponse> {
+        let result: IRequestResponse = {
+            request,
+            response
+        };
 
-    private _executeMiddlewares(request: Request, response: Response, index: number = 0): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
-            let promises: Array<Promise<IRequestResponse>> = [];
-
-            let firedDeprecation: boolean = false;
-
-            for (let i = 0; i < this._middlewares.length; i++) {
-                if (!firedDeprecation) {
-                    getApplicationLogger().warn(new Error('Handler._executeMiddlewares is deprecated. Will be removed in the future.').stack);
-                    firedDeprecation = true;
-                }
+        try {
+            for (let i: number = 0; i < this._middlewares.length; i++) {
                 let middleware: Middleware = this._middlewares[i];
-                promises.push(middleware.execute(request, response));
+                console.log(`executing middleware ${i}`);
+                result = await middleware.execute(result.request, result.response);
             }
+        }
+        catch (ex) {
+            getInstance().getLogger().error(ex);
+            let error: StormError = null;
+            if (!(ex instanceof StormError)) {
+                error = new InternalError(ex);
+            }
+            else {
+                error = ex;
+            }
+            this._onMiddlewareReject(request, response, error);
+            return Promise.reject(error);
+        }
 
-            Promise.all(promises).then(() => {
-                resolve();
-            }).catch(reject);
-        });
+        if (!result) {
+            result = {
+                request: null,
+                response: null
+            };
+        }
+
+        if (!result.request) {
+            result.request = request;
+        }
+
+        if (!result.response) {
+            result.response = response;
+        }
+
+        return Promise.resolve(result);
     }
 
     protected _onMiddlewareReject(request: Request, response: Response, error: StormError) {
         response.error(error);
     }
 
-    public get(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._get(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
+    public get(request: Request, response: Response): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this._executeMiddlewares(request, response).then((result: IRequestResponse) => {
+                this._get(result.request, result.response);
+                resolve();
+            }).catch((error: StormError) => {
+                this._onMiddlewareReject(request, response, error);
+                reject(error);
+            });
         });
     }
 
-    public put(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._put(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
+    public put(request: Request, response: Response): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this._executeMiddlewares(request, response).then((result: IRequestResponse) => {
+                this._put(result.request, result.response);
+                resolve();
+            }).catch((error: StormError) => {
+                this._onMiddlewareReject(request, response, error);
+                reject(error);
+            });
         });
     }
 
-    public post(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._post(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
+    public post(request: Request, response: Response): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this._executeMiddlewares(request, response).then((result: IRequestResponse) => {
+                this._post(result.request, result.response);
+                resolve();
+            }).catch((error: StormError) => {
+                this._onMiddlewareReject(request, response, error);
+                reject(error);
+            });
         });
     }
 
-    public delete(request: Request, response: Response): void {
-        this._executeMiddlewares(request, response).then(() => {
-            this._delete(request, response);
-        }).catch((error: StormError) => {
-            this._onMiddlewareReject(request, response, error);
+    public delete(request: Request, response: Response): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this._executeMiddlewares(request, response).then((result: IRequestResponse) => {
+                this._delete(result.request, result.response);
+                resolve();
+            }).catch((error: StormError) => {
+                this._onMiddlewareReject(request, response, error);
+                reject(error);
+            });
         });
     }
 
-    protected _get(request: Request, response: Response): void {
+    protected _get(request: Request, response: Response): Promise<void> {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
+        return Promise.resolve();
     }
 
-    protected _post(request: Request, response: Response): void {
+    protected _post(request: Request, response: Response): Promise<void> {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
+        return Promise.resolve();
     }
 
-    protected _put(request: Request, response: Response): void {
+    protected _put(request: Request, response: Response): Promise<void> {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
+        return Promise.resolve();
     }
 
-    protected _delete(request: Request, response: Response): void {
+    protected _delete(request: Request, response: Response): Promise<void> {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
+        return Promise.resolve();
     }
 }

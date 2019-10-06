@@ -71,7 +71,7 @@ export class CORSMiddleware extends Middleware {
         ];
     }
 
-    public execute(request: Request, response: Response): Promise<IRequestResponse> {
+    protected _execute(request: Request, response: Response): Promise<IRequestResponse> {
         if (this._allowedOrigin) {
             response.setHeader('Access-Control-Allow-Origin', this._allowedOrigin);
         }

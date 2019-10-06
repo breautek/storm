@@ -22,12 +22,14 @@ let makeHandler = (callback: HandlerCallback) => {
             callback(request, response);
         }
         
-        protected _get(request: Request, response: Response): void {
+        protected _get(request: Request, response: Response): Promise<void> {
             this._handleRequest(request, response);
+            return Promise.resolve();
         }
 
-        protected _post(request: Request, response: Response): void {
+        protected _post(request: Request, response: Response): Promise<void> {
             this._handleRequest(request, response);
+            return Promise.resolve();
         }
     };
 };

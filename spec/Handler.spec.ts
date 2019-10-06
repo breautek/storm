@@ -15,20 +15,24 @@ let makeHandler = (callback: HandlerCallback) => {
             callback(this, request, response, method);
         }
         
-        protected _get(request: Request, response: Response): void {
+        protected _get(request: Request, response: Response): Promise<void> {
             this._handleRequest(request, response, HTTPMethod.GET);
+            return Promise.resolve();
         }
 
-        protected _post(request: Request, response: Response): void {
+        protected _post(request: Request, response: Response): Promise<void> {
             this._handleRequest(request, response, HTTPMethod.POST);
+            return Promise.resolve();
         }
 
-        protected _delete(request: Request, response: Response): void {
+        protected _delete(request: Request, response: Response): Promise<void> {
             this._handleRequest(request, response, HTTPMethod.DELETE);
+            return Promise.resolve();
         }
 
-        protected _put(request: Request, response: Response): void {
+        protected _put(request: Request, response: Response): Promise<void> {
             this._handleRequest(request, response, HTTPMethod.PUT);
+            return Promise.resolve();
         }
     };
 }

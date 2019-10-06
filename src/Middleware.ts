@@ -21,5 +21,9 @@ export abstract class Middleware {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     public constructor() {}
 
-    public abstract execute(request: Request, response: Response): Promise<IRequestResponse>;
+    protected abstract _execute(request: Request, response: Response): Promise<IRequestResponse>;
+
+    public execute(request: Request, response: Response): Promise<IRequestResponse> {
+        return this._execute(request, response);
+    }
 }

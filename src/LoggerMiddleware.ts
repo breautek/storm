@@ -24,7 +24,7 @@ export class LoggerMiddleware extends Middleware {
         super();
     }
 
-    public execute(request: Request, response: Response, options?: any): Promise<IRequestResponse> {
+    protected _execute(request: Request, response: Response, options?: any): Promise<IRequestResponse> {
         return new Promise<IRequestResponse>((resolve, reject) => {
             // tslint:disable-next-line max-line-length
             getApplicationLogger().info(`${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
