@@ -1,3 +1,16 @@
+# 1.0.0 (October 6, 2019)
+## BREAKING CHANGES
+- `Application.getRequestSizeLimit` should not be overrided anymore. Use `request_size_limit` configuration property instead.
+- `Handler.get/post/delete/put` APIs now should return `Promie<void>`.
+- Several `StormError` classes have been renamed to always include `Error` in their name. Ie. `InvalidCredentials` is now `InvalidCredentialsError`.
+- `Middleware` has been rewritten
+
+## Other notable changes
+- `DatabaseConnection` improved error handling on `rollback`/`commit`/`startTransaction` APIs.
+- Improved deprecation notices
+- More than 80% unit test coverage has been written
+- Improved documentation
+
 # 0.21.2 (September 22, 2019)
 - Added `Logger.deprecateClass` method.
 - Deprecated `MissingParameter` class. Use `MissingParameterError` instead.
