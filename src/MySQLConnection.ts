@@ -24,7 +24,6 @@ const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 export class MySQLConnection extends DatabaseConnection {
     private transaction: boolean;
     private _opened: boolean;
-    private _lingeringWarning: NodeJS.Timer;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         super(connection, isReadOnly, instantiationStack);
@@ -100,15 +99,13 @@ export class MySQLConnection extends DatabaseConnection {
         this.transaction = true;
 
         return new Promise<void>((resolve, reject) => {
-            try {
-                this.query('START TRANSACTION');
-                return resolve();
-            }
-            catch (ex) {
+            this.query('START TRANSACTION').then(() => {
+                resolve();
+            }).catch((ex) => {
                 this.transaction = false;
                 getApplicationLogger().error(ex);
                 reject(ex);
-            }
+            });
         });
     }
 
