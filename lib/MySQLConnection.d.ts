@@ -5,7 +5,6 @@ import { Readable } from 'stream';
 export declare class MySQLConnection extends DatabaseConnection {
     private transaction;
     private _opened;
-    private _lingeringWarning;
     constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly?: boolean);
     isTransaction(): boolean;
     isOpen(): boolean;

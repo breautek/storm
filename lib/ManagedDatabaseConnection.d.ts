@@ -5,9 +5,11 @@ import { Readable } from 'stream';
 export declare class ManagedDatabaseConnection implements IDatabaseConnection {
     private _connection;
     private _managed;
-    private _requresWrite;
+    private _requiresWrite;
     constructor(requiresWrite?: boolean);
     setConnection(connection: DatabaseConnection): void;
+    isWriteRequired(): boolean;
+    isManaged(): boolean;
     hasConnection(): boolean;
     getInstantiationStack(): string;
     isReadOnly(): boolean;
@@ -15,7 +17,7 @@ export declare class ManagedDatabaseConnection implements IDatabaseConnection {
     getTimeout(): number;
     query(query: string, params?: any): Promise<any>;
     stream(query: string, params?: any, streamOptions?: any): Readable;
-    close(forceClose: boolean): Promise<void>;
+    close(forceClose?: boolean): Promise<void>;
     startTransaction(): Promise<void>;
     isTransaction(): boolean;
     commit(): Promise<void>;

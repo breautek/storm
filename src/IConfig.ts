@@ -14,4 +14,6 @@ export interface IConfig {
 
     // Database
     query_timeout: number;
+
+    request_size_limit: number;
 }

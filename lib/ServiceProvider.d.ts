@@ -8,6 +8,7 @@ export declare abstract class ServiceProvider {
     protected abstract _getBase(): string;
     protected abstract _getPort(): number;
     protected _getApp(): Application;
+    getApp(): Application;
     protected _getDomain(): string;
     private _getSecret;
     urlSuffix(): string;
@@ -15,6 +16,7 @@ export declare abstract class ServiceProvider {
     getVersion(): string;
     protected _createURL(url: string, queryParams?: any): string;
     request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
+    private _sendRequest;
     get(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
     post(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;
     put(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse>;

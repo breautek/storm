@@ -3,5 +3,6 @@ import { Response } from './Response';
 import { IRequestResponse } from './IRequestResponse';
 export declare abstract class Middleware {
     constructor();
-    abstract execute(request: Request, response: Response): Promise<IRequestResponse>;
+    protected abstract _execute(request: Request, response: Response): Promise<IRequestResponse>;
+    execute(request: Request, response: Response): Promise<IRequestResponse>;
 }

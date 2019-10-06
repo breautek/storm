@@ -10,5 +10,5 @@ export declare class CORSMiddleware extends Middleware {
     getDefaultAllowedOrigin(): string;
     getDefaultAllowedHeaders(): Array<string>;
     getDefaultAllowedMethods(): Array<string>;
-    execute(request: Request, response: Response): Promise<IRequestResponse>;
+    protected _execute(request: Request, response: Response): Promise<IRequestResponse>;
 }

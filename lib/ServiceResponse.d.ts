@@ -6,4 +6,5 @@ export declare class ServiceResponse {
     constructor(data: Buffer, response: IncomingMessage);
     getRaw(): Buffer;
     getUTF8(): string;
+    getJSON(): any;
 }

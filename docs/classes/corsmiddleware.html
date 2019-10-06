@@ -99,7 +99,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="corsmiddleware.html#execute" class="tsd-kind-icon">execute</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="corsmiddleware.html#_execute" class="tsd-kind-icon">_execute</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="corsmiddleware.html#execute" class="tsd-kind-icon">execute</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="corsmiddleware.html#getdefaultallowedheaders" class="tsd-kind-icon">get<wbr>Default<wbr>Allowed<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="corsmiddleware.html#getdefaultallowedmethods" class="tsd-kind-icon">get<wbr>Default<wbr>Allowed<wbr>Methods</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="corsmiddleware.html#getdefaultallowedorigin" class="tsd-kind-icon">get<wbr>Default<wbr>Allowed<wbr>Origin</a></li>
@@ -121,7 +122,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="middleware.html">Middleware</a>.<a href="middleware.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/CORSMiddleware.ts#L30">CORSMiddleware.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/CORSMiddleware.ts#L30">CORSMiddleware.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -164,18 +165,45 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+					<a name="_execute" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _execute</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">_execute<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="response.html" class="tsd-signature-type">Response</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/irequestresponse.html" class="tsd-signature-type">IRequestResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="middleware.html">Middleware</a>.<a href="middleware.html#_execute">_execute</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/CORSMiddleware.ts#L74">CORSMiddleware.ts:74</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <a href="request.html" class="tsd-signature-type">Request</a></h5>
+								</li>
+								<li>
+									<h5>response: <a href="response.html" class="tsd-signature-type">Response</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/irequestresponse.html" class="tsd-signature-type">IRequestResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="execute" class="tsd-anchor"></a>
 					<h3>execute</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">: </span><a href="response.html" class="tsd-signature-type">Response</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/irequestresponse.html" class="tsd-signature-type">IRequestResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="middleware.html">Middleware</a>.<a href="middleware.html#execute">execute</a></p>
+								<p>Inherited from <a href="middleware.html">Middleware</a>.<a href="middleware.html#execute">execute</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/CORSMiddleware.ts#L74">CORSMiddleware.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/Middleware.ts#L26">Middleware.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -201,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/CORSMiddleware.ts#L53">CORSMiddleware.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/CORSMiddleware.ts#L53">CORSMiddleware.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -218,7 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/CORSMiddleware.ts#L63">CORSMiddleware.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/CORSMiddleware.ts#L63">CORSMiddleware.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -235,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/CORSMiddleware.ts#L49">CORSMiddleware.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/CORSMiddleware.ts#L49">CORSMiddleware.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -267,7 +295,10 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="corsmiddleware.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+								<a href="corsmiddleware.html#_execute" class="tsd-kind-icon">_execute</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="corsmiddleware.html#execute" class="tsd-kind-icon">execute</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">

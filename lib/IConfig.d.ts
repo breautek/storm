@@ -7,4 +7,5 @@ export interface IConfig {
     log_level: string;
     log_filters: Array<string>;
     query_timeout: number;
+    request_size_limit: number;
 }

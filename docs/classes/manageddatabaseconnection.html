@@ -97,8 +97,10 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#getinstantiationstack" class="tsd-kind-icon">get<wbr>Instantiation<wbr>Stack</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#gettimeout" class="tsd-kind-icon">get<wbr>Timeout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#hasconnection" class="tsd-kind-icon">has<wbr>Connection</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#ismanaged" class="tsd-kind-icon">is<wbr>Managed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#isreadonly" class="tsd-kind-icon">is<wbr>Read<wbr>Only</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#istransaction" class="tsd-kind-icon">is<wbr>Transaction</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#iswriterequired" class="tsd-kind-icon">is<wbr>Write<wbr>Required</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#query" class="tsd-kind-icon">query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#rollback" class="tsd-kind-icon">rollback</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="manageddatabaseconnection.html#setconnection" class="tsd-kind-icon">set<wbr>Connection</a></li>
@@ -122,7 +124,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L29">ManagedDatabaseConnection.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L29">ManagedDatabaseConnection.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -142,20 +144,20 @@
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>forceClose<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>forceClose<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#close">close</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L109">ManagedDatabaseConnection.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L117">ManagedDatabaseConnection.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>forceClose: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> forceClose: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -173,7 +175,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#commit">commit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L140">ManagedDatabaseConnection.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L148">ManagedDatabaseConnection.ts:148</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -191,7 +193,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#getapi">getAPI</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L184">ManagedDatabaseConnection.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L192">ManagedDatabaseConnection.ts:192</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -209,7 +211,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#getinstantiationstack">getInstantiationStack</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L64">ManagedDatabaseConnection.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L72">ManagedDatabaseConnection.ts:72</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -227,7 +229,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#gettimeout">getTimeout</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L88">ManagedDatabaseConnection.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L96">ManagedDatabaseConnection.ts:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -244,7 +246,24 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L60">ManagedDatabaseConnection.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L68">ManagedDatabaseConnection.ts:68</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ismanaged" class="tsd-anchor"></a>
+					<h3>is<wbr>Managed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Managed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L64">ManagedDatabaseConnection.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -262,7 +281,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#isreadonly">isReadOnly</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L73">ManagedDatabaseConnection.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L81">ManagedDatabaseConnection.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -280,7 +299,24 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#istransaction">isTransaction</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L131">ManagedDatabaseConnection.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L139">ManagedDatabaseConnection.ts:139</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="iswriterequired" class="tsd-anchor"></a>
+					<h3>is<wbr>Write<wbr>Required</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Write<wbr>Required<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L60">ManagedDatabaseConnection.ts:60</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -298,7 +334,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#query">query</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L97">ManagedDatabaseConnection.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L105">ManagedDatabaseConnection.ts:105</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -325,7 +361,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#rollback">rollback</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L153">ManagedDatabaseConnection.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L161">ManagedDatabaseConnection.ts:161</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -342,7 +378,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L36">ManagedDatabaseConnection.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L36">ManagedDatabaseConnection.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -366,7 +402,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#settimeout">setTimeout</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L82">ManagedDatabaseConnection.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L90">ManagedDatabaseConnection.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -390,7 +426,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#starttransaction">startTransaction</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L118">ManagedDatabaseConnection.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L126">ManagedDatabaseConnection.ts:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -408,7 +444,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idatabaseconnection.html">IDatabaseConnection</a>.<a href="../interfaces/idatabaseconnection.html#stream">stream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/9f7157d/src/ManagedDatabaseConnection.ts#L105">ManagedDatabaseConnection.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/24ec991/src/ManagedDatabaseConnection.ts#L113">ManagedDatabaseConnection.ts:113</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -466,10 +502,16 @@
 								<a href="manageddatabaseconnection.html#hasconnection" class="tsd-kind-icon">has<wbr>Connection</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="manageddatabaseconnection.html#ismanaged" class="tsd-kind-icon">is<wbr>Managed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="manageddatabaseconnection.html#isreadonly" class="tsd-kind-icon">is<wbr>Read<wbr>Only</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="manageddatabaseconnection.html#istransaction" class="tsd-kind-icon">is<wbr>Transaction</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="manageddatabaseconnection.html#iswriterequired" class="tsd-kind-icon">is<wbr>Write<wbr>Required</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="manageddatabaseconnection.html#query" class="tsd-kind-icon">query</a>

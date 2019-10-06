@@ -200,7 +200,7 @@ export abstract class Application extends EventEmitter {
      * The maximum size limit for incoming requests that this service needs to handle.
      */
     public getRequestSizeLimit(): number {
-        return 5242880;
+        return this.getConfig().request_size_limit;
     }
 
     /**

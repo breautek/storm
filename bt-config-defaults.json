@@ -1,13 +1,15 @@
 {
-	"binding_ip": "0.0.0.0",
-	"port": 8080,
+    "binding_ip": "0.0.0.0",
+    "port": 8080,
 
-	"authentication_header": "X-BT-AUTH",
-	"backend_authentication_header": "X-BT-BACKEND-AUTH",
-	"backend_authentication_secret": null,
+    "authentication_header": "X-BT-AUTH",
+    "backend_authentication_header": "X-BT-BACKEND-AUTH",
+    "backend_authentication_secret": null,
 
-	"log_level": "info | warning | error | fatal",
-	"log_filters": ["/TokenExpiredError/g"],
-	
-	"query_timeout": 3600000
+    "log_level": "info | warning | error | fatal",
+    "log_filters": ["/TokenExpiredError/g"],
+    
+    "query_timeout": 3600000,
+
+    "request_size_limit": 5242880
 }

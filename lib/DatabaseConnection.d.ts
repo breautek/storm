@@ -1,6 +1,8 @@
 /// <reference types="node" />
 import { Readable } from 'stream';
 import { IDatabaseConnection } from './IDatabaseConnection';
+export declare const LINGER_WARNING: number;
+export declare const DEFAULT_QUERY_TIMEOUT: number;
 export declare abstract class DatabaseConnection implements IDatabaseConnection {
     private api;
     private readOnly;
@@ -20,6 +22,7 @@ export declare abstract class DatabaseConnection implements IDatabaseConnection 
     close(forceClose?: boolean): Promise<void>;
     abstract startTransaction(): Promise<void>;
     abstract isTransaction(): boolean;
+    abstract endTransaction(requiresRollback?: boolean): Promise<void>;
     abstract commit(): Promise<void>;
     abstract rollback(): Promise<void>;
     protected abstract _close(forceClose: boolean): Promise<void>;
