@@ -33,7 +33,8 @@ describe('MySQLConnection', () => {
         mockAPI = {
             config: jasmine.createSpy('config'),
             query: jasmine.createSpy('query').and.returnValue({sql: 'test query'}),
-            stream: jasmine.createSpy('stream')
+            stream: jasmine.createSpy('stream'),
+            release: jasmine.createSpy('release')
         };
         conn = new MySQLConnection(mockAPI, 'test stack');
     });
@@ -144,6 +145,238 @@ describe('MySQLConnection', () => {
                 sql: 'START TRANSACTION',
                 timeout: DEFAULT_QUERY_TIMEOUT,
             }, undefined, jasmine.any(Function));
+            done();
+        });
+    });
+
+    it('can start transaction (query failure)', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            setTimeout(() => {
+                callback(new Error());
+            }, 1);
+            return {
+                sql: 'test'
+            };
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.startTransaction().catch((error) => {
+            expect(conn.isTransaction()).toBe(false);
+            expect(error instanceof DatabaseQueryError).toBe(true);
+            done();
+        });
+    });
+
+    it('end transaction calls commit', () => {
+        let spy: jasmine.Spy = spyOn(conn, 'commit');
+        conn.endTransaction();
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('end transactinon calls rollback', () => {
+        let spy: jasmine.Spy = spyOn(conn, 'rollback');
+        conn.endTransaction(true);
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('rollback successful', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            setTimeout(() => {
+                callback(null, []);
+            }, 1);
+            return a;
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.startTransaction().then(() => {
+            return conn.rollback();
+        }).then(() => {
+            expect(conn.isTransaction()).toBe(false);
+            expect(mockAPI.query).toHaveBeenCalledWith({
+                sql: 'ROLLBACK',
+                timeout: DEFAULT_QUERY_TIMEOUT,
+            }, undefined, jasmine.any(Function));
+            done();
+        });
+    });
+
+    it('rollback query failure', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            if (a.sql === 'ROLLBACK') {
+                setTimeout(() => {
+                    callback(new Error());
+                }, 1);
+            }
+            else {
+                setTimeout(() => {
+                    callback(null, []);
+                }, 1);
+            }
+            
+            return {
+                sql: 'test',
+                timeout: DEFAULT_QUERY_TIMEOUT
+            };
+        });
+
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.startTransaction().then(() => {
+            return conn.rollback();
+        }).catch((error: any) => {
+            expect(conn.isTransaction()).toBe(true);
+            expect(error instanceof DatabaseQueryError).toBe(true);
+            done();
+        });
+    });
+
+    it('rollback errors on no transaction', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            setTimeout(() => {
+                callback(null, []);
+            }, 1);
+            return a;
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.rollback().catch((error: Error) => {
+            expect(error.message).toBe('Cannot rollback when there is no active transaction.');
+            done();
+        });
+    });
+
+    it('commit successful', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            setTimeout(() => {
+                callback(null, []);
+            }, 1);
+            return a;
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.startTransaction().then(() => {
+            return conn.commit();
+        }).then(() => {
+            expect(conn.isTransaction()).toBe(false);
+            expect(mockAPI.query).toHaveBeenCalledWith({
+                sql: 'COMMIT',
+                timeout: DEFAULT_QUERY_TIMEOUT,
+            }, undefined, jasmine.any(Function));
+            done();
+        });
+    });
+
+    it('commit query failure', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            if (a.sql === 'COMMIT') {
+                setTimeout(() => {
+                    callback(new Error());
+                }, 1);
+            }
+            else {
+                setTimeout(() => {
+                    callback(null, []);
+                }, 1);
+            }
+            
+            return {
+                sql: 'test',
+                timeout: DEFAULT_QUERY_TIMEOUT
+            };
+        });
+
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.startTransaction().then(() => {
+            return conn.commit();
+        }).catch((error: any) => {
+            expect(conn.isTransaction()).toBe(true);
+            expect(error instanceof DatabaseQueryError).toBe(true);
+            done();
+        });
+    });
+
+    it('commit errors on no transaction', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            setTimeout(() => {
+                callback(null, []);
+            }, 1);
+            return a;
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.commit().catch((error: Error) => {
+            expect(error.message).toBe('Cannot commit when there is no active transaction.');
+            done();
+        });
+    });
+
+    it('can close connection', (done) => {
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.close().then(() => {
+            expect(mockAPI.release).toHaveBeenCalled();
+            done();
+        });
+    });
+
+    it('cannot close on active transaction', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            setTimeout(() => {
+                callback(null, []);
+            }, 1);
+            return a;
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.startTransaction().then(() => {
+            return conn.close();
+        }).catch((error: Error) => {
+            expect(error.message).toBe('Cannot close a connection while there is an active transaction. Use commit or rollback first.');
+            done();
+        });
+    });
+
+    it('can force close active transaction', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            setTimeout(() => {
+                callback(null, []);
+            }, 1);
+            return a;
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.startTransaction().then(() => {
+            return conn.close(true);
+        }).then(() => {
+            expect(mockAPI.release).toHaveBeenCalled();
+            done();
+        });
+    });
+
+    it('can force close connection', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            setTimeout(() => {
+                callback(null, []);
+            }, 1);
+            return a;
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.close(true).then(() => {
+            expect(mockAPI.release).toHaveBeenCalled();
+            done();
+        });
+    });
+
+    it('force close connection with rollback error', (done) => {
+        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            if (a.sql === 'ROLLBACK') {
+                setTimeout(() => {
+                    callback(new Error());
+                }, 1);
+            }
+            else {
+                setTimeout(() => {
+                    callback(null, []);
+                }, 1);
+            }
+            return a;
+        });
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+        conn.startTransaction().then(() => {
+            return conn.close(true);
+        }).then(() => {
+            expect(mockAPI.release).toHaveBeenCalled();
             done();
         });
     });

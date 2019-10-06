@@ -119,15 +119,13 @@ export class MySQLConnection extends DatabaseConnection {
         }
 
         return new Promise<void>((resolve, reject) => {
-            try {
-                this.query('ROLLBACK');
-                this.transaction = false;
-                return resolve();
-            }
-            catch (ex) {
+            this.query('ROLLBACK').then(() => {
+                this.transaction = false
+                resolve();
+            }).catch((ex: any) => {
                 getApplicationLogger().error(ex);
-                return reject(ex);
-            }
+                reject(ex);
+            });
         });
     }
 
@@ -137,15 +135,13 @@ export class MySQLConnection extends DatabaseConnection {
         }
 
         return new Promise<void>((resolve, reject) => {
-            try {
-                this.query('COMMIT');
+            this.query('COMMIT').then(() => {
                 this.transaction = false;
-                return resolve();
-            }
-            catch (ex) {
+                resolve();
+            }).catch((ex: any) => {
                 getApplicationLogger().error(ex);
-                return reject(ex);
-            }
+                reject(ex);
+            });
         });
     }
 
