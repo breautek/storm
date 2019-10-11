@@ -1,3 +1,6 @@
+# 1.0.1 (October 11, 2019)
+- Changed Database instantation stack to not have `Error` in the text.
+
 # 1.0.0 (October 6, 2019)
 ## BREAKING CHANGES
 - `Application.getRequestSizeLimit` should not be overrided anymore. Use `request_size_limit` configuration property instead.
@@ -10,6 +13,7 @@
 - Improved deprecation notices
 - More than 80% unit test coverage has been written
 - Improved documentation
+- Improved lint
 
 # 0.21.2 (September 22, 2019)
 - Added `Logger.deprecateClass` method.

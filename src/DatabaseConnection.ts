@@ -39,7 +39,7 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
     public constructor(api: any, isReadOnly: boolean, instantiationStack: string) {
         this.api = api;
         this.readOnly = isReadOnly;
-        this._instantiationStack = instantiationStack;
+        this._instantiationStack = (instantiationStack || '').replace(/Error:/, 'Warning:');
 
         this._timeout = getInstance().getConfig().query_timeout;
         if (isNaN(this._timeout)) {
