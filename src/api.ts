@@ -26,6 +26,7 @@ export {DatabaseConnection} from './DatabaseConnection';
 export {MySQLDatabase} from './MySQLDatabase';
 export {MySQLConnection} from './MySQLConnection';
 export {ManagedDatabaseConnection} from './ManagedDatabaseConnection';
+export {Query} from './Query';
 
 // Errors
 export {ErrorCode} from './ErrorCode';
@@ -66,6 +67,7 @@ export {IConfig} from './IConfig';
 export {IFormData} from './IFormData';
 export {IDatabaseConnection} from './IDatabaseConnection';
 export {IServiceHeaders} from './IServiceHeaders';
+export {IQueryParameters} from './IQueryParameters';
 
 // Token
 export {Token} from './Token';

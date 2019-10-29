@@ -18,8 +18,16 @@ import {DatabaseQueryError} from './DatabaseQueryError';
 import {getInstance, getApplicationLogger} from './instance';
 import * as MySQL from 'mysql';
 import {Readable} from 'stream';
+import {Query} from './Query';
+import { StartTransactionQuery } from './private/StartTransactionQuery';
+import { CommitQuery } from './private/CommitQuery';
+import { RollbackQuery } from './private/RollbackQuery';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
+
+const startTransactionQuery: Query = new StartTransactionQuery();
+const commitQuery: Query = new CommitQuery();
+const rollbackQuery: Query = new RollbackQuery();
 
 export class MySQLConnection extends DatabaseConnection {
     private transaction: boolean;
@@ -99,7 +107,7 @@ export class MySQLConnection extends DatabaseConnection {
         this.transaction = true;
 
         return new Promise<void>((resolve, reject) => {
-            this.query('START TRANSACTION').then(() => {
+            this.query(startTransactionQuery).then(() => {
                 resolve();
             }).catch((ex) => {
                 this.transaction = false;
@@ -119,7 +127,7 @@ export class MySQLConnection extends DatabaseConnection {
         }
 
         return new Promise<void>((resolve, reject) => {
-            this.query('ROLLBACK').then(() => {
+            this.query(rollbackQuery).then(() => {
                 this.transaction = false
                 resolve();
             }).catch((ex: any) => {
@@ -135,7 +143,7 @@ export class MySQLConnection extends DatabaseConnection {
         }
 
         return new Promise<void>((resolve, reject) => {
-            this.query('COMMIT').then(() => {
+            this.query(commitQuery).then(() => {
                 this.transaction = false;
                 resolve();
             }).catch((ex: any) => {

@@ -19,6 +19,8 @@ import {
 } from './instance';
 import {Readable} from 'stream';
 import {IDatabaseConnection} from './IDatabaseConnection';
+import {Query} from './Query';
+import { IQueryParameters } from './IQueryParameters';
 
 export const LINGER_WARNING: number = 10000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
@@ -113,14 +115,25 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
     /**
      * Queries the database for a dataset.
      * 
-     * @param query The database query
-     * @param params Parameters for the query
+    * @param {Query} query The database query
+     * @param {IQueryParameters} params Parameters for the query
      * @async
      * @returns Promise<any>
      */
-    public query(query: string, params?: any): Promise<any> {
+    public query(query: string | Query, params?: IQueryParameters): Promise<any> {
         this._armLingerWarning();
-        return this._query(query, params);
+        
+        let queryStr: string = null;
+        if (query instanceof Query) {
+            queryStr = query.getQuery();
+            params = query.getParameters();
+        }
+        else {
+            getInstance().getLogger().deprecateParameterType(1, 'string', 'Query instance');
+            queryStr = query;
+        }
+
+        return this._query(queryStr, params);
     }
 
     /**

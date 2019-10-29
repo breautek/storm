@@ -84,6 +84,7 @@
 								<li class="tsd-kind-class"><a href="classes/authenticationmiddleware.html" class="tsd-kind-icon">Authentication<wbr>Middleware</a></li>
 								<li class="tsd-kind-class"><a href="classes/backendauthenticationmiddleware.html" class="tsd-kind-icon">Backend<wbr>Authentication<wbr>Middleware</a></li>
 								<li class="tsd-kind-class"><a href="classes/corsmiddleware.html" class="tsd-kind-icon">CORSMiddleware</a></li>
+								<li class="tsd-kind-class"><a href="classes/commitquery.html" class="tsd-kind-icon">Commit<wbr>Query</a></li>
 								<li class="tsd-kind-class"><a href="classes/configloader.html" class="tsd-kind-icon">Config<wbr>Loader</a></li>
 								<li class="tsd-kind-class"><a href="classes/database.html" class="tsd-kind-icon">Database</a></li>
 								<li class="tsd-kind-class"><a href="classes/databaseconnection.html" class="tsd-kind-icon">Database<wbr>Connection</a></li>
@@ -105,11 +106,14 @@
 								<li class="tsd-kind-class"><a href="classes/missingparametererror.html" class="tsd-kind-icon">Missing<wbr>Parameter<wbr>Error</a></li>
 								<li class="tsd-kind-class"><a href="classes/mysqlconnection.html" class="tsd-kind-icon">MySQLConnection</a></li>
 								<li class="tsd-kind-class"><a href="classes/mysqldatabase.html" class="tsd-kind-icon">MySQLDatabase</a></li>
+								<li class="tsd-kind-class"><a href="classes/query.html" class="tsd-kind-icon">Query</a></li>
 								<li class="tsd-kind-class"><a href="classes/request.html" class="tsd-kind-icon">Request</a></li>
 								<li class="tsd-kind-class"><a href="classes/response.html" class="tsd-kind-icon">Response</a></li>
 								<li class="tsd-kind-class"><a href="classes/responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a></li>
+								<li class="tsd-kind-class"><a href="classes/rollbackquery.html" class="tsd-kind-icon">Rollback<wbr>Query</a></li>
 								<li class="tsd-kind-class"><a href="classes/serviceprovider.html" class="tsd-kind-icon">Service<wbr>Provider</a></li>
 								<li class="tsd-kind-class"><a href="classes/serviceresponse.html" class="tsd-kind-icon">Service<wbr>Response</a></li>
+								<li class="tsd-kind-class"><a href="classes/starttransactionquery.html" class="tsd-kind-icon">Start<wbr>Transaction<wbr>Query</a></li>
 								<li class="tsd-kind-class"><a href="classes/stormerror.html" class="tsd-kind-icon">Storm<wbr>Error</a></li>
 								<li class="tsd-kind-class"><a href="classes/token.html" class="tsd-kind-icon">Token</a></li>
 								<li class="tsd-kind-class"><a href="classes/tokenmanager.html" class="tsd-kind-icon">Token<wbr>Manager</a></li>
@@ -129,6 +133,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/ijwtverifyoptions.html" class="tsd-kind-icon">IJWTVerify<wbr>Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/ilogevent.html" class="tsd-kind-icon">ILog<wbr>Event</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iparametermap.html" class="tsd-kind-icon">IParameter<wbr>Map</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iqueryparameters.html" class="tsd-kind-icon">IQuery<wbr>Parameters</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/irequestresponse.html" class="tsd-kind-icon">IRequest<wbr>Response</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iserviceheaders.html" class="tsd-kind-icon">IService<wbr>Headers</a></li>
 							</ul>
@@ -157,7 +162,7 @@
 					<div class="tsd-signature tsd-kind-icon">Sendable<wbr>Data<span class="tsd-signature-symbol">:</span> <a href="classes/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol"> | </span><a href="classes/stormerror.html" class="tsd-signature-type">StormError</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/ierrorresponse.html" class="tsd-signature-type">IErrorResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/7e0f059/src/Response.ts#L23">Response.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/b523225/src/Response.ts#L23">Response.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>QUERY_<wbr>TIMEOUT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;3600000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/7e0f059/src/DatabaseConnection.ts#L24">DatabaseConnection.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/b523225/src/DatabaseConnection.ts#L26">DatabaseConnection.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">LINGER_<wbr>WARNING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/7e0f059/src/DatabaseConnection.ts#L23">DatabaseConnection.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/b523225/src/DatabaseConnection.ts#L25">DatabaseConnection.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -228,6 +233,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/corsmiddleware.html" class="tsd-kind-icon">CORSMiddleware</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/commitquery.html" class="tsd-kind-icon">Commit<wbr>Query</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/configloader.html" class="tsd-kind-icon">Config<wbr>Loader</a>
@@ -293,6 +301,9 @@
 						<a href="classes/mysqldatabase.html" class="tsd-kind-icon">MySQLDatabase</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/query.html" class="tsd-kind-icon">Query</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/request.html" class="tsd-kind-icon">Request</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -302,10 +313,16 @@
 						<a href="classes/responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/rollbackquery.html" class="tsd-kind-icon">Rollback<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/serviceprovider.html" class="tsd-kind-icon">Service<wbr>Provider</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/serviceresponse.html" class="tsd-kind-icon">Service<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/starttransactionquery.html" class="tsd-kind-icon">Start<wbr>Transaction<wbr>Query</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/stormerror.html" class="tsd-kind-icon">Storm<wbr>Error</a>
@@ -348,6 +365,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iparametermap.html" class="tsd-kind-icon">IParameter<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iqueryparameters.html" class="tsd-kind-icon">IQuery<wbr>Parameters</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/irequestresponse.html" class="tsd-kind-icon">IRequest<wbr>Response</a>

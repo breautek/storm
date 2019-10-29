@@ -309,6 +309,21 @@ export class Logger extends EventEmitter {
         args.push(e.stack);
         this.log(args, LogSeverity.DEPRECATE);
     }
+
+    public deprecateParameterType(argumentLocation: number, deprecatedType: string, alternative?: string): void {
+        let e: Error = new Error();
+        let args: any = [];
+
+        args.push(this._getDeprecatedParameterMethodMessage(e, argumentLocation, deprecatedType));
+
+        if (alternative) {
+            args.push(this._getDeprecatedParameterAlternativeMessage(alternative,  argumentLocation));
+        }
+        
+        args.push('\n\n');
+        args.push(e.stack);
+        this.log(args, LogSeverity.DEPRECATE);
+    }
     
     private _getDeprecatedMethodMessage(e: Error): string {
         let stack = e.stack.split('\n')[2].replace(/^\s+at\s+(.+?)\s.+/g, '$1');
@@ -322,5 +337,19 @@ export class Logger extends EventEmitter {
 
     private _getDeprecatedAlternativeMessage(alternative: string): string {
         return `Use ${alternative} instead.`;
+    }
+
+    private _getDeprecatedParameterMethodMessage(e: Error, argumentLocation: number, parameter: string): string {
+        let stack = e.stack.split('\n')[2].replace(/^\s+at\s+(.+?)\s.+/g, '$1');
+        let obj: string = 'Method';
+        if (stack === "new") {
+            stack = e.stack.split('\n')[2].replace(/^\s+at new\s+(.+?)\s.+/g, '$1');
+            obj = 'Class';
+        }
+        return `${obj} ${stack} ${parameter} at parameter ${argumentLocation} is deprecated.`
+    }
+
+    private _getDeprecatedParameterAlternativeMessage(alternative: string, argumentLocation: number): string {
+        return `Use ${alternative} at parameter ${argumentLocation} instead.`;
     }
 }

@@ -58,4 +58,8 @@ describe('Public API', () => {
     it('UnauthorizedAccessError', () => {
         expect(api.UnauthorizedAccessError).toBeTruthy();
     });
+
+    it('Query', () => {
+        expect(api.Query).toBeTruthy();
+    });
 });

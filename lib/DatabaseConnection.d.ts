@@ -1,6 +1,8 @@
 /// <reference types="node" />
 import { Readable } from 'stream';
 import { IDatabaseConnection } from './IDatabaseConnection';
+import { Query } from './Query';
+import { IQueryParameters } from './IQueryParameters';
 export declare const LINGER_WARNING: number;
 export declare const DEFAULT_QUERY_TIMEOUT: number;
 export declare abstract class DatabaseConnection implements IDatabaseConnection {
@@ -17,7 +19,7 @@ export declare abstract class DatabaseConnection implements IDatabaseConnection 
     isReadOnly(): boolean;
     setTimeout(timeout: number): void;
     getTimeout(): number;
-    query(query: string, params?: any): Promise<any>;
+    query(query: string | Query, params?: IQueryParameters): Promise<any>;
     stream(query: string, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
     abstract startTransaction(): Promise<void>;
