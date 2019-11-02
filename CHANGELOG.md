@@ -1,7 +1,10 @@
+# 1.1.1 (November 2, 2019)
+- Fixed `Query` class to allow for better future support
+
 # 1.1.0 (October 29, 2019)
 - Added `Logger.deprecateParameterType` method
 - Added `Query` class.
-- `DatabaseConnection.query(string) is now deprecated, and `DatabaseConnection.query(string, params)` is also deprecated. Instead, pass in an instance of `Query`. e.g: `DatabaseConnection.query(query)`.
+- `DatabaseConnection.query(string) is now deprecated, and `DatabaseConnection.query(string, params)` is also deprecated. Instead, pass in an instance of `Query`. e.g: `DatabaseConnection.query(query)`
 
 # 1.0.1 (October 11, 2019)
 - Changed Database instantation stack to not have `Error` in the text.

@@ -1,4 +1,4 @@
 import { Query } from '../Query';
 export declare class StartTransactionQuery extends Query {
-    getQuery(): string;
+    protected _getQuery(): string;
 }

@@ -2,7 +2,7 @@
 import {Query} from '../Query';
 
 export class RollbackQuery extends Query {
-    public getQuery(): string {
+    protected _getQuery(): string {
         return 'ROLLBACK';
     }
 }

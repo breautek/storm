@@ -11,5 +11,9 @@ export abstract class Query {
         return this._params;
     }
 
-    public abstract getQuery(): string;
+    protected abstract _getQuery(): string;
+
+    public getQuery(): string {
+        return this._getQuery();
+    }
 }

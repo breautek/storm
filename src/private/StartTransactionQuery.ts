@@ -2,7 +2,7 @@
 import {Query} from '../Query';
 
 export class StartTransactionQuery extends Query {
-    public getQuery(): string {
+    protected _getQuery(): string {
         return 'START TRANSACTION';
     }
 }
