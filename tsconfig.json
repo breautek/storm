@@ -11,7 +11,8 @@
         "noImplicitThis": true,
         "alwaysStrict": true,
         "noImplicitReturns": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "incremental": true
     },
     "exclude": [
         "./spec",
