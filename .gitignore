@@ -3,3 +3,4 @@ node_modules/
 coverage/
 dump.txt
 *.tsbuildinfo
+.*cache
