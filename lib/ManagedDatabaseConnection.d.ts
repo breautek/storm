@@ -2,6 +2,7 @@
 import { DatabaseConnection } from './DatabaseConnection';
 import { IDatabaseConnection } from './IDatabaseConnection';
 import { Readable } from 'stream';
+import { Query } from './Query';
 export declare class ManagedDatabaseConnection implements IDatabaseConnection {
     private _connection;
     private _managed;
@@ -15,8 +16,8 @@ export declare class ManagedDatabaseConnection implements IDatabaseConnection {
     isReadOnly(): boolean;
     setTimeout(timeout: number): void;
     getTimeout(): number;
-    query(query: string, params?: any): Promise<any>;
-    stream(query: string, params?: any, streamOptions?: any): Readable;
+    query(query: string | Query, params?: any): Promise<any>;
+    stream(query: string | Query, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
     startTransaction(): Promise<void>;
     isTransaction(): boolean;

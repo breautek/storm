@@ -20,7 +20,7 @@ export declare abstract class DatabaseConnection implements IDatabaseConnection 
     setTimeout(timeout: number): void;
     getTimeout(): number;
     query(query: string | Query, params?: IQueryParameters): Promise<any>;
-    stream(query: string, params?: any, streamOptions?: any): Readable;
+    stream(query: string | Query, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
     abstract startTransaction(): Promise<void>;
     abstract isTransaction(): boolean;

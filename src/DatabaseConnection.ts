@@ -143,9 +143,18 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
      * @param streamOptions Stream options
      * @returns Readable
      */
-    public stream(query: string, params?: any, streamOptions?: any): Readable {
+    public stream(query: string | Query, params?: any, streamOptions?: any): Readable {
         this._armLingerWarning();
-        return this._stream(query, params, streamOptions);
+        let queryStr: string = null;
+        if (query instanceof Query) {
+            queryStr = query.getQuery();
+            params = query.getParameters();
+        }
+        else {
+            getInstance().getLogger().deprecateParameterType(1, 'string', 'Query instance');
+            queryStr = query;
+        }
+        return this._stream(queryStr, params, streamOptions);
     }
 
     /**

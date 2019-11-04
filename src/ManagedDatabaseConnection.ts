@@ -17,6 +17,7 @@ import {DatabaseConnection} from './DatabaseConnection';
 import {IDatabaseConnection} from './IDatabaseConnection';
 import {getInstance} from './instance';
 import {Readable} from 'stream';
+import { Query } from './Query';
 
 export class ManagedDatabaseConnection implements IDatabaseConnection {
     private _connection: DatabaseConnection;
@@ -102,7 +103,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         }
     }
 
-    public query(query: string, params?: any): Promise<any> {
+    public query(query: string | Query, params?: any): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             this._getConnection().then((connection: DatabaseConnection) => {
                 connection.query(query, params).then(resolve).catch(reject);
@@ -110,7 +111,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         })
     }
 
-    public stream(query: string, params?: any, streamOptions?: any): Readable {
+    public stream(query: string | Query, params?: any, streamOptions?: any): Readable {
         throw new Error('stream is not supported on Managed Connections');
     }
 

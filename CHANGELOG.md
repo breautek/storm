@@ -1,3 +1,7 @@
+# 1.1.2 (November 3, 2019)
+- `ManagedDatabaseConnection` now accepts `Query` objects.
+- `IDatabaseConnection` now correctly accepts `Query` objects.
+
 # 1.1.1 (November 2, 2019)
 - Fixed `Query` class to allow for better future support
 
