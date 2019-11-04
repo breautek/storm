@@ -23,10 +23,10 @@
     ]
   },
   "scripts": {
-    "build": "tsc && npm run-script build-docs",
+    "build": "npm run lint && tsc && npm run-script build-docs",
     "build-lib": "rm -r ./lib && tsc",
-    "build-docs": "typedoc --excludePrivate --excludeNotExported --mode file -readme ./README.md --out ./docs ./src",
-    "lint": "eslint --ext .ts '?(src|spec)/**/*.ts'",
+    "build-docs": "typedoc --excludePrivate --excludeNotExported --tsBuildInfoFile ./docs/.tsbuildinfo --mode file -readme ./README.md --out ./docs ./src",
+    "lint": "eslint --ext .ts '?(src|spec)/**/*.ts' --cache",
     "unit": "ts-node ./spec/support/jasmine.ts",
     "test": "npm run-script lint && nyc --reporter=lcov --reporter=text ts-node ./spec/support/jasmine.ts",
     "coverage": "codecov",
