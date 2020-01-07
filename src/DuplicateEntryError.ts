@@ -20,19 +20,21 @@ import {StatusCode} from './StatusCode';
 interface IDuplicateEntryErrorOptions {
     entity: string;
     name: string;
+    property: string;
 }
 
 export class DuplicateEntryError extends StormError {
-    public constructor(entity: string, name: string) {
+    public constructor(entity: string, name: string, property: string = 'name') {
         super({
             entity,
-            name
+            name,
+            property
         });
     }
 
     public getMessage(): string {
         let details: IDuplicateEntryErrorOptions = this.getPrivateDetails();
-        return `${details.entity} with the name "${details.name}" already exists.`;
+        return `${details.entity} with the ${details.property} "${details.name}" already exists.`;
     }
 
     public getCode(): ErrorCode {

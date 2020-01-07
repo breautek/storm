@@ -1,3 +1,7 @@
+
+# 1.1.3 (Jan 7, 2020)
+- `DuplicateEntryError` slightly more customizable, allowing you to change the "name" part of the error message.
+
 # 1.1.2 (November 3, 2019)
 - `ManagedDatabaseConnection` now accepts `Query` objects.
 - `IDatabaseConnection` now correctly accepts `Query` objects.
