@@ -1,4 +1,7 @@
 
+# 1.1.4-dev
+-
+
 # 1.1.3 (Jan 7, 2020)
 - `DuplicateEntryError` slightly more customizable, allowing you to change the "name" part of the error message.
 
