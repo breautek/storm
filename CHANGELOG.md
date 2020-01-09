@@ -1,7 +1,7 @@
 
 # Changelog
 
-## 1.1.4-dev
+## 1.2.0-dev
 - Dev-Dep: `nyc@14.1.1` to `nyc@15.0.0`
 - Dev-Dep: `ts-node@8.4.1` to `ts-node@8.5.4`
 - Dev-Dep: `typescript@3.6.3` to `typescript@3.7.4`
@@ -13,7 +13,7 @@
 - Dep: `@types/express@4.17.1` to `@types/express@4.17.2`
 - Dep: `@types/mysql@2.15.6` to `@types/mysql@2.15.8`
 - Dep: `@types/uuid@3.4.4` to `@types/uuid@3.4.6`
-- Reset `package-lock` so sub-dependencies can be updated for vulnerability fixes.
+- Dep: Reset `package-lock` so sub-dependencies can be updated for vulnerability fixes.
 
 ## 1.1.3 (Jan 7, 2020)
 - `DuplicateEntryError` slightly more customizable, allowing you to change the "name" part of the error message.
