@@ -6,10 +6,10 @@ import { IFormData } from './IFormData';
 export interface IParameterMap {
     [key: string]: string;
 }
-export declare class Request {
+export declare class Request<TBody = any> {
     private request;
     constructor(request: express.Request);
-    getBody(): any;
+    getBody(): TBody;
     getForm(): Promise<IFormData>;
     getHeaders(): IncomingHttpHeaders;
     getHeader(name: string): string;

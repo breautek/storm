@@ -7,25 +7,25 @@ export declare type SendableData = ResponseData | StormError | IErrorResponse | 
 export interface IHeaderKeyValuePair {
     [key: string]: string;
 }
-export declare class Response {
+export declare class Response<TResponse = SendableData, TErrorResponse = StormError | IErrorResponse | string> {
     private response;
     private created;
     private requestURL;
     constructor(response: express.Response, requestURL: string);
-    setStatus(status: StatusCode): Response;
+    setStatus(status: StatusCode): Response<TResponse, TErrorResponse>;
     getStatus(): StatusCode;
     redirect(url: string): void;
-    send(data?: SendableData): void;
+    send(data?: TResponse | TErrorResponse | StormError | IErrorResponse): void;
     pipe(stream: NodeJS.ReadableStream): void;
-    success(data?: any): void;
+    success(data?: TResponse): void;
     setHeader(key: string, value: string): void;
     setHeaders(keyValuePair: IHeaderKeyValuePair): void;
     isHeadersSent(): boolean;
-    error(error?: any): void;
-    badRequest(data?: any): void;
-    unauthorized(data?: any): void;
-    forbidden(data?: any): void;
-    conflict(data?: any): void;
-    notFound(data?: any): void;
-    internalError(data?: any): void;
+    error(error?: TErrorResponse | ResponseData<TErrorResponse>): void;
+    badRequest(data?: TErrorResponse | StormError): void;
+    unauthorized(data?: TErrorResponse | StormError): void;
+    forbidden(data?: TErrorResponse | StormError): void;
+    conflict(data?: TErrorResponse | StormError): void;
+    notFound(data?: TErrorResponse | StormError): void;
+    internalError(data?: TErrorResponse | StormError): void;
 }

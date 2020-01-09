@@ -2,6 +2,7 @@
 # Changelog
 
 ## 1.2.0-dev
+- feat: `Handler` generics for defining request & response types.
 - Dev-Dep: `nyc@14.1.1` to `nyc@15.0.0`
 - Dev-Dep: `ts-node@8.4.1` to `ts-node@8.5.4`
 - Dev-Dep: `typescript@3.6.3` to `typescript@3.7.4`
@@ -14,6 +15,12 @@
 - Dep: `@types/mysql@2.15.6` to `@types/mysql@2.15.8`
 - Dep: `@types/uuid@3.4.4` to `@types/uuid@3.4.6`
 - Dep: Reset `package-lock` so sub-dependencies can be updated for vulnerability fixes.
+- Deprecation: `Response.badRequest` is now marked as deprecated. Use the appropriate `StormError` object or `ResponseData` object.
+- Deprecation: `Response.unauthorized` is now marked as deprecated. Use the appropriate `StormError` object or `ResponseData` object.
+- Deprecation: `Response.forbidden` is now marked as deprecated. Use the appropriate `StormError` object or `ResponseData` object.
+- Deprecation: `Response.conflict` is now marked as deprecated. Use the appropriate `StormError` object or `ResponseData` object.
+- Deprecation: `Response.notFound` is now marked as deprecated. Use the appropriate `StormError` object or `ResponseData` object.
+- Deprecation: `Response.internalError` is now marked as deprecated. Use the appropriate `StormError` object or `ResponseData` object.
 
 ## 1.1.3 (Jan 7, 2020)
 - `DuplicateEntryError` slightly more customizable, allowing you to change the "name" part of the error message.

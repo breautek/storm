@@ -26,7 +26,7 @@ export interface IHeaderKeyValuePair {
     [key: string]: string;
 }
 
-export class Response {
+export class Response<TResponse = SendableData, TErrorResponse = StormError | IErrorResponse | string> {
     private response: express.Response;
     private created: Date;
     private requestURL: string;
@@ -37,7 +37,7 @@ export class Response {
         this.requestURL = requestURL;
     }
 
-    public setStatus(status: StatusCode): Response {
+    public setStatus(status: StatusCode): Response<TResponse, TErrorResponse> {
         this.response.status(status);
         return this;
     }
@@ -50,7 +50,7 @@ export class Response {
         this.response.redirect(url);
     }
 
-    public send(data?: SendableData): void {
+    public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse): void {
         if (data instanceof ResponseData) {
             this.setStatus(data.getStatus()).send(data.getData());
         }
@@ -72,7 +72,7 @@ export class Response {
         stream.pipe(this.response);
     }
 
-    public success(data?: any): void {
+    public success(data?: TResponse): void {
         if (data === undefined) {
             this.setStatus(StatusCode.OK_NO_CONTENT);
         }
@@ -95,36 +95,70 @@ export class Response {
         return this.response.headersSent;
     }
 
-    public error(error?: any): void {
-        if (error && (error instanceof ResponseData || error instanceof StormError)) {
-            this.send(error);
+    public error(error?: TErrorResponse | ResponseData<TErrorResponse>): void {
+        if (error) {
+            if (error instanceof StormError) {
+                this.send(error);
+            }
+            else if (error instanceof ResponseData) {
+                // If it was not ResponseData<TResponse> then
+                // the method signature should have caught it
+                this.send((<TErrorResponse><unknown>error));
+            }
+            else {
+                this.send(new InternalError(error));
+            }
         }
         else {
             this.send(new InternalError(error));
         }
     }
 
-    public badRequest(data?: any): void {
+    /**
+     * @deprecated
+     */
+    public badRequest(data?: TErrorResponse | StormError): void {
+        getApplicationLogger().deprecate();
         this.setStatus(StatusCode.ERR_BAD_REQUEST).send(data);
     }
 
-    public unauthorized(data?: any): void {
+    /**
+     * @deprecated
+     */
+    public unauthorized(data?: TErrorResponse | StormError): void {
+        getApplicationLogger().deprecate();
         this.setStatus(StatusCode.ERR_UNAUTHORIZED).send(data);
     }
 
-    public forbidden(data?: any): void {
+    /**
+     * @deprecated
+     */
+    public forbidden(data?: TErrorResponse | StormError): void {
+        getApplicationLogger().deprecate();
         this.setStatus(StatusCode.ERR_FORBIDDEN).send(data);
     }
 
-    public conflict(data?: any): void {
+    /**
+     * @deprecated
+     */
+    public conflict(data?: TErrorResponse | StormError): void {
+        getApplicationLogger().deprecate();
         this.setStatus(StatusCode.ERR_CONFLICT).send(data);
     }
 
-    public notFound(data?: any): void {
+    /**
+     * @deprecated
+     */
+    public notFound(data?: TErrorResponse | StormError): void {
+        getApplicationLogger().deprecate();
         this.setStatus(StatusCode.ERR_NOT_FOUND).send(data);
     }
 
-    public internalError(data?: any): void {
+    /**
+     * @deprecated
+     */
+    public internalError(data?: TErrorResponse | StormError): void {
+        getApplicationLogger().deprecate();
         this.setStatus(StatusCode.INTERNAL_ERROR).send(data);
     }
 }

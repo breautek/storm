@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ResponseData | @breautek/storm</title>
+	<title>ResponseData | @breautek/storm - v1.2.0-dev</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">@breautek/storm</a>
+					<a href="../index.html" class="title">@breautek/storm - v1.2.0-dev</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -57,13 +57,21 @@
 					<a href="responsedata.html">ResponseData</a>
 				</li>
 			</ul>
-			<h1>Class ResponseData</h1>
+			<h1>Class ResponseData&lt;TData&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>TData</h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -98,13 +106,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Response<wbr>Data<span class="tsd-signature-symbol">(</span>status<span class="tsd-signature-symbol">: </span><a href="../enums/statuscode.html" class="tsd-signature-type">StatusCode</a>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="responsedata.html" class="tsd-signature-type">ResponseData</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Response<wbr>Data<span class="tsd-signature-symbol">(</span>status<span class="tsd-signature-symbol">: </span><a href="../enums/statuscode.html" class="tsd-signature-type">StatusCode</a>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TData</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="responsedata.html" class="tsd-signature-type">ResponseData</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5df39c4/src/ResponseData.ts#L20">ResponseData.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/fd4eb04/src/ResponseData.ts#L20">src/ResponseData.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -113,7 +121,7 @@
 									<h5>status: <a href="../enums/statuscode.html" class="tsd-signature-type">StatusCode</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <span class="tsd-signature-type">any</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <span class="tsd-signature-type">TData</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="responsedata.html" class="tsd-signature-type">ResponseData</a></h4>
@@ -127,16 +135,16 @@
 					<a name="getdata" class="tsd-anchor"></a>
 					<h3>get<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TData</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5df39c4/src/ResponseData.ts#L31">ResponseData.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/fd4eb04/src/ResponseData.ts#L31">src/ResponseData.ts:31</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TData</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -150,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5df39c4/src/ResponseData.ts#L27">ResponseData.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/fd4eb04/src/ResponseData.ts#L27">src/ResponseData.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/statuscode.html" class="tsd-signature-type">StatusCode</a></h4>
@@ -171,7 +179,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class="current tsd-kind-class tsd-has-type-parameter">
 						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">

@@ -25,7 +25,16 @@ import {IConfig} from './IConfig';
 import { InternalError } from './InternalError';
 import { IRequestResponse } from './IRequestResponse';
 
-export class Handler {
+export class Handler<
+        TGetRequest     = any,
+        TGetResponse    = any,
+        TPostRequest    = any,
+        TPostResponse   = any,
+        TPutRequest     = any,
+        TPutResponse    = any,
+        TDeleteRequest  = any,
+        TDeleteResponse = any
+    >  {
     private _app: Application;
     private _middlewares: Array<Middleware>;
 
@@ -96,9 +105,9 @@ export class Handler {
         response.error(error);
     }
 
-    public get(request: Request, response: Response): Promise<void> {
+    public get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
-            this._executeMiddlewares(request, response).then((result: IRequestResponse) => {
+            this._executeMiddlewares(request, response).then((result: IRequestResponse<TGetRequest, TGetResponse>) => {
                 this._get(result.request, result.response);
                 resolve();
             }).catch((error: StormError) => {
@@ -108,9 +117,9 @@ export class Handler {
         });
     }
 
-    public put(request: Request, response: Response): Promise<void> {
+    public put(request: Request<TPutRequest>, response: Response<TPutResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
-            this._executeMiddlewares(request, response).then((result: IRequestResponse) => {
+            this._executeMiddlewares(request, response).then((result: IRequestResponse<TPutRequest, TPutResponse>) => {
                 this._put(result.request, result.response);
                 resolve();
             }).catch((error: StormError) => {
@@ -120,9 +129,9 @@ export class Handler {
         });
     }
 
-    public post(request: Request, response: Response): Promise<void> {
+    public post(request: Request<TPostRequest>, response: Response<TPostResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
-            this._executeMiddlewares(request, response).then((result: IRequestResponse) => {
+            this._executeMiddlewares(request, response).then((result: IRequestResponse<TPostRequest, TPostResponse>) => {
                 this._post(result.request, result.response);
                 resolve();
             }).catch((error: StormError) => {
@@ -132,9 +141,9 @@ export class Handler {
         });
     }
 
-    public delete(request: Request, response: Response): Promise<void> {
+    public delete(request: Request<TDeleteRequest>, response: Response<TDeleteResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
-            this._executeMiddlewares(request, response).then((result: IRequestResponse) => {
+            this._executeMiddlewares(request, response).then((result: IRequestResponse<TDeleteRequest, TDeleteResponse>) => {
                 this._delete(result.request, result.response);
                 resolve();
             }).catch((error: StormError) => {
@@ -144,22 +153,22 @@ export class Handler {
         });
     }
 
-    protected _get(request: Request, response: Response): Promise<void> {
+    protected _get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
         return Promise.resolve();
     }
 
-    protected _post(request: Request, response: Response): Promise<void> {
+    protected _post(request: Request<TPostRequest>, response: Response<TPostResponse>): Promise<void> {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
         return Promise.resolve();
     }
 
-    protected _put(request: Request, response: Response): Promise<void> {
+    protected _put(request: Request<TPutRequest>, response: Response<TPutResponse>): Promise<void> {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
         return Promise.resolve();
     }
 
-    protected _delete(request: Request, response: Response): Promise<void> {
+    protected _delete(request: Request<TDeleteRequest>, response: Response<TDeleteResponse>): Promise<void> {
         response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
         return Promise.resolve();
     }

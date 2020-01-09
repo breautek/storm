@@ -15,11 +15,11 @@
 
 import {StatusCode} from './StatusCode';
 
-export class ResponseData {
+export class ResponseData<TData = any> {
     private status: StatusCode;
-    private data: any;
+    private data: TData;
 
-    public constructor(status: StatusCode, data?: any) {
+    public constructor(status: StatusCode, data?: TData) {
         this.status = status;
         this.data = data;
     }
@@ -28,7 +28,7 @@ export class ResponseData {
         return this.status;
     }
 
-    public getData(): any {
+    public getData(): TData {
         return this.data;
     }
 }

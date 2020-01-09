@@ -23,14 +23,14 @@ export interface IParameterMap {
     [key: string]: string;
 }
 
-export class Request {
+export class Request<TBody = any> {
     private request: express.Request;
 
     public constructor(request: express.Request) {
         this.request = request;
     }
 
-    public getBody(): any {
+    public getBody(): TBody {
         return this.request.body;
     }
 
