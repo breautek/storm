@@ -1,7 +1,7 @@
 
 # Changelog
 
-## 1.2.0
+## 1.2.0 (Feb 3, 2020)
 - feat: `Handler` generics for defining request & response types.
 - feat: `ManagedDatabaseConnection will now accept `IDatabaseConnection` objects instead of strictly `DatabaseConnection` objects.
 - Dev-Dep: `typedoc@0.15.6` to `typedoc@0.16.9`
