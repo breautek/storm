@@ -4,17 +4,24 @@
 ## 1.2.0
 - feat: `Handler` generics for defining request & response types.
 - feat: `ManagedDatabaseConnection will now accept `IDatabaseConnection` objects instead of strictly `DatabaseConnection` objects.
+- Dev-Dep: `typedoc@0.15.6` to `typedoc@0.16.9`
 - Dev-Dep: `nyc@14.1.1` to `nyc@15.0.0`
-- Dev-Dep: `ts-node@8.4.1` to `ts-node@8.5.4`
-- Dev-Dep: `typescript@3.6.3` to `typescript@3.7.4`
+- Dev-Dep: `ts-node@8.4.1` to `ts-node@8.6.2`
+- Dev-Dep: `typescript@3.6.3` to `typescript@3.7.5`
 - Dev-Dep: `eslint@6.5.1` to `eslint@6.8.0`
-- Dev-Dep: `@typescript-eslint/eslint-plugin@2.3.2` to `@typescript-eslint/eslint-plugin@2.15.0`
-- Dev-Dep: `@typescript-eslint/parser@2.3.2` to `@typescript-eslint/parser@2.15.0`
-- Dev-Dep: `@types/jasmine@3.4.2` to `@types/jasmine@3.5.0`
-- Dep: `@types/jsonwebtoken@8.3.4` to `@types/jsonwebtoken@8.3.5`
+- Dev-Dep: `@typescript-eslint/eslint-plugin@2.3.2` to `@typescript-eslint/eslint-plugin@2.19.0`
+- Dev-Dep: `@typescript-eslint/parser@2.3.2` to `@typescript-eslint/parser@2.19.0`
+- Dev-Dep: `@types/jasmine@3.4.2` is removed.
+- Dev-Dep: `jasmine` has been replaced with a fork, `@breautek/jasmine`, which is a fork that fixes error reporting when files are ran through `ts-node` (Forked from `jasmine@3.5.0`)
+- Dev-Dep: `tsutils@3.14.0` to `tsutils@3.17.1`
+- Dev-Dep: `codecov@3.6.1` to `codecov@3.6.4`
+- Dep: `@types/jsonwebtoken@8.3.4` to `@types/jsonwebtoken@8.3.7`
 - Dep: `@types/express@4.17.1` to `@types/express@4.17.2`
 - Dep: `@types/mysql@2.15.6` to `@types/mysql@2.15.8`
-- Dep: `@types/uuid@3.4.4` to `@types/uuid@3.4.6`
+- Dep: `@types/uuid@3.4.4` to `@types/uuid@3.4.7`
+- Dep: `@types/node@12.7.11` to `@types/node@12.12.26`
+- Dep: `uuid@3.3.3` to `uuid@3.4.0`
+- Dep: `mysql@2.17.1` to `mysql@2.18.1`
 - Dep: Reset `package-lock` so sub-dependencies can be updated for vulnerability fixes.
 - Deprecation: `Response.badRequest` is now marked as deprecated. Use the appropriate `StormError` object or `ResponseData` object.
 - Deprecation: `Response.unauthorized` is now marked as deprecated. Use the appropriate `StormError` object or `ResponseData` object.

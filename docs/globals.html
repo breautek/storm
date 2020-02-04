@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@breautek/storm - v1.2.0-beta.0</title>
+	<title>@breautek/storm</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@breautek/storm - v1.2.0-beta.0</a>
+					<a href="index.html" class="title">@breautek/storm</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,7 +54,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> @breautek/storm - v1.2.0-beta.0</h1>
+			<h1>@breautek/storm</h1>
 		</div>
 	</div>
 </header>
@@ -126,6 +126,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/iadditionalerrordetails.html" class="tsd-kind-icon">IAdditional<wbr>Error<wbr>Details</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iconfig.html" class="tsd-kind-icon">IConfig</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/idatabaseconnection.html" class="tsd-kind-icon">IDatabase<wbr>Connection</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iduplicateentryerroroptions.html" class="tsd-kind-icon">IDuplicate<wbr>Entry<wbr>Error<wbr>Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/ierrorresponse.html" class="tsd-kind-icon">IError<wbr>Response</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iformdata.html" class="tsd-kind-icon">IForm<wbr>Data</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/ihandler.html" class="tsd-kind-icon">IHandler</a></li>
@@ -147,8 +148,26 @@
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#commander" class="tsd-kind-icon">Commander</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#default_high_watermark" class="tsd-kind-icon">DEFAULT_<wbr>HIGH_<wbr>WATERMARK</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#default_log_level" class="tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#default_query_timeout" class="tsd-kind-icon">DEFAULT_<wbr>QUERY_<wbr>TIMEOUT</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#linger_warning" class="tsd-kind-icon">LINGER_<wbr>WARNING</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#master_name" class="tsd-kind-icon">MASTER_<wbr>NAME</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#no_data" class="tsd-kind-icon">NO_<wbr>DATA</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#commitquery" class="tsd-kind-icon">commit<wbr>Query</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#genericlogger" class="tsd-kind-icon">generic<wbr>Logger</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#instance" class="tsd-kind-icon">instance</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#rollbackquery" class="tsd-kind-icon">rollback<wbr>Query</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#starttransactionquery" class="tsd-kind-icon">start<wbr>Transaction<wbr>Query</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#getapplicationlogger" class="tsd-kind-icon">get<wbr>Application<wbr>Logger</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#setinstance" class="tsd-kind-icon">set<wbr>Instance</a></li>
 							</ul>
 						</section>
 					</div>
@@ -162,7 +181,7 @@
 					<div class="tsd-signature tsd-kind-icon">Sendable<wbr>Data<span class="tsd-signature-symbol">:</span> <a href="classes/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol"> | </span><a href="classes/stormerror.html" class="tsd-signature-type">StormError</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/ierrorresponse.html" class="tsd-signature-type">IErrorResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/f6da334/src/Response.ts#L23">src/Response.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/Response.ts#L23">src/Response.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,24 +189,189 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
-					<a name="default_query_timeout" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> DEFAULT_<wbr>QUERY_<wbr>TIMEOUT</h3>
-					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>QUERY_<wbr>TIMEOUT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;3600000</span></div>
+					<a name="commander" class="tsd-anchor"></a>
+					<h3>Commander</h3>
+					<div class="tsd-signature tsd-kind-icon">Commander<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CommanderStatic</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/f6da334/src/DatabaseConnection.ts#L26">src/DatabaseConnection.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/Application.ts#L30">src/Application.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="default_high_watermark" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> DEFAULT_<wbr>HIGH_<wbr>WATERMARK</h3>
+					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>HIGH_<wbr>WATERMARK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 512</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/MySQLConnection.ts#L26">src/MySQLConnection.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="default_log_level" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> DEFAULT_<wbr>LOG_<wbr>LEVEL</h3>
+					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/Application.ts#L41">src/Application.ts:41</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default log level to log informational, warnings, errors, and fatal messages.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="default_query_timeout" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> DEFAULT_<wbr>QUERY_<wbr>TIMEOUT</h3>
+					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>QUERY_<wbr>TIMEOUT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 3600000</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/DatabaseConnection.ts#L26">src/DatabaseConnection.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="linger_warning" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> LINGER_<wbr>WARNING</h3>
-					<div class="tsd-signature tsd-kind-icon">LINGER_<wbr>WARNING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10000</span></div>
+					<div class="tsd-signature tsd-kind-icon">LINGER_<wbr>WARNING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/breautek/storm/blob/f6da334/src/DatabaseConnection.ts#L25">src/DatabaseConnection.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/DatabaseConnection.ts#L25">src/DatabaseConnection.ts:25</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="master_name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> MASTER_<wbr>NAME</h3>
+					<div class="tsd-signature tsd-kind-icon">MASTER_<wbr>NAME<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;MASTER&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/Database.ts#L20">src/Database.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="no_data" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> NO_<wbr>DATA</h3>
+					<div class="tsd-signature tsd-kind-icon">NO_<wbr>DATA<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x60;|${0x0}|&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/ServiceProvider.ts#L8">src/ServiceProvider.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="commitquery" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> commit<wbr>Query</h3>
+					<div class="tsd-signature tsd-kind-icon">commit<wbr>Query<span class="tsd-signature-symbol">:</span> <a href="classes/query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol"> = new CommitQuery()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/MySQLConnection.ts#L29">src/MySQLConnection.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="genericlogger" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> generic<wbr>Logger</h3>
+					<div class="tsd-signature tsd-kind-icon">generic<wbr>Logger<span class="tsd-signature-symbol">:</span> <a href="classes/logger.html" class="tsd-signature-type">Logger</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/instance.ts#L23">src/instance.ts:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="instance" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> instance</h3>
+					<div class="tsd-signature tsd-kind-icon">instance<span class="tsd-signature-symbol">:</span> <a href="classes/application.html" class="tsd-signature-type">Application</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/instance.ts#L22">src/instance.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="rollbackquery" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> rollback<wbr>Query</h3>
+					<div class="tsd-signature tsd-kind-icon">rollback<wbr>Query<span class="tsd-signature-symbol">:</span> <a href="classes/query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol"> = new RollbackQuery()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/MySQLConnection.ts#L30">src/MySQLConnection.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="starttransactionquery" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> start<wbr>Transaction<wbr>Query</h3>
+					<div class="tsd-signature tsd-kind-icon">start<wbr>Transaction<wbr>Query<span class="tsd-signature-symbol">:</span> <a href="classes/query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol"> = new StartTransactionQuery()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/MySQLConnection.ts#L28">src/MySQLConnection.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getapplicationlogger" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Application<wbr>Logger</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Application<wbr>Logger<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/logger.html" class="tsd-signature-type">Logger</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/instance.ts#L36">src/instance.ts:36</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="classes/logger.html" class="tsd-signature-type">Logger</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getinstance" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Instance</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Instance<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/application.html" class="tsd-signature-type">Application</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/instance.ts#L32">src/instance.ts:32</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="classes/application.html" class="tsd-signature-type">Application</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="setinstance" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> set<wbr>Instance</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Instance<span class="tsd-signature-symbol">(</span>app<span class="tsd-signature-symbol">: </span><a href="classes/application.html" class="tsd-signature-type">Application</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/f4ded68/src/instance.ts#L25">src/instance.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>app: <a href="classes/application.html" class="tsd-signature-type">Application</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -346,6 +530,9 @@
 						<a href="interfaces/idatabaseconnection.html" class="tsd-kind-icon">IDatabase<wbr>Connection</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/iduplicateentryerroroptions.html" class="tsd-kind-icon">IDuplicate<wbr>Entry<wbr>Error<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/ierrorresponse.html" class="tsd-kind-icon">IError<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -379,10 +566,49 @@
 						<a href="globals.html#sendabledata" class="tsd-kind-icon">Sendable<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="globals.html#commander" class="tsd-kind-icon">Commander</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#default_high_watermark" class="tsd-kind-icon">DEFAULT_<wbr>HIGH_<wbr>WATERMARK</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#default_log_level" class="tsd-kind-icon">DEFAULT_<wbr>LOG_<wbr>LEVEL</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#default_query_timeout" class="tsd-kind-icon">DEFAULT_<wbr>QUERY_<wbr>TIMEOUT</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#linger_warning" class="tsd-kind-icon">LINGER_<wbr>WARNING</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#master_name" class="tsd-kind-icon">MASTER_<wbr>NAME</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#no_data" class="tsd-kind-icon">NO_<wbr>DATA</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#commitquery" class="tsd-kind-icon">commit<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#genericlogger" class="tsd-kind-icon">generic<wbr>Logger</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#instance" class="tsd-kind-icon">instance</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#rollbackquery" class="tsd-kind-icon">rollback<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#starttransactionquery" class="tsd-kind-icon">start<wbr>Transaction<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getapplicationlogger" class="tsd-kind-icon">get<wbr>Application<wbr>Logger</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#setinstance" class="tsd-kind-icon">set<wbr>Instance</a>
 					</li>
 				</ul>
 			</nav>

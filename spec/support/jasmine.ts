@@ -1,7 +1,7 @@
 
 /* eslint-disable @typescript-eslint/camelcase */
 
-import Jasmine = require('jasmine');
+import Jasmine = require('@breautek/jasmine');
 import {SpecReporter} from 'jasmine-spec-reporter';
 
 let jasmine = new Jasmine(null);
