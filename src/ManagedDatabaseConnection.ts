@@ -13,14 +13,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {DatabaseConnection} from './DatabaseConnection';
 import {IDatabaseConnection} from './IDatabaseConnection';
 import {getInstance} from './instance';
 import {Readable} from 'stream';
 import { Query } from './Query';
 
 export class ManagedDatabaseConnection implements IDatabaseConnection {
-    private _connection: DatabaseConnection;
+    private _connection: IDatabaseConnection;
     /**
      * When true, this class will not close the connection or
      * allow transaction starts or ends. Methods for these actions
@@ -34,12 +33,12 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         this._requiresWrite = requiresWrite;
     }
 
-    public setConnection(connection: DatabaseConnection): void {
+    public setConnection(connection: IDatabaseConnection): void {
         if (this._connection) {
             // Store original connection because of async,
             // but we don't really need to wait for the async operations
             // to complete to set the new connection object.
-            const oldConnection: DatabaseConnection = this._connection;
+            const oldConnection: IDatabaseConnection = this._connection;
             if (oldConnection.isTransaction()) {
                 getInstance().getLogger().warn('Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a progress transaction.');
                 oldConnection.rollback().then(() => {
@@ -89,7 +88,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     }
 
     public setTimeout(timeout: number): void {
-        this._getConnection().then((connection: DatabaseConnection) => {
+        this._getConnection().then((connection: IDatabaseConnection) => {
             connection.setTimeout(timeout);
         });
     }
@@ -105,7 +104,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
     public query(query: string | Query, params?: any): Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            this._getConnection().then((connection: DatabaseConnection) => {
+            this._getConnection().then((connection: IDatabaseConnection) => {
                 connection.query(query, params).then(resolve).catch(reject);
             }).catch(reject);
         })
@@ -126,7 +125,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
     public startTransaction(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            this._getConnection().then((connection: DatabaseConnection) => {
+            this._getConnection().then((connection: IDatabaseConnection) => {
                 if (!this.isManaged()) {
                     connection.startTransaction().then(resolve).catch(reject);
                 }
@@ -148,7 +147,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
     public commit(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            this._getConnection().then((connection: DatabaseConnection) => {
+            this._getConnection().then((connection: IDatabaseConnection) => {
                 if (!this.isManaged()) {
                     connection.commit().then(resolve).catch(reject);
                 }
@@ -161,7 +160,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
     public rollback(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            this._getConnection().then((connection: DatabaseConnection) => {
+            this._getConnection().then((connection: IDatabaseConnection) => {
                 if (!this.isManaged()) {
                     connection.rollback().then(resolve).catch(reject);
                 }
@@ -172,9 +171,9 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         });
     }
 
-    private _getConnection(): Promise<DatabaseConnection> {
-        return new Promise<DatabaseConnection>((resolve, reject) => {
-            let promise: Promise<DatabaseConnection> = null;
+    private _getConnection(): Promise<IDatabaseConnection> {
+        return new Promise<IDatabaseConnection>((resolve, reject) => {
+            let promise: Promise<IDatabaseConnection> = null;
             
             if (!this._connection) {
                 promise = getInstance().getDB().getConnection(this._requiresWrite);
@@ -183,7 +182,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
                 promise = Promise.resolve(this._connection);
             }
 
-            promise.then((connection: DatabaseConnection) => {
+            promise.then((connection: IDatabaseConnection) => {
                 this._connection = connection;
                 resolve(this._connection);
             }).catch(reject);

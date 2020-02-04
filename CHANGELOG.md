@@ -1,8 +1,9 @@
 
 # Changelog
 
-## 1.2.0-dev
+## 1.2.0
 - feat: `Handler` generics for defining request & response types.
+- feat: `ManagedDatabaseConnection will now accept `IDatabaseConnection` objects instead of strictly `DatabaseConnection` objects.
 - Dev-Dep: `nyc@14.1.1` to `nyc@15.0.0`
 - Dev-Dep: `ts-node@8.4.1` to `ts-node@8.5.4`
 - Dev-Dep: `typescript@3.6.3` to `typescript@3.7.4`

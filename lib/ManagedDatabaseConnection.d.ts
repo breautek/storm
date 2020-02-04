@@ -1,5 +1,4 @@
 /// <reference types="node" />
-import { DatabaseConnection } from './DatabaseConnection';
 import { IDatabaseConnection } from './IDatabaseConnection';
 import { Readable } from 'stream';
 import { Query } from './Query';
@@ -8,7 +7,7 @@ export declare class ManagedDatabaseConnection implements IDatabaseConnection {
     private _managed;
     private _requiresWrite;
     constructor(requiresWrite?: boolean);
-    setConnection(connection: DatabaseConnection): void;
+    setConnection(connection: IDatabaseConnection): void;
     isWriteRequired(): boolean;
     isManaged(): boolean;
     hasConnection(): boolean;
