@@ -1,6 +1,9 @@
 
 # Changelog
 
+## 1.2.1 (Feb 4, 2020)
+- `ManagedDatabaseConnection` is now reusable after `close` is called.
+
 ## 1.2.0 (Feb 3, 2020)
 - feat: `Handler` generics for defining request & response types.
 - feat: `ManagedDatabaseConnection will now accept `IDatabaseConnection` objects instead of strictly `DatabaseConnection` objects.

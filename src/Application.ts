@@ -32,7 +32,6 @@ import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
 
-// tslint:disable-next-line: no-var-requires
 require('source-map-support').install();
 
 /**

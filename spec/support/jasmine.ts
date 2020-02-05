@@ -3,6 +3,7 @@
 
 import Jasmine = require('@breautek/jasmine');
 import {SpecReporter} from 'jasmine-spec-reporter';
+require('source-map-support').install();
 
 let jasmine = new Jasmine(null);
 

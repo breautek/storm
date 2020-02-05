@@ -115,12 +115,18 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     }
 
     public close(forceClose?: boolean): Promise<void> {
-        if (this.hasConnection() && !this.isManaged()) {
-            return this._connection.close(forceClose);
-        }
-        else {
-            return Promise.resolve();
-        }
+        return new Promise<void>((resolve, reject) => {
+            if (this.hasConnection() && !this.isManaged()) {
+                this._connection.close(forceClose).then(() => {
+                    this._connection = null;
+                    this._managed = false;
+                    resolve();
+                }).catch(reject);
+            }
+            else {
+                resolve();
+            }
+        });
     }
 
     public startTransaction(): Promise<void> {
