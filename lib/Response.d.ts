@@ -3,11 +3,11 @@ import { StatusCode } from './StatusCode';
 import { ResponseData } from './ResponseData';
 import { StormError, IErrorResponse } from './StormError';
 import * as express from 'express';
-export declare type SendableData = ResponseData | StormError | IErrorResponse | any;
+export declare type SendableData = ResponseData | Error | IErrorResponse | any;
 export interface IHeaderKeyValuePair {
     [key: string]: string;
 }
-export declare class Response<TResponse = SendableData, TErrorResponse = StormError | IErrorResponse | string> {
+export declare class Response<TResponse = SendableData, TErrorResponse = Error | IErrorResponse | string> {
     private response;
     private created;
     private requestURL;

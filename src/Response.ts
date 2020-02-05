@@ -20,13 +20,13 @@ import * as express from 'express';
 import {getApplicationLogger} from './instance';
 import { InternalError } from './InternalError';
 
-export type SendableData = ResponseData | StormError | IErrorResponse | any;
+export type SendableData = ResponseData | Error | IErrorResponse | any;
 
 export interface IHeaderKeyValuePair {
     [key: string]: string;
 }
 
-export class Response<TResponse = SendableData, TErrorResponse = StormError | IErrorResponse | string> {
+export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorResponse | string> {
     private response: express.Response;
     private created: Date;
     private requestURL: string;

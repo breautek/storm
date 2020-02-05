@@ -3,6 +3,7 @@
 
 ## 1.2.1 (Feb 4, 2020)
 - `ManagedDatabaseConnection` is now reusable after `close` is called.
+- [B#19](https://github.com/breautek/storm/issues/19) - `Response.error` now accepts `Error` objects by default.
 
 ## 1.2.0 (Feb 3, 2020)
 - feat: `Handler` generics for defining request & response types.

@@ -255,6 +255,16 @@ describe('Response', () => {
         });
     });
 
+    it('can send Error', (done) => {
+        app.attachMockHandler('/internal', makeHandler((request: Request, response: Response) => {
+            response.error(new Error('test'));
+        }));
+        app.doMockGet('/internal').then((response: IMockResponse) => {
+            expect(response.status).toBe(500);
+            done();
+        });
+    });
+
     it('can pipe', (done) => {
         app.attachMockHandler('/pipe', makeHandler((request: Request, response: Response) => {
             response.pipe(FileSystem.createReadStream(Path.resolve('./spec/support/sample.txt')));
