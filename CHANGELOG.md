@@ -2,7 +2,7 @@
 # Changelog
 
 ## 1.2.2-dev
-- 
+- `Query` now default `parameters` parameter to an empty object.
 
 ## 1.2.1 (Feb 4, 2020)
 - `ManagedDatabaseConnection` is now reusable after `close` is called.

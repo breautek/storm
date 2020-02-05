@@ -144,7 +144,7 @@ describe('MySQLConnection', () => {
             expect(mockAPI.query).toHaveBeenCalledWith({
                 sql: 'START TRANSACTION',
                 timeout: DEFAULT_QUERY_TIMEOUT,
-            }, undefined, jasmine.any(Function));
+            }, {}, jasmine.any(Function));
             done();
         });
     });
@@ -193,7 +193,7 @@ describe('MySQLConnection', () => {
             expect(mockAPI.query).toHaveBeenCalledWith({
                 sql: 'ROLLBACK',
                 timeout: DEFAULT_QUERY_TIMEOUT,
-            }, undefined, jasmine.any(Function));
+            }, {}, jasmine.any(Function));
             done();
         });
     });
@@ -256,7 +256,7 @@ describe('MySQLConnection', () => {
             expect(mockAPI.query).toHaveBeenCalledWith({
                 sql: 'COMMIT',
                 timeout: DEFAULT_QUERY_TIMEOUT,
-            }, undefined, jasmine.any(Function));
+            }, {}, jasmine.any(Function));
             done();
         });
     });

@@ -3,7 +3,7 @@ import {IQueryParameters} from './IQueryParameters';
 export abstract class Query {
     private _params: IQueryParameters;
 
-    public constructor(parameters?: IQueryParameters) {
+    public constructor(parameters: IQueryParameters = {}) {
         this._params = parameters;
     }
 
