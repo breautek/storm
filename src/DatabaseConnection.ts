@@ -37,11 +37,13 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
     private _timeout: number;
     private _lingerTimer: NodeJS.Timer;
     private _instantiationStack: string;
+    private _open: boolean;
 
     public constructor(api: any, isReadOnly: boolean, instantiationStack: string) {
         this.api = api;
         this.readOnly = isReadOnly;
         this._instantiationStack = (instantiationStack || '').replace(/Error:/, 'Warning:');
+        this._open = true;
 
         this._timeout = getInstance().getConfig().query_timeout;
         if (isNaN(this._timeout)) {
@@ -167,8 +169,20 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
      * @returns Promise<void>
      */
     public close(forceClose: boolean = false): Promise<void> {
+        if (this.isClosed()) {
+            return Promise.resolve();
+        }
+        
+        this._open = false;
         clearTimeout(this._lingerTimer);
         return this._close(forceClose);
+    }
+
+    /**
+     * Returns true if the connection has been closed.
+     */
+    public isClosed(): boolean {
+        return !this._open;
     }
 
     /**

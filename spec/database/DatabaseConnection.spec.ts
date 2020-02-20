@@ -44,6 +44,17 @@ describe('DatabaseConnection', () => {
         expect(connection.getAPI()).toBe(null);
     });
 
+    it('is opened', () => {
+        let connection: MockConnection = new MockConnection(true, 'test stack');
+        expect(connection.isClosed()).toBe(false);
+    });
+
+    it('is closed', () => {
+        let connection: MockConnection = new MockConnection(true, 'test stack');
+        connection.close();
+        expect(connection.isClosed()).toBe(true);
+    });
+
     it('constructs read', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
         expect(connection.isReadOnly()).toBe(true);

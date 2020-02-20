@@ -11,6 +11,7 @@ export declare abstract class DatabaseConnection implements IDatabaseConnection 
     private _timeout;
     private _lingerTimer;
     private _instantiationStack;
+    private _open;
     constructor(api: any, isReadOnly: boolean, instantiationStack: string);
     private _triggerLingerWarning;
     getInstantiationStack(): string;
@@ -22,6 +23,7 @@ export declare abstract class DatabaseConnection implements IDatabaseConnection 
     query(query: string | Query, params?: IQueryParameters): Promise<any>;
     stream(query: string | Query, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
+    isClosed(): boolean;
     abstract startTransaction(): Promise<void>;
     abstract isTransaction(): boolean;
     abstract endTransaction(requiresRollback?: boolean): Promise<void>;
