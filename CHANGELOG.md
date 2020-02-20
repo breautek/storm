@@ -1,6 +1,9 @@
 
 # Changelog
 
+## 1.2.3-dev
+- 
+
 ## 1.2.2
 - `Query` now default `parameters` parameter to an empty object.
 - `DatabaseConnection.isClosed` API has been added.
