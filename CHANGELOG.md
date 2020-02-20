@@ -1,8 +1,11 @@
 
 # Changelog
 
-## 1.2.2-dev
+## 1.2.2
 - `Query` now default `parameters` parameter to an empty object.
+- `DatabaseConnection.isClosed` API has been added.
+- `DatabaseConnection` objects will now check if a connection is closed before trying to close it again. Connections that are already closed will now simply resolve.
+- Build targets using `ES2020` target, for native use of async/await and other modern node syntax
 
 ## 1.2.1 (Feb 4, 2020)
 - `ManagedDatabaseConnection` is now reusable after `close` is called.
