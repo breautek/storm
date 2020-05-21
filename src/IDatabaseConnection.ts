@@ -17,6 +17,7 @@ import { Readable } from 'stream';
 import { Query } from './Query';
 
 export interface IDatabaseConnection {
+    setInstantiationStack(stack: string): void;
     getInstantiationStack(): string;
     getAPI(): any;
     isReadOnly(): boolean;

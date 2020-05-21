@@ -57,6 +57,10 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
         getApplicationLogger().warn(`Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`);
     }
 
+    public setInstantiationStack(stack: string): void {
+        this._instantiationStack = stack;
+    }
+
     /**
      * Gets the callback stacktrace to determine what opened
      * this connection. Useful for debugging lingering connections.

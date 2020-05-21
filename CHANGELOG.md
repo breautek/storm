@@ -2,7 +2,7 @@
 # Changelog
 
 ## 1.2.3-dev
-- 
+- Instanation stack now propagates to `IDatabaseConnection` objects when managed via `ManagedDatabaseConnection` for easier lingering connection indentification.
 
 ## 1.2.2
 - `Query` now default `parameters` parameter to an empty object.

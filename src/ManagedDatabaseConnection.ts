@@ -26,11 +26,14 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
      * will be a no-op.
      */
     private _managed: boolean;
+
     private _requiresWrite: boolean;
+    private _instantionStack: string;
 
     public constructor(requiresWrite: boolean = false) {
         this._managed = false;
         this._requiresWrite = requiresWrite;
+        this._instantionStack = new Error().stack;
     }
 
     public setConnection(connection: IDatabaseConnection): void {
@@ -69,12 +72,21 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         return !!this._connection;
     }
 
+    public setInstantiationStack(stack: string): void {
+        if (this.hasConnection()) {
+            this._connection.setInstantiationStack(stack);
+        }
+        else {
+            this._instantionStack = stack;
+        }
+    }
+
     public getInstantiationStack(): string {
         if (this.hasConnection()) {
             return this._connection.getInstantiationStack();
         }
         else {
-            return null;
+            return this._instantionStack;
         }
     }
 
@@ -180,15 +192,19 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     private _getConnection(): Promise<IDatabaseConnection> {
         return new Promise<IDatabaseConnection>((resolve, reject) => {
             let promise: Promise<IDatabaseConnection> = null;
-            
+            let setInstantationStack: boolean = false;
             if (!this._connection) {
                 promise = getInstance().getDB().getConnection(this._requiresWrite);
+                setInstantationStack = true;
             }
             else {
                 promise = Promise.resolve(this._connection);
             }
 
             promise.then((connection: IDatabaseConnection) => {
+                if (setInstantationStack) {
+                    connection.setInstantiationStack(this._instantionStack);
+                }
                 this._connection = connection;
                 resolve(this._connection);
             }).catch(reject);

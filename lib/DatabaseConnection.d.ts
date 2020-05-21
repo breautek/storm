@@ -14,6 +14,7 @@ export declare abstract class DatabaseConnection implements IDatabaseConnection 
     private _open;
     constructor(api: any, isReadOnly: boolean, instantiationStack: string);
     private _triggerLingerWarning;
+    setInstantiationStack(stack: string): void;
     getInstantiationStack(): string;
     private _armLingerWarning;
     getAPI(): any;
