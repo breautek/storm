@@ -77,7 +77,7 @@ describe('ManagedDatabaseConnection', () => {
 
     it('get instantation stack (no connection)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        expect(mdc.getInstantiationStack()).toBe(null);
+        expect(mdc.getInstantiationStack()).toContain('at new ManagedDatabaseConnection');
         mdc.close().then(() => {
             done();
         });
