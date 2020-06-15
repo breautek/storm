@@ -7,7 +7,7 @@ import {MockConnection} from '../support/MockConnection';
 import { DEFAULT_QUERY_TIMEOUT, DatabaseConnection } from '../../src/DatabaseConnection';
 import { getInstance } from '../../src/instance';
 
-const ROLLBACK_WARN_EXPECTATION = 'Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a progress transaction.';
+const ROLLBACK_WARN_EXPECTATION = 'Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.';
 
 describe('ManagedDatabaseConnection', () => {
     let app: MockApplication = null;

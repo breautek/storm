@@ -43,7 +43,8 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
             // to complete to set the new connection object.
             const oldConnection: IDatabaseConnection = this._connection;
             if (oldConnection.isTransaction()) {
-                getInstance().getLogger().warn('Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a progress transaction.');
+                getInstance().getLogger().warn('Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.');
+                getInstance().getLogger().trace(new Error('Stacktrace'));
                 oldConnection.rollback().then(() => {
                     oldConnection.close();
                 }).catch((error: any) => {
