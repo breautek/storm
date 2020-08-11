@@ -54,7 +54,7 @@ describe('Request', () => {
     it('can make request()', (done) => {
         app.attachMockHandler('/getHeaders', makeHandler((request: Request, response: Response) => {
             let headers: http.IncomingHttpHeaders = request.getHeaders();
-            expect(headers.host).toBe('localhost:64321');
+            expect(headers.host).toBe(`localhost:${app.getPort()}`);
             expect(request.isSecure()).toBe(false);
             expect(request.getMethod()).toBe(HTTPMethod.GET);
             expect(request.getIP()).toBe('127.0.0.1');
@@ -92,7 +92,7 @@ describe('Request', () => {
 
         let form = new FormData();
         form.append('key', 'value');
-        form.submit('http://localhost:64321/form/');
+        form.submit(`http://localhost:${app.getPort()}/form/`);
     });
 
     it('can pipe/unpipe', (done) => {

@@ -11,7 +11,7 @@ class TestServiceProvider extends ServiceProvider {
     }
 
     protected _getPort(): number {
-        return 64321;
+        return this._getApp().getPort();
     }
 
     public getDomain(): string {

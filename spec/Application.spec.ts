@@ -100,7 +100,7 @@ describe('Application', () => {
         let req: http.ClientRequest = http.request({
             method: HTTPMethod.GET,
             host: '127.0.0.1',
-            port: 64321,
+            port: app.getPort(),
             path: '/echo'
         }, (res: http.IncomingMessage): void => {
             expect(res.statusCode).toBe(StatusCode.OK_NO_CONTENT);
@@ -113,7 +113,7 @@ describe('Application', () => {
         let req: http.ClientRequest = http.request({
             method: HTTPMethod.POST,
             host: '127.0.0.1',
-            port: 64321,
+            port: app.getPort(),
             path: '/echo'
         }, (res: http.IncomingMessage): void => {
             expect(res.statusCode).toBe(StatusCode.OK);
@@ -126,7 +126,7 @@ describe('Application', () => {
         let req: http.ClientRequest = http.request({
             method: HTTPMethod.PUT,
             host: '127.0.0.1',
-            port: 64321,
+            port: app.getPort(),
             path: '/echo'
         }, (res: http.IncomingMessage): void => {
             expect(res.statusCode).toBe(StatusCode.OK);
@@ -139,7 +139,7 @@ describe('Application', () => {
         let req: http.ClientRequest = http.request({
             method: HTTPMethod.DELETE,
             host: '127.0.0.1',
-            port: 64321,
+            port: app.getPort(),
             path: '/echo'
         }, (res: http.IncomingMessage): void => {
             expect(res.statusCode).toBe(StatusCode.OK);

@@ -21,6 +21,7 @@ export declare abstract class Application extends EventEmitter {
     private _program;
     constructor(name: string, configPath: string, logSeverity?: LogSeverity);
     private _load;
+    getPort(): number;
     private $buildArgOptions;
     protected _buildArgOptions(program: Commander.CommanderStatic): void;
     getProgram(): Commander.CommanderStatic;
