@@ -23,7 +23,7 @@
     ]
   },
   "scripts": {
-    "build": "npm run lint && tsc && npm run-script build-docs",
+    "build": "npm run lint && tsc",
     "build-lib": "rm -r ./lib && tsc",
     "build-docs": "typedoc --excludePrivate --excludeNotExported --mode file -readme ./README.md --out ./docs ./src",
     "lint": "eslint --ext .ts '?(src|spec)/**/*.ts' --cache",
@@ -31,7 +31,11 @@
     "test": "npm run-script lint && nyc --reporter=lcov --reporter=text ts-node ./spec/support/jasmine.ts",
     "coverage": "codecov",
     "clean": "rm -r ./lib && rm -r ./docs",
-    "prepublishOnly": "npm run-script build-lib"
+    "prepublishOnly": "npm run-script build-lib",
+    "changelog": "   --output CHANGELOG.md -p --release-summary --ignore-commit-pattern chore",
+    "preversion": "npm run clean",
+    "version": "npm run-script build && npm run-script build-docs && npm run changelog && git add CHANGELOG.md docs && git commit -m 'chore: changelog'",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -76,6 +80,7 @@
     "@breautek/jasmine": "3.5.1",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
+    "auto-changelog": "2.2.0",
     "codecov": "3.7.2",
     "eslint": "7.5.0",
     "form-data": "2.5.0",
