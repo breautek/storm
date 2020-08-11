@@ -155,9 +155,10 @@ export abstract class Application extends EventEmitter {
     
             if (bindingIP !== null && bindingIP !== 'null') {
                 if (this.shouldListen()) {
-                    this.getLogger().trace(`Server started on ${bindingIP}:${port}`);
                     this.socket = http.createServer(this.server);
-                    this.socket.listen(port, bindingIP);
+                    this.socket.listen(port, bindingIP, () => {
+                        this.getLogger().trace(`Server started on ${bindingIP}:${this.getPort()}`);
+                    });
                 }
                 else {
                     this.getLogger().trace('Server did not bind because shouldListen() returned false.');
@@ -172,6 +173,17 @@ export abstract class Application extends EventEmitter {
         }).catch((error) => {
             this.getLogger().fatal(error);
         });
+    }
+
+    public getPort(): number {
+        let port: number = null;
+        if (this.socket && this.socket.listening) {
+            let address = this.socket.address();
+            if (typeof address !== 'string') {
+                port = address.port;
+            }
+        }
+        return port;
     }
 
     private $buildArgOptions() {

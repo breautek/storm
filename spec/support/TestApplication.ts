@@ -95,7 +95,7 @@ export class MockApplication extends Application {
 
     private _doMock(method: HTTPMethod, url: string, data?: any, headers?: any): Promise<IMockResponse> {
         return new Promise<IMockResponse>((resolve, reject) => {
-            let request: http.ClientRequest = http.request(new URL(url, 'http://localhost:64321'), {
+            let request: http.ClientRequest = http.request(new URL(url, `http://localhost:${this.getPort()}`), {
                 method: method
             }, (response) => {
                 response.setEncoding('utf8');
