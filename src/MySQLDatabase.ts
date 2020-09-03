@@ -27,6 +27,10 @@ export class MySQLDatabase extends Database {
     }
 
     public escape(query: string): string {
+        return MySQLDatabase.escape(query);
+    }
+
+    public static escape(query: string): string {
         return MySQL.escape(query);
     }
 
