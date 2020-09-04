@@ -26,12 +26,12 @@ export class MySQLDatabase extends Database {
         this.cluster = MySQL.createPoolCluster();
     }
 
-    public escape(query: string): string {
-        return MySQLDatabase.escape(query);
+    public escape(value: any): string {
+        return MySQLDatabase.escape(value);
     }
 
-    public static escape(query: string): string {
-        return MySQL.escape(query);
+    public static escape(value: any): string {
+        return MySQL.escape(value);
     }
 
     protected _addNode(nodeID: string, config: MySQL.PoolConfig): void {
