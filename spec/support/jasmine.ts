@@ -1,7 +1,7 @@
 
 /* eslint-disable @typescript-eslint/camelcase */
 
-import Jasmine = require('@breautek/jasmine');
+import Jasmine = require('jasmine');
 import {SpecReporter} from 'jasmine-spec-reporter';
 require('source-map-support').install();
 
