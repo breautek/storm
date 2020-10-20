@@ -57,7 +57,7 @@
 					<a href="application.html">Application</a>
 				</li>
 			</ul>
-			<h1>Class Application</h1>
+			<h1>Class Application&lt;TConfig, TAuthToken&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -70,6 +70,17 @@
 						<p>Main entry point for the Application. Should be extended and have the abstract methods implemented.</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>TConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a> = <span class="tsd-signature-type">IConfig</span></h4>
+					</li>
+					<li>
+						<h4>TAuthToken<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAuthTokenData</span> = <span class="tsd-signature-type">IAuthTokenData</span></h4>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
@@ -161,7 +172,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L58">src/Application.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L64">src/Application.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -224,7 +235,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L204">src/Application.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L210">src/Application.ts:210</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -247,7 +258,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L380">src/Application.ts:380</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L386">src/Application.ts:386</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L387">src/Application.ts:387</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L393">src/Application.ts:393</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -292,7 +303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L444">src/Application.ts:444</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L450">src/Application.ts:450</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -317,13 +328,13 @@
 					<a name="_parseloglevelconfig" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _parse<wbr>Log<wbr>Level<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_parse<wbr>Log<wbr>Level<wbr>Config<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/logseverity.html" class="tsd-signature-type">LogSeverity</a></li>
+						<li class="tsd-signature tsd-kind-icon">_parse<wbr>Log<wbr>Level<wbr>Config<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TConfig</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/logseverity.html" class="tsd-signature-type">LogSeverity</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L396">src/Application.ts:396</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L402">src/Application.ts:402</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,7 +345,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a></h5>
+									<h5>config: <span class="tsd-signature-type">TConfig</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>bt-config object</p>
 									</div>
@@ -401,7 +412,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L222">src/Application.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L228">src/Application.ts:228</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -435,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L259">src/Application.ts:259</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L265">src/Application.ts:265</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -458,7 +469,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L242">src/Application.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L248">src/Application.ts:248</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -522,7 +533,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L343">src/Application.ts:343</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L349">src/Application.ts:349</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -536,18 +547,18 @@
 					<a name="getconfig" class="tsd-anchor"></a>
 					<h3>get<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Config<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Config<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TConfig</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L300">src/Application.ts:300</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L306">src/Application.ts:306</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TConfig</span></h4>
 							<p>the config object.</p>
 						</li>
 					</ul>
@@ -562,7 +573,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L336">src/Application.ts:336</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L342">src/Application.ts:342</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -582,7 +593,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L293">src/Application.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L299">src/Application.ts:299</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -621,7 +632,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L278">src/Application.ts:278</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L284">src/Application.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -641,7 +652,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L178">src/Application.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L184">src/Application.ts:184</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -658,7 +669,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L206">src/Application.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L212">src/Application.ts:212</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Commander.CommanderStatic</span></h4>
@@ -675,7 +686,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L213">src/Application.ts:213</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L219">src/Application.ts:219</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -691,18 +702,18 @@
 					<a name="gettokenmanager" class="tsd-anchor"></a>
 					<h3>get<wbr>Token<wbr>Manager</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Token<wbr>Manager<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="tokenmanager.html" class="tsd-signature-type">TokenManager</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Token<wbr>Manager<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="tokenmanager.html" class="tsd-signature-type">TokenManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L329">src/Application.ts:329</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L335">src/Application.ts:335</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="tokenmanager.html" class="tsd-signature-type">TokenManager</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="tokenmanager.html" class="tsd-signature-type">TokenManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>the token manager</p>
 						</li>
 					</ul>
@@ -711,13 +722,13 @@
 					<a name="initdb" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> initDB</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">initDB<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="database.html" class="tsd-signature-type">Database</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">initDB<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TConfig</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="database.html" class="tsd-signature-type">Database</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L372">src/Application.ts:372</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L378">src/Application.ts:378</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -728,7 +739,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a></h5>
+									<h5>config: <span class="tsd-signature-type">TConfig</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The bt-config object</p>
 									</div>
@@ -792,13 +803,13 @@
 					<a name="loadconfig" class="tsd-anchor"></a>
 					<h3>load<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">load<wbr>Config<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Config<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TConfig</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L265">src/Application.ts:265</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L271">src/Application.ts:271</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -812,7 +823,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TConfig</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -918,7 +929,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L465">src/Application.ts:465</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L471">src/Application.ts:471</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -929,13 +940,13 @@
 					<a name="onconfigload" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Config<wbr>Load</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Config<wbr>Load<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Config<wbr>Load<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TConfig</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L316">src/Application.ts:316</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L322">src/Application.ts:322</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -946,7 +957,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <a href="../interfaces/iconfig.html" class="tsd-signature-type">IConfig</a></h5>
+									<h5>config: <span class="tsd-signature-type">TConfig</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The config object (as defined in bt-config.json/bt-local-config.json)</p>
 									</div>
@@ -966,7 +977,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L470">src/Application.ts:470</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L476">src/Application.ts:476</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1222,7 +1233,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L286">src/Application.ts:286</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L292">src/Application.ts:292</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1269,13 +1280,13 @@
 					<a name="settokenmanager" class="tsd-anchor"></a>
 					<h3>set<wbr>Token<wbr>Manager</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Token<wbr>Manager<span class="tsd-signature-symbol">(</span>tokenManager<span class="tsd-signature-symbol">: </span><a href="tokenmanager.html" class="tsd-signature-type">TokenManager</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Token<wbr>Manager<span class="tsd-signature-symbol">(</span>tokenManager<span class="tsd-signature-symbol">: </span><a href="tokenmanager.html" class="tsd-signature-type">TokenManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L322">src/Application.ts:322</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L328">src/Application.ts:328</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1286,7 +1297,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>tokenManager: <a href="tokenmanager.html" class="tsd-signature-type">TokenManager</a></h5>
+									<h5>tokenManager: <a href="tokenmanager.html" class="tsd-signature-type">TokenManager</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
@@ -1305,7 +1316,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/3922c56/src/Application.ts#L307">src/Application.ts:307</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/435aee5/src/Application.ts#L313">src/Application.ts:313</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1363,7 +1374,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class="current tsd-kind-class tsd-has-type-parameter">
 						<a href="application.html" class="tsd-kind-icon">Application</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
