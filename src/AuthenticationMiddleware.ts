@@ -36,6 +36,7 @@ export abstract class AuthenticationMiddleware {
 
     public constructor() {
         this.logger = getApplicationLogger();
+        this.logger.deprecate();
     }
 
     /**
