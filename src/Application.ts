@@ -31,6 +31,7 @@ import Commander = require('commander');
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
+import { IAuthTokenData } from '@arashi/token';
 
 require('source-map-support').install();
 
@@ -42,12 +43,17 @@ const DEFAULT_LOG_LEVEL = LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.E
 /**
  * Main entry point for the Application. Should be extended and have the abstract methods implemented.
  */
-export abstract class Application extends EventEmitter {
+export abstract class Application
+    <
+        TConfig extends IConfig = IConfig,
+        TAuthToken extends IAuthTokenData = IAuthTokenData
+    >
+    extends EventEmitter {
     private logger: Logger;
     private name: string;
     private configPath: string;
-    private config: IConfig;
-    private tokenManager: TokenManager;
+    private config: TConfig;
+    private tokenManager: TokenManager<TAuthToken>;
     private server: Express.Application;
     private db: Database;
     private _logConfigDefaulting: boolean;
@@ -104,7 +110,7 @@ export abstract class Application extends EventEmitter {
     }
 
     private _load(): void {
-        this.loadConfig(this.configPath).then((config: IConfig) => {
+        this.loadConfig(this.configPath).then((config: TConfig) => {
             this.config = config;
             this.getLogger().trace('Configuration loaded.');
             this.emit(ApplicationEvent.CONFIG_LOADED);
@@ -262,9 +268,9 @@ export abstract class Application extends EventEmitter {
      * 
      * @param path The directory path that contains bt-config.json and bt-local-config.json
      */
-    public loadConfig(path: string): Promise<IConfig> {
-        return new Promise<IConfig>((resolve, reject) => {
-            ConfigLoader.load(path).then((config: IConfig) => {
+    public loadConfig(path: string): Promise<TConfig> {
+        return new Promise<TConfig>((resolve, reject) => {
+            ConfigLoader.load(path).then((config: TConfig) => {
                 resolve(config);
             }).catch((exitCode: ExitCode) => {
                 process.exit(exitCode);
@@ -297,7 +303,7 @@ export abstract class Application extends EventEmitter {
     /**
      * @returns the config object.
      */
-    public getConfig(): IConfig {
+    public getConfig(): TConfig {
         return this.config;
     }
 
@@ -313,20 +319,20 @@ export abstract class Application extends EventEmitter {
      * 
      * @param config The config object (as defined in bt-config.json/bt-local-config.json)
      */
-    protected onConfigLoad(config: IConfig): void {}
+    protected onConfigLoad(config: TConfig): void {}
 
     /**
      * Sets the TokenManager to be used for authentication.
      * @param tokenManager 
      */
-    public setTokenManager(tokenManager: TokenManager): void {
+    public setTokenManager(tokenManager: TokenManager<TAuthToken>): void {
         this.tokenManager = tokenManager;
     }
 
     /**
      * @returns the token manager
      */
-    public getTokenManager(): TokenManager {
+    public getTokenManager(): TokenManager<TAuthToken> {
         return this.tokenManager;
     }
 
@@ -369,7 +375,7 @@ export abstract class Application extends EventEmitter {
      * Subclasses are expected to override this to configure their database setup, if the service uses a database.
      * @param config The bt-config object
      */
-    protected initDB(config: IConfig): Promise<Database> {
+    protected initDB(config: TConfig): Promise<Database> {
         return Promise.resolve(null);
     }
 
@@ -393,7 +399,7 @@ export abstract class Application extends EventEmitter {
      * @param config bt-config object
      * @returns the severity mask
      */
-    protected _parseLogLevelConfig(config: IConfig): LogSeverity {
+    protected _parseLogLevelConfig(config: TConfig): LogSeverity {
         let llConfig: string = config.log_level;
         let severity: LogSeverity = null;
 
