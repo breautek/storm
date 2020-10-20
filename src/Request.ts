@@ -18,12 +18,19 @@ import { IncomingHttpHeaders } from 'http';
 import {Writable} from 'stream';
 import * as formidable from 'formidable';
 import {IFormData} from './IFormData';
+import { IAuthTokenData } from './IAuthTokenData';
+import { getInstance } from './instance';
+import { Token } from './Token';
+import { JWTError } from './JWTError';
+import { ResponseData } from './ResponseData';
+import {StatusCode} from './StatusCode';
+import { InternalError } from './InternalError';
 
 export interface IParameterMap {
     [key: string]: string;
 }
 
-export class Request<TBody = any> {
+export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthTokenData> {
     private request: express.Request;
 
     public constructor(request: express.Request) {
@@ -113,5 +120,44 @@ export class Request<TBody = any> {
 
     public getRequestSource(): express.Request {
         return this.request;
+    }
+
+    public async getAuthenticationToken(): Promise<TAuthToken> {
+        let authHeader: string = getInstance().getConfig().authentication_header;
+        let tdata: TAuthToken = null;
+        try {
+            tdata = await getInstance().getTokenManager().verify(new Token(this.getHeader(authHeader)));
+        }
+        catch (ex) {
+            let error: ResponseData = null;
+            if (ex && ex.name) {
+                switch (ex.name) {
+                    case JWTError.ERR_EXPIRED:
+                        error = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
+                            code: ex.name,
+                            reason: ex.message
+                        });
+                        break;
+                    case JWTError.ERR_GENERIC:
+                        error = new ResponseData(StatusCode.ERR_UNAUTHORIZED, {
+                            code: ex.name,
+                            reason : ex.message
+                        });
+                        break;
+                }
+            }
+
+            if (error === null) {
+                let ie: InternalError = new InternalError(ex);
+                error = new ResponseData(ie.getHTTPCode(), {
+                    code: ie.getCode(),
+                    reason: ie.getMessage()
+                });
+            }
+
+            throw error;
+        }
+
+        return tdata;
     }
 }
