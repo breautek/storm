@@ -35,6 +35,7 @@ export {
     IErrorResponse,
     IAdditionalErrorDetails
 } from './StormError';
+export {JWTError} from './JWTError';
 export {MissingParameterError} from './MissingParameterError';
 export {InvalidCredentialsError} from './InvalidCredentialsError';
 export {InternalError} from './InternalError';
@@ -68,6 +69,7 @@ export {IFormData} from './IFormData';
 export {IDatabaseConnection} from './IDatabaseConnection';
 export {IServiceHeaders} from './IServiceHeaders';
 export {IQueryParameters} from './IQueryParameters';
+export {IAuthTokenData} from './IAuthTokenData';
 
 // Token
 export {Token} from './Token';
