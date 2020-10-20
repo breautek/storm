@@ -18,8 +18,9 @@ import {Token} from './Token';
 import {IJWTVerifyOptions} from './IJWTVerifyOptions';
 import {JWTVerifyOptionsParser} from './JWTVerifyOptionsParser';
 import {randomBytes} from 'crypto';
+import { IAuthTokenData } from './IAuthTokenData';
 
-export class TokenManager {
+export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
     private secret: string;
 
     public constructor(secret: string) {
@@ -50,7 +51,7 @@ export class TokenManager {
         });
     }
 
-    public verify(token: Token, options?: IJWTVerifyOptions): Promise<any> {
+    public verify(token: Token, options?: IJWTVerifyOptions): Promise<TAuthToken> {
         return new Promise<any>((resolve, reject) => {
             // placed inside the promise in the event that a reject would be required.
             if (!options) {
@@ -60,7 +61,8 @@ export class TokenManager {
             } else if (options.enableExpiration === undefined) {
                 options.enableExpiration = true;
             }
-            jwt.verify(token.getSignature(), this.secret, JWTVerifyOptionsParser.parse(options), (error, decoded) => {
+
+            jwt.verify(token.getSignature(), this.secret, JWTVerifyOptionsParser.parse(options), (error, decoded: TAuthToken) => {
                 if (error) {
                     return reject(error);
                 }
@@ -70,10 +72,10 @@ export class TokenManager {
         });
     }
 
-    public decode(token: Token): Promise<any> {
+    public decode(token: Token): Promise<TAuthToken> {
         return new Promise<any>((resolve, reject) => {
             try {
-                const decoded: any = jwt.decode(token.getSignature());
+                const decoded: TAuthToken = <TAuthToken>jwt.decode(token.getSignature());
                 resolve(decoded);
             }
             catch (ex) {

@@ -126,7 +126,7 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
         let authHeader: string = getInstance().getConfig().authentication_header;
         let tdata: TAuthToken = null;
         try {
-            tdata = await getInstance().getTokenManager().verify(new Token(this.getHeader(authHeader)));
+            tdata = <TAuthToken>(await getInstance().getTokenManager().verify(new Token(this.getHeader(authHeader))));
         }
         catch (ex) {
             let error: ResponseData = null;

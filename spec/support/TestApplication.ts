@@ -1,4 +1,3 @@
-// tslint:disable
 
 import {Application} from '../../src/Application';
 import {Database} from '../../src/Database';
@@ -14,6 +13,8 @@ import {StatusCode} from '../../src/StatusCode';
 import {HTTPMethod} from '../../src/HTTPMethod';
 import {MockLogger} from './MockLogger';
 import * as http from 'http';
+import { TokenManager } from '../../src/TokenManager';
+import { Token } from '../../src/Token';
 
 export class TestLogger extends Logger {}
 
@@ -81,6 +82,14 @@ export class TestApplication extends Application {
 export class MockApplication extends Application {
     constructor(severity?: LogSeverity) {
         super("TestApplication", "./spec/support/", severity === undefined ? ERRORS_ONLY : severity);
+
+        const VERY_SECRET_KEY: string = 'secret';
+
+        this.setTokenManager(new TokenManager(VERY_SECRET_KEY));
+    }
+
+    public async signToken(payload?: any): Promise<Token> {
+        return await this.getTokenManager().sign(payload, '1d');
     }
 
     protected attachHandlers(): Promise<void> {

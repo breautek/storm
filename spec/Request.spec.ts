@@ -13,6 +13,12 @@ import {Writable} from 'stream';
 import * as http from 'http';
 import * as Path from 'path';
 import FormData = require('form-data');
+import { Token } from '../src/Token';
+import { TokenManager } from '../src/TokenManager';
+import { ResponseData } from '../src/ResponseData';
+import { JWTError } from '../src/JWTError';
+import { StatusCode } from '../src/StatusCode';
+import { getInstance } from '../src/instance';
 
 type HandlerCallback = (request: Request, response: Response) => void;
 
@@ -111,5 +117,125 @@ describe('Request', () => {
             request.pipe(writable);
         }));
         app.doMockPost('/pipes/', 'asdfasdf');
+    });
+
+    describe('getAuthenticationToken', () => {
+        it('can successfully get authentication token', (done) => {
+            app.signToken({
+                test: '123'
+            }).then((token: Token) => {
+                app.attachMockHandler('/auth/', makeHandler(async (request: Request, response: Response) => {
+                    try {
+                        let tokenData: any = await request.getAuthenticationToken();
+                        expect(tokenData.test).toBe('123');
+                        response.success();
+                        done();
+                    }
+                    catch (ex) {
+                        fail(ex);
+                    }
+                }));
+                app.doMockGet('/auth/', {
+                    'X-BT-AUTH': token.getSignature()
+                });
+            }).catch((error: any) => {
+                fail(error);
+            });
+        });
+
+        it('can handles invalid tokens', (done) => {
+            let tm: TokenManager = new TokenManager('badsecret');
+            tm.sign({
+                test: '123'
+            }, '1d').then((token: Token) => {
+                app.attachMockHandler('/auth/test1', makeHandler(async (request: Request, response: Response) => {
+                    try {
+                        await request.getAuthenticationToken();
+                        response.success();
+                        fail('Unexpected success');
+                    }
+                    catch (ex) {
+                        expect(ex).toBeInstanceOf(ResponseData);
+                        expect((<ResponseData>ex).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
+                        expect((<ResponseData>ex).getData()).toEqual({
+                            code: JWTError.ERR_GENERIC,
+                            reason: 'invalid signature'
+                        });
+                        response.success();
+                        done();
+                    }
+                }));
+                app.doMockGet('/auth/test1', {
+                    'X-BT-AUTH': token.getSignature()
+                });
+            }).catch((error: any) => {
+                fail(error);
+            });
+        });
+
+        it('can handles expired tokens', (done) => {
+            let tm: TokenManager = getInstance().getTokenManager();
+            tm.sign({
+                test: '123'
+            }, '1s').then((token: Token) => {
+                setTimeout(() => {
+                    app.attachMockHandler('/auth/test2', makeHandler(async (request: Request, response: Response) => {
+                        try {
+                            await request.getAuthenticationToken();
+                            response.success();
+                            fail('Unexpected success');
+                        }
+                        catch (ex) {
+                            expect(ex).toBeInstanceOf(ResponseData);
+                            expect((<ResponseData>ex).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
+                            expect((<ResponseData>ex).getData()).toEqual({
+                                code: JWTError.ERR_EXPIRED,
+                                reason: 'jwt expired'
+                            });
+                            response.success();
+                            done();
+                        }
+                    }));
+                    app.doMockGet('/auth/test2', {
+                        'X-BT-AUTH': token.getSignature()
+                    });
+                }, 1100);
+            }).catch((error: any) => {
+                fail(error);
+            });
+        });
+
+        it('produces InternalError on uncaught errors', (done) => {
+            let tm: TokenManager = getInstance().getTokenManager();
+            spyOn(tm, 'verify').and.callFake(() => {
+                return Promise.reject(new Error('test'));
+            });
+            tm.sign({
+                test: '123'
+            }, '1s').then((token: Token) => {
+                app.attachMockHandler('/auth/test3', makeHandler(async (request: Request, response: Response) => {
+                    try {
+                        await request.getAuthenticationToken();
+                        response.success();
+                        fail('Unexpected success');
+                    }
+                    catch (ex) {
+                        expect(ex).toBeInstanceOf(ResponseData);
+                        expect((<ResponseData>ex).getStatus()).toBe(StatusCode.INTERNAL_ERROR);
+                        expect((<ResponseData>ex).getData()).toEqual({
+                            code: 0,
+                            reason: 'An internal server error has occured. Please try again.'
+                        });
+                        response.success();
+                        done();
+                    }
+                }));
+                app.doMockGet('/auth/test3', {
+                    'X-BT-AUTH': token.getSignature()
+                });
+            }).catch((error: any) => {
+                fail(error);
+            });
+        });
     });
 });
