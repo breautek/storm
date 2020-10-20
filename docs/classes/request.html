@@ -57,7 +57,7 @@
 					<a href="request.html">Request</a>
 				</li>
 			</ul>
-			<h1>Class Request&lt;TBody&gt;</h1>
+			<h1>Class Request&lt;TBody, TAuthToken&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -69,6 +69,9 @@
 				<ul class="tsd-type-parameters">
 					<li>
 						<h4>TBody = <span class="tsd-signature-type">any</span></h4>
+					</li>
+					<li>
+						<h4>TAuthToken<span class="tsd-signature-symbol">: </span><a href="../interfaces/iauthtokendata.html" class="tsd-signature-type">IAuthTokenData</a> = <span class="tsd-signature-type">IAuthTokenData</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -93,6 +96,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="request.html#getauthenticationtoken" class="tsd-kind-icon">get<wbr>Authentication<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="request.html#getbody" class="tsd-kind-icon">get<wbr>Body</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="request.html#getform" class="tsd-kind-icon">get<wbr>Form</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="request.html#getforwardedip" class="tsd-kind-icon">get<wbr>ForwardedIP</a></li>
@@ -126,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L27">src/Request.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L34">src/Request.ts:34</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -143,6 +147,23 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getauthenticationtoken" class="tsd-anchor"></a>
+					<h3>get<wbr>Authentication<wbr>Token</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Authentication<wbr>Token<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L125">src/Request.ts:125</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getbody" class="tsd-anchor"></a>
 					<h3>get<wbr>Body</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -152,7 +173,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L33">src/Request.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L40">src/Request.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TBody</span></h4>
@@ -169,7 +190,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L37">src/Request.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L44">src/Request.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/iformdata.html" class="tsd-signature-type">IFormData</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -186,7 +207,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L86">src/Request.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L93">src/Request.ts:93</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -203,7 +224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L60">src/Request.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L67">src/Request.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -226,7 +247,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L56">src/Request.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L63">src/Request.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IncomingHttpHeaders</span></h4>
@@ -243,7 +264,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L90">src/Request.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L97">src/Request.ts:97</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -260,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L82">src/Request.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L89">src/Request.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -277,7 +298,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L94">src/Request.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L101">src/Request.ts:101</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -294,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L78">src/Request.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L85">src/Request.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -317,7 +338,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L74">src/Request.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L81">src/Request.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/iparametermap.html" class="tsd-signature-type">IParameterMap</a></h4>
@@ -334,7 +355,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L70">src/Request.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L77">src/Request.ts:77</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -351,7 +372,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L114">src/Request.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L121">src/Request.ts:121</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">express.Request</span></h4>
@@ -368,7 +389,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L98">src/Request.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L105">src/Request.ts:105</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -385,7 +406,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L102">src/Request.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L109">src/Request.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -402,7 +423,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L106">src/Request.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L113">src/Request.ts:113</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -425,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/Request.ts#L110">src/Request.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/Request.ts#L117">src/Request.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -457,6 +478,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="request.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="request.html#getauthenticationtoken" class="tsd-kind-icon">get<wbr>Authentication<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="request.html#getbody" class="tsd-kind-icon">get<wbr>Body</a>

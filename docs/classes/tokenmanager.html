@@ -57,13 +57,21 @@
 					<a href="tokenmanager.html">TokenManager</a>
 				</li>
 			</ul>
-			<h1>Class TokenManager</h1>
+			<h1>Class TokenManager&lt;TAuthToken&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>TAuthToken<span class="tsd-signature-symbol">: </span><a href="../interfaces/iauthtokendata.html" class="tsd-signature-type">IAuthTokenData</a> = <span class="tsd-signature-type">IAuthTokenData</span></h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -105,7 +113,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/TokenManager.ts#L23">src/TokenManager.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/TokenManager.ts#L24">src/TokenManager.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -125,13 +133,13 @@
 					<a name="decode" class="tsd-anchor"></a>
 					<h3>decode</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">decode<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">decode<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/TokenManager.ts#L73">src/TokenManager.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/TokenManager.ts#L75">src/TokenManager.ts:75</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,7 +148,7 @@
 									<h5>token: <a href="token.html" class="tsd-signature-type">Token</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -154,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/TokenManager.ts#L29">src/TokenManager.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/TokenManager.ts#L30">src/TokenManager.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -179,13 +187,13 @@
 					<a name="verify" class="tsd-anchor"></a>
 					<h3>verify</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">verify<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="token.html" class="tsd-signature-type">Token</a>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ijwtverifyoptions.html" class="tsd-signature-type">IJWTVerifyOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">verify<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="token.html" class="tsd-signature-type">Token</a>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ijwtverifyoptions.html" class="tsd-signature-type">IJWTVerifyOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/5dcf6e0/src/TokenManager.ts#L53">src/TokenManager.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/ecc2364/src/TokenManager.ts#L54">src/TokenManager.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -197,7 +205,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/ijwtverifyoptions.html" class="tsd-signature-type">IJWTVerifyOptions</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TAuthToken</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -215,7 +223,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class="current tsd-kind-class tsd-has-type-parameter">
 						<a href="tokenmanager.html" class="tsd-kind-icon">Token<wbr>Manager</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
