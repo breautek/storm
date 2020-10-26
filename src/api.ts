@@ -27,6 +27,8 @@ export {MySQLDatabase} from './MySQLDatabase';
 export {MySQLConnection} from './MySQLConnection';
 export {ManagedDatabaseConnection} from './ManagedDatabaseConnection';
 export {Query} from './Query';
+export {TemporaryTableQuery, ITemporaryTableQueryInput} from './TemporaryTableQuery';
+export {DropTemporaryTableQuery} from './DropTemporaryTableQuery';
 
 // Errors
 export {ErrorCode} from './ErrorCode';

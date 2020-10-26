@@ -62,4 +62,12 @@ describe('Public API', () => {
     it('Query', () => {
         expect(api.Query).toBeTruthy();
     });
+
+    it('TemporaryTableQuery', () => {
+        expect(api.TemporaryTableQuery).toBeTruthy();
+    });
+
+    it('DropTemporaryTableQuery', () => {
+        expect(api.DropTemporaryTableQuery).toBeTruthy();
+    });
 });
