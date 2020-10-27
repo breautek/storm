@@ -42,7 +42,12 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
             // but we don't really need to wait for the async operations
             // to complete to set the new connection object.
             const oldConnection: IDatabaseConnection = this._connection;
-            if (oldConnection.isTransaction()) {
+
+            /**
+             * If the old connection has a transaction, only care about it
+             * if this particular instance of managed connections has write access.
+             */
+            if (this._requiresWrite && oldConnection.isTransaction()) {
                 getInstance().getLogger().warn('Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.');
                 getInstance().getLogger().trace(new Error('Stacktrace'));
                 oldConnection.rollback().then(() => {

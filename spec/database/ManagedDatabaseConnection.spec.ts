@@ -178,7 +178,7 @@ describe('ManagedDatabaseConnection', () => {
     });
 
     it('can set connection over connection (transaction rollsback successfully)', (done) => {
-        let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
+        let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection(true);
         let conn1: MockConnection = new MockConnection(false, '');
         let conn2: MockConnection = new MockConnection(false, '');
 
@@ -202,8 +202,29 @@ describe('ManagedDatabaseConnection', () => {
         }, 100);
     });
 
-    it('can set connection over connection (transaction rollsback failure)', (done) => {
+    it('can set connection over connection (transaction rollsback ignored)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
+        let conn1: MockConnection = new MockConnection(false, '');
+        let conn2: MockConnection = new MockConnection(false, '');
+
+        mdc.setConnection(conn1);
+
+        spyOn(conn1, 'isTransaction').and.returnValue(true);
+        let spy: jasmine.Spy = spyOn(conn1, 'close').and.callThrough();
+
+        mdc.setConnection(conn2);
+
+        setTimeout(() => {
+            expect((<any>mdc)._connection).toBe(conn2);
+            expect(spy).toHaveBeenCalled();
+            mdc.close().then(() => {
+                done();
+            });
+        }, 100);
+    });
+
+    it('can set connection over connection (transaction rollsback failure)', (done) => {
+        let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection(true);
         let conn1: MockConnection = new MockConnection(false, '');
         let conn2: MockConnection = new MockConnection(false, '');
         let testError: Error = new Error('test');
