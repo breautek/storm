@@ -1,5 +1,9 @@
-./docs
-./old
-./nyc_output
-./spec
-./coverage
+old
+nyc_output
+spec
+coverage
+.travis.yml
+*.tsbuildinfo
+.eslintcache
+.nojekyll
+
