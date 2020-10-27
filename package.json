@@ -81,7 +81,7 @@
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "auto-changelog": "2.2.1",
-    "eslint": "7.11.0",
+    "eslint": "7.12.1",
     "form-data": "2.5.0",
     "jasmine": "3.6.2",
     "jasmine-spec-reporter": "6.0.0",
