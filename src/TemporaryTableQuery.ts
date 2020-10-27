@@ -26,7 +26,7 @@ export class TemporaryTableQuery extends Query {
         let params: ITemporaryTableQueryInput = <ITemporaryTableQueryInput>super.getParameters();
 
         return `
-            CREATE TEMPORARY TABLE :tableName
+            CREATE TEMPORARY TABLE \`${params.tableName}\`
             ${params.selectQuery.getQuery()}
         `;
     }

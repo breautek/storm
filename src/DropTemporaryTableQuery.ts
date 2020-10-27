@@ -14,7 +14,7 @@ export class DropTemporaryTableQuery extends Query {
 
     protected _getQuery(): string {
         return `
-            DROP TEMPORARY TABLE :tableName
+            DROP TEMPORARY TABLE \`${this.getParameters().tableName}\`
         `;
     }
 }

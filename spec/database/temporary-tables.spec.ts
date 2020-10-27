@@ -8,13 +8,13 @@ import {DropTemporaryTableQuery} from '../../src/DropTemporaryTableQuery';
 
 const TEMP_TABLE_QUERY_EXPECTATION: string =
 `
-            CREATE TEMPORARY TABLE :tableName
+            CREATE TEMPORARY TABLE \`my_temp_table\`
             SELECT :name
         `;
 
 const TEMP_TABLE_DROP_QUERY_EXPECTATION: string = 
 `
-            DROP TEMPORARY TABLE :tableName
+            DROP TEMPORARY TABLE \`my_temp_table\`
         `;
 
 describe('Temporary Tables', () => {
