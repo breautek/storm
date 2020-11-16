@@ -6,4 +6,4 @@ coverage
 *.tsbuildinfo
 .eslintcache
 .nojekyll
-
+scripts

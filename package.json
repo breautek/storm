@@ -35,8 +35,7 @@
     "changelog": "auto-changelog --output CHANGELOG.md -p --release-summary --ignore-commit-pattern chore",
     "preversion": "npm run clean",
     "version": "npm run-script build && npm run-script build-docs && npm run changelog && git add CHANGELOG.md docs && git commit -m 'chore: changelog'",
-    "postversion": "git push && git push --tags",
-    "make-beta": "npm version $1 --preid=beta && npm publish --tag beta"
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",

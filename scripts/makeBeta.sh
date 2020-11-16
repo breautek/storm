@@ -1,0 +1,1 @@
+npm version pre$1 --preid=beta && npm publish --tag beta
