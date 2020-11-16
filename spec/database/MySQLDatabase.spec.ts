@@ -4,6 +4,8 @@ import {
 } from '../support/TestApplication';
 import {MySQLDatabase} from '../../src/MySQLDatabase';
 import * as MySQL from 'mysql';
+import {getApplicationLogger} from '../../src/instance';
+import {EventEmitter} from 'events';
 
 describe('MySQLDatabase', () => {
     let app: MockApplication = null;
@@ -86,5 +88,14 @@ describe('MySQLDatabase', () => {
         db.getConnection(true);
 
         expect(spy).toHaveBeenCalledWith('MASTER', jasmine.any(Function));
+    });
+
+    it('enqueue warns', async () => {
+        let db: MySQLDatabase = new MySQLDatabase();
+        let spy: jasmine.Spy = spyOn(getApplicationLogger(), 'warn');
+
+        (<EventEmitter>(<any>db).cluster).emit('enqueue');
+
+        expect(spy).toHaveBeenCalled();
     });
 });

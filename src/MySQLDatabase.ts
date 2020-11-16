@@ -24,6 +24,9 @@ export class MySQLDatabase extends Database {
     constructor() {
         super();
         this.cluster = MySQL.createPoolCluster();
+        this.cluster.on('enqueue', function () {
+            getApplicationLogger().warn('Waiting for available connection...');
+        });
     }
 
     public escape(value: any): string {
