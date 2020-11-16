@@ -121,12 +121,12 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
     /**
      * Queries the database for a dataset.
      * 
-    * @param {Query} query The database query
+     * @param {Query} query The database query
      * @param {IQueryParameters} params Parameters for the query
      * @async
-     * @returns Promise<any>
+     * @returns Promise<TQueryResult>
      */
-    public query(query: string | Query, params?: IQueryParameters): Promise<any> {
+    public async query<TQueryResult = any>(query: string | Query, params?: IQueryParameters): Promise<TQueryResult> {
         this._armLingerWarning();
         
         let queryStr: string = null;
@@ -139,7 +139,13 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
             queryStr = query;
         }
 
-        return this._query(queryStr, params);
+        let results: TQueryResult = await this._query<TQueryResult>(queryStr, params);
+        if (query instanceof Query) {
+            return await (<any>query.onPostProcess(this, <any>results));
+        }
+        else {
+            return results;
+        }
     }
 
     /**
@@ -252,7 +258,7 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
      * @async
      * @returns Promise
      */
-    protected abstract _query(query: string, params?: any): Promise<any>;
+    protected abstract _query<TQueryResult>(query: string, params?: any): Promise<TQueryResult>;
 
     /**
      * Implementation method to return a dataset from the database like `query()`,
