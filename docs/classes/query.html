@@ -57,13 +57,27 @@
 					<a href="query.html">Query</a>
 				</li>
 			</ul>
-			<h1>Class Query</h1>
+			<h1>Class Query&lt;TQueryParameters, TQueryResultSet, TQueryPostProcessedResultSet&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>TQueryParameters = <span class="tsd-signature-type">any</span></h4>
+					</li>
+					<li>
+						<h4>TQueryResultSet = <span class="tsd-signature-type">any</span></h4>
+					</li>
+					<li>
+						<h4>TQueryPostProcessedResultSet = <span class="tsd-signature-type">TQueryResultSet</span></h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -105,6 +119,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="query.html#_getquery" class="tsd-kind-icon">_get<wbr>Query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="query.html#getparameters" class="tsd-kind-icon">get<wbr>Parameters</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="query.html#getquery" class="tsd-kind-icon">get<wbr>Query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="query.html#onpostprocess" class="tsd-kind-icon">on<wbr>Post<wbr>Process</a></li>
 							</ul>
 						</section>
 					</div>
@@ -116,19 +131,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Query<span class="tsd-signature-symbol">(</span>parameters<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iqueryparameters.html" class="tsd-signature-type">IQueryParameters</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="query.html" class="tsd-signature-type">Query</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Query<span class="tsd-signature-symbol">(</span>parameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TQueryParameters</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="query.html" class="tsd-signature-type">Query</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/7bcac4b/src/Query.ts#L4">src/Query.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L4">src/Query.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> parameters: <a href="../interfaces/iqueryparameters.html" class="tsd-signature-type">IQueryParameters</a><span class="tsd-signature-symbol"> = {}</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parameters: <span class="tsd-signature-type">TQueryParameters</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="query.html" class="tsd-signature-type">Query</a></h4>
@@ -148,7 +163,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/7bcac4b/src/Query.ts#L14">src/Query.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L14">src/Query.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -159,16 +174,16 @@
 					<a name="getparameters" class="tsd-anchor"></a>
 					<h3>get<wbr>Parameters</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Parameters<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/iqueryparameters.html" class="tsd-signature-type">IQueryParameters</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parameters<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TQueryParameters</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/7bcac4b/src/Query.ts#L10">src/Query.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L10">src/Query.ts:10</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/iqueryparameters.html" class="tsd-signature-type">IQueryParameters</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TQueryParameters</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -182,10 +197,44 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/7bcac4b/src/Query.ts#L16">src/Query.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L16">src/Query.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="onpostprocess" class="tsd-anchor"></a>
+					<h3>on<wbr>Post<wbr>Process</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Post<wbr>Process<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><a href="../interfaces/idatabaseconnection.html" class="tsd-signature-type">IDatabaseConnection</a>, resultSet<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TQueryResultSet</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TQueryPostProcessedResultSet</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L26">src/Query.ts:26</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Override to augment/manipulate the returned result set.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>connection: <a href="../interfaces/idatabaseconnection.html" class="tsd-signature-type">IDatabaseConnection</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The connection object used for this query execution. Useful if further queries are required.</p>
+									</div>
+								</li>
+								<li>
+									<h5>resultSet: <span class="tsd-signature-type">TQueryResultSet</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TQueryPostProcessedResultSet</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -203,7 +252,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class="current tsd-kind-class tsd-has-type-parameter">
 						<a href="query.html" class="tsd-kind-icon">Query</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
@@ -217,6 +266,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="query.html#getquery" class="tsd-kind-icon">get<wbr>Query</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="query.html#onpostprocess" class="tsd-kind-icon">on<wbr>Post<wbr>Process</a>
 							</li>
 						</ul>
 					</li>

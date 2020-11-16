@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="query.html" class="tsd-signature-type">Query</a>
+						<a href="query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">RollbackQuery</span>
@@ -93,6 +93,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="rollbackquery.html#_getquery" class="tsd-kind-icon">_get<wbr>Query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="rollbackquery.html#getparameters" class="tsd-kind-icon">get<wbr>Parameters</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="rollbackquery.html#getquery" class="tsd-kind-icon">get<wbr>Query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="rollbackquery.html#onpostprocess" class="tsd-kind-icon">on<wbr>Post<wbr>Process</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,20 +105,20 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Rollback<wbr>Query<span class="tsd-signature-symbol">(</span>parameters<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iqueryparameters.html" class="tsd-signature-type">IQueryParameters</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rollbackquery.html" class="tsd-signature-type">RollbackQuery</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Rollback<wbr>Query<span class="tsd-signature-symbol">(</span>parameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rollbackquery.html" class="tsd-signature-type">RollbackQuery</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="query.html">Query</a>.<a href="query.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/7bcac4b/src/Query.ts#L4">src/Query.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L4">src/Query.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> parameters: <a href="../interfaces/iqueryparameters.html" class="tsd-signature-type">IQueryParameters</a><span class="tsd-signature-symbol"> = {}</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parameters: <span class="tsd-signature-type">void</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="rollbackquery.html" class="tsd-signature-type">RollbackQuery</a></h4>
@@ -138,7 +139,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="query.html">Query</a>.<a href="query.html#_getquery">_getQuery</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/7bcac4b/src/private/RollbackQuery.ts#L5">src/private/RollbackQuery.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/private/RollbackQuery.ts#L5">src/private/RollbackQuery.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -149,17 +150,17 @@
 					<a name="getparameters" class="tsd-anchor"></a>
 					<h3>get<wbr>Parameters</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Parameters<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/iqueryparameters.html" class="tsd-signature-type">IQueryParameters</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parameters<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="query.html">Query</a>.<a href="query.html#getparameters">getParameters</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/7bcac4b/src/Query.ts#L10">src/Query.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L10">src/Query.ts:10</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/iqueryparameters.html" class="tsd-signature-type">IQueryParameters</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -174,10 +175,45 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="query.html">Query</a>.<a href="query.html#getquery">getQuery</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/breautek/storm/blob/7bcac4b/src/Query.ts#L16">src/Query.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L16">src/Query.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="onpostprocess" class="tsd-anchor"></a>
+					<h3>on<wbr>Post<wbr>Process</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Post<wbr>Process<span class="tsd-signature-symbol">(</span>connection<span class="tsd-signature-symbol">: </span><a href="../interfaces/idatabaseconnection.html" class="tsd-signature-type">IDatabaseConnection</a>, resultSet<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TQueryResultSet</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="query.html">Query</a>.<a href="query.html#onpostprocess">onPostProcess</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/breautek/storm/blob/2b17211/src/Query.ts#L26">src/Query.ts:26</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Override to augment/manipulate the returned result set.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>connection: <a href="../interfaces/idatabaseconnection.html" class="tsd-signature-type">IDatabaseConnection</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The connection object used for this query execution. Useful if further queries are required.</p>
+									</div>
+								</li>
+								<li>
+									<h5>resultSet: <span class="tsd-signature-type">void</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TQueryResultSet</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -209,6 +245,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="rollbackquery.html#getquery" class="tsd-kind-icon">get<wbr>Query</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="rollbackquery.html#onpostprocess" class="tsd-kind-icon">on<wbr>Post<wbr>Process</a>
 							</li>
 						</ul>
 					</li>
