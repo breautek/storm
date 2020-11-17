@@ -61,5 +61,36 @@
     @description    The maximum size in bytes that this service is capable of handling.
     @default        5242880
     */
-    "request_size_limit": 5242880
+    "request_size_limit": 5242880,
+
+    /*
+    Object holding database related configurations
+    */
+    "database": {
+        /*
+        @type IDatabaseConfig
+        Note: main name will be enforced to MASTER
+        */
+        "main": {
+            "name": "MASTER",
+            "host": "example.com",
+            "port": 3306,
+            "schema": "schema",
+            "user": "user",
+            "password": "password"
+        },
+        "replicationNodes": [
+            /*
+                @type IDatabaseConfig
+            */
+            {}
+        ]
+    },
+
+    /*
+    @type IDictionary
+    @description    Arbitruary object for application-specific parameters
+    @default        {}
+    */
+    "customConfig": {}
 }
