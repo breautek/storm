@@ -202,7 +202,7 @@ export abstract class Application
         this._program.version(pkg.version, '-v, --version');
         this._program.option('--port <port>', 'The running port to consume');
         this._program.option('--binding <ip>', 'The binding IP to listen on');
-        this._program.option('--authentication_header', 'The header name of the authentication token');
+        this._program.option('--authentication_header <header>', 'The header name of the authentication token');
 
         this._buildArgOptions(this._program);
     }
@@ -364,8 +364,8 @@ export abstract class Application
             o.port = program.port;
         }
 
-        if (program.authenticationHeader !== undefined) {
-            o.authentication_header = program.authenticationHeader;
+        if (program.authentication_header !== undefined) {
+            o.authentication_header = program.authentication_header;
         }
 
         return o;

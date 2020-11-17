@@ -14,6 +14,7 @@ import { MockDB } from './support/MockDB';
 import * as http from 'http';
 import * as AppInstance from '../src/instance';
 import { CommanderStatic } from 'commander';
+import * as ChildProcess from 'child_process';
 
 describe('Application', () => {
     let app: TestApplication = null;
@@ -217,5 +218,66 @@ describe('Application', () => {
         app.setLogger(logger);
         expect(app.getLogger()).toBe(logger);
         app.setLogger(originalLogger);
+    });
+
+    describe('CLI Support', () => {
+        it('starts without parameters', () => {
+            expect(() => {
+                ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp')
+            }).not.toThrow();
+        });
+
+        it('should throw error (expecting config)', () => {
+            expect(() => {
+                ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockAppWithError')
+            }).toThrowMatching((thrown: any): boolean => {
+                console.log(thrown.stdout.toString());
+                return /Missing.+bt-config.json/.test(thrown.stdout.toString());
+            });
+        });
+
+        it('option --port', () => {
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --port 0').toString();
+            let opts: any = JSON.parse(buf);
+            expect(opts).toEqual({
+                port: '0'
+            });
+        });
+
+        it('option --binding', () => {
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --binding 123.456.789.0').toString();
+            let opts: any = JSON.parse(buf);
+            expect(opts).toEqual({
+                binding_ip: '123.456.789.0'
+            });
+        });
+
+        it('option --authentication_header', () => {
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --authentication_header newHeader').toString();
+            let opts: any = JSON.parse(buf);
+            expect(opts).toEqual({
+                authentication_header: 'newHeader'
+            });
+        });
+
+        it('option -v', () => {
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp -v').toString();
+            expect(buf).toBe(require('../package.json').version + '\n');
+        });
+
+        it('option --version', () => {
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --version').toString();
+            expect(buf).toBe(require('../package.json').version + '\n');
+        });
+
+        it('option -h', () => {
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp -h').toString();
+            expect(buf).toMatch(/Usage: CLIMockApp/);
+        });
+
+        it('option --help', () => {
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --help').toString();
+            expect(buf).toMatch(/Usage: CLIMockApp/);
+        });
     });
 });
