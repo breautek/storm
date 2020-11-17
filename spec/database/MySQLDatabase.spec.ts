@@ -1,6 +1,6 @@
 
 import {
-    MockApplication,
+    MockApplication
 } from '../support/TestApplication';
 import {MySQLDatabase} from '../../src/MySQLDatabase';
 import * as MySQL from 'mysql';
@@ -38,7 +38,7 @@ describe('MySQLDatabase', () => {
 
     it('add master', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).cluster, 'add');
+        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'add');
 
         let config: MySQL.PoolConfig = {
             acquireTimeout: 3000
@@ -51,7 +51,7 @@ describe('MySQLDatabase', () => {
 
     it('add slave', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).cluster, 'add');
+        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'add');
 
         let nodeID: string = 'test';
         let config: MySQL.PoolConfig = {
@@ -65,7 +65,7 @@ describe('MySQLDatabase', () => {
 
     it('remove node', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).cluster, 'remove');
+        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'remove');
 
         db.removeMaster();
 
@@ -74,7 +74,7 @@ describe('MySQLDatabase', () => {
 
     it('get read only connection', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).cluster, 'getConnection');
+        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'getConnection');
 
         db.getConnection();
 
@@ -83,7 +83,7 @@ describe('MySQLDatabase', () => {
 
     it('get write accessible connection', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).cluster, 'getConnection');
+        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'getConnection');
 
         db.getConnection(true);
 
@@ -94,7 +94,7 @@ describe('MySQLDatabase', () => {
         let db: MySQLDatabase = new MySQLDatabase();
         let spy: jasmine.Spy = spyOn(getApplicationLogger(), 'warn');
 
-        (<EventEmitter>(<any>db).cluster).emit('enqueue');
+        (<EventEmitter>(<any>db)._cluster).emit('enqueue');
 
         expect(spy).toHaveBeenCalled();
     });

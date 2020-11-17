@@ -95,7 +95,7 @@ describe('Logger', () => {
 
     it('Invalid severity', () => {
         let a: MockLogger = new MockLogger();
-        a.mockLog((<any>['invalid severity test']), 123456);  
+        a.mockLog((<any>[ 'invalid severity test' ]), 123456);
     });
 
     it('Can use stdout for errors', () => {
@@ -117,10 +117,7 @@ describe('Logger', () => {
             log_level: 'error | fatal',
             backend_authentication_header: 'X-BT-BACKEND-AUTH',
             backend_authentication_secret: null,
-            log_filters: [
-                '/test1/g',
-                '/test2/g'
-            ]
+            log_filters: [ '/test1/g', '/test2/g' ]
         }));
 
         a.on('ready', () => {
@@ -134,17 +131,17 @@ describe('Logger', () => {
 
     it('FormatText handles logging unknown severity', () => {
         let mock: MockLogger = new MockLogger();
-        expect(mock.formatString(['test', '123'], 123123).indexOf('test 123')).toBeGreaterThan(-1);
+        expect(mock.formatString([ 'test', '123' ], 123123).indexOf('test 123')).toBeGreaterThan(-1);
     });
 
     it('FormatText handles logging objects', () => {
         let mock: MockLogger = new MockLogger();
-        expect(mock.formatString([{a: true,b: 123,c: 'test'}], LogSeverity.INFO).indexOf(`{ a: true, b: 123, c: 'test' }`)).toBeGreaterThan(-1);
+        expect(mock.formatString([ {a: true, b: 123, c: 'test'} ], LogSeverity.INFO).indexOf(`{ a: true, b: 123, c: 'test' }`)).toBeGreaterThan(-1);
     });
 
     it('FormatText handles logging errors', () => {
         let mock: MockLogger = new MockLogger();
-        expect(mock.formatString([new Error('test error')], LogSeverity.INFO).indexOf(`test error`)).toBeGreaterThan(-1);
+        expect(mock.formatString([ new Error('test error') ], LogSeverity.INFO).indexOf(`test error`)).toBeGreaterThan(-1);
     });
 
     it('can setLogStream', () => {

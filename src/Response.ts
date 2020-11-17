@@ -27,27 +27,27 @@ export interface IHeaderKeyValuePair {
 }
 
 export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorResponse | string> {
-    private response: express.Response;
-    private created: Date;
-    private requestURL: string;
+    private _response: express.Response;
+    private _created: Date;
+    private _requestURL: string;
 
     public constructor(response: express.Response, requestURL: string) {
-        this.response = response;
-        this.created = new Date();
-        this.requestURL = requestURL;
+        this._response = response;
+        this._created = new Date();
+        this._requestURL = requestURL;
     }
 
     public setStatus(status: StatusCode): Response<TResponse, TErrorResponse> {
-        this.response.status(status);
+        this._response.status(status);
         return this;
     }
 
     public getStatus(): StatusCode {
-        return this.response.statusCode;
+        return this._response.statusCode;
     }
 
     public redirect(url: string): void {
-        this.response.redirect(url);
+        this._response.redirect(url);
     }
 
     public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse): void {
@@ -58,18 +58,18 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
             this.setStatus(data.getHTTPCode()).send(data.getErrorResponse());
         }
         else {
-            this.response.send(data);
+            this._response.send(data);
         }
         
-        getApplicationLogger().info(`API ${this.requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.created.getTime()}ms`);
+        getApplicationLogger().info(`API ${this._requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this._created.getTime()}ms`);
     }
 
     public pipe(stream: NodeJS.ReadableStream): void {
         stream.on('end', () => {
-            stream.unpipe(this.response);
+            stream.unpipe(this._response);
         });
         
-        stream.pipe(this.response);
+        stream.pipe(this._response);
     }
 
     public success(data?: TResponse): void {
@@ -84,15 +84,15 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
     }
 
     public setHeader(key: string, value: string): void {
-        this.response.set(key, value);
+        this._response.set(key, value);
     }
 
     public setHeaders(keyValuePair: IHeaderKeyValuePair): void {
-        this.response.set(keyValuePair);
+        this._response.set(keyValuePair);
     }
 
     public isHeadersSent(): boolean {
-        return this.response.headersSent;
+        return this._response.headersSent;
     }
 
     public error(error?: TErrorResponse | ResponseData<TErrorResponse>): void {

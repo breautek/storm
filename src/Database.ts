@@ -13,53 +13,54 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import { IDictionary } from '@totalpave/interfaces';
 import * as UUID from 'uuid';
 import {DatabaseConnection} from './DatabaseConnection';
 import {getApplicationLogger} from './instance';
 
 const MASTER_NAME: string = 'MASTER';
 
-export abstract class Database {
-    private clusterConfigMap: any;
+export abstract class Database<TDatabaseConfig, TConnectionAPI> {
+    private _clusterConfigMap: IDictionary;
 
     constructor() {
-        this.clusterConfigMap = {};
+        this._clusterConfigMap = {};
     }
 
-    public addMaster(config: any): void {
-        if (this.clusterConfigMap[MASTER_NAME]) {
+    public addMaster(config: TDatabaseConfig): void {
+        if (this._clusterConfigMap[MASTER_NAME]) {
             throw new Error(`Node "${MASTER_NAME}" already exists.`);
         }
 
-        this.clusterConfigMap[MASTER_NAME] = config;
+        this._clusterConfigMap[MASTER_NAME] = config;
         this._addNode(MASTER_NAME, config);
     }
 
     public removeMaster(): void {
-        delete this.clusterConfigMap[MASTER_NAME];
+        delete this._clusterConfigMap[MASTER_NAME];
         this._removeNode(MASTER_NAME);
     }
 
-    public addSlave(slaveID: string, config: any): string {
+    public addSlave(slaveID: string, config: TDatabaseConfig): string {
         let id = `SLAVE.${UUID.v4()}.${slaveID}`;
 
-        this.clusterConfigMap[id] = config;
+        this._clusterConfigMap[id] = config;
         this._addNode(id, config);
 
         return id;
     }
 
     public removeSlave(slaveID: string): void {
-        if (!this.clusterConfigMap[slaveID]) {
+        if (!this._clusterConfigMap[slaveID]) {
             getApplicationLogger().warn(`Node ${slaveID} is not a part of this cluster.`);
             return;
         }
 
-        delete this.clusterConfigMap[slaveID];
+        delete this._clusterConfigMap[slaveID];
         this._removeNode(slaveID);
     }
 
-    public getConnection(requireWriteAccess: boolean = false, nodeID?: string): Promise<DatabaseConnection> {
+    public getConnection(requireWriteAccess: boolean = false, nodeID?: string): Promise<DatabaseConnection<TConnectionAPI>> {
         let query: string = 'SLAVE*';
         
         if (nodeID) {
@@ -72,8 +73,8 @@ export abstract class Database {
         return this._getConnection(query, requireWriteAccess);
     }
 
-    protected abstract _addNode(name: string, config: any): void;
+    protected abstract _addNode(name: string, config: TDatabaseConfig): void;
     protected abstract _removeNode(name: string): void;
-    protected abstract _getConnection(query: string, requireWriteAccess: boolean): Promise<DatabaseConnection>;
+    protected abstract _getConnection(query: string, requireWriteAccess: boolean): Promise<DatabaseConnection<TConnectionAPI>>;
     public abstract escape(query: string): string;
 }

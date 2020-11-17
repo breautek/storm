@@ -17,7 +17,8 @@ import {StormError} from './StormError';
 import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
-export class ExpiredTokenError extends StormError {
+export class ExpiredTokenError extends StormError<any> {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public constructor(details?: any) {
         super(details);
     }

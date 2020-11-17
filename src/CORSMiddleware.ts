@@ -83,7 +83,7 @@ export class CORSMiddleware extends Middleware {
         response.setHeader('Vary', 'Origin');
         return Promise.resolve({
             request: request,
-            response: response 
+            response: response
         });
     }
 }

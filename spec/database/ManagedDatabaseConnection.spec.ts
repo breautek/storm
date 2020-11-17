@@ -1,7 +1,7 @@
 
 import {ManagedDatabaseConnection} from '../../src/ManagedDatabaseConnection';
 import {
-    MockApplication,
+    MockApplication
 } from '../support/TestApplication';
 import {MockConnection} from '../support/MockConnection';
 import { DEFAULT_QUERY_TIMEOUT, DatabaseConnection } from '../../src/DatabaseConnection';
@@ -338,7 +338,7 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setTimeout(1000);
 
         setTimeout(() => {
-            let conn: DatabaseConnection = (<any>mdc)._connection;
+            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
             let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
             mdc.close().then(() => {
                 expect(spy).toHaveBeenCalled();
@@ -352,7 +352,7 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setTimeout(1000);
 
         setTimeout(() => {
-            let conn: DatabaseConnection = (<any>mdc)._connection;
+            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
             let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
             mdc.close(true).then(() => {
                 expect(spy).toHaveBeenCalledWith(true);
@@ -380,7 +380,7 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setTimeout(1000);
 
         setTimeout(() => {
-            let conn: DatabaseConnection = (<any>mdc)._connection;
+            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
             let spy: jasmine.Spy = spyOn(conn, 'startTransaction').and.returnValue(Promise.resolve());
             mdc.startTransaction().then(() => {
                 expect(spy).toHaveBeenCalled();
@@ -408,7 +408,7 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setTimeout(1000);
 
         setTimeout(() => {
-            let conn: DatabaseConnection = (<any>mdc)._connection;
+            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
             let spy: jasmine.Spy = spyOn(conn, 'commit').and.returnValue(Promise.resolve());
             mdc.commit().then(() => {
                 expect(spy).toHaveBeenCalled();
@@ -436,7 +436,7 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setTimeout(1000);
 
         setTimeout(() => {
-            let conn: DatabaseConnection = (<any>mdc)._connection;
+            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
             let spy: jasmine.Spy = spyOn(conn, 'rollback').and.returnValue(Promise.resolve());
             mdc.rollback().then(() => {
                 expect(spy).toHaveBeenCalled();

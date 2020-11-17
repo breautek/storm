@@ -32,11 +32,11 @@ import {InternalError} from './InternalError';
  * for their specific use cases.
  */
 export abstract class AuthenticationMiddleware {
-    private logger: Logger;
+    private _logger: Logger;
 
     public constructor() {
-        this.logger = getApplicationLogger();
-        this.logger.deprecate();
+        this._logger = getApplicationLogger();
+        this._logger.deprecate();
     }
 
     /**
@@ -45,6 +45,7 @@ export abstract class AuthenticationMiddleware {
      * @param response 
      * @param options Arbituary object containing any relevant information used for authentication.
      */
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public execute(request: Request, response: Response, options?: any): Promise<any> {
         let config: IConfig = getInstance().getConfig();
         let authHeader: string = config.authentication_header;
@@ -90,7 +91,7 @@ export abstract class AuthenticationMiddleware {
             }).then((data) => {
                 resolve(data);
             }).catch((error: any) => {
-                this.logger.error(error);
+                this._logger.error(error);
                 let responseData: ResponseData = null;
 
                 // If an error is a TokenExpiredError|JsonWebTokenError, then we can handle it here. Otherwise propagate based on the rules below
@@ -135,5 +136,6 @@ export abstract class AuthenticationMiddleware {
      * @param tokenData 
      * @param options 
      */
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected abstract authenticate(tokenData: any, options: any, isBackendCall: boolean): Promise<any>;
 }

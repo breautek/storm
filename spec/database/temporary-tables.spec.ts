@@ -1,8 +1,7 @@
 import { Query } from "../../src/api";
 import {
-    MockApplication,
+    MockApplication
 } from '../support/TestApplication';
-// import { MySQLConnection } from '../../src/MySQLConnection';
 import {TemporaryTableQuery} from '../../src/TemporaryTableQuery';
 import {DropTemporaryTableQuery} from '../../src/DropTemporaryTableQuery';
 
@@ -12,7 +11,7 @@ const TEMP_TABLE_QUERY_EXPECTATION: string =
             SELECT :name
         `;
 
-const TEMP_TABLE_DROP_QUERY_EXPECTATION: string = 
+const TEMP_TABLE_DROP_QUERY_EXPECTATION: string =
 `
             DROP TEMPORARY TABLE \`my_temp_table\`
         `;

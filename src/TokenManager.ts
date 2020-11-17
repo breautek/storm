@@ -21,10 +21,10 @@ import {randomBytes} from 'crypto';
 import { IAuthTokenData } from './IAuthTokenData';
 
 export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
-    private secret: string;
+    private _secret: string;
 
     public constructor(secret: string) {
-        this.secret = secret;
+        this._secret = secret;
     }
 
     public sign(payload: {[key: string]: any}, expiresIn: string | number): Promise<Token> {
@@ -35,10 +35,9 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
                     return;
                 }
 
-                // eslint-disable-next-line @typescript-eslint/camelcase
                 payload.__bt__salt = buffer.toString('hex');
 
-                jwt.sign(payload, this.secret, {
+                jwt.sign(payload, this._secret, {
                     expiresIn : expiresIn
                 }, (error: Error, token: string) => {
                     if (error) {
@@ -58,11 +57,12 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
                 options = {
                     enableExpiration: true
                 };
-            } else if (options.enableExpiration === undefined) {
+            }
+            else if (options.enableExpiration === undefined) {
                 options.enableExpiration = true;
             }
 
-            jwt.verify(token.getSignature(), this.secret, JWTVerifyOptionsParser.parse(options), (error, decoded: TAuthToken) => {
+            jwt.verify(token.getSignature(), this._secret, JWTVerifyOptionsParser.parse(options), (error, decoded: TAuthToken) => {
                 if (error) {
                     return reject(error);
                 }
@@ -75,7 +75,7 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
     public decode(token: Token): Promise<TAuthToken> {
         return new Promise<any>((resolve, reject) => {
             try {
-                const decoded: TAuthToken = <TAuthToken>jwt.decode(token.getSignature());
+                let decoded: TAuthToken = <TAuthToken>jwt.decode(token.getSignature());
                 resolve(decoded);
             }
             catch (ex) {

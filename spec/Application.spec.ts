@@ -1,7 +1,7 @@
 /* eslint-disable no-prototype-builtins */
 
 import {
-    TestApplication, 
+    TestApplication,
     NoServerApp,
     ConfigTestApp
 } from './support/TestApplication';

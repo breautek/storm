@@ -28,15 +28,15 @@ export interface IErrorResponse {
     details: IAdditionalErrorDetails;
 }
 
-export abstract class StormError extends Error {
-    private details: any;
+export abstract class StormError<TErrorDetails = any> extends Error {
+    private _details: TErrorDetails;
 
-    public constructor(details?: any) {
+    public constructor(details?: TErrorDetails) {
         super();
 
-        this.details = details;
+        this._details = details;
 
-        const instance: Application = getInstance();
+        let instance: Application = getInstance();
         instance.getLogger().error(`${this.getMessage()}... See details below:`);
         instance.getLogger().info(this.getPrivateDetails());
     }
@@ -60,8 +60,8 @@ export abstract class StormError extends Error {
      * Private details are only logged to the server log.
      * They are kept secret from the client.
      */
-    public getPrivateDetails(): any {
-        return this.details;
+    public getPrivateDetails(): TErrorDetails {
+        return this._details;
     }
 
     public getHTTPCode(): StatusCode {
@@ -76,9 +76,9 @@ export abstract class StormError extends Error {
     public getErrorResponse(): IErrorResponse {
         let details: IAdditionalErrorDetails = null;
 
-        if ((<any>this)['getAdditionalDetails']) {
+        if ((<any> this)['getAdditionalDetails']) {
             getInstance().getLogger().deprecate('getPublicDetails', `${this.constructor.name}.getAdditionalDetails()`);
-            details = (<any>this)['getAdditionalDetails']();
+            details = (<any> this)['getAdditionalDetails']();
         }
         else {
             details = this.getPublicDetails();

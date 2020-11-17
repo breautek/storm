@@ -23,7 +23,7 @@ describe('Database', () => {
     });
 
     it('has timeout', (done) => {
-        app.getDB().getConnection().then((connection: DatabaseConnection) => {
+        app.getDB().getConnection().then((connection: DatabaseConnection<any>) => {
             expect(connection.getTimeout()).toBe(3600000);
             done();
         }).catch((error: any) => {

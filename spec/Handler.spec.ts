@@ -3,7 +3,6 @@ import {MockApplication, IMockResponse} from './support/TestApplication';
 import {Request} from '../src/Request';
 import {Response} from '../src/Response';
 import {Handler} from '../src/Handler';
-import {MockDB} from './support/MockDB';
 import {HTTPMethod} from '../src/HTTPMethod';
 import {StatusCode} from '../src/StatusCode';
 
@@ -65,13 +64,13 @@ describe('Handler', () => {
         });
     });
 
-    it('it has access to DB', (done) => {
-        app.attachMockHandler('/db', makeHandler((handler: Handler, request: Request, response: Response, method: HTTPMethod) => {
-            expect(handler.getDB() instanceof MockDB).toBe(true);
+    it('it has access to app', (done) => {
+        app.attachMockHandler('/app', makeHandler((handler: Handler, request: Request, response: Response, method: HTTPMethod) => {
+            expect(handler.getApplication() instanceof MockApplication).toBe(true);
             response.success();
             done();
         }));
-        app.doMockGet('/db');
+        app.doMockGet('/app');
     });
 
     it('can put', (done) => {

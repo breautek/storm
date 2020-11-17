@@ -72,7 +72,7 @@ describe('Middlewares', () => {
 
     it('executes single middleware', () => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
-        (<any>handler)._middlewares = [middleware];
+        (<any>handler)._middlewares = [ middleware ];
 
         handler.get(request, response);
 
@@ -84,7 +84,7 @@ describe('Middlewares', () => {
 
         let next: TestMiddleware = new TestMiddleware();
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
-        (<any>handler)._middlewares = [middleware, next];
+        (<any>handler)._middlewares = [ middleware, next ];
 
         spy.and.callFake((request: any, response: any) => {
             response.setStatus(500);
@@ -114,7 +114,7 @@ describe('Middlewares', () => {
         
         let next: TestMiddleware = new TestMiddleware();
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
-        (<any>handler)._middlewares = [middleware, next];
+        (<any>handler)._middlewares = [ middleware, next ];
 
         spy.and.callFake((request: any, response: any) => {
             return Promise.reject(new Error('test'));
@@ -140,7 +140,7 @@ describe('Middlewares', () => {
         
         let next: TestMiddleware = new TestMiddleware();
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
-        (<any>handler)._middlewares = [middleware, next];
+        (<any>handler)._middlewares = [ middleware, next ];
 
         spy.and.callFake((request: any, response: any) => {
             return Promise.reject(new EntityNotFoundError('test'));

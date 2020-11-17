@@ -26,9 +26,9 @@ import { Application } from './Application';
 import {Writable} from 'stream';
 
 export class Logger extends EventEmitter {
-    private name: string;
-    private logLevel: LogSeverity;
-    private useStdErrForErrors: boolean;
+    private _name: string;
+    private _logLevel: LogSeverity;
+    private _useStdErrForErrors: boolean;
     private _filters: Array<RegExp>;
     private _logStream: Writable;
     private _errorStream: Writable;
@@ -36,24 +36,24 @@ export class Logger extends EventEmitter {
     public constructor(name: string = '', logLevel?: LogSeverity, useStdErrForErrors: boolean = false) {
         super();
 
-        this.name = name;
+        this._name = name;
 
         this._logStream = this._getDefaultLogStream();
         this._errorStream = this._getDefaultErrorStream();
 
-        this.logLevel = LogSeverity.DEBUG       |
+        this._logLevel = LogSeverity.DEBUG       |
                         LogSeverity.INFO        |
                         LogSeverity.WARNING     |
                         LogSeverity.ERROR       |
                         LogSeverity.FATAL;
         
         if (logLevel) {
-            this.logLevel = logLevel;
+            this._logLevel = logLevel;
         }
 
         this._filters = this._getDefaultLogFilters();
 
-        this.useStdErrForErrors = useStdErrForErrors;
+        this._useStdErrForErrors = useStdErrForErrors;
     }
 
     protected _getDefaultLogStream(): Writable {
@@ -64,11 +64,11 @@ export class Logger extends EventEmitter {
         return process.stderr;
     }
 
-    public setLogStream(writable: Writable) {
+    public setLogStream(writable: Writable): void {
         this._logStream = writable;
     }
 
-    public setErrorStream(writable: Writable) {
+    public setErrorStream(writable: Writable): void {
         this._errorStream = writable;
     }
 
@@ -81,7 +81,7 @@ export class Logger extends EventEmitter {
     }
 
     public getName(): string {
-        return this.name;
+        return this._name;
     }
 
     public addFilter(reg: RegExp): void {
@@ -155,15 +155,15 @@ export class Logger extends EventEmitter {
     }
 
     protected _getDefaultLogFilters(): Array<RegExp> {
-        return [/TokenExpiredError/g];
+        return [ /TokenExpiredError/g ];
     }
 
     public setLogLevel(severity: LogSeverity): void {
-        this.logLevel = severity;
+        this._logLevel = severity;
     }
 
     public getLogLevel(): LogSeverity {
-        return this.logLevel;
+        return this._logLevel;
     }
 
     protected _formatDate(now: Date): string {
@@ -220,7 +220,7 @@ export class Logger extends EventEmitter {
             }
         }
 
-        return `${sevText}[${this.name}][${this._formatDate(new Date())}] ${str}\n`;
+        return `${sevText}[${this._name}][${this._formatDate(new Date())}] ${str}\n`;
     }
 
     protected _logMessages(messages: IArguments, severity: LogSeverity): void {
@@ -231,7 +231,7 @@ export class Logger extends EventEmitter {
 
     protected _logMessage(msg: string, severity: LogSeverity): void {
         if (this._shouldLog(msg, severity)) {
-            if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this.useStdErrForErrors) {
+            if ((severity & (LogSeverity.ERROR | LogSeverity.FATAL)) && this._useStdErrForErrors) {
                 this.getErrorStream().write(msg);
             }
             else {
@@ -266,30 +266,37 @@ export class Logger extends EventEmitter {
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public trace(message: any): void {
         this.log(arguments, LogSeverity.TRACE);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public debug(message: any): void {
         this.log(arguments, LogSeverity.DEBUG);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public info(message: any): void {
         this.log(arguments, LogSeverity.INFO);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public warn(message: any): void {
         this.log(arguments, LogSeverity.WARNING);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public error(message: any): void {
         this.log(arguments, LogSeverity.ERROR);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public fatal(message: any): void {
         this.log(arguments, LogSeverity.FATAL);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public deprecate(alternative?: string, methodOverride?: string): void {
         let e: Error = new Error();
         let args: any = [];
