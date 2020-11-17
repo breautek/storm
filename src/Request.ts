@@ -31,14 +31,14 @@ export interface IParameterMap {
 }
 
 export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthTokenData> {
-    private request: express.Request;
+    private _request: express.Request;
 
     public constructor(request: express.Request) {
-        this.request = request;
+        this._request = request;
     }
 
     public getBody(): TBody {
-        return this.request.body;
+        return this._request.body;
     }
 
     public getForm(): Promise<IFormData> {
@@ -61,11 +61,11 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     public getHeaders(): IncomingHttpHeaders {
-        return this.request.headers;
+        return this._request.headers;
     }
 
     public getHeader(name: string): string {
-        let value: string | Array<string> = this.request.headers[name.toLowerCase()];
+        let value: string | Array<string> = this._request.headers[name.toLowerCase()];
         if (typeof value === 'string') {
             return value;
         }
@@ -75,19 +75,19 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     public getQueryVariables(): any {
-        return this.request.query;
+        return this._request.query;
     }
 
     public getParams(): IParameterMap {
-        return this.request.params;
+        return this._request.params;
     }
 
     public getParam(name: string): string {
-        return this.request.params[name];
+        return this._request.params[name];
     }
 
     public getIP(): string {
-        return this.request.ip;
+        return this._request.ip;
     }
 
     public getForwardedIP(): string {
@@ -95,31 +95,31 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     public getHostname(): string {
-        return this.request.hostname;
+        return this._request.hostname;
     }
 
     public getMethod(): string {
-        return this.request.method;
+        return this._request.method;
     }
 
     public getURL(): string {
-        return this.request.originalUrl;
+        return this._request.originalUrl;
     }
 
     public isSecure(): boolean {
-        return this.request.secure;
+        return this._request.secure;
     }
 
     public pipe(destination: Writable): any {
-        return this.request.pipe(destination);
+        return this._request.pipe(destination);
     }
 
     public unpipe(source: Writable): void {
-        this.request.unpipe(source);
+        this._request.unpipe(source);
     }
 
     public getRequestSource(): express.Request {
-        return this.request;
+        return this._request;
     }
 
     public async getAuthenticationToken(): Promise<TAuthToken> {

@@ -28,10 +28,10 @@ import {IConfig} from './IConfig';
  * for their specific use cases.
  */
 export class BackendAuthenticationMiddleware {
-    private logger: Logger;
+    private _logger: Logger;
 
     public constructor() {
-        this.logger = getApplicationLogger();
+        this._logger = getApplicationLogger();
     }
 
     /**
@@ -40,6 +40,7 @@ export class BackendAuthenticationMiddleware {
      * @param response 
      * @param options Arbituary object containing any relevant information used for authentication.
      */
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public execute(request: Request, response: Response, options?: any): Promise<any> {
         let config: IConfig = getInstance().getConfig();
 
@@ -49,7 +50,7 @@ export class BackendAuthenticationMiddleware {
 
         if (backend) {
             if (config.backend_authentication_secret === null) {
-                this.logger.warn('Backend secret not implemented.');
+                this._logger.warn('Backend secret not implemented.');
                 return Promise.reject(new ResponseData(StatusCode.INTERNAL_ERROR));
             }
 

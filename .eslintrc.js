@@ -4,7 +4,7 @@ module.exports = {
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@breautek/recommended"
+        "plugin:@totalpave/recommendedTS"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -14,7 +14,7 @@ module.exports = {
     },
     "plugins": [
         "@typescript-eslint",
-        "@breautek"
+        "@totalpave"
     ],
     "env": {
         "node": true,
@@ -23,12 +23,6 @@ module.exports = {
     "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/interface-name-prefix": [
-            "error",
-            {
-                "prefixWithI": "always"
-            }
-        ],
         "@typescript-eslint/no-inferrable-types": "off",
         "prefer-const": "off",
         "@typescript-eslint/no-unused-vars": [

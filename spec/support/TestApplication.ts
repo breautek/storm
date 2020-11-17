@@ -66,7 +66,7 @@ export class TestApplication extends Application {
         return new TestLogger(this.getName());
     }
 
-    public initDB(config: IConfig): Promise<Database> {
+    public initDB(config: IConfig): Promise<Database<any, any>> {
         return Promise.resolve(new MockDB());
     }
 
@@ -88,6 +88,7 @@ export class MockApplication extends Application {
         this.setTokenManager(new TokenManager(VERY_SECRET_KEY));
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public async signToken(payload?: any): Promise<Token> {
         return await this.getTokenManager().sign(payload, '1d');
     }
@@ -143,18 +144,22 @@ export class MockApplication extends Application {
         });
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockGet(url: string, headers?: any): Promise<IMockResponse> {
         return this._doMock(HTTPMethod.GET, url, null, headers);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockPost(url: string, data?: any): Promise<IMockResponse> {
         return this._doMock(HTTPMethod.POST, url, data);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockPut(url: string, data?: any): Promise<IMockResponse> {
         return this._doMock(HTTPMethod.PUT, url, data);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockDelete(url: string, data?: any): Promise<IMockResponse> {
         return this._doMock(HTTPMethod.DELETE, url, data);
     }
@@ -163,7 +168,7 @@ export class MockApplication extends Application {
         return new TestLogger(this.getName());
     }
 
-    public initDB(config: IConfig): Promise<Database> {
+    public initDB(config: IConfig): Promise<Database<any, any>> {
         return Promise.resolve(new MockDB());
     }
 

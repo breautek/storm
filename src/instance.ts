@@ -22,18 +22,18 @@ import {LogSeverity} from './LogSeverity';
 let instance: Application;
 let genericLogger: Logger;
 
-const setInstance = (app: Application): void => {
+let setInstance = (app: Application): void => {
     if (instance) {
         instance.getLogger().warn('Storm application already initialized');
     }
     instance = app;
 };
 
-const getInstance = (): Application => {
+let getInstance = (): Application => {
     return instance;
 };
 
-const getApplicationLogger = (): Logger => {
+let getApplicationLogger = (): Logger => {
     if (instance) {
         return instance.getLogger();
     }

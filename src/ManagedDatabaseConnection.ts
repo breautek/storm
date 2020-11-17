@@ -41,7 +41,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
             // Store original connection because of async,
             // but we don't really need to wait for the async operations
             // to complete to set the new connection object.
-            const oldConnection: IDatabaseConnection = this._connection;
+            let oldConnection: IDatabaseConnection = this._connection;
 
             /**
              * If the old connection has a transaction, only care about it
@@ -120,6 +120,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public query(query: string | Query, params?: any): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             this._getConnection().then((connection: IDatabaseConnection) => {
@@ -128,6 +129,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         })
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public stream(query: string | Query, params?: any, streamOptions?: any): Readable {
         throw new Error('stream is not supported on Managed Connections');
     }
@@ -198,17 +200,17 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     private _getConnection(): Promise<IDatabaseConnection> {
         return new Promise<IDatabaseConnection>((resolve, reject) => {
             let promise: Promise<IDatabaseConnection> = null;
-            let setInstantationStack: boolean = false;
+            let shouldSetInstantationStack: boolean = false;
             if (!this._connection) {
                 promise = getInstance().getDB().getConnection(this._requiresWrite);
-                setInstantationStack = true;
+                shouldSetInstantationStack = true;
             }
             else {
                 promise = Promise.resolve(this._connection);
             }
 
             promise.then((connection: IDatabaseConnection) => {
-                if (setInstantationStack) {
+                if (shouldSetInstantationStack) {
                     connection.setInstantiationStack(this._instantionStack);
                 }
                 this._connection = connection;

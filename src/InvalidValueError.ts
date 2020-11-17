@@ -17,7 +17,12 @@ import {StormError} from './StormError';
 import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
-export class InvalidValueError extends StormError {
+export class InvalidValueError extends StormError<{
+    variable: string;
+    expected: any;
+    got: any;
+}> {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public constructor(variable: string, expected: any, got: any) {
         super({
             variable: variable,

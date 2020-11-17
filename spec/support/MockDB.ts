@@ -1,7 +1,7 @@
 import {Database} from '../../src/Database';
 import {MockConnection} from './MockConnection';
 
-export class MockDB extends Database {
+export class MockDB extends Database<any, any> {
     public nodes: any;
 
     constructor() {
@@ -9,6 +9,7 @@ export class MockDB extends Database {
         this.nodes = {};
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _addNode(name: string, config: any): void {
         this.nodes[name] = config;
     }

@@ -24,6 +24,7 @@ export class LoggerMiddleware extends Middleware {
         super();
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _execute(request: Request, response: Response, options?: any): Promise<IRequestResponse> {
         return new Promise<IRequestResponse>((resolve, reject) => {
             // tslint:disable-next-line max-line-length

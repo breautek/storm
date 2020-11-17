@@ -45,10 +45,7 @@ describe('TokenManager', () => {
             should create 2 different signatures.
         */
         it('will have unique signatures', (done) => {
-            let promises: Array<Promise<Token>> = [
-                manager.sign({test: true}, '1y'),
-                manager.sign({test: true}, '1y')
-            ];
+            let promises: Array<Promise<Token>> = [ manager.sign({test: true}, '1y'), manager.sign({test: true}, '1y') ];
 
             Promise.all(promises).then((results: Array<Token>) => {
                 let a: Token = results[0];
@@ -85,8 +82,8 @@ describe('TokenManager', () => {
                     // We need the token to expire before calling verify
                     setTimeout(() => {
                         resolve(token);
-                    }, 100); 
-                }); 
+                    }, 100);
+                });
             }).then((token: Token) => {
                 return manager.verify(token, {enableExpiration: false});
             }).then((data: any) => {
@@ -109,7 +106,7 @@ describe('TokenManager', () => {
                     // We need the token to expire before calling verify
                     setTimeout(() => {
                         resolve(token);
-                    }, 100); 
+                    }, 100);
                 });
             }).then((token: Token) => {
                 return manager.verify(token, {enableExpiration: true});

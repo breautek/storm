@@ -31,17 +31,17 @@ export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
  * @implements `IDatabaseConnection`
  * @class
  */
-export abstract class DatabaseConnection implements IDatabaseConnection {
-    private api: any;
-    private readOnly: boolean;
+export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
+    private _api: any;
+    private _readOnly: boolean;
     private _timeout: number;
     private _lingerTimer: NodeJS.Timer;
     private _instantiationStack: string;
     private _open: boolean;
 
-    public constructor(api: any, isReadOnly: boolean, instantiationStack: string) {
-        this.api = api;
-        this.readOnly = isReadOnly;
+    public constructor(api: TAPI, isReadOnly: boolean, instantiationStack: string) {
+        this._api = api;
+        this._readOnly = isReadOnly;
         this._instantiationStack = (instantiationStack || '').replace(/Error:/, 'Warning:');
         this._open = true;
 
@@ -84,8 +84,8 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
      * Gets the underlying Database API
      * @returns any
      */
-    public getAPI(): any {
-        return this.api;
+    public getAPI(): TAPI {
+        return this._api;
     }
 
     /**
@@ -94,7 +94,7 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
      * @returns boolean
      */
     public isReadOnly(): boolean {
-        return this.readOnly;
+        return this._readOnly;
     }
 
     /**
@@ -155,6 +155,7 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
      * @param streamOptions Stream options
      * @returns Readable
      */
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public stream(query: string | Query, params?: any, streamOptions?: any): Readable {
         this._armLingerWarning();
         let queryStr: string = null;
@@ -258,6 +259,7 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
      * @async
      * @returns Promise
      */
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected abstract _query<TQueryResult>(query: string, params?: any): Promise<TQueryResult>;
 
     /**
@@ -269,5 +271,6 @@ export abstract class DatabaseConnection implements IDatabaseConnection {
      * @param streamOptions `Readable` stream options
      * @returns `Readable`
      */
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected abstract _stream(query: string, params?: any, streamOptions?: any): Readable;
 }

@@ -14,13 +14,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 export class Token {
-    private signature: string;
+    private _signature: string;
 
     constructor(signature: string) {
-        this.signature = signature;
+        this._signature = signature;
     }
 
     public getSignature(): string {
-        return this.signature;
+        return this._signature;
     }
 }

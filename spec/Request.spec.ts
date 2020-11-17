@@ -70,7 +70,7 @@ describe('Request', () => {
             expect(request.getForwardedIP()).toBe(null);
             expect(request.getParams()).toEqual({});
             expect(request.getHeader('Content-Type')).toBe(null);
-            response.success(); 
+            response.success();
             done();
         }));
         app.doMockGet('/getHeaders?test=1');
@@ -80,7 +80,7 @@ describe('Request', () => {
         app.attachMockHandler('/param/:name/', makeHandler((request: Request, response: Response) => {
             expect(request.getParams()).toEqual({name:'bob'});
             expect(request.getParam('name')).toBe('bob');
-            response.success(); 
+            response.success();
             done();
         }));
         app.doMockGet('/param/bob/');
@@ -110,7 +110,7 @@ describe('Request', () => {
 
             writable.on('finish', () => {
                 request.unpipe(writable);
-                response.success(); 
+                response.success();
                 done();
             });
 

@@ -25,19 +25,19 @@ import { RollbackQuery } from './private/RollbackQuery';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 
-const startTransactionQuery: Query = new StartTransactionQuery();
-const commitQuery: Query = new CommitQuery();
-const rollbackQuery: Query = new RollbackQuery();
+let startTransactionQuery: Query = new StartTransactionQuery();
+let commitQuery: Query = new CommitQuery();
+let rollbackQuery: Query = new RollbackQuery();
 
-export class MySQLConnection extends DatabaseConnection {
-    private transaction: boolean;
+export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
+    private _transaction: boolean;
     private _opened: boolean;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         super(connection, isReadOnly, instantiationStack);
 
         this._opened = true;
-        this.transaction = false;
+        this._transaction = false;
 
         connection.config.queryFormat = function(query: string, values: any) {
             if (!values) return query;
@@ -53,13 +53,14 @@ export class MySQLConnection extends DatabaseConnection {
     }
 
     public isTransaction(): boolean {
-        return this.transaction;
+        return this._transaction;
     }
 
     public isOpen(): boolean {
         return this._opened;
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _query(query: string, params?: any): Promise<any> {
         return new Promise((resolve, reject) => {
             let queryObject: MySQL.Query = this.getAPI().query({
@@ -76,6 +77,7 @@ export class MySQLConnection extends DatabaseConnection {
         });
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _stream(query: string, params?: any, streamOptions?: any): Readable {
         if (!streamOptions) {
             streamOptions = {};
@@ -85,7 +87,7 @@ export class MySQLConnection extends DatabaseConnection {
             streamOptions.highWatermark = DEFAULT_HIGH_WATERMARK;
         }
 
-        const queryObject: MySQL.Query = this.getAPI().query({
+        let queryObject: MySQL.Query = this.getAPI().query({
             sql: query,
             timeout: this.getTimeout()
         }, params);
@@ -104,13 +106,13 @@ export class MySQLConnection extends DatabaseConnection {
             return Promise.reject(new Error('Connection is already in a transaction.'));
         }
 
-        this.transaction = true;
+        this._transaction = true;
 
         return new Promise<void>((resolve, reject) => {
             this.query(startTransactionQuery).then(() => {
                 resolve();
             }).catch((ex) => {
-                this.transaction = false;
+                this._transaction = false;
                 getApplicationLogger().error(ex);
                 reject(ex);
             });
@@ -128,7 +130,7 @@ export class MySQLConnection extends DatabaseConnection {
 
         return new Promise<void>((resolve, reject) => {
             this.query(rollbackQuery).then(() => {
-                this.transaction = false
+                this._transaction = false
                 resolve();
             }).catch((ex: any) => {
                 getApplicationLogger().error(ex);
@@ -144,7 +146,7 @@ export class MySQLConnection extends DatabaseConnection {
 
         return new Promise<void>((resolve, reject) => {
             this.query(commitQuery).then(() => {
-                this.transaction = false;
+                this._transaction = false;
                 resolve();
             }).catch((ex: any) => {
                 getApplicationLogger().error(ex);

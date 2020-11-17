@@ -1,6 +1,6 @@
 
 import {
-    MockApplication,
+    MockApplication
 } from '../support/TestApplication';
 import { MySQLConnection } from '../../src/MySQLConnection';
 import { DatabaseQueryError } from '../../src/DatabaseQueryError';
@@ -51,13 +51,13 @@ describe('MySQLConnection', () => {
 
     it('can query successfully', (done) => {
         mockAPI.query.and.callFake((obj: any, params: any, callback: any) => {
-            callback(null, [1]);
+            callback(null, [ 1 ]);
             return {
                 sql: 'test sql'
             };
         });
         conn.query('test').then((results: Array<any>) => {
-            expect(results).toEqual([1]);
+            expect(results).toEqual([ 1 ]);
             done();
         });
     });
@@ -145,7 +145,7 @@ describe('MySQLConnection', () => {
             expect(conn.isTransaction()).toBe(true);
             expect(mockAPI.query).toHaveBeenCalledWith({
                 sql: 'START TRANSACTION',
-                timeout: DEFAULT_QUERY_TIMEOUT,
+                timeout: DEFAULT_QUERY_TIMEOUT
             }, undefined, jasmine.any(Function));
             done();
         });
@@ -194,7 +194,7 @@ describe('MySQLConnection', () => {
             expect(conn.isTransaction()).toBe(false);
             expect(mockAPI.query).toHaveBeenCalledWith({
                 sql: 'ROLLBACK',
-                timeout: DEFAULT_QUERY_TIMEOUT,
+                timeout: DEFAULT_QUERY_TIMEOUT
             }, undefined, jasmine.any(Function));
             done();
         });
@@ -257,7 +257,7 @@ describe('MySQLConnection', () => {
             expect(conn.isTransaction()).toBe(false);
             expect(mockAPI.query).toHaveBeenCalledWith({
                 sql: 'COMMIT',
-                timeout: DEFAULT_QUERY_TIMEOUT,
+                timeout: DEFAULT_QUERY_TIMEOUT
             }, undefined, jasmine.any(Function));
             done();
         });
@@ -390,13 +390,21 @@ describe('MySQLConnection', () => {
             }
 
             public onPostProcess(conn: IDatabaseConnection, results: any): Promise<any> {
-                return Promise.resolve([1, 2, 3]);
+                return Promise.resolve([
+                    1,
+                    2,
+                    3
+                ]);
             }
         }
 
         beforeEach(() => {
             mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
-                callback(null, ['a', 'b', 'c'])
+                callback(null, [
+                    'a',
+                    'b',
+                    'c'
+                ])
             });
         })
 
@@ -405,7 +413,11 @@ describe('MySQLConnection', () => {
             let query: Query =  new QueryWithPostProcessing();
             spyOn(query, 'onPostProcess').and.callThrough();
             let results = await conn.query(query);
-            expect(query.onPostProcess).toHaveBeenCalledWith(conn, ['a', 'b', 'c']);
+            expect(query.onPostProcess).toHaveBeenCalledWith(conn, [
+                'a',
+                'b',
+                'c'
+            ]);
             expect(results).toEqual([
                 1,
                 2,

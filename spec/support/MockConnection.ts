@@ -1,7 +1,7 @@
 import { DatabaseConnection } from '../../src/DatabaseConnection';
 import { Readable } from 'stream';
 
-export class MockConnection extends DatabaseConnection {
+export class MockConnection extends DatabaseConnection<any> {
     public transaction: boolean;
     public closed: boolean;
 
@@ -43,6 +43,7 @@ export class MockConnection extends DatabaseConnection {
         return Promise.resolve();
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _query(query: string, params?: any): Promise<any> {
         return Promise.resolve({
             query: query,
@@ -50,6 +51,7 @@ export class MockConnection extends DatabaseConnection {
         });
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _stream(query: string, params?: any, streamOptions?: any): Readable {
         return null;
     }

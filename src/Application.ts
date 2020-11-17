@@ -46,19 +46,21 @@ const DEFAULT_LOG_LEVEL = LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.E
 export abstract class Application
     <
         TConfig extends IConfig = IConfig,
-        TAuthToken extends IAuthTokenData = IAuthTokenData
+        TAuthToken extends IAuthTokenData = IAuthTokenData,
+        TDBConfig = any,
+        TDBConnectionAPI = any
     >
     extends EventEmitter {
-    private logger: Logger;
-    private name: string;
-    private configPath: string;
-    private config: TConfig;
-    private tokenManager: TokenManager<TAuthToken>;
-    private server: Express.Application;
-    private db: Database;
+    private _logger: Logger;
+    private _name: string;
+    private _configPath: string;
+    private _config: TConfig;
+    private _tokenManager: TokenManager<TAuthToken>;
+    private _server: Express.Application;
+    private _db: Database<TDBConfig, TDBConnectionAPI>;
     private _logConfigDefaulting: boolean;
     private _isTestEnvironment: boolean;
-    private socket: http.Server;
+    private _socket: http.Server;
 
     // private _argv: any;
     private _program: Commander.CommanderStatic;
@@ -85,8 +87,8 @@ export abstract class Application
 
         this._program.parse(process.argv);
 
-        this.name = name;
-        this.logger = this._createLogger();
+        this._name = name;
+        this._logger = this._createLogger();
 
         if (logSeverity) {
             this._logConfigDefaulting = false;
@@ -101,7 +103,7 @@ export abstract class Application
             this.getLogger().fatal(error);
         });
 
-        this.configPath = configPath || process.cwd();
+        this._configPath = configPath || process.cwd();
 
         this.getLogger().trace('Application is booting...');
         this.getLogger().trace('Loading Configuration...');
@@ -110,41 +112,41 @@ export abstract class Application
     }
 
     private _load(): void {
-        this.loadConfig(this.configPath).then((config: TConfig) => {
-            this.config = config;
+        this.loadConfig(this._configPath).then((config: TConfig) => {
+            this._config = config;
             this.getLogger().trace('Configuration loaded.');
             this.emit(ApplicationEvent.CONFIG_LOADED);
-            this.onConfigLoad(this.config);
+            this.onConfigLoad(this._config);
             return Promise.resolve();
         }).then(() => {
             if (this._logConfigDefaulting) {
                 let logSeverity: LogSeverity = this._parseLogLevelConfig(this.getConfig());
-                this.logger.setLogLevel(logSeverity);
+                this._logger.setLogLevel(logSeverity);
             }
 
-            this.logger.loadFilters();
+            this._logger.loadFilters();
 
             this.getLogger().trace('Initializing DB...');
 
             return this.initDB(this.getConfig());
-        }).then((db: Database) => {
+        }).then((db: Database<TDBConfig, TDBConnectionAPI>) => {
             if (db) {
                 this.getLogger().trace('DB Initialized.');
             }
             else {
                 this.getLogger().trace('DB is not initialized.');
             }
-            this.db = db;
+            this._db = db;
 
             return Promise.resolve();
         }).then(() => {
             this.getLogger().trace('Starting server...');
-            this.server = Express();
-            this.server.use(BodyParser.json({
+            this._server = Express();
+            this._server.use(BodyParser.json({
                 type : 'application/json',
                 limit : this.getRequestSizeLimit()
             }));
-            this.server.use(BodyParser.text({
+            this._server.use(BodyParser.text({
                 type : 'text/*',
                 limit : this.getRequestSizeLimit()
             }));
@@ -161,8 +163,8 @@ export abstract class Application
     
             if (bindingIP !== null && bindingIP !== 'null') {
                 if (this.shouldListen()) {
-                    this.socket = http.createServer(this.server);
-                    this.socket.listen(port, bindingIP, () => {
+                    this._socket = http.createServer(this._server);
+                    this._socket.listen(port, bindingIP, () => {
                         this.getLogger().trace(`Server started on ${bindingIP}:${this.getPort()}`);
                     });
                 }
@@ -183,8 +185,8 @@ export abstract class Application
 
     public getPort(): number {
         let port: number = null;
-        if (this.socket && this.socket.listening) {
-            let address = this.socket.address();
+        if (this._socket && this._socket.listening) {
+            let address = this._socket.address();
             if (typeof address !== 'string') {
                 port = address.port;
             }
@@ -192,6 +194,7 @@ export abstract class Application
         return port;
     }
 
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     private $buildArgOptions() {
         this._program = Commander;
 
@@ -225,21 +228,22 @@ export abstract class Application
      * @param path The URL API path. E.g. /api/myService/myCommand/
      * @param HandlerClass The concrete class (not the instance) of Handler to be used for this API.
      */
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     public attachHandler(path: string, HandlerClass: IHandler): void {
         let handler: Handler = new HandlerClass(this);
-        this.server.get(path, (request: Express.Request, response: Express.Response) => {
+        this._server.get(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.get(r, new Response(response, r.getURL()));
         });
-        this.server.post(path, (request: Express.Request, response: Express.Response) => {
+        this._server.post(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.post(r, new Response(response, r.getURL()));
         });
-        this.server.put(path, (request: Express.Request, response: Express.Response) => {
+        this._server.put(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.put(r, new Response(response, r.getURL()));
         });
-        this.server.delete(path, (request: Express.Request, response: Express.Response) => {
+        this._server.delete(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.delete(r, new Response(response, r.getURL()));
         });
@@ -247,8 +251,8 @@ export abstract class Application
 
     public close(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (this.socket && this.socket.listening) {
-                this.socket.close(() => {
+            if (this._socket && this._socket.listening) {
+                this._socket.close(() => {
                     resolve();
                 });
             }
@@ -282,7 +286,7 @@ export abstract class Application
      * @returns the application name
      */
     public getName(): string {
-        return this.name;
+        return this._name;
     }
 
     /**
@@ -290,21 +294,21 @@ export abstract class Application
      * @param logger Logger class to use
      */
     public setLogger(logger: Logger): void {
-        this.logger = logger;
+        this._logger = logger;
     }
 
     /**
      * @returns the application's logger
      */
     public getLogger(): Logger {
-        return this.logger;
+        return this._logger;
     }
 
     /**
      * @returns the config object.
      */
     public getConfig(): TConfig {
-        return this.config;
+        return this._config;
     }
 
     /**
@@ -326,21 +330,21 @@ export abstract class Application
      * @param tokenManager 
      */
     public setTokenManager(tokenManager: TokenManager<TAuthToken>): void {
-        this.tokenManager = tokenManager;
+        this._tokenManager = tokenManager;
     }
 
     /**
      * @returns the token manager
      */
     public getTokenManager(): TokenManager<TAuthToken> {
-        return this.tokenManager;
+        return this._tokenManager;
     }
 
     /**
      * @returns the database pool. This will need to be casted based on your preferred database dialect.
      */
-    public getDB(): Database {
-        return this.db;
+    public getDB(): Database<TDBConfig, TDBConnectionAPI> {
+        return this._db;
     }
 
     /**
@@ -355,7 +359,6 @@ export abstract class Application
         }
 
         if (program.binding !== undefined) {
-            // eslint-disable-next-line @typescript-eslint/camelcase
             o.binding_ip = program.binding;
         }
 
@@ -364,7 +367,6 @@ export abstract class Application
         }
 
         if (program.authenticationHeader !== undefined) {
-            // eslint-disable-next-line @typescript-eslint/camelcase
             o.authentication_header = program.authenticationHeader;
         }
 
@@ -375,7 +377,7 @@ export abstract class Application
      * Subclasses are expected to override this to configure their database setup, if the service uses a database.
      * @param config The bt-config object
      */
-    protected initDB(config: TConfig): Promise<Database> {
+    protected initDB(config: TConfig): Promise<Database<TDBConfig, TDBConnectionAPI>> {
         return Promise.resolve(null);
     }
 

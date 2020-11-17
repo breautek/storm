@@ -1,7 +1,7 @@
 
 import {DEFAULT_QUERY_TIMEOUT} from '../../src/DatabaseConnection';
 import {
-    MockApplication,
+    MockApplication
 } from '../support/TestApplication';
 import {MockConnection} from '../support/MockConnection';
 import { getInstance } from '../../src/instance';

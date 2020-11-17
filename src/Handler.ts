@@ -18,7 +18,6 @@ import {Application} from './Application';
 import {getInstance} from './instance';
 import {Request} from './Request';
 import {Response} from './Response';
-import {Database} from './Database';
 import {Middleware} from './Middleware';
 import {StormError} from './StormError';
 import {IConfig} from './IConfig';
@@ -26,6 +25,7 @@ import { InternalError } from './InternalError';
 import { IRequestResponse } from './IRequestResponse';
 
 export class Handler<
+        TApplication extends Application = Application,
         TGetRequest     = any,
         TGetResponse    = any,
         TPostRequest    = any,
@@ -35,12 +35,17 @@ export class Handler<
         TDeleteRequest  = any,
         TDeleteResponse = any
     >  {
-    private _app: Application;
+        
+    private _app: TApplication;
     private _middlewares: Array<Middleware>;
 
-    constructor(app: Application) {
+    constructor(app: TApplication) {
         this._app = app;
         this._middlewares = this._initMiddlewares();
+    }
+
+    public getApplication(): TApplication {
+        return this._app;
     }
 
     protected _initMiddlewares(): Array<Middleware> {
@@ -51,10 +56,6 @@ export class Handler<
         let config: IConfig = getInstance().getConfig();
         let authHeader: string = config.authentication_header;
         return request.getHeader(authHeader);
-    }
-
-    public getDB(): Database {
-        return this._app.getDB();
     }
 
     private async _executeMiddlewares(request: Request, response: Response): Promise<IRequestResponse> {
@@ -101,7 +102,7 @@ export class Handler<
         return Promise.resolve(result);
     }
 
-    protected _onMiddlewareReject(request: Request, response: Response, error: StormError) {
+    protected _onMiddlewareReject(request: Request, response: Response, error: StormError): void {
         response.error(error);
     }
 
