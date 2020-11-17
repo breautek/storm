@@ -14,5 +14,5 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 export enum ExitCode {
-    MISSING_CONFIG
+    MISSING_CONFIG = 1
 }
