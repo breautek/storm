@@ -1,12 +1,14 @@
 {
-    "test2": false,
-    "data": {
-        "hello": "world"
-    },
-    "meta": {
-        "debug": true,
-        "contributors": [
-            "norman"
-        ]
+    "customConfig": {
+        "test2": false,
+        "data": {
+            "hello": "world"
+        },
+        "meta": {
+            "debug": true,
+            "contributors": [
+                "norman"
+            ]
+        }
     }
 }

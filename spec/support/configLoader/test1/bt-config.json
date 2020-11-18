@@ -1,8 +1,10 @@
 {
-    "test1": true,
-    "meta": {
-        "name": "test",
-        "debug": false,
-        "contributors": {}
+    "customConfig": {
+        "test1": true,
+        "meta": {
+            "name": "test",
+            "debug": false,
+            "contributors": {}
+        }
     }
 }

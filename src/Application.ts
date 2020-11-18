@@ -350,7 +350,7 @@ export abstract class Application
     /**
      * @returns command line arguments
      */
-    public getCmdLineArgs(): any {
+    public getCmdLineArgs(): TConfig {
         let program: Commander.CommanderStatic = this._program;
         let o: any = {};
 

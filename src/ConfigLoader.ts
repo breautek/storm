@@ -1,3 +1,5 @@
+/// <reference path="./defs/merge-change.d.ts" />
+
 // Copyright (C) 2017  Norman Breau
 
 // This program is free software: you can redistribute it and/or modify
@@ -19,15 +21,16 @@ import * as Path from 'path';
 import {Application} from './Application';
 import {ExitCode} from './ExitCode';
 import {IConfig} from './IConfig';
+import Ajv from 'ajv';
+import * as MergeChange from 'merge-change';
 
 export class ConfigLoader {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     private constructor() {}
 
     public static load(path: string): Promise<IConfig> {
         let logger: Logger = ConfigLoader._getLogger();
 
-        return new Promise<any>((resolve, reject) => {
+        return new Promise<IConfig>((resolve, reject) => {
             logger.trace('Configuration loaded.');
             
             let config: any = {};
@@ -54,7 +57,6 @@ export class ConfigLoader {
                 logger.error(`Missing ${cPath}.`);
                 process.nextTick(() => {
                     reject(ExitCode.MISSING_CONFIG);
-                    // process.exit(ExitCode.MISSING_CONFIG);
                 });
                 return;
             }
@@ -70,20 +72,90 @@ export class ConfigLoader {
             }
 
             if (l) {
-                config = ConfigLoader._mergeConfig(defaults, ConfigLoader._mergeConfig(c, l));
+                config = MergeChange.merge(defaults, c, l);
             }
             else {
-                config = ConfigLoader._mergeConfig(defaults, c);
+                config = MergeChange.merge(defaults, c);
             }
 
             logger.trace('Reading command line arguments...');
-            config = ConfigLoader._mergeConfig(config, ConfigLoader._getCmdLineArgs());
+            config = MergeChange.merge(config, ConfigLoader._getCmdLineArgs());
 
             logger.trace('Configurations merged.');
             logger.trace(config);
 
+            ConfigLoader._validateSchema(config);
+
             resolve(<IConfig>config);
         });
+    }
+
+    private static async _validateSchema(config: IConfig): Promise<void> {
+        let ajv: Ajv = new Ajv({
+            allErrors: true
+        });
+
+        let validate = ajv.compile({
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                binding_ip:                     { type: [ 'string', 'null' ] },
+                port:                           { type: [ 'number', 'null' ] },
+                authentication_header:          { type: [ 'string', 'null' ] },
+                backend_authentication_header:  { type: [ 'string', 'null' ] },
+                backend_authentication_secret:  { type: [ 'string', 'null' ] },
+                log_level:                      { type: [ 'string', 'null' ] },
+                request_size_limit:             { type: [ 'number', 'null' ] },
+                log_filters: {
+                    type: [ 'array', 'null' ],
+                    items: { type: 'string' }
+                },
+                database: {
+                    type: [ 'object', 'null' ],
+                    additionalProperties: false,
+                    properties: {
+                        query_timeout: { type: [ 'integer', 'null' ], minimum: 0 },
+                        main: {
+                            type: [ 'object', 'null' ],
+                            additionalProperties: false,
+                            properties: {
+                                name: { type: 'string', const: "MASTER" },
+                                host: { type: 'string' },
+                                port: { type: 'integer', minimum: 0 },
+                                schema: { type: 'string' },
+                                user: { type: 'string' },
+                                password: { type: 'string' }
+                            }
+                        },
+                        replicationNodes: {
+                            type: [ 'array', 'null' ],
+                            items: {
+                                type: 'object',
+                                additionalProperties: false,
+                                properties: {
+                                    name: { type: 'string' },
+                                    host: { type: 'string' },
+                                    port: { type: 'integer', minimum: 0 },
+                                    schema: { type: 'string' },
+                                    user: { type: 'string' },
+                                    password: { type: 'string' }
+                                }
+                            }
+                        }
+                    }
+                },
+                customConfig: {
+                    type: 'object',
+                    additionalProperties: true,
+                    properties: {}
+                }
+            }
+        });
+
+        let isValid: boolean = validate(config);
+        if (!isValid) {
+            throw validate.errors;
+        }
     }
 
     private static _getCmdLineArgs(): any {
@@ -94,16 +166,6 @@ export class ConfigLoader {
 
         return app.getCmdLineArgs();
     }
-
-    // private static _removeNaNs(o: any): any {
-    //     for (var i in o) {
-    //         if (isNaN(o[i])) {
-    //             delete o[i];
-    //         }
-    //     }
-
-    //     return o;
-    // }
 
     private static _getLogger(): Logger {
         let logger: Logger;
@@ -117,32 +179,5 @@ export class ConfigLoader {
         }
 
         return logger;
-    }
-
-    private static _mergeConfig(o1: any, o2: any): any {
-        // Clone to protect data from changing defaults object
-        o1 = JSON.parse(JSON.stringify(o1));
-        o2 = JSON.parse(JSON.stringify(o2));
-
-        let o: any = o1;
-
-        for (let i in o2) {
-            let o1p = o1[i];
-            let o2p = o2[i];
-
-            if (o1p && (typeof o2p === 'object') && !(o2p instanceof Array)) {
-                if (typeof o1p === 'object' && !(o1p instanceof Array)) {
-                    o[i] = ConfigLoader._mergeConfig(o1p, o2p);
-                }
-                else {
-                    o[i] = o2p;
-                }
-            }
-            else {
-                o[i] = o2p;
-            }
-        }
-
-        return o;
     }
 }

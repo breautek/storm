@@ -21,6 +21,7 @@ import {Readable} from 'stream';
 import {IDatabaseConnection} from './IDatabaseConnection';
 import {Query} from './Query';
 import { IQueryParameters } from './IQueryParameters';
+import { IConfig } from './IConfig';
 
 export const LINGER_WARNING: number = 10000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
@@ -45,7 +46,9 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         this._instantiationStack = (instantiationStack || '').replace(/Error:/, 'Warning:');
         this._open = true;
 
-        this._timeout = getInstance().getConfig().query_timeout;
+        let config: IConfig = getInstance().getConfig();
+
+        this._timeout = config.database ? config.database.query_timeout : null;
         if (isNaN(this._timeout)) {
             this._timeout = DEFAULT_QUERY_TIMEOUT;
         }

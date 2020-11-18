@@ -16,12 +16,12 @@ describe('ConfigLoader', () => {
             expect(config.log_filters[0]).toBe('/TokenExpiredError/g');
 
             // Test specific configs
-            expect(config.test1).toBe(true);
-            expect(config.test2).toBe(false);
-            expect(config.data.hello).toBe('world');
-            expect(config.meta.name).toBe('test');
-            expect(config.meta.debug).toBe(true);
-            expect(config.meta.contributors[0]).toBe('norman');
+            expect(config.customConfig.test1).toBe(true);
+            expect(config.customConfig.test2).toBe(false);
+            expect(config.customConfig.data.hello).toBe('world');
+            expect(config.customConfig.meta.name).toBe('test');
+            expect(config.customConfig.meta.debug).toBe(true);
+            expect(config.customConfig.meta.contributors[0]).toBe('norman');
 
             done();
         });
@@ -29,9 +29,9 @@ describe('ConfigLoader', () => {
 
     it('missing local config', (done) => {
         ConfigLoader.load(TEST_DIR + 'test2/').then((config: any) => {
-            expect(config.test1).toBe(true);
-            expect(config.meta.name).toBe('test');
-            expect(config.meta.debug).toBe(false);
+            expect(config.customConfig.test1).toBe(true);
+            expect(config.customConfig.meta.name).toBe('test');
+            expect(config.customConfig.meta.debug).toBe(false);
             done();
         });
     });

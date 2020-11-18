@@ -9,7 +9,11 @@
     "log_level": "info | warning | error | fatal",
     "log_filters": ["/TokenExpiredError/g"],
     
-    "query_timeout": 3600000,
+    "database": {
+        "query_timeout": 3600000
+    },
 
-    "request_size_limit": 5242880
+    "request_size_limit": 5242880,
+
+    "customConfig": {}
 }
