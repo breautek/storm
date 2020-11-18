@@ -20,8 +20,8 @@ import {
 import {Readable} from 'stream';
 import {IDatabaseConnection} from './IDatabaseConnection';
 import {Query} from './Query';
-import { IQueryParameters } from './IQueryParameters';
 import { IConfig } from './IConfig';
+import { IDictionary } from '@totalpave/interfaces';
 
 export const LINGER_WARNING: number = 10000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
@@ -125,30 +125,18 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * Queries the database for a dataset.
      * 
      * @param {Query} query The database query
-     * @param {IQueryParameters} params Parameters for the query
      * @async
      * @returns Promise<TQueryResult>
      */
-    public async query<TQueryResult = any>(query: string | Query, params?: IQueryParameters): Promise<TQueryResult> {
+    public async query<TQueryResult = any>(query: Query): Promise<TQueryResult> {
         this._armLingerWarning();
         
         let queryStr: string = null;
-        if (query instanceof Query) {
-            queryStr = query.getQuery();
-            params = query.getParameters();
-        }
-        else {
-            getInstance().getLogger().deprecateParameterType(1, 'string', 'Query instance');
-            queryStr = query;
-        }
+        queryStr = query.getQuery();
+        let params: IDictionary = query.getParametersForQuery();
 
         let results: TQueryResult = await this._query<TQueryResult>(queryStr, params);
-        if (query instanceof Query) {
-            return await (<any>query.onPostProcess(this, <any>results));
-        }
-        else {
-            return results;
-        }
+        return await (<any>query.onPostProcess(this, <any>results));
     }
 
     /**
@@ -159,17 +147,11 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @returns Readable
      */
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    public stream(query: string | Query, params?: any, streamOptions?: any): Readable {
+    public stream(query: Query, streamOptions?: any): Readable {
         this._armLingerWarning();
         let queryStr: string = null;
-        if (query instanceof Query) {
-            queryStr = query.getQuery();
-            params = query.getParameters();
-        }
-        else {
-            getInstance().getLogger().deprecateParameterType(1, 'string', 'Query instance');
-            queryStr = query;
-        }
+        let params: IDictionary = query.getParametersForQuery();
+        queryStr = query.getQuery();
         return this._stream(queryStr, params, streamOptions);
     }
 

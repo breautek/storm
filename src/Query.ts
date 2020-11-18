@@ -13,6 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import { IDictionary } from '@totalpave/interfaces';
 import { IDatabaseConnection } from './IDatabaseConnection';
 
 export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQueryPostProcessedResultSet = TQueryResultSet> {
@@ -23,6 +24,10 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
     }
 
     public getParameters(): TQueryParameters {
+        return this._params;
+    }
+
+    public getParametersForQuery(): IDictionary {
         return this._params;
     }
 

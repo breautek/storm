@@ -72,7 +72,6 @@ export {IConfig} from './IConfig';
 export {IFormData} from './IFormData';
 export {IDatabaseConnection} from './IDatabaseConnection';
 export {IServiceHeaders} from './IServiceHeaders';
-export {IQueryParameters} from './IQueryParameters';
 export {IAuthTokenData} from './IAuthTokenData';
 
 // Token
