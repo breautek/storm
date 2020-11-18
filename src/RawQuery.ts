@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import {Query} from './Query';
+
 export class RawQuery<TQueryParameters = any, TQueryResultSet = any> extends Query<TQueryParameters, TQueryResultSet, TQueryResultSet> {
     private _query: string;
 
