@@ -1,12 +1,11 @@
 
 import {Query} from './Query';
-import {IQueryParameters} from './IQueryParameters';
 
-export interface IDropTemporaryTableQueryInput extends IQueryParameters {
+export interface IDropTemporaryTableQueryInput {
     tableName: string;
 }
 
-export class DropTemporaryTableQuery extends Query {
+export class DropTemporaryTableQuery extends Query<IDropTemporaryTableQueryInput> {
 
     public getParameters(): IDropTemporaryTableQueryInput {
         return <IDropTemporaryTableQueryInput>super.getParameters();

@@ -13,22 +13,18 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import { IDictionary } from '@totalpave/interfaces';
 import {Query} from './Query';
-import {IQueryParameters} from './IQueryParameters';
 
-export interface ITemporaryTableQueryInput extends IQueryParameters {
+export interface ITemporaryTableQueryInput {
     tableName: string;
     selectQuery: Query;
 }
 
-interface ITemporaryTableQueryParametersInternal {
-    [key: string]: any;
-}
+export class TemporaryTableQuery extends Query<any> {
 
-export class TemporaryTableQuery extends Query {
-
-    public getParameters(): ITemporaryTableQueryParametersInternal {
-        let params: ITemporaryTableQueryInput = <ITemporaryTableQueryInput>super.getParameters();
+    public getParametersForQuery(): IDictionary {
+        let params: ITemporaryTableQueryInput = this.getParameters();
 
         return {
             ...params.selectQuery.getParameters(),
@@ -37,7 +33,7 @@ export class TemporaryTableQuery extends Query {
     }
 
     protected _getQuery(): string {
-        let params: ITemporaryTableQueryInput = <ITemporaryTableQueryInput>super.getParameters();
+        let params: ITemporaryTableQueryInput = this.getParameters();
 
         return `
             CREATE TEMPORARY TABLE \`${params.tableName}\`
