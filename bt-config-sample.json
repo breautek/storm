@@ -51,13 +51,6 @@
 
     /*
     @type number
-    @description    The timeout limit for inactive database connections. If 0, the timeout is disabled
-    @default        3600000
-    */
-    "query_timeout": 3600000,
-
-    /*
-    @type number
     @description    The maximum size in bytes that this service is capable of handling.
     @default        5242880
     */
@@ -84,7 +77,14 @@
                 @type IDatabaseConfig
             */
             {}
-        ]
+        ],
+
+        /*
+        @type number
+        @description    The timeout limit for inactive database connections. If 0, the timeout is disabled
+        @default        3600000
+        */
+        "query_timeout": 3600000
     },
 
     /*

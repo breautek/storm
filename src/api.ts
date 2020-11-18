@@ -62,6 +62,7 @@ export {ServiceResponse} from './ServiceResponse';
 export {BackendAuthenticationMiddleware} from './BackendAuthenticationMiddleware';
 
 // Interfaces
+export {IDatabaseConfig} from './IDatabaseConfig';
 export {ILogEvent} from './ILogEvent';
 export {IJWTVerifyOptions} from './IJWTVerifyOptions';
 export {IHandler} from './IHandler';

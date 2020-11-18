@@ -67,7 +67,7 @@ describe('DatabaseConnection', () => {
 
     it('defaults to default timeout on invalid timeout setting', () => {
         let app: Application = getInstance();
-        spyOn(app, 'getConfig').and.returnValue(<IConfig>({query_timeout: NaN}));
+        spyOn(app, 'getConfig').and.returnValue(<IConfig>({database: {query_timeout: NaN}}));
         let connection: MockConnection = new MockConnection(true, 'test stack');
         expect(connection.getTimeout()).toBe(DEFAULT_QUERY_TIMEOUT);
     });
