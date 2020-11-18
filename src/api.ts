@@ -29,6 +29,7 @@ export {ManagedDatabaseConnection} from './ManagedDatabaseConnection';
 export {Query} from './Query';
 export {TemporaryTableQuery, ITemporaryTableQueryInput} from './TemporaryTableQuery';
 export {DropTemporaryTableQuery} from './DropTemporaryTableQuery';
+export {RawQuery} from './RawQuery';
 
 // Errors
 export {ErrorCode} from './ErrorCode';
