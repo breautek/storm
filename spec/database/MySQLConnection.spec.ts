@@ -385,7 +385,7 @@ describe('MySQLConnection', () => {
     });
 
     describe('post processing', () => {
-        class QueryWithPostProcessing extends Query {
+        class QueryWithPostProcessing extends Query<void, 1, Array<number>> {
             protected _getQuery(): string {
                 return 'SELECT 1';
             }
@@ -425,6 +425,17 @@ describe('MySQLConnection', () => {
                 3
             ]);
             done();
+        });
+
+        it('execute', async () => {
+            let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+            let query: QueryWithPostProcessing = new QueryWithPostProcessing();
+            let results: Array<number> = await query.execute(conn);
+            expect(results).toEqual([
+                1,
+                2,
+                3
+            ]);
         });
     });
 });
