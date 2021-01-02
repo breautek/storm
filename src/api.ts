@@ -30,6 +30,9 @@ export {Query} from './Query';
 export {TemporaryTableQuery, ITemporaryTableQueryInput} from './TemporaryTableQuery';
 export {DropTemporaryTableQuery} from './DropTemporaryTableQuery';
 export {RawQuery} from './RawQuery';
+export {IInsertQueryResult} from './IInsertQueryResult';
+export {IDeleteQueryResult} from './IDeleteQueryResult';
+export {IUpdateQueryResult} from './IUpdateQueryResult';
 
 // Errors
 export {ErrorCode} from './ErrorCode';
