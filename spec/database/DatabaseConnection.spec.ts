@@ -7,6 +7,7 @@ import {MockConnection} from '../support/MockConnection';
 import { getInstance } from '../../src/instance';
 import { Application } from '../../src/Application';
 import { IConfig } from '../../src/IConfig';
+import {DummyQuery} from '../support/DummyQuery';
 
 describe('DatabaseConnection', () => {
     let app: MockApplication = null;
@@ -95,7 +96,7 @@ describe('DatabaseConnection', () => {
         let app: Application = getInstance();
         let connection: MockConnection = new MockConnection(true, 'test stack');
         let spy: jasmine.Spy = spyOn(app.getLogger(), 'warn');
-        connection.query('');
+        connection.query(new DummyQuery());
         jasmine.clock().tick(10001);
         expect(spy).toHaveBeenCalledWith(jasmine.any(String));
         jasmine.clock().uninstall();
@@ -118,14 +119,14 @@ describe('DatabaseConnection', () => {
     it('query arms linger warning', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
         let spy: jasmine.Spy = spyOn(<any>connection, '_armLingerWarning');
-        connection.query('');
+        connection.query(new DummyQuery());
         expect(spy).toHaveBeenCalled();
     });
 
     it('stream arms linger warming', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
         let spy: jasmine.Spy = spyOn(<any>connection, '_armLingerWarning');
-        connection.stream('');
+        connection.query(new DummyQuery());
         expect(spy).toHaveBeenCalled();
     });
 });

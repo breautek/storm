@@ -74,7 +74,7 @@ describe('Temporary Tables', () => {
         });
 
         expect(tempTable.getQuery()).toBe(TEMP_TABLE_QUERY_EXPECTATION);
-        expect(tempTable.getParameters()).toEqual({
+        expect(tempTable.getParametersForQuery()).toEqual({
             tableName: 'my_temp_table',
             name: 'testing'
         });
