@@ -7,6 +7,7 @@ import { DatabaseQueryError } from '../../src/DatabaseQueryError';
 import {DEFAULT_QUERY_TIMEOUT} from '../../src/DatabaseConnection';
 import { Query } from '../../src/Query';
 import { IDatabaseConnection } from '../../src/IDatabaseConnection';
+import {DummyQuery} from '../support/DummyQuery';
 
 describe('MySQLConnection', () => {
     let app: MockApplication = null;
@@ -56,7 +57,7 @@ describe('MySQLConnection', () => {
                 sql: 'test sql'
             };
         });
-        conn.query('test').then((results: Array<any>) => {
+        conn.query(new DummyQuery()).then((results: Array<any>) => {
             expect(results).toEqual([ 1 ]);
             done();
         });
@@ -71,7 +72,7 @@ describe('MySQLConnection', () => {
                 sql: 'test sql'
             };
         });
-        conn.query('test').catch((error: any) => {
+        conn.query(new DummyQuery()).catch((error: any) => {
             console.log(error);
             expect(error instanceof DatabaseQueryError).withContext(error).toBe(true);
             done();
@@ -89,7 +90,7 @@ describe('MySQLConnection', () => {
             stream: streamSpy
         });
 
-        conn.stream('test query', null);
+        conn.stream(new DummyQuery(), null);
 
         expect(streamSpy).toHaveBeenCalledWith({
             highWatermark: 512
@@ -107,7 +108,7 @@ describe('MySQLConnection', () => {
             streamTest: 1
         };
 
-        conn.stream('test query', null, streamOptions);
+        conn.stream(new DummyQuery(), streamOptions);
 
         expect(streamSpy).toHaveBeenCalledWith(streamOptions);
     });
