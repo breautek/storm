@@ -80,8 +80,8 @@
   "devDependencies": {
     "@totalpave/eslint-plugin": "4.0.0",
     "@types/jasmine": "3.6.2",
-    "@typescript-eslint/eslint-plugin": "4.8.0",
-    "@typescript-eslint/parser": "4.8.0",
+    "@typescript-eslint/eslint-plugin": "4.11.1",
+    "@typescript-eslint/parser": "4.11.1",
     "auto-changelog": "2.2.1",
     "eslint": "7.17.0",
     "form-data": "3.0.0",
