@@ -57,6 +57,7 @@
   "license": "GPL-3.0",
   "homepage": "https://github.com/breautek/storm.git",
   "dependencies": {
+    "@arashi/logger": "0.0.0-dev",
     "@arashi/token": "0.0.2",
     "@totalpave/interfaces": "1.0.0",
     "@types/body-parser": "1.19.0",

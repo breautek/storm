@@ -16,7 +16,7 @@
 import {Database} from './Database';
 import {MySQLConnection} from './MySQLConnection';
 import * as MySQL from 'mysql';
-import {getApplicationLogger} from './instance';
+import {getInstance} from './instance';
 
 export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnection> {
     private _cluster: MySQL.PoolCluster;
@@ -24,8 +24,8 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
     constructor() {
         super();
         this._cluster = MySQL.createPoolCluster();
-        this._cluster.on('enqueue', function () {
-            getApplicationLogger().warn('Waiting for available connection...');
+        this._cluster.on('enqueue', () => {
+            getInstance().getLogManager().getLogger(this.constructor.name).warn('Waiting for available connection...');
         });
     }
 
@@ -40,17 +40,17 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
     }
 
     protected _addNode(nodeID: string, config: MySQL.PoolConfig): void {
-        getApplicationLogger().trace(`Adding node to connection pool: "${nodeID}"`);
+        getInstance().getLogManager().getLogger(this.constructor.name).trace(`Adding node to connection pool: "${nodeID}"`);
         this._cluster.add(nodeID, config);
     }
 
     protected _removeNode(nodeID: string): void {
-        getApplicationLogger().trace(`Removing node to connection pool: "${nodeID}"`);
+        getInstance().getLogManager().getLogger(this.constructor.name).trace(`Removing node to connection pool: "${nodeID}"`);
         this._cluster.remove(nodeID);
     }
 
     protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MySQLConnection> {
-        getApplicationLogger().trace(`Querying connection pool for "${query}".`);
+        getInstance().getLogManager().getLogger(this.constructor.name).trace(`Querying connection pool for "${query}".`);
         return new Promise<MySQLConnection>((resolve, reject) => {
             let instantationStack: string = new Error().stack;
             this._cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {

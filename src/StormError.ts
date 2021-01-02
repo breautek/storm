@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {getInstance} from './instance';
-import {Application} from './Application';
+import {Logger} from './Logger';
 import {StatusCode} from './StatusCode';
 
 export interface IAdditionalErrorDetails {
@@ -36,9 +36,9 @@ export abstract class StormError<TErrorDetails = any> extends Error {
 
         this._details = details;
 
-        let instance: Application = getInstance();
-        instance.getLogger().error(`${this.getMessage()}... See details below:`);
-        instance.getLogger().info(this.getPrivateDetails());
+        let logger: Logger = getInstance().getLogManager().getLogger(this.constructor.name);
+        logger.error(`${this.getMessage()}... See details below:`);
+        logger.info(this.getPrivateDetails());
     }
 
     public abstract getMessage(): string;
@@ -68,27 +68,12 @@ export abstract class StormError<TErrorDetails = any> extends Error {
         return StatusCode.INTERNAL_ERROR;
     }
 
-    // public getAdditionalDetails(): IAdditionalErrorDetails {
-    //     getInstance().getLogger().deprecate('getPublicDetails()');
-    //     return this.getPublicDetails();
-    // }
-
     public getErrorResponse(): IErrorResponse {
-        let details: IAdditionalErrorDetails = null;
-
-        if ((<any> this)['getAdditionalDetails']) {
-            getInstance().getLogger().deprecate('getPublicDetails', `${this.constructor.name}.getAdditionalDetails()`);
-            details = (<any> this)['getAdditionalDetails']();
-        }
-        else {
-            details = this.getPublicDetails();
-        }
-
         return {
             name: this.constructor.name,
             message : this.getMessage(),
             code : this.getCode(),
-            details: details
+            details: this.getPublicDetails()
         };
     }
 }

@@ -15,7 +15,7 @@
 
 import {DatabaseConnection} from './DatabaseConnection';
 import {DatabaseQueryError} from './DatabaseQueryError';
-import {getInstance, getApplicationLogger} from './instance';
+import {getInstance} from './instance';
 import * as MySQL from 'mysql';
 import {Readable} from 'stream';
 import {Query} from './Query';
@@ -73,7 +73,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
                 return resolve(results);
             });
-            getApplicationLogger().trace(queryObject.sql);
+            getInstance().getLogManager().getLogger(this.constructor.name).trace(queryObject.sql);
         });
     }
 
@@ -92,7 +92,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             timeout: this.getTimeout()
         }, params);
 
-        getApplicationLogger().trace(queryObject.sql);
+        getInstance().getLogManager().getLogger(this.constructor.name).trace(queryObject.sql);
 
         return queryObject.stream(streamOptions);
     }
@@ -113,7 +113,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 resolve();
             }).catch((ex) => {
                 this._transaction = false;
-                getApplicationLogger().error(ex);
+                getInstance().getLogManager().getLogger(this.constructor.name).error(ex);
                 reject(ex);
             });
         });
@@ -133,7 +133,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 this._transaction = false
                 resolve();
             }).catch((ex: any) => {
-                getApplicationLogger().error(ex);
+                getInstance().getLogManager().getLogger(this.constructor.name).error(ex);
                 reject(ex);
             });
         });
@@ -149,7 +149,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 this._transaction = false;
                 resolve();
             }).catch((ex: any) => {
-                getApplicationLogger().error(ex);
+                getInstance().getLogManager().getLogger(this.constructor.name).error(ex);
                 reject(ex);
             });
         });
@@ -180,7 +180,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 this.getAPI().release();
                 resolve();
             }).catch((error: any) => {
-                getInstance().getLogger().error(error);
+                getInstance().getLogManager().getLogger(this.constructor.name).error(error);
                 this.getAPI().release();
                 resolve();
             });

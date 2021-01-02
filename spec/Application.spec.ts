@@ -2,12 +2,9 @@
 
 import {
     TestApplication,
-    NoServerApp,
     ConfigTestApp
 } from './support/TestApplication';
-import {Logger} from '../src/Logger';
 import {TokenManager} from '../src/TokenManager';
-import { LogSeverity } from '../src/LogSeverity';
 import {HTTPMethod} from '../src/HTTPMethod';
 import {StatusCode} from '../src/StatusCode';
 import { MockDB } from './support/MockDB';
@@ -18,12 +15,10 @@ import * as ChildProcess from 'child_process';
 
 describe('Application', () => {
     let app: TestApplication = null;
-    let originalLogger: Logger = null;
 
     beforeAll((done) => {
         app = new TestApplication();
         app.on('ready', () => {
-            originalLogger = app.getLogger();
             done();
         });
     });
@@ -41,10 +36,6 @@ describe('Application', () => {
 
     it('getName()', () => {
         expect(app.getName()).toBe('TestApplication');
-    });
-
-    it('getLogger() is instanceof Logger', () => {
-        expect(app.getLogger() instanceof Logger).toBe(true);
     });
 
     it('config has binding_ip', () => {
@@ -87,10 +78,6 @@ describe('Application', () => {
     it('getCmdLineArgs()', () => {
         // Test offers no command line args
         expect(JSON.stringify(app.getCmdLineArgs())).toBe('{}');
-    });
-
-    it('Sets default log properly', () => {
-        expect(app.getDefaultLogLevel()).toBe(LogSeverity.TRACE);
     });
 
     it('it has a MockDB', () => {
@@ -159,45 +146,14 @@ describe('Application', () => {
         });
     });
 
-    it('has application logger via instance', () => {
-        expect(AppInstance.getApplicationLogger()).toBe(app.getLogger());
-    });
-
     it('AppInstance.setInstance', () => {
         AppInstance.setInstance(null);
         expect(AppInstance.getInstance()).toBe(null);
     });
 
-    it('getApplicationLogger returns generic logger', () => {
-        AppInstance.setInstance(null);
-        let logger: Logger = AppInstance.getApplicationLogger();
-        expect(logger.getName()).toBe('Generic');
-    });
-
-    it('Default log config', (done) => {
-        let a: NoServerApp = new NoServerApp();
-        let logger: Logger = a.getLogger();
-        expect(logger.getLogLevel()).toBe(LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL);
-        a.close().then(() => {
-            done();
-        });
-    });
-
     it('has a program', () => {
         let program: CommanderStatic = app.getProgram();
         expect(program).toBeTruthy();
-    });
-
-    it('LogSeverity Parsing', () => {
-        let a: NoServerApp = new NoServerApp();
-        expect(a.llStrToSeverity('all')).toBe(LogSeverity.ALL);
-        expect(a.llStrToSeverity('trace')).toBe(LogSeverity.TRACE);
-        expect(a.llStrToSeverity('debug')).toBe(LogSeverity.DEBUG);
-        expect(a.llStrToSeverity('info')).toBe(LogSeverity.INFO);
-        expect(a.llStrToSeverity('warning')).toBe(LogSeverity.WARNING);
-        expect(a.llStrToSeverity('error')).toBe(LogSeverity.ERROR);
-        expect(a.llStrToSeverity('fatal')).toBe(LogSeverity.FATAL);
-        expect(a.llStrToSeverity('SomethingThatDoesntExists')).toBe(null);
     });
 
     it('Config test', () => {
@@ -210,14 +166,6 @@ describe('Application', () => {
             backend_authentication_secret: null,
             log_filters: []
         }));
-    });
-
-    it('Can set logger', () => {
-        const LOGGER_NAME: string = 'this is a test logger';
-        let logger: Logger = new Logger(LOGGER_NAME);
-        app.setLogger(logger);
-        expect(app.getLogger()).toBe(logger);
-        app.setLogger(originalLogger);
     });
 
     describe('CLI Support', () => {

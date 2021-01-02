@@ -48,12 +48,12 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
              * if this particular instance of managed connections has write access.
              */
             if (this._requiresWrite && oldConnection.isTransaction()) {
-                getInstance().getLogger().warn('Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.');
-                getInstance().getLogger().trace(new Error('Stacktrace'));
+                getInstance().getLogManager().getLogger(this.constructor.name).warn('Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.');
+                getInstance().getLogManager().getLogger(this.constructor.name).trace(new Error('Stacktrace'));
                 oldConnection.rollback().then(() => {
                     oldConnection.close();
                 }).catch((error: any) => {
-                    getInstance().getLogger().error(error);
+                    getInstance().getLogManager().getLogger(this.constructor.name).error(error);
                     oldConnection.close(true);
                 });
             }

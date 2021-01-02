@@ -16,7 +16,6 @@
 import {EventEmitter} from 'events';
 import {setInstance} from './instance';
 import {Logger} from './Logger';
-import {LogSeverity} from './LogSeverity';
 import {TokenManager} from './TokenManager';
 import {ApplicationEvent} from './ApplicationEvent';
 import {ExitCode} from './ExitCode';
@@ -32,11 +31,7 @@ import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
 import { IAuthTokenData } from '@arashi/token';
-
-/**
- * The default log level to log informational, warnings, errors, and fatal messages.
- */
-const DEFAULT_LOG_LEVEL = LogSeverity.INFO | LogSeverity.WARNING | LogSeverity.ERROR | LogSeverity.FATAL;
+import {LogManager} from './LogManager';
 
 /**
  * Main entry point for the Application. Should be extended and have the abstract methods implemented.
@@ -56,9 +51,8 @@ export abstract class Application
     private _tokenManager: TokenManager<TAuthToken>;
     private _server: Express.Application;
     private _db: Database<TDBConfig, TDBConnectionAPI>;
-    private _logConfigDefaulting: boolean;
-    private _isTestEnvironment: boolean;
     private _socket: http.Server;
+    private _logManager: LogManager;
 
     // private _argv: any;
     private _program: Commander.CommanderStatic;
@@ -67,78 +61,58 @@ export abstract class Application
      * 
      * @param name The application name
      * @param configPath The directory where bt-config.json and bt-local-config.json can be found. Defaults to current working directory.
-     * @param logSeverity Log severity. Defaults to INFO | WARNING | ERROR | FATAL
      */
-    public constructor(name: string, configPath: string, logSeverity?: LogSeverity) {
+    public constructor(name: string, configPath: string) {
         super();
 
         setInstance(this);
-
-        this._isTestEnvironment = false;
         
         this.$buildArgOptions();
-
-        if ((<any>global).jasmine) {
-            // We are in a test development
-            this._isTestEnvironment = true;
-        }
 
         this._program.parse(process.argv);
 
         this._name = name;
-        this._logger = this._createLogger();
-
-        if (logSeverity) {
-            this._logConfigDefaulting = false;
-            this.getLogger().setLogLevel(logSeverity);
-        }
-        else {
-            this._logConfigDefaulting = true;
-            this.getLogger().setLogLevel(this._getDefaultLogLevel());
-        }
+        this._logManager = this._initLogManager();
 
         process.on('unhandledRejection', (error: any) => {
-            this.getLogger().fatal(error);
+            this._getLogger().error(error);
         });
 
         this._configPath = configPath || process.cwd();
 
-        this.getLogger().trace('Application is booting...');
-        this.getLogger().trace('Loading Configuration...');
+        this._getLogger().trace('Application is booting...');
+        this._getLogger().trace('Loading Configuration...');
 
         this._load();
+    }
+
+    protected _initLogManager(): LogManager {
+        return new LogManager(this);
     }
 
     private _load(): void {
         this.loadConfig(this._configPath).then((config: TConfig) => {
             this._config = config;
-            this.getLogger().trace('Configuration loaded.');
+            this._getLogger().trace('Configuration loaded.');
             this.emit(ApplicationEvent.CONFIG_LOADED);
             this.onConfigLoad(this._config);
             return Promise.resolve();
         }).then(() => {
-            if (this._logConfigDefaulting) {
-                let logSeverity: LogSeverity = this._parseLogLevelConfig(this.getConfig());
-                this._logger.setLogLevel(logSeverity);
-            }
-
-            this._logger.loadFilters();
-
-            this.getLogger().trace('Initializing DB...');
+            this._getLogger().trace('Initializing DB...');
 
             return this.initDB(this.getConfig());
         }).then((db: Database<TDBConfig, TDBConnectionAPI>) => {
             if (db) {
-                this.getLogger().trace('DB Initialized.');
+                this._getLogger().trace('DB Initialized.');
             }
             else {
-                this.getLogger().trace('DB is not initialized.');
+                this._getLogger().trace('DB is not initialized.');
             }
             this._db = db;
 
             return Promise.resolve();
         }).then(() => {
-            this.getLogger().trace('Starting server...');
+            this._getLogger().trace('Starting server...');
             this._server = Express();
             this._server.use(BodyParser.json({
                 type : 'application/json',
@@ -151,7 +125,7 @@ export abstract class Application
 
             return Promise.resolve();
         }).then(() => {
-            this.getLogger().trace('Attaching handlers...');
+            this._getLogger().trace('Attaching handlers...');
             return this.attachHandlers();
         }).then(() => {
             this.onBeforeReady();
@@ -163,15 +137,15 @@ export abstract class Application
                 if (this.shouldListen()) {
                     this._socket = http.createServer(this._server);
                     this._socket.listen(port, bindingIP, () => {
-                        this.getLogger().trace(`Server started on ${bindingIP}:${this.getPort()}`);
+                        this._getLogger().trace(`Server started on ${bindingIP}:${this.getPort()}`);
                     });
                 }
                 else {
-                    this.getLogger().trace('Server did not bind because shouldListen() returned false.');
+                    this._getLogger().trace('Server did not bind because shouldListen() returned false.');
                 }
             }
             else {
-                this.getLogger().info(`Server does not have a bounding IP set. The server will not be listening for connections.`);
+                this._getLogger().info(`Server does not have a bounding IP set. The server will not be listening for connections.`);
             }
 
             return this._initialize(this.getConfig());
@@ -180,7 +154,7 @@ export abstract class Application
             this.onReady();
             this.emit('ready');
         }).catch((error) => {
-            this.getLogger().fatal(error);
+            this._getLogger().error(error);
         });
     }
 
@@ -294,19 +268,12 @@ export abstract class Application
         return this._name;
     }
 
-    /**
-     * 
-     * @param logger Logger class to use
-     */
-    public setLogger(logger: Logger): void {
-        this._logger = logger;
+    public getLogManager(): LogManager {
+        return this._logManager;
     }
 
-    /**
-     * @returns the application's logger
-     */
-    public getLogger(): Logger {
-        return this._logger;
+    private _getLogger(): Logger {
+        return this.getLogManager().getLogger('Application');
     }
 
     /**
@@ -384,95 +351,6 @@ export abstract class Application
      */
     protected initDB(config: TConfig): Promise<Database<TDBConfig, TDBConnectionAPI>> {
         return Promise.resolve(null);
-    }
-
-    /**
-     * Creates the logger instance used by the application
-     * @returns Logger
-     */
-    protected _createLogger(): Logger {
-        return new Logger(this.getName());
-    }
-
-    /**
-     * Sets the default log level on the Logger
-     */
-    protected _getDefaultLogLevel(): LogSeverity {
-        return DEFAULT_LOG_LEVEL;
-    }
-
-    /**
-     * Parses the log severity flags from the config object.
-     * @param config bt-config object
-     * @returns the severity mask
-     */
-    protected _parseLogLevelConfig(config: TConfig): LogSeverity {
-        let llConfig: string = config.log_level;
-        let severity: LogSeverity = null;
-
-        if (!llConfig) {
-            return null;
-        }
-
-        llConfig = llConfig.toLowerCase().trim();
-
-        if (llConfig.indexOf('all') > -1) {
-            return LogSeverity.ALL;
-        }
-
-        if (llConfig.indexOf('|') === -1) {
-            severity = this._llStrToSeverity(llConfig);
-        }
-        else {
-            let llParts: Array<string> = llConfig.split('|');
-            for (let i: number = 0; i < llParts.length; i++) {
-                let llPart: string = llParts[i];
-                llPart = llPart.trim();
-                if (llPart === '') {
-                    continue;
-                }
-
-                /* istanbul ignore next */
-                let llSev: LogSeverity = this._llStrToSeverity(llPart);
-                if (!llSev) {
-                    continue;
-                }
-
-                if (!severity) {
-                    severity = llSev;
-                }
-                else {
-                    severity = severity | llSev;
-                }
-            }
-        }
-
-        return severity;
-    }
-
-    /**
-     * Translates the severity string to its corresponding enumeration value.
-     * @param ll sevierty string
-     */
-    protected _llStrToSeverity(ll: string): LogSeverity {
-        switch (ll) {
-            case 'all':
-                return LogSeverity.ALL;
-            case 'trace':
-                return LogSeverity.TRACE;
-            case 'debug':
-                return LogSeverity.DEBUG;
-            case 'info':
-                return LogSeverity.INFO;
-            case 'warning':
-                return LogSeverity.WARNING;
-            case 'error':
-                return LogSeverity.ERROR;
-            case 'fatal':
-                return LogSeverity.FATAL;
-            default:
-                return null;
-        }
     }
 
     protected onBeforeReady(): void {}

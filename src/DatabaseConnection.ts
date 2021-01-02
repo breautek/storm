@@ -14,7 +14,6 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {
-    getApplicationLogger,
     getInstance
 } from './instance';
 import {Readable} from 'stream';
@@ -57,7 +56,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     }
 
     private _triggerLingerWarning(): void {
-        getApplicationLogger().warn(`Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`);
+        getInstance().getLogManager().getLogger(this.constructor.name).warn(`Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`);
     }
 
     public setInstantiationStack(stack: string): void {

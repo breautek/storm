@@ -18,7 +18,7 @@ import {Request} from './Request';
 import {Response} from './Response';
 import {ResponseData} from './ResponseData';
 import {Logger} from './Logger';
-import {getInstance, getApplicationLogger} from './instance';
+import {getInstance} from './instance';
 import {IConfig} from './IConfig';
 
 /**
@@ -31,7 +31,7 @@ export class BackendAuthenticationMiddleware {
     private _logger: Logger;
 
     public constructor() {
-        this._logger = getApplicationLogger();
+        this._logger = getInstance().getLogManager().getLogger(this.constructor.name);
     }
 
     /**

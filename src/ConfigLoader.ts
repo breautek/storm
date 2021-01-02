@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {getInstance, getApplicationLogger} from './instance';
+import {getInstance} from './instance';
 import {Logger} from './Logger';
 import * as Path from 'path';
 import {Application} from './Application';
@@ -169,10 +169,6 @@ export class ConfigLoader {
 
     private static _getLogger(): Logger {
         let logger: Logger;
-        let app: Application = getInstance();
-        if (app) {
-            logger = getApplicationLogger();
-        }
         
         if (!logger) {
             logger = new Logger('ConfigLoader');

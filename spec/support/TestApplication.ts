@@ -3,7 +3,6 @@ import {Application} from '../../src/Application';
 import {Database} from '../../src/Database';
 import {IConfig} from '../../src/IConfig';
 import {Logger} from '../../src/Logger';
-import {LogSeverity} from '../../src/LogSeverity';
 import {Handler} from '../../src/Handler';
 import { MockDB } from './MockDB';
 import { Request } from '../../src/Request';
@@ -11,7 +10,7 @@ import { Response } from '../../src/Response';
 import {IHandler} from '../../src/IHandler';
 import {StatusCode} from '../../src/StatusCode';
 import {HTTPMethod} from '../../src/HTTPMethod';
-import {MockLogger} from './MockLogger';
+// import {MockLogger} from './MockLogger';
 import * as http from 'http';
 import { TokenManager } from '../../src/TokenManager';
 import { Token } from '../../src/Token';
@@ -50,11 +49,9 @@ class TestHandler extends Handler {
     }
 }
 
-const ERRORS_ONLY: LogSeverity = LogSeverity.ERROR | LogSeverity.FATAL;
-
 export class TestApplication extends Application {
-    constructor(severity?: LogSeverity) {
-        super("TestApplication", "./spec/support/", severity === undefined ? ERRORS_ONLY : severity);
+    constructor() {
+        super("TestApplication", "./spec/support/");
     }
 
     protected attachHandlers(): Promise<void> {
@@ -69,19 +66,11 @@ export class TestApplication extends Application {
     public initDB(config: IConfig): Promise<Database<any, any>> {
         return Promise.resolve(new MockDB());
     }
-
-    public getDefaultLogLevel(): LogSeverity {
-        return this._getDefaultLogLevel();
-    }
-
-    protected _getDefaultLogLevel(): LogSeverity {
-        return LogSeverity.TRACE;
-    }
 }
 
 export class MockApplication extends Application {
-    constructor(severity?: LogSeverity) {
-        super("TestApplication", "./spec/support/", severity === undefined ? ERRORS_ONLY : severity);
+    constructor() {
+        super("TestApplication", "./spec/support/");
 
         const VERY_SECRET_KEY: string = 'secret';
 
@@ -171,19 +160,11 @@ export class MockApplication extends Application {
     public initDB(config: IConfig): Promise<Database<any, any>> {
         return Promise.resolve(new MockDB());
     }
-
-    public getDefaultLogLevel(): LogSeverity {
-        return this._getDefaultLogLevel();
-    }
-
-    protected _getDefaultLogLevel(): LogSeverity {
-        return LogSeverity.TRACE;
-    }
 }
 
 export class NoServerApp extends Application {
     constructor() {
-        super('NoServerApp', './spec/support/', null);
+        super('NoServerApp', './spec/support/');
     }
 
     protected attachHandlers(): Promise<void> {
@@ -194,26 +175,18 @@ export class NoServerApp extends Application {
     public shouldListen(): boolean {
         return false;
     }
-
-    public llStrToSeverity(ll: string): LogSeverity {
-        return this._llStrToSeverity(ll);
-    }
 }
 
 export class ConfigTestApp extends Application {
     public testConfig: IConfig;
 
     constructor(jsonConfig: string) {
-        super('ConfigTestApp', jsonConfig, null);
+        super('ConfigTestApp', jsonConfig);
     }
 
     protected attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         return Promise.resolve();
-    }
-
-    protected _createLogger(): Logger {
-        return new MockLogger();
     }
 
     public shouldListen(): boolean {
@@ -222,9 +195,5 @@ export class ConfigTestApp extends Application {
 
     public loadConfig(path: string): Promise<IConfig> {
         return Promise.resolve(JSON.parse(path));
-    }
-
-    public llStrToSeverity(ll: string): LogSeverity {
-        return this._llStrToSeverity(ll);
     }
 }

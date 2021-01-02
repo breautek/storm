@@ -16,15 +16,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {Application} from './Application';
-import {Logger} from './Logger';
-import {LogSeverity} from './LogSeverity';
 
 let instance: Application;
-let genericLogger: Logger;
 
 let setInstance = (app: Application): void => {
     if (instance) {
-        instance.getLogger().warn('Storm application already initialized');
+        instance.getLogManager().getLogger('ApplicationInstance').warn('Storm application already initialized');
     }
     instance = app;
 };
@@ -33,22 +30,7 @@ let getInstance = (): Application => {
     return instance;
 };
 
-let getApplicationLogger = (): Logger => {
-    if (instance) {
-        return instance.getLogger();
-    }
-    else {
-        if (!genericLogger) {
-            genericLogger = new Logger('Generic');
-            genericLogger.info('Using generic logger. Only errors will be reported.');
-            genericLogger.setLogLevel(LogSeverity.ERROR | LogSeverity.FATAL);
-        }
-        return genericLogger;
-    }
-};
-
 export {
     setInstance,
-    getInstance,
-    getApplicationLogger
+    getInstance
 };

@@ -17,8 +17,8 @@ import {StatusCode} from './StatusCode';
 import {ResponseData} from './ResponseData';
 import {StormError, IErrorResponse} from './StormError';
 import * as express from 'express';
-import {getApplicationLogger} from './instance';
 import { InternalError } from './InternalError';
+import { getInstance } from './instance';
 
 export type SendableData = ResponseData | Error | IErrorResponse | any;
 
@@ -61,7 +61,7 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
             this._response.send(data);
         }
         
-        getApplicationLogger().info(`API ${this._requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this._created.getTime()}ms`);
+        getInstance().getLogManager().getLogger('Response').info(`API ${this._requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this._created.getTime()}ms`);
     }
 
     public pipe(stream: NodeJS.ReadableStream): void {
@@ -112,53 +112,5 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
         else {
             this.send(new InternalError(error));
         }
-    }
-
-    /**
-     * @deprecated
-     */
-    public badRequest(data?: TErrorResponse | StormError): void {
-        getApplicationLogger().deprecate();
-        this.setStatus(StatusCode.ERR_BAD_REQUEST).send(data);
-    }
-
-    /**
-     * @deprecated
-     */
-    public unauthorized(data?: TErrorResponse | StormError): void {
-        getApplicationLogger().deprecate();
-        this.setStatus(StatusCode.ERR_UNAUTHORIZED).send(data);
-    }
-
-    /**
-     * @deprecated
-     */
-    public forbidden(data?: TErrorResponse | StormError): void {
-        getApplicationLogger().deprecate();
-        this.setStatus(StatusCode.ERR_FORBIDDEN).send(data);
-    }
-
-    /**
-     * @deprecated
-     */
-    public conflict(data?: TErrorResponse | StormError): void {
-        getApplicationLogger().deprecate();
-        this.setStatus(StatusCode.ERR_CONFLICT).send(data);
-    }
-
-    /**
-     * @deprecated
-     */
-    public notFound(data?: TErrorResponse | StormError): void {
-        getApplicationLogger().deprecate();
-        this.setStatus(StatusCode.ERR_NOT_FOUND).send(data);
-    }
-
-    /**
-     * @deprecated
-     */
-    public internalError(data?: TErrorResponse | StormError): void {
-        getApplicationLogger().deprecate();
-        this.setStatus(StatusCode.INTERNAL_ERROR).send(data);
     }
 }
