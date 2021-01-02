@@ -23,6 +23,7 @@ import {StormError} from './StormError';
 import {IConfig} from './IConfig';
 import { InternalError } from './InternalError';
 import { IRequestResponse } from './IRequestResponse';
+import { Logger } from '@arashi/logger';
 
 export class Handler<
         TApplication extends Application = Application,
@@ -64,15 +65,17 @@ export class Handler<
             response
         };
 
+        let logger: Logger = getInstance().getLogManager().getLogger(this.constructor.name);
+
         try {
             for (let i: number = 0; i < this._middlewares.length; i++) {
                 let middleware: Middleware = this._middlewares[i];
-                console.log(`executing middleware ${i}`);
+                logger.trace(`executing middleware ${i}`);
                 result = await middleware.execute(result.request, result.response);
             }
         }
         catch (ex) {
-            getInstance().getLogger().error(ex);
+            logger.error(ex);
             let error: StormError = null;
             if (!(ex instanceof StormError)) {
                 error = new InternalError(ex);
@@ -108,6 +111,7 @@ export class Handler<
 
     public get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
+            this.getApplication().getLogManager().getLogger(this.constructor.name).info(`${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
             this._executeMiddlewares(request, response).then((result: IRequestResponse<TGetRequest, TGetResponse>) => {
                 this._get(result.request, result.response);
                 resolve();

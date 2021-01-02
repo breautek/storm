@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { IDatabaseConfig } from './IDatabaseConfig';
+import {LogLevel} from '@arashi/logger';
 
 export interface IConfig {
     // Server exposability
@@ -26,7 +27,7 @@ export interface IConfig {
     backend_authentication_secret?: string;
     
     // Logging
-    log_level: string;
+    log_level: LogLevel;
     log_filters: Array<string>;
 
     // Database

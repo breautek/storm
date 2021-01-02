@@ -186,7 +186,7 @@ describe('ManagedDatabaseConnection', () => {
 
         spyOn(conn1, 'isTransaction').and.returnValue(true);
         let rollbackSpy: jasmine.Spy = spyOn(conn1, 'rollback').and.returnValue(Promise.resolve());
-        let warnSpy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
+        let warnSpy: jasmine.Spy = spyOn(getInstance().getLogManager().getLogger(mdc.constructor.name), 'warn');
         let spy: jasmine.Spy = spyOn(conn1, 'close').and.callThrough();
 
         mdc.setConnection(conn2);
@@ -232,8 +232,8 @@ describe('ManagedDatabaseConnection', () => {
 
         spyOn(conn1, 'isTransaction').and.returnValue(true);
         let rollbackSpy: jasmine.Spy = spyOn(conn1, 'rollback').and.returnValue(Promise.reject(testError));
-        let warnSpy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
-        let logSpy: jasmine.Spy = spyOn(getInstance().getLogger(), 'error');
+        let warnSpy: jasmine.Spy = spyOn(getInstance().getLogManager().getLogger(mdc.constructor.name), 'warn');
+        let logSpy: jasmine.Spy = spyOn(getInstance().getLogManager().getLogger(mdc.constructor.name), 'error');
         let spy: jasmine.Spy = spyOn(conn1, 'close').and.callThrough();
 
         mdc.setConnection(conn2);

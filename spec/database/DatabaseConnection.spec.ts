@@ -93,9 +93,8 @@ describe('DatabaseConnection', () => {
 
     it('does trigger linger warning', () => {
         jasmine.clock().install();
-        let app: Application = getInstance();
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(app.getLogger(), 'warn');
+        let spy: jasmine.Spy = spyOn(getInstance().getLogManager().getLogger(connection.constructor.name), 'warn');
         connection.query(new DummyQuery());
         jasmine.clock().tick(10001);
         expect(spy).toHaveBeenCalledWith(jasmine.any(String));

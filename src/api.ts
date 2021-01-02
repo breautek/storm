@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Application
-export {getInstance, getApplicationLogger} from './instance';
+export {getInstance} from './instance';
 export {Application} from './Application';
 
 // Config
@@ -80,14 +80,11 @@ export {IAuthTokenData} from './IAuthTokenData';
 // Token
 export {Token} from './Token';
 export {TokenManager} from './TokenManager';
-export {AuthenticationMiddleware} from './AuthenticationMiddleware';
 
 // Utils
 export {ExitCode} from './ExitCode';
 export {LogEvent} from './LogEvent';
 export {Logger} from './Logger';
-export {LogSeverity} from './LogSeverity';
-export {LoggerMiddleware} from './LoggerMiddleware';
 export {DumpStream} from './DumpStream';
 
 // Third-party

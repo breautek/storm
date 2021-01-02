@@ -16,7 +16,7 @@
 import { IDictionary } from '@totalpave/interfaces';
 import * as UUID from 'uuid';
 import {DatabaseConnection} from './DatabaseConnection';
-import {getApplicationLogger} from './instance';
+import { getInstance } from './instance';
 
 const MASTER_NAME: string = 'MASTER';
 
@@ -52,7 +52,7 @@ export abstract class Database<TDatabaseConfig, TConnectionAPI> {
 
     public removeSlave(slaveID: string): void {
         if (!this._clusterConfigMap[slaveID]) {
-            getApplicationLogger().warn(`Node ${slaveID} is not a part of this cluster.`);
+            getInstance().getLogManager().getLogger(this.constructor.name).warn(`Node ${slaveID} is not a part of this cluster.`);
             return;
         }
 
