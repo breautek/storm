@@ -174,11 +174,18 @@ export abstract class Application
                 this.getLogger().info(`Server does not have a bounding IP set. The server will not be listening for connections.`);
             }
 
+            return this._initialize(this.getConfig());
+        }).then(() => {
+
             this.onReady();
             this.emit('ready');
         }).catch((error) => {
             this.getLogger().fatal(error);
         });
+    }
+
+    protected _initialize(config: TConfig): Promise<void> {
+        return Promise.resolve();
     }
 
     public getPort(): number {
