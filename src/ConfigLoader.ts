@@ -21,7 +21,7 @@ import * as Path from 'path';
 import {Application} from './Application';
 import {ExitCode} from './ExitCode';
 import {IConfig} from './IConfig';
-import Ajv from 'ajv';
+// import Ajv from 'ajv';
 import * as MergeChange from 'merge-change';
 
 export class ConfigLoader {
@@ -91,71 +91,72 @@ export class ConfigLoader {
     }
 
     private static async _validateSchema(config: IConfig): Promise<void> {
-        let ajv: Ajv = new Ajv({
-            allErrors: true
-        });
+        return;
+        // let ajv: Ajv = new Ajv({
+        //     allErrors: true
+        // });
 
-        let validate = ajv.compile({
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-                binding_ip:                     { type: [ 'string', 'null' ] },
-                port:                           { type: [ 'number', 'null' ] },
-                authentication_header:          { type: [ 'string', 'null' ] },
-                backend_authentication_header:  { type: [ 'string', 'null' ] },
-                backend_authentication_secret:  { type: [ 'string', 'null' ] },
-                log_level:                      { type: [ 'string', 'null' ] },
-                request_size_limit:             { type: [ 'number', 'null' ] },
-                log_filters: {
-                    type: [ 'array', 'null' ],
-                    items: { type: 'string' }
-                },
-                database: {
-                    type: [ 'object', 'null' ],
-                    additionalProperties: false,
-                    properties: {
-                        query_timeout: { type: [ 'integer', 'null' ], minimum: 0 },
-                        main: {
-                            type: [ 'object', 'null' ],
-                            additionalProperties: false,
-                            properties: {
-                                name: { type: 'string', const: "MASTER" },
-                                host: { type: 'string' },
-                                port: { type: 'integer', minimum: 0 },
-                                schema: { type: 'string' },
-                                user: { type: 'string' },
-                                password: { type: 'string' }
-                            }
-                        },
-                        replicationNodes: {
-                            type: [ 'array', 'null' ],
-                            items: {
-                                type: 'object',
-                                additionalProperties: false,
-                                properties: {
-                                    name: { type: 'string' },
-                                    host: { type: 'string' },
-                                    port: { type: 'integer', minimum: 0 },
-                                    schema: { type: 'string' },
-                                    user: { type: 'string' },
-                                    password: { type: 'string' }
-                                }
-                            }
-                        }
-                    }
-                },
-                customConfig: {
-                    type: 'object',
-                    additionalProperties: true,
-                    properties: {}
-                }
-            }
-        });
+        // let validate = ajv.compile({
+        //     type: 'object',
+        //     additionalProperties: false,
+        //     properties: {
+        //         binding_ip:                     { type: [ 'string', 'null' ] },
+        //         port:                           { type: [ 'number', 'null' ] },
+        //         authentication_header:          { type: [ 'string', 'null' ] },
+        //         backend_authentication_header:  { type: [ 'string', 'null' ] },
+        //         backend_authentication_secret:  { type: [ 'string', 'null' ] },
+        //         log_level:                      { type: [ 'string', 'null' ] },
+        //         request_size_limit:             { type: [ 'number', 'null' ] },
+        //         log_filters: {
+        //             type: [ 'array', 'null' ],
+        //             items: { type: 'string' }
+        //         },
+        //         database: {
+        //             type: [ 'object', 'null' ],
+        //             additionalProperties: false,
+        //             properties: {
+        //                 query_timeout: { type: [ 'integer', 'null' ], minimum: 0 },
+        //                 main: {
+        //                     type: [ 'object', 'null' ],
+        //                     additionalProperties: false,
+        //                     properties: {
+        //                         name: { type: 'string', const: "MASTER" },
+        //                         host: { type: 'string' },
+        //                         port: { type: 'integer', minimum: 0 },
+        //                         schema: { type: 'string' },
+        //                         user: { type: 'string' },
+        //                         password: { type: 'string' }
+        //                     }
+        //                 },
+        //                 replicationNodes: {
+        //                     type: [ 'array', 'null' ],
+        //                     items: {
+        //                         type: 'object',
+        //                         additionalProperties: false,
+        //                         properties: {
+        //                             name: { type: 'string' },
+        //                             host: { type: 'string' },
+        //                             port: { type: 'integer', minimum: 0 },
+        //                             schema: { type: 'string' },
+        //                             user: { type: 'string' },
+        //                             password: { type: 'string' }
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         },
+        //         customConfig: {
+        //             type: 'object',
+        //             additionalProperties: true,
+        //             properties: {}
+        //         }
+        //     }
+        // });
 
-        let isValid: boolean = validate(config);
-        if (!isValid) {
-            throw validate.errors;
-        }
+        // let isValid: boolean = validate(config);
+        // if (!isValid) {
+        //     throw validate.errors;
+        // }
     }
 
     private static _getCmdLineArgs(): any {

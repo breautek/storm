@@ -11,6 +11,7 @@ describe('DatabaseQueryError', () => {
     let app: MockApplication = null;
 
     let setup = (done: any) => {
+        process.argv = [];
         app = new MockApplication();
         app.on('ready', () => {
             error = new DatabaseQueryError('SELECT * FROM test', 'Mock Error');

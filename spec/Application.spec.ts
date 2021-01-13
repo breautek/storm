@@ -17,7 +17,15 @@ describe('Application', () => {
     let app: TestApplication = null;
 
     beforeAll((done) => {
-        app = new TestApplication();
+        process.argv = [];
+        try {
+            app = new TestApplication();
+        }
+        catch (ex) {
+            console.error('asdfasdfasdf', ex);
+            throw ex;
+        }
+        
         app.on('ready', () => {
             done();
         });
@@ -91,6 +99,7 @@ describe('Application', () => {
             port: app.getPort(),
             path: '/echo'
         }, (res: http.IncomingMessage): void => {
+            console.log('RESPONSE', res);
             expect(res.statusCode).toBe(StatusCode.OK_NO_CONTENT);
             done();
         });
@@ -171,41 +180,35 @@ describe('Application', () => {
     describe('CLI Support', () => {
         it('starts without parameters', () => {
             expect(() => {
-                ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp')
+                ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp');
             }).not.toThrow();
         });
 
         it('should throw error (expecting config)', () => {
-            expect(() => {
-                ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockAppWithError')
-            }).toThrowMatching((thrown: any): boolean => {
-                console.log(thrown.stdout.toString());
-                return /Missing.+bt-config.json/.test(thrown.stdout.toString());
-            });
+            try {
+                ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockAppWithError');
+            }
+            catch (ex) {
+                expect(ex.stdout.toString('utf8')).toMatch(/Missing.+bt-config.json/);
+            }
         });
 
         it('option --port', () => {
-            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --port 0').toString();
-            let opts: any = JSON.parse(buf);
-            expect(opts).toEqual({
-                port: '0'
-            });
+            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --port 0').toString().split('\n');
+            let opts: any = JSON.parse(lines[lines.length - 2]);
+            expect(opts.port).toEqual('0');
         });
 
         it('option --binding', () => {
-            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --binding 123.456.789.0').toString();
-            let opts: any = JSON.parse(buf);
-            expect(opts).toEqual({
-                binding_ip: '123.456.789.0'
-            });
+            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --binding \'123.456.789.0\'').toString().split('\n');
+            let opts: any = JSON.parse(lines[lines.length - 2]);
+            expect(opts.binding_ip).toEqual('123.456.789.0');
         });
 
         it('option --authentication_header', () => {
-            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --authentication_header newHeader').toString();
-            let opts: any = JSON.parse(buf);
-            expect(opts).toEqual({
-                authentication_header: 'newHeader'
-            });
+            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --authentication_header newHeader').toString().split('\n');
+            let opts: any = JSON.parse(lines[lines.length - 2]);
+            expect(opts.authentication_header).toEqual('newHeader');
         });
 
         it('option -v', () => {

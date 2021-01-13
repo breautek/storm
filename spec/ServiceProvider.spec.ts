@@ -29,6 +29,7 @@ describe('ServiceProvider', () => {
     
 
     let setup = (done: any) => {
+        process.argv = [];
         app = new MockApplication();
         app.on('ready', () => {
             sp = new TestServiceProvider(app);
