@@ -68,7 +68,7 @@ export abstract class Application
         setInstance(this);
         
         this.$buildArgOptions();
-
+        
         this._program.parse(process.argv);
 
         this._name = name;
@@ -80,8 +80,10 @@ export abstract class Application
 
         this._configPath = configPath || process.cwd();
 
-        this._getLogger().trace('Application is booting...');
-        this._getLogger().trace('Loading Configuration...');
+        let logger: Logger = new Logger('Storm');
+
+        logger.info('Application is booting...');
+        logger.info('Loading Configuration...');
 
         this._load();
     }

@@ -10,6 +10,7 @@ describe('Database', () => {
     let app: MockApplication = null;
 
     let setup = (done: any) => {
+        process.argv = [];
         app = new MockApplication();
         app.on('ready', () => {
             done();

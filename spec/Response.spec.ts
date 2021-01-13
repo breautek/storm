@@ -36,6 +36,7 @@ describe('Response', () => {
     let app: MockApplication = null;
 
     beforeAll((done) => {
+        process.argv = [];
         app = new MockApplication();
         app.on('ready', () => {
             done();

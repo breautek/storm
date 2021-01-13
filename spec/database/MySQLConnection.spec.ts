@@ -13,6 +13,7 @@ describe('MySQLConnection', () => {
     let app: MockApplication = null;
 
     let setup = (done: any) => {
+        process.argv = [];
         app = new MockApplication();
         app.on('ready', () => {
             done();
@@ -40,6 +41,10 @@ describe('MySQLConnection', () => {
             release: jasmine.createSpy('release')
         };
         conn = new MySQLConnection(mockAPI, 'test stack');
+    });
+
+    afterEach(() => {
+        conn.close();
     });
 
     it('sets queryFormat', () => {
@@ -74,7 +79,7 @@ describe('MySQLConnection', () => {
         });
         conn.query(new DummyQuery()).catch((error: any) => {
             console.log(error);
-            expect(error instanceof DatabaseQueryError).withContext(error).toBe(true);
+            expect(error instanceof DatabaseQueryError).toBe(true);
             done();
         });
     });

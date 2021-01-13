@@ -6,11 +6,13 @@ import {MySQLDatabase} from '../../src/MySQLDatabase';
 import * as MySQL from 'mysql';
 import {EventEmitter} from 'events';
 import { getInstance } from '../../src/instance';
+import { IDatabaseConnection } from '../../src/api';
 
 describe('MySQLDatabase', () => {
     let app: MockApplication = null;
 
     let setup = (done: any) => {
+        process.argv = [];
         app = new MockApplication();
         app.on('ready', () => {
             done();
@@ -72,11 +74,13 @@ describe('MySQLDatabase', () => {
         expect(spy).toHaveBeenCalledWith('MASTER');
     });
 
-    it('get read only connection', () => {
+    it('get read only connection', (done) => {
         let db: MySQLDatabase = new MySQLDatabase();
         let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'getConnection');
 
-        db.getConnection();
+        db.getConnection().then((connection: IDatabaseConnection) => {
+            connection.close();
+        });
 
         expect(spy).toHaveBeenCalledWith('SLAVE*', jasmine.any(Function));
     });
@@ -85,7 +89,9 @@ describe('MySQLDatabase', () => {
         let db: MySQLDatabase = new MySQLDatabase();
         let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'getConnection');
 
-        db.getConnection(true);
+        db.getConnection(true).then((connection: IDatabaseConnection) => {
+            connection.close();
+        });
 
         expect(spy).toHaveBeenCalledWith('MASTER', jasmine.any(Function));
     });
