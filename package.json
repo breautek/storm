@@ -51,7 +51,7 @@
     "breautek"
   ],
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">= 12.0.0"
   },
   "author": "norman@normanbreau.com",
   "license": "GPL-3.0",
