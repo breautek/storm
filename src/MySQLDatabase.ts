@@ -25,7 +25,11 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
 
     constructor() {
         super();
-        this._cluster = MySQL.createPoolCluster();
+        // TODO: Maybe one day this may be exposed via a bt config setting.
+        this._cluster = MySQL.createPoolCluster({
+            removeNodeErrorCount: Infinity,
+            restoreNodeTimeout: 10
+        });
         this._cluster.on('enqueue', () => {
             getInstance().getLogger().warn(TAG, 'Waiting for available connection...');
         });
