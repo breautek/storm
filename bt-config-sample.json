@@ -44,6 +44,12 @@
     "log_level": "info | warning | error | fatal",
 
     /*
+    @type string
+    @description Location for log output
+    */
+    "log_directory": "./"
+
+    /*
     @type Array<string>
     @description 	Suppresses logging to log messages matching the listed regex patterns 
     */

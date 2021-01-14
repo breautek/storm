@@ -56,7 +56,11 @@ describe('Middlewares', () => {
         handler = new TestHandler(app);
         status = null;
         request = {
-
+            getForwardedIP: jasmine.createSpy('getForwardedIP').and.returnValue('127.0.0.1'),
+            getMethod: jasmine.createSpy('getMethod'),
+            getURL: jasmine.createSpy('getURL'),
+            getHeader: jasmine.createSpy('user-agent'),
+            getIP: jasmine.createSpy('getIP')
         };
         response = {
             error: jasmine.createSpy('error'),
@@ -155,6 +159,7 @@ describe('Middlewares', () => {
         });
 
         handler.get(request, response).catch((error: any) => {
+            console.error('ERROR', error);
             expect(error instanceof EntityNotFoundError).toBe(true);
             expect(rejectionSpy).toHaveBeenCalled();
             expect(response.error).toHaveBeenCalled();

@@ -18,6 +18,8 @@ import {MySQLConnection} from './MySQLConnection';
 import * as MySQL from 'mysql';
 import {getInstance} from './instance';
 
+const TAG: string = 'MySQLDatabase';
+
 export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnection> {
     private _cluster: MySQL.PoolCluster;
 
@@ -25,7 +27,7 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         super();
         this._cluster = MySQL.createPoolCluster();
         this._cluster.on('enqueue', () => {
-            getInstance().getLogManager().getLogger(this.constructor.name).warn('Waiting for available connection...');
+            getInstance().getLogger().warn(TAG, 'Waiting for available connection...');
         });
     }
 
@@ -40,17 +42,17 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
     }
 
     protected _addNode(nodeID: string, config: MySQL.PoolConfig): void {
-        getInstance().getLogManager().getLogger(this.constructor.name).trace(`Adding node to connection pool: "${nodeID}"`);
+        getInstance().getLogger().trace(TAG, `Adding node to connection pool: "${nodeID}"`);
         this._cluster.add(nodeID, config);
     }
 
     protected _removeNode(nodeID: string): void {
-        getInstance().getLogManager().getLogger(this.constructor.name).trace(`Removing node to connection pool: "${nodeID}"`);
+        getInstance().getLogger().trace(TAG, `Removing node to connection pool: "${nodeID}"`);
         this._cluster.remove(nodeID);
     }
 
     protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MySQLConnection> {
-        getInstance().getLogManager().getLogger(this.constructor.name).trace(`Querying connection pool for "${query}".`);
+        getInstance().getLogger().trace(TAG, `Querying connection pool for "${query}".`);
         return new Promise<MySQLConnection>((resolve, reject) => {
             let instantationStack: string = new Error().stack;
             this._cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {

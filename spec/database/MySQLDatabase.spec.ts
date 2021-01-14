@@ -74,13 +74,11 @@ describe('MySQLDatabase', () => {
         expect(spy).toHaveBeenCalledWith('MASTER');
     });
 
-    it('get read only connection', (done) => {
+    it('get read only connection', () => {
         let db: MySQLDatabase = new MySQLDatabase();
         let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'getConnection');
 
-        db.getConnection().then((connection: IDatabaseConnection) => {
-            connection.close();
-        });
+        db.getConnection();
 
         expect(spy).toHaveBeenCalledWith('SLAVE*', jasmine.any(Function));
     });
@@ -98,7 +96,7 @@ describe('MySQLDatabase', () => {
 
     it('enqueue warns', async () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn(getInstance().getLogManager().getLogger(db.constructor.name), 'warn');
+        let spy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
 
         (<EventEmitter>(<any>db)._cluster).emit('enqueue');
 

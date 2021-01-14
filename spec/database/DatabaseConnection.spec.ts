@@ -103,10 +103,10 @@ describe('DatabaseConnection', () => {
     it('does trigger linger warning', () => {
         jest.useFakeTimers();
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(getInstance().getLogManager().getLogger(connection.constructor.name), 'warn');
+        let spy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
         connection.query(new DummyQuery());
         jest.advanceTimersByTime(10001);
-        expect(spy).toHaveBeenCalledWith(expect.any(String));
+        expect(spy).toHaveBeenCalledWith('DatabaseConnection', expect.any(String));
         connection.close();
     });
 

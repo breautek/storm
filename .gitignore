@@ -5,4 +5,5 @@ dump.txt
 *.tsbuildinfo
 .*cache
 lib
+*.log
 

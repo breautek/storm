@@ -20,6 +20,7 @@ import {ServiceResponse} from './ServiceResponse';
 import * as http from 'http';
 import { IDictionary } from '@totalpave/interfaces';
 
+const TAG: string = 'ServiceProvider';
 const NO_DATA: string = `|${0x0}|`;
 
 export abstract class ServiceProvider {
@@ -95,31 +96,31 @@ export abstract class ServiceProvider {
                 httpOpts.headers['Content-Type'] = 'application/json';
             }
 
-            this._app.getLogManager().getLogger(this.constructor.name).trace(`ServiceProvider Request`);
-            this._app.getLogManager().getLogger(this.constructor.name).trace(`METHOD: ${httpOpts.method}`);
-            this._app.getLogManager().getLogger(this.constructor.name).trace(`HOSTNAME: ${httpOpts.hostname}`);
-            this._app.getLogManager().getLogger(this.constructor.name).trace(`PORT: ${httpOpts.port}`);
-            this._app.getLogManager().getLogger(this.constructor.name).trace(`PATH: ${httpOpts.path}`);
-            this._app.getLogManager().getLogger(this.constructor.name).trace(`HEADERS: ${JSON.stringify(httpOpts.headers)}`);
+            this._app.getLogger().trace(TAG, `ServiceProvider Request`);
+            this._app.getLogger().trace(TAG, `METHOD: ${httpOpts.method}`);
+            this._app.getLogger().trace(TAG, `HOSTNAME: ${httpOpts.hostname}`);
+            this._app.getLogger().trace(TAG, `PORT: ${httpOpts.port}`);
+            this._app.getLogger().trace(TAG, `PATH: ${httpOpts.path}`);
+            this._app.getLogger().trace(TAG, `HEADERS: ${JSON.stringify(httpOpts.headers)}`);
             
             let responseData: Buffer = Buffer.from('');
 
             let request: http.ClientRequest = http.request(httpOpts, (response: http.IncomingMessage) => {
-                this._app.getLogManager().getLogger(this.constructor.name).trace(`ServiceProvider Response Status: ${response.statusCode}`);
-                this._app.getLogManager().getLogger(this.constructor.name).trace(`ServiceProvider Response Headers: ${JSON.stringify(response.headers)}`);
+                this._app.getLogger().trace(TAG, `ServiceProvider Response Status: ${response.statusCode}`);
+                this._app.getLogger().trace(TAG, `ServiceProvider Response Headers: ${JSON.stringify(response.headers)}`);
 
                 response.on('data', (chunk: Buffer) => {
-                    this._app.getLogManager().getLogger(this.constructor.name).trace(`ServiceProvider Received Chunk: ${chunk}`);
+                    this._app.getLogger().trace(TAG, `ServiceProvider Received Chunk: ${chunk}`);
                     responseData = Buffer.concat([ responseData, chunk ]);
                 });
 
                 response.on('end', () => {
-                    this._app.getLogManager().getLogger(this.constructor.name).trace(`ServiceProvider request has completed.`);
+                    this._app.getLogger().trace(TAG, `ServiceProvider request has completed.`);
                     resolve(new ServiceResponse(responseData, response));
                 });
 
                 response.on('error', (e: Error) => {
-                    this._app.getLogManager().getLogger(this.constructor.name).error(e.message);
+                    this._app.getLogger().error(TAG, e);
                     reject(e);
                 });
             });

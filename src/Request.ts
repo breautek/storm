@@ -91,7 +91,7 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     public getForwardedIP(): string {
-        return this.getHeader('X-Forwarded-FOR');
+        return this.getHeader('X-Forwarded-For');
     }
 
     public getHostname(): string {

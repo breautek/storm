@@ -19,6 +19,7 @@ import {DatabaseConnection} from './DatabaseConnection';
 import { getInstance } from './instance';
 
 const MASTER_NAME: string = 'MASTER';
+const TAG: string = 'Database';
 
 export abstract class Database<TDatabaseConfig, TConnectionAPI> {
     private _clusterConfigMap: IDictionary;
@@ -52,7 +53,7 @@ export abstract class Database<TDatabaseConfig, TConnectionAPI> {
 
     public removeSlave(slaveID: string): void {
         if (!this._clusterConfigMap[slaveID]) {
-            getInstance().getLogManager().getLogger(this.constructor.name).warn(`Node ${slaveID} is not a part of this cluster.`);
+            getInstance().getLogger().warn(TAG, `Node ${slaveID} is not a part of this cluster.`);
             return;
         }
 

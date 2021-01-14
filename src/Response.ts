@@ -20,6 +20,8 @@ import * as express from 'express';
 import { InternalError } from './InternalError';
 import { getInstance } from './instance';
 
+const TAG: string = 'Response';
+
 export type SendableData = ResponseData | Error | IErrorResponse | any;
 
 export interface IHeaderKeyValuePair {
@@ -61,7 +63,7 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
             this._response.send(data);
         }
         
-        getInstance().getLogManager().getLogger('Response').info(`API ${this._requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this._created.getTime()}ms`);
+        getInstance().getLogger().info(TAG, `API ${this._requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this._created.getTime()}ms`);
     }
 
     public pipe(stream: NodeJS.ReadableStream): void {

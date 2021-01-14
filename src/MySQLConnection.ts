@@ -24,6 +24,7 @@ import { CommitQuery } from './private/CommitQuery';
 import { RollbackQuery } from './private/RollbackQuery';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
+const TAG: string = 'MySQLConnection';
 
 let startTransactionQuery: Query = new StartTransactionQuery();
 let commitQuery: Query = new CommitQuery();
@@ -73,7 +74,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
                 return resolve(results);
             });
-            getInstance().getLogManager().getLogger(this.constructor.name).trace(queryObject.sql);
+            getInstance().getLogger().trace(TAG, queryObject.sql);
         });
     }
 
@@ -92,7 +93,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             timeout: this.getTimeout()
         }, params);
 
-        getInstance().getLogManager().getLogger(this.constructor.name).trace(queryObject.sql);
+        getInstance().getLogger().trace(TAG, queryObject.sql);
 
         return queryObject.stream(streamOptions);
     }
@@ -113,7 +114,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 resolve();
             }).catch((ex) => {
                 this._transaction = false;
-                getInstance().getLogManager().getLogger(this.constructor.name).error(ex);
+                getInstance().getLogger().error(TAG, ex);
                 reject(ex);
             });
         });
@@ -133,7 +134,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 this._transaction = false
                 resolve();
             }).catch((ex: any) => {
-                getInstance().getLogManager().getLogger(this.constructor.name).error(ex);
+                getInstance().getLogger().error(TAG, ex);
                 reject(ex);
             });
         });
@@ -149,7 +150,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 this._transaction = false;
                 resolve();
             }).catch((ex: any) => {
-                getInstance().getLogManager().getLogger(this.constructor.name).error(ex);
+                getInstance().getLogger().error(TAG, ex);
                 reject(ex);
             });
         });
@@ -180,7 +181,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 this.getAPI().release();
                 resolve();
             }).catch((error: any) => {
-                getInstance().getLogManager().getLogger(this.constructor.name).error(error);
+                getInstance().getLogger().error(TAG, error);
                 this.getAPI().release();
                 resolve();
             });
