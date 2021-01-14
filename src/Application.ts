@@ -15,7 +15,6 @@
 
 import {EventEmitter} from 'events';
 import {setInstance} from './instance';
-import {Logger} from './Logger';
 import {TokenManager} from './TokenManager';
 import {ApplicationEvent} from './ApplicationEvent';
 import {ExitCode} from './ExitCode';
@@ -31,7 +30,9 @@ import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
 import { IAuthTokenData } from '@arashi/token';
-import {LogManager} from './LogManager';
+import { Logger } from '@arashi/logger';
+
+const TAG: string = 'Application';
 
 /**
  * Main entry point for the Application. Should be extended and have the abstract methods implemented.
@@ -52,8 +53,6 @@ export abstract class Application
     private _server: Express.Application;
     private _db: Database<TDBConfig, TDBConnectionAPI>;
     private _socket: http.Server;
-    private _logManager: LogManager;
-
     // private _argv: any;
     private _program: Commander.CommanderStatic;
 
@@ -72,49 +71,45 @@ export abstract class Application
         this._program.parse(process.argv);
 
         this._name = name;
-        this._logManager = this._initLogManager();
 
         process.on('unhandledRejection', (error: any) => {
-            this._getLogger().error(error);
+            this._getLogger().error(TAG, error);
         });
 
         this._configPath = configPath || process.cwd();
 
         let logger: Logger = new Logger('Storm');
 
-        logger.info('Application is booting...');
-        logger.info('Loading Configuration...');
+        logger.info(TAG, 'Application is booting...');
+        logger.info(TAG, 'Loading Configuration...');
 
         this._load();
-    }
-
-    protected _initLogManager(): LogManager {
-        return new LogManager(this);
     }
 
     private _load(): void {
         this.loadConfig(this._configPath).then((config: TConfig) => {
             this._config = config;
-            this._getLogger().trace('Configuration loaded.');
+            this._logger = this._initLogger(config);
+            this._getLogger().trace(TAG, 'Configuration loaded.');
             this.emit(ApplicationEvent.CONFIG_LOADED);
             this.onConfigLoad(this._config);
             return Promise.resolve();
         }).then(() => {
-            this._getLogger().trace('Initializing DB...');
+            this._getLogger().trace(TAG, 'Initializing DB...');
 
             return this.initDB(this.getConfig());
         }).then((db: Database<TDBConfig, TDBConnectionAPI>) => {
             if (db) {
-                this._getLogger().trace('DB Initialized.');
+                this._getLogger().trace(TAG, 'DB Initialized.');
             }
             else {
-                this._getLogger().trace('DB is not initialized.');
+                this._getLogger().trace(TAG, 'DB is not initialized.');
             }
             this._db = db;
 
             return Promise.resolve();
         }).then(() => {
-            this._getLogger().trace('Starting server...');
+            this._getLogger().trace(TAG, 'Starting server...');
             this._server = Express();
             this._server.use(BodyParser.json({
                 type : 'application/json',
@@ -127,41 +122,53 @@ export abstract class Application
 
             return Promise.resolve();
         }).then(() => {
-            this._getLogger().trace('Attaching handlers...');
+            this._getLogger().trace(TAG, 'Attaching handlers...');
             return this.attachHandlers();
         }).then(() => {
             this.onBeforeReady();
-            
-            let bindingIP: string = this.getConfig().binding_ip;
-            let port: number = this.getConfig().port;
-    
-            if (bindingIP !== null && bindingIP !== 'null') {
-                if (this.shouldListen()) {
-                    this._socket = http.createServer(this._server);
-                    this._socket.listen(port, bindingIP, () => {
-                        this._getLogger().trace(`Server started on ${bindingIP}:${this.getPort()}`);
-                    });
+
+            return new Promise<void>((resolve, reject) => {
+                let bindingIP: string = this.getConfig().binding_ip;
+                let port: number = this.getConfig().port;
+
+                if (bindingIP !== null && bindingIP !== 'null') {
+                    if (this.shouldListen()) {
+                        this._socket = http.createServer(this._server);
+                        this._socket.listen(port, bindingIP, () => {
+                            this._getLogger().trace(TAG, `Server started on ${bindingIP}:${this.getPort()}`);
+                            resolve();
+                        });
+                    }
+                    else {
+                        this._getLogger().trace(TAG, 'Server did not bind because shouldListen() returned false.');
+                        resolve();
+                    }
                 }
                 else {
-                    this._getLogger().trace('Server did not bind because shouldListen() returned false.');
+                    this._getLogger().info(TAG, `Server does not have a bounding IP set. The server will not be listening for connections.`);
+                    resolve();
                 }
-            }
-            else {
-                this._getLogger().info(`Server does not have a bounding IP set. The server will not be listening for connections.`);
-            }
-
+            });
+        }).then(() => {
             return this._initialize(this.getConfig());
         }).then(() => {
-
             this.onReady();
             this.emit('ready');
         }).catch((error) => {
-            this._getLogger().error(error);
+            this._getLogger().error(TAG, error);
         });
     }
 
     protected _initialize(config: TConfig): Promise<void> {
         return Promise.resolve();
+    }
+    
+    protected _initLogger(config: TConfig): Logger {
+        return new Logger(this.getName(), config.log_level, config.log_directory);
+    }
+
+    public getLogger(): Logger {
+        return this._logger;
     }
 
     public getPort(): number {
@@ -270,12 +277,8 @@ export abstract class Application
         return this._name;
     }
 
-    public getLogManager(): LogManager {
-        return this._logManager;
-    }
-
     private _getLogger(): Logger {
-        return this.getLogManager().getLogger('Application');
+        return this._logger;
     }
 
     /**

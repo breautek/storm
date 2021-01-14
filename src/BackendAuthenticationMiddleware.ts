@@ -17,9 +17,11 @@ import {StatusCode} from './StatusCode';
 import {Request} from './Request';
 import {Response} from './Response';
 import {ResponseData} from './ResponseData';
-import {Logger} from './Logger';
+import {Logger} from '@arashi/logger';
 import {getInstance} from './instance';
 import {IConfig} from './IConfig';
+
+const TAG: string = 'BackendAuthenticationMiddleware';
 
 /**
  * A base authentication strategy that handles 90% of the authentication process.
@@ -31,7 +33,7 @@ export class BackendAuthenticationMiddleware {
     private _logger: Logger;
 
     public constructor() {
-        this._logger = getInstance().getLogManager().getLogger(this.constructor.name);
+        this._logger = getInstance().getLogger();
     }
 
     /**
@@ -50,7 +52,7 @@ export class BackendAuthenticationMiddleware {
 
         if (backend) {
             if (config.backend_authentication_secret === null) {
-                this._logger.warn('Backend secret not implemented.');
+                this._logger.warn(TAG, 'Backend secret not implemented.');
                 return Promise.reject(new ResponseData(StatusCode.INTERNAL_ERROR));
             }
 

@@ -200,9 +200,9 @@ describe('Application', () => {
         });
 
         it('option --binding', () => {
-            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --binding \'123.456.789.0\'').toString().split('\n');
+            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --binding \'127.0.0.1\'').toString().split('\n');
             let opts: any = JSON.parse(lines[lines.length - 2]);
-            expect(opts.binding_ip).toEqual('123.456.789.0');
+            expect(opts.binding_ip).toEqual('127.0.0.1');
         });
 
         it('option --authentication_header', () => {

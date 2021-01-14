@@ -21,7 +21,7 @@ let instance: Application;
 
 let setInstance = (app: Application): void => {
     if (instance) {
-        instance.getLogManager().getLogger('ApplicationInstance').warn('Storm application already initialized');
+        instance.getLogger().warn('ApplicationInstance', 'Storm application already initialized');
     }
     instance = app;
 };

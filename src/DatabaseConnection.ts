@@ -24,6 +24,7 @@ import { IDictionary } from '@totalpave/interfaces';
 
 export const LINGER_WARNING: number = 10000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
+const TAG: string = 'DatabaseConnection';
 
 /**
  * Do not call `new Database` directly. Use `Database.getConnection` to create a `DatabaseConnection` object.
@@ -56,7 +57,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     }
 
     private _triggerLingerWarning(): void {
-        getInstance().getLogManager().getLogger(this.constructor.name).warn(`Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`);
+        getInstance().getLogger().warn(TAG, `Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`);
     }
 
     public setInstantiationStack(stack: string): void {

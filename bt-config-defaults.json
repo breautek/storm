@@ -7,6 +7,7 @@
     "backend_authentication_secret": null,
 
     "log_level": "info | warning | error | fatal",
+    "log_directory": ".",
     "log_filters": ["/TokenExpiredError/g"],
     
     "database": {

@@ -2,7 +2,7 @@
 import {Application} from '../../src/Application';
 import {Database} from '../../src/Database';
 import {IConfig} from '../../src/IConfig';
-import {Logger} from '../../src/Logger';
+import {Logger} from '@arashi/logger';
 import {Handler} from '../../src/Handler';
 import { MockDB } from './MockDB';
 import { Request } from '../../src/Request';

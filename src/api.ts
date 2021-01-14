@@ -67,7 +67,6 @@ export {BackendAuthenticationMiddleware} from './BackendAuthenticationMiddleware
 
 // Interfaces
 export {IDatabaseConfig} from './IDatabaseConfig';
-export {ILogEvent} from './ILogEvent';
 export {IJWTVerifyOptions} from './IJWTVerifyOptions';
 export {IHandler} from './IHandler';
 export {IRequestResponse} from './IRequestResponse';
@@ -83,8 +82,6 @@ export {TokenManager} from './TokenManager';
 
 // Utils
 export {ExitCode} from './ExitCode';
-export {LogEvent} from './LogEvent';
-export {Logger} from './Logger';
 export {DumpStream} from './DumpStream';
 
 // Third-party

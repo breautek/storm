@@ -18,6 +18,8 @@ import {getInstance} from './instance';
 import {Readable} from 'stream';
 import { Query } from './Query';
 
+const TAG: string = 'ManagedDatabaseConnection';
+
 export class ManagedDatabaseConnection implements IDatabaseConnection {
     private _connection: IDatabaseConnection;
     /**
@@ -48,12 +50,12 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
              * if this particular instance of managed connections has write access.
              */
             if (this._requiresWrite && oldConnection.isTransaction()) {
-                getInstance().getLogManager().getLogger(this.constructor.name).warn('Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.');
-                getInstance().getLogManager().getLogger(this.constructor.name).trace(new Error('Stacktrace'));
+                getInstance().getLogger().warn(TAG, 'Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.');
+                getInstance().getLogger().trace(TAG, new Error('Stacktrace'));
                 oldConnection.rollback().then(() => {
                     oldConnection.close();
                 }).catch((error: any) => {
-                    getInstance().getLogManager().getLogger(this.constructor.name).error(error);
+                    getInstance().getLogger().error(TAG, error);
                     oldConnection.close(true);
                 });
             }

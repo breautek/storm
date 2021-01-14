@@ -27,8 +27,9 @@ export interface IConfig {
     backend_authentication_secret?: string;
     
     // Logging
-    log_level: LogLevel;
-    log_filters: Array<string>;
+    log_level?: LogLevel;
+    log_filters?: Array<string>;
+    log_directory?: string;
 
     // Database
     database?: {

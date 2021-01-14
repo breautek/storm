@@ -20,6 +20,8 @@ import {JWTVerifyOptionsParser} from './JWTVerifyOptionsParser';
 import {randomBytes} from 'crypto';
 import { IAuthTokenData } from './IAuthTokenData';
 
+// const TAG: string = 'TokenManager';
+
 export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
     private _secret: string;
 

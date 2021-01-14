@@ -14,8 +14,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {getInstance} from './instance';
-import {Logger} from './Logger';
+import {Logger} from '@arashi/logger';
 import {StatusCode} from './StatusCode';
+
+const TAG: string = 'StormError';
 
 export interface IAdditionalErrorDetails {
     [key: string]: any;
@@ -36,9 +38,9 @@ export abstract class StormError<TErrorDetails = any> extends Error {
 
         this._details = details;
 
-        let logger: Logger = getInstance().getLogManager().getLogger(this.constructor.name);
-        logger.error(`${this.getMessage()}... See details below:`);
-        logger.info(this.getPrivateDetails());
+        let logger: Logger = getInstance().getLogger();
+        logger.error(TAG, `${this.getMessage()}... See details below:`);
+        logger.info(TAG, this.getPrivateDetails());
     }
 
     public abstract getMessage(): string;

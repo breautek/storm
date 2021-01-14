@@ -16,13 +16,15 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {getInstance} from './instance';
-import {Logger} from './Logger';
+import {Logger} from '@arashi/logger';
 import * as Path from 'path';
 import {Application} from './Application';
 import {ExitCode} from './ExitCode';
 import {IConfig} from './IConfig';
-// import Ajv from 'ajv';
+import Ajv from 'ajv';
 import * as MergeChange from 'merge-change';
+
+const TAG: string = 'ConfigLoader';
 
 export class ConfigLoader {
     private constructor() {}
@@ -31,7 +33,7 @@ export class ConfigLoader {
         let logger: Logger = ConfigLoader._getLogger();
 
         return new Promise<IConfig>((resolve, reject) => {
-            logger.trace('Configuration loaded.');
+            logger.trace(TAG, 'Configuration loaded.');
             
             let config: any = {};
 
@@ -42,33 +44,33 @@ export class ConfigLoader {
             let l: any;
             let defaults: any;
 
-            logger.trace(`Main Config Path:\t ${cPath}`);
-            logger.trace(`Local Config Path:\t ${lPath}`);
+            logger.trace(TAG, `Main Config Path:\t ${cPath}`);
+            logger.trace(TAG, `Local Config Path:\t ${lPath}`);
             
-            logger.trace('Loading configuration defaults.');
+            logger.trace(TAG, 'Loading configuration defaults.');
             defaults = require(Path.resolve(__dirname, '../bt-config-defaults.json'));
 
-            logger.trace('Loading main confing...');
+            logger.trace(TAG, 'Loading main confing...');
             try {
                 c = require(cPath);
-                logger.trace('Main config loaded.');
+                logger.trace(TAG, 'Main config loaded.');
             }
             catch (ex) {
-                logger.error(`Missing ${cPath}.`);
+                logger.error(TAG, `Missing ${cPath}.`);
                 process.nextTick(() => {
                     reject(ExitCode.MISSING_CONFIG);
                 });
                 return;
             }
 
-            logger.trace('Loading optional local config.');
+            logger.trace(TAG, 'Loading optional local config.');
             try {
                 l = require(lPath);
-                logger.trace('Local config loaded.');
+                logger.trace(TAG, 'Local config loaded.');
             }
             catch (ex) {
-                logger.trace('Local config could not be loaded.');
-                logger.trace(ex);
+                logger.trace(TAG, 'Local config could not be loaded.');
+                logger.trace(TAG, ex);
             }
 
             if (l) {
@@ -78,11 +80,11 @@ export class ConfigLoader {
                 config = MergeChange.merge(defaults, c);
             }
 
-            logger.trace('Reading command line arguments...');
+            logger.trace(TAG, 'Reading command line arguments...');
             config = MergeChange.merge(config, ConfigLoader._getCmdLineArgs());
 
-            logger.trace('Configurations merged.');
-            logger.trace(config);
+            logger.trace(TAG, 'Configurations merged.');
+            logger.trace(TAG, config);
 
             ConfigLoader._validateSchema(config);
 
@@ -91,72 +93,73 @@ export class ConfigLoader {
     }
 
     private static async _validateSchema(config: IConfig): Promise<void> {
-        return;
-        // let ajv: Ajv = new Ajv({
-        //     allErrors: true
-        // });
+        // return;
+        let ajv: Ajv = new Ajv({
+            allErrors: true
+        });
 
-        // let validate = ajv.compile({
-        //     type: 'object',
-        //     additionalProperties: false,
-        //     properties: {
-        //         binding_ip:                     { type: [ 'string', 'null' ] },
-        //         port:                           { type: [ 'number', 'null' ] },
-        //         authentication_header:          { type: [ 'string', 'null' ] },
-        //         backend_authentication_header:  { type: [ 'string', 'null' ] },
-        //         backend_authentication_secret:  { type: [ 'string', 'null' ] },
-        //         log_level:                      { type: [ 'string', 'null' ] },
-        //         request_size_limit:             { type: [ 'number', 'null' ] },
-        //         log_filters: {
-        //             type: [ 'array', 'null' ],
-        //             items: { type: 'string' }
-        //         },
-        //         database: {
-        //             type: [ 'object', 'null' ],
-        //             additionalProperties: false,
-        //             properties: {
-        //                 query_timeout: { type: [ 'integer', 'null' ], minimum: 0 },
-        //                 main: {
-        //                     type: [ 'object', 'null' ],
-        //                     additionalProperties: false,
-        //                     properties: {
-        //                         name: { type: 'string', const: "MASTER" },
-        //                         host: { type: 'string' },
-        //                         port: { type: 'integer', minimum: 0 },
-        //                         schema: { type: 'string' },
-        //                         user: { type: 'string' },
-        //                         password: { type: 'string' }
-        //                     }
-        //                 },
-        //                 replicationNodes: {
-        //                     type: [ 'array', 'null' ],
-        //                     items: {
-        //                         type: 'object',
-        //                         additionalProperties: false,
-        //                         properties: {
-        //                             name: { type: 'string' },
-        //                             host: { type: 'string' },
-        //                             port: { type: 'integer', minimum: 0 },
-        //                             schema: { type: 'string' },
-        //                             user: { type: 'string' },
-        //                             password: { type: 'string' }
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         },
-        //         customConfig: {
-        //             type: 'object',
-        //             additionalProperties: true,
-        //             properties: {}
-        //         }
-        //     }
-        // });
+        let validate = ajv.compile({
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                binding_ip:                     { type: [ 'string', 'null' ] },
+                port:                           { type: [ 'number', 'null' ] },
+                authentication_header:          { type: [ 'string', 'null' ] },
+                backend_authentication_header:  { type: [ 'string', 'null' ] },
+                backend_authentication_secret:  { type: [ 'string', 'null' ] },
+                log_level:                      { type: [ 'string', 'null' ] },
+                log_directory:                  { type: [ 'string', 'null' ] },
+                request_size_limit:             { type: [ 'number', 'null' ] },
+                log_filters: {
+                    type: [ 'array', 'null' ],
+                    items: { type: 'string' }
+                },
+                database: {
+                    type: [ 'object', 'null' ],
+                    additionalProperties: false,
+                    properties: {
+                        query_timeout: { type: [ 'integer', 'null' ], minimum: 0 },
+                        main: {
+                            type: [ 'object', 'null' ],
+                            additionalProperties: false,
+                            properties: {
+                                name: { type: 'string', const: "MASTER" },
+                                host: { type: 'string' },
+                                port: { type: 'integer', minimum: 0 },
+                                schema: { type: 'string' },
+                                user: { type: 'string' },
+                                password: { type: 'string' }
+                            }
+                        },
+                        replicationNodes: {
+                            type: [ 'array', 'null' ],
+                            items: {
+                                type: 'object',
+                                additionalProperties: false,
+                                properties: {
+                                    name: { type: 'string' },
+                                    host: { type: 'string' },
+                                    port: { type: 'integer', minimum: 0 },
+                                    schema: { type: 'string' },
+                                    user: { type: 'string' },
+                                    password: { type: 'string' }
+                                }
+                            }
+                        }
+                    }
+                },
+                customConfig: {
+                    type: 'object',
+                    additionalProperties: true,
+                    properties: {}
+                }
+            }
+        });
 
-        // let isValid: boolean = validate(config);
-        // if (!isValid) {
-        //     throw validate.errors;
-        // }
+        let isValid: boolean = validate(config);
+        if (!isValid) {
+            throw validate.errors;
+        }
     }
 
     private static _getCmdLineArgs(): any {

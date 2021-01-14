@@ -27,8 +27,8 @@
     "build-lib": "rm -r ./lib && tsc",
     "build-docs": "typedoc --excludePrivate --excludeNotExported --mode file -readme ./README.md --out ./docs ./src",
     "lint": "eslint --ext .ts '?(src|spec)/**/*.ts' --cache",
-    "unit": "ts-node ./spec/support/jasmine.ts",
-    "test": "npm run-script lint && nyc --reporter=lcov --reporter=text ts-node ./spec/support/jasmine.ts",
+    "unit": "jest",
+    "test": "npm run-script lint && nyc --reporter=lcov --reporter=text jest",
     "coverage": "codecov",
     "clean": "rm -r ./lib && rm -r ./docs",
     "prepublishOnly": "npm run-script build-lib",
@@ -67,6 +67,7 @@
     "@types/mysql": "2.15.17",
     "@types/node": "14.14.20",
     "@types/uuid": "8.3.0",
+    "ajv": "7.0.3",
     "body-parser": "1.19.0",
     "commander": "6.2.1",
     "express": "4.17.1",
@@ -77,7 +78,11 @@
     "tslib": "2.1.0",
     "uuid": "8.3.2"
   },
+  "peerDependencies": {
+    "@arashi/logger": "0.x"
+  },
   "devDependencies": {
+    "@arashi/logger": "0.0.0-dev.2",
     "@totalpave/eslint-plugin": "4.0.0",
     "@types/jest": "26.0.20",
     "@typescript-eslint/eslint-plugin": "4.13.0",
