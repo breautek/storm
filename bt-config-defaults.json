@@ -1,14 +1,16 @@
 {
-    "binding_ip": "0.0.0.0",
+    "bind": "0.0.0.0",
     "port": 8080,
 
     "authentication_header": "X-BT-AUTH",
     "backend_authentication_header": "X-BT-BACKEND-AUTH",
     "backend_authentication_secret": null,
 
-    "log_level": "info | warning | error | fatal",
-    "log_directory": ".",
-    "log_filters": ["/TokenExpiredError/g"],
+    "log": {
+        "level": "info | warning | error | fatal",
+        "directory": ".",
+        "filters": ["/TokenExpiredError/g"]
+    },
     
     "database": {
         "query_timeout": 3600000

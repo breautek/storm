@@ -23,6 +23,7 @@ import {ExitCode} from './ExitCode';
 import {IConfig} from './IConfig';
 import Ajv from 'ajv';
 import * as MergeChange from 'merge-change';
+import { InvalidConfigError } from './InvalidConfigError';
 
 const TAG: string = 'ConfigLoader';
 
@@ -102,17 +103,23 @@ export class ConfigLoader {
             type: 'object',
             additionalProperties: false,
             properties: {
-                binding_ip:                     { type: [ 'string', 'null' ] },
+                bind:                           { type: [ 'string', 'null' ] },
                 port:                           { type: [ 'number', 'null' ] },
                 authentication_header:          { type: [ 'string', 'null' ] },
                 backend_authentication_header:  { type: [ 'string', 'null' ] },
                 backend_authentication_secret:  { type: [ 'string', 'null' ] },
-                log_level:                      { type: [ 'string', 'null' ] },
-                log_directory:                  { type: [ 'string', 'null' ] },
                 request_size_limit:             { type: [ 'number', 'null' ] },
-                log_filters: {
-                    type: [ 'array', 'null' ],
-                    items: { type: 'string' }
+                log: {
+                    type: [ 'object', 'null' ],
+                    additionalProperties: false,
+                    properties: {
+                        level:                  { type: [ 'string', 'null' ] },
+                        directory:              { type: [ 'string', 'null' ] },
+                        filters: {
+                            type: [ 'array', 'null' ],
+                            items: { type: 'string' }
+                        }
+                    }
                 },
                 database: {
                     type: [ 'object', 'null' ],
@@ -158,7 +165,7 @@ export class ConfigLoader {
 
         let isValid: boolean = validate(config);
         if (!isValid) {
-            throw validate.errors;
+            throw new InvalidConfigError(config, validate.errors);
         }
     }
 

@@ -3,7 +3,7 @@
     @type 	string 
     @description 	The IP address for the service to listen to.
      */
-    "binding_ip": "0.0.0.0",
+    "bind": "0.0.0.0",
 
     /*
     @type 	number
@@ -29,31 +29,33 @@
     */
     "backend_authentication_secret": null,
 
-    /*
-    @type string
-    @description 	The application log level. 
-                    Valid Values:
-                        - trace
-                        - debug
-                        - info
-                        - warning
-                        - error
-                        - fatal
-                        - all
-    */
-    "log_level": "info | warning | error | fatal",
+    "log": {
+        /*
+        @type string
+        @description 	The application log level. 
+                        Valid Values:
+                            - trace
+                            - debug
+                            - info
+                            - warning
+                            - error
+                            - fatal
+                            - all
+        */
+        "level": "info | warning | error | fatal",
 
-    /*
-    @type string
-    @description Location for log output
-    */
-    "log_directory": "./"
+        /*
+        @type string
+        @description Location for log output
+        */
+        "directory": "./"
 
-    /*
-    @type Array<string>
-    @description 	Suppresses logging to log messages matching the listed regex patterns 
-    */
-    "log_filters": ["/TokenExpiredError/g"],
+        /*
+        @type Array<string>
+        @description 	Suppresses logging to log messages matching the listed regex patterns 
+        */
+        "filters": ["/TokenExpiredError/g"]
+    },
 
     /*
     @type number

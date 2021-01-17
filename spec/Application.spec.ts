@@ -18,12 +18,13 @@ describe('Application', () => {
 
     beforeAll((done) => {
         process.argv = [];
+
         try {
             app = new TestApplication();
         }
         catch (ex) {
-            console.error('asdfasdfasdf', ex);
-            throw ex;
+            console.error(ex);
+            process.exit();
         }
         
         app.on('ready', () => {
@@ -46,9 +47,9 @@ describe('Application', () => {
         expect(app.getName()).toBe('TestApplication');
     });
 
-    it('config has binding_ip', () => {
+    it('config has bind', () => {
         let config: Record<string, any> = app.getConfig();
-        expect(config.hasOwnProperty('binding_ip')).toBe(true);
+        expect(config.hasOwnProperty('bind')).toBe(true);
     });
 
     it('config has port', () => {
@@ -71,9 +72,9 @@ describe('Application', () => {
         expect(config.hasOwnProperty('backend_authentication_secret')).toBe(true);
     });
 
-    it('config has log_level', () => {
+    it('config has log.level', () => {
         let config: Record<string, any> = app.getConfig();
-        expect(config.hasOwnProperty('log_level')).toBe(true);
+        expect(config.log.hasOwnProperty('level')).toBe(true);
     });
 
     it('Supports TokenManager', () => {
@@ -99,7 +100,6 @@ describe('Application', () => {
             port: app.getPort(),
             path: '/echo'
         }, (res: http.IncomingMessage): void => {
-            console.log('RESPONSE', res);
             expect(res.statusCode).toBe(StatusCode.OK_NO_CONTENT);
             done();
         });
@@ -167,13 +167,15 @@ describe('Application', () => {
 
     it('Config test', () => {
         new ConfigTestApp(JSON.stringify({
-            binding_ip: null,
+            bind: null,
             port: null,
             authentication_header: 'X-BT-AUTH',
-            log_level: 'all',
+            log: {
+                level: 'all',
+                filters: []
+            },
             backend_authentication_header: 'X-BT-BACKEND-AUTH',
-            backend_authentication_secret: null,
-            log_filters: []
+            backend_authentication_secret: null
         }));
     });
 
@@ -199,10 +201,10 @@ describe('Application', () => {
             expect(opts.port).toEqual('0');
         });
 
-        it('option --binding', () => {
-            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --binding \'127.0.0.1\'').toString().split('\n');
+        it('option --bind', () => {
+            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --bind \'127.0.0.1\'').toString().split('\n');
             let opts: any = JSON.parse(lines[lines.length - 2]);
-            expect(opts.binding_ip).toEqual('127.0.0.1');
+            expect(opts.bind).toEqual('127.0.0.1');
         });
 
         it('option --authentication_header', () => {

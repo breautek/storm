@@ -15,6 +15,8 @@ import * as http from 'http';
 import { TokenManager } from '../../src/TokenManager';
 import { Token } from '../../src/Token';
 
+jest.mock('@arashi/logger');
+
 export class TestLogger extends Logger {}
 
 export interface IMockResponse {
@@ -129,6 +131,7 @@ export class MockApplication extends Application {
                     data.pipe(request);
                 }
             }
+
             request.end();
         });
     }

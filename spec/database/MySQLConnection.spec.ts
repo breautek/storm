@@ -8,6 +8,7 @@ import {DEFAULT_QUERY_TIMEOUT} from '../../src/DatabaseConnection';
 import { Query } from '../../src/Query';
 import { IDatabaseConnection } from '../../src/IDatabaseConnection';
 import {DummyQuery} from '../support/DummyQuery';
+import { DatabaseConnection } from '../../src/DatabaseConnection';
 
 describe('MySQLConnection', () => {
     let app: MockApplication = null;
@@ -41,6 +42,7 @@ describe('MySQLConnection', () => {
             release: jasmine.createSpy('release')
         };
         conn = new MySQLConnection(mockAPI, 'test stack');
+        jest.spyOn(<any>DatabaseConnection.prototype, '_armLingerWarning').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -78,7 +80,6 @@ describe('MySQLConnection', () => {
             };
         });
         conn.query(new DummyQuery()).catch((error: any) => {
-            console.log(error);
             expect(error instanceof DatabaseQueryError).toBe(true);
             done();
         });

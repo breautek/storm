@@ -18,7 +18,7 @@ import {LogLevel} from '@arashi/logger';
 
 export interface IConfig {
     // Server exposability
-    binding_ip?: string;
+    bind?: string;
     port?: number;
     
     // Authentication
@@ -27,9 +27,11 @@ export interface IConfig {
     backend_authentication_secret?: string;
     
     // Logging
-    log_level?: LogLevel;
-    log_filters?: Array<string>;
-    log_directory?: string;
+    log?: {
+        level?: LogLevel;
+        filters?: Array<string>;
+        directory?: string;
+    },
 
     // Database
     database?: {

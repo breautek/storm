@@ -8,12 +8,12 @@ describe('ConfigLoader', () => {
     it('can load', (done) => {
         ConfigLoader.load(TEST_DIR + 'test1/').then((config: any) => {
             // Test the defaults
-            expect(config.binding_ip).toBe('0.0.0.0');
+            expect(config.bind).toBe('0.0.0.0');
             expect(config.port).toBe(8080);
             expect(config.authentication_header).toBe('X-BT-AUTH');
             expect(config.backend_authentication_header).toBe('X-BT-BACKEND-AUTH');
-            expect(config.log_level).toBe('info | warning | error | fatal');
-            expect(config.log_filters[0]).toBe('/TokenExpiredError/g');
+            expect(config.log.level).toBe('info | warning | error | fatal');
+            expect(config.log.filters[0]).toBe('/TokenExpiredError/g');
 
             // Test specific configs
             expect(config.customConfig.test1).toBe(true);

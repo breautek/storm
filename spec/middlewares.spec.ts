@@ -159,7 +159,6 @@ describe('Middlewares', () => {
         });
 
         handler.get(request, response).catch((error: any) => {
-            console.error('ERROR', error);
             expect(error instanceof EntityNotFoundError).toBe(true);
             expect(rejectionSpy).toHaveBeenCalled();
             expect(response.error).toHaveBeenCalled();

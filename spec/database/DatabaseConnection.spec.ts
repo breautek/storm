@@ -1,5 +1,5 @@
 
-import {DEFAULT_QUERY_TIMEOUT} from '../../src/DatabaseConnection';
+import {DEFAULT_QUERY_TIMEOUT, DatabaseConnection} from '../../src/DatabaseConnection';
 import {
     MockApplication
 } from '../support/TestApplication';
@@ -11,6 +11,7 @@ import {DummyQuery} from '../support/DummyQuery';
 
 describe('DatabaseConnection', () => {
     let app: MockApplication = null;
+    let triggerSpy: jest.SpyInstance = null;
 
     let setup = (done: any) => {
         process.argv = [];
@@ -34,6 +35,7 @@ describe('DatabaseConnection', () => {
 
     beforeEach(() => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
+        triggerSpy = jest.spyOn(<any>DatabaseConnection.prototype, '_armLingerWarning').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -102,6 +104,7 @@ describe('DatabaseConnection', () => {
 
     it('does trigger linger warning', () => {
         jest.useFakeTimers();
+        triggerSpy.mockRestore();
         let connection: MockConnection = new MockConnection(true, 'test stack');
         let spy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
         connection.query(new DummyQuery());

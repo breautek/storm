@@ -1,9 +1,12 @@
 {
-    "binding_ip": "0.0.0.0",
+    "bind": "0.0.0.0",
     "port": 0,
 
     "authentication_header": "X-BT-AUTH",
     "backend_authentication_header": "X-BT-BACKEND-AUTH",
     "backend_authentication_secret": null,
-    "log_level": "silly"
+
+    "log": {
+        "level": "silly"
+    }
 }

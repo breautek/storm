@@ -105,9 +105,6 @@ describe('Request', () => {
     it('can pipe/unpipe', (done) => {
         app.attachMockHandler('/pipes/', makeHandler((request: Request, response: Response) => {
             let writable: Writable = FileSystem.createWriteStream(Path.resolve('./dump.txt'));
-            writable.on('error', (error) => {
-                console.log(error);
-            });
 
             writable.on('finish', () => {
                 request.unpipe(writable);

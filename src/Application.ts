@@ -53,7 +53,6 @@ export abstract class Application
     private _server: Express.Application;
     private _db: Database<TDBConfig, TDBConnectionAPI>;
     private _socket: http.Server;
-    // private _argv: any;
     private _program: Commander.CommanderStatic;
 
     /**
@@ -96,7 +95,6 @@ export abstract class Application
             return Promise.resolve();
         }).then(() => {
             this._getLogger().trace(TAG, 'Initializing DB...');
-
             return this.initDB(this.getConfig());
         }).then((db: Database<TDBConfig, TDBConnectionAPI>) => {
             if (db) {
@@ -128,7 +126,7 @@ export abstract class Application
             this.onBeforeReady();
 
             return new Promise<void>((resolve, reject) => {
-                let bindingIP: string = this.getConfig().binding_ip;
+                let bindingIP: string = this.getConfig().bind;
                 let port: number = this.getConfig().port;
 
                 if (bindingIP !== null && bindingIP !== 'null') {
@@ -164,7 +162,7 @@ export abstract class Application
     }
     
     protected _initLogger(config: TConfig): Logger {
-        return new Logger(this.getName(), config.log_level, config.log_directory);
+        return new Logger(this.getName(), config.log?.level, config.log?.directory);
     }
 
     public getLogger(): Logger {
@@ -191,7 +189,7 @@ export abstract class Application
         
         this._program.version(pkg.version, '-v, --version');
         this._program.option('--port <port>', 'The running port to consume');
-        this._program.option('--binding <ip>', 'The binding IP to listen on');
+        this._program.option('--bind <ip>', 'The binding IP to listen on');
         this._program.option('--authentication_header <header>', 'The header name of the authentication token');
 
         this._buildArgOptions(this._program);
@@ -335,8 +333,8 @@ export abstract class Application
             return o;
         }
 
-        if (program.binding !== undefined) {
-            o.binding_ip = program.binding;
+        if (program.bind !== undefined) {
+            o.bind = program.bind;
         }
 
         if (program.port !== undefined) {

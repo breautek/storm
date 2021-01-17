@@ -6,7 +6,8 @@ import {MySQLDatabase} from '../../src/MySQLDatabase';
 import * as MySQL from 'mysql';
 import {EventEmitter} from 'events';
 import { getInstance } from '../../src/instance';
-import { IDatabaseConnection } from '../../src/api';
+import { IDatabaseConnection } from '../../src/IDatabaseConnection';
+import { DatabaseConnection } from '../../src/DatabaseConnection';
 
 describe('MySQLDatabase', () => {
     let app: MockApplication = null;
@@ -28,6 +29,10 @@ describe('MySQLDatabase', () => {
 
     beforeAll(setup);
     afterAll(deconstruct);
+
+    beforeEach(() => {
+        jest.spyOn(<any>DatabaseConnection.prototype, '_armLingerWarning').mockImplementation(() => {});
+    });
 
     it('can construct', () => {
         expect(new MySQLDatabase()).toBeTruthy();
