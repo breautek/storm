@@ -33,8 +33,6 @@ import * as BodyParser from 'body-parser';
 import * as http from 'http';
 import { IAuthTokenData } from '@arashi/token';
 
-require('source-map-support').install();
-
 /**
  * The default log level to log informational, warnings, errors, and fatal messages.
  */
