@@ -7,3 +7,5 @@ coverage
 .eslintcache
 .nojekyll
 scripts
+*.log
+
