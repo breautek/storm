@@ -45,7 +45,7 @@ Name | Type |
 
 **Returns:** [*ServiceProvider*](serviceprovider.serviceprovider-1.md)
 
-Defined in: [src/ServiceProvider.ts:28](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L28)
+Defined in: [src/ServiceProvider.ts:28](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L28)
 
 ## Methods
 
@@ -62,7 +62,7 @@ Name | Type |
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:65](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L65)
+Defined in: [src/ServiceProvider.ts:65](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L65)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 **Returns:** [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>
 
-Defined in: [src/ServiceProvider.ts:37](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L37)
+Defined in: [src/ServiceProvider.ts:37](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L37)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:34](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L34)
+Defined in: [src/ServiceProvider.ts:34](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L34)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:45](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L45)
+Defined in: [src/ServiceProvider.ts:45](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L45)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 **Returns:** *number*
 
-Defined in: [src/ServiceProvider.ts:35](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L35)
+Defined in: [src/ServiceProvider.ts:35](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L35)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:57](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L57)
+Defined in: [src/ServiceProvider.ts:57](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L57)
 
 ___
 
@@ -132,7 +132,7 @@ Name | Type |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:158](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L158)
+Defined in: [src/ServiceProvider.ts:158](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L158)
 
 ___
 
@@ -152,7 +152,7 @@ Name | Type |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:143](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L143)
+Defined in: [src/ServiceProvider.ts:143](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L143)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 **Returns:** [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>
 
-Defined in: [src/ServiceProvider.ts:41](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L41)
+Defined in: [src/ServiceProvider.ts:41](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L41)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:61](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L61)
+Defined in: [src/ServiceProvider.ts:61](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L61)
 
 ___
 
@@ -192,7 +192,7 @@ Name | Type |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:148](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L148)
+Defined in: [src/ServiceProvider.ts:148](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L148)
 
 ___
 
@@ -212,7 +212,7 @@ Name | Type |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:153](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L153)
+Defined in: [src/ServiceProvider.ts:153](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L153)
 
 ___
 
@@ -233,7 +233,7 @@ Name | Type |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:83](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L83)
+Defined in: [src/ServiceProvider.ts:83](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L83)
 
 ___
 
@@ -243,4 +243,4 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:53](https://github.com/breautek/storm/blob/ec148ff/src/ServiceProvider.ts#L53)
+Defined in: [src/ServiceProvider.ts:53](https://github.com/breautek/storm/blob/0d2af7e/src/ServiceProvider.ts#L53)

@@ -50,7 +50,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/EntityNotFoundError.ts:21](https://github.com/breautek/storm/blob/ec148ff/src/EntityNotFoundError.ts#L21)
+Defined in: [src/EntityNotFoundError.ts:21](https://github.com/breautek/storm/blob/0d2af7e/src/EntityNotFoundError.ts#L21)
 
 ## Properties
 
@@ -137,7 +137,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/EntityNotFoundError.ts:30](https://github.com/breautek/storm/blob/ec148ff/src/EntityNotFoundError.ts#L30)
+Defined in: [src/EntityNotFoundError.ts:30](https://github.com/breautek/storm/blob/0d2af7e/src/EntityNotFoundError.ts#L30)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/ec148ff/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L74)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/EntityNotFoundError.ts:34](https://github.com/breautek/storm/blob/ec148ff/src/EntityNotFoundError.ts#L34)
+Defined in: [src/EntityNotFoundError.ts:34](https://github.com/breautek/storm/blob/0d2af7e/src/EntityNotFoundError.ts#L34)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/EntityNotFoundError.ts:26](https://github.com/breautek/storm/blob/ec148ff/src/EntityNotFoundError.ts#L26)
+Defined in: [src/EntityNotFoundError.ts:26](https://github.com/breautek/storm/blob/0d2af7e/src/EntityNotFoundError.ts#L26)
 
 ___
 
@@ -188,7 +188,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/ec148ff/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L66)
 
 ___
 
@@ -202,4 +202,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/ec148ff/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L58)

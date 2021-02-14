@@ -31,7 +31,7 @@ Name | Default |
 
 • **host**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:19](https://github.com/breautek/storm/blob/ec148ff/src/IDatabaseConfig.ts#L19)
+Defined in: [src/IDatabaseConfig.ts:19](https://github.com/breautek/storm/blob/0d2af7e/src/IDatabaseConfig.ts#L19)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **name**: TName
 
-Defined in: [src/IDatabaseConfig.ts:18](https://github.com/breautek/storm/blob/ec148ff/src/IDatabaseConfig.ts#L18)
+Defined in: [src/IDatabaseConfig.ts:18](https://github.com/breautek/storm/blob/0d2af7e/src/IDatabaseConfig.ts#L18)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **password**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:23](https://github.com/breautek/storm/blob/ec148ff/src/IDatabaseConfig.ts#L23)
+Defined in: [src/IDatabaseConfig.ts:23](https://github.com/breautek/storm/blob/0d2af7e/src/IDatabaseConfig.ts#L23)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **port**: *number*
 
-Defined in: [src/IDatabaseConfig.ts:20](https://github.com/breautek/storm/blob/ec148ff/src/IDatabaseConfig.ts#L20)
+Defined in: [src/IDatabaseConfig.ts:20](https://github.com/breautek/storm/blob/0d2af7e/src/IDatabaseConfig.ts#L20)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **schema**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:21](https://github.com/breautek/storm/blob/ec148ff/src/IDatabaseConfig.ts#L21)
+Defined in: [src/IDatabaseConfig.ts:21](https://github.com/breautek/storm/blob/0d2af7e/src/IDatabaseConfig.ts#L21)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 • **user**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:22](https://github.com/breautek/storm/blob/ec148ff/src/IDatabaseConfig.ts#L22)
+Defined in: [src/IDatabaseConfig.ts:22](https://github.com/breautek/storm/blob/0d2af7e/src/IDatabaseConfig.ts#L22)

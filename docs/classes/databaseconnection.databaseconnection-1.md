@@ -75,7 +75,7 @@ Name | Type |
 
 **Returns:** [*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TAPI\>
 
-Defined in: [src/DatabaseConnection.ts:42](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L42)
+Defined in: [src/DatabaseConnection.ts:42](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L42)
 
 ## Methods
 
@@ -98,7 +98,7 @@ Name | Type | Description |
 
 Promise<void>
 
-Defined in: [src/DatabaseConnection.ts:238](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L238)
+Defined in: [src/DatabaseConnection.ts:238](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L238)
 
 ___
 
@@ -127,7 +127,7 @@ Name | Type | Description |
 
 Promise
 
-Defined in: [src/DatabaseConnection.ts:249](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L249)
+Defined in: [src/DatabaseConnection.ts:249](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L249)
 
 ___
 
@@ -150,7 +150,7 @@ Name | Type | Description |
 
 `Readable`
 
-Defined in: [src/DatabaseConnection.ts:261](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L261)
+Defined in: [src/DatabaseConnection.ts:261](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L261)
 
 ___
 
@@ -176,7 +176,7 @@ Promise<void>
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L168)
+Defined in: [src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L168)
 
 ___
 
@@ -196,7 +196,7 @@ Promise<void>
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:219](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L219)
+Defined in: [src/DatabaseConnection.ts:219](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L219)
 
 ___
 
@@ -220,7 +220,7 @@ Name | Type | Description |
 
 Promise<void>
 
-Defined in: [src/DatabaseConnection.ts:210](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L210)
+Defined in: [src/DatabaseConnection.ts:210](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L210)
 
 ___
 
@@ -236,7 +236,7 @@ any
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L91)
+Defined in: [src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L91)
 
 ___
 
@@ -253,7 +253,7 @@ string - A stacktrace
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L73)
+Defined in: [src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L73)
 
 ___
 
@@ -269,7 +269,7 @@ number in milliseconds
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L121)
+Defined in: [src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L121)
 
 ___
 
@@ -281,7 +281,7 @@ Returns true if the connection has been closed.
 
 **Returns:** *boolean*
 
-Defined in: [src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L181)
+Defined in: [src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L181)
 
 ___
 
@@ -298,7 +298,7 @@ boolean
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L100)
+Defined in: [src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L100)
 
 ___
 
@@ -316,7 +316,7 @@ boolean
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:200](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L200)
+Defined in: [src/DatabaseConnection.ts:200](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L200)
 
 ___
 
@@ -344,7 +344,7 @@ Name | Type | Description |
 
 Promise<TQueryResult>
 
-Defined in: [src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L132)
+Defined in: [src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L132)
 
 ___
 
@@ -364,7 +364,7 @@ Promise<void>
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:228](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L228)
+Defined in: [src/DatabaseConnection.ts:228](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L228)
 
 ___
 
@@ -382,7 +382,7 @@ Name | Type |
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L64)
+Defined in: [src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L64)
 
 ___
 
@@ -402,7 +402,7 @@ Name | Type | Description |
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L109)
+Defined in: [src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L109)
 
 ___
 
@@ -422,7 +422,7 @@ Promise<void>
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:192](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L192)
+Defined in: [src/DatabaseConnection.ts:192](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L192)
 
 ___
 
@@ -441,4 +441,4 @@ Name | Type | Description |
 
 Readable
 
-Defined in: [src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/ec148ff/src/DatabaseConnection.ts#L151)
+Defined in: [src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/0d2af7e/src/DatabaseConnection.ts#L151)

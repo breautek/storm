@@ -22,4 +22,4 @@
 
 Ƭ **SendableData**: [*ResponseData*](../classes/responsedata.responsedata-1.md) \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md) \| *any*
 
-Defined in: [src/Response.ts:26](https://github.com/breautek/storm/blob/ec148ff/src/Response.ts#L26)
+Defined in: [src/Response.ts:26](https://github.com/breautek/storm/blob/0d2af7e/src/Response.ts#L26)
