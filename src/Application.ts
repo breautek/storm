@@ -329,20 +329,22 @@ export abstract class Application
         let program: Commander.CommanderStatic = this._program;
         let o: any = {};
 
+        let opts: any = program.opts();
+
         if (!program) {
             return o;
         }
 
-        if (program.bind !== undefined) {
-            o.bind = program.bind;
+        if (opts.bind !== undefined) {
+            o.bind = opts.bind;
         }
 
-        if (program.port !== undefined) {
-            o.port = program.port;
+        if (opts.port !== undefined) {
+            o.port = opts.port;
         }
 
-        if (program.authentication_header !== undefined) {
-            o.authentication_header = program.authentication_header;
+        if (opts.authentication_header !== undefined) {
+            o.authentication_header = opts.authentication_header;
         }
 
         return o;
