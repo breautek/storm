@@ -22,9 +22,16 @@ import {Query} from './Query';
 import { StartTransactionQuery } from './private/StartTransactionQuery';
 import { CommitQuery } from './private/CommitQuery';
 import { RollbackQuery } from './private/RollbackQuery';
+import * as SQLFormatter from 'sql-formatter';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
+
+const SQL_FORMATTING_OPTIONS: SQLFormatter.FormatOptions = {
+    language: 'mysql',
+    indent: '    ',
+    uppercase: true
+};
 
 let startTransactionQuery: Query = new StartTransactionQuery();
 let commitQuery: Query = new CommitQuery();
@@ -69,12 +76,12 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                 timeout: this.getTimeout()
             }, params, (error: MySQL.MysqlError, results: any) => {
                 if (error) {
-                    return reject(new DatabaseQueryError(queryObject.sql, error));
+                    return reject(new DatabaseQueryError(SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS), error));
                 }
 
                 return resolve(results);
             });
-            getInstance().getLogger().trace(TAG, queryObject.sql);
+            getInstance().getLogger().trace(TAG, SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS));
         });
     }
 
@@ -93,7 +100,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             timeout: this.getTimeout()
         }, params);
 
-        getInstance().getLogger().trace(TAG, queryObject.sql);
+        getInstance().getLogger().trace(TAG, SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS));
 
         return queryObject.stream(streamOptions);
     }
