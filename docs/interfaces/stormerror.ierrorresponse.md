@@ -1,0 +1,50 @@
+[@breautek/storm](../README.md) / [Exports](../modules.md) / [StormError](../modules/stormerror.md) / IErrorResponse
+
+# Interface: IErrorResponse
+
+[StormError](../modules/stormerror.md).IErrorResponse
+
+## Hierarchy
+
+* **IErrorResponse**
+
+## Table of contents
+
+### Properties
+
+- [code](stormerror.ierrorresponse.md#code)
+- [details](stormerror.ierrorresponse.md#details)
+- [message](stormerror.ierrorresponse.md#message)
+- [name](stormerror.ierrorresponse.md#name)
+
+## Properties
+
+### code
+
+• **code**: *number*
+
+Defined in: [src/StormError.ts:30](https://github.com/breautek/storm/blob/ec148ff/src/StormError.ts#L30)
+
+___
+
+### details
+
+• **details**: [*IAdditionalErrorDetails*](stormerror.iadditionalerrordetails.md)
+
+Defined in: [src/StormError.ts:31](https://github.com/breautek/storm/blob/ec148ff/src/StormError.ts#L31)
+
+___
+
+### message
+
+• **message**: *string*
+
+Defined in: [src/StormError.ts:29](https://github.com/breautek/storm/blob/ec148ff/src/StormError.ts#L29)
+
+___
+
+### name
+
+• **name**: *string*
+
+Defined in: [src/StormError.ts:28](https://github.com/breautek/storm/blob/ec148ff/src/StormError.ts#L28)
