@@ -104,11 +104,13 @@ describe('Request', () => {
 
     it('can pipe/unpipe', (done) => {
         app.attachMockHandler('/pipes/', makeHandler((request: Request, response: Response) => {
-            let writable: Writable = FileSystem.createWriteStream(Path.resolve('./dump.txt'));
+            let dumpFile: string = Path.resolve('./dump.txt');
+            let writable: Writable = FileSystem.createWriteStream(dumpFile);
 
             writable.on('finish', () => {
                 request.unpipe(writable);
                 response.success();
+                FileSystem.unlinkSync(dumpFile);
                 done();
             });
 
