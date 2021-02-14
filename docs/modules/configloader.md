@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / ConfigLoader
+[@breautek/storm](../README.md) / ConfigLoader
 
 # Module: ConfigLoader
 

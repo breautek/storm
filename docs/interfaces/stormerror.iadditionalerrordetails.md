@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [StormError](../modules/stormerror.md) / IAdditionalErrorDetails
+[@breautek/storm](../README.md) / [StormError](../modules/stormerror.md) / IAdditionalErrorDetails
 
 # Interface: IAdditionalErrorDetails
 

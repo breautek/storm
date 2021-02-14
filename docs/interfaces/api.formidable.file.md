@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [api](../modules/api.md) / [formidable](../modules/api.formidable.md) / File
+[@breautek/storm](../README.md) / [api](../modules/api.md) / [formidable](../modules/api.formidable.md) / File
 
 # Interface: File
 

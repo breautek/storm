@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / IServiceHeaders
+[@breautek/storm](../README.md) / IServiceHeaders
 
 # Module: IServiceHeaders
 

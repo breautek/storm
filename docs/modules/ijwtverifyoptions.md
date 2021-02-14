@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / IJWTVerifyOptions
+[@breautek/storm](../README.md) / IJWTVerifyOptions
 
 # Module: IJWTVerifyOptions
 

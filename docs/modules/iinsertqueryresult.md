@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / IInsertQueryResult
+[@breautek/storm](../README.md) / IInsertQueryResult
 
 # Module: IInsertQueryResult
 

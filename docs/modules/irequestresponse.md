@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / IRequestResponse
+[@breautek/storm](../README.md) / IRequestResponse
 
 # Module: IRequestResponse
 

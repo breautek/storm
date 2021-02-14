@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / JWTError
+[@breautek/storm](../README.md) / JWTError
 
 # Module: JWTError
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [DiskSpaceError](../modules/diskspaceerror.md) / DiskSpaceError
+[@breautek/storm](../README.md) / [DiskSpaceError](../modules/diskspaceerror.md) / DiskSpaceError
 
 # Class: DiskSpaceError
 
@@ -50,7 +50,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DiskSpaceError.ts:21](https://github.com/breautek/storm/blob/0d2af7e/src/DiskSpaceError.ts#L21)
+Defined in: [src/DiskSpaceError.ts:21](https://github.com/breautek/storm/blob/022545d/src/DiskSpaceError.ts#L21)
 
 ## Properties
 
@@ -137,7 +137,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DiskSpaceError.ts:32](https://github.com/breautek/storm/blob/0d2af7e/src/DiskSpaceError.ts#L32)
+Defined in: [src/DiskSpaceError.ts:32](https://github.com/breautek/storm/blob/022545d/src/DiskSpaceError.ts#L32)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L74)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DiskSpaceError.ts:36](https://github.com/breautek/storm/blob/0d2af7e/src/DiskSpaceError.ts#L36)
+Defined in: [src/DiskSpaceError.ts:36](https://github.com/breautek/storm/blob/022545d/src/DiskSpaceError.ts#L36)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DiskSpaceError.ts:28](https://github.com/breautek/storm/blob/0d2af7e/src/DiskSpaceError.ts#L28)
+Defined in: [src/DiskSpaceError.ts:28](https://github.com/breautek/storm/blob/022545d/src/DiskSpaceError.ts#L28)
 
 ___
 
@@ -188,7 +188,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L66)
 
 ___
 
@@ -202,4 +202,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L58)

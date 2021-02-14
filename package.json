@@ -25,7 +25,7 @@
   "scripts": {
     "build": "npm run lint && tsc",
     "build-lib": "rm -r ./lib && tsc",
-    "build-docs": "typedoc --excludePrivate --out ./docs ./src",
+    "build-docs": "typedoc --excludePrivate --readme none --out ./docs ./src",
     "lint": "eslint --ext .ts '?(src|spec)/**/*.ts' --cache",
     "unit": "jest",
     "test": "npm run-script lint && jest",

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / TokenManager
+[@breautek/storm](../README.md) / TokenManager
 
 # Module: TokenManager
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [api](api.md) / formidable
+[@breautek/storm](../README.md) / [api](api.md) / formidable
 
 # Namespace: formidable
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / InvalidCredentialsError
+[@breautek/storm](../README.md) / InvalidCredentialsError
 
 # Module: InvalidCredentialsError
 

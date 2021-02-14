@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / DatabaseQueryError
+[@breautek/storm](../README.md) / DatabaseQueryError
 
 # Module: DatabaseQueryError
 

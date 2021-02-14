@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / Query
+[@breautek/storm](../README.md) / Query
 
 # Module: Query
 

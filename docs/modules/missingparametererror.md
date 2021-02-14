@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / MissingParameterError
+[@breautek/storm](../README.md) / MissingParameterError
 
 # Module: MissingParameterError
 

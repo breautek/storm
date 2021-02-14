@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / private/StartTransactionQuery
+[@breautek/storm](../README.md) / private/StartTransactionQuery
 
 # Module: private/StartTransactionQuery
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / ExpiredTokenError
+[@breautek/storm](../README.md) / ExpiredTokenError
 
 # Module: ExpiredTokenError
 

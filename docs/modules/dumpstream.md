@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / DumpStream
+[@breautek/storm](../README.md) / DumpStream
 
 # Module: DumpStream
 

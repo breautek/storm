@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / DropTemporaryTableQuery
+[@breautek/storm](../README.md) / DropTemporaryTableQuery
 
 # Module: DropTemporaryTableQuery
 

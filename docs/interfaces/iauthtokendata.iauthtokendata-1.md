@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [IAuthTokenData](../modules/iauthtokendata.md) / IAuthTokenData
+[@breautek/storm](../README.md) / [IAuthTokenData](../modules/iauthtokendata.md) / IAuthTokenData
 
 # Interface: IAuthTokenData
 

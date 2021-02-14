@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / IDatabaseConfig
+[@breautek/storm](../README.md) / IDatabaseConfig
 
 # Module: IDatabaseConfig
 

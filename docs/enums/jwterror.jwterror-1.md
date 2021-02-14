@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [JWTError](../modules/jwterror.md) / JWTError
+[@breautek/storm](../README.md) / [JWTError](../modules/jwterror.md) / JWTError
 
 # Enumeration: JWTError
 
@@ -17,7 +17,7 @@
 
 • **ERR\_EXPIRED**: = "TokenExpiredError"
 
-Defined in: [src/JWTError.ts:18](https://github.com/breautek/storm/blob/0d2af7e/src/JWTError.ts#L18)
+Defined in: [src/JWTError.ts:18](https://github.com/breautek/storm/blob/022545d/src/JWTError.ts#L18)
 
 ___
 
@@ -25,4 +25,4 @@ ___
 
 • **ERR\_GENERIC**: = "JsonWebTokenError"
 
-Defined in: [src/JWTError.ts:19](https://github.com/breautek/storm/blob/0d2af7e/src/JWTError.ts#L19)
+Defined in: [src/JWTError.ts:19](https://github.com/breautek/storm/blob/022545d/src/JWTError.ts#L19)

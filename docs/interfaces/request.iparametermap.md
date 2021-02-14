@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [Request](../modules/request.md) / IParameterMap
+[@breautek/storm](../README.md) / [Request](../modules/request.md) / IParameterMap
 
 # Interface: IParameterMap
 

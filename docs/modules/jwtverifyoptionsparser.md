@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / JWTVerifyOptionsParser
+[@breautek/storm](../README.md) / JWTVerifyOptionsParser
 
 # Module: JWTVerifyOptionsParser
 

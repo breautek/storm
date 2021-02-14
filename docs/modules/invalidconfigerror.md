@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / InvalidConfigError
+[@breautek/storm](../README.md) / InvalidConfigError
 
 # Module: InvalidConfigError
 

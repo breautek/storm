@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / private/CommitQuery
+[@breautek/storm](../README.md) / private/CommitQuery
 
 # Module: private/CommitQuery
 

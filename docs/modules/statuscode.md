@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / StatusCode
+[@breautek/storm](../README.md) / StatusCode
 
 # Module: StatusCode
 

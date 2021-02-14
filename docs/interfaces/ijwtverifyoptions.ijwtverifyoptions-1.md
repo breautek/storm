@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [IJWTVerifyOptions](../modules/ijwtverifyoptions.md) / IJWTVerifyOptions
+[@breautek/storm](../README.md) / [IJWTVerifyOptions](../modules/ijwtverifyoptions.md) / IJWTVerifyOptions
 
 # Interface: IJWTVerifyOptions
 
@@ -20,4 +20,4 @@
 
 • **enableExpiration**: *boolean*
 
-Defined in: [src/IJWTVerifyOptions.ts:18](https://github.com/breautek/storm/blob/0d2af7e/src/IJWTVerifyOptions.ts#L18)
+Defined in: [src/IJWTVerifyOptions.ts:18](https://github.com/breautek/storm/blob/022545d/src/IJWTVerifyOptions.ts#L18)

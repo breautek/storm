@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / private/RollbackQuery
+[@breautek/storm](../README.md) / private/RollbackQuery
 
 # Module: private/RollbackQuery
 

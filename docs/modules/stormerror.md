@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / StormError
+[@breautek/storm](../README.md) / StormError
 
 # Module: StormError
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / ExitCode
+[@breautek/storm](../README.md) / ExitCode
 
 # Module: ExitCode
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / InternalError
+[@breautek/storm](../README.md) / InternalError
 
 # Module: InternalError
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / UnauthorizedAccessError
+[@breautek/storm](../README.md) / UnauthorizedAccessError
 
 # Module: UnauthorizedAccessError
 

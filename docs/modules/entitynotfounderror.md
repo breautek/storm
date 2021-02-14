@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / EntityNotFoundError
+[@breautek/storm](../README.md) / EntityNotFoundError
 
 # Module: EntityNotFoundError
 

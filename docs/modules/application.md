@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / Application
+[@breautek/storm](../README.md) / Application
 
 # Module: Application
 

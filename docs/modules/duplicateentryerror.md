@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / DuplicateEntryError
+[@breautek/storm](../README.md) / DuplicateEntryError
 
 # Module: DuplicateEntryError
 

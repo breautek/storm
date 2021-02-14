@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [Token](../modules/token.md) / Token
+[@breautek/storm](../README.md) / [Token](../modules/token.md) / Token
 
 # Class: Token
 
@@ -32,7 +32,7 @@ Name | Type |
 
 **Returns:** [*Token*](token.token-1.md)
 
-Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/0d2af7e/src/Token.ts#L18)
+Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/022545d/src/Token.ts#L18)
 
 ## Methods
 
@@ -42,4 +42,4 @@ Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/0d2af7e/src
 
 **Returns:** *string*
 
-Defined in: [src/Token.ts:24](https://github.com/breautek/storm/blob/0d2af7e/src/Token.ts#L24)
+Defined in: [src/Token.ts:24](https://github.com/breautek/storm/blob/022545d/src/Token.ts#L24)

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [ApplicationEvent](../modules/applicationevent.md) / ApplicationEvent
+[@breautek/storm](../README.md) / [ApplicationEvent](../modules/applicationevent.md) / ApplicationEvent
 
 # Enumeration: ApplicationEvent
 
@@ -16,4 +16,4 @@
 
 • **CONFIG\_LOADED**: = "config\_loaded"
 
-Defined in: [src/ApplicationEvent.ts:18](https://github.com/breautek/storm/blob/0d2af7e/src/ApplicationEvent.ts#L18)
+Defined in: [src/ApplicationEvent.ts:18](https://github.com/breautek/storm/blob/022545d/src/ApplicationEvent.ts#L18)

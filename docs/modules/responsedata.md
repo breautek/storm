@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / ResponseData
+[@breautek/storm](../README.md) / ResponseData
 
 # Module: ResponseData
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [IRequestResponse](../modules/irequestresponse.md) / IRequestResponse
+[@breautek/storm](../README.md) / [IRequestResponse](../modules/irequestresponse.md) / IRequestResponse
 
 # Interface: IRequestResponse<TRequest, TResponse\>
 
@@ -28,7 +28,7 @@ Name | Default |
 
 • **request**: [*Request*](../classes/request.request-1.md)<TRequest, [*IAuthTokenData*](iauthtokendata.iauthtokendata-1.md)\>
 
-Defined in: [src/IRequestResponse.ts:21](https://github.com/breautek/storm/blob/0d2af7e/src/IRequestResponse.ts#L21)
+Defined in: [src/IRequestResponse.ts:21](https://github.com/breautek/storm/blob/022545d/src/IRequestResponse.ts#L21)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **response**: [*Response*](../classes/response.response-1.md)<TResponse, *string* \| Error \| [*IErrorResponse*](stormerror.ierrorresponse.md)\>
 
-Defined in: [src/IRequestResponse.ts:22](https://github.com/breautek/storm/blob/0d2af7e/src/IRequestResponse.ts#L22)
+Defined in: [src/IRequestResponse.ts:22](https://github.com/breautek/storm/blob/022545d/src/IRequestResponse.ts#L22)

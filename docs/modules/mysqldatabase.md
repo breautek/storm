@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / MySQLDatabase
+[@breautek/storm](../README.md) / MySQLDatabase
 
 # Module: MySQLDatabase
 

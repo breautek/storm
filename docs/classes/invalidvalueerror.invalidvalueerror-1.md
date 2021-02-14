@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [InvalidValueError](../modules/invalidvalueerror.md) / InvalidValueError
+[@breautek/storm](../README.md) / [InvalidValueError](../modules/invalidvalueerror.md) / InvalidValueError
 
 # Class: InvalidValueError
 
@@ -52,7 +52,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidValueError.ts:25](https://github.com/breautek/storm/blob/0d2af7e/src/InvalidValueError.ts#L25)
+Defined in: [src/InvalidValueError.ts:25](https://github.com/breautek/storm/blob/022545d/src/InvalidValueError.ts#L25)
 
 ## Properties
 
@@ -139,7 +139,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidValueError.ts:40](https://github.com/breautek/storm/blob/0d2af7e/src/InvalidValueError.ts#L40)
+Defined in: [src/InvalidValueError.ts:40](https://github.com/breautek/storm/blob/022545d/src/InvalidValueError.ts#L40)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L74)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidValueError.ts:44](https://github.com/breautek/storm/blob/0d2af7e/src/InvalidValueError.ts#L44)
+Defined in: [src/InvalidValueError.ts:44](https://github.com/breautek/storm/blob/022545d/src/InvalidValueError.ts#L44)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidValueError.ts:35](https://github.com/breautek/storm/blob/0d2af7e/src/InvalidValueError.ts#L35)
+Defined in: [src/InvalidValueError.ts:35](https://github.com/breautek/storm/blob/022545d/src/InvalidValueError.ts#L35)
 
 ___
 
@@ -196,7 +196,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L66)
 
 ___
 
@@ -210,4 +210,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/0d2af7e/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L58)

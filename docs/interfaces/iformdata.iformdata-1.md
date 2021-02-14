@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [IFormData](../modules/iformdata.md) / IFormData
+[@breautek/storm](../README.md) / [IFormData](../modules/iformdata.md) / IFormData
 
 # Interface: IFormData
 
@@ -21,7 +21,7 @@
 
 • **fields**: [*Fields*](api.formidable.fields.md)
 
-Defined in: [src/IFormData.ts:20](https://github.com/breautek/storm/blob/0d2af7e/src/IFormData.ts#L20)
+Defined in: [src/IFormData.ts:20](https://github.com/breautek/storm/blob/022545d/src/IFormData.ts#L20)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 • **files**: [*Files*](api.formidable.files.md)
 
-Defined in: [src/IFormData.ts:21](https://github.com/breautek/storm/blob/0d2af7e/src/IFormData.ts#L21)
+Defined in: [src/IFormData.ts:21](https://github.com/breautek/storm/blob/022545d/src/IFormData.ts#L21)

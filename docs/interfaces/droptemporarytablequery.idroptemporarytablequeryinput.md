@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [DropTemporaryTableQuery](../modules/droptemporarytablequery.md) / IDropTemporaryTableQueryInput
+[@breautek/storm](../README.md) / [DropTemporaryTableQuery](../modules/droptemporarytablequery.md) / IDropTemporaryTableQueryInput
 
 # Interface: IDropTemporaryTableQueryInput
 
@@ -20,4 +20,4 @@
 
 • **tableName**: *string*
 
-Defined in: [src/DropTemporaryTableQuery.ts:20](https://github.com/breautek/storm/blob/0d2af7e/src/DropTemporaryTableQuery.ts#L20)
+Defined in: [src/DropTemporaryTableQuery.ts:20](https://github.com/breautek/storm/blob/022545d/src/DropTemporaryTableQuery.ts#L20)

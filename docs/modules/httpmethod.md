@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / HTTPMethod
+[@breautek/storm](../README.md) / HTTPMethod
 
 # Module: HTTPMethod
 

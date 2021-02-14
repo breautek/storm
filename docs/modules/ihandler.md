@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / IHandler
+[@breautek/storm](../README.md) / IHandler
 
 # Module: IHandler
 

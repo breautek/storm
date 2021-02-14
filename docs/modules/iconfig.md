@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / IConfig
+[@breautek/storm](../README.md) / IConfig
 
 # Module: IConfig
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [MySQLDatabase](../modules/mysqldatabase.md) / MySQLDatabase
+[@breautek/storm](../README.md) / [MySQLDatabase](../modules/mysqldatabase.md) / MySQLDatabase
 
 # Class: MySQLDatabase
 
@@ -39,7 +39,7 @@
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:25](https://github.com/breautek/storm/blob/0d2af7e/src/MySQLDatabase.ts#L25)
+Defined in: [src/MySQLDatabase.ts:25](https://github.com/breautek/storm/blob/022545d/src/MySQLDatabase.ts#L25)
 
 ## Methods
 
@@ -58,7 +58,7 @@ Name | Type |
 
 Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/0d2af7e/src/MySQLDatabase.ts#L49)
+Defined in: [src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/022545d/src/MySQLDatabase.ts#L49)
 
 ___
 
@@ -77,7 +77,7 @@ Name | Type |
 
 Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/0d2af7e/src/MySQLDatabase.ts#L59)
+Defined in: [src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/022545d/src/MySQLDatabase.ts#L59)
 
 ___
 
@@ -95,7 +95,7 @@ Name | Type |
 
 Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/0d2af7e/src/MySQLDatabase.ts#L54)
+Defined in: [src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/022545d/src/MySQLDatabase.ts#L54)
 
 ___
 
@@ -113,7 +113,7 @@ Name | Type |
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/0d2af7e/src/Database.ts#L32)
+Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/022545d/src/Database.ts#L32)
 
 ___
 
@@ -132,7 +132,7 @@ Name | Type |
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/0d2af7e/src/Database.ts#L46)
+Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/022545d/src/Database.ts#L46)
 
 ___
 
@@ -150,7 +150,7 @@ Name | Type |
 
 Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/0d2af7e/src/MySQLDatabase.ts#L40)
+Defined in: [src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/022545d/src/MySQLDatabase.ts#L40)
 
 ___
 
@@ -169,7 +169,7 @@ Name | Type | Default value |
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/0d2af7e/src/Database.ts#L65)
+Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/022545d/src/Database.ts#L65)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/0d2af7e/src/Database.ts#L41)
+Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/022545d/src/Database.ts#L41)
 
 ___
 
@@ -199,7 +199,7 @@ Name | Type |
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/0d2af7e/src/Database.ts#L55)
+Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/022545d/src/Database.ts#L55)
 
 ___
 
@@ -215,4 +215,4 @@ Name | Type |
 
 **Returns:** *string*
 
-Defined in: [src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/0d2af7e/src/MySQLDatabase.ts#L45)
+Defined in: [src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/022545d/src/MySQLDatabase.ts#L45)

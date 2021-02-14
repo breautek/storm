@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [DumpStream](../modules/dumpstream.md) / DumpStream
+[@breautek/storm](../README.md) / [DumpStream](../modules/dumpstream.md) / DumpStream
 
 # Class: DumpStream
 
@@ -22,4 +22,4 @@
 
 **Returns:** *Writable*
 
-Defined in: [src/DumpStream.ts:25](https://github.com/breautek/storm/blob/0d2af7e/src/DumpStream.ts#L25)
+Defined in: [src/DumpStream.ts:25](https://github.com/breautek/storm/blob/022545d/src/DumpStream.ts#L25)

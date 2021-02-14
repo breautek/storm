@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / MySQLConnection
+[@breautek/storm](../README.md) / MySQLConnection
 
 # Module: MySQLConnection
 

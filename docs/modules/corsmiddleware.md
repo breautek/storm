@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / CORSMiddleware
+[@breautek/storm](../README.md) / CORSMiddleware
 
 # Module: CORSMiddleware
 

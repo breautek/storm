@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / TemporaryTableQuery
+[@breautek/storm](../README.md) / TemporaryTableQuery
 
 # Module: TemporaryTableQuery
 

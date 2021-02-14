@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / DiskSpaceError
+[@breautek/storm](../README.md) / DiskSpaceError
 
 # Module: DiskSpaceError
 

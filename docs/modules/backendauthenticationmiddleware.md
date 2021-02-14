@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / BackendAuthenticationMiddleware
+[@breautek/storm](../README.md) / BackendAuthenticationMiddleware
 
 # Module: BackendAuthenticationMiddleware
 

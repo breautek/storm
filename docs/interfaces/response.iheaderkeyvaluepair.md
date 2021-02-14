@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [Response](../modules/response.md) / IHeaderKeyValuePair
+[@breautek/storm](../README.md) / [Response](../modules/response.md) / IHeaderKeyValuePair
 
 # Interface: IHeaderKeyValuePair
 

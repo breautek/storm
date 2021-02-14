@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / InvalidValueError
+[@breautek/storm](../README.md) / InvalidValueError
 
 # Module: InvalidValueError
 

@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / RawQuery
+[@breautek/storm](../README.md) / RawQuery
 
 # Module: RawQuery
 

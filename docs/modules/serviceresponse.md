@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / ServiceResponse
+[@breautek/storm](../README.md) / ServiceResponse
 
 # Module: ServiceResponse
 

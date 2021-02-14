@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / IUpdateQueryResult
+[@breautek/storm](../README.md) / IUpdateQueryResult
 
 # Module: IUpdateQueryResult
 

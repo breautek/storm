@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / Token
+[@breautek/storm](../README.md) / Token
 
 # Module: Token
 

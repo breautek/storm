@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / ManagedDatabaseConnection
+[@breautek/storm](../README.md) / ManagedDatabaseConnection
 
 # Module: ManagedDatabaseConnection
 

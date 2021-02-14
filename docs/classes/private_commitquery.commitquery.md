@@ -1,4 +1,4 @@
-[@breautek/storm](../README.md) / [Exports](../modules.md) / [private/CommitQuery](../modules/private_commitquery.md) / CommitQuery
+[@breautek/storm](../README.md) / [private/CommitQuery](../modules/private_commitquery.md) / CommitQuery
 
 # Class: CommitQuery
 
@@ -41,7 +41,7 @@ Name | Type |
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/0d2af7e/src/Query.ts#L21)
+Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L21)
 
 ## Methods
 
@@ -53,7 +53,7 @@ Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/0d2af7e/src
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/private/CommitQuery.ts:20](https://github.com/breautek/storm/blob/0d2af7e/src/private/CommitQuery.ts#L20)
+Defined in: [src/private/CommitQuery.ts:20](https://github.com/breautek/storm/blob/022545d/src/private/CommitQuery.ts#L20)
 
 ___
 
@@ -71,7 +71,7 @@ Name | Type |
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/0d2af7e/src/Query.ts#L52)
+Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L52)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/0d2af7e/src/Query.ts#L27)
+Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L27)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/0d2af7e/src/Query.ts#L31)
+Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L31)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/0d2af7e/src/Query.ts#L37)
+Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L37)
 
 ___
 
@@ -128,4 +128,4 @@ Name | Type | Description |
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/0d2af7e/src/Query.ts#L47)
+Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L47)
