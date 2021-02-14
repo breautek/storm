@@ -8,7 +8,7 @@
 
     "log": {
         "level": "info | warning | error | fatal",
-        "directory": ".",
+        "directory": null,
         "filters": ["/TokenExpiredError/g"]
     },
     

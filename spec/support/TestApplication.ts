@@ -17,8 +17,6 @@ import { Token } from '../../src/Token';
 
 jest.mock('@arashi/logger');
 
-export class TestLogger extends Logger {}
-
 export interface IMockResponse {
     status: StatusCode;
     data: string;
@@ -62,7 +60,7 @@ export class TestApplication extends Application {
     }
 
     protected _createLogger(): Logger {
-        return new TestLogger(this.getName());
+        return new Logger(this.getName());
     }
 
     public initDB(config: IConfig): Promise<Database<any, any>> {
@@ -157,7 +155,7 @@ export class MockApplication extends Application {
     }
 
     protected _createLogger(): Logger {
-        return new TestLogger(this.getName());
+        return new Logger(this.getName());
     }
 
     public initDB(config: IConfig): Promise<Database<any, any>> {
