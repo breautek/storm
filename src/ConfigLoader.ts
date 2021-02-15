@@ -133,7 +133,7 @@ export class ConfigLoader {
                                 name: { type: 'string', const: "MASTER" },
                                 host: { type: 'string' },
                                 port: { type: 'integer', minimum: 0 },
-                                schema: { type: 'string' },
+                                database: { type: 'string' },
                                 user: { type: 'string' },
                                 password: { type: 'string' }
                             }
@@ -147,7 +147,7 @@ export class ConfigLoader {
                                     name: { type: 'string' },
                                     host: { type: 'string' },
                                     port: { type: 'integer', minimum: 0 },
-                                    schema: { type: 'string' },
+                                    database: { type: 'string' },
                                     user: { type: 'string' },
                                     password: { type: 'string' }
                                 }
