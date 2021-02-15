@@ -18,20 +18,28 @@ Name | Default |
 
 ### Properties
 
+- [database](idatabaseconfig.idatabaseconfig-1.md#database)
 - [host](idatabaseconfig.idatabaseconfig-1.md#host)
 - [name](idatabaseconfig.idatabaseconfig-1.md#name)
 - [password](idatabaseconfig.idatabaseconfig-1.md#password)
 - [port](idatabaseconfig.idatabaseconfig-1.md#port)
-- [schema](idatabaseconfig.idatabaseconfig-1.md#schema)
 - [user](idatabaseconfig.idatabaseconfig-1.md#user)
 
 ## Properties
+
+### database
+
+• **database**: *string*
+
+Defined in: [src/IDatabaseConfig.ts:21](https://github.com/breautek/storm/blob/547898b/src/IDatabaseConfig.ts#L21)
+
+___
 
 ### host
 
 • **host**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:19](https://github.com/breautek/storm/blob/e9f4a60/src/IDatabaseConfig.ts#L19)
+Defined in: [src/IDatabaseConfig.ts:19](https://github.com/breautek/storm/blob/547898b/src/IDatabaseConfig.ts#L19)
 
 ___
 
@@ -39,7 +47,7 @@ ___
 
 • **name**: TName
 
-Defined in: [src/IDatabaseConfig.ts:18](https://github.com/breautek/storm/blob/e9f4a60/src/IDatabaseConfig.ts#L18)
+Defined in: [src/IDatabaseConfig.ts:18](https://github.com/breautek/storm/blob/547898b/src/IDatabaseConfig.ts#L18)
 
 ___
 
@@ -47,7 +55,7 @@ ___
 
 • **password**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:23](https://github.com/breautek/storm/blob/e9f4a60/src/IDatabaseConfig.ts#L23)
+Defined in: [src/IDatabaseConfig.ts:23](https://github.com/breautek/storm/blob/547898b/src/IDatabaseConfig.ts#L23)
 
 ___
 
@@ -55,15 +63,7 @@ ___
 
 • **port**: *number*
 
-Defined in: [src/IDatabaseConfig.ts:20](https://github.com/breautek/storm/blob/e9f4a60/src/IDatabaseConfig.ts#L20)
-
-___
-
-### schema
-
-• **schema**: *string*
-
-Defined in: [src/IDatabaseConfig.ts:21](https://github.com/breautek/storm/blob/e9f4a60/src/IDatabaseConfig.ts#L21)
+Defined in: [src/IDatabaseConfig.ts:20](https://github.com/breautek/storm/blob/547898b/src/IDatabaseConfig.ts#L20)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 • **user**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:22](https://github.com/breautek/storm/blob/e9f4a60/src/IDatabaseConfig.ts#L22)
+Defined in: [src/IDatabaseConfig.ts:22](https://github.com/breautek/storm/blob/547898b/src/IDatabaseConfig.ts#L22)

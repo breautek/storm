@@ -41,7 +41,7 @@ Name | Type |
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/e9f4a60/src/Query.ts#L21)
+Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/547898b/src/Query.ts#L21)
 
 ## Methods
 
@@ -53,7 +53,7 @@ Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/e9f4a60/src
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/DropTemporaryTableQuery.ts:29](https://github.com/breautek/storm/blob/e9f4a60/src/DropTemporaryTableQuery.ts#L29)
+Defined in: [src/DropTemporaryTableQuery.ts:29](https://github.com/breautek/storm/blob/547898b/src/DropTemporaryTableQuery.ts#L29)
 
 ___
 
@@ -71,7 +71,7 @@ Name | Type |
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/e9f4a60/src/Query.ts#L52)
+Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/547898b/src/Query.ts#L52)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/DropTemporaryTableQuery.ts:25](https://github.com/breautek/storm/blob/e9f4a60/src/DropTemporaryTableQuery.ts#L25)
+Defined in: [src/DropTemporaryTableQuery.ts:25](https://github.com/breautek/storm/blob/547898b/src/DropTemporaryTableQuery.ts#L25)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/e9f4a60/src/Query.ts#L31)
+Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/547898b/src/Query.ts#L31)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/e9f4a60/src/Query.ts#L37)
+Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/547898b/src/Query.ts#L37)
 
 ___
 
@@ -128,4 +128,4 @@ Name | Type | Description |
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/e9f4a60/src/Query.ts#L47)
+Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/547898b/src/Query.ts#L47)

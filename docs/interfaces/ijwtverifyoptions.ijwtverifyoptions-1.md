@@ -20,4 +20,4 @@
 
 • **enableExpiration**: *boolean*
 
-Defined in: [src/IJWTVerifyOptions.ts:18](https://github.com/breautek/storm/blob/e9f4a60/src/IJWTVerifyOptions.ts#L18)
+Defined in: [src/IJWTVerifyOptions.ts:18](https://github.com/breautek/storm/blob/547898b/src/IJWTVerifyOptions.ts#L18)
