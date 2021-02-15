@@ -78,10 +78,10 @@ export abstract class Application
 
         this._configPath = configPath || process.cwd();
 
-        let logger: Logger = new Logger('Storm');
+        this._logger = new Logger(this.constructor.name);
 
-        logger.info(TAG, 'Application is booting...');
-        logger.info(TAG, 'Loading Configuration...');
+        this._logger.info(TAG, 'Application is booting...');
+        this._logger.info(TAG, 'Loading Configuration...');
 
         this._load();
     }
