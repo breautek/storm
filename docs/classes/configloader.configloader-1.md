@@ -28,4 +28,4 @@ Name | Type |
 
 **Returns:** *Promise*<[*IConfig*](../interfaces/iconfig.iconfig-1.md)\>
 
-Defined in: [src/ConfigLoader.ts:34](https://github.com/breautek/storm/blob/d5629c8/src/ConfigLoader.ts#L34)
+Defined in: [src/ConfigLoader.ts:34](https://github.com/breautek/storm/blob/e9f4a60/src/ConfigLoader.ts#L34)

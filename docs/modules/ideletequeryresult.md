@@ -14,6 +14,6 @@
 
 Ƭ **IDeleteQueryResult**: [*IUpdateQueryResult*](../interfaces/iupdatequeryresult.iupdatequeryresult-1.md)
 
-Defined in: [src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/d5629c8/src/IDeleteQueryResult.ts#L19)
+Defined in: [src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/e9f4a60/src/IDeleteQueryResult.ts#L19)
 
-Defined in: [src/api.ts:35](https://github.com/breautek/storm/blob/d5629c8/src/api.ts#L35)
+Defined in: [src/api.ts:35](https://github.com/breautek/storm/blob/e9f4a60/src/api.ts#L35)

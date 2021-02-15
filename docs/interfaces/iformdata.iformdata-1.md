@@ -21,7 +21,7 @@
 
 • **fields**: [*Fields*](api.formidable.fields.md)
 
-Defined in: [src/IFormData.ts:20](https://github.com/breautek/storm/blob/d5629c8/src/IFormData.ts#L20)
+Defined in: [src/IFormData.ts:20](https://github.com/breautek/storm/blob/e9f4a60/src/IFormData.ts#L20)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 • **files**: [*Files*](api.formidable.files.md)
 
-Defined in: [src/IFormData.ts:21](https://github.com/breautek/storm/blob/d5629c8/src/IFormData.ts#L21)
+Defined in: [src/IFormData.ts:21](https://github.com/breautek/storm/blob/e9f4a60/src/IFormData.ts#L21)

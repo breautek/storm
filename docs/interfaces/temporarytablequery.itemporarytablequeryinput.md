@@ -21,7 +21,7 @@
 
 • **selectQuery**: [*Query*](../classes/query.query-1.md)<*any*, *any*, *any*\>
 
-Defined in: [src/TemporaryTableQuery.ts:22](https://github.com/breautek/storm/blob/d5629c8/src/TemporaryTableQuery.ts#L22)
+Defined in: [src/TemporaryTableQuery.ts:22](https://github.com/breautek/storm/blob/e9f4a60/src/TemporaryTableQuery.ts#L22)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 • **tableName**: *string*
 
-Defined in: [src/TemporaryTableQuery.ts:21](https://github.com/breautek/storm/blob/d5629c8/src/TemporaryTableQuery.ts#L21)
+Defined in: [src/TemporaryTableQuery.ts:21](https://github.com/breautek/storm/blob/e9f4a60/src/TemporaryTableQuery.ts#L21)

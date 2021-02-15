@@ -26,7 +26,7 @@
 
 **Returns:** [*JWTVerifyOptionsParser*](jwtverifyoptionsparser.jwtverifyoptionsparser-1.md)
 
-Defined in: [src/JWTVerifyOptionsParser.ts:19](https://github.com/breautek/storm/blob/d5629c8/src/JWTVerifyOptionsParser.ts#L19)
+Defined in: [src/JWTVerifyOptionsParser.ts:19](https://github.com/breautek/storm/blob/e9f4a60/src/JWTVerifyOptionsParser.ts#L19)
 
 ## Methods
 
@@ -42,4 +42,4 @@ Name | Type |
 
 **Returns:** *any*
 
-Defined in: [src/JWTVerifyOptionsParser.ts:25](https://github.com/breautek/storm/blob/d5629c8/src/JWTVerifyOptionsParser.ts#L25)
+Defined in: [src/JWTVerifyOptionsParser.ts:25](https://github.com/breautek/storm/blob/e9f4a60/src/JWTVerifyOptionsParser.ts#L25)

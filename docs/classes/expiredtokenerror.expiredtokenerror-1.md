@@ -29,6 +29,7 @@
 - [captureStackTrace](expiredtokenerror.expiredtokenerror-1.md#capturestacktrace)
 - [getCode](expiredtokenerror.expiredtokenerror-1.md#getcode)
 - [getErrorResponse](expiredtokenerror.expiredtokenerror-1.md#geterrorresponse)
+- [getExitCode](expiredtokenerror.expiredtokenerror-1.md#getexitcode)
 - [getHTTPCode](expiredtokenerror.expiredtokenerror-1.md#gethttpcode)
 - [getMessage](expiredtokenerror.expiredtokenerror-1.md#getmessage)
 - [getPrivateDetails](expiredtokenerror.expiredtokenerror-1.md#getprivatedetails)
@@ -50,7 +51,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/ExpiredTokenError.ts:21](https://github.com/breautek/storm/blob/d5629c8/src/ExpiredTokenError.ts#L21)
+Defined in: [src/ExpiredTokenError.ts:21](https://github.com/breautek/storm/blob/e9f4a60/src/ExpiredTokenError.ts#L21)
 
 ## Properties
 
@@ -137,7 +138,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/ExpiredTokenError.ts:31](https://github.com/breautek/storm/blob/d5629c8/src/ExpiredTokenError.ts#L31)
+Defined in: [src/ExpiredTokenError.ts:31](https://github.com/breautek/storm/blob/e9f4a60/src/ExpiredTokenError.ts#L31)
 
 ___
 
@@ -149,7 +150,19 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L70)
+
+___
+
+### getExitCode
+
+▸ **getExitCode**(): [*ExitCode*](../enums/exitcode.exitcode-1.md)
+
+**Returns:** [*ExitCode*](../enums/exitcode.exitcode-1.md)
+
+Inherited from: [StormError](stormerror.stormerror-1.md)
+
+Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L79)
 
 ___
 
@@ -161,7 +174,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/ExpiredTokenError.ts:35](https://github.com/breautek/storm/blob/d5629c8/src/ExpiredTokenError.ts#L35)
+Defined in: [src/ExpiredTokenError.ts:35](https://github.com/breautek/storm/blob/e9f4a60/src/ExpiredTokenError.ts#L35)
 
 ___
 
@@ -173,7 +186,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/ExpiredTokenError.ts:27](https://github.com/breautek/storm/blob/d5629c8/src/ExpiredTokenError.ts#L27)
+Defined in: [src/ExpiredTokenError.ts:27](https://github.com/breautek/storm/blob/e9f4a60/src/ExpiredTokenError.ts#L27)
 
 ___
 
@@ -188,7 +201,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L62)
 
 ___
 
@@ -202,4 +215,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L54)

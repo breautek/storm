@@ -28,4 +28,4 @@ Name | Type |
 
 **Returns:** [*Handler*](../classes/handler.handler-1.md)<[*Application*](../classes/application.application-1.md)<[*IConfig*](iconfig.iconfig-1.md), [*IAuthTokenData*](iauthtokendata.iauthtokendata-1.md), *any*, *any*\>, *any*, *any*, *any*, *any*, *any*, *any*, *any*, *any*\>
 
-Defined in: [src/IHandler.ts:20](https://github.com/breautek/storm/blob/d5629c8/src/IHandler.ts#L20)
+Defined in: [src/IHandler.ts:20](https://github.com/breautek/storm/blob/e9f4a60/src/IHandler.ts#L20)

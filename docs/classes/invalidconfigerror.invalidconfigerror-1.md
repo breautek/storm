@@ -35,6 +35,7 @@ Name | Type |
 - [captureStackTrace](invalidconfigerror.invalidconfigerror-1.md#capturestacktrace)
 - [getCode](invalidconfigerror.invalidconfigerror-1.md#getcode)
 - [getErrorResponse](invalidconfigerror.invalidconfigerror-1.md#geterrorresponse)
+- [getExitCode](invalidconfigerror.invalidconfigerror-1.md#getexitcode)
 - [getHTTPCode](invalidconfigerror.invalidconfigerror-1.md#gethttpcode)
 - [getMessage](invalidconfigerror.invalidconfigerror-1.md#getmessage)
 - [getPrivateDetails](invalidconfigerror.invalidconfigerror-1.md#getprivatedetails)
@@ -63,7 +64,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:28](https://github.com/breautek/storm/blob/d5629c8/src/InvalidConfigError.ts#L28)
+Defined in: [src/InvalidConfigError.ts:29](https://github.com/breautek/storm/blob/e9f4a60/src/InvalidConfigError.ts#L29)
 
 ## Properties
 
@@ -150,7 +151,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:41](https://github.com/breautek/storm/blob/d5629c8/src/InvalidConfigError.ts#L41)
+Defined in: [src/InvalidConfigError.ts:42](https://github.com/breautek/storm/blob/e9f4a60/src/InvalidConfigError.ts#L42)
 
 ___
 
@@ -162,7 +163,19 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L70)
+
+___
+
+### getExitCode
+
+▸ **getExitCode**(): [*ExitCode*](../enums/exitcode.exitcode-1.md)
+
+**Returns:** [*ExitCode*](../enums/exitcode.exitcode-1.md)
+
+Overrides: [StormError](stormerror.stormerror-1.md)
+
+Defined in: [src/InvalidConfigError.ts:50](https://github.com/breautek/storm/blob/e9f4a60/src/InvalidConfigError.ts#L50)
 
 ___
 
@@ -174,7 +187,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:45](https://github.com/breautek/storm/blob/d5629c8/src/InvalidConfigError.ts#L45)
+Defined in: [src/InvalidConfigError.ts:46](https://github.com/breautek/storm/blob/e9f4a60/src/InvalidConfigError.ts#L46)
 
 ___
 
@@ -186,7 +199,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:36](https://github.com/breautek/storm/blob/d5629c8/src/InvalidConfigError.ts#L36)
+Defined in: [src/InvalidConfigError.ts:37](https://github.com/breautek/storm/blob/e9f4a60/src/InvalidConfigError.ts#L37)
 
 ___
 
@@ -201,7 +214,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L62)
 
 ___
 
@@ -215,4 +228,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L54)

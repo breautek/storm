@@ -57,6 +57,7 @@ Name | Default |
 - [captureStackTrace](stormerror.stormerror-1.md#capturestacktrace)
 - [getCode](stormerror.stormerror-1.md#getcode)
 - [getErrorResponse](stormerror.stormerror-1.md#geterrorresponse)
+- [getExitCode](stormerror.stormerror-1.md#getexitcode)
 - [getHTTPCode](stormerror.stormerror-1.md#gethttpcode)
 - [getMessage](stormerror.stormerror-1.md#getmessage)
 - [getPrivateDetails](stormerror.stormerror-1.md#getprivatedetails)
@@ -82,7 +83,7 @@ Name | Type |
 
 **Returns:** [*StormError*](stormerror.stormerror-1.md)<TErrorDetails\>
 
-Defined in: [src/StormError.ts:35](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L35)
+Defined in: [src/StormError.ts:36](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L36)
 
 ## Properties
 
@@ -155,7 +156,7 @@ ___
 
 **Returns:** *number*
 
-Defined in: [src/StormError.ts:48](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L48)
+Defined in: [src/StormError.ts:49](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L49)
 
 ___
 
@@ -165,7 +166,17 @@ ___
 
 **Returns:** [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L70)
+
+___
+
+### getExitCode
+
+▸ **getExitCode**(): [*ExitCode*](../enums/exitcode.exitcode-1.md)
+
+**Returns:** [*ExitCode*](../enums/exitcode.exitcode-1.md)
+
+Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L79)
 
 ___
 
@@ -175,7 +186,7 @@ ___
 
 **Returns:** [*StatusCode*](../enums/statuscode.statuscode-1.md)
 
-Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L70)
+Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L66)
 
 ___
 
@@ -185,7 +196,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/StormError.ts:47](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L47)
+Defined in: [src/StormError.ts:48](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L48)
 
 ___
 
@@ -198,7 +209,7 @@ They are kept secret from the client.
 
 **Returns:** TErrorDetails
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L62)
 
 ___
 
@@ -210,4 +221,4 @@ Sends details to the client.
 
 **Returns:** [*IAdditionalErrorDetails*](../interfaces/stormerror.iadditionalerrordetails.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L54)

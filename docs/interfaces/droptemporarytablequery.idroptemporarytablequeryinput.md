@@ -20,4 +20,4 @@
 
 • **tableName**: *string*
 
-Defined in: [src/DropTemporaryTableQuery.ts:20](https://github.com/breautek/storm/blob/d5629c8/src/DropTemporaryTableQuery.ts#L20)
+Defined in: [src/DropTemporaryTableQuery.ts:20](https://github.com/breautek/storm/blob/e9f4a60/src/DropTemporaryTableQuery.ts#L20)

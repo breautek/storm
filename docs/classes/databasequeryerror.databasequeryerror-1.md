@@ -28,6 +28,7 @@
 
 - [getCode](databasequeryerror.databasequeryerror-1.md#getcode)
 - [getErrorResponse](databasequeryerror.databasequeryerror-1.md#geterrorresponse)
+- [getExitCode](databasequeryerror.databasequeryerror-1.md#getexitcode)
 - [getHTTPCode](databasequeryerror.databasequeryerror-1.md#gethttpcode)
 - [getMessage](databasequeryerror.databasequeryerror-1.md#getmessage)
 - [getPrivateDetails](databasequeryerror.databasequeryerror-1.md#getprivatedetails)
@@ -51,7 +52,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DatabaseQueryError.ts:23](https://github.com/breautek/storm/blob/d5629c8/src/DatabaseQueryError.ts#L23)
+Defined in: [src/DatabaseQueryError.ts:23](https://github.com/breautek/storm/blob/e9f4a60/src/DatabaseQueryError.ts#L23)
 
 ## Properties
 
@@ -113,7 +114,7 @@ Defined in: node_modules/@types/node/globals.d.ts:13
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DatabaseQueryError.ts:36](https://github.com/breautek/storm/blob/d5629c8/src/DatabaseQueryError.ts#L36)
+Defined in: [src/DatabaseQueryError.ts:36](https://github.com/breautek/storm/blob/e9f4a60/src/DatabaseQueryError.ts#L36)
 
 ___
 
@@ -125,7 +126,19 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L70)
+
+___
+
+### getExitCode
+
+▸ **getExitCode**(): [*ExitCode*](../enums/exitcode.exitcode-1.md)
+
+**Returns:** [*ExitCode*](../enums/exitcode.exitcode-1.md)
+
+Inherited from: [StormError](stormerror.stormerror-1.md)
+
+Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L79)
 
 ___
 
@@ -137,7 +150,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DatabaseQueryError.ts:40](https://github.com/breautek/storm/blob/d5629c8/src/DatabaseQueryError.ts#L40)
+Defined in: [src/DatabaseQueryError.ts:40](https://github.com/breautek/storm/blob/e9f4a60/src/DatabaseQueryError.ts#L40)
 
 ___
 
@@ -149,7 +162,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DatabaseQueryError.ts:32](https://github.com/breautek/storm/blob/d5629c8/src/DatabaseQueryError.ts#L32)
+Defined in: [src/DatabaseQueryError.ts:32](https://github.com/breautek/storm/blob/e9f4a60/src/DatabaseQueryError.ts#L32)
 
 ___
 
@@ -169,7 +182,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L62)
 
 ___
 
@@ -183,7 +196,7 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/e9f4a60/src/StormError.ts#L54)
 
 ___
 
