@@ -50,7 +50,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InternalError.ts:21](https://github.com/breautek/storm/blob/022545d/src/InternalError.ts#L21)
+Defined in: [src/InternalError.ts:21](https://github.com/breautek/storm/blob/d383af9/src/InternalError.ts#L21)
 
 ## Properties
 
@@ -137,7 +137,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InternalError.ts:31](https://github.com/breautek/storm/blob/022545d/src/InternalError.ts#L31)
+Defined in: [src/InternalError.ts:31](https://github.com/breautek/storm/blob/d383af9/src/InternalError.ts#L31)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L74)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InternalError.ts:35](https://github.com/breautek/storm/blob/022545d/src/InternalError.ts#L35)
+Defined in: [src/InternalError.ts:35](https://github.com/breautek/storm/blob/d383af9/src/InternalError.ts#L35)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InternalError.ts:27](https://github.com/breautek/storm/blob/022545d/src/InternalError.ts#L27)
+Defined in: [src/InternalError.ts:27](https://github.com/breautek/storm/blob/d383af9/src/InternalError.ts#L27)
 
 ___
 
@@ -188,7 +188,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L66)
 
 ___
 
@@ -202,4 +202,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L58)

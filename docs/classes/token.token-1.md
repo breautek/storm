@@ -32,7 +32,7 @@ Name | Type |
 
 **Returns:** [*Token*](token.token-1.md)
 
-Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/022545d/src/Token.ts#L18)
+Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/d383af9/src/Token.ts#L18)
 
 ## Methods
 
@@ -42,4 +42,4 @@ Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/022545d/src
 
 **Returns:** *string*
 
-Defined in: [src/Token.ts:24](https://github.com/breautek/storm/blob/022545d/src/Token.ts#L24)
+Defined in: [src/Token.ts:24](https://github.com/breautek/storm/blob/d383af9/src/Token.ts#L24)

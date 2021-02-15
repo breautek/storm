@@ -65,7 +65,7 @@ Name | Type |
 
 **Returns:** [*Query*](query.query-1.md)<TQueryParameters, TQueryResultSet, TQueryPostProcessedResultSet\>
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L21)
+Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/d383af9/src/Query.ts#L21)
 
 ## Methods
 
@@ -75,7 +75,7 @@ Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/022545d/src
 
 **Returns:** *string*
 
-Defined in: [src/Query.ts:35](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L35)
+Defined in: [src/Query.ts:35](https://github.com/breautek/storm/blob/d383af9/src/Query.ts#L35)
 
 ___
 
@@ -91,7 +91,7 @@ Name | Type |
 
 **Returns:** *Promise*<TQueryPostProcessedResultSet\>
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L52)
+Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/d383af9/src/Query.ts#L52)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 **Returns:** TQueryParameters
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L27)
+Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/d383af9/src/Query.ts#L27)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 **Returns:** *IDictionary*<*any*\>
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L31)
+Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/d383af9/src/Query.ts#L31)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L37)
+Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/d383af9/src/Query.ts#L37)
 
 ___
 
@@ -140,4 +140,4 @@ Name | Type | Description |
 
 **Returns:** *Promise*<TQueryPostProcessedResultSet[]\>
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/022545d/src/Query.ts#L47)
+Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/d383af9/src/Query.ts#L47)

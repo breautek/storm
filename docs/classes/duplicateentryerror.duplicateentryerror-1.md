@@ -52,7 +52,7 @@ Name | Type | Default value |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:27](https://github.com/breautek/storm/blob/022545d/src/DuplicateEntryError.ts#L27)
+Defined in: [src/DuplicateEntryError.ts:27](https://github.com/breautek/storm/blob/d383af9/src/DuplicateEntryError.ts#L27)
 
 ## Properties
 
@@ -139,7 +139,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/022545d/src/DuplicateEntryError.ts#L41)
+Defined in: [src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/d383af9/src/DuplicateEntryError.ts#L41)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L74)
+Defined in: [src/StormError.ts:74](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L74)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/022545d/src/DuplicateEntryError.ts#L45)
+Defined in: [src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/d383af9/src/DuplicateEntryError.ts#L45)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/022545d/src/DuplicateEntryError.ts#L36)
+Defined in: [src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/d383af9/src/DuplicateEntryError.ts#L36)
 
 ___
 
@@ -190,7 +190,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L66)
 
 ___
 
@@ -204,4 +204,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/022545d/src/StormError.ts#L58)
+Defined in: [src/StormError.ts:58](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L58)
