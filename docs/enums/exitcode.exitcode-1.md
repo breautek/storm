@@ -16,4 +16,4 @@
 
 • **MISSING\_CONFIG**: = 1
 
-Defined in: [src/ExitCode.ts:18](https://github.com/breautek/storm/blob/d383af9/src/ExitCode.ts#L18)
+Defined in: [src/ExitCode.ts:18](https://github.com/breautek/storm/blob/d5629c8/src/ExitCode.ts#L18)

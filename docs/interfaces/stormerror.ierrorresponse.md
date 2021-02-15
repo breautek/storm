@@ -23,7 +23,7 @@
 
 • **code**: *number*
 
-Defined in: [src/StormError.ts:30](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L30)
+Defined in: [src/StormError.ts:30](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L30)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 • **details**: [*IAdditionalErrorDetails*](stormerror.iadditionalerrordetails.md)
 
-Defined in: [src/StormError.ts:31](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L31)
+Defined in: [src/StormError.ts:31](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L31)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **message**: *string*
 
-Defined in: [src/StormError.ts:29](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L29)
+Defined in: [src/StormError.ts:29](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L29)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 • **name**: *string*
 
-Defined in: [src/StormError.ts:28](https://github.com/breautek/storm/blob/d383af9/src/StormError.ts#L28)
+Defined in: [src/StormError.ts:28](https://github.com/breautek/storm/blob/d5629c8/src/StormError.ts#L28)
