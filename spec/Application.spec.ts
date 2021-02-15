@@ -198,7 +198,7 @@ describe('Application', () => {
         it('option --port', () => {
             let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --port 0').toString().split('\n');
             let opts: any = JSON.parse(lines[lines.length - 2]);
-            expect(opts.port).toEqual('0');
+            expect(opts.port).toEqual(0);
         });
 
         it('option --bind', () => {

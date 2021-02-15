@@ -17,6 +17,7 @@
 import {getInstance} from './instance';
 import {Logger} from '@arashi/logger';
 import {StatusCode} from './StatusCode';
+import { ExitCode } from './ExitCode';
 
 const TAG: string = 'StormError';
 
@@ -47,11 +48,6 @@ export abstract class StormError<TErrorDetails = any> extends Error {
     public abstract getMessage(): string;
     public abstract getCode(): number;
 
-    // public getDetails(): any {
-    //     getInstance().getLogger().deprecate('getPrivateDetails()');
-    //     return this.getPrivateDetails();
-    // }
-
     /**
      * Sends details to the client.
      */
@@ -78,5 +74,9 @@ export abstract class StormError<TErrorDetails = any> extends Error {
             code : this.getCode(),
             details: this.getPublicDetails()
         };
+    }
+
+    public getExitCode(): ExitCode {
+        return null;
     }
 }

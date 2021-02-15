@@ -19,6 +19,7 @@ import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 import { IConfig } from './IConfig';
 import { ErrorObject } from 'ajv';
+import { ExitCode } from './ExitCode';
 
 interface IInvalidConfigErrorDetails<TConfig extends IConfig> {
     config: TConfig;
@@ -39,10 +40,14 @@ export class InvalidConfigError<TConfig extends IConfig> extends StormError<IInv
     }
 
     public getCode(): ErrorCode {
-        return ErrorCode.INVALID_CREDENTIALS;
+        return null;
     }
 
     public getHTTPCode(): StatusCode {
-        return StatusCode.ERR_UNAUTHORIZED;
+        return StatusCode.INTERNAL_ERROR;
+    }
+
+    public getExitCode(): ExitCode {
+        return ExitCode.INVALID_CONFIG;
     }
 }

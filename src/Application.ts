@@ -18,7 +18,6 @@ import {EventEmitter} from 'events';
 import {setInstance} from './instance';
 import {TokenManager} from './TokenManager';
 import {ApplicationEvent} from './ApplicationEvent';
-import {ExitCode} from './ExitCode';
 import {Database} from './Database';
 import {Handler} from './Handler';
 import {IHandler} from './IHandler';
@@ -32,6 +31,7 @@ import * as BodyParser from 'body-parser';
 import * as http from 'http';
 import { IAuthTokenData } from '@arashi/token';
 import { Logger } from '@arashi/logger';
+import { StormError } from './StormError';
 
 const TAG: string = 'Application';
 
@@ -263,8 +263,10 @@ export abstract class Application
         return new Promise<TConfig>((resolve, reject) => {
             ConfigLoader.load(path).then((config: TConfig) => {
                 resolve(config);
-            }).catch((exitCode: ExitCode) => {
-                process.exit(exitCode);
+            }).catch((error: StormError) => {
+                if (error.getExitCode() !== null) {
+                    process.exit(error.getExitCode());
+                }
             });
         });
     }
@@ -341,7 +343,7 @@ export abstract class Application
         }
 
         if (opts.port !== undefined) {
-            o.port = opts.port;
+            o.port = parseInt(opts.port);
         }
 
         if (opts.authentication_header !== undefined) {

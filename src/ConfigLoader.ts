@@ -88,14 +88,13 @@ export class ConfigLoader {
             logger.trace(TAG, 'Configurations merged.');
             logger.trace(TAG, config);
 
-            ConfigLoader._validateSchema(config);
-
-            resolve(<IConfig>config);
+            ConfigLoader._validateSchema(config).then(() => {
+                resolve(<IConfig>config);
+            }).catch(reject);
         });
     }
 
     private static async _validateSchema(config: IConfig): Promise<void> {
-        // return;
         let ajv: Ajv = new Ajv({
             allErrors: true
         });

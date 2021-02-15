@@ -15,5 +15,6 @@
 */
 
 export enum ExitCode {
-    MISSING_CONFIG = 1
+    MISSING_CONFIG = 1,
+    INVALID_CONFIG = 2
 }
