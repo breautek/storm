@@ -19,7 +19,7 @@
 
 • `Const` **DEFAULT\_QUERY\_TIMEOUT**: *number*= 3600000
 
-Defined in: [src/DatabaseConnection.ts:27](https://github.com/breautek/storm/blob/547898b/src/DatabaseConnection.ts#L27)
+Defined in: [src/DatabaseConnection.ts:27](https://github.com/breautek/storm/blob/51bc6e5/src/DatabaseConnection.ts#L27)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • `Const` **LINGER\_WARNING**: *number*= 10000
 
-Defined in: [src/DatabaseConnection.ts:26](https://github.com/breautek/storm/blob/547898b/src/DatabaseConnection.ts#L26)
+Defined in: [src/DatabaseConnection.ts:26](https://github.com/breautek/storm/blob/51bc6e5/src/DatabaseConnection.ts#L26)

@@ -46,7 +46,7 @@ Name | Type |
 
 **Returns:** [*ResponseData*](responsedata.responsedata-1.md)<TData\>
 
-Defined in: [src/ResponseData.ts:21](https://github.com/breautek/storm/blob/547898b/src/ResponseData.ts#L21)
+Defined in: [src/ResponseData.ts:21](https://github.com/breautek/storm/blob/51bc6e5/src/ResponseData.ts#L21)
 
 ## Methods
 
@@ -56,7 +56,7 @@ Defined in: [src/ResponseData.ts:21](https://github.com/breautek/storm/blob/5478
 
 **Returns:** TData
 
-Defined in: [src/ResponseData.ts:32](https://github.com/breautek/storm/blob/547898b/src/ResponseData.ts#L32)
+Defined in: [src/ResponseData.ts:32](https://github.com/breautek/storm/blob/51bc6e5/src/ResponseData.ts#L32)
 
 ___
 
@@ -66,4 +66,4 @@ ___
 
 **Returns:** [*StatusCode*](../enums/statuscode.statuscode-1.md)
 
-Defined in: [src/ResponseData.ts:28](https://github.com/breautek/storm/blob/547898b/src/ResponseData.ts#L28)
+Defined in: [src/ResponseData.ts:28](https://github.com/breautek/storm/blob/51bc6e5/src/ResponseData.ts#L28)

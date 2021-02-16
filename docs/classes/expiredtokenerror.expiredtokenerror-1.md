@@ -51,7 +51,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/ExpiredTokenError.ts:21](https://github.com/breautek/storm/blob/547898b/src/ExpiredTokenError.ts#L21)
+Defined in: [src/ExpiredTokenError.ts:21](https://github.com/breautek/storm/blob/51bc6e5/src/ExpiredTokenError.ts#L21)
 
 ## Properties
 
@@ -138,7 +138,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/ExpiredTokenError.ts:31](https://github.com/breautek/storm/blob/547898b/src/ExpiredTokenError.ts#L31)
+Defined in: [src/ExpiredTokenError.ts:31](https://github.com/breautek/storm/blob/51bc6e5/src/ExpiredTokenError.ts#L31)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/547898b/src/StormError.ts#L70)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/51bc6e5/src/StormError.ts#L70)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/547898b/src/StormError.ts#L79)
+Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/51bc6e5/src/StormError.ts#L79)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/ExpiredTokenError.ts:35](https://github.com/breautek/storm/blob/547898b/src/ExpiredTokenError.ts#L35)
+Defined in: [src/ExpiredTokenError.ts:35](https://github.com/breautek/storm/blob/51bc6e5/src/ExpiredTokenError.ts#L35)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/ExpiredTokenError.ts:27](https://github.com/breautek/storm/blob/547898b/src/ExpiredTokenError.ts#L27)
+Defined in: [src/ExpiredTokenError.ts:27](https://github.com/breautek/storm/blob/51bc6e5/src/ExpiredTokenError.ts#L27)
 
 ___
 
@@ -201,7 +201,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/547898b/src/StormError.ts#L62)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/51bc6e5/src/StormError.ts#L62)
 
 ___
 
@@ -215,4 +215,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/547898b/src/StormError.ts#L54)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/51bc6e5/src/StormError.ts#L54)

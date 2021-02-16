@@ -26,6 +26,7 @@
 - [getInstantiationStack](manageddatabaseconnection.manageddatabaseconnection-1.md#getinstantiationstack)
 - [getTimeout](manageddatabaseconnection.manageddatabaseconnection-1.md#gettimeout)
 - [hasConnection](manageddatabaseconnection.manageddatabaseconnection-1.md#hasconnection)
+- [isClosed](manageddatabaseconnection.manageddatabaseconnection-1.md#isclosed)
 - [isManaged](manageddatabaseconnection.manageddatabaseconnection-1.md#ismanaged)
 - [isReadOnly](manageddatabaseconnection.manageddatabaseconnection-1.md#isreadonly)
 - [isTransaction](manageddatabaseconnection.manageddatabaseconnection-1.md#istransaction)
@@ -52,7 +53,7 @@ Name | Type | Default value |
 
 **Returns:** [*ManagedDatabaseConnection*](manageddatabaseconnection.manageddatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:34](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L34)
+Defined in: [src/ManagedDatabaseConnection.ts:34](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L34)
 
 ## Methods
 
@@ -70,7 +71,7 @@ Name | Type |
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:140](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L140)
+Defined in: [src/ManagedDatabaseConnection.ts:149](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L149)
 
 ___
 
@@ -82,7 +83,7 @@ ___
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:177](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L177)
+Defined in: [src/ManagedDatabaseConnection.ts:186](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L186)
 
 ___
 
@@ -94,7 +95,7 @@ ___
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:225](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L225)
+Defined in: [src/ManagedDatabaseConnection.ts:234](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L234)
 
 ___
 
@@ -106,7 +107,7 @@ ___
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:93](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L93)
+Defined in: [src/ManagedDatabaseConnection.ts:102](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L102)
 
 ___
 
@@ -118,7 +119,7 @@ ___
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:117](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L117)
+Defined in: [src/ManagedDatabaseConnection.ts:126](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L126)
 
 ___
 
@@ -128,7 +129,19 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [src/ManagedDatabaseConnection.ts:80](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L80)
+Defined in: [src/ManagedDatabaseConnection.ts:89](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L89)
+
+___
+
+### isClosed
+
+▸ **isClosed**(): *boolean*
+
+**Returns:** *boolean*
+
+Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+
+Defined in: [src/ManagedDatabaseConnection.ts:72](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L72)
 
 ___
 
@@ -138,7 +151,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [src/ManagedDatabaseConnection.ts:76](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L76)
+Defined in: [src/ManagedDatabaseConnection.ts:85](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L85)
 
 ___
 
@@ -150,7 +163,7 @@ ___
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:102](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L102)
+Defined in: [src/ManagedDatabaseConnection.ts:111](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L111)
 
 ___
 
@@ -162,7 +175,7 @@ ___
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:168](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L168)
+Defined in: [src/ManagedDatabaseConnection.ts:177](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L177)
 
 ___
 
@@ -172,7 +185,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [src/ManagedDatabaseConnection.ts:72](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L72)
+Defined in: [src/ManagedDatabaseConnection.ts:81](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L81)
 
 ___
 
@@ -191,7 +204,7 @@ Name | Type |
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:127](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L127)
+Defined in: [src/ManagedDatabaseConnection.ts:136](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L136)
 
 ___
 
@@ -203,7 +216,7 @@ ___
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:190](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L190)
+Defined in: [src/ManagedDatabaseConnection.ts:199](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L199)
 
 ___
 
@@ -219,7 +232,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/ManagedDatabaseConnection.ts:42](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L42)
+Defined in: [src/ManagedDatabaseConnection.ts:42](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L42)
 
 ___
 
@@ -237,7 +250,7 @@ Name | Type |
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:84](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L84)
+Defined in: [src/ManagedDatabaseConnection.ts:93](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L93)
 
 ___
 
@@ -255,7 +268,7 @@ Name | Type |
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:111](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L111)
+Defined in: [src/ManagedDatabaseConnection.ts:120](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L120)
 
 ___
 
@@ -267,7 +280,7 @@ ___
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:155](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L155)
+Defined in: [src/ManagedDatabaseConnection.ts:164](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L164)
 
 ___
 
@@ -287,4 +300,4 @@ Name | Type |
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/ManagedDatabaseConnection.ts:136](https://github.com/breautek/storm/blob/547898b/src/ManagedDatabaseConnection.ts#L136)
+Defined in: [src/ManagedDatabaseConnection.ts:145](https://github.com/breautek/storm/blob/51bc6e5/src/ManagedDatabaseConnection.ts#L145)

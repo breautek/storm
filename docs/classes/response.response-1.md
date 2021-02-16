@@ -56,7 +56,7 @@ Name | Type |
 
 **Returns:** [*Response*](response.response-1.md)<TResponse, TErrorResponse\>
 
-Defined in: [src/Response.ts:35](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L35)
+Defined in: [src/Response.ts:35](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L35)
 
 ## Methods
 
@@ -72,7 +72,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Response.ts:101](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L101)
+Defined in: [src/Response.ts:101](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L101)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 **Returns:** [*StatusCode*](../enums/statuscode.statuscode-1.md)
 
-Defined in: [src/Response.ts:48](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L48)
+Defined in: [src/Response.ts:48](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L48)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [src/Response.ts:97](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L97)
+Defined in: [src/Response.ts:97](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L97)
 
 ___
 
@@ -108,7 +108,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Response.ts:70](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L70)
+Defined in: [src/Response.ts:70](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L70)
 
 ___
 
@@ -124,7 +124,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Response.ts:52](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L52)
+Defined in: [src/Response.ts:52](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L52)
 
 ___
 
@@ -140,7 +140,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Response.ts:56](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L56)
+Defined in: [src/Response.ts:56](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L56)
 
 ___
 
@@ -157,7 +157,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Response.ts:89](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L89)
+Defined in: [src/Response.ts:89](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L89)
 
 ___
 
@@ -173,7 +173,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Response.ts:93](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L93)
+Defined in: [src/Response.ts:93](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L93)
 
 ___
 
@@ -189,7 +189,7 @@ Name | Type |
 
 **Returns:** [*Response*](response.response-1.md)<TResponse, TErrorResponse\>
 
-Defined in: [src/Response.ts:43](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L43)
+Defined in: [src/Response.ts:43](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L43)
 
 ___
 
@@ -205,4 +205,4 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Response.ts:78](https://github.com/breautek/storm/blob/547898b/src/Response.ts#L78)
+Defined in: [src/Response.ts:78](https://github.com/breautek/storm/blob/51bc6e5/src/Response.ts#L78)
