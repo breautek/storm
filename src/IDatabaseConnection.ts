@@ -27,6 +27,7 @@ export interface IDatabaseConnection {
     query(query: string | Query, params?: any): Promise<any>;
     stream(query: string | Query, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
+    isClosed(): boolean;
     startTransaction(): Promise<void>;
     isTransaction(): boolean;
     commit(): Promise<void>;

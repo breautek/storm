@@ -69,6 +69,15 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         this._managed = true;
     }
 
+    public isClosed(): boolean {
+        if (this._connection) {
+            return this._connection.isClosed();
+        }
+        else {
+            return true;
+        }
+    }
+
     public isWriteRequired(): boolean {
         return this._requiresWrite;
     }
