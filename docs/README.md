@@ -44,6 +44,7 @@
 - [JWTVerifyOptionsParser](modules/jwtverifyoptionsparser.md)
 - [ManagedDatabaseConnection](modules/manageddatabaseconnection.md)
 - [Middleware](modules/middleware.md)
+- [MissingConfigError](modules/missingconfigerror.md)
 - [MissingParameterError](modules/missingparametererror.md)
 - [MySQLConnection](modules/mysqlconnection.md)
 - [MySQLDatabase](modules/mysqldatabase.md)

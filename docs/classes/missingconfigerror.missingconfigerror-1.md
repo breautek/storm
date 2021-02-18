@@ -1,59 +1,57 @@
-[@breautek/storm](../README.md) / [DuplicateEntryError](../modules/duplicateentryerror.md) / DuplicateEntryError
+[@breautek/storm](../README.md) / [MissingConfigError](../modules/missingconfigerror.md) / MissingConfigError
 
-# Class: DuplicateEntryError
+# Class: MissingConfigError
 
-[DuplicateEntryError](../modules/duplicateentryerror.md).DuplicateEntryError
+[MissingConfigError](../modules/missingconfigerror.md).MissingConfigError
 
 ## Hierarchy
 
-* [*StormError*](stormerror.stormerror-1.md)
+* [*StormError*](stormerror.stormerror-1.md)<IMissingConfigErrorDetails\>
 
-  ↳ **DuplicateEntryError**
+  ↳ **MissingConfigError**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](duplicateentryerror.duplicateentryerror-1.md#constructor)
+- [constructor](missingconfigerror.missingconfigerror-1.md#constructor)
 
 ### Properties
 
-- [message](duplicateentryerror.duplicateentryerror-1.md#message)
-- [name](duplicateentryerror.duplicateentryerror-1.md#name)
-- [prepareStackTrace](duplicateentryerror.duplicateentryerror-1.md#preparestacktrace)
-- [stack](duplicateentryerror.duplicateentryerror-1.md#stack)
-- [stackTraceLimit](duplicateentryerror.duplicateentryerror-1.md#stacktracelimit)
+- [message](missingconfigerror.missingconfigerror-1.md#message)
+- [name](missingconfigerror.missingconfigerror-1.md#name)
+- [prepareStackTrace](missingconfigerror.missingconfigerror-1.md#preparestacktrace)
+- [stack](missingconfigerror.missingconfigerror-1.md#stack)
+- [stackTraceLimit](missingconfigerror.missingconfigerror-1.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](duplicateentryerror.duplicateentryerror-1.md#capturestacktrace)
-- [getCode](duplicateentryerror.duplicateentryerror-1.md#getcode)
-- [getErrorResponse](duplicateentryerror.duplicateentryerror-1.md#geterrorresponse)
-- [getExitCode](duplicateentryerror.duplicateentryerror-1.md#getexitcode)
-- [getHTTPCode](duplicateentryerror.duplicateentryerror-1.md#gethttpcode)
-- [getMessage](duplicateentryerror.duplicateentryerror-1.md#getmessage)
-- [getPrivateDetails](duplicateentryerror.duplicateentryerror-1.md#getprivatedetails)
-- [getPublicDetails](duplicateentryerror.duplicateentryerror-1.md#getpublicdetails)
+- [captureStackTrace](missingconfigerror.missingconfigerror-1.md#capturestacktrace)
+- [getCode](missingconfigerror.missingconfigerror-1.md#getcode)
+- [getErrorResponse](missingconfigerror.missingconfigerror-1.md#geterrorresponse)
+- [getExitCode](missingconfigerror.missingconfigerror-1.md#getexitcode)
+- [getHTTPCode](missingconfigerror.missingconfigerror-1.md#gethttpcode)
+- [getMessage](missingconfigerror.missingconfigerror-1.md#getmessage)
+- [getPrivateDetails](missingconfigerror.missingconfigerror-1.md#getprivatedetails)
+- [getPublicDetails](missingconfigerror.missingconfigerror-1.md#getpublicdetails)
 
 ## Constructors
 
 ### constructor
 
-\+ **new DuplicateEntryError**(`entity`: *string*, `name`: *string*, `property?`: *string*): [*DuplicateEntryError*](duplicateentryerror.duplicateentryerror-1.md)
+\+ **new MissingConfigError**(`path`: *string*): [*MissingConfigError*](missingconfigerror.missingconfigerror-1.md)
 
 #### Parameters:
 
-Name | Type | Default value |
------- | ------ | ------ |
-`entity` | *string* | - |
-`name` | *string* | - |
-`property` | *string* | 'name' |
+Name | Type |
+------ | ------ |
+`path` | *string* |
 
-**Returns:** [*DuplicateEntryError*](duplicateentryerror.duplicateentryerror-1.md)
+**Returns:** [*MissingConfigError*](missingconfigerror.missingconfigerror-1.md)
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:27](https://github.com/breautek/storm/blob/0cbae4b/src/DuplicateEntryError.ts#L27)
+Defined in: [src/MissingConfigError.ts:26](https://github.com/breautek/storm/blob/0cbae4b/src/MissingConfigError.ts#L26)
 
 ## Properties
 
@@ -140,7 +138,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/0cbae4b/src/DuplicateEntryError.ts#L41)
+Defined in: [src/MissingConfigError.ts:37](https://github.com/breautek/storm/blob/0cbae4b/src/MissingConfigError.ts#L37)
 
 ___
 
@@ -162,9 +160,9 @@ ___
 
 **Returns:** [*ExitCode*](../enums/exitcode.exitcode-1.md)
 
-Inherited from: [StormError](stormerror.stormerror-1.md)
+Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/0cbae4b/src/StormError.ts#L79)
+Defined in: [src/MissingConfigError.ts:45](https://github.com/breautek/storm/blob/0cbae4b/src/MissingConfigError.ts#L45)
 
 ___
 
@@ -176,7 +174,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/0cbae4b/src/DuplicateEntryError.ts#L45)
+Defined in: [src/MissingConfigError.ts:41](https://github.com/breautek/storm/blob/0cbae4b/src/MissingConfigError.ts#L41)
 
 ___
 
@@ -188,18 +186,18 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/0cbae4b/src/DuplicateEntryError.ts#L36)
+Defined in: [src/MissingConfigError.ts:33](https://github.com/breautek/storm/blob/0cbae4b/src/MissingConfigError.ts#L33)
 
 ___
 
 ### getPrivateDetails
 
-▸ **getPrivateDetails**(): *any*
+▸ **getPrivateDetails**(): IMissingConfigErrorDetails
 
 Private details are only logged to the server log.
 They are kept secret from the client.
 
-**Returns:** *any*
+**Returns:** IMissingConfigErrorDetails
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 

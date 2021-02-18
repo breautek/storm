@@ -44,6 +44,7 @@
 - [JWTError](api.md#jwterror)
 - [ManagedDatabaseConnection](api.md#manageddatabaseconnection)
 - [Middleware](api.md#middleware)
+- [MissingConfigError](api.md#missingconfigerror)
 - [MissingParameterError](api.md#missingparametererror)
 - [MySQLConnection](api.md#mysqlconnection)
 - [MySQLDatabase](api.md#mysqldatabase)
@@ -293,6 +294,12 @@ ___
 ### Middleware
 
 Re-exports: [Middleware](../classes/middleware.middleware-1.md)
+
+___
+
+### MissingConfigError
+
+Re-exports: [MissingConfigError](../classes/missingconfigerror.missingconfigerror-1.md)
 
 ___
 

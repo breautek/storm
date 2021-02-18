@@ -16,4 +16,4 @@
 
 • **CONFIG\_LOADED**: = "config\_loaded"
 
-Defined in: [src/ApplicationEvent.ts:18](https://github.com/breautek/storm/blob/51bc6e5/src/ApplicationEvent.ts#L18)
+Defined in: [src/ApplicationEvent.ts:18](https://github.com/breautek/storm/blob/0cbae4b/src/ApplicationEvent.ts#L18)
