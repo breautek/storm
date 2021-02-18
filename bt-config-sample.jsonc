@@ -34,21 +34,21 @@
         @type string
         @description 	The application log level. 
                         Valid Values:
-                            - trace
+                            - silly
                             - debug
+                            - verbose
+                            - htto
                             - info
-                            - warning
+                            - warn
                             - error
-                            - fatal
-                            - all
         */
-        "level": "info | warning | error | fatal",
+        "level": "info",
 
         /*
         @type string
         @description Location for log output
         */
-        "directory": "./"
+        "directory": "./",
 
         /*
         @type Array<string>

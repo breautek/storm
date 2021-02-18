@@ -191,7 +191,7 @@ describe('Application', () => {
                 ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockAppWithError');
             }
             catch (ex) {
-                expect(ex.stdout.toString('utf8')).toMatch(/Missing.+bt-config.json/);
+                expect(ex.stdout.toString('utf8')).toMatch(/Storm cannot find config at.+bt-config.json/);
             }
         });
 

@@ -263,9 +263,14 @@ export abstract class Application
         return new Promise<TConfig>((resolve, reject) => {
             ConfigLoader.load(path).then((config: TConfig) => {
                 resolve(config);
-            }).catch((error: StormError) => {
-                if (error.getExitCode() !== null) {
-                    process.exit(error.getExitCode());
+            }).catch((error: any) => {
+                if (error instanceof StormError) {
+                    if (error.getExitCode() !== null) {
+                        process.exit(error.getExitCode());
+                    }
+                }
+                else {
+                    this._getLogger().error(TAG, error);
                 }
             });
         });

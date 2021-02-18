@@ -20,78 +20,90 @@ import {getInstance} from './instance';
 import {Logger} from '@arashi/logger';
 import * as Path from 'path';
 import {Application} from './Application';
-import {ExitCode} from './ExitCode';
 import {IConfig} from './IConfig';
 import Ajv from 'ajv';
 import * as MergeChange from 'merge-change';
 import { InvalidConfigError } from './InvalidConfigError';
+import { MissingConfigError } from './MissingConfigError';
 
 const TAG: string = 'ConfigLoader';
 
 export class ConfigLoader {
     private constructor() {}
 
-    public static load(path: string): Promise<IConfig> {
+    public static async load(path: string): Promise<IConfig> {
         let logger: Logger = ConfigLoader._getLogger();
 
-        return new Promise<IConfig>((resolve, reject) => {
-            logger.trace(TAG, 'Configuration loaded.');
-            
-            let config: any = {};
+        logger.trace(TAG, 'Configuration loaded.');
+        
+        let config: IConfig = {};
 
-            let cPath: string = Path.resolve(path, 'bt-config.json');
-            let lPath: string = Path.resolve(path, 'bt-local-config.json');
-            
-            let c: any;
-            let l: any;
-            let defaults: any;
+        let cPath: string = Path.resolve(path, 'bt-config.json');
+        let lPath: string = Path.resolve(path, 'bt-local-config.json');
+        
+        let c: IConfig;
+        let l: IConfig;
+        let defaults: IConfig = this._getDefaults();
 
-            logger.trace(TAG, `Main Config Path:\t ${cPath}`);
-            logger.trace(TAG, `Local Config Path:\t ${lPath}`);
-            
-            logger.trace(TAG, 'Loading configuration defaults.');
-            defaults = require(Path.resolve(__dirname, '../bt-config-defaults.json'));
+        logger.trace(TAG, `Main Config Path:\t ${cPath}`);
+        logger.trace(TAG, `Local Config Path:\t ${lPath}`);
 
-            logger.trace(TAG, 'Loading main confing...');
-            try {
-                c = require(cPath);
-                logger.trace(TAG, 'Main config loaded.');
-            }
-            catch (ex) {
-                logger.error(TAG, `Missing ${cPath}.`);
-                process.nextTick(() => {
-                    reject(ExitCode.MISSING_CONFIG);
-                });
-                return;
-            }
+        c = this._getMainConfig(cPath);
+        l = this._getLocalConfig(lPath);
 
-            logger.trace(TAG, 'Loading optional local config.');
-            try {
-                l = require(lPath);
-                logger.trace(TAG, 'Local config loaded.');
-            }
-            catch (ex) {
-                logger.trace(TAG, 'Local config could not be loaded.');
-                logger.trace(TAG, ex);
-            }
+        if (l) {
+            config = MergeChange.merge(defaults, c, l);
+        }
+        else {
+            config = MergeChange.merge(defaults, c);
+        }
 
-            if (l) {
-                config = MergeChange.merge(defaults, c, l);
-            }
-            else {
-                config = MergeChange.merge(defaults, c);
-            }
+        logger.trace(TAG, 'Reading command line arguments...');
+        config = MergeChange.merge(config, ConfigLoader._getCmdLineArgs());
 
-            logger.trace(TAG, 'Reading command line arguments...');
-            config = MergeChange.merge(config, ConfigLoader._getCmdLineArgs());
+        if (config.log.level === null) {
+            config.log.level = defaults.log.level;
+        }
 
-            logger.trace(TAG, 'Configurations merged.');
-            logger.trace(TAG, config);
+        logger.trace(TAG, 'Configurations merged.');
+        logger.trace(TAG, config);
 
-            ConfigLoader._validateSchema(config).then(() => {
-                resolve(<IConfig>config);
-            }).catch(reject);
-        });
+        await ConfigLoader._validateSchema(config);
+
+        return config;
+    }
+
+    private static _getLocalConfig(path: string): IConfig {
+        let config: IConfig = null;
+        this._getLogger().trace(TAG, 'Loading optional local config.');
+        try {
+            config = require(path);
+            this._getLogger().trace(TAG, 'Local config loaded.');
+        }
+        catch (ex) {
+            this._getLogger().trace(TAG, 'Local config could not be loaded.');
+            this._getLogger().trace(TAG, ex);
+        }
+        return config;
+    }
+
+    private static _getMainConfig(path: string): IConfig {
+        this._getLogger().trace(TAG, 'Loading main confing...');
+        let c: IConfig = null;
+        try {
+            c = require(path);
+            this._getLogger().trace(TAG, 'Main config loaded.');
+        }
+        catch (ex) {
+            throw new MissingConfigError(path);
+        }
+
+        return c;
+    }
+
+    private static _getDefaults(): IConfig {
+        this._getLogger().trace(TAG, 'Loading configuration defaults.');
+        return require(Path.resolve(__dirname, '../bt-config-defaults.json'));
     }
 
     private static async _validateSchema(config: IConfig): Promise<void> {
@@ -113,8 +125,20 @@ export class ConfigLoader {
                     type: [ 'object', 'null' ],
                     additionalProperties: false,
                     properties: {
-                        level:                  { type: [ 'string', 'null' ] },
-                        directory:              { type: [ 'string', 'null' ] },
+                        level: {
+                            type: [ 'string', 'null' ],
+                            enum: [
+                                'silly',
+                                'debug',
+                                'verbose',
+                                'http',
+                                'info',
+                                'warn',
+                                'error',
+                                null
+                            ]
+                        },
+                        directory: { type: [ 'string', 'null' ] },
                         filters: {
                             type: [ 'array', 'null' ],
                             items: { type: 'string' }

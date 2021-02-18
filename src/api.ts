@@ -52,6 +52,7 @@ export {UnauthorizedAccessError} from './UnauthorizedAccessError';
 export {EntityNotFoundError} from './EntityNotFoundError';
 export {DiskSpaceError} from './DiskSpaceError';
 export {DuplicateEntryError} from './DuplicateEntryError';
+export {MissingConfigError} from './MissingConfigError';
 
 // HTTP
 export {StatusCode} from './StatusCode';
