@@ -21,11 +21,7 @@ describe('Temporary Tables', () => {
         name: string;
     }
 
-    class TestSelectQuery extends Query {
-        public getParameters(): ITestSelectQueryParams {
-            return <ITestSelectQueryParams>super.getParameters();
-        }
-
+    class TestSelectQuery extends Query<ITestSelectQueryParams> {
         protected _getQuery(): string {
             return 'SELECT :name';
         }
@@ -74,11 +70,14 @@ describe('Temporary Tables', () => {
             selectQuery: mockSelect
         });
 
+        jest.spyOn(mockSelect, 'getParametersForQuery');
+
         expect(tempTable.getQuery()).toBe(TEMP_TABLE_QUERY_EXPECTATION);
         expect(tempTable.getParametersForQuery()).toEqual({
             tableName: 'my_temp_table',
             name: 'testing'
         });
+        expect(mockSelect.getParametersForQuery).toHaveBeenCalled();
     });
 
     it('can drop temp table', () => {

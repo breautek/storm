@@ -25,10 +25,9 @@ export interface ITemporaryTableQueryInput {
 export class TemporaryTableQuery extends Query<any> {
 
     public getParametersForQuery(): IDictionary {
-        let params: ITemporaryTableQueryInput = this.getParameters();
-
+        let params: IDictionary = this.getParameters();
         return {
-            ...params.selectQuery.getParameters(),
+            ...params.selectQuery.getParametersForQuery(),
             tableName: params.tableName
         };
     }
