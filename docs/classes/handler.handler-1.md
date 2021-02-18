@@ -71,7 +71,7 @@ Name | Type |
 
 **Returns:** [*Handler*](handler.handler-1.md)<TApplication, TGetRequest, TGetResponse, TPostRequest, TPostResponse, TPutRequest, TPutResponse, TDeleteRequest, TDeleteResponse\>
 
-Defined in: [src/Handler.ts:44](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L44)
+Defined in: [src/Handler.ts:44](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L44)
 
 ## Methods
 
@@ -88,7 +88,7 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Handler.ts:179](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L179)
+Defined in: [src/Handler.ts:179](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L179)
 
 ___
 
@@ -105,7 +105,7 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Handler.ts:164](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L164)
+Defined in: [src/Handler.ts:164](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L164)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 **Returns:** [*Middleware*](middleware.middleware-1.md)[]
 
-Defined in: [src/Handler.ts:55](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L55)
+Defined in: [src/Handler.ts:55](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L55)
 
 ___
 
@@ -133,7 +133,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Handler.ts:111](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L111)
+Defined in: [src/Handler.ts:111](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L111)
 
 ___
 
@@ -150,7 +150,7 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Handler.ts:169](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L169)
+Defined in: [src/Handler.ts:169](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L169)
 
 ___
 
@@ -167,7 +167,7 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Handler.ts:174](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L174)
+Defined in: [src/Handler.ts:174](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L174)
 
 ___
 
@@ -184,7 +184,7 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Handler.ts:152](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L152)
+Defined in: [src/Handler.ts:152](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L152)
 
 ___
 
@@ -201,7 +201,7 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Handler.ts:115](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L115)
+Defined in: [src/Handler.ts:115](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L115)
 
 ___
 
@@ -217,7 +217,7 @@ Name | Type |
 
 **Returns:** *string*
 
-Defined in: [src/Handler.ts:59](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L59)
+Defined in: [src/Handler.ts:59](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L59)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 **Returns:** TApplication
 
-Defined in: [src/Handler.ts:51](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L51)
+Defined in: [src/Handler.ts:51](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L51)
 
 ___
 
@@ -244,7 +244,7 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Handler.ts:140](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L140)
+Defined in: [src/Handler.ts:140](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L140)
 
 ___
 
@@ -261,4 +261,4 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Handler.ts:128](https://github.com/breautek/storm/blob/0cbae4b/src/Handler.ts#L128)
+Defined in: [src/Handler.ts:128](https://github.com/breautek/storm/blob/00f0282/src/Handler.ts#L128)
