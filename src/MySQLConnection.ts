@@ -24,6 +24,7 @@ import { StartTransactionQuery } from './private/StartTransactionQuery';
 import { CommitQuery } from './private/CommitQuery';
 import { RollbackQuery } from './private/RollbackQuery';
 import * as SQLFormatter from 'sql-formatter';
+import { Logger, LogLevel } from '@arashi/logger';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -71,18 +72,31 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _query(query: string, params?: any): Promise<any> {
+        let logger: Logger = getInstance().getLogger();
         return new Promise((resolve, reject) => {
             let queryObject: MySQL.Query = this.getAPI().query({
                 sql: query,
                 timeout: this.getTimeout()
             }, params, (error: MySQL.MysqlError, results: any) => {
                 if (error) {
-                    return reject(new DatabaseQueryError(SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS), error));
+                    let sql: string = queryObject.sql;
+                    // Formatting queries can be an expensive task, so only do it if the log level is actually silly.
+                    if (logger.getLogLevel() === LogLevel.SILLY) {
+                        sql = SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS);
+                    }
+                    return reject(new DatabaseQueryError(sql, error));
                 }
 
                 return resolve(results);
             });
-            getInstance().getLogger().trace(TAG, SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS));
+
+            // Formatting queries can be an expensive task, so only do it if the log level is actually silly.
+            let sql: string = queryObject.sql;
+            if (logger.getLogLevel() === LogLevel.SILLY) {
+                sql = SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS);
+            }
+
+            getInstance().getLogger().trace(TAG, sql);
         });
     }
 
