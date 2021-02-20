@@ -50,7 +50,7 @@ Name |
 
 **Returns:** [*Database*](database.database-1.md)<TDatabaseConfig, TConnectionAPI\>
 
-Defined in: [src/Database.ts:26](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L26)
+Defined in: [src/Database.ts:26](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L26)
 
 ## Methods
 
@@ -67,7 +67,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:78](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L78)
+Defined in: [src/Database.ts:78](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L78)
 
 ___
 
@@ -84,7 +84,7 @@ Name | Type |
 
 **Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TConnectionAPI\>\>
 
-Defined in: [src/Database.ts:80](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L80)
+Defined in: [src/Database.ts:80](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L80)
 
 ___
 
@@ -100,7 +100,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:79](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L79)
+Defined in: [src/Database.ts:79](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L79)
 
 ___
 
@@ -116,7 +116,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L32)
+Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L32)
 
 ___
 
@@ -133,7 +133,7 @@ Name | Type |
 
 **Returns:** *string*
 
-Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L46)
+Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L46)
 
 ___
 
@@ -149,7 +149,7 @@ Name | Type |
 
 **Returns:** *string*
 
-Defined in: [src/Database.ts:81](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L81)
+Defined in: [src/Database.ts:81](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L81)
 
 ___
 
@@ -166,7 +166,7 @@ Name | Type | Default value |
 
 **Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TConnectionAPI\>\>
 
-Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L65)
+Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L65)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L41)
+Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L41)
 
 ___
 
@@ -192,4 +192,4 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/00f0282/src/Database.ts#L55)
+Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/4e204d2/src/Database.ts#L55)

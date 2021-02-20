@@ -51,7 +51,7 @@ Name | Type |
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/MissingConfigError.ts:26](https://github.com/breautek/storm/blob/00f0282/src/MissingConfigError.ts#L26)
+Defined in: [src/MissingConfigError.ts:26](https://github.com/breautek/storm/blob/4e204d2/src/MissingConfigError.ts#L26)
 
 ## Properties
 
@@ -138,7 +138,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/MissingConfigError.ts:37](https://github.com/breautek/storm/blob/00f0282/src/MissingConfigError.ts#L37)
+Defined in: [src/MissingConfigError.ts:37](https://github.com/breautek/storm/blob/4e204d2/src/MissingConfigError.ts#L37)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/00f0282/src/StormError.ts#L70)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/4e204d2/src/StormError.ts#L70)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/MissingConfigError.ts:45](https://github.com/breautek/storm/blob/00f0282/src/MissingConfigError.ts#L45)
+Defined in: [src/MissingConfigError.ts:45](https://github.com/breautek/storm/blob/4e204d2/src/MissingConfigError.ts#L45)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/MissingConfigError.ts:41](https://github.com/breautek/storm/blob/00f0282/src/MissingConfigError.ts#L41)
+Defined in: [src/MissingConfigError.ts:41](https://github.com/breautek/storm/blob/4e204d2/src/MissingConfigError.ts#L41)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/MissingConfigError.ts:33](https://github.com/breautek/storm/blob/00f0282/src/MissingConfigError.ts#L33)
+Defined in: [src/MissingConfigError.ts:33](https://github.com/breautek/storm/blob/4e204d2/src/MissingConfigError.ts#L33)
 
 ___
 
@@ -201,7 +201,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/00f0282/src/StormError.ts#L62)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/4e204d2/src/StormError.ts#L62)
 
 ___
 
@@ -215,4 +215,4 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/00f0282/src/StormError.ts#L54)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/4e204d2/src/StormError.ts#L54)
