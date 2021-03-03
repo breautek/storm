@@ -24,6 +24,7 @@
   },
   "scripts": {
     "build": "npm run lint && tsc",
+    "build:release": "NODE_ENV=production tsc",
     "build-lib": "rm -r ./lib && tsc",
     "build-docs": "typedoc --excludePrivate --readme none --out ./docs ./src",
     "lint": "eslint --ext .ts '?(src|spec)/**/*.ts' --cache",
@@ -33,8 +34,8 @@
     "clean": "rm -r ./lib && rm -r ./docs",
     "prepublishOnly": "npm run-script build-lib",
     "changelog": "auto-changelog --output CHANGELOG.md -p --release-summary --ignore-commit-pattern chore",
-    "preversion": "npm run clean",
-    "version": "npm run-script build && npm run-script build-docs && npm run changelog && git add CHANGELOG.md docs && git commit -m 'chore: changelog'",
+    "preversion": "npm test",
+    "version": "npm run-script build:release && npm run-script build-docs && npm run changelog && git add CHANGELOG.md docs && git commit -m 'chore: changelog'",
     "postversion": "git push && git push --tags"
   },
   "repository": {
