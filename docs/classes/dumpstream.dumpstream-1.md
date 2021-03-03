@@ -22,4 +22,4 @@
 
 **Returns:** *Writable*
 
-Defined in: [src/DumpStream.ts:25](https://github.com/breautek/storm/blob/4e204d2/src/DumpStream.ts#L25)
+Defined in: [src/DumpStream.ts:25](https://github.com/breautek/storm/blob/aa67083/src/DumpStream.ts#L25)

@@ -27,7 +27,7 @@
 
 • `Optional` **authentication\_header**: *string*
 
-Defined in: [src/IConfig.ts:26](https://github.com/breautek/storm/blob/4e204d2/src/IConfig.ts#L26)
+Defined in: [src/IConfig.ts:26](https://github.com/breautek/storm/blob/aa67083/src/IConfig.ts#L26)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 • `Optional` **backend\_authentication\_header**: *string*
 
-Defined in: [src/IConfig.ts:27](https://github.com/breautek/storm/blob/4e204d2/src/IConfig.ts#L27)
+Defined in: [src/IConfig.ts:27](https://github.com/breautek/storm/blob/aa67083/src/IConfig.ts#L27)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 • `Optional` **backend\_authentication\_secret**: *string*
 
-Defined in: [src/IConfig.ts:28](https://github.com/breautek/storm/blob/4e204d2/src/IConfig.ts#L28)
+Defined in: [src/IConfig.ts:28](https://github.com/breautek/storm/blob/aa67083/src/IConfig.ts#L28)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 • `Optional` **bind**: *string*
 
-Defined in: [src/IConfig.ts:22](https://github.com/breautek/storm/blob/4e204d2/src/IConfig.ts#L22)
+Defined in: [src/IConfig.ts:22](https://github.com/breautek/storm/blob/aa67083/src/IConfig.ts#L22)
 
 ___
 
@@ -67,7 +67,7 @@ Name | Type |
 `query_timeout?` | *number* |
 `replicationNodes?` | [*IDatabaseConfig*](idatabaseconfig.idatabaseconfig-1.md)<*string*\>[] |
 
-Defined in: [src/IConfig.ts:38](https://github.com/breautek/storm/blob/4e204d2/src/IConfig.ts#L38)
+Defined in: [src/IConfig.ts:38](https://github.com/breautek/storm/blob/aa67083/src/IConfig.ts#L38)
 
 ___
 
@@ -83,7 +83,7 @@ Name | Type |
 `filters?` | *string*[] |
 `level?` | LogLevel |
 
-Defined in: [src/IConfig.ts:31](https://github.com/breautek/storm/blob/4e204d2/src/IConfig.ts#L31)
+Defined in: [src/IConfig.ts:31](https://github.com/breautek/storm/blob/aa67083/src/IConfig.ts#L31)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 • `Optional` **port**: *number*
 
-Defined in: [src/IConfig.ts:23](https://github.com/breautek/storm/blob/4e204d2/src/IConfig.ts#L23)
+Defined in: [src/IConfig.ts:23](https://github.com/breautek/storm/blob/aa67083/src/IConfig.ts#L23)
 
 ___
 
@@ -99,4 +99,4 @@ ___
 
 • `Optional` **request\_size\_limit**: *number*
 
-Defined in: [src/IConfig.ts:45](https://github.com/breautek/storm/blob/4e204d2/src/IConfig.ts#L45)
+Defined in: [src/IConfig.ts:45](https://github.com/breautek/storm/blob/aa67083/src/IConfig.ts#L45)

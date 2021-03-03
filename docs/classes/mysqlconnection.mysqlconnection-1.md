@@ -56,7 +56,7 @@ Name | Type | Default value |
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:44](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L44)
+Defined in: [src/MySQLConnection.ts:44](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L44)
 
 ## Methods
 
@@ -74,7 +74,7 @@ Name | Type |
 
 Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:181](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L181)
+Defined in: [src/MySQLConnection.ts:181](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L181)
 
 ___
 
@@ -93,7 +93,7 @@ Name | Type |
 
 Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:74](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L74)
+Defined in: [src/MySQLConnection.ts:74](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L74)
 
 ___
 
@@ -113,7 +113,7 @@ Name | Type |
 
 Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:104](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L104)
+Defined in: [src/MySQLConnection.ts:104](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L104)
 
 ___
 
@@ -139,7 +139,7 @@ Promise<void>
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L168)
+Defined in: [src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L168)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:165](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L165)
+Defined in: [src/MySQLConnection.ts:165](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L165)
 
 ___
 
@@ -169,7 +169,7 @@ Name | Type | Default value |
 
 Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:145](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L145)
+Defined in: [src/MySQLConnection.ts:145](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L145)
 
 ___
 
@@ -185,7 +185,7 @@ any
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L91)
+Defined in: [src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L91)
 
 ___
 
@@ -202,7 +202,7 @@ string - A stacktrace
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L73)
+Defined in: [src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L73)
 
 ___
 
@@ -218,7 +218,7 @@ number in milliseconds
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L121)
+Defined in: [src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L121)
 
 ___
 
@@ -232,7 +232,7 @@ Returns true if the connection has been closed.
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L181)
+Defined in: [src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L181)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [src/MySQLConnection.ts:69](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L69)
+Defined in: [src/MySQLConnection.ts:69](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L69)
 
 ___
 
@@ -259,7 +259,7 @@ boolean
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L100)
+Defined in: [src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L100)
 
 ___
 
@@ -271,7 +271,7 @@ ___
 
 Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:65](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L65)
+Defined in: [src/MySQLConnection.ts:65](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L65)
 
 ___
 
@@ -301,7 +301,7 @@ Promise<TQueryResult>
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L132)
+Defined in: [src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L132)
 
 ___
 
@@ -313,7 +313,7 @@ ___
 
 Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:149](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L149)
+Defined in: [src/MySQLConnection.ts:149](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L149)
 
 ___
 
@@ -331,7 +331,7 @@ Name | Type |
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L64)
+Defined in: [src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L64)
 
 ___
 
@@ -351,7 +351,7 @@ Name | Type | Description |
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L109)
+Defined in: [src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L109)
 
 ___
 
@@ -363,7 +363,7 @@ ___
 
 Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/MySQLConnection.ts:123](https://github.com/breautek/storm/blob/4e204d2/src/MySQLConnection.ts#L123)
+Defined in: [src/MySQLConnection.ts:123](https://github.com/breautek/storm/blob/aa67083/src/MySQLConnection.ts#L123)
 
 ___
 
@@ -384,4 +384,4 @@ Readable
 
 Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/4e204d2/src/DatabaseConnection.ts#L151)
+Defined in: [src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/aa67083/src/DatabaseConnection.ts#L151)

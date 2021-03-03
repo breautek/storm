@@ -65,7 +65,7 @@ Name | Type |
 
 **Returns:** [*Query*](query.query-1.md)<TQueryParameters, TQueryResultSet, TQueryPostProcessedResultSet\>
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L21)
+Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L21)
 
 ## Methods
 
@@ -75,7 +75,7 @@ Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/4e204d2/src
 
 **Returns:** *string*
 
-Defined in: [src/Query.ts:35](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L35)
+Defined in: [src/Query.ts:35](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L35)
 
 ___
 
@@ -91,7 +91,7 @@ Name | Type |
 
 **Returns:** *Promise*<TQueryPostProcessedResultSet\>
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L52)
+Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L52)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 **Returns:** TQueryParameters
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L27)
+Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L27)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 **Returns:** *IDictionary*<*any*\>
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L31)
+Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L31)
 
 ___
 
@@ -121,13 +121,13 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L37)
+Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L37)
 
 ___
 
 ### onPostProcess
 
-▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: TQueryResultSet[]): *Promise*<TQueryPostProcessedResultSet[]\>
+▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: TQueryResultSet): *Promise*<TQueryPostProcessedResultSet\>
 
 Override to augment/manipulate the returned result set.
 
@@ -136,8 +136,8 @@ Override to augment/manipulate the returned result set.
 Name | Type | Description |
 ------ | ------ | ------ |
 `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required.   |
-`resultSet` | TQueryResultSet[] | - |
+`resultSet` | TQueryResultSet | - |
 
-**Returns:** *Promise*<TQueryPostProcessedResultSet[]\>
+**Returns:** *Promise*<TQueryPostProcessedResultSet\>
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L47)
+Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L47)

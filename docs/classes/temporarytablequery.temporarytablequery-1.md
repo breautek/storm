@@ -41,7 +41,7 @@ Name | Type |
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L21)
+Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L21)
 
 ## Methods
 
@@ -53,7 +53,7 @@ Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/4e204d2/src
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/TemporaryTableQuery.ts:35](https://github.com/breautek/storm/blob/4e204d2/src/TemporaryTableQuery.ts#L35)
+Defined in: [src/TemporaryTableQuery.ts:35](https://github.com/breautek/storm/blob/aa67083/src/TemporaryTableQuery.ts#L35)
 
 ___
 
@@ -71,7 +71,7 @@ Name | Type |
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L52)
+Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L52)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L27)
+Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L27)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/TemporaryTableQuery.ts:27](https://github.com/breautek/storm/blob/4e204d2/src/TemporaryTableQuery.ts#L27)
+Defined in: [src/TemporaryTableQuery.ts:27](https://github.com/breautek/storm/blob/aa67083/src/TemporaryTableQuery.ts#L27)
 
 ___
 
@@ -107,13 +107,13 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L37)
+Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L37)
 
 ___
 
 ### onPostProcess
 
-▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: *any*[]): *Promise*<*any*[]\>
+▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: *any*): *Promise*<*any*\>
 
 Override to augment/manipulate the returned result set.
 
@@ -122,10 +122,10 @@ Override to augment/manipulate the returned result set.
 Name | Type | Description |
 ------ | ------ | ------ |
 `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required.   |
-`resultSet` | *any*[] | - |
+`resultSet` | *any* | - |
 
-**Returns:** *Promise*<*any*[]\>
+**Returns:** *Promise*<*any*\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/4e204d2/src/Query.ts#L47)
+Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/aa67083/src/Query.ts#L47)
