@@ -53,6 +53,7 @@ export {EntityNotFoundError} from './EntityNotFoundError';
 export {DiskSpaceError} from './DiskSpaceError';
 export {DuplicateEntryError} from './DuplicateEntryError';
 export {MissingConfigError} from './MissingConfigError';
+export {DatabaseQueryError} from './DatabaseQueryError';
 
 // HTTP
 export {StatusCode} from './StatusCode';

@@ -19,6 +19,10 @@ describe('Public API', () => {
         expect(api.DatabaseConnection).toBeTruthy();
     });
 
+    it('DatabaseQueryError', () => {
+        expect(api.DatabaseQueryError).toBeTruthy();
+    });
+
     it('ErrorCode', () => {
         expect(api.ErrorCode).toBeTruthy();
     });
