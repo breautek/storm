@@ -101,7 +101,7 @@ Name | Type | Description |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
 
-Defined in: [src/Application.ts:57](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L57)
+Defined in: [src/Application.ts:57](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L57)
 
 ## Properties
 
@@ -159,7 +159,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:200](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L200)
+Defined in: [src/Application.ts:200](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L200)
 
 ___
 
@@ -175,7 +175,7 @@ Name | Type |
 
 **Returns:** *Logger*
 
-Defined in: [src/Application.ts:165](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L165)
+Defined in: [src/Application.ts:165](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L165)
 
 ___
 
@@ -191,7 +191,7 @@ Name | Type |
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Application.ts:161](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L161)
+Defined in: [src/Application.ts:161](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L161)
 
 ___
 
@@ -225,7 +225,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:219](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L219)
+Defined in: [src/Application.ts:219](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L219)
 
 ___
 
@@ -239,7 +239,7 @@ Subclasses are expected to attach the API handlers for their service. This will 
 
 Promise<void>
 
-Defined in: [src/Application.ts:256](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L256)
+Defined in: [src/Application.ts:256](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L256)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 **Returns:** *Promise*<*void*\>
 
-Defined in: [src/Application.ts:239](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L239)
+Defined in: [src/Application.ts:239](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L239)
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 command line arguments
 
-Defined in: [src/Application.ts:336](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L336)
+Defined in: [src/Application.ts:336](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L336)
 
 ___
 
@@ -300,7 +300,7 @@ ___
 
 the config object.
 
-Defined in: [src/Application.ts:293](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L293)
+Defined in: [src/Application.ts:293](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L293)
 
 ___
 
@@ -312,7 +312,7 @@ ___
 
 the database pool. This will need to be casted based on your preferred database dialect.
 
-Defined in: [src/Application.ts:329](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L329)
+Defined in: [src/Application.ts:329](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L329)
 
 ___
 
@@ -322,7 +322,7 @@ ___
 
 **Returns:** *Logger*
 
-Defined in: [src/Application.ts:169](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L169)
+Defined in: [src/Application.ts:169](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L169)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 the application name
 
-Defined in: [src/Application.ts:282](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L282)
+Defined in: [src/Application.ts:282](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L282)
 
 ___
 
@@ -354,7 +354,7 @@ ___
 
 **Returns:** *number*
 
-Defined in: [src/Application.ts:173](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L173)
+Defined in: [src/Application.ts:173](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L173)
 
 ___
 
@@ -364,7 +364,7 @@ ___
 
 **Returns:** *CommanderStatic*
 
-Defined in: [src/Application.ts:202](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L202)
+Defined in: [src/Application.ts:202](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L202)
 
 ___
 
@@ -376,7 +376,7 @@ The maximum size limit for incoming requests that this service needs to handle.
 
 **Returns:** *number*
 
-Defined in: [src/Application.ts:209](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L209)
+Defined in: [src/Application.ts:209](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L209)
 
 ___
 
@@ -388,7 +388,7 @@ ___
 
 the token manager
 
-Defined in: [src/Application.ts:322](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L322)
+Defined in: [src/Application.ts:322](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L322)
 
 ___
 
@@ -406,7 +406,7 @@ Name | Type | Description |
 
 **Returns:** *Promise*<[*Database*](database.database-1.md)<TDBConfig, TDBConnectionAPI\>\>
 
-Defined in: [src/Application.ts:365](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L365)
+Defined in: [src/Application.ts:365](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L365)
 
 ___
 
@@ -454,7 +454,7 @@ Name | Type | Description |
 
 **Returns:** *Promise*<TConfig\>
 
-Defined in: [src/Application.ts:262](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L262)
+Defined in: [src/Application.ts:262](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L262)
 
 ___
 
@@ -498,7 +498,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:369](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L369)
+Defined in: [src/Application.ts:369](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L369)
 
 ___
 
@@ -516,7 +516,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:309](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L309)
+Defined in: [src/Application.ts:309](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L309)
 
 ___
 
@@ -528,7 +528,7 @@ Invoked when the application is considered ready for operation.
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:374](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L374)
+Defined in: [src/Application.ts:374](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L374)
 
 ___
 
@@ -662,7 +662,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:315](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L315)
+Defined in: [src/Application.ts:315](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L315)
 
 ___
 
@@ -674,7 +674,7 @@ ___
 
 true if the Application should bind to an IP address
 
-Defined in: [src/Application.ts:300](https://github.com/breautek/storm/blob/aa67083/src/Application.ts#L300)
+Defined in: [src/Application.ts:300](https://github.com/breautek/storm/blob/40c8f69/src/Application.ts#L300)
 
 ___
 

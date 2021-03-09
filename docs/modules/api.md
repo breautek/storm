@@ -12,6 +12,7 @@
 - [ConfigLoader](api.md#configloader)
 - [Database](api.md#database)
 - [DatabaseConnection](api.md#databaseconnection)
+- [DatabaseQueryError](api.md#databasequeryerror)
 - [DiskSpaceError](api.md#diskspaceerror)
 - [DropTemporaryTableQuery](api.md#droptemporarytablequery)
 - [DumpStream](api.md#dumpstream)
@@ -102,6 +103,12 @@ ___
 ### DatabaseConnection
 
 Re-exports: [DatabaseConnection](../classes/databaseconnection.databaseconnection-1.md)
+
+___
+
+### DatabaseQueryError
+
+Re-exports: [DatabaseQueryError](../classes/databasequeryerror.databasequeryerror-1.md)
 
 ___
 

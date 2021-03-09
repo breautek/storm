@@ -29,7 +29,7 @@
 
 **Returns:** [*Middleware*](middleware.middleware-1.md)
 
-Defined in: [src/Middleware.ts:21](https://github.com/breautek/storm/blob/aa67083/src/Middleware.ts#L21)
+Defined in: [src/Middleware.ts:21](https://github.com/breautek/storm/blob/40c8f69/src/Middleware.ts#L21)
 
 ## Methods
 
@@ -46,7 +46,7 @@ Name | Type |
 
 **Returns:** *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<*any*, *any*\>\>
 
-Defined in: [src/Middleware.ts:25](https://github.com/breautek/storm/blob/aa67083/src/Middleware.ts#L25)
+Defined in: [src/Middleware.ts:25](https://github.com/breautek/storm/blob/40c8f69/src/Middleware.ts#L25)
 
 ___
 
@@ -63,4 +63,4 @@ Name | Type |
 
 **Returns:** *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<*any*, *any*\>\>
 
-Defined in: [src/Middleware.ts:27](https://github.com/breautek/storm/blob/aa67083/src/Middleware.ts#L27)
+Defined in: [src/Middleware.ts:27](https://github.com/breautek/storm/blob/40c8f69/src/Middleware.ts#L27)
