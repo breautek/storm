@@ -232,5 +232,11 @@ describe('Application', () => {
             let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --help').toString();
             expect(buf).toMatch(/Usage: CLIMockApp/);
         });
+
+        it('should allow unknown options', () => {
+            expect(() => {
+                ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --unknownOption').toString();
+            }).not.toThrow();
+        });
     });
 });

@@ -189,6 +189,8 @@ export abstract class Application
         let pkg: any = require('../package.json');
         
         this._program.version(pkg.version, '-v, --version');
+        this._program.allowUnknownOption(true);
+        this._program.allowExcessArguments(true);
         this._program.option('--port <port>', 'The running port to consume');
         this._program.option('--bind <ip>', 'The binding IP to listen on');
         this._program.option('--authentication_header <header>', 'The header name of the authentication token');
