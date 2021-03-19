@@ -31,7 +31,7 @@ for their specific use cases.
 
 **Returns:** [*BackendAuthenticationMiddleware*](backendauthenticationmiddleware.backendauthenticationmiddleware-1.md)
 
-Defined in: [src/BackendAuthenticationMiddleware.ts:34](https://github.com/breautek/storm/blob/40c8f69/src/BackendAuthenticationMiddleware.ts#L34)
+Defined in: [src/BackendAuthenticationMiddleware.ts:34](https://github.com/breautek/storm/blob/34a3167/src/BackendAuthenticationMiddleware.ts#L34)
 
 ## Methods
 
@@ -49,4 +49,4 @@ Name | Type | Description |
 
 **Returns:** *Promise*<*any*\>
 
-Defined in: [src/BackendAuthenticationMiddleware.ts:47](https://github.com/breautek/storm/blob/40c8f69/src/BackendAuthenticationMiddleware.ts#L47)
+Defined in: [src/BackendAuthenticationMiddleware.ts:47](https://github.com/breautek/storm/blob/34a3167/src/BackendAuthenticationMiddleware.ts#L47)
