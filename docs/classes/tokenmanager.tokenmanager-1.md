@@ -46,7 +46,7 @@ Name | Type |
 
 **Returns:** [*TokenManager*](tokenmanager.tokenmanager-1.md)<TAuthToken\>
 
-Defined in: [src/TokenManager.ts:27](https://github.com/breautek/storm/blob/34a3167/src/TokenManager.ts#L27)
+Defined in: [src/TokenManager.ts:27](https://github.com/breautek/storm/blob/8748493/src/TokenManager.ts#L27)
 
 ## Methods
 
@@ -62,7 +62,7 @@ Name | Type |
 
 **Returns:** *Promise*<TAuthToken\>
 
-Defined in: [src/TokenManager.ts:78](https://github.com/breautek/storm/blob/34a3167/src/TokenManager.ts#L78)
+Defined in: [src/TokenManager.ts:78](https://github.com/breautek/storm/blob/8748493/src/TokenManager.ts#L78)
 
 ___
 
@@ -79,7 +79,7 @@ Name | Type |
 
 **Returns:** *Promise*<[*Token*](token.token-1.md)\>
 
-Defined in: [src/TokenManager.ts:33](https://github.com/breautek/storm/blob/34a3167/src/TokenManager.ts#L33)
+Defined in: [src/TokenManager.ts:33](https://github.com/breautek/storm/blob/8748493/src/TokenManager.ts#L33)
 
 ___
 
@@ -96,4 +96,4 @@ Name | Type |
 
 **Returns:** *Promise*<TAuthToken\>
 
-Defined in: [src/TokenManager.ts:56](https://github.com/breautek/storm/blob/34a3167/src/TokenManager.ts#L56)
+Defined in: [src/TokenManager.ts:56](https://github.com/breautek/storm/blob/8748493/src/TokenManager.ts#L56)

@@ -17,7 +17,7 @@
 
 **Returns:** [*Application*](../classes/application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>
 
-Defined in: [src/instance.ts:28](https://github.com/breautek/storm/blob/34a3167/src/instance.ts#L28)
+Defined in: [src/instance.ts:28](https://github.com/breautek/storm/blob/8748493/src/instance.ts#L28)
 
 ___
 
@@ -33,4 +33,4 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [src/instance.ts:21](https://github.com/breautek/storm/blob/34a3167/src/instance.ts#L21)
+Defined in: [src/instance.ts:21](https://github.com/breautek/storm/blob/8748493/src/instance.ts#L21)

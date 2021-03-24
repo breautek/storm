@@ -46,7 +46,7 @@ Name | Type | Description |
 
 Inherited from: [Middleware](middleware.middleware-1.md)
 
-Defined in: [src/CORSMiddleware.ts:31](https://github.com/breautek/storm/blob/34a3167/src/CORSMiddleware.ts#L31)
+Defined in: [src/CORSMiddleware.ts:31](https://github.com/breautek/storm/blob/8748493/src/CORSMiddleware.ts#L31)
 
 ## Methods
 
@@ -65,7 +65,7 @@ Name | Type |
 
 Overrides: [Middleware](middleware.middleware-1.md)
 
-Defined in: [src/CORSMiddleware.ts:75](https://github.com/breautek/storm/blob/34a3167/src/CORSMiddleware.ts#L75)
+Defined in: [src/CORSMiddleware.ts:75](https://github.com/breautek/storm/blob/8748493/src/CORSMiddleware.ts#L75)
 
 ___
 
@@ -84,7 +84,7 @@ Name | Type |
 
 Inherited from: [Middleware](middleware.middleware-1.md)
 
-Defined in: [src/Middleware.ts:27](https://github.com/breautek/storm/blob/34a3167/src/Middleware.ts#L27)
+Defined in: [src/Middleware.ts:27](https://github.com/breautek/storm/blob/8748493/src/Middleware.ts#L27)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 **Returns:** *string*[]
 
-Defined in: [src/CORSMiddleware.ts:54](https://github.com/breautek/storm/blob/34a3167/src/CORSMiddleware.ts#L54)
+Defined in: [src/CORSMiddleware.ts:54](https://github.com/breautek/storm/blob/8748493/src/CORSMiddleware.ts#L54)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 **Returns:** *string*[]
 
-Defined in: [src/CORSMiddleware.ts:64](https://github.com/breautek/storm/blob/34a3167/src/CORSMiddleware.ts#L64)
+Defined in: [src/CORSMiddleware.ts:64](https://github.com/breautek/storm/blob/8748493/src/CORSMiddleware.ts#L64)
 
 ___
 
@@ -116,4 +116,4 @@ Sets the allowed origin. By default,
 
 **Returns:** *string*
 
-Defined in: [src/CORSMiddleware.ts:50](https://github.com/breautek/storm/blob/34a3167/src/CORSMiddleware.ts#L50)
+Defined in: [src/CORSMiddleware.ts:50](https://github.com/breautek/storm/blob/8748493/src/CORSMiddleware.ts#L50)

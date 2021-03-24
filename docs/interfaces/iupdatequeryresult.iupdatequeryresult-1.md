@@ -21,7 +21,7 @@
 
 • **affectedRows**: *number*
 
-Defined in: [src/IUpdateQueryResult.ts:18](https://github.com/breautek/storm/blob/34a3167/src/IUpdateQueryResult.ts#L18)
+Defined in: [src/IUpdateQueryResult.ts:18](https://github.com/breautek/storm/blob/8748493/src/IUpdateQueryResult.ts#L18)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 • **changedRows**: *number*
 
-Defined in: [src/IUpdateQueryResult.ts:19](https://github.com/breautek/storm/blob/34a3167/src/IUpdateQueryResult.ts#L19)
+Defined in: [src/IUpdateQueryResult.ts:19](https://github.com/breautek/storm/blob/8748493/src/IUpdateQueryResult.ts#L19)
