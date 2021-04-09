@@ -17,7 +17,7 @@
 
 • **INVALID\_CONFIG**: = 2
 
-Defined in: [src/ExitCode.ts:19](https://github.com/breautek/storm/blob/8748493/src/ExitCode.ts#L19)
+Defined in: [src/ExitCode.ts:19](https://github.com/breautek/storm/blob/af5cad8/src/ExitCode.ts#L19)
 
 ___
 
@@ -25,4 +25,4 @@ ___
 
 • **MISSING\_CONFIG**: = 1
 
-Defined in: [src/ExitCode.ts:18](https://github.com/breautek/storm/blob/8748493/src/ExitCode.ts#L18)
+Defined in: [src/ExitCode.ts:18](https://github.com/breautek/storm/blob/af5cad8/src/ExitCode.ts#L18)
