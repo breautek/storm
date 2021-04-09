@@ -82,7 +82,16 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                     let sql: string = queryObject.sql;
                     // Formatting queries can be an expensive task, so only do it if the log level is actually silly.
                     if (logger.getLogLevel() === LogLevel.SILLY) {
-                        sql = SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS);
+                        try {
+                            // SQLFormatter doesn't understand all MySQL syntaxes, so this is to prevent
+                            // potentially valid queries from becoming errors simply because we couldn't
+                            // log them.
+                            sql = SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS);
+                        }
+                        catch (ex) {
+                            logger.warn(TAG, 'Unable to format query...');
+                            logger.warn(TAG, ex);
+                        }
                     }
                     return reject(new DatabaseQueryError(sql, error));
                 }
