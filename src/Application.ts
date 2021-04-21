@@ -125,7 +125,8 @@ export abstract class Application
             return this.attachHandlers();
         }).then(() => {
             this.onBeforeReady();
-
+            return this.onBeforeReadyAsync();
+        }).then(() => {
             return new Promise<void>((resolve, reject) => {
                 let bindingIP: string = this.getConfig().bind;
                 let port: number = this.getConfig().port;
@@ -368,7 +369,12 @@ export abstract class Application
         return Promise.resolve(null);
     }
 
+    /**
+     * @deprecated Use onBeforeReadyAsync instead. In a future version, this method will be changed to be asynchronous
+     */
     protected onBeforeReady(): void {}
+
+    protected async onBeforeReadyAsync(): Promise<void> {}
 
     /**
      * Invoked when the application is considered ready for operation.
