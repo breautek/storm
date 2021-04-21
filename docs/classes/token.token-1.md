@@ -4,10 +4,6 @@
 
 [Token](../modules/token.md).Token
 
-## Hierarchy
-
-* **Token**
-
 ## Table of contents
 
 ### Constructors
@@ -26,13 +22,13 @@
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`signature` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `signature` | *string* |
 
 **Returns:** [*Token*](token.token-1.md)
 
-Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/af5cad8/src/Token.ts#L18)
+Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/2614a1c/src/Token.ts#L18)
 
 ## Methods
 
@@ -42,4 +38,4 @@ Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/af5cad8/src
 
 **Returns:** *string*
 
-Defined in: [src/Token.ts:24](https://github.com/breautek/storm/blob/af5cad8/src/Token.ts#L24)
+Defined in: [src/Token.ts:24](https://github.com/breautek/storm/blob/2614a1c/src/Token.ts#L24)

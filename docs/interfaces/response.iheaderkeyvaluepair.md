@@ -4,10 +4,6 @@
 
 [Response](../modules/response.md).IHeaderKeyValuePair
 
-## Hierarchy
-
-* **IHeaderKeyValuePair**
-
 ## Indexable
 
 ▪ [key: *string*]: *string*

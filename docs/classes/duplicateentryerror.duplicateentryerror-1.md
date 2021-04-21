@@ -20,13 +20,12 @@
 
 - [message](duplicateentryerror.duplicateentryerror-1.md#message)
 - [name](duplicateentryerror.duplicateentryerror-1.md#name)
-- [prepareStackTrace](duplicateentryerror.duplicateentryerror-1.md#preparestacktrace)
 - [stack](duplicateentryerror.duplicateentryerror-1.md#stack)
+- [prepareStackTrace](duplicateentryerror.duplicateentryerror-1.md#preparestacktrace)
 - [stackTraceLimit](duplicateentryerror.duplicateentryerror-1.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](duplicateentryerror.duplicateentryerror-1.md#capturestacktrace)
 - [getCode](duplicateentryerror.duplicateentryerror-1.md#getcode)
 - [getErrorResponse](duplicateentryerror.duplicateentryerror-1.md#geterrorresponse)
 - [getExitCode](duplicateentryerror.duplicateentryerror-1.md#getexitcode)
@@ -34,6 +33,7 @@
 - [getMessage](duplicateentryerror.duplicateentryerror-1.md#getmessage)
 - [getPrivateDetails](duplicateentryerror.duplicateentryerror-1.md#getprivatedetails)
 - [getPublicDetails](duplicateentryerror.duplicateentryerror-1.md#getpublicdetails)
+- [captureStackTrace](duplicateentryerror.duplicateentryerror-1.md#capturestacktrace)
 
 ## Constructors
 
@@ -43,17 +43,17 @@
 
 #### Parameters:
 
-Name | Type | Default value |
------- | ------ | ------ |
-`entity` | *string* | - |
-`name` | *string* | - |
-`property` | *string* | 'name' |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `entity` | *string* | - |
+| `name` | *string* | - |
+| `property` | *string* | 'name' |
 
 **Returns:** [*DuplicateEntryError*](duplicateentryerror.duplicateentryerror-1.md)
 
-Inherited from: [StormError](stormerror.stormerror-1.md)
+Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:27](https://github.com/breautek/storm/blob/af5cad8/src/DuplicateEntryError.ts#L27)
+Defined in: [src/DuplicateEntryError.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/DuplicateEntryError.ts#L27)
 
 ## Properties
 
@@ -77,20 +77,6 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:973
 
 ___
 
-### prepareStackTrace
-
-• `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => *any*
-
-Optional override for formatting stack traces
-
-**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
-
-Inherited from: [StormError](stormerror.stormerror-1.md).[prepareStackTrace](stormerror.stormerror-1.md#preparestacktrace)
-
-Defined in: node_modules/@types/node/globals.d.ts:11
-
-___
-
 ### stack
 
 • `Optional` **stack**: *string*
@@ -101,36 +87,44 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
 ___
 
+### prepareStackTrace
+
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => *any*
+
+Optional override for formatting stack traces
+
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+#### Type declaration:
+
+▸ (`err`: Error, `stackTraces`: CallSite[]): *any*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `err` | Error |
+| `stackTraces` | CallSite[] |
+
+**Returns:** *any*
+
+Defined in: node_modules/@types/node/globals.d.ts:11
+
+Inherited from: [StormError](stormerror.stormerror-1.md).[prepareStackTrace](stormerror.stormerror-1.md#preparestacktrace)
+
+Defined in: node_modules/@types/node/globals.d.ts:11
+
+___
+
 ### stackTraceLimit
 
-• **stackTraceLimit**: *number*
+▪ `Static` **stackTraceLimit**: *number*
 
 Inherited from: [StormError](stormerror.stormerror-1.md).[stackTraceLimit](stormerror.stormerror-1.md#stacktracelimit)
 
 Defined in: node_modules/@types/node/globals.d.ts:13
 
 ## Methods
-
-### captureStackTrace
-
-▸ **captureStackTrace**(`targetObject`: *object*, `constructorOpt?`: Function): *void*
-
-Create .stack property on a target object
-
-#### Parameters:
-
-Name | Type |
------- | ------ |
-`targetObject` | *object* |
-`constructorOpt?` | Function |
-
-**Returns:** *void*
-
-Inherited from: [StormError](stormerror.stormerror-1.md)
-
-Defined in: node_modules/@types/node/globals.d.ts:4
-
-___
 
 ### getCode
 
@@ -140,7 +134,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/af5cad8/src/DuplicateEntryError.ts#L41)
+Defined in: [src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/DuplicateEntryError.ts#L41)
 
 ___
 
@@ -152,7 +146,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L70)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L70)
 
 ___
 
@@ -164,7 +158,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L79)
+Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L79)
 
 ___
 
@@ -176,7 +170,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/af5cad8/src/DuplicateEntryError.ts#L45)
+Defined in: [src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/2614a1c/src/DuplicateEntryError.ts#L45)
 
 ___
 
@@ -188,7 +182,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/af5cad8/src/DuplicateEntryError.ts#L36)
+Defined in: [src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/2614a1c/src/DuplicateEntryError.ts#L36)
 
 ___
 
@@ -203,7 +197,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L62)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L62)
 
 ___
 
@@ -217,4 +211,25 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L54)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L54)
+
+___
+
+### captureStackTrace
+
+▸ `Static`**captureStackTrace**(`targetObject`: *object*, `constructorOpt?`: Function): *void*
+
+Create .stack property on a target object
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | *object* |
+| `constructorOpt?` | Function |
+
+**Returns:** *void*
+
+Inherited from: [StormError](stormerror.stormerror-1.md)
+
+Defined in: node_modules/@types/node/globals.d.ts:4

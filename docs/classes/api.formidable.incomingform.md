@@ -66,11 +66,13 @@
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`options?` | EventEmitterOptions |
+| Name | Type |
+| :------ | :------ |
+| `options?` | EventEmitterOptions |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.constructor
 
 Defined in: node_modules/@types/node/events.d.ts:23
 
@@ -152,6 +154,20 @@ ___
 
 • **onPart**: (`part`: [*Part*](../interfaces/api.formidable.part.md)) => *void*
 
+#### Type declaration:
+
+▸ (`part`: [*Part*](../interfaces/api.formidable.part.md)): *void*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `part` | [*Part*](../interfaces/api.formidable.part.md) |
+
+**Returns:** *void*
+
+Defined in: node_modules/@types/formidable/index.d.ts:26
+
 Defined in: node_modules/@types/formidable/index.d.ts:26
 
 ___
@@ -174,7 +190,9 @@ ___
 
 ### captureRejectionSymbol
 
-▪ `Readonly` `Static` **captureRejectionSymbol**: *typeof* [*captureRejectionSymbol*](application.application-1.md#capturerejectionsymbol)
+▪ `Static` `Readonly` **captureRejectionSymbol**: *typeof* [*captureRejectionSymbol*](application.application-1.md#capturerejectionsymbol)
+
+Inherited from: events.EventEmitter.captureRejectionSymbol
 
 Defined in: node_modules/@types/node/events.d.ts:43
 
@@ -186,6 +204,8 @@ ___
 
 Sets or gets the default captureRejection value for all emitters.
 
+Inherited from: events.EventEmitter.captureRejections
+
 Defined in: node_modules/@types/node/events.d.ts:49
 
 ___
@@ -194,13 +214,15 @@ ___
 
 ▪ `Static` **defaultMaxListeners**: *number*
 
+Inherited from: events.EventEmitter.defaultMaxListeners
+
 Defined in: node_modules/@types/node/events.d.ts:50
 
 ___
 
 ### errorMonitor
 
-▪ `Readonly` `Static` **errorMonitor**: *typeof* [*errorMonitor*](application.application-1.md#errormonitor)
+▪ `Static` `Readonly` **errorMonitor**: *typeof* [*errorMonitor*](application.application-1.md#errormonitor)
 
 This symbol shall be used to install a listener for only monitoring `'error'`
 events. Listeners installed using this symbol are called before the regular
@@ -209,6 +231,8 @@ events. Listeners installed using this symbol are called before the regular
 Installing a listener using this symbol does not change the behavior once an
 `'error'` event is emitted, therefore the process will still crash if no
 regular `'error'` listener is installed.
+
+Inherited from: events.EventEmitter.errorMonitor
 
 Defined in: node_modules/@types/node/events.d.ts:42
 
@@ -220,12 +244,14 @@ Defined in: node_modules/@types/node/events.d.ts:42
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.addListener
 
 Defined in: node_modules/@types/node/events.d.ts:62
 
@@ -237,12 +263,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`...args` | *any*[] |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `...args` | *any*[] |
 
 **Returns:** *boolean*
+
+Inherited from: events.EventEmitter.emit
 
 Defined in: node_modules/@types/node/events.d.ts:72
 
@@ -254,6 +282,8 @@ ___
 
 **Returns:** (*string* \| *symbol*)[]
 
+Inherited from: events.EventEmitter.eventNames
+
 Defined in: node_modules/@types/node/events.d.ts:77
 
 ___
@@ -263,6 +293,8 @@ ___
 ▸ **getMaxListeners**(): *number*
 
 **Returns:** *number*
+
+Inherited from: events.EventEmitter.getMaxListeners
 
 Defined in: node_modules/@types/node/events.d.ts:69
 
@@ -274,9 +306,9 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`part` | [*Part*](../interfaces/api.formidable.part.md) |
+| Name | Type |
+| :------ | :------ |
+| `part` | [*Part*](../interfaces/api.formidable.part.md) |
 
 **Returns:** *void*
 
@@ -290,11 +322,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
 
 **Returns:** *number*
+
+Inherited from: events.EventEmitter.listenerCount
 
 Defined in: node_modules/@types/node/events.d.ts:73
 
@@ -306,11 +340,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
 
 **Returns:** Function[]
+
+Inherited from: events.EventEmitter.listeners
 
 Defined in: node_modules/@types/node/events.d.ts:70
 
@@ -322,12 +358,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.off
 
 Defined in: node_modules/@types/node/events.d.ts:66
 
@@ -339,12 +377,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.on
 
 Defined in: node_modules/@types/node/events.d.ts:63
 
@@ -356,12 +396,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.once
 
 Defined in: node_modules/@types/node/events.d.ts:64
 
@@ -373,10 +415,10 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`req` | *IncomingMessage* |
-`callback?` | (`err`: *any*, `fields`: [*Fields*](../interfaces/api.formidable.fields.md), `files`: [*Files*](../interfaces/api.formidable.files.md)) => *any* |
+| Name | Type |
+| :------ | :------ |
+| `req` | *IncomingMessage* |
+| `callback?` | (`err`: *any*, `fields`: [*Fields*](../interfaces/api.formidable.fields.md), `files`: [*Files*](../interfaces/api.formidable.files.md)) => *any* |
 
 **Returns:** *void*
 
@@ -390,12 +432,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.prependListener
 
 Defined in: node_modules/@types/node/events.d.ts:75
 
@@ -407,12 +451,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.prependOnceListener
 
 Defined in: node_modules/@types/node/events.d.ts:76
 
@@ -424,11 +470,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
 
 **Returns:** Function[]
+
+Inherited from: events.EventEmitter.rawListeners
 
 Defined in: node_modules/@types/node/events.d.ts:71
 
@@ -440,11 +488,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event?` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `event?` | *string* \| *symbol* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.removeAllListeners
 
 Defined in: node_modules/@types/node/events.d.ts:67
 
@@ -456,12 +506,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.removeListener
 
 Defined in: node_modules/@types/node/events.d.ts:65
 
@@ -473,11 +525,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`n` | *number* |
+| Name | Type |
+| :------ | :------ |
+| `n` | *number* |
 
 **Returns:** [*IncomingForm*](api.formidable.incomingform.md)
+
+Inherited from: events.EventEmitter.setMaxListeners
 
 Defined in: node_modules/@types/node/events.d.ts:68
 
@@ -491,12 +545,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`emitter` | *EventEmitter* |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `emitter` | *EventEmitter* |
+| `event` | *string* \| *symbol* |
 
 **Returns:** *number*
+
+Inherited from: events.EventEmitter.listenerCount
 
 Defined in: node_modules/@types/node/events.d.ts:31
 
@@ -504,16 +560,18 @@ ___
 
 ### on
 
-▸ `Static`**on**(`emitter`: *EventEmitter*, `event`: *string*): *AsyncIterableIterator*<*any*\>
+▸ `Static`**on**(`emitter`: *EventEmitter*, `event`: *string*): *AsyncIterableIterator*<any\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`emitter` | *EventEmitter* |
-`event` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `emitter` | *EventEmitter* |
+| `event` | *string* |
 
-**Returns:** *AsyncIterableIterator*<*any*\>
+**Returns:** *AsyncIterableIterator*<any\>
+
+Inherited from: events.EventEmitter.on
 
 Defined in: node_modules/@types/node/events.d.ts:28
 
@@ -521,28 +579,32 @@ ___
 
 ### once
 
-▸ `Static`**once**(`emitter`: *NodeEventTarget*, `event`: *string* \| *symbol*): *Promise*<*any*[]\>
+▸ `Static`**once**(`emitter`: *NodeEventTarget*, `event`: *string* \| *symbol*): *Promise*<any[]\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`emitter` | *NodeEventTarget* |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `emitter` | *NodeEventTarget* |
+| `event` | *string* \| *symbol* |
 
-**Returns:** *Promise*<*any*[]\>
+**Returns:** *Promise*<any[]\>
+
+Inherited from: events.EventEmitter.once
 
 Defined in: node_modules/@types/node/events.d.ts:26
 
-▸ `Static`**once**(`emitter`: DOMEventTarget, `event`: *string*): *Promise*<*any*[]\>
+▸ `Static`**once**(`emitter`: DOMEventTarget, `event`: *string*): *Promise*<any[]\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`emitter` | DOMEventTarget |
-`event` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `emitter` | DOMEventTarget |
+| `event` | *string* |
 
-**Returns:** *Promise*<*any*[]\>
+**Returns:** *Promise*<any[]\>
+
+Inherited from: events.EventEmitter.once
 
 Defined in: node_modules/@types/node/events.d.ts:27

@@ -4,10 +4,6 @@
 
 [IJWTVerifyOptions](../modules/ijwtverifyoptions.md).IJWTVerifyOptions
 
-## Hierarchy
-
-* **IJWTVerifyOptions**
-
 ## Table of contents
 
 ### Properties
@@ -20,4 +16,4 @@
 
 • **enableExpiration**: *boolean*
 
-Defined in: [src/IJWTVerifyOptions.ts:18](https://github.com/breautek/storm/blob/af5cad8/src/IJWTVerifyOptions.ts#L18)
+Defined in: [src/IJWTVerifyOptions.ts:18](https://github.com/breautek/storm/blob/2614a1c/src/IJWTVerifyOptions.ts#L18)

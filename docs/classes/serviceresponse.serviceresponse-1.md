@@ -4,10 +4,6 @@
 
 [ServiceResponse](../modules/serviceresponse.md).ServiceResponse
 
-## Hierarchy
-
-* **ServiceResponse**
-
 ## Table of contents
 
 ### Constructors
@@ -28,14 +24,14 @@
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`data` | *Buffer* |
-`response` | *IncomingMessage* |
+| Name | Type |
+| :------ | :------ |
+| `data` | *Buffer* |
+| `response` | *IncomingMessage* |
 
 **Returns:** [*ServiceResponse*](serviceresponse.serviceresponse-1.md)
 
-Defined in: [src/ServiceResponse.ts:21](https://github.com/breautek/storm/blob/af5cad8/src/ServiceResponse.ts#L21)
+Defined in: [src/ServiceResponse.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/ServiceResponse.ts#L21)
 
 ## Methods
 
@@ -45,7 +41,7 @@ Defined in: [src/ServiceResponse.ts:21](https://github.com/breautek/storm/blob/a
 
 **Returns:** *any*
 
-Defined in: [src/ServiceResponse.ts:36](https://github.com/breautek/storm/blob/af5cad8/src/ServiceResponse.ts#L36)
+Defined in: [src/ServiceResponse.ts:36](https://github.com/breautek/storm/blob/2614a1c/src/ServiceResponse.ts#L36)
 
 ___
 
@@ -55,7 +51,7 @@ ___
 
 **Returns:** *Buffer*
 
-Defined in: [src/ServiceResponse.ts:28](https://github.com/breautek/storm/blob/af5cad8/src/ServiceResponse.ts#L28)
+Defined in: [src/ServiceResponse.ts:28](https://github.com/breautek/storm/blob/2614a1c/src/ServiceResponse.ts#L28)
 
 ___
 
@@ -65,4 +61,4 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceResponse.ts:32](https://github.com/breautek/storm/blob/af5cad8/src/ServiceResponse.ts#L32)
+Defined in: [src/ServiceResponse.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/ServiceResponse.ts#L32)

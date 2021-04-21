@@ -4,10 +4,6 @@
 
 [IAuthTokenData](../modules/iauthtokendata.md).IAuthTokenData
 
-## Hierarchy
-
-* **IAuthTokenData**
-
 ## Table of contents
 
 ### Properties

@@ -4,10 +4,6 @@
 
 [IServiceHeaders](../modules/iserviceheaders.md).IServiceHeaders
 
-## Hierarchy
-
-* **IServiceHeaders**
-
 ## Indexable
 
 ▪ [key: *string*]: *string*

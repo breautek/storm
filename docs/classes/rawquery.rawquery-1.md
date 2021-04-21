@@ -6,10 +6,10 @@
 
 ## Type parameters
 
-Name | Default |
------- | ------ |
-`TQueryParameters` | *any* |
-`TQueryResultSet` | *any* |
+| Name | Default |
+| :------ | :------ |
+| `TQueryParameters` | *any* |
+| `TQueryResultSet` | *any* |
 
 ## Hierarchy
 
@@ -40,23 +40,23 @@ Name | Default |
 
 #### Type parameters:
 
-Name | Default |
------- | ------ |
-`TQueryParameters` | *any* |
-`TQueryResultSet` | *any* |
+| Name | Default |
+| :------ | :------ |
+| `TQueryParameters` | *any* |
+| `TQueryResultSet` | *any* |
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`query` | *string* |
-`parameters?` | TQueryParameters |
+| Name | Type |
+| :------ | :------ |
+| `query` | *string* |
+| `parameters?` | TQueryParameters |
 
 **Returns:** [*RawQuery*](rawquery.rawquery-1.md)<TQueryParameters, TQueryResultSet\>
 
-Inherited from: [Query](query.query-1.md)
+Overrides: [Query](query.query-1.md)
 
-Defined in: [src/RawQuery.ts:20](https://github.com/breautek/storm/blob/af5cad8/src/RawQuery.ts#L20)
+Defined in: [src/RawQuery.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/RawQuery.ts#L20)
 
 ## Methods
 
@@ -68,7 +68,7 @@ Defined in: [src/RawQuery.ts:20](https://github.com/breautek/storm/blob/af5cad8/
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/RawQuery.ts:27](https://github.com/breautek/storm/blob/af5cad8/src/RawQuery.ts#L27)
+Defined in: [src/RawQuery.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/RawQuery.ts#L27)
 
 ___
 
@@ -78,15 +78,15 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
 
 **Returns:** *Promise*<TQueryResultSet\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L52)
+Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L52)
 
 ___
 
@@ -98,19 +98,19 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L27)
+Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L27)
 
 ___
 
 ### getParametersForQuery
 
-▸ **getParametersForQuery**(): *IDictionary*<*any*\>
+▸ **getParametersForQuery**(): *IDictionary*<any\>
 
-**Returns:** *IDictionary*<*any*\>
+**Returns:** *IDictionary*<any\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L31)
+Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L31)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L37)
+Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L37)
 
 ___
 
@@ -134,13 +134,13 @@ Override to augment/manipulate the returned result set.
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required.   |
-`resultSet` | TQueryResultSet | - |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
+| `resultSet` | TQueryResultSet | - |
 
 **Returns:** *Promise*<TQueryResultSet\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L47)
+Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L47)

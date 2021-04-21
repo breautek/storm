@@ -6,9 +6,9 @@
 
 ## Type parameters
 
-Name | Default |
------- | ------ |
-`TErrorDetails` | *any* |
+| Name | Default |
+| :------ | :------ |
+| `TErrorDetails` | *any* |
 
 ## Hierarchy
 
@@ -50,13 +50,12 @@ Name | Default |
 
 - [message](stormerror.stormerror-1.md#message)
 - [name](stormerror.stormerror-1.md#name)
-- [prepareStackTrace](stormerror.stormerror-1.md#preparestacktrace)
 - [stack](stormerror.stormerror-1.md#stack)
+- [prepareStackTrace](stormerror.stormerror-1.md#preparestacktrace)
 - [stackTraceLimit](stormerror.stormerror-1.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](stormerror.stormerror-1.md#capturestacktrace)
 - [getCode](stormerror.stormerror-1.md#getcode)
 - [getErrorResponse](stormerror.stormerror-1.md#geterrorresponse)
 - [getExitCode](stormerror.stormerror-1.md#getexitcode)
@@ -64,6 +63,7 @@ Name | Default |
 - [getMessage](stormerror.stormerror-1.md#getmessage)
 - [getPrivateDetails](stormerror.stormerror-1.md#getprivatedetails)
 - [getPublicDetails](stormerror.stormerror-1.md#getpublicdetails)
+- [captureStackTrace](stormerror.stormerror-1.md#capturestacktrace)
 
 ## Constructors
 
@@ -73,25 +73,29 @@ Name | Default |
 
 #### Type parameters:
 
-Name | Default |
------- | ------ |
-`TErrorDetails` | *any* |
+| Name | Default |
+| :------ | :------ |
+| `TErrorDetails` | *any* |
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`details?` | TErrorDetails |
+| Name | Type |
+| :------ | :------ |
+| `details?` | TErrorDetails |
 
 **Returns:** [*StormError*](stormerror.stormerror-1.md)<TErrorDetails\>
 
-Defined in: [src/StormError.ts:36](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L36)
+Overrides: Error.constructor
+
+Defined in: [src/StormError.ts:36](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L36)
 
 ## Properties
 
 ### message
 
 • **message**: *string*
+
+Inherited from: Error.message
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
@@ -101,19 +105,9 @@ ___
 
 • **name**: *string*
 
+Inherited from: Error.name
+
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:973
-
-___
-
-### prepareStackTrace
-
-• `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => *any*
-
-Optional override for formatting stack traces
-
-**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
-
-Defined in: node_modules/@types/node/globals.d.ts:11
 
 ___
 
@@ -121,36 +115,50 @@ ___
 
 • `Optional` **stack**: *string*
 
+Inherited from: Error.stack
+
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
+
+___
+
+### prepareStackTrace
+
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => *any*
+
+Optional override for formatting stack traces
+
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+#### Type declaration:
+
+▸ (`err`: Error, `stackTraces`: CallSite[]): *any*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `err` | Error |
+| `stackTraces` | CallSite[] |
+
+**Returns:** *any*
+
+Defined in: node_modules/@types/node/globals.d.ts:11
+
+Inherited from: Error.prepareStackTrace
+
+Defined in: node_modules/@types/node/globals.d.ts:11
 
 ___
 
 ### stackTraceLimit
 
-• **stackTraceLimit**: *number*
+▪ `Static` **stackTraceLimit**: *number*
+
+Inherited from: Error.stackTraceLimit
 
 Defined in: node_modules/@types/node/globals.d.ts:13
 
 ## Methods
-
-### captureStackTrace
-
-▸ **captureStackTrace**(`targetObject`: *object*, `constructorOpt?`: Function): *void*
-
-Create .stack property on a target object
-
-#### Parameters:
-
-Name | Type |
------- | ------ |
-`targetObject` | *object* |
-`constructorOpt?` | Function |
-
-**Returns:** *void*
-
-Defined in: node_modules/@types/node/globals.d.ts:4
-
-___
 
 ### getCode
 
@@ -158,7 +166,7 @@ ___
 
 **Returns:** *number*
 
-Defined in: [src/StormError.ts:49](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L49)
+Defined in: [src/StormError.ts:49](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L49)
 
 ___
 
@@ -168,7 +176,7 @@ ___
 
 **Returns:** [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)
 
-Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L70)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L70)
 
 ___
 
@@ -178,7 +186,7 @@ ___
 
 **Returns:** [*ExitCode*](../enums/exitcode.exitcode-1.md)
 
-Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L79)
+Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L79)
 
 ___
 
@@ -188,7 +196,7 @@ ___
 
 **Returns:** [*StatusCode*](../enums/statuscode.statuscode-1.md)
 
-Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L66)
+Defined in: [src/StormError.ts:66](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L66)
 
 ___
 
@@ -198,7 +206,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/StormError.ts:48](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L48)
+Defined in: [src/StormError.ts:48](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L48)
 
 ___
 
@@ -211,7 +219,7 @@ They are kept secret from the client.
 
 **Returns:** TErrorDetails
 
-Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L62)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L62)
 
 ___
 
@@ -223,4 +231,25 @@ Sends details to the client.
 
 **Returns:** [*IAdditionalErrorDetails*](../interfaces/stormerror.iadditionalerrordetails.md)
 
-Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L54)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L54)
+
+___
+
+### captureStackTrace
+
+▸ `Static`**captureStackTrace**(`targetObject`: *object*, `constructorOpt?`: Function): *void*
+
+Create .stack property on a target object
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | *object* |
+| `constructorOpt?` | Function |
+
+**Returns:** *void*
+
+Inherited from: Error.captureStackTrace
+
+Defined in: node_modules/@types/node/globals.d.ts:4

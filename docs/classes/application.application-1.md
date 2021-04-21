@@ -8,12 +8,12 @@ Main entry point for the Application. Should be extended and have the abstract m
 
 ## Type parameters
 
-Name | Type | Default |
------- | ------ | ------ |
-`TConfig` | [*IConfig*](../interfaces/iconfig.iconfig-1.md) | [*IConfig*](../interfaces/iconfig.iconfig-1.md) |
-`TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
-`TDBConfig` | - | *any* |
-`TDBConnectionAPI` | - | *any* |
+| Name | Type | Default |
+| :------ | :------ | :------ |
+| `TConfig` | [*IConfig*](../interfaces/iconfig.iconfig-1.md) | [*IConfig*](../interfaces/iconfig.iconfig-1.md) |
+| `TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
+| `TDBConfig` | - | *any* |
+| `TDBConnectionAPI` | - | *any* |
 
 ## Hierarchy
 
@@ -62,6 +62,7 @@ Name | Type | Default |
 - [off](application.application-1.md#off)
 - [on](application.application-1.md#on)
 - [onBeforeReady](application.application-1.md#onbeforeready)
+- [onBeforeReadyAsync](application.application-1.md#onbeforereadyasync)
 - [onConfigLoad](application.application-1.md#onconfigload)
 - [onReady](application.application-1.md#onready)
 - [once](application.application-1.md#once)
@@ -85,29 +86,33 @@ Name | Type | Default |
 
 #### Type parameters:
 
-Name | Type | Default |
------- | ------ | ------ |
-`TConfig` | [*IConfig*](../interfaces/iconfig.iconfig-1.md) | [*IConfig*](../interfaces/iconfig.iconfig-1.md) |
-`TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
-`TDBConfig` | - | *any* |
-`TDBConnectionAPI` | - | *any* |
+| Name | Type | Default |
+| :------ | :------ | :------ |
+| `TConfig` | [*IConfig*](../interfaces/iconfig.iconfig-1.md) | [*IConfig*](../interfaces/iconfig.iconfig-1.md) |
+| `TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
+| `TDBConfig` | - | *any* |
+| `TDBConnectionAPI` | - | *any* |
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`name` | *string* | The application name   |
-`configPath` | *string* | The directory where bt-config.json and bt-local-config.json can be found. Defaults to current working directory.    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | *string* | The application name |
+| `configPath` | *string* | The directory where bt-config.json and bt-local-config.json can be found. Defaults to current working directory. |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
 
-Defined in: [src/Application.ts:57](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L57)
+Overrides: EventEmitter.constructor
+
+Defined in: [src/Application.ts:57](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L57)
 
 ## Properties
 
 ### captureRejectionSymbol
 
-▪ `Readonly` `Static` **captureRejectionSymbol**: *typeof* [*captureRejectionSymbol*](application.application-1.md#capturerejectionsymbol)
+▪ `Static` `Readonly` **captureRejectionSymbol**: *typeof* [*captureRejectionSymbol*](application.application-1.md#capturerejectionsymbol)
+
+Inherited from: EventEmitter.captureRejectionSymbol
 
 Defined in: node_modules/@types/node/events.d.ts:43
 
@@ -119,6 +124,8 @@ ___
 
 Sets or gets the default captureRejection value for all emitters.
 
+Inherited from: EventEmitter.captureRejections
+
 Defined in: node_modules/@types/node/events.d.ts:49
 
 ___
@@ -127,13 +134,15 @@ ___
 
 ▪ `Static` **defaultMaxListeners**: *number*
 
+Inherited from: EventEmitter.defaultMaxListeners
+
 Defined in: node_modules/@types/node/events.d.ts:50
 
 ___
 
 ### errorMonitor
 
-▪ `Readonly` `Static` **errorMonitor**: *typeof* [*errorMonitor*](application.application-1.md#errormonitor)
+▪ `Static` `Readonly` **errorMonitor**: *typeof* [*errorMonitor*](application.application-1.md#errormonitor)
 
 This symbol shall be used to install a listener for only monitoring `'error'`
 events. Listeners installed using this symbol are called before the regular
@@ -142,6 +151,8 @@ events. Listeners installed using this symbol are called before the regular
 Installing a listener using this symbol does not change the behavior once an
 `'error'` event is emitted, therefore the process will still crash if no
 regular `'error'` listener is installed.
+
+Inherited from: EventEmitter.errorMonitor
 
 Defined in: node_modules/@types/node/events.d.ts:42
 
@@ -153,13 +164,13 @@ Defined in: node_modules/@types/node/events.d.ts:42
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`program` | *CommanderStatic* |
+| Name | Type |
+| :------ | :------ |
+| `program` | *CommanderStatic* |
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:202](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L202)
+Defined in: [src/Application.ts:203](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L203)
 
 ___
 
@@ -169,29 +180,29 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`config` | TConfig |
+| Name | Type |
+| :------ | :------ |
+| `config` | TConfig |
 
 **Returns:** *Logger*
 
-Defined in: [src/Application.ts:165](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L165)
+Defined in: [src/Application.ts:166](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L166)
 
 ___
 
 ### \_initialize
 
-▸ `Protected`**_initialize**(`config`: TConfig): *Promise*<*void*\>
+▸ `Protected`**_initialize**(`config`: TConfig): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`config` | TConfig |
+| Name | Type |
+| :------ | :------ |
+| `config` | TConfig |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Application.ts:161](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L161)
+Defined in: [src/Application.ts:162](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L162)
 
 ___
 
@@ -201,12 +212,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.addListener
 
 Defined in: node_modules/@types/node/events.d.ts:62
 
@@ -214,42 +227,42 @@ ___
 
 ### attachHandler
 
-▸ **attachHandler**(`path`: *string*, `HandlerClass`: [*IHandler*](../interfaces/ihandler.ihandler-1.md)<[*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>\>): *void*
+▸ **attachHandler**(`path`: *string*, `HandlerClass`: [*IHandler*](../interfaces/ihandler.ihandler-1.md)<[*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>\>): *void*
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`path` | *string* | The URL API path. E.g. /api/myService/myCommand/   |
-`HandlerClass` | [*IHandler*](../interfaces/ihandler.ihandler-1.md)<[*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>\> | The concrete class (not the instance) of Handler to be used for this API.    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `path` | *string* | The URL API path. E.g. /api/myService/myCommand/ |
+| `HandlerClass` | [*IHandler*](../interfaces/ihandler.ihandler-1.md)<[*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>\> | The concrete class (not the instance) of Handler to be used for this API. |
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:221](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L221)
+Defined in: [src/Application.ts:222](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L222)
 
 ___
 
 ### attachHandlers
 
-▸ `Protected` `Abstract`**attachHandlers**(): *Promise*<*void*\>
+▸ `Protected` `Abstract`**attachHandlers**(): *Promise*<void\>
 
 Subclasses are expected to attach the API handlers for their service. This will be invoked during application startup.
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Promise<void>
 
-Defined in: [src/Application.ts:258](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L258)
+Defined in: [src/Application.ts:259](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L259)
 
 ___
 
 ### close
 
-▸ **close**(): *Promise*<*void*\>
+▸ **close**(): *Promise*<void\>
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Application.ts:241](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L241)
+Defined in: [src/Application.ts:242](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L242)
 
 ___
 
@@ -259,12 +272,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`...args` | *any*[] |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `...args` | *any*[] |
 
 **Returns:** *boolean*
+
+Inherited from: EventEmitter.emit
 
 Defined in: node_modules/@types/node/events.d.ts:72
 
@@ -275,6 +290,8 @@ ___
 ▸ **eventNames**(): (*string* \| *symbol*)[]
 
 **Returns:** (*string* \| *symbol*)[]
+
+Inherited from: EventEmitter.eventNames
 
 Defined in: node_modules/@types/node/events.d.ts:77
 
@@ -288,7 +305,7 @@ ___
 
 command line arguments
 
-Defined in: [src/Application.ts:338](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L338)
+Defined in: [src/Application.ts:339](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L339)
 
 ___
 
@@ -300,7 +317,7 @@ ___
 
 the config object.
 
-Defined in: [src/Application.ts:295](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L295)
+Defined in: [src/Application.ts:296](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L296)
 
 ___
 
@@ -312,7 +329,7 @@ ___
 
 the database pool. This will need to be casted based on your preferred database dialect.
 
-Defined in: [src/Application.ts:331](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L331)
+Defined in: [src/Application.ts:332](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L332)
 
 ___
 
@@ -322,7 +339,7 @@ ___
 
 **Returns:** *Logger*
 
-Defined in: [src/Application.ts:169](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L169)
+Defined in: [src/Application.ts:170](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L170)
 
 ___
 
@@ -331,6 +348,8 @@ ___
 ▸ **getMaxListeners**(): *number*
 
 **Returns:** *number*
+
+Inherited from: EventEmitter.getMaxListeners
 
 Defined in: node_modules/@types/node/events.d.ts:69
 
@@ -344,7 +363,7 @@ ___
 
 the application name
 
-Defined in: [src/Application.ts:284](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L284)
+Defined in: [src/Application.ts:285](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L285)
 
 ___
 
@@ -354,7 +373,7 @@ ___
 
 **Returns:** *number*
 
-Defined in: [src/Application.ts:173](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L173)
+Defined in: [src/Application.ts:174](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L174)
 
 ___
 
@@ -364,7 +383,7 @@ ___
 
 **Returns:** *CommanderStatic*
 
-Defined in: [src/Application.ts:204](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L204)
+Defined in: [src/Application.ts:205](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L205)
 
 ___
 
@@ -376,7 +395,7 @@ The maximum size limit for incoming requests that this service needs to handle.
 
 **Returns:** *number*
 
-Defined in: [src/Application.ts:211](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L211)
+Defined in: [src/Application.ts:212](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L212)
 
 ___
 
@@ -388,7 +407,7 @@ ___
 
 the token manager
 
-Defined in: [src/Application.ts:324](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L324)
+Defined in: [src/Application.ts:325](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L325)
 
 ___
 
@@ -400,13 +419,13 @@ Subclasses are expected to override this to configure their database setup, if t
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`config` | TConfig | The bt-config object    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `config` | TConfig | The bt-config object |
 
 **Returns:** *Promise*<[*Database*](database.database-1.md)<TDBConfig, TDBConnectionAPI\>\>
 
-Defined in: [src/Application.ts:367](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L367)
+Defined in: [src/Application.ts:368](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L368)
 
 ___
 
@@ -416,11 +435,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
 
 **Returns:** *number*
+
+Inherited from: EventEmitter.listenerCount
 
 Defined in: node_modules/@types/node/events.d.ts:73
 
@@ -432,11 +453,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
 
 **Returns:** Function[]
+
+Inherited from: EventEmitter.listeners
 
 Defined in: node_modules/@types/node/events.d.ts:70
 
@@ -448,13 +471,13 @@ ___
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`path` | *string* | The directory path that contains bt-config.json and bt-local-config.json    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `path` | *string* | The directory path that contains bt-config.json and bt-local-config.json |
 
 **Returns:** *Promise*<TConfig\>
 
-Defined in: [src/Application.ts:264](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L264)
+Defined in: [src/Application.ts:265](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L265)
 
 ___
 
@@ -464,12 +487,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.off
 
 Defined in: node_modules/@types/node/events.d.ts:66
 
@@ -481,12 +506,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.on
 
 Defined in: node_modules/@types/node/events.d.ts:63
 
@@ -496,9 +523,21 @@ ___
 
 ▸ `Protected`**onBeforeReady**(): *void*
 
+**`deprecated`** Use onBeforeReadyAsync instead. In a future version, this method will be changed to be asynchronous
+
 **Returns:** *void*
 
-Defined in: [src/Application.ts:371](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L371)
+Defined in: [src/Application.ts:375](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L375)
+
+___
+
+### onBeforeReadyAsync
+
+▸ `Protected`**onBeforeReadyAsync**(): *Promise*<void\>
+
+**Returns:** *Promise*<void\>
+
+Defined in: [src/Application.ts:377](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L377)
 
 ___
 
@@ -510,13 +549,13 @@ Invoked once the config has been loaded and ready to be used.
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`config` | TConfig | The config object (as defined in bt-config.json/bt-local-config.json)    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `config` | TConfig | The config object (as defined in bt-config.json/bt-local-config.json) |
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:311](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L311)
+Defined in: [src/Application.ts:312](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L312)
 
 ___
 
@@ -528,7 +567,7 @@ Invoked when the application is considered ready for operation.
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:376](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L376)
+Defined in: [src/Application.ts:382](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L382)
 
 ___
 
@@ -538,12 +577,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.once
 
 Defined in: node_modules/@types/node/events.d.ts:64
 
@@ -555,12 +596,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.prependListener
 
 Defined in: node_modules/@types/node/events.d.ts:75
 
@@ -572,12 +615,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.prependOnceListener
 
 Defined in: node_modules/@types/node/events.d.ts:76
 
@@ -589,11 +634,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
 
 **Returns:** Function[]
+
+Inherited from: EventEmitter.rawListeners
 
 Defined in: node_modules/@types/node/events.d.ts:71
 
@@ -605,11 +652,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event?` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `event?` | *string* \| *symbol* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.removeAllListeners
 
 Defined in: node_modules/@types/node/events.d.ts:67
 
@@ -621,12 +670,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`event` | *string* \| *symbol* |
-`listener` | (...`args`: *any*[]) => *void* |
+| Name | Type |
+| :------ | :------ |
+| `event` | *string* \| *symbol* |
+| `listener` | (...`args`: *any*[]) => *void* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.removeListener
 
 Defined in: node_modules/@types/node/events.d.ts:65
 
@@ -638,11 +689,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`n` | *number* |
+| Name | Type |
+| :------ | :------ |
+| `n` | *number* |
 
 **Returns:** [*Application*](application.application-1.md)<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI\>
+
+Inherited from: EventEmitter.setMaxListeners
 
 Defined in: node_modules/@types/node/events.d.ts:68
 
@@ -656,13 +709,13 @@ Sets the TokenManager to be used for authentication.
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`tokenManager` | [*TokenManager*](tokenmanager.tokenmanager-1.md)<TAuthToken\> |     |
+| Name | Type |
+| :------ | :------ |
+| `tokenManager` | [*TokenManager*](tokenmanager.tokenmanager-1.md)<TAuthToken\> |
 
 **Returns:** *void*
 
-Defined in: [src/Application.ts:317](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L317)
+Defined in: [src/Application.ts:318](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L318)
 
 ___
 
@@ -674,7 +727,7 @@ ___
 
 true if the Application should bind to an IP address
 
-Defined in: [src/Application.ts:302](https://github.com/breautek/storm/blob/af5cad8/src/Application.ts#L302)
+Defined in: [src/Application.ts:303](https://github.com/breautek/storm/blob/2614a1c/src/Application.ts#L303)
 
 ___
 
@@ -686,12 +739,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`emitter` | *EventEmitter* |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `emitter` | *EventEmitter* |
+| `event` | *string* \| *symbol* |
 
 **Returns:** *number*
+
+Inherited from: EventEmitter.listenerCount
 
 Defined in: node_modules/@types/node/events.d.ts:31
 
@@ -699,16 +754,18 @@ ___
 
 ### on
 
-▸ `Static`**on**(`emitter`: *EventEmitter*, `event`: *string*): *AsyncIterableIterator*<*any*\>
+▸ `Static`**on**(`emitter`: *EventEmitter*, `event`: *string*): *AsyncIterableIterator*<any\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`emitter` | *EventEmitter* |
-`event` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `emitter` | *EventEmitter* |
+| `event` | *string* |
 
-**Returns:** *AsyncIterableIterator*<*any*\>
+**Returns:** *AsyncIterableIterator*<any\>
+
+Inherited from: EventEmitter.on
 
 Defined in: node_modules/@types/node/events.d.ts:28
 
@@ -716,28 +773,32 @@ ___
 
 ### once
 
-▸ `Static`**once**(`emitter`: *NodeEventTarget*, `event`: *string* \| *symbol*): *Promise*<*any*[]\>
+▸ `Static`**once**(`emitter`: *NodeEventTarget*, `event`: *string* \| *symbol*): *Promise*<any[]\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`emitter` | *NodeEventTarget* |
-`event` | *string* \| *symbol* |
+| Name | Type |
+| :------ | :------ |
+| `emitter` | *NodeEventTarget* |
+| `event` | *string* \| *symbol* |
 
-**Returns:** *Promise*<*any*[]\>
+**Returns:** *Promise*<any[]\>
+
+Inherited from: EventEmitter.once
 
 Defined in: node_modules/@types/node/events.d.ts:26
 
-▸ `Static`**once**(`emitter`: DOMEventTarget, `event`: *string*): *Promise*<*any*[]\>
+▸ `Static`**once**(`emitter`: DOMEventTarget, `event`: *string*): *Promise*<any[]\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`emitter` | DOMEventTarget |
-`event` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `emitter` | DOMEventTarget |
+| `event` | *string* |
 
-**Returns:** *Promise*<*any*[]\>
+**Returns:** *Promise*<any[]\>
+
+Inherited from: EventEmitter.once
 
 Defined in: node_modules/@types/node/events.d.ts:27

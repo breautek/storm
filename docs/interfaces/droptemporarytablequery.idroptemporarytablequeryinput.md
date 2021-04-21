@@ -4,10 +4,6 @@
 
 [DropTemporaryTableQuery](../modules/droptemporarytablequery.md).IDropTemporaryTableQueryInput
 
-## Hierarchy
-
-* **IDropTemporaryTableQueryInput**
-
 ## Table of contents
 
 ### Properties
@@ -20,4 +16,4 @@
 
 • **tableName**: *string*
 
-Defined in: [src/DropTemporaryTableQuery.ts:20](https://github.com/breautek/storm/blob/af5cad8/src/DropTemporaryTableQuery.ts#L20)
+Defined in: [src/DropTemporaryTableQuery.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/DropTemporaryTableQuery.ts#L20)

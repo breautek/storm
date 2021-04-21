@@ -4,10 +4,6 @@
 
 [IUpdateQueryResult](../modules/iupdatequeryresult.md).IUpdateQueryResult
 
-## Hierarchy
-
-* **IUpdateQueryResult**
-
 ## Table of contents
 
 ### Properties
@@ -21,7 +17,7 @@
 
 • **affectedRows**: *number*
 
-Defined in: [src/IUpdateQueryResult.ts:18](https://github.com/breautek/storm/blob/af5cad8/src/IUpdateQueryResult.ts#L18)
+Defined in: [src/IUpdateQueryResult.ts:18](https://github.com/breautek/storm/blob/2614a1c/src/IUpdateQueryResult.ts#L18)
 
 ___
 
@@ -29,4 +25,4 @@ ___
 
 • **changedRows**: *number*
 
-Defined in: [src/IUpdateQueryResult.ts:19](https://github.com/breautek/storm/blob/af5cad8/src/IUpdateQueryResult.ts#L19)
+Defined in: [src/IUpdateQueryResult.ts:19](https://github.com/breautek/storm/blob/2614a1c/src/IUpdateQueryResult.ts#L19)

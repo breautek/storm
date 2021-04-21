@@ -6,21 +6,17 @@
 
 ## Type parameters
 
-Name | Type | Default |
------- | ------ | ------ |
-`TApplication` | [*Application*](application.application-1.md) | [*Application*](application.application-1.md) |
-`TGetRequest` | - | *any* |
-`TGetResponse` | - | *any* |
-`TPostRequest` | - | *any* |
-`TPostResponse` | - | *any* |
-`TPutRequest` | - | *any* |
-`TPutResponse` | - | *any* |
-`TDeleteRequest` | - | *any* |
-`TDeleteResponse` | - | *any* |
-
-## Hierarchy
-
-* **Handler**
+| Name | Type | Default |
+| :------ | :------ | :------ |
+| `TApplication` | [*Application*](application.application-1.md) | [*Application*](application.application-1.md) |
+| `TGetRequest` | - | *any* |
+| `TGetResponse` | - | *any* |
+| `TPostRequest` | - | *any* |
+| `TPostResponse` | - | *any* |
+| `TPutRequest` | - | *any* |
+| `TPutResponse` | - | *any* |
+| `TDeleteRequest` | - | *any* |
+| `TDeleteResponse` | - | *any* |
 
 ## Table of contents
 
@@ -51,61 +47,61 @@ Name | Type | Default |
 
 #### Type parameters:
 
-Name | Type | Default |
------- | ------ | ------ |
-`TApplication` | [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*, TApplication\> | [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\> |
-`TGetRequest` | - | *any* |
-`TGetResponse` | - | *any* |
-`TPostRequest` | - | *any* |
-`TPostResponse` | - | *any* |
-`TPutRequest` | - | *any* |
-`TPutResponse` | - | *any* |
-`TDeleteRequest` | - | *any* |
-`TDeleteResponse` | - | *any* |
+| Name | Type | Default |
+| :------ | :------ | :------ |
+| `TApplication` | [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any, TApplication\> | [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\> |
+| `TGetRequest` | - | *any* |
+| `TGetResponse` | - | *any* |
+| `TPostRequest` | - | *any* |
+| `TPostResponse` | - | *any* |
+| `TPutRequest` | - | *any* |
+| `TPutResponse` | - | *any* |
+| `TDeleteRequest` | - | *any* |
+| `TDeleteResponse` | - | *any* |
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`app` | TApplication |
+| Name | Type |
+| :------ | :------ |
+| `app` | TApplication |
 
 **Returns:** [*Handler*](handler.handler-1.md)<TApplication, TGetRequest, TGetResponse, TPostRequest, TPostResponse, TPutRequest, TPutResponse, TDeleteRequest, TDeleteResponse\>
 
-Defined in: [src/Handler.ts:44](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L44)
+Defined in: [src/Handler.ts:44](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L44)
 
 ## Methods
 
 ### \_delete
 
-▸ `Protected`**_delete**(`request`: [*Request*](request.request-1.md)<TDeleteRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TDeleteResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<*void*\>
+▸ `Protected`**_delete**(`request`: [*Request*](request.request-1.md)<TDeleteRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TDeleteResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<TDeleteRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<TDeleteResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<TDeleteRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<TDeleteResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Handler.ts:179](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L179)
+Defined in: [src/Handler.ts:179](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L179)
 
 ___
 
 ### \_get
 
-▸ `Protected`**_get**(`request`: [*Request*](request.request-1.md)<TGetRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TGetResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<*void*\>
+▸ `Protected`**_get**(`request`: [*Request*](request.request-1.md)<TGetRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TGetResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<TGetRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<TGetResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<TGetRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<TGetResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Handler.ts:164](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L164)
+Defined in: [src/Handler.ts:164](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L164)
 
 ___
 
@@ -115,109 +111,109 @@ ___
 
 **Returns:** [*Middleware*](middleware.middleware-1.md)[]
 
-Defined in: [src/Handler.ts:55](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L55)
+Defined in: [src/Handler.ts:55](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L55)
 
 ___
 
 ### \_onMiddlewareReject
 
-▸ `Protected`**_onMiddlewareReject**(`request`: [*Request*](request.request-1.md)<*any*, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<*any*, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>, `error`: [*StormError*](stormerror.stormerror-1.md)<*any*\>): *void*
+▸ `Protected`**_onMiddlewareReject**(`request`: [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>, `error`: [*StormError*](stormerror.stormerror-1.md)<any\>): *void*
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<*any*, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<*any*, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
-`error` | [*StormError*](stormerror.stormerror-1.md)<*any*\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| `error` | [*StormError*](stormerror.stormerror-1.md)<any\> |
 
 **Returns:** *void*
 
-Defined in: [src/Handler.ts:111](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L111)
+Defined in: [src/Handler.ts:111](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L111)
 
 ___
 
 ### \_post
 
-▸ `Protected`**_post**(`request`: [*Request*](request.request-1.md)<TPostRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TPostResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<*void*\>
+▸ `Protected`**_post**(`request`: [*Request*](request.request-1.md)<TPostRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TPostResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<TPostRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<TPostResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<TPostRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<TPostResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Handler.ts:169](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L169)
+Defined in: [src/Handler.ts:169](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L169)
 
 ___
 
 ### \_put
 
-▸ `Protected`**_put**(`request`: [*Request*](request.request-1.md)<TPutRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TPutResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<*void*\>
+▸ `Protected`**_put**(`request`: [*Request*](request.request-1.md)<TPutRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TPutResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<TPutRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<TPutResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<TPutRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<TPutResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Handler.ts:174](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L174)
+Defined in: [src/Handler.ts:174](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L174)
 
 ___
 
 ### delete
 
-▸ **delete**(`request`: [*Request*](request.request-1.md)<TDeleteRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TDeleteResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<*void*\>
+▸ **delete**(`request`: [*Request*](request.request-1.md)<TDeleteRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TDeleteResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<TDeleteRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<TDeleteResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<TDeleteRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<TDeleteResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Handler.ts:152](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L152)
+Defined in: [src/Handler.ts:152](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L152)
 
 ___
 
 ### get
 
-▸ **get**(`request`: [*Request*](request.request-1.md)<TGetRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TGetResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<*void*\>
+▸ **get**(`request`: [*Request*](request.request-1.md)<TGetRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TGetResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<TGetRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<TGetResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<TGetRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<TGetResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Handler.ts:115](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L115)
+Defined in: [src/Handler.ts:115](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L115)
 
 ___
 
 ### getAccessToken
 
-▸ **getAccessToken**(`request`: [*Request*](request.request-1.md)<*any*, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>): *string*
+▸ **getAccessToken**(`request`: [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>): *string*
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<*any*, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
 
 **Returns:** *string*
 
-Defined in: [src/Handler.ts:59](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L59)
+Defined in: [src/Handler.ts:59](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L59)
 
 ___
 
@@ -227,38 +223,38 @@ ___
 
 **Returns:** TApplication
 
-Defined in: [src/Handler.ts:51](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L51)
+Defined in: [src/Handler.ts:51](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L51)
 
 ___
 
 ### post
 
-▸ **post**(`request`: [*Request*](request.request-1.md)<TPostRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TPostResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<*void*\>
+▸ **post**(`request`: [*Request*](request.request-1.md)<TPostRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TPostResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<TPostRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<TPostResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<TPostRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<TPostResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Handler.ts:140](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L140)
+Defined in: [src/Handler.ts:140](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L140)
 
 ___
 
 ### put
 
-▸ **put**(`request`: [*Request*](request.request-1.md)<TPutRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TPutResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<*void*\>
+▸ **put**(`request`: [*Request*](request.request-1.md)<TPutRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<TPutResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | [*Request*](request.request-1.md)<TPutRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-`response` | [*Response*](response.response-1.md)<TPutResponse, *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | [*Request*](request.request-1.md)<TPutRequest, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [*Response*](response.response-1.md)<TPutResponse, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
-Defined in: [src/Handler.ts:128](https://github.com/breautek/storm/blob/af5cad8/src/Handler.ts#L128)
+Defined in: [src/Handler.ts:128](https://github.com/breautek/storm/blob/2614a1c/src/Handler.ts#L128)

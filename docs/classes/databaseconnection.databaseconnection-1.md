@@ -12,9 +12,9 @@ Do not call `new Database` directly. Use `Database.getConnection` to create a `D
 
 ## Type parameters
 
-Name |
------- |
-`TAPI` |
+| Name |
+| :------ |
+| `TAPI` |
 
 ## Hierarchy
 
@@ -61,27 +61,27 @@ Name |
 
 #### Type parameters:
 
-Name |
------- |
-`TAPI` |
+| Name |
+| :------ |
+| `TAPI` |
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`api` | TAPI |
-`isReadOnly` | *boolean* |
-`instantiationStack` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `api` | TAPI |
+| `isReadOnly` | *boolean* |
+| `instantiationStack` | *string* |
 
 **Returns:** [*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TAPI\>
 
-Defined in: [src/DatabaseConnection.ts:42](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L42)
+Defined in: [src/DatabaseConnection.ts:42](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L42)
 
 ## Methods
 
 ### \_close
 
-▸ `Protected` `Abstract`**_close**(`forceClose`: *boolean*): *Promise*<*void*\>
+▸ `Protected` `Abstract`**_close**(`forceClose`: *boolean*): *Promise*<void\>
 
 Implementation to close the connection, if `forceClose` is true, close the connection no matter what.
 Silently error if it means the connection is closed.
@@ -90,15 +90,15 @@ Silently error if it means the connection is closed.
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`forceClose` | *boolean* | boolean, if `true`, should close the connection no matter what.   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `forceClose` | *boolean* | boolean, if `true`, should close the connection no matter what. |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Promise<void>
 
-Defined in: [src/DatabaseConnection.ts:238](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L238)
+Defined in: [src/DatabaseConnection.ts:238](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L238)
 
 ___
 
@@ -112,22 +112,22 @@ Implementation method to return a dataset from the database
 
 #### Type parameters:
 
-Name |
------- |
-`TQueryResult` |
+| Name |
+| :------ |
+| `TQueryResult` |
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`query` | *string* | The database query   |
-`params?` | *any* | The query parameters   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | *string* | The database query |
+| `params?` | *any* | The query parameters |
 
 **Returns:** *Promise*<TQueryResult\>
 
 Promise
 
-Defined in: [src/DatabaseConnection.ts:249](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L249)
+Defined in: [src/DatabaseConnection.ts:249](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L249)
 
 ___
 
@@ -140,23 +140,23 @@ but returns a `Readable` stream instead.
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`query` | *string* | The database query   |
-`params?` | *any* | The query parameters   |
-`streamOptions?` | *any* | `Readable` stream options   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | *string* | The database query |
+| `params?` | *any* | The query parameters |
+| `streamOptions?` | *any* | `Readable` stream options |
 
 **Returns:** *Readable*
 
 `Readable`
 
-Defined in: [src/DatabaseConnection.ts:261](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L261)
+Defined in: [src/DatabaseConnection.ts:261](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L261)
 
 ___
 
 ### close
 
-▸ **close**(`forceClose?`: *boolean*): *Promise*<*void*\>
+▸ **close**(`forceClose?`: *boolean*): *Promise*<void\>
 
 Closes the connection. May error if connection has an active transaction.
 if `forceClose` boolean is true, it will force close the connection, regardless
@@ -166,23 +166,23 @@ of transaction state.
 
 #### Parameters:
 
-Name | Type | Default value | Description |
------- | ------ | ------ | ------ |
-`forceClose` | *boolean* | false | optional boolean   |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `forceClose` | *boolean* | false | optional boolean |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Promise<void>
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L168)
+Defined in: [src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L168)
 
 ___
 
 ### commit
 
-▸ `Abstract`**commit**(): *Promise*<*void*\>
+▸ `Abstract`**commit**(): *Promise*<void\>
 
 Commits a transaction. This will end a transaction.
 
@@ -190,19 +190,19 @@ Commits a transaction. This will end a transaction.
 
 **`async`** 
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Promise<void>
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:219](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L219)
+Defined in: [src/DatabaseConnection.ts:219](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L219)
 
 ___
 
 ### endTransaction
 
-▸ `Abstract`**endTransaction**(`requiresRollback?`: *boolean*): *Promise*<*void*\>
+▸ `Abstract`**endTransaction**(`requiresRollback?`: *boolean*): *Promise*<void\>
 
 Ends a transaction. if `requiresRollback` is `true`, then `rollback()` is invoked. Otherwise, `commit()` is invoked.
 
@@ -212,15 +212,15 @@ Ends a transaction. if `requiresRollback` is `true`, then `rollback()` is invoke
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`requiresRollback?` | *boolean* | optional boolean   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `requiresRollback?` | *boolean* | optional boolean |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Promise<void>
 
-Defined in: [src/DatabaseConnection.ts:210](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L210)
+Defined in: [src/DatabaseConnection.ts:210](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L210)
 
 ___
 
@@ -236,7 +236,7 @@ any
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L91)
+Defined in: [src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L91)
 
 ___
 
@@ -253,7 +253,7 @@ string - A stacktrace
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L73)
+Defined in: [src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L73)
 
 ___
 
@@ -269,7 +269,7 @@ number in milliseconds
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L121)
+Defined in: [src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L121)
 
 ___
 
@@ -283,7 +283,7 @@ Returns true if the connection has been closed.
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L181)
+Defined in: [src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L181)
 
 ___
 
@@ -300,7 +300,7 @@ boolean
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L100)
+Defined in: [src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L100)
 
 ___
 
@@ -318,13 +318,13 @@ boolean
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:200](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L200)
+Defined in: [src/DatabaseConnection.ts:200](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L200)
 
 ___
 
 ### query
 
-▸ **query**<TQueryResult\>(`query`: [*Query*](query.query-1.md)<*any*, *any*, *any*\>): *Promise*<TQueryResult\>
+▸ **query**<TQueryResult\>(`query`: [*Query*](query.query-1.md)<any, any, any\>): *Promise*<TQueryResult\>
 
 Queries the database for a dataset.
 
@@ -332,27 +332,29 @@ Queries the database for a dataset.
 
 #### Type parameters:
 
-Name | Default |
------- | ------ |
-`TQueryResult` | *any* |
+| Name | Default |
+| :------ | :------ |
+| `TQueryResult` | *any* |
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`query` | [*Query*](query.query-1.md)<*any*, *any*, *any*\> | The database query   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | [*Query*](query.query-1.md)<any, any, any\> | The database query |
 
 **Returns:** *Promise*<TQueryResult\>
 
 Promise<TQueryResult>
 
-Defined in: [src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L132)
+Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+
+Defined in: [src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L132)
 
 ___
 
 ### rollback
 
-▸ `Abstract`**rollback**(): *Promise*<*void*\>
+▸ `Abstract`**rollback**(): *Promise*<void\>
 
 Rollsback a transaction. This will end a transaction.
 
@@ -360,13 +362,13 @@ Rollsback a transaction. This will end a transaction.
 
 **`async`** 
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Promise<void>
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:228](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L228)
+Defined in: [src/DatabaseConnection.ts:228](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L228)
 
 ___
 
@@ -376,15 +378,15 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`stack` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `stack` | *string* |
 
 **Returns:** *void*
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L64)
+Defined in: [src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L64)
 
 ___
 
@@ -396,21 +398,21 @@ Sets the timeout of this connectino
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`timeout` | *number* | in milliseconds    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `timeout` | *number* | in milliseconds |
 
 **Returns:** *void*
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L109)
+Defined in: [src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L109)
 
 ___
 
 ### startTransaction
 
-▸ `Abstract`**startTransaction**(): *Promise*<*void*\>
+▸ `Abstract`**startTransaction**(): *Promise*<void\>
 
 Implementation method to start a transaction.
 
@@ -418,29 +420,31 @@ Implementation method to start a transaction.
 
 **`async`** 
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Promise<void>
 
 Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
-Defined in: [src/DatabaseConnection.ts:192](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L192)
+Defined in: [src/DatabaseConnection.ts:192](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L192)
 
 ___
 
 ### stream
 
-▸ **stream**(`query`: [*Query*](query.query-1.md)<*any*, *any*, *any*\>, `streamOptions?`: *any*): *Readable*
+▸ **stream**(`query`: [*Query*](query.query-1.md)<any, any, any\>, `streamOptions?`: *any*): *Readable*
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`query` | [*Query*](query.query-1.md)<*any*, *any*, *any*\> | The database query   |
-`streamOptions?` | *any* | Stream options   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | [*Query*](query.query-1.md)<any, any, any\> | The database query |
+| `streamOptions?` | *any* | Stream options |
 
 **Returns:** *Readable*
 
 Readable
 
-Defined in: [src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/af5cad8/src/DatabaseConnection.ts#L151)
+Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+
+Defined in: [src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L151)

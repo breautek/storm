@@ -4,10 +4,6 @@
 
 [DumpStream](../modules/dumpstream.md).DumpStream
 
-## Hierarchy
-
-* **DumpStream**
-
 ## Table of contents
 
 ### Methods
@@ -22,4 +18,4 @@
 
 **Returns:** *Writable*
 
-Defined in: [src/DumpStream.ts:25](https://github.com/breautek/storm/blob/af5cad8/src/DumpStream.ts#L25)
+Defined in: [src/DumpStream.ts:25](https://github.com/breautek/storm/blob/2614a1c/src/DumpStream.ts#L25)

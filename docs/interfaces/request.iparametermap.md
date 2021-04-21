@@ -4,10 +4,6 @@
 
 [Request](../modules/request.md).IParameterMap
 
-## Hierarchy
-
-* **IParameterMap**
-
 ## Indexable
 
 ▪ [key: *string*]: *string*

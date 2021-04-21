@@ -37,9 +37,9 @@
 
 **Returns:** [*MySQLDatabase*](mysqldatabase.mysqldatabase-1.md)
 
-Inherited from: [Database](database.database-1.md)
+Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:25](https://github.com/breautek/storm/blob/af5cad8/src/MySQLDatabase.ts#L25)
+Defined in: [src/MySQLDatabase.ts:25](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L25)
 
 ## Methods
 
@@ -49,16 +49,16 @@ Defined in: [src/MySQLDatabase.ts:25](https://github.com/breautek/storm/blob/af5
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`nodeID` | *string* |
-`config` | PoolConfig |
+| Name | Type |
+| :------ | :------ |
+| `nodeID` | *string* |
+| `config` | PoolConfig |
 
 **Returns:** *void*
 
 Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/af5cad8/src/MySQLDatabase.ts#L49)
+Defined in: [src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L49)
 
 ___
 
@@ -68,16 +68,16 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`query` | *string* |
-`requireWriteAccess` | *boolean* |
+| Name | Type |
+| :------ | :------ |
+| `query` | *string* |
+| `requireWriteAccess` | *boolean* |
 
 **Returns:** *Promise*<[*MySQLConnection*](mysqlconnection.mysqlconnection-1.md)\>
 
 Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/af5cad8/src/MySQLDatabase.ts#L59)
+Defined in: [src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L59)
 
 ___
 
@@ -87,15 +87,15 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`nodeID` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `nodeID` | *string* |
 
 **Returns:** *void*
 
 Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/af5cad8/src/MySQLDatabase.ts#L54)
+Defined in: [src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L54)
 
 ___
 
@@ -105,15 +105,15 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`config` | PoolConfig |
+| Name | Type |
+| :------ | :------ |
+| `config` | PoolConfig |
 
 **Returns:** *void*
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L32)
+Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L32)
 
 ___
 
@@ -123,16 +123,16 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`slaveID` | *string* |
-`config` | PoolConfig |
+| Name | Type |
+| :------ | :------ |
+| `slaveID` | *string* |
+| `config` | PoolConfig |
 
 **Returns:** *string*
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L46)
+Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L46)
 
 ___
 
@@ -142,34 +142,34 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`value` | *any* |
+| Name | Type |
+| :------ | :------ |
+| `value` | *any* |
 
 **Returns:** *string*
 
 Overrides: [Database](database.database-1.md)
 
-Defined in: [src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/af5cad8/src/MySQLDatabase.ts#L40)
+Defined in: [src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L40)
 
 ___
 
 ### getConnection
 
-▸ **getConnection**(`requireWriteAccess?`: *boolean*, `nodeID?`: *string*): *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<*PoolConnection*\>\>
+▸ **getConnection**(`requireWriteAccess?`: *boolean*, `nodeID?`: *string*): *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<PoolConnection\>\>
 
 #### Parameters:
 
-Name | Type | Default value |
------- | ------ | ------ |
-`requireWriteAccess` | *boolean* | false |
-`nodeID?` | *string* | - |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `requireWriteAccess` | *boolean* | false |
+| `nodeID?` | *string* | - |
 
-**Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<*PoolConnection*\>\>
+**Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<PoolConnection\>\>
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L65)
+Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L65)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L41)
+Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L41)
 
 ___
 
@@ -191,15 +191,15 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`slaveID` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `slaveID` | *string* |
 
 **Returns:** *void*
 
 Inherited from: [Database](database.database-1.md)
 
-Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L55)
+Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L55)
 
 ___
 
@@ -209,10 +209,10 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`value` | *any* |
+| Name | Type |
+| :------ | :------ |
+| `value` | *any* |
 
 **Returns:** *string*
 
-Defined in: [src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/af5cad8/src/MySQLDatabase.ts#L45)
+Defined in: [src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L45)

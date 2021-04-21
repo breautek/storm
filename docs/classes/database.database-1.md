@@ -6,10 +6,10 @@
 
 ## Type parameters
 
-Name |
------- |
-`TDatabaseConfig` |
-`TConnectionAPI` |
+| Name |
+| :------ |
+| `TDatabaseConfig` |
+| `TConnectionAPI` |
 
 ## Hierarchy
 
@@ -43,14 +43,14 @@ Name |
 
 #### Type parameters:
 
-Name |
------- |
-`TDatabaseConfig` |
-`TConnectionAPI` |
+| Name |
+| :------ |
+| `TDatabaseConfig` |
+| `TConnectionAPI` |
 
 **Returns:** [*Database*](database.database-1.md)<TDatabaseConfig, TConnectionAPI\>
 
-Defined in: [src/Database.ts:26](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L26)
+Defined in: [src/Database.ts:26](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L26)
 
 ## Methods
 
@@ -60,14 +60,14 @@ Defined in: [src/Database.ts:26](https://github.com/breautek/storm/blob/af5cad8/
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`name` | *string* |
-`config` | TDatabaseConfig |
+| Name | Type |
+| :------ | :------ |
+| `name` | *string* |
+| `config` | TDatabaseConfig |
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:78](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L78)
+Defined in: [src/Database.ts:78](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L78)
 
 ___
 
@@ -77,14 +77,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`query` | *string* |
-`requireWriteAccess` | *boolean* |
+| Name | Type |
+| :------ | :------ |
+| `query` | *string* |
+| `requireWriteAccess` | *boolean* |
 
 **Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TConnectionAPI\>\>
 
-Defined in: [src/Database.ts:80](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L80)
+Defined in: [src/Database.ts:80](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L80)
 
 ___
 
@@ -94,13 +94,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`name` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `name` | *string* |
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:79](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L79)
+Defined in: [src/Database.ts:79](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L79)
 
 ___
 
@@ -110,13 +110,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`config` | TDatabaseConfig |
+| Name | Type |
+| :------ | :------ |
+| `config` | TDatabaseConfig |
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L32)
+Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L32)
 
 ___
 
@@ -126,14 +126,14 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`slaveID` | *string* |
-`config` | TDatabaseConfig |
+| Name | Type |
+| :------ | :------ |
+| `slaveID` | *string* |
+| `config` | TDatabaseConfig |
 
 **Returns:** *string*
 
-Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L46)
+Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L46)
 
 ___
 
@@ -143,13 +143,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`query` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `query` | *string* |
 
 **Returns:** *string*
 
-Defined in: [src/Database.ts:81](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L81)
+Defined in: [src/Database.ts:81](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L81)
 
 ___
 
@@ -159,14 +159,14 @@ ___
 
 #### Parameters:
 
-Name | Type | Default value |
------- | ------ | ------ |
-`requireWriteAccess` | *boolean* | false |
-`nodeID?` | *string* | - |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `requireWriteAccess` | *boolean* | false |
+| `nodeID?` | *string* | - |
 
 **Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TConnectionAPI\>\>
 
-Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L65)
+Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L65)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L41)
+Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L41)
 
 ___
 
@@ -186,10 +186,10 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`slaveID` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `slaveID` | *string* |
 
 **Returns:** *void*
 
-Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/af5cad8/src/Database.ts#L55)
+Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L55)

@@ -33,15 +33,15 @@
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`parameters?` | [*IDropTemporaryTableQueryInput*](../interfaces/droptemporarytablequery.idroptemporarytablequeryinput.md) |
+| Name | Type |
+| :------ | :------ |
+| `parameters?` | [*IDropTemporaryTableQueryInput*](../interfaces/droptemporarytablequery.idroptemporarytablequeryinput.md) |
 
 **Returns:** [*DropTemporaryTableQuery*](droptemporarytablequery.droptemporarytablequery-1.md)
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L21)
+Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L21)
 
 ## Methods
 
@@ -53,25 +53,25 @@ Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/af5cad8/src
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/DropTemporaryTableQuery.ts:29](https://github.com/breautek/storm/blob/af5cad8/src/DropTemporaryTableQuery.ts#L29)
+Defined in: [src/DropTemporaryTableQuery.ts:29](https://github.com/breautek/storm/blob/2614a1c/src/DropTemporaryTableQuery.ts#L29)
 
 ___
 
 ### execute
 
-▸ **execute**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)): *Promise*<*any*\>
+▸ **execute**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)): *Promise*<any\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
 
-**Returns:** *Promise*<*any*\>
+**Returns:** *Promise*<any\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L52)
+Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L52)
 
 ___
 
@@ -83,19 +83,19 @@ ___
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/DropTemporaryTableQuery.ts:25](https://github.com/breautek/storm/blob/af5cad8/src/DropTemporaryTableQuery.ts#L25)
+Defined in: [src/DropTemporaryTableQuery.ts:25](https://github.com/breautek/storm/blob/2614a1c/src/DropTemporaryTableQuery.ts#L25)
 
 ___
 
 ### getParametersForQuery
 
-▸ **getParametersForQuery**(): *IDictionary*<*any*\>
+▸ **getParametersForQuery**(): *IDictionary*<any\>
 
-**Returns:** *IDictionary*<*any*\>
+**Returns:** *IDictionary*<any\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L31)
+Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L31)
 
 ___
 
@@ -107,25 +107,25 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L37)
+Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L37)
 
 ___
 
 ### onPostProcess
 
-▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: *any*): *Promise*<*any*\>
+▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: *any*): *Promise*<any\>
 
 Override to augment/manipulate the returned result set.
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required.   |
-`resultSet` | *any* | - |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
+| `resultSet` | *any* | - |
 
-**Returns:** *Promise*<*any*\>
+**Returns:** *Promise*<any\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L47)
+Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L47)

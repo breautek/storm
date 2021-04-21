@@ -6,13 +6,13 @@
 
 ## Type parameters
 
-Name | Type |
------- | ------ |
-`TConfig` | [*IConfig*](../interfaces/iconfig.iconfig-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `TConfig` | [*IConfig*](../interfaces/iconfig.iconfig-1.md) |
 
 ## Hierarchy
 
-* [*StormError*](stormerror.stormerror-1.md)<*IInvalidConfigErrorDetails*<TConfig\>\>
+* [*StormError*](stormerror.stormerror-1.md)<IInvalidConfigErrorDetails<TConfig\>\>
 
   ↳ **InvalidConfigError**
 
@@ -26,13 +26,12 @@ Name | Type |
 
 - [message](invalidconfigerror.invalidconfigerror-1.md#message)
 - [name](invalidconfigerror.invalidconfigerror-1.md#name)
-- [prepareStackTrace](invalidconfigerror.invalidconfigerror-1.md#preparestacktrace)
 - [stack](invalidconfigerror.invalidconfigerror-1.md#stack)
+- [prepareStackTrace](invalidconfigerror.invalidconfigerror-1.md#preparestacktrace)
 - [stackTraceLimit](invalidconfigerror.invalidconfigerror-1.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](invalidconfigerror.invalidconfigerror-1.md#capturestacktrace)
 - [getCode](invalidconfigerror.invalidconfigerror-1.md#getcode)
 - [getErrorResponse](invalidconfigerror.invalidconfigerror-1.md#geterrorresponse)
 - [getExitCode](invalidconfigerror.invalidconfigerror-1.md#getexitcode)
@@ -40,31 +39,32 @@ Name | Type |
 - [getMessage](invalidconfigerror.invalidconfigerror-1.md#getmessage)
 - [getPrivateDetails](invalidconfigerror.invalidconfigerror-1.md#getprivatedetails)
 - [getPublicDetails](invalidconfigerror.invalidconfigerror-1.md#getpublicdetails)
+- [captureStackTrace](invalidconfigerror.invalidconfigerror-1.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-\+ **new InvalidConfigError**<TConfig\>(`config`: TConfig, `errors`: *ErrorObject*<*string*, *Record*<*string*, *any*\>, *unknown*\>[]): [*InvalidConfigError*](invalidconfigerror.invalidconfigerror-1.md)<TConfig\>
+\+ **new InvalidConfigError**<TConfig\>(`config`: TConfig, `errors`: *ErrorObject*<string, Record<string, any\>, unknown\>[]): [*InvalidConfigError*](invalidconfigerror.invalidconfigerror-1.md)<TConfig\>
 
 #### Type parameters:
 
-Name | Type |
------- | ------ |
-`TConfig` | [*IConfig*](../interfaces/iconfig.iconfig-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `TConfig` | [*IConfig*](../interfaces/iconfig.iconfig-1.md) |
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`config` | TConfig |
-`errors` | *ErrorObject*<*string*, *Record*<*string*, *any*\>, *unknown*\>[] |
+| Name | Type |
+| :------ | :------ |
+| `config` | TConfig |
+| `errors` | *ErrorObject*<string, Record<string, any\>, unknown\>[] |
 
 **Returns:** [*InvalidConfigError*](invalidconfigerror.invalidconfigerror-1.md)<TConfig\>
 
-Inherited from: [StormError](stormerror.stormerror-1.md)
+Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:29](https://github.com/breautek/storm/blob/af5cad8/src/InvalidConfigError.ts#L29)
+Defined in: [src/InvalidConfigError.ts:29](https://github.com/breautek/storm/blob/2614a1c/src/InvalidConfigError.ts#L29)
 
 ## Properties
 
@@ -88,20 +88,6 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:973
 
 ___
 
-### prepareStackTrace
-
-• `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => *any*
-
-Optional override for formatting stack traces
-
-**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
-
-Inherited from: [StormError](stormerror.stormerror-1.md).[prepareStackTrace](stormerror.stormerror-1.md#preparestacktrace)
-
-Defined in: node_modules/@types/node/globals.d.ts:11
-
-___
-
 ### stack
 
 • `Optional` **stack**: *string*
@@ -112,36 +98,44 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
 ___
 
+### prepareStackTrace
+
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => *any*
+
+Optional override for formatting stack traces
+
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+#### Type declaration:
+
+▸ (`err`: Error, `stackTraces`: CallSite[]): *any*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `err` | Error |
+| `stackTraces` | CallSite[] |
+
+**Returns:** *any*
+
+Defined in: node_modules/@types/node/globals.d.ts:11
+
+Inherited from: [StormError](stormerror.stormerror-1.md).[prepareStackTrace](stormerror.stormerror-1.md#preparestacktrace)
+
+Defined in: node_modules/@types/node/globals.d.ts:11
+
+___
+
 ### stackTraceLimit
 
-• **stackTraceLimit**: *number*
+▪ `Static` **stackTraceLimit**: *number*
 
 Inherited from: [StormError](stormerror.stormerror-1.md).[stackTraceLimit](stormerror.stormerror-1.md#stacktracelimit)
 
 Defined in: node_modules/@types/node/globals.d.ts:13
 
 ## Methods
-
-### captureStackTrace
-
-▸ **captureStackTrace**(`targetObject`: *object*, `constructorOpt?`: Function): *void*
-
-Create .stack property on a target object
-
-#### Parameters:
-
-Name | Type |
------- | ------ |
-`targetObject` | *object* |
-`constructorOpt?` | Function |
-
-**Returns:** *void*
-
-Inherited from: [StormError](stormerror.stormerror-1.md)
-
-Defined in: node_modules/@types/node/globals.d.ts:4
-
-___
 
 ### getCode
 
@@ -151,7 +145,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:42](https://github.com/breautek/storm/blob/af5cad8/src/InvalidConfigError.ts#L42)
+Defined in: [src/InvalidConfigError.ts:42](https://github.com/breautek/storm/blob/2614a1c/src/InvalidConfigError.ts#L42)
 
 ___
 
@@ -163,7 +157,7 @@ ___
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L70)
+Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L70)
 
 ___
 
@@ -175,7 +169,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:50](https://github.com/breautek/storm/blob/af5cad8/src/InvalidConfigError.ts#L50)
+Defined in: [src/InvalidConfigError.ts:50](https://github.com/breautek/storm/blob/2614a1c/src/InvalidConfigError.ts#L50)
 
 ___
 
@@ -187,7 +181,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:46](https://github.com/breautek/storm/blob/af5cad8/src/InvalidConfigError.ts#L46)
+Defined in: [src/InvalidConfigError.ts:46](https://github.com/breautek/storm/blob/2614a1c/src/InvalidConfigError.ts#L46)
 
 ___
 
@@ -199,7 +193,7 @@ ___
 
 Overrides: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/InvalidConfigError.ts:37](https://github.com/breautek/storm/blob/af5cad8/src/InvalidConfigError.ts#L37)
+Defined in: [src/InvalidConfigError.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/InvalidConfigError.ts#L37)
 
 ___
 
@@ -214,7 +208,7 @@ They are kept secret from the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L62)
+Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L62)
 
 ___
 
@@ -228,4 +222,25 @@ Sends details to the client.
 
 Inherited from: [StormError](stormerror.stormerror-1.md)
 
-Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/af5cad8/src/StormError.ts#L54)
+Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L54)
+
+___
+
+### captureStackTrace
+
+▸ `Static`**captureStackTrace**(`targetObject`: *object*, `constructorOpt?`: Function): *void*
+
+Create .stack property on a target object
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | *object* |
+| `constructorOpt?` | Function |
+
+**Returns:** *void*
+
+Inherited from: [StormError](stormerror.stormerror-1.md)
+
+Defined in: node_modules/@types/node/globals.d.ts:4

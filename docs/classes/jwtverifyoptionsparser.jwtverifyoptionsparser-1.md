@@ -4,10 +4,6 @@
 
 [JWTVerifyOptionsParser](../modules/jwtverifyoptionsparser.md).JWTVerifyOptionsParser
 
-## Hierarchy
-
-* **JWTVerifyOptionsParser**
-
 ## Table of contents
 
 ### Constructors
@@ -26,7 +22,7 @@
 
 **Returns:** [*JWTVerifyOptionsParser*](jwtverifyoptionsparser.jwtverifyoptionsparser-1.md)
 
-Defined in: [src/JWTVerifyOptionsParser.ts:19](https://github.com/breautek/storm/blob/af5cad8/src/JWTVerifyOptionsParser.ts#L19)
+Defined in: [src/JWTVerifyOptionsParser.ts:19](https://github.com/breautek/storm/blob/2614a1c/src/JWTVerifyOptionsParser.ts#L19)
 
 ## Methods
 
@@ -36,10 +32,10 @@ Defined in: [src/JWTVerifyOptionsParser.ts:19](https://github.com/breautek/storm
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`options` | [*IJWTVerifyOptions*](../interfaces/ijwtverifyoptions.ijwtverifyoptions-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `options` | [*IJWTVerifyOptions*](../interfaces/ijwtverifyoptions.ijwtverifyoptions-1.md) |
 
 **Returns:** *any*
 
-Defined in: [src/JWTVerifyOptionsParser.ts:25](https://github.com/breautek/storm/blob/af5cad8/src/JWTVerifyOptionsParser.ts#L25)
+Defined in: [src/JWTVerifyOptionsParser.ts:25](https://github.com/breautek/storm/blob/2614a1c/src/JWTVerifyOptionsParser.ts#L25)

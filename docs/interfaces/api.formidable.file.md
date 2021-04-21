@@ -4,10 +4,6 @@
 
 [api](../modules/api.md).[formidable](../modules/api.formidable.md).File
 
-## Hierarchy
-
-* **File**
-
 ## Table of contents
 
 ### Properties

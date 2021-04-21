@@ -6,13 +6,9 @@
 
 ## Type parameters
 
-Name | Default |
------- | ------ |
-`TName` | *string* |
-
-## Hierarchy
-
-* **IDatabaseConfig**
+| Name | Default |
+| :------ | :------ |
+| `TName` | *string* |
 
 ## Table of contents
 
@@ -31,7 +27,7 @@ Name | Default |
 
 • **database**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:21](https://github.com/breautek/storm/blob/af5cad8/src/IDatabaseConfig.ts#L21)
+Defined in: [src/IDatabaseConfig.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/IDatabaseConfig.ts#L21)
 
 ___
 
@@ -39,7 +35,7 @@ ___
 
 • **host**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:19](https://github.com/breautek/storm/blob/af5cad8/src/IDatabaseConfig.ts#L19)
+Defined in: [src/IDatabaseConfig.ts:19](https://github.com/breautek/storm/blob/2614a1c/src/IDatabaseConfig.ts#L19)
 
 ___
 
@@ -47,7 +43,7 @@ ___
 
 • **name**: TName
 
-Defined in: [src/IDatabaseConfig.ts:18](https://github.com/breautek/storm/blob/af5cad8/src/IDatabaseConfig.ts#L18)
+Defined in: [src/IDatabaseConfig.ts:18](https://github.com/breautek/storm/blob/2614a1c/src/IDatabaseConfig.ts#L18)
 
 ___
 
@@ -55,7 +51,7 @@ ___
 
 • **password**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:23](https://github.com/breautek/storm/blob/af5cad8/src/IDatabaseConfig.ts#L23)
+Defined in: [src/IDatabaseConfig.ts:23](https://github.com/breautek/storm/blob/2614a1c/src/IDatabaseConfig.ts#L23)
 
 ___
 
@@ -63,7 +59,7 @@ ___
 
 • **port**: *number*
 
-Defined in: [src/IDatabaseConfig.ts:20](https://github.com/breautek/storm/blob/af5cad8/src/IDatabaseConfig.ts#L20)
+Defined in: [src/IDatabaseConfig.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/IDatabaseConfig.ts#L20)
 
 ___
 
@@ -71,4 +67,4 @@ ___
 
 • **user**: *string*
 
-Defined in: [src/IDatabaseConfig.ts:22](https://github.com/breautek/storm/blob/af5cad8/src/IDatabaseConfig.ts#L22)
+Defined in: [src/IDatabaseConfig.ts:22](https://github.com/breautek/storm/blob/2614a1c/src/IDatabaseConfig.ts#L22)

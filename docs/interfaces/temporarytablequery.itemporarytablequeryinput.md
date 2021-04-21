@@ -4,10 +4,6 @@
 
 [TemporaryTableQuery](../modules/temporarytablequery.md).ITemporaryTableQueryInput
 
-## Hierarchy
-
-* **ITemporaryTableQueryInput**
-
 ## Table of contents
 
 ### Properties
@@ -19,9 +15,9 @@
 
 ### selectQuery
 
-• **selectQuery**: [*Query*](../classes/query.query-1.md)<*any*, *any*, *any*\>
+• **selectQuery**: [*Query*](../classes/query.query-1.md)<any, any, any\>
 
-Defined in: [src/TemporaryTableQuery.ts:22](https://github.com/breautek/storm/blob/af5cad8/src/TemporaryTableQuery.ts#L22)
+Defined in: [src/TemporaryTableQuery.ts:22](https://github.com/breautek/storm/blob/2614a1c/src/TemporaryTableQuery.ts#L22)
 
 ___
 
@@ -29,4 +25,4 @@ ___
 
 • **tableName**: *string*
 
-Defined in: [src/TemporaryTableQuery.ts:21](https://github.com/breautek/storm/blob/af5cad8/src/TemporaryTableQuery.ts#L21)
+Defined in: [src/TemporaryTableQuery.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/TemporaryTableQuery.ts#L21)

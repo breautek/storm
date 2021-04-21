@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-* [*Query*](query.query-1.md)<*void*, *void*\>
+* [*Query*](query.query-1.md)<void, void\>
 
   ↳ **CommitQuery**
 
@@ -33,15 +33,15 @@
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`parameters?` | *void* |
+| Name | Type |
+| :------ | :------ |
+| `parameters?` | *void* |
 
 **Returns:** [*CommitQuery*](private_commitquery.commitquery.md)
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L21)
+Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L21)
 
 ## Methods
 
@@ -53,25 +53,25 @@ Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/af5cad8/src
 
 Overrides: [Query](query.query-1.md)
 
-Defined in: [src/private/CommitQuery.ts:20](https://github.com/breautek/storm/blob/af5cad8/src/private/CommitQuery.ts#L20)
+Defined in: [src/private/CommitQuery.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/private/CommitQuery.ts#L20)
 
 ___
 
 ### execute
 
-▸ **execute**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)): *Promise*<*void*\>
+▸ **execute**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)): *Promise*<void\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L52)
+Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L52)
 
 ___
 
@@ -83,19 +83,19 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L27)
+Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L27)
 
 ___
 
 ### getParametersForQuery
 
-▸ **getParametersForQuery**(): *IDictionary*<*any*\>
+▸ **getParametersForQuery**(): *IDictionary*<any\>
 
-**Returns:** *IDictionary*<*any*\>
+**Returns:** *IDictionary*<any\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L31)
+Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L31)
 
 ___
 
@@ -107,25 +107,25 @@ ___
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L37)
+Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L37)
 
 ___
 
 ### onPostProcess
 
-▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: *void*): *Promise*<*void*\>
+▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: *void*): *Promise*<void\>
 
 Override to augment/manipulate the returned result set.
 
 #### Parameters:
 
-Name | Type | Description |
------- | ------ | ------ |
-`connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required.   |
-`resultSet` | *void* | - |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
+| `resultSet` | *void* | - |
 
-**Returns:** *Promise*<*void*\>
+**Returns:** *Promise*<void\>
 
 Inherited from: [Query](query.query-1.md)
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/af5cad8/src/Query.ts#L47)
+Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L47)

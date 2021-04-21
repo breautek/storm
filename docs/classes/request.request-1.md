@@ -6,14 +6,10 @@
 
 ## Type parameters
 
-Name | Type | Default |
------- | ------ | ------ |
-`TBody` | - | *any* |
-`TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
-
-## Hierarchy
-
-* **Request**
+| Name | Type | Default |
+| :------ | :------ | :------ |
+| `TBody` | - | *any* |
+| `TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
 
 ## Table of contents
 
@@ -45,24 +41,24 @@ Name | Type | Default |
 
 ### constructor
 
-\+ **new Request**<TBody, TAuthToken\>(`request`: *Request*<ParamsDictionary, *any*, *any*, ParsedQs, *Record*<*string*, *any*\>\>): [*Request*](request.request-1.md)<TBody, TAuthToken\>
+\+ **new Request**<TBody, TAuthToken\>(`request`: *Request*<ParamsDictionary, any, any, ParsedQs, Record<string, any\>\>): [*Request*](request.request-1.md)<TBody, TAuthToken\>
 
 #### Type parameters:
 
-Name | Type | Default |
------- | ------ | ------ |
-`TBody` | - | *any* |
-`TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
+| Name | Type | Default |
+| :------ | :------ | :------ |
+| `TBody` | - | *any* |
+| `TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`request` | *Request*<ParamsDictionary, *any*, *any*, ParsedQs, *Record*<*string*, *any*\>\> |
+| Name | Type |
+| :------ | :------ |
+| `request` | *Request*<ParamsDictionary, any, any, ParsedQs, Record<string, any\>\> |
 
 **Returns:** [*Request*](request.request-1.md)<TBody, TAuthToken\>
 
-Defined in: [src/Request.ts:35](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L35)
+Defined in: [src/Request.ts:35](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L35)
 
 ## Methods
 
@@ -72,7 +68,7 @@ Defined in: [src/Request.ts:35](https://github.com/breautek/storm/blob/af5cad8/s
 
 **Returns:** *Promise*<TAuthToken\>
 
-Defined in: [src/Request.ts:126](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L126)
+Defined in: [src/Request.ts:126](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L126)
 
 ___
 
@@ -82,7 +78,7 @@ ___
 
 **Returns:** TBody
 
-Defined in: [src/Request.ts:41](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L41)
+Defined in: [src/Request.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L41)
 
 ___
 
@@ -92,7 +88,7 @@ ___
 
 **Returns:** *Promise*<[*IFormData*](../interfaces/iformdata.iformdata-1.md)\>
 
-Defined in: [src/Request.ts:45](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L45)
+Defined in: [src/Request.ts:45](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L45)
 
 ___
 
@@ -102,7 +98,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/Request.ts:94](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L94)
+Defined in: [src/Request.ts:94](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L94)
 
 ___
 
@@ -112,13 +108,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`name` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `name` | *string* |
 
 **Returns:** *string*
 
-Defined in: [src/Request.ts:68](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L68)
+Defined in: [src/Request.ts:68](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L68)
 
 ___
 
@@ -128,7 +124,7 @@ ___
 
 **Returns:** *IncomingHttpHeaders*
 
-Defined in: [src/Request.ts:64](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L64)
+Defined in: [src/Request.ts:64](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L64)
 
 ___
 
@@ -138,7 +134,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/Request.ts:98](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L98)
+Defined in: [src/Request.ts:98](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L98)
 
 ___
 
@@ -148,7 +144,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/Request.ts:90](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L90)
+Defined in: [src/Request.ts:90](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L90)
 
 ___
 
@@ -158,7 +154,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/Request.ts:102](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L102)
+Defined in: [src/Request.ts:102](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L102)
 
 ___
 
@@ -168,13 +164,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`name` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `name` | *string* |
 
 **Returns:** *string*
 
-Defined in: [src/Request.ts:86](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L86)
+Defined in: [src/Request.ts:86](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L86)
 
 ___
 
@@ -184,7 +180,7 @@ ___
 
 **Returns:** [*IParameterMap*](../interfaces/request.iparametermap.md)
 
-Defined in: [src/Request.ts:82](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L82)
+Defined in: [src/Request.ts:82](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L82)
 
 ___
 
@@ -194,17 +190,17 @@ ___
 
 **Returns:** *any*
 
-Defined in: [src/Request.ts:78](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L78)
+Defined in: [src/Request.ts:78](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L78)
 
 ___
 
 ### getRequestSource
 
-▸ **getRequestSource**(): *Request*<ParamsDictionary, *any*, *any*, ParsedQs, *Record*<*string*, *any*\>\>
+▸ **getRequestSource**(): *Request*<ParamsDictionary, any, any, ParsedQs, Record<string, any\>\>
 
-**Returns:** *Request*<ParamsDictionary, *any*, *any*, ParsedQs, *Record*<*string*, *any*\>\>
+**Returns:** *Request*<ParamsDictionary, any, any, ParsedQs, Record<string, any\>\>
 
-Defined in: [src/Request.ts:122](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L122)
+Defined in: [src/Request.ts:122](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L122)
 
 ___
 
@@ -214,7 +210,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/Request.ts:106](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L106)
+Defined in: [src/Request.ts:106](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L106)
 
 ___
 
@@ -224,7 +220,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [src/Request.ts:110](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L110)
+Defined in: [src/Request.ts:110](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L110)
 
 ___
 
@@ -234,13 +230,13 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`destination` | *Writable* |
+| Name | Type |
+| :------ | :------ |
+| `destination` | *Writable* |
 
 **Returns:** *any*
 
-Defined in: [src/Request.ts:114](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L114)
+Defined in: [src/Request.ts:114](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L114)
 
 ___
 
@@ -250,10 +246,10 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`source` | *Writable* |
+| Name | Type |
+| :------ | :------ |
+| `source` | *Writable* |
 
 **Returns:** *void*
 
-Defined in: [src/Request.ts:118](https://github.com/breautek/storm/blob/af5cad8/src/Request.ts#L118)
+Defined in: [src/Request.ts:118](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L118)

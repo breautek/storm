@@ -4,10 +4,6 @@
 
 [ServiceProvider](../modules/serviceprovider.md).ServiceProvider
 
-## Hierarchy
-
-* **ServiceProvider**
-
 ## Table of contents
 
 ### Constructors
@@ -35,44 +31,44 @@
 
 ### constructor
 
-\+ **new ServiceProvider**(`app`: [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>): [*ServiceProvider*](serviceprovider.serviceprovider-1.md)
+\+ **new ServiceProvider**(`app`: [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>): [*ServiceProvider*](serviceprovider.serviceprovider-1.md)
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`app` | [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\> |
+| Name | Type |
+| :------ | :------ |
+| `app` | [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\> |
 
 **Returns:** [*ServiceProvider*](serviceprovider.serviceprovider-1.md)
 
-Defined in: [src/ServiceProvider.ts:28](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L28)
+Defined in: [src/ServiceProvider.ts:28](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L28)
 
 ## Methods
 
 ### \_createURL
 
-▸ `Protected`**_createURL**(`url`: *string*, `queryParams?`: *IDictionary*<*any*\>): *string*
+▸ `Protected`**_createURL**(`url`: *string*, `queryParams?`: *IDictionary*<any\>): *string*
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`url` | *string* |
-`queryParams?` | *IDictionary*<*any*\> |
+| Name | Type |
+| :------ | :------ |
+| `url` | *string* |
+| `queryParams?` | *IDictionary*<any\> |
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:65](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L65)
+Defined in: [src/ServiceProvider.ts:65](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L65)
 
 ___
 
 ### \_getApp
 
-▸ `Protected`**_getApp**(): [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>
+▸ `Protected`**_getApp**(): [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>
 
-**Returns:** [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>
+**Returns:** [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>
 
-Defined in: [src/ServiceProvider.ts:37](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L37)
+Defined in: [src/ServiceProvider.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L37)
 
 ___
 
@@ -82,7 +78,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:34](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L34)
+Defined in: [src/ServiceProvider.ts:34](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L34)
 
 ___
 
@@ -92,7 +88,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:45](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L45)
+Defined in: [src/ServiceProvider.ts:45](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L45)
 
 ___
 
@@ -102,7 +98,7 @@ ___
 
 **Returns:** *number*
 
-Defined in: [src/ServiceProvider.ts:35](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L35)
+Defined in: [src/ServiceProvider.ts:35](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L35)
 
 ___
 
@@ -112,7 +108,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:57](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L57)
+Defined in: [src/ServiceProvider.ts:57](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L57)
 
 ___
 
@@ -122,17 +118,17 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`url` | *string* |
-`accessToken` | *string* |
-`data?` | *any* |
-`headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-`additionalOptions?` | *any* |
+| Name | Type |
+| :------ | :------ |
+| `url` | *string* |
+| `accessToken` | *string* |
+| `data?` | *any* |
+| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | *any* |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:158](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L158)
+Defined in: [src/ServiceProvider.ts:158](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L158)
 
 ___
 
@@ -142,27 +138,27 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`url` | *string* |
-`accessToken` | *string* |
-`data?` | *any* |
-`headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-`additionalOptions?` | *any* |
+| Name | Type |
+| :------ | :------ |
+| `url` | *string* |
+| `accessToken` | *string* |
+| `data?` | *any* |
+| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | *any* |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:143](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L143)
+Defined in: [src/ServiceProvider.ts:143](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L143)
 
 ___
 
 ### getApp
 
-▸ **getApp**(): [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>
+▸ **getApp**(): [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>
 
-**Returns:** [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), *any*, *any*\>
+**Returns:** [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>
 
-Defined in: [src/ServiceProvider.ts:41](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L41)
+Defined in: [src/ServiceProvider.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L41)
 
 ___
 
@@ -172,7 +168,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:61](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L61)
+Defined in: [src/ServiceProvider.ts:61](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L61)
 
 ___
 
@@ -182,17 +178,17 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`url` | *string* |
-`accessToken` | *string* |
-`data?` | *any* |
-`headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-`additionalOptions?` | *any* |
+| Name | Type |
+| :------ | :------ |
+| `url` | *string* |
+| `accessToken` | *string* |
+| `data?` | *any* |
+| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | *any* |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:148](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L148)
+Defined in: [src/ServiceProvider.ts:148](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L148)
 
 ___
 
@@ -202,17 +198,17 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`url` | *string* |
-`accessToken` | *string* |
-`data?` | *any* |
-`headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-`additionalOptions?` | *any* |
+| Name | Type |
+| :------ | :------ |
+| `url` | *string* |
+| `accessToken` | *string* |
+| `data?` | *any* |
+| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | *any* |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:153](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L153)
+Defined in: [src/ServiceProvider.ts:153](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L153)
 
 ___
 
@@ -222,18 +218,18 @@ ___
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`method` | [*HTTPMethod*](../enums/httpmethod.httpmethod-1.md) |
-`url` | *string* |
-`accessToken` | *string* |
-`data` | *any* |
-`headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-`additionalOptions?` | *any* |
+| Name | Type |
+| :------ | :------ |
+| `method` | [*HTTPMethod*](../enums/httpmethod.httpmethod-1.md) |
+| `url` | *string* |
+| `accessToken` | *string* |
+| `data` | *any* |
+| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | *any* |
 
 **Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
 
-Defined in: [src/ServiceProvider.ts:83](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L83)
+Defined in: [src/ServiceProvider.ts:83](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L83)
 
 ___
 
@@ -243,4 +239,4 @@ ___
 
 **Returns:** *string*
 
-Defined in: [src/ServiceProvider.ts:53](https://github.com/breautek/storm/blob/af5cad8/src/ServiceProvider.ts#L53)
+Defined in: [src/ServiceProvider.ts:53](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L53)

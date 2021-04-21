@@ -6,13 +6,9 @@
 
 ## Type parameters
 
-Name | Type | Default |
------- | ------ | ------ |
-`TApplication` | [*Application*](../classes/application.application-1.md) | [*Application*](../classes/application.application-1.md) |
-
-## Hierarchy
-
-* **IHandler**
+| Name | Type | Default |
+| :------ | :------ | :------ |
+| `TApplication` | [*Application*](../classes/application.application-1.md) | [*Application*](../classes/application.application-1.md) |
 
 ## Table of contents
 
@@ -24,14 +20,14 @@ Name | Type | Default |
 
 ### constructor
 
-\+ **new IHandler**(`app`: TApplication): [*Handler*](../classes/handler.handler-1.md)<[*Application*](../classes/application.application-1.md)<[*IConfig*](iconfig.iconfig-1.md), [*IAuthTokenData*](iauthtokendata.iauthtokendata-1.md), *any*, *any*\>, *any*, *any*, *any*, *any*, *any*, *any*, *any*, *any*\>
+\+ **new IHandler**(`app`: TApplication): [*Handler*](../classes/handler.handler-1.md)<[*Application*](../classes/application.application-1.md)<[*IConfig*](iconfig.iconfig-1.md), [*IAuthTokenData*](iauthtokendata.iauthtokendata-1.md), any, any\>, any, any, any, any, any, any, any, any\>
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`app` | TApplication |
+| Name | Type |
+| :------ | :------ |
+| `app` | TApplication |
 
-**Returns:** [*Handler*](../classes/handler.handler-1.md)<[*Application*](../classes/application.application-1.md)<[*IConfig*](iconfig.iconfig-1.md), [*IAuthTokenData*](iauthtokendata.iauthtokendata-1.md), *any*, *any*\>, *any*, *any*, *any*, *any*, *any*, *any*, *any*, *any*\>
+**Returns:** [*Handler*](../classes/handler.handler-1.md)<[*Application*](../classes/application.application-1.md)<[*IConfig*](iconfig.iconfig-1.md), [*IAuthTokenData*](iauthtokendata.iauthtokendata-1.md), any, any\>, any, any, any, any, any, any, any, any\>
 
-Defined in: [src/IHandler.ts:20](https://github.com/breautek/storm/blob/af5cad8/src/IHandler.ts#L20)
+Defined in: [src/IHandler.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/IHandler.ts#L20)

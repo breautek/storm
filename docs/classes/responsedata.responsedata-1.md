@@ -6,13 +6,9 @@
 
 ## Type parameters
 
-Name | Default |
------- | ------ |
-`TData` | *any* |
-
-## Hierarchy
-
-* **ResponseData**
+| Name | Default |
+| :------ | :------ |
+| `TData` | *any* |
 
 ## Table of contents
 
@@ -33,20 +29,20 @@ Name | Default |
 
 #### Type parameters:
 
-Name | Default |
------- | ------ |
-`TData` | *any* |
+| Name | Default |
+| :------ | :------ |
+| `TData` | *any* |
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`status` | [*StatusCode*](../enums/statuscode.statuscode-1.md) |
-`data?` | TData |
+| Name | Type |
+| :------ | :------ |
+| `status` | [*StatusCode*](../enums/statuscode.statuscode-1.md) |
+| `data?` | TData |
 
 **Returns:** [*ResponseData*](responsedata.responsedata-1.md)<TData\>
 
-Defined in: [src/ResponseData.ts:21](https://github.com/breautek/storm/blob/af5cad8/src/ResponseData.ts#L21)
+Defined in: [src/ResponseData.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/ResponseData.ts#L21)
 
 ## Methods
 
@@ -56,7 +52,7 @@ Defined in: [src/ResponseData.ts:21](https://github.com/breautek/storm/blob/af5c
 
 **Returns:** TData
 
-Defined in: [src/ResponseData.ts:32](https://github.com/breautek/storm/blob/af5cad8/src/ResponseData.ts#L32)
+Defined in: [src/ResponseData.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/ResponseData.ts#L32)
 
 ___
 
@@ -66,4 +62,4 @@ ___
 
 **Returns:** [*StatusCode*](../enums/statuscode.statuscode-1.md)
 
-Defined in: [src/ResponseData.ts:28](https://github.com/breautek/storm/blob/af5cad8/src/ResponseData.ts#L28)
+Defined in: [src/ResponseData.ts:28](https://github.com/breautek/storm/blob/2614a1c/src/ResponseData.ts#L28)

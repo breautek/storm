@@ -4,10 +4,6 @@
 
 [ConfigLoader](../modules/configloader.md).ConfigLoader
 
-## Hierarchy
-
-* **ConfigLoader**
-
 ## Table of contents
 
 ### Methods
@@ -22,10 +18,10 @@
 
 #### Parameters:
 
-Name | Type |
------- | ------ |
-`path` | *string* |
+| Name | Type |
+| :------ | :------ |
+| `path` | *string* |
 
 **Returns:** *Promise*<[*IConfig*](../interfaces/iconfig.iconfig-1.md)\>
 
-Defined in: [src/ConfigLoader.ts:34](https://github.com/breautek/storm/blob/af5cad8/src/ConfigLoader.ts#L34)
+Defined in: [src/ConfigLoader.ts:34](https://github.com/breautek/storm/blob/2614a1c/src/ConfigLoader.ts#L34)
