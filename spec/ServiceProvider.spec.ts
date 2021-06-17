@@ -113,7 +113,7 @@ describe('ServiceProvider', () => {
         };
         sp.delete('echo', 'accessToken', data).then((sr: ServiceResponse) => {
             expect(sr instanceof ServiceResponse).toBe(true);
-            expect(sr.getUTF8()).toBe('');
+            expect(sr.getUTF8()).toBe('{}');
             done();
         });
     });

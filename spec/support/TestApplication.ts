@@ -10,7 +10,6 @@ import { Response } from '../../src/Response';
 import {IHandler} from '../../src/IHandler';
 import {StatusCode} from '../../src/StatusCode';
 import {HTTPMethod} from '../../src/HTTPMethod';
-// import {MockLogger} from './MockLogger';
 import * as http from 'http';
 import { TokenManager } from '../../src/TokenManager';
 import { Token } from '../../src/Token';
@@ -54,7 +53,7 @@ export class TestApplication extends Application {
         super("TestApplication", "./spec/support/");
     }
 
-    protected attachHandlers(): Promise<void> {
+    protected _attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         return Promise.resolve();
     }
@@ -63,7 +62,7 @@ export class TestApplication extends Application {
         return new Logger(this.getName());
     }
 
-    public initDB(config: IConfig): Promise<Database<any, any>> {
+    protected _initDB(config: IConfig): Promise<Database<any, any>> {
         return Promise.resolve(new MockDB());
     }
 }
@@ -82,7 +81,7 @@ export class MockApplication extends Application {
         return await this.getTokenManager().sign(payload, '1d');
     }
 
-    protected attachHandlers(): Promise<void> {
+    protected _attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         this.attachHandler('/api/mock/v1/echo', TestHandler);
         return Promise.resolve();
@@ -92,7 +91,7 @@ export class MockApplication extends Application {
         this.attachHandler(url, handler);
     }
 
-    private _doMock(method: HTTPMethod, url: string, data?: any, headers?: any): Promise<IMockResponse> {
+    private $doMock(method: HTTPMethod, url: string, data?: any, headers?: any): Promise<IMockResponse> {
         return new Promise<IMockResponse>((resolve, reject) => {
             let request: http.ClientRequest = http.request(new URL(url, `http://localhost:${this.getPort()}`), {
                 method: method
@@ -136,29 +135,29 @@ export class MockApplication extends Application {
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockGet(url: string, headers?: any): Promise<IMockResponse> {
-        return this._doMock(HTTPMethod.GET, url, null, headers);
+        return this.$doMock(HTTPMethod.GET, url, null, headers);
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockPost(url: string, data?: any): Promise<IMockResponse> {
-        return this._doMock(HTTPMethod.POST, url, data);
+        return this.$doMock(HTTPMethod.POST, url, data);
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockPut(url: string, data?: any): Promise<IMockResponse> {
-        return this._doMock(HTTPMethod.PUT, url, data);
+        return this.$doMock(HTTPMethod.PUT, url, data);
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockDelete(url: string, data?: any): Promise<IMockResponse> {
-        return this._doMock(HTTPMethod.DELETE, url, data);
+        return this.$doMock(HTTPMethod.DELETE, url, data);
     }
 
     protected _createLogger(): Logger {
         return new Logger(this.getName());
     }
 
-    public initDB(config: IConfig): Promise<Database<any, any>> {
+    protected _initDB(config: IConfig): Promise<Database<any, any>> {
         return Promise.resolve(new MockDB());
     }
 }
@@ -168,7 +167,7 @@ export class NoServerApp extends Application {
         super('NoServerApp', './spec/support/');
     }
 
-    protected attachHandlers(): Promise<void> {
+    protected _attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         return Promise.resolve();
     }
@@ -185,7 +184,7 @@ export class ConfigTestApp extends Application {
         super('ConfigTestApp', jsonConfig);
     }
 
-    protected attachHandlers(): Promise<void> {
+    protected _attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         return Promise.resolve();
     }

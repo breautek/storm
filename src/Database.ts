@@ -23,42 +23,42 @@ const MASTER_NAME: string = 'MASTER';
 const TAG: string = 'Database';
 
 export abstract class Database<TDatabaseConfig, TConnectionAPI> {
-    private _clusterConfigMap: IDictionary;
+    private $clusterConfigMap: IDictionary;
 
     constructor() {
-        this._clusterConfigMap = {};
+        this.$clusterConfigMap = {};
     }
 
     public addMaster(config: TDatabaseConfig): void {
-        if (this._clusterConfigMap[MASTER_NAME]) {
+        if (this.$clusterConfigMap[MASTER_NAME]) {
             throw new Error(`Node "${MASTER_NAME}" already exists.`);
         }
 
-        this._clusterConfigMap[MASTER_NAME] = config;
+        this.$clusterConfigMap[MASTER_NAME] = config;
         this._addNode(MASTER_NAME, config);
     }
 
     public removeMaster(): void {
-        delete this._clusterConfigMap[MASTER_NAME];
+        delete this.$clusterConfigMap[MASTER_NAME];
         this._removeNode(MASTER_NAME);
     }
 
     public addSlave(slaveID: string, config: TDatabaseConfig): string {
         let id = `SLAVE.${UUID.v4()}.${slaveID}`;
 
-        this._clusterConfigMap[id] = config;
+        this.$clusterConfigMap[id] = config;
         this._addNode(id, config);
 
         return id;
     }
 
     public removeSlave(slaveID: string): void {
-        if (!this._clusterConfigMap[slaveID]) {
+        if (!this.$clusterConfigMap[slaveID]) {
             getInstance().getLogger().warn(TAG, `Node ${slaveID} is not a part of this cluster.`);
             return;
         }
 
-        delete this._clusterConfigMap[slaveID];
+        delete this.$clusterConfigMap[slaveID];
         this._removeNode(slaveID);
     }
 

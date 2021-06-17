@@ -40,14 +40,14 @@ let commitQuery: Query = new CommitQuery();
 let rollbackQuery: Query = new RollbackQuery();
 
 export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
-    private _transaction: boolean;
-    private _opened: boolean;
+    private $transaction: boolean;
+    private $opened: boolean;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         super(connection, isReadOnly, instantiationStack);
 
-        this._opened = true;
-        this._transaction = false;
+        this.$opened = true;
+        this.$transaction = false;
 
         connection.config.queryFormat = function(query: string, values: any) {
             if (!values) return query;
@@ -63,11 +63,11 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     }
 
     public isTransaction(): boolean {
-        return this._transaction;
+        return this.$transaction;
     }
 
     public isOpen(): boolean {
-        return this._opened;
+        return this.$opened;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -138,13 +138,13 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             return Promise.reject(new Error('Connection is already in a transaction.'));
         }
 
-        this._transaction = true;
+        this.$transaction = true;
 
         return new Promise<void>((resolve, reject) => {
             this.query(startTransactionQuery).then(() => {
                 resolve();
             }).catch((ex) => {
-                this._transaction = false;
+                this.$transaction = false;
                 getInstance().getLogger().error(TAG, ex);
                 reject(ex);
             });
@@ -162,7 +162,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
         return new Promise<void>((resolve, reject) => {
             this.query(rollbackQuery).then(() => {
-                this._transaction = false
+                this.$transaction = false
                 resolve();
             }).catch((ex: any) => {
                 getInstance().getLogger().error(TAG, ex);
@@ -178,7 +178,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
         return new Promise<void>((resolve, reject) => {
             this.query(commitQuery).then(() => {
-                this._transaction = false;
+                this.$transaction = false;
                 resolve();
             }).catch((ex: any) => {
                 getInstance().getLogger().error(TAG, ex);
@@ -192,7 +192,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
         }
 
-        this._opened = false;
+        this.$opened = false;
         
         return new Promise<void>((resolve, reject) => {
             let rollbackPromise: Promise<void> = null;

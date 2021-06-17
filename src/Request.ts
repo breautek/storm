@@ -17,7 +17,11 @@
 import * as express from 'express';
 import { IncomingHttpHeaders } from 'http';
 import {Writable} from 'stream';
-import * as formidable from 'formidable';
+import {
+    Fields,
+    Files
+} from 'formidable';
+import formidable = require('formidable');
 import {IFormData} from './IFormData';
 import { IAuthTokenData } from './IAuthTokenData';
 import { getInstance } from './instance';
@@ -26,29 +30,31 @@ import { JWTError } from './JWTError';
 import { ResponseData } from './ResponseData';
 import {StatusCode} from './StatusCode';
 import { InternalError } from './InternalError';
+import IncomingForm = require('formidable/Formidable');
 
 export interface IParameterMap {
     [key: string]: string;
 }
 
 export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthTokenData> {
-    private _request: express.Request;
+    private $request: express.Request;
 
     public constructor(request: express.Request) {
-        this._request = request;
+        this.$request = request;
     }
 
     public getBody(): TBody {
-        return this._request.body;
+        return this.$request.body;
     }
 
     public getForm(): Promise<IFormData> {
         return new Promise<IFormData>((resolve, reject) => {
             let r: express.Request = this.getRequestSource();
-            let form: formidable.IncomingForm = new formidable.IncomingForm();
-            form.hash = 'md5';
+            let form: IncomingForm = formidable({
+                hash: 'md5'
+            });
 
-            form.parse(r, (error: any, fields: formidable.Fields, files: formidable.Files): any => {
+            form.parse(r, (error: any, fields: Fields, files: Files): any => {
                 if (error) {
                     return reject(error);
                 }
@@ -62,11 +68,11 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     public getHeaders(): IncomingHttpHeaders {
-        return this._request.headers;
+        return this.$request.headers;
     }
 
     public getHeader(name: string): string {
-        let value: string | Array<string> = this._request.headers[name.toLowerCase()];
+        let value: string | Array<string> = this.$request.headers[name.toLowerCase()];
         if (typeof value === 'string') {
             return value;
         }
@@ -76,19 +82,19 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     public getQueryVariables(): any {
-        return this._request.query;
+        return this.$request.query;
     }
 
     public getParams(): IParameterMap {
-        return this._request.params;
+        return this.$request.params;
     }
 
     public getParam(name: string): string {
-        return this._request.params[name];
+        return this.$request.params[name];
     }
 
     public getIP(): string {
-        return this._request.ip;
+        return this.$request.ip;
     }
 
     public getForwardedIP(): string {
@@ -96,31 +102,31 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     public getHostname(): string {
-        return this._request.hostname;
+        return this.$request.hostname;
     }
 
     public getMethod(): string {
-        return this._request.method;
+        return this.$request.method;
     }
 
     public getURL(): string {
-        return this._request.originalUrl;
+        return this.$request.originalUrl;
     }
 
     public isSecure(): boolean {
-        return this._request.secure;
+        return this.$request.secure;
     }
 
     public pipe(destination: Writable): any {
-        return this._request.pipe(destination);
+        return this.$request.pipe(destination);
     }
 
     public unpipe(source: Writable): void {
-        this._request.unpipe(source);
+        this.$request.unpipe(source);
     }
 
     public getRequestSource(): express.Request {
-        return this._request;
+        return this.$request;
     }
 
     public async getAuthenticationToken(): Promise<TAuthToken> {

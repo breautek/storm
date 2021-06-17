@@ -15,13 +15,13 @@
 */
 
 export class Token {
-    private _signature: string;
+    private $signature: string;
 
     constructor(signature: string) {
-        this._signature = signature;
+        this.$signature = signature;
     }
 
     public getSignature(): string {
-        return this._signature;
+        return this.$signature;
     }
 }

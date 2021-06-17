@@ -18,18 +18,18 @@ import { IDictionary } from '@totalpave/interfaces';
 import { IDatabaseConnection } from './IDatabaseConnection';
 
 export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQueryPostProcessedResultSet = TQueryResultSet> {
-    private _params: TQueryParameters;
+    private $params: TQueryParameters;
 
     public constructor(parameters?: TQueryParameters) {
-        this._params = parameters;
+        this.$params = parameters;
     }
 
     public getParameters(): TQueryParameters {
-        return this._params;
+        return this.$params;
     }
 
     public getParametersForQuery(): IDictionary {
-        return this._params;
+        return this.$params;
     }
 
     protected abstract _getQuery(): string;

@@ -17,19 +17,19 @@
 import {StatusCode} from './StatusCode';
 
 export class ResponseData<TData = any> {
-    private _status: StatusCode;
-    private _data: TData;
+    private $status: StatusCode;
+    private $data: TData;
 
     public constructor(status: StatusCode, data?: TData) {
-        this._status = status;
-        this._data = data;
+        this.$status = status;
+        this.$data = data;
     }
 
     public getStatus(): StatusCode {
-        return this._status;
+        return this.$status;
     }
 
     public getData(): TData {
-        return this._data;
+        return this.$data;
     }
 }

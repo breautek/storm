@@ -34,35 +34,35 @@ const TAG: string = 'DatabaseConnection';
  * @class
  */
 export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
-    private _api: any;
-    private _readOnly: boolean;
-    private _timeout: number;
-    private _lingerTimer: NodeJS.Timer;
-    private _instantiationStack: string;
-    private _open: boolean;
+    private $api: any;
+    private $readOnly: boolean;
+    private $timeout: number;
+    private $lingerTimer: NodeJS.Timer;
+    private $instantiationStack: string;
+    private $open: boolean;
 
     public constructor(api: TAPI, isReadOnly: boolean, instantiationStack: string) {
-        this._api = api;
-        this._readOnly = isReadOnly;
-        this._instantiationStack = (instantiationStack || '').replace(/Error:/, 'Warning:');
-        this._open = true;
+        this.$api = api;
+        this.$readOnly = isReadOnly;
+        this.$instantiationStack = (instantiationStack || '').replace(/Error:/, 'Warning:');
+        this.$open = true;
 
         let config: IConfig = getInstance().getConfig();
 
-        this._timeout = config.database ? config.database.query_timeout : null;
-        if (isNaN(this._timeout)) {
-            this._timeout = DEFAULT_QUERY_TIMEOUT;
+        this.$timeout = config.database ? config.database.query_timeout : null;
+        if (isNaN(this.$timeout)) {
+            this.$timeout = DEFAULT_QUERY_TIMEOUT;
         }
 
-        this._armLingerWarning();
+        this.$armLingerWarning();
     }
 
-    private _triggerLingerWarning(): void {
-        getInstance().getLogger().warn(TAG, `Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this._instantiationStack}`);
+    private $triggerLingerWarning(): void {
+        getInstance().getLogger().warn(TAG, `Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this.$instantiationStack}`);
     }
 
     public setInstantiationStack(stack: string): void {
-        this._instantiationStack = stack;
+        this.$instantiationStack = stack;
     }
 
     /**
@@ -71,16 +71,16 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @returns string - A stacktrace
      */
     public getInstantiationStack(): string {
-        return this._instantiationStack;
+        return this.$instantiationStack;
     }
 
-    private _armLingerWarning() {
-        if (this._lingerTimer) {
-            clearTimeout(this._lingerTimer);
+    private $armLingerWarning() {
+        if (this.$lingerTimer) {
+            clearTimeout(this.$lingerTimer);
         }
 
-        this._lingerTimer = setTimeout(() => {
-            this._triggerLingerWarning();
+        this.$lingerTimer = setTimeout(() => {
+            this.$triggerLingerWarning();
         }, LINGER_WARNING);
     }
 
@@ -89,7 +89,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @returns any
      */
     public getAPI(): TAPI {
-        return this._api;
+        return this.$api;
     }
 
     /**
@@ -98,7 +98,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @returns boolean
      */
     public isReadOnly(): boolean {
-        return this._readOnly;
+        return this.$readOnly;
     }
 
     /**
@@ -111,7 +111,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
             throw new TypeError('setTimeout expects a number in parameter 1.');
         }
 
-        this._timeout = timeout;
+        this.$timeout = timeout;
     }
 
     /**
@@ -119,7 +119,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @returns number in milliseconds
      */
     public getTimeout(): number {
-        return this._timeout;
+        return this.$timeout;
     }
 
     /**
@@ -130,7 +130,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @returns Promise<TQueryResult>
      */
     public async query<TQueryResult = any>(query: Query): Promise<TQueryResult> {
-        this._armLingerWarning();
+        this.$armLingerWarning();
         
         let queryStr: string = null;
         queryStr = query.getQuery();
@@ -149,7 +149,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      */
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public stream(query: Query, streamOptions?: any): Readable {
-        this._armLingerWarning();
+        this.$armLingerWarning();
         let queryStr: string = null;
         let params: IDictionary = query.getParametersForQuery();
         queryStr = query.getQuery();
@@ -170,8 +170,8 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
             return Promise.resolve();
         }
         
-        this._open = false;
-        clearTimeout(this._lingerTimer);
+        this.$open = false;
+        clearTimeout(this.$lingerTimer);
         return this._close(forceClose);
     }
 
@@ -179,7 +179,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * Returns true if the connection has been closed.
      */
     public isClosed(): boolean {
-        return !this._open;
+        return !this.$open;
     }
 
     /**

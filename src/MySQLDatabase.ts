@@ -22,16 +22,16 @@ import {getInstance} from './instance';
 const TAG: string = 'MySQLDatabase';
 
 export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnection> {
-    private _cluster: MySQL.PoolCluster;
+    private $cluster: MySQL.PoolCluster;
 
     constructor() {
         super();
         // TODO: Maybe one day this may be exposed via a bt config setting.
-        this._cluster = MySQL.createPoolCluster({
+        this.$cluster = MySQL.createPoolCluster({
             removeNodeErrorCount: Infinity,
             restoreNodeTimeout: 1000
         });
-        this._cluster.on('enqueue', () => {
+        this.$cluster.on('enqueue', () => {
             getInstance().getLogger().warn(TAG, 'Waiting for available connection...');
         });
     }
@@ -48,19 +48,19 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
 
     protected _addNode(nodeID: string, config: MySQL.PoolConfig): void {
         getInstance().getLogger().trace(TAG, `Adding node to connection pool: "${nodeID}"`);
-        this._cluster.add(nodeID, config);
+        this.$cluster.add(nodeID, config);
     }
 
     protected _removeNode(nodeID: string): void {
         getInstance().getLogger().trace(TAG, `Removing node to connection pool: "${nodeID}"`);
-        this._cluster.remove(nodeID);
+        this.$cluster.remove(nodeID);
     }
 
     protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MySQLConnection> {
         getInstance().getLogger().trace(TAG, `Querying connection pool for "${query}".`);
         return new Promise<MySQLConnection>((resolve, reject) => {
             let instantationStack: string = new Error().stack;
-            this._cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
+            this.$cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
                 if (error) {
                     reject(error);
                     return;

@@ -32,7 +32,7 @@ export class ConfigLoader {
     private constructor() {}
 
     public static async load(path: string): Promise<IConfig> {
-        let logger: Logger = ConfigLoader._getLogger();
+        let logger: Logger = ConfigLoader.$getLogger();
 
         logger.trace(TAG, 'Configuration loaded.');
         
@@ -43,13 +43,13 @@ export class ConfigLoader {
         
         let c: IConfig;
         let l: IConfig;
-        let defaults: IConfig = this._getDefaults();
+        let defaults: IConfig = this.$getDefaults();
 
         logger.trace(TAG, `Main Config Path:\t ${cPath}`);
         logger.trace(TAG, `Local Config Path:\t ${lPath}`);
 
-        c = this._getMainConfig(cPath);
-        l = this._getLocalConfig(lPath);
+        c = this.$getMainConfig(cPath);
+        l = this.$getLocalConfig(lPath);
 
         if (l) {
             config = MergeChange.merge(defaults, c, l);
@@ -59,7 +59,7 @@ export class ConfigLoader {
         }
 
         logger.trace(TAG, 'Reading command line arguments...');
-        config = MergeChange.merge(config, ConfigLoader._getCmdLineArgs());
+        config = MergeChange.merge(config, ConfigLoader.$getCmdLineArgs());
 
         if (config.log.level === null) {
             config.log.level = defaults.log.level;
@@ -68,31 +68,31 @@ export class ConfigLoader {
         logger.trace(TAG, 'Configurations merged.');
         logger.trace(TAG, config);
 
-        await ConfigLoader._validateSchema(config);
+        await ConfigLoader.$validateSchema(config);
 
         return config;
     }
 
-    private static _getLocalConfig(path: string): IConfig {
+    private static $getLocalConfig(path: string): IConfig {
         let config: IConfig = null;
-        this._getLogger().trace(TAG, 'Loading optional local config.');
+        this.$getLogger().trace(TAG, 'Loading optional local config.');
         try {
             config = require(path);
-            this._getLogger().trace(TAG, 'Local config loaded.');
+            this.$getLogger().trace(TAG, 'Local config loaded.');
         }
         catch (ex) {
-            this._getLogger().trace(TAG, 'Local config could not be loaded.');
-            this._getLogger().trace(TAG, ex);
+            this.$getLogger().trace(TAG, 'Local config could not be loaded.');
+            this.$getLogger().trace(TAG, ex);
         }
         return config;
     }
 
-    private static _getMainConfig(path: string): IConfig {
-        this._getLogger().trace(TAG, 'Loading main confing...');
+    private static $getMainConfig(path: string): IConfig {
+        this.$getLogger().trace(TAG, 'Loading main confing...');
         let c: IConfig = null;
         try {
             c = require(path);
-            this._getLogger().trace(TAG, 'Main config loaded.');
+            this.$getLogger().trace(TAG, 'Main config loaded.');
         }
         catch (ex) {
             throw new MissingConfigError(path);
@@ -101,12 +101,12 @@ export class ConfigLoader {
         return c;
     }
 
-    private static _getDefaults(): IConfig {
-        this._getLogger().trace(TAG, 'Loading configuration defaults.');
+    private static $getDefaults(): IConfig {
+        this.$getLogger().trace(TAG, 'Loading configuration defaults.');
         return require(Path.resolve(__dirname, '../bt-config-defaults.json'));
     }
 
-    private static async _validateSchema(config: IConfig): Promise<void> {
+    private static async $validateSchema(config: IConfig): Promise<void> {
         let ajv: Ajv = new Ajv({
             allErrors: true
         });
@@ -193,7 +193,7 @@ export class ConfigLoader {
         }
     }
 
-    private static _getCmdLineArgs(): any {
+    private static $getCmdLineArgs(): any {
         let app: Application = getInstance();
         if (!app) {
             return {};
@@ -202,7 +202,7 @@ export class ConfigLoader {
         return app.getCmdLineArgs();
     }
 
-    private static _getLogger(): Logger {
+    private static $getLogger(): Logger {
         let logger: Logger;
         
         if (!logger) {

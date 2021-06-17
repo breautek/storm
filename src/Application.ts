@@ -46,15 +46,15 @@ export abstract class Application
         TDBConnectionAPI = any
     >
     extends EventEmitter {
-    private _logger: Logger;
-    private _name: string;
-    private _configPath: string;
-    private _config: TConfig;
-    private _tokenManager: TokenManager<TAuthToken>;
-    private _server: Express.Application;
-    private _db: Database<TDBConfig, TDBConnectionAPI>;
-    private _socket: http.Server;
-    private _program: Commander.CommanderStatic;
+    private $logger: Logger;
+    private $name: string;
+    private $configPath: string;
+    private $config: TConfig;
+    private $tokenManager: TokenManager<TAuthToken>;
+    private $server: Express.Application;
+    private $db: Database<TDBConfig, TDBConnectionAPI>;
+    private $socket: http.Server;
+    private $program: Commander.CommanderStatic;
 
     /**
      * 
@@ -68,64 +68,63 @@ export abstract class Application
         
         this.$buildArgOptions();
         
-        this._program.parse(process.argv);
+        this.$program.parse(process.argv);
 
-        this._name = name;
+        this.$name = name;
 
         process.on('unhandledRejection', (error: any) => {
-            this._getLogger().error(TAG, error);
+            this.$getLogger().error(TAG, error);
         });
 
-        this._configPath = configPath || process.cwd();
+        this.$configPath = configPath || process.cwd();
 
-        this._logger = new Logger(this.constructor.name);
+        this.$logger = new Logger(this.constructor.name);
 
-        this._logger.info(TAG, 'Application is booting...');
-        this._logger.info(TAG, 'Loading Configuration...');
+        this.$logger.info(TAG, 'Application is booting...');
+        this.$logger.info(TAG, 'Loading Configuration...');
 
-        this._load();
+        this.$load();
     }
 
-    private _load(): void {
-        this.loadConfig(this._configPath).then((config: TConfig) => {
-            this._config = config;
-            this._logger = this._initLogger(config);
-            this._getLogger().trace(TAG, 'Configuration loaded.');
+    private $load(): void {
+        this.loadConfig(this.$configPath).then((config: TConfig) => {
+            this.$config = config;
+            this.$logger = this._initLogger(config);
+            this.$getLogger().trace(TAG, 'Configuration loaded.');
             this.emit(ApplicationEvent.CONFIG_LOADED);
-            this.onConfigLoad(this._config);
+            this._onConfigLoad(this.$config);
             return Promise.resolve();
         }).then(() => {
-            this._getLogger().trace(TAG, 'Initializing DB...');
-            return this.initDB(this.getConfig());
+            this.$getLogger().trace(TAG, 'Initializing DB...');
+            return this._initDB(this.getConfig());
         }).then((db: Database<TDBConfig, TDBConnectionAPI>) => {
             if (db) {
-                this._getLogger().trace(TAG, 'DB Initialized.');
+                this.$getLogger().trace(TAG, 'DB Initialized.');
             }
             else {
-                this._getLogger().trace(TAG, 'DB is not initialized.');
+                this.$getLogger().trace(TAG, 'DB is not initialized.');
             }
-            this._db = db;
+            this.$db = db;
 
             return Promise.resolve();
         }).then(() => {
-            this._getLogger().trace(TAG, 'Starting server...');
-            this._server = Express();
-            this._server.use(BodyParser.json({
+            this.$getLogger().trace(TAG, 'Starting server...');
+            this.$server = Express();
+            this.$server.use(BodyParser.json({
                 type : 'application/json',
                 limit : this.getRequestSizeLimit()
             }));
-            this._server.use(BodyParser.text({
+            this.$server.use(BodyParser.text({
                 type : 'text/*',
                 limit : this.getRequestSizeLimit()
             }));
 
             return Promise.resolve();
         }).then(() => {
-            this._getLogger().trace(TAG, 'Attaching handlers...');
-            return this.attachHandlers();
+            this.$getLogger().trace(TAG, 'Attaching handlers...');
+            return this._attachHandlers();
         }).then(() => {
-            this.onBeforeReady();
-            return this.onBeforeReadyAsync();
+            return this._onBeforeReadyAsync();
         }).then(() => {
             return new Promise<void>((resolve, reject) => {
                 let bindingIP: string = this.getConfig().bind;
@@ -133,29 +132,29 @@ export abstract class Application
 
                 if (bindingIP !== null && bindingIP !== 'null') {
                     if (this.shouldListen()) {
-                        this._socket = http.createServer(this._server);
-                        this._socket.listen(port, bindingIP, () => {
-                            this._getLogger().trace(TAG, `Server started on ${bindingIP}:${this.getPort()}`);
+                        this.$socket = http.createServer(this.$server);
+                        this.$socket.listen(port, bindingIP, () => {
+                            this.$getLogger().trace(TAG, `Server started on ${bindingIP}:${this.getPort()}`);
                             resolve();
                         });
                     }
                     else {
-                        this._getLogger().trace(TAG, 'Server did not bind because shouldListen() returned false.');
+                        this.$getLogger().trace(TAG, 'Server did not bind because shouldListen() returned false.');
                         resolve();
                     }
                 }
                 else {
-                    this._getLogger().info(TAG, `Server does not have a bounding IP set. The server will not be listening for connections.`);
+                    this.$getLogger().info(TAG, `Server does not have a bounding IP set. The server will not be listening for connections.`);
                     resolve();
                 }
             });
         }).then(() => {
             return this._initialize(this.getConfig());
         }).then(() => {
-            this.onReady();
+            this._onReady();
             this.emit('ready');
         }).catch((error) => {
-            this._getLogger().error(TAG, error);
+            this.$getLogger().error(TAG, error);
         });
     }
 
@@ -168,13 +167,13 @@ export abstract class Application
     }
 
     public getLogger(): Logger {
-        return this._logger;
+        return this.$logger;
     }
 
     public getPort(): number {
         let port: number = null;
-        if (this._socket && this._socket.listening) {
-            let address = this._socket.address();
+        if (this.$socket && this.$socket.listening) {
+            let address = this.$socket.address();
             if (typeof address !== 'string') {
                 port = address.port;
             }
@@ -184,26 +183,26 @@ export abstract class Application
 
     // eslint-disable-next-line @typescript-eslint/naming-convention
     private $buildArgOptions() {
-        this._program = Commander;
+        this.$program = Commander;
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         let pkg: any = require('../package.json');
         
-        this._program.version(pkg.version, '-v, --version');
-        this._program.allowUnknownOption(true);
-        this._program.allowExcessArguments(true);
-        this._program.option('--port <port>', 'The running port to consume');
-        this._program.option('--bind <ip>', 'The binding IP to listen on');
-        this._program.option('--authentication_header <header>', 'The header name of the authentication token');
+        this.$program.version(pkg.version, '-v, --version');
+        this.$program.allowUnknownOption(true);
+        this.$program.allowExcessArguments(true);
+        this.$program.option('--port <port>', 'The running port to consume');
+        this.$program.option('--bind <ip>', 'The binding IP to listen on');
+        this.$program.option('--authentication_header <header>', 'The header name of the authentication token');
 
-        this._buildArgOptions(this._program);
+        this._buildArgOptions(this.$program);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     protected _buildArgOptions(program: Commander.CommanderStatic): void {}
 
     public getProgram(): Commander.CommanderStatic {
-        return this._program;
+        return this.$program;
     }
 
     /**
@@ -221,19 +220,19 @@ export abstract class Application
     // eslint-disable-next-line @typescript-eslint/naming-convention
     public attachHandler(path: string, HandlerClass: IHandler): void {
         let handler: Handler = new HandlerClass(this);
-        this._server.get(path, (request: Express.Request, response: Express.Response) => {
+        this.$server.get(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.get(r, new Response(response, r.getURL()));
         });
-        this._server.post(path, (request: Express.Request, response: Express.Response) => {
+        this.$server.post(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.post(r, new Response(response, r.getURL()));
         });
-        this._server.put(path, (request: Express.Request, response: Express.Response) => {
+        this.$server.put(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.put(r, new Response(response, r.getURL()));
         });
-        this._server.delete(path, (request: Express.Request, response: Express.Response) => {
+        this.$server.delete(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.delete(r, new Response(response, r.getURL()));
         });
@@ -241,8 +240,8 @@ export abstract class Application
 
     public close(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (this._socket && this._socket.listening) {
-                this._socket.close(() => {
+            if (this.$socket && this.$socket.listening) {
+                this.$socket.close(() => {
                     resolve();
                 });
             }
@@ -256,7 +255,7 @@ export abstract class Application
      * Subclasses are expected to attach the API handlers for their service. This will be invoked during application startup.
      * @returns Promise<void>
      */
-    protected abstract attachHandlers(): Promise<void>;
+    protected abstract _attachHandlers(): Promise<void>;
 
     /**
      * 
@@ -273,7 +272,7 @@ export abstract class Application
                     }
                 }
                 else {
-                    this._getLogger().error(TAG, error);
+                    this.$getLogger().error(TAG, error);
                 }
             });
         });
@@ -283,18 +282,18 @@ export abstract class Application
      * @returns the application name
      */
     public getName(): string {
-        return this._name;
+        return this.$name;
     }
 
-    private _getLogger(): Logger {
-        return this._logger;
+    private $getLogger(): Logger {
+        return this.$logger;
     }
 
     /**
      * @returns the config object.
      */
     public getConfig(): TConfig {
-        return this._config;
+        return this.$config;
     }
 
     /**
@@ -309,35 +308,35 @@ export abstract class Application
      * 
      * @param config The config object (as defined in bt-config.json/bt-local-config.json)
      */
-    protected onConfigLoad(config: TConfig): void {}
+    protected _onConfigLoad(config: TConfig): void {}
 
     /**
      * Sets the TokenManager to be used for authentication.
      * @param tokenManager 
      */
     public setTokenManager(tokenManager: TokenManager<TAuthToken>): void {
-        this._tokenManager = tokenManager;
+        this.$tokenManager = tokenManager;
     }
 
     /**
      * @returns the token manager
      */
     public getTokenManager(): TokenManager<TAuthToken> {
-        return this._tokenManager;
+        return this.$tokenManager;
     }
 
     /**
      * @returns the database pool. This will need to be casted based on your preferred database dialect.
      */
     public getDB(): Database<TDBConfig, TDBConnectionAPI> {
-        return this._db;
+        return this.$db;
     }
 
     /**
      * @returns command line arguments
      */
     public getCmdLineArgs(): TConfig {
-        let program: Commander.CommanderStatic = this._program;
+        let program: Commander.CommanderStatic = this.$program;
         let o: any = {};
 
         let opts: any = program.opts();
@@ -365,19 +364,14 @@ export abstract class Application
      * Subclasses are expected to override this to configure their database setup, if the service uses a database.
      * @param config The bt-config object
      */
-    protected initDB(config: TConfig): Promise<Database<TDBConfig, TDBConnectionAPI>> {
+    protected _initDB(config: TConfig): Promise<Database<TDBConfig, TDBConnectionAPI>> {
         return Promise.resolve(null);
     }
 
-    /**
-     * @deprecated Use onBeforeReadyAsync instead. In a future version, this method will be changed to be asynchronous
-     */
-    protected onBeforeReady(): void {}
-
-    protected async onBeforeReadyAsync(): Promise<void> {}
+    protected async _onBeforeReadyAsync(): Promise<void> {}
 
     /**
      * Invoked when the application is considered ready for operation.
      */
-    protected onReady(): void {}
+    protected _onReady(): void {}
 }

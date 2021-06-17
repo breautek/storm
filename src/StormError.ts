@@ -33,12 +33,12 @@ export interface IErrorResponse {
 }
 
 export abstract class StormError<TErrorDetails = any> extends Error {
-    private _details: TErrorDetails;
+    private $details: TErrorDetails;
 
     public constructor(details?: TErrorDetails) {
         super();
 
-        this._details = details;
+        this.$details = details;
 
         let logger: Logger = getInstance().getLogger();
         logger.error(TAG, `${this.getMessage()}... See details below:`);
@@ -60,7 +60,7 @@ export abstract class StormError<TErrorDetails = any> extends Error {
      * They are kept secret from the client.
      */
     public getPrivateDetails(): TErrorDetails {
-        return this._details;
+        return this.$details;
     }
 
     public getHTTPCode(): StatusCode {

@@ -35,7 +35,7 @@ describe('DatabaseConnection', () => {
 
     beforeEach(() => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
-        triggerSpy = jest.spyOn(<any>DatabaseConnection.prototype, '_armLingerWarning').mockImplementation(() => {});
+        triggerSpy = jest.spyOn(<any>DatabaseConnection.prototype, '$armLingerWarning').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -129,7 +129,7 @@ describe('DatabaseConnection', () => {
 
     it('query arms linger warning', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(<any>connection, '_armLingerWarning');
+        let spy: jasmine.Spy = spyOn(<any>connection, '$armLingerWarning');
         connection.query(new DummyQuery());
         expect(spy).toHaveBeenCalled();
         connection.close();
@@ -137,7 +137,7 @@ describe('DatabaseConnection', () => {
 
     it('stream arms linger warming', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(<any>connection, '_armLingerWarning');
+        let spy: jasmine.Spy = spyOn(<any>connection, '$armLingerWarning');
         connection.query(new DummyQuery());
         expect(spy).toHaveBeenCalled();
         connection.close();

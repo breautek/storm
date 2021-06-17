@@ -31,10 +31,10 @@ const TAG: string = 'BackendAuthenticationMiddleware';
  * for their specific use cases.
  */
 export class BackendAuthenticationMiddleware {
-    private _logger: Logger;
+    private $logger: Logger;
 
     public constructor() {
-        this._logger = getInstance().getLogger();
+        this.$logger = getInstance().getLogger();
     }
 
     /**
@@ -53,7 +53,7 @@ export class BackendAuthenticationMiddleware {
 
         if (backend) {
             if (config.backend_authentication_secret === null) {
-                this._logger.warn(TAG, 'Backend secret not implemented.');
+                this.$logger.warn(TAG, 'Backend secret not implemented.');
                 return Promise.reject(new ResponseData(StatusCode.INTERNAL_ERROR));
             }
 

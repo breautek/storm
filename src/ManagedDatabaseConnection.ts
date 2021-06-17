@@ -22,35 +22,36 @@ import { Query } from './Query';
 const TAG: string = 'ManagedDatabaseConnection';
 
 export class ManagedDatabaseConnection implements IDatabaseConnection {
-    private _connection: IDatabaseConnection;
+    private $connection: IDatabaseConnection;
+    
     /**
      * When true, this class will not close the connection or
      * allow transaction starts or ends. Methods for these actions
      * will be a no-op.
      */
-    private _managed: boolean;
+    private $managed: boolean;
 
-    private _requiresWrite: boolean;
-    private _instantionStack: string;
+    private $requiresWrite: boolean;
+    private $instantionStack: string;
 
     public constructor(requiresWrite: boolean = false) {
-        this._managed = false;
-        this._requiresWrite = requiresWrite;
-        this._instantionStack = new Error().stack;
+        this.$managed = false;
+        this.$requiresWrite = requiresWrite;
+        this.$instantionStack = new Error().stack;
     }
 
     public setConnection(connection: IDatabaseConnection): void {
-        if (this._connection) {
+        if (this.$connection) {
             // Store original connection because of async,
             // but we don't really need to wait for the async operations
             // to complete to set the new connection object.
-            let oldConnection: IDatabaseConnection = this._connection;
+            let oldConnection: IDatabaseConnection = this.$connection;
 
             /**
              * If the old connection has a transaction, only care about it
              * if this particular instance of managed connections has write access.
              */
-            if (this._requiresWrite && oldConnection.isTransaction()) {
+            if (this.$requiresWrite && oldConnection.isTransaction()) {
                 getInstance().getLogger().warn(TAG, 'Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.');
                 getInstance().getLogger().trace(TAG, new Error('Stacktrace'));
                 oldConnection.rollback().then(() => {
@@ -65,13 +66,13 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
             }
         }
 
-        this._connection = connection;
-        this._managed = true;
+        this.$connection = connection;
+        this.$managed = true;
     }
 
     public isClosed(): boolean {
-        if (this._connection) {
-            return this._connection.isClosed();
+        if (this.$connection) {
+            return this.$connection.isClosed();
         }
         else {
             return true;
@@ -79,38 +80,38 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     }
 
     public isWriteRequired(): boolean {
-        return this._requiresWrite;
+        return this.$requiresWrite;
     }
 
     public isManaged(): boolean {
-        return this._managed;
+        return this.$managed;
     }
 
     public hasConnection(): boolean {
-        return !!this._connection;
+        return !!this.$connection;
     }
 
     public setInstantiationStack(stack: string): void {
         if (this.hasConnection()) {
-            this._connection.setInstantiationStack(stack);
+            this.$connection.setInstantiationStack(stack);
         }
         else {
-            this._instantionStack = stack;
+            this.$instantionStack = stack;
         }
     }
 
     public getInstantiationStack(): string {
         if (this.hasConnection()) {
-            return this._connection.getInstantiationStack();
+            return this.$connection.getInstantiationStack();
         }
         else {
-            return this._instantionStack;
+            return this.$instantionStack;
         }
     }
 
     public isReadOnly(): boolean {
         if (this.hasConnection()) {
-            return this._connection.isReadOnly();
+            return this.$connection.isReadOnly();
         }
         else {
             return true;
@@ -118,14 +119,14 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     }
 
     public setTimeout(timeout: number): void {
-        this._getConnection().then((connection: IDatabaseConnection) => {
+        this.$getConnection().then((connection: IDatabaseConnection) => {
             connection.setTimeout(timeout);
         });
     }
 
     public getTimeout(): number {
         if (this.hasConnection()) {
-            return this._connection.getTimeout();
+            return this.$connection.getTimeout();
         }
         else {
             return null;
@@ -133,25 +134,25 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    public query(query: string | Query, params?: any): Promise<any> {
+    public query(query: Query, params?: any): Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            this._getConnection().then((connection: IDatabaseConnection) => {
+            this.$getConnection().then((connection: IDatabaseConnection) => {
                 connection.query(query, params).then(resolve).catch(reject);
             }).catch(reject);
         })
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    public stream(query: string | Query, params?: any, streamOptions?: any): Readable {
+    public stream(query: Query, params?: any, streamOptions?: any): Readable {
         throw new Error('stream is not supported on Managed Connections');
     }
 
     public close(forceClose?: boolean): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             if (this.hasConnection() && !this.isManaged()) {
-                this._connection.close(forceClose).then(() => {
-                    this._connection = null;
-                    this._managed = false;
+                this.$connection.close(forceClose).then(() => {
+                    this.$connection = null;
+                    this.$managed = false;
                     resolve();
                 }).catch(reject);
             }
@@ -163,7 +164,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
     public startTransaction(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            this._getConnection().then((connection: IDatabaseConnection) => {
+            this.$getConnection().then((connection: IDatabaseConnection) => {
                 if (!this.isManaged()) {
                     connection.startTransaction().then(resolve).catch(reject);
                 }
@@ -176,7 +177,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
     public isTransaction(): boolean {
         if (this.hasConnection()) {
-            return this._connection.isTransaction();
+            return this.$connection.isTransaction();
         }
         else {
             return false;
@@ -185,7 +186,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
     public commit(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            this._getConnection().then((connection: IDatabaseConnection) => {
+            this.$getConnection().then((connection: IDatabaseConnection) => {
                 if (!this.isManaged()) {
                     connection.commit().then(resolve).catch(reject);
                 }
@@ -198,7 +199,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
 
     public rollback(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            this._getConnection().then((connection: IDatabaseConnection) => {
+            this.$getConnection().then((connection: IDatabaseConnection) => {
                 if (!this.isManaged()) {
                     connection.rollback().then(resolve).catch(reject);
                 }
@@ -209,31 +210,31 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         });
     }
 
-    private _getConnection(): Promise<IDatabaseConnection> {
+    private $getConnection(): Promise<IDatabaseConnection> {
         return new Promise<IDatabaseConnection>((resolve, reject) => {
             let promise: Promise<IDatabaseConnection> = null;
             let shouldSetInstantationStack: boolean = false;
-            if (!this._connection) {
-                promise = getInstance().getDB().getConnection(this._requiresWrite);
+            if (!this.$connection) {
+                promise = getInstance().getDB().getConnection(this.$requiresWrite);
                 shouldSetInstantationStack = true;
             }
             else {
-                promise = Promise.resolve(this._connection);
+                promise = Promise.resolve(this.$connection);
             }
 
             promise.then((connection: IDatabaseConnection) => {
                 if (shouldSetInstantationStack) {
-                    connection.setInstantiationStack(this._instantionStack);
+                    connection.setInstantiationStack(this.$instantionStack);
                 }
-                this._connection = connection;
-                resolve(this._connection);
+                this.$connection = connection;
+                resolve(this.$connection);
             }).catch(reject);
         });
     }
 
     public getAPI(): any {
         if (this.hasConnection()) {
-            return this._connection.getAPI();
+            return this.$connection.getAPI();
         }
         else {
             return null;

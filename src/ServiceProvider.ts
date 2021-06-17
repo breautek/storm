@@ -25,29 +25,29 @@ const TAG: string = 'ServiceProvider';
 const NO_DATA: string = `|${0x0}|`;
 
 export abstract class ServiceProvider {
-    private _app: Application;
+    private $app: Application;
 
     public constructor(app: Application) {
-        this._app = app;
+        this.$app = app;
     }
 
     protected abstract _getBase(): string;
     protected abstract _getPort(): number;
 
     protected _getApp(): Application {
-        return this._app;
+        return this.$app;
     }
 
     public getApp(): Application {
-        return this._app;
+        return this.$app;
     }
 
     protected _getDomain(): string {
         return '127.0.0.1';
     }
 
-    private _getSecret(): string {
-        return this._app.getConfig().backend_authentication_secret;
+    private $getSecret(): string {
+        return this.$app.getConfig().backend_authentication_secret;
     }
 
     public urlSuffix(): string {
@@ -90,38 +90,38 @@ export abstract class ServiceProvider {
                 headers: headers || {}
             };
 
-            httpOpts.headers[this._app.getConfig().authentication_header] = accessToken;
-            httpOpts.headers[this._app.getConfig().backend_authentication_header] = this._getSecret();
+            httpOpts.headers[this.$app.getConfig().authentication_header] = accessToken;
+            httpOpts.headers[this.$app.getConfig().backend_authentication_header] = this.$getSecret();
             
             if (!httpOpts.headers['Content-Type']) {
                 httpOpts.headers['Content-Type'] = 'application/json';
             }
 
-            this._app.getLogger().trace(TAG, `ServiceProvider Request`);
-            this._app.getLogger().trace(TAG, `METHOD: ${httpOpts.method}`);
-            this._app.getLogger().trace(TAG, `HOSTNAME: ${httpOpts.hostname}`);
-            this._app.getLogger().trace(TAG, `PORT: ${httpOpts.port}`);
-            this._app.getLogger().trace(TAG, `PATH: ${httpOpts.path}`);
-            this._app.getLogger().trace(TAG, `HEADERS: ${JSON.stringify(httpOpts.headers)}`);
+            this.$app.getLogger().trace(TAG, `ServiceProvider Request`);
+            this.$app.getLogger().trace(TAG, `METHOD: ${httpOpts.method}`);
+            this.$app.getLogger().trace(TAG, `HOSTNAME: ${httpOpts.hostname}`);
+            this.$app.getLogger().trace(TAG, `PORT: ${httpOpts.port}`);
+            this.$app.getLogger().trace(TAG, `PATH: ${httpOpts.path}`);
+            this.$app.getLogger().trace(TAG, `HEADERS: ${JSON.stringify(httpOpts.headers)}`);
             
             let responseData: Buffer = Buffer.from('');
 
             let request: http.ClientRequest = http.request(httpOpts, (response: http.IncomingMessage) => {
-                this._app.getLogger().trace(TAG, `ServiceProvider Response Status: ${response.statusCode}`);
-                this._app.getLogger().trace(TAG, `ServiceProvider Response Headers: ${JSON.stringify(response.headers)}`);
+                this.$app.getLogger().trace(TAG, `ServiceProvider Response Status: ${response.statusCode}`);
+                this.$app.getLogger().trace(TAG, `ServiceProvider Response Headers: ${JSON.stringify(response.headers)}`);
 
                 response.on('data', (chunk: Buffer) => {
-                    this._app.getLogger().trace(TAG, `ServiceProvider Received Chunk: ${chunk}`);
+                    this.$app.getLogger().trace(TAG, `ServiceProvider Received Chunk: ${chunk}`);
                     responseData = Buffer.concat([ responseData, chunk ]);
                 });
 
                 response.on('end', () => {
-                    this._app.getLogger().trace(TAG, `ServiceProvider request has completed.`);
+                    this.$app.getLogger().trace(TAG, `ServiceProvider request has completed.`);
                     resolve(new ServiceResponse(responseData, response));
                 });
 
                 response.on('error', (e: Error) => {
-                    this._app.getLogger().error(TAG, e);
+                    this.$app.getLogger().error(TAG, e);
                     reject(e);
                 });
             });
@@ -131,11 +131,11 @@ export abstract class ServiceProvider {
                 request.write(data);
             }
 
-            this._sendRequest(request);
+            this.$sendRequest(request);
         });
     }
 
-    private _sendRequest(request: http.ClientRequest): void {
+    private $sendRequest(request: http.ClientRequest): void {
         request.end();
     }
 

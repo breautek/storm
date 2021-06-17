@@ -42,7 +42,7 @@ describe('MySQLConnection', () => {
             release: jasmine.createSpy('release')
         };
         conn = new MySQLConnection(mockAPI, 'test stack');
-        jest.spyOn(<any>DatabaseConnection.prototype, '_armLingerWarning').mockImplementation(() => {});
+        jest.spyOn(<any>DatabaseConnection.prototype, '$armLingerWarning').mockImplementation(() => {});
     });
 
     afterEach(() => {

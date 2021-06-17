@@ -17,14 +17,14 @@
 import {Query} from './Query';
 
 export class RawQuery<TQueryParameters = any, TQueryResultSet = any> extends Query<TQueryParameters, TQueryResultSet, TQueryResultSet> {
-    private _query: string;
+    private $query: string;
 
     public constructor(query: string, parameters?: TQueryParameters) {
         super(parameters);
-        this._query = query;
+        this.$query = query;
     }
 
     protected _getQuery(): string {
-        return this._query;
+        return this.$query;
     }
 }

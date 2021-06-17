@@ -40,16 +40,16 @@ export class Handler<
         TDeleteResponse = any
     >  {
         
-    private _app: TApplication;
-    private _middlewares: Array<Middleware>;
+    private $app: TApplication;
+    private $middlewares: Array<Middleware>;
 
     constructor(app: TApplication) {
-        this._app = app;
-        this._middlewares = this._initMiddlewares();
+        this.$app = app;
+        this.$middlewares = this._initMiddlewares();
     }
 
     public getApplication(): TApplication {
-        return this._app;
+        return this.$app;
     }
 
     protected _initMiddlewares(): Array<Middleware> {
@@ -62,7 +62,7 @@ export class Handler<
         return request.getHeader(authHeader);
     }
 
-    private async _executeMiddlewares(request: Request, response: Response): Promise<IRequestResponse> {
+    private async $executeMiddlewares(request: Request, response: Response): Promise<IRequestResponse> {
         let result: IRequestResponse = {
             request,
             response
@@ -71,8 +71,8 @@ export class Handler<
         let logger: Logger = getInstance().getLogger();
 
         try {
-            for (let i: number = 0; i < this._middlewares.length; i++) {
-                let middleware: Middleware = this._middlewares[i];
+            for (let i: number = 0; i < this.$middlewares.length; i++) {
+                let middleware: Middleware = this.$middlewares[i];
                 logger.trace(TAG, `executing middleware ${i}`);
                 result = await middleware.execute(result.request, result.response);
             }
@@ -115,7 +115,7 @@ export class Handler<
     public get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
             this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
-            this._executeMiddlewares(request, response).then((result: IRequestResponse<TGetRequest, TGetResponse>) => {
+            this.$executeMiddlewares(request, response).then((result: IRequestResponse<TGetRequest, TGetResponse>) => {
                 this._get(result.request, result.response);
                 resolve();
             }).catch((error: StormError) => {
@@ -127,7 +127,7 @@ export class Handler<
 
     public put(request: Request<TPutRequest>, response: Response<TPutResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
-            this._executeMiddlewares(request, response).then((result: IRequestResponse<TPutRequest, TPutResponse>) => {
+            this.$executeMiddlewares(request, response).then((result: IRequestResponse<TPutRequest, TPutResponse>) => {
                 this._put(result.request, result.response);
                 resolve();
             }).catch((error: StormError) => {
@@ -139,7 +139,7 @@ export class Handler<
 
     public post(request: Request<TPostRequest>, response: Response<TPostResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
-            this._executeMiddlewares(request, response).then((result: IRequestResponse<TPostRequest, TPostResponse>) => {
+            this.$executeMiddlewares(request, response).then((result: IRequestResponse<TPostRequest, TPostResponse>) => {
                 this._post(result.request, result.response);
                 resolve();
             }).catch((error: StormError) => {
@@ -151,7 +151,7 @@ export class Handler<
 
     public delete(request: Request<TDeleteRequest>, response: Response<TDeleteResponse>): Promise<void> {
         return new Promise((resolve, reject) => {
-            this._executeMiddlewares(request, response).then((result: IRequestResponse<TDeleteRequest, TDeleteResponse>) => {
+            this.$executeMiddlewares(request, response).then((result: IRequestResponse<TDeleteRequest, TDeleteResponse>) => {
                 this._delete(result.request, result.response);
                 resolve();
             }).catch((error: StormError) => {

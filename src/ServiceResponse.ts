@@ -17,20 +17,20 @@
 import {IncomingMessage} from 'http';
 
 export class ServiceResponse {
-    private _data: Buffer;
-    private _response: IncomingMessage;
+    private $data: Buffer;
+    private $response: IncomingMessage;
 
     public constructor(data: Buffer, response: IncomingMessage) {
-        this._data = data;
-        this._response = response;
+        this.$data = data;
+        this.$response = response;
     }
 
     public getRaw(): Buffer {
-        return this._data;
+        return this.$data;
     }
 
     public getUTF8(): string {
-        return this._data.toString('utf8');
+        return this.$data.toString('utf8');
     }
 
     public getJSON(): any {

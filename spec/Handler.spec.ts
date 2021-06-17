@@ -10,27 +10,27 @@ type HandlerCallback = (handler: Handler, request: Request, response: Response, 
 
 let makeHandler = (callback: HandlerCallback) => {
     return class MockHandler extends Handler {
-        private _handleRequest(request: Request, response: Response, method: HTTPMethod): void {
+        private $handleRequest(request: Request, response: Response, method: HTTPMethod): void {
             callback(this, request, response, method);
         }
         
         protected _get(request: Request, response: Response): Promise<void> {
-            this._handleRequest(request, response, HTTPMethod.GET);
+            this.$handleRequest(request, response, HTTPMethod.GET);
             return Promise.resolve();
         }
 
         protected _post(request: Request, response: Response): Promise<void> {
-            this._handleRequest(request, response, HTTPMethod.POST);
+            this.$handleRequest(request, response, HTTPMethod.POST);
             return Promise.resolve();
         }
 
         protected _delete(request: Request, response: Response): Promise<void> {
-            this._handleRequest(request, response, HTTPMethod.DELETE);
+            this.$handleRequest(request, response, HTTPMethod.DELETE);
             return Promise.resolve();
         }
 
         protected _put(request: Request, response: Response): Promise<void> {
-            this._handleRequest(request, response, HTTPMethod.PUT);
+            this.$handleRequest(request, response, HTTPMethod.PUT);
             return Promise.resolve();
         }
     };

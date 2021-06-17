@@ -3,9 +3,11 @@ import {ManagedDatabaseConnection} from '../../src/ManagedDatabaseConnection';
 import {
     MockApplication
 } from '../support/TestApplication';
+import {RawQuery} from '../../src/RawQuery';
 import {MockConnection} from '../support/MockConnection';
 import { DEFAULT_QUERY_TIMEOUT, DatabaseConnection } from '../../src/DatabaseConnection';
 import { getInstance } from '../../src/instance';
+import { Query } from '../../src/Query';
 
 const ROLLBACK_WARN_EXPECTATION = 'Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.';
 
@@ -30,7 +32,7 @@ describe('ManagedDatabaseConnection', () => {
     beforeAll(setup);
     afterAll(deconstruct);
 
-    test('constructs read / no write require', (done) => {
+    it('constructs read / no write require', (done) => {
         let connection: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         expect(connection.isReadOnly()).toBe(true);
         expect(connection.isWriteRequired()).toBe(false);
@@ -39,7 +41,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('constructs read / write required', (done) => {
+    it('constructs read / write required', (done) => {
         let connection: ManagedDatabaseConnection = new ManagedDatabaseConnection(true);
         expect(connection.isReadOnly()).toBe(true);
         expect(connection.isWriteRequired()).toBe(true);
@@ -48,7 +50,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('originally not managed', (done) => {
+    it('originally not managed', (done) => {
         let connection: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         expect(connection.isManaged()).toBe(false);
         connection.close().then(() => {
@@ -56,7 +58,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('can set connection', (done) => {
+    it('can set connection', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let connection: MockConnection = new MockConnection(true, '');
         mdc.setConnection(connection);
@@ -66,7 +68,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('is write enabled if connection has write', (done) => {
+    it('is write enabled if connection has write', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let connection: MockConnection = new MockConnection(false, '');
         mdc.setConnection(connection);
@@ -76,7 +78,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('get instantation stack (no connection)', (done) => {
+    it('get instantation stack (no connection)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         expect(mdc.getInstantiationStack()).toContain('at new ManagedDatabaseConnection');
         mdc.close().then(() => {
@@ -84,7 +86,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('get instantation stack (connection)', (done) => {
+    it('get instantation stack (connection)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let connection: MockConnection = new MockConnection(false, 'test stack');
         mdc.setConnection(connection);
@@ -94,7 +96,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('get timeout (no connection)', (done) => {
+    it('get timeout (no connection)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         expect(mdc.getTimeout()).toBe(null);
         mdc.close().then(() => {
@@ -102,7 +104,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('get timeout (connection)', (done) => {
+    it('get timeout (connection)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let connection: MockConnection = new MockConnection(false, '');
         mdc.setConnection(connection);
@@ -112,7 +114,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('is transaction (no connection)', (done) => {
+    it('is transaction (no connection)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         expect(mdc.isTransaction()).toBe(false);
         mdc.close().then(() => {
@@ -120,7 +122,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('is transaction (with connection/no transaction)', (done) => {
+    it('is transaction (with connection/no transaction)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let connection: MockConnection = new MockConnection(false, '');
         mdc.setConnection(connection);
@@ -130,7 +132,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('is transaction (with connection/transaction)', async (done) => {
+    it('is transaction (with connection/transaction)', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let connection: MockConnection = new MockConnection(false, '');
         await connection.startTransaction();
@@ -141,7 +143,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('get api (no connection)', (done) => {
+    it('get api (no connection)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         expect(mdc.getAPI()).toBe(null);
         mdc.close().then(() => {
@@ -149,7 +151,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('get api (connection)', (done) => {
+    it('get api (connection)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let connection: MockConnection = new MockConnection(false, '');
         spyOn(connection, 'getAPI').and.returnValues({});
@@ -160,7 +162,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('can set connection over connection (no transaction)', (done) => {
+    it('can set connection over connection (no transaction)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         let conn2: MockConnection = new MockConnection(false, '');
@@ -171,14 +173,14 @@ describe('ManagedDatabaseConnection', () => {
 
         mdc.setConnection(conn2);
 
-        expect((<any>mdc)._connection).toBe(conn2);
+        expect((<any>mdc).$connection).toBe(conn2);
         expect(spy).toHaveBeenCalled();
         mdc.close().then(() => {
             done();
         });
     });
 
-    test('can set connection over connection (transaction rollsback successfully)', (done) => {
+    it('can set connection over connection (transaction rollback successfully)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection(true);
         let conn1: MockConnection = new MockConnection(false, '');
         let conn2: MockConnection = new MockConnection(false, '');
@@ -192,10 +194,12 @@ describe('ManagedDatabaseConnection', () => {
 
         mdc.setConnection(conn2);
 
+        // While setConnection isn't asynchronous, the handling of the oldConnection, just the API
+        // doesn't wait for it to return as quickly as possible.
         setTimeout(() => {
             expect(warnSpy).toHaveBeenCalledWith('ManagedDatabaseConnection', ROLLBACK_WARN_EXPECTATION);
             expect(rollbackSpy).toHaveBeenCalled();
-            expect((<any>mdc)._connection).toBe(conn2);
+            expect((<any>mdc).$connection).toBe(conn2);
             expect(spy).toHaveBeenCalled();
             mdc.close().then(() => {
                 done();
@@ -203,7 +207,7 @@ describe('ManagedDatabaseConnection', () => {
         }, 100);
     });
 
-    test('can set connection over connection (transaction rollsback ignored)', (done) => {
+    it('can set connection over connection (transaction rollback ignored)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         let conn2: MockConnection = new MockConnection(false, '');
@@ -215,16 +219,14 @@ describe('ManagedDatabaseConnection', () => {
 
         mdc.setConnection(conn2);
 
-        setTimeout(() => {
-            expect((<any>mdc)._connection).toBe(conn2);
-            expect(spy).toHaveBeenCalled();
-            mdc.close().then(() => {
-                done();
-            });
-        }, 100);
+        expect((<any>mdc).$connection).toBe(conn2);
+        expect(spy).toHaveBeenCalled();
+        mdc.close().then(() => {
+            done();
+        });
     });
 
-    test('can set connection over connection (transaction rollsback failure)', (done) => {
+    it('can set connection over connection (transaction rollback failure)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection(true);
         let conn1: MockConnection = new MockConnection(false, '');
         let conn2: MockConnection = new MockConnection(false, '');
@@ -239,11 +241,13 @@ describe('ManagedDatabaseConnection', () => {
 
         mdc.setConnection(conn2);
 
+        // While setConnection isn't asynchronous, the handling of the oldConnection, just the API
+        // doesn't wait for it to return as quickly as possible.
         setTimeout(() => {
             expect(rollbackSpy).toHaveBeenCalled();
             expect(warnSpy).toHaveBeenCalledWith('ManagedDatabaseConnection', ROLLBACK_WARN_EXPECTATION);
             expect(logSpy).toHaveBeenCalledWith('ManagedDatabaseConnection', testError);
-            expect((<any>mdc)._connection).toBe(conn2);
+            expect((<any>mdc).$connection).toBe(conn2);
             expect(spy).toHaveBeenCalledWith(true);
             mdc.close().then(() => {
                 done();
@@ -251,68 +255,63 @@ describe('ManagedDatabaseConnection', () => {
         }, 100);
     });
 
-    test('will create a connection automatically', (done) => {
+    it('will create a connection automatically', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        mdc.setTimeout(1000);
-        setTimeout(() => {
-            expect((<any>mdc)._connection instanceof DatabaseConnection).toBe(true);
-            mdc.close().then(() => {
-                done();
-            });
-        }, 100);
+        await mdc.setTimeout(1000);
+        expect((<any>mdc).$connection instanceof DatabaseConnection).toBe(true);
+        mdc.close().then(() => {
+            done();
+        });
     });
 
-    test('will create a connection automatically with write access', (done) => {
+    it('will create a connection automatically with write access', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection(true);
-        mdc.setTimeout(1000);
-        setTimeout(() => {
-            expect((<any>mdc)._connection instanceof DatabaseConnection).toBe(true);
-            expect((<any>mdc)._connection.isReadOnly()).toBe(false);
-            mdc.close().then(() => {
-                done();
-            });
-        }, 100);
+        await mdc.setTimeout(1000);
+        expect((<any>mdc).$connection instanceof DatabaseConnection).toBe(true);
+        expect((<any>mdc).$connection.isReadOnly()).toBe(false);
+        mdc.close().then(() => {
+            done();
+        });
     });
 
-    test('_getConnection will return existing connection', (done) => {
+    it('_getConnection will return existing connection', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
-        mdc.setTimeout(1000);
-        setTimeout(() => {
-            expect((<any>mdc)._connection).toBe(conn1);
-            mdc.close().then(() => {
-                done();
-            });
-        }, 100);
+        await mdc.setTimeout(1000);
+        expect((<any>mdc).$connection).toBe(conn1);
+        mdc.close().then(() => {
+            done();
+        });
     });
 
-    test('can query', (done) => {
+    it('can query', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
         let spy: jasmine.Spy = spyOn(conn1, 'query').and.returnValue(Promise.resolve());
-        mdc.query('test query').then(() => {
-            expect(spy).toHaveBeenCalledWith('test query', undefined);
+        let query: Query = new RawQuery('SELECT 1');
+        mdc.query(query).then(() => {
+            expect(spy).toHaveBeenCalledWith(query, undefined);
             mdc.close().then(() => {
                 done();
             });
         });
     });
 
-    test('stream should throw (not supported/implemented)', (done) => {
+    it('stream should throw (not supported/implemented)', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
         expect(() => {
-            mdc.stream('');
+            mdc.stream(new RawQuery('SELECT 1'));
         }).toThrowError('stream is not supported on Managed Connections');
         mdc.close().then(() => {
             done();
         });
     });
 
-    test('can close managed', (done) => {
+    it('can close managed', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
@@ -323,7 +322,7 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('can close managed forcefully', (done) => {
+    it('can close managed forcefully', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
@@ -334,35 +333,31 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('can close unmanaged', (done) => {
+    it('can close unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        mdc.setTimeout(1000);
+        await mdc.setTimeout(1000);
 
-        setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
-            let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
-            mdc.close().then(() => {
-                expect(spy).toHaveBeenCalled();
-                done();
-            });
-        }, 100);
+        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+        let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
+        mdc.close().then(() => {
+            expect(spy).toHaveBeenCalled();
+            done();
+        });
     });
 
-    test('can close unmanaged forcefully', (done) => {
+    it('can close unmanaged forcefully', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        mdc.setTimeout(1000);
+        await mdc.setTimeout(1000);
 
-        setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
-            let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
-            mdc.close(true).then(() => {
-                expect(spy).toHaveBeenCalledWith(true);
-                done();
-            });
-        }, 100);
+        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+        let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
+        mdc.close(true).then(() => {
+            expect(spy).toHaveBeenCalledWith(true);
+            done();
+        });
     });
 
-    test('can start transaction managed', (done) => {
+    it('can start transaction managed', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
@@ -376,22 +371,20 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('can start transaction unmanaged', (done) => {
+    it('can start transaction unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        mdc.setTimeout(1000);
+        await mdc.setTimeout(1000);
 
-        setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
-            let spy: jasmine.Spy = spyOn(conn, 'startTransaction').and.returnValue(Promise.resolve());
-            mdc.startTransaction().then(() => {
-                expect(spy).toHaveBeenCalled();
-                mdc.close(true);
-                done();
-            });
-        }, 100);
+        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+        let spy: jasmine.Spy = spyOn(conn, 'startTransaction').and.returnValue(Promise.resolve());
+        mdc.startTransaction().then(() => {
+            expect(spy).toHaveBeenCalled();
+            mdc.close(true);
+            done();
+        });
     });
 
-    test('can commit managed', (done) => {
+    it('can commit managed', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
@@ -404,22 +397,20 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('can commit unmanaged', (done) => {
+    it('can commit unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        mdc.setTimeout(1000);
+        await mdc.setTimeout(1000);
 
-        setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
-            let spy: jasmine.Spy = spyOn(conn, 'commit').and.returnValue(Promise.resolve());
-            mdc.commit().then(() => {
-                expect(spy).toHaveBeenCalled();
-                mdc.close();
-                done();
-            });
-        }, 100);
+        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+        let spy: jasmine.Spy = spyOn(conn, 'commit').and.returnValue(Promise.resolve());
+        mdc.commit().then(() => {
+            expect(spy).toHaveBeenCalled();
+            mdc.close();
+            done();
+        });
     });
 
-    test('can rollback managed', (done) => {
+    it('can rollback managed', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
@@ -432,47 +423,16 @@ describe('ManagedDatabaseConnection', () => {
         });
     });
 
-    test('can rollback unmanaged', (done) => {
+    it('can rollback unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        mdc.setTimeout(1000);
+        await mdc.setTimeout(1000);
 
-        setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc)._connection;
-            let spy: jasmine.Spy = spyOn(conn, 'rollback').and.returnValue(Promise.resolve());
-            mdc.rollback().then(() => {
-                expect(spy).toHaveBeenCalled();
-                mdc.close();
-                done();
-            });
-        }, 100);
+        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+        let spy: jasmine.Spy = spyOn(conn, 'rollback').and.returnValue(Promise.resolve());
+        mdc.rollback().then(() => {
+            expect(spy).toHaveBeenCalled();
+            mdc.close();
+            done();
+        });
     });
-
-    // test('can close multiple times gracefully', (done) => {
-    //     let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-    //     let conn1: MockConnection = new MockConnection(false, '');
-    //     mdc.setConnection(conn1);
-    //     mdc.close().then(() => {
-    //         return mdc.close();
-    //     }).then(() => {
-    //         done();
-    //     }).catch((error) => {
-    //         fail(error.toString());
-    //     });
-    // });
-
-    // test('can start query after close', (done) => {
-    //     let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-    //     let conn1: MockConnection = new MockConnection(false, '');
-    //     // let spy: jasmine.Spy = null;
-    //     mdc.setConnection(conn1);
-    //     mdc.close().then(() => {
-    //         // spy = spyOn(getInstance().getDB(), 'getConnection').and.callThrough();
-    //         // return mdc.query('SELECT 1');
-    //     // }).then(() => {
-    //         // expect(spy).toHaveBeenCalled();
-    //         done();
-    //     }).catch((error: any) => {
-    //         fail(error.toString());
-    //     });
-    // });
 });

@@ -24,10 +24,10 @@ import { IAuthTokenData } from './IAuthTokenData';
 // const TAG: string = 'TokenManager';
 
 export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
-    private _secret: string;
+    private $secret: string;
 
     public constructor(secret: string) {
-        this._secret = secret;
+        this.$secret = secret;
     }
 
     public sign(payload: {[key: string]: any}, expiresIn: string | number): Promise<Token> {
@@ -40,7 +40,7 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
 
                 payload.__bt__salt = buffer.toString('hex');
 
-                jwt.sign(payload, this._secret, {
+                jwt.sign(payload, this.$secret, {
                     expiresIn : expiresIn
                 }, (error: Error, token: string) => {
                     if (error) {
@@ -65,7 +65,7 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
                 options.enableExpiration = true;
             }
 
-            jwt.verify(token.getSignature(), this._secret, JWTVerifyOptionsParser.parse(options), (error, decoded: TAuthToken) => {
+            jwt.verify(token.getSignature(), this.$secret, JWTVerifyOptionsParser.parse(options), (error, decoded: TAuthToken) => {
                 if (error) {
                     return reject(error);
                 }

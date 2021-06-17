@@ -1,10 +1,11 @@
 
 import * as api from '../src/api';
+import {Application} from '../src/Application';
 
 describe('Public API', () => {
 
     it('Application', () => {
-        expect(api.Application).toBeTruthy();
+        expect(api.Application).toBe(Application);
     });
 
     it('ConfigLoader', () => {

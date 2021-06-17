@@ -31,7 +31,7 @@ describe('MySQLDatabase', () => {
     afterAll(deconstruct);
 
     beforeEach(() => {
-        jest.spyOn(<any>DatabaseConnection.prototype, '_armLingerWarning').mockImplementation(() => {});
+        jest.spyOn(<any>DatabaseConnection.prototype, '$armLingerWarning').mockImplementation(() => {});
     });
 
     it('can construct', () => {
@@ -45,7 +45,7 @@ describe('MySQLDatabase', () => {
 
     it('add master', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'add');
+        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'add');
 
         let config: MySQL.PoolConfig = {
             acquireTimeout: 3000
@@ -58,7 +58,7 @@ describe('MySQLDatabase', () => {
 
     it('add slave', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'add');
+        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'add');
 
         let nodeID: string = 'test';
         let config: MySQL.PoolConfig = {
@@ -72,7 +72,7 @@ describe('MySQLDatabase', () => {
 
     it('remove node', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'remove');
+        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'remove');
 
         db.removeMaster();
 
@@ -81,7 +81,7 @@ describe('MySQLDatabase', () => {
 
     it('get read only connection', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'getConnection');
+        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'getConnection');
 
         db.getConnection();
 
@@ -90,7 +90,7 @@ describe('MySQLDatabase', () => {
 
     it('get write accessible connection', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db)._cluster, 'getConnection');
+        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'getConnection');
 
         db.getConnection(true).then((connection: IDatabaseConnection) => {
             connection.close();
@@ -103,7 +103,7 @@ describe('MySQLDatabase', () => {
         let db: MySQLDatabase = new MySQLDatabase();
         let spy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
 
-        (<EventEmitter>(<any>db)._cluster).emit('enqueue');
+        (<EventEmitter>(<any>db).$cluster).emit('enqueue');
 
         expect(spy).toHaveBeenCalled();
     });

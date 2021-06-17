@@ -26,9 +26,9 @@ import {getInstance} from './instance';
  * communicate with CORS enabled clients.
  */
 export class CORSMiddleware extends Middleware {
-    private _allowedOrigin: string;
-    private _allowedHeaders: Array<string>;
-    private _allowedMethods: Array<string>;
+    private $allowedOrigin: string;
+    private $allowedHeaders: Array<string>;
+    private $allowedMethods: Array<string>;
 
     /**
      * @constructor
@@ -39,9 +39,9 @@ export class CORSMiddleware extends Middleware {
     public constructor(allowedOrigin?: string, allowedHeaders?: Array<string>, allowedMethods?: Array<string>) {
         super();
         
-        this._allowedOrigin = (!allowedOrigin) ? this.getDefaultAllowedOrigin() : allowedOrigin;
-        this._allowedHeaders = (!allowedHeaders) ? this.getDefaultAllowedHeaders() : allowedHeaders;
-        this._allowedMethods = (!allowedMethods) ? this.getDefaultAllowedMethods() : allowedMethods;
+        this.$allowedOrigin = (!allowedOrigin) ? this.getDefaultAllowedOrigin() : allowedOrigin;
+        this.$allowedHeaders = (!allowedHeaders) ? this.getDefaultAllowedHeaders() : allowedHeaders;
+        this.$allowedMethods = (!allowedMethods) ? this.getDefaultAllowedMethods() : allowedMethods;
     }
 
     /**
@@ -73,14 +73,14 @@ export class CORSMiddleware extends Middleware {
     }
 
     protected _execute(request: Request, response: Response): Promise<IRequestResponse> {
-        if (this._allowedOrigin) {
-            response.setHeader('Access-Control-Allow-Origin', this._allowedOrigin);
+        if (this.$allowedOrigin) {
+            response.setHeader('Access-Control-Allow-Origin', this.$allowedOrigin);
         }
         else {
             response.setHeader('Access-Control-Allow-Origin', request.getHeader('Origin'));
         }
-        response.setHeader('Access-Control-Allow-Headers', this._allowedHeaders.join(', '));
-        response.setHeader('Access-Control-Allow-Methods', this._allowedMethods.join(', '));
+        response.setHeader('Access-Control-Allow-Headers', this.$allowedHeaders.join(', '));
+        response.setHeader('Access-Control-Allow-Methods', this.$allowedMethods.join(', '));
         response.setHeader('Vary', 'Origin');
         return Promise.resolve({
             request: request,

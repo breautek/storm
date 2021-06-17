@@ -63,7 +63,7 @@ describe('ConfigLoader', () => {
 
     describe('log settings', () => {
         it('defaults to info', async () => {
-            jest.spyOn<any, any>(ConfigLoader, '_getMainConfig').mockImplementation(() => {
+            jest.spyOn<any, any>(ConfigLoader, '$getMainConfig').mockImplementation(() => {
                 return {};
             });
             let config = await ConfigLoader.load('fakepath');
@@ -71,7 +71,7 @@ describe('ConfigLoader', () => {
         });
 
         it('defaults to info if undefined', async () => {
-            jest.spyOn<any, any>(ConfigLoader, '_getMainConfig').mockImplementation(() => {
+            jest.spyOn<any, any>(ConfigLoader, '$getMainConfig').mockImplementation(() => {
                 return {
                     log: {
                         level: undefined
@@ -83,7 +83,7 @@ describe('ConfigLoader', () => {
         });
 
         it('defaults to info if null', async () => {
-            jest.spyOn<any, any>(ConfigLoader, '_getMainConfig').mockImplementation(() => {
+            jest.spyOn<any, any>(ConfigLoader, '$getMainConfig').mockImplementation(() => {
                 return {
                     log: {
                         level: null
@@ -107,7 +107,7 @@ describe('ConfigLoader', () => {
         for (let i: number = 0; i < validLevels.length; i++) {
             let level: string = validLevels[i];
             it(`can be set to ${level}`, async () => {
-                jest.spyOn<any, any>(ConfigLoader, '_getMainConfig').mockImplementation(() => {
+                jest.spyOn<any, any>(ConfigLoader, '$getMainConfig').mockImplementation(() => {
                     return {
                         log: {
                             level: level
@@ -120,7 +120,7 @@ describe('ConfigLoader', () => {
         }
 
         it('should error on invalid level', async () => {
-            jest.spyOn<any, any>(ConfigLoader, '_getMainConfig').mockImplementation(() => {
+            jest.spyOn<any, any>(ConfigLoader, '$getMainConfig').mockImplementation(() => {
                 return {
                     log: {
                         level: 'invalidLevel'
