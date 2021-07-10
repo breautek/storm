@@ -18,24 +18,28 @@
 
 ### constructor
 
-\+ **new JWTVerifyOptionsParser**(): [*JWTVerifyOptionsParser*](jwtverifyoptionsparser.jwtverifyoptionsparser-1.md)
+• **new JWTVerifyOptionsParser**()
 
-**Returns:** [*JWTVerifyOptionsParser*](jwtverifyoptionsparser.jwtverifyoptionsparser-1.md)
+#### Defined in
 
-Defined in: [src/JWTVerifyOptionsParser.ts:19](https://github.com/breautek/storm/blob/2614a1c/src/JWTVerifyOptionsParser.ts#L19)
+[src/JWTVerifyOptionsParser.ts:19](https://github.com/breautek/storm/blob/fff2ea4/src/JWTVerifyOptionsParser.ts#L19)
 
 ## Methods
 
 ### parse
 
-▸ `Static`**parse**(`options`: [*IJWTVerifyOptions*](../interfaces/ijwtverifyoptions.ijwtverifyoptions-1.md)): *any*
+▸ `Static` **parse**(`options`): `any`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [*IJWTVerifyOptions*](../interfaces/ijwtverifyoptions.ijwtverifyoptions-1.md) |
+| `options` | [`IJWTVerifyOptions`](../interfaces/ijwtverifyoptions.ijwtverifyoptions-1.md) |
 
-**Returns:** *any*
+#### Returns
 
-Defined in: [src/JWTVerifyOptionsParser.ts:25](https://github.com/breautek/storm/blob/2614a1c/src/JWTVerifyOptionsParser.ts#L25)
+`any`
+
+#### Defined in
+
+[src/JWTVerifyOptionsParser.ts:25](https://github.com/breautek/storm/blob/fff2ea4/src/JWTVerifyOptionsParser.ts#L25)

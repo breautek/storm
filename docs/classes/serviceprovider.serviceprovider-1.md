@@ -31,212 +31,268 @@
 
 ### constructor
 
-\+ **new ServiceProvider**(`app`: [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>): [*ServiceProvider*](serviceprovider.serviceprovider-1.md)
+• **new ServiceProvider**(`app`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `app` | [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\> |
+| `app` | [`Application`](application.application-1.md)<[`IConfig`](../interfaces/iconfig.iconfig-1.md), [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md), `any`, `any`\> |
 
-**Returns:** [*ServiceProvider*](serviceprovider.serviceprovider-1.md)
+#### Defined in
 
-Defined in: [src/ServiceProvider.ts:28](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L28)
+[src/ServiceProvider.ts:28](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L28)
 
 ## Methods
 
 ### \_createURL
 
-▸ `Protected`**_createURL**(`url`: *string*, `queryParams?`: *IDictionary*<any\>): *string*
+▸ `Protected` **_createURL**(`url`, `queryParams?`): `string`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `url` | *string* |
-| `queryParams?` | *IDictionary*<any\> |
+| `url` | `string` |
+| `queryParams?` | `IDictionary`<`any`\> |
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:65](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L65)
+`string`
+
+#### Defined in
+
+[src/ServiceProvider.ts:65](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L65)
 
 ___
 
 ### \_getApp
 
-▸ `Protected`**_getApp**(): [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>
+▸ `Protected` **_getApp**(): [`Application`](application.application-1.md)<[`IConfig`](../interfaces/iconfig.iconfig-1.md), [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md), `any`, `any`\>
 
-**Returns:** [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L37)
+[`Application`](application.application-1.md)<[`IConfig`](../interfaces/iconfig.iconfig-1.md), [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md), `any`, `any`\>
+
+#### Defined in
+
+[src/ServiceProvider.ts:37](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L37)
 
 ___
 
 ### \_getBase
 
-▸ `Protected` `Abstract`**_getBase**(): *string*
+▸ `Protected` `Abstract` **_getBase**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:34](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L34)
+`string`
+
+#### Defined in
+
+[src/ServiceProvider.ts:34](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L34)
 
 ___
 
 ### \_getDomain
 
-▸ `Protected`**_getDomain**(): *string*
+▸ `Protected` **_getDomain**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:45](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L45)
+`string`
+
+#### Defined in
+
+[src/ServiceProvider.ts:45](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L45)
 
 ___
 
 ### \_getPort
 
-▸ `Protected` `Abstract`**_getPort**(): *number*
+▸ `Protected` `Abstract` **_getPort**(): `number`
 
-**Returns:** *number*
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:35](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L35)
+`number`
+
+#### Defined in
+
+[src/ServiceProvider.ts:35](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L35)
 
 ___
 
 ### \_getProtocol
 
-▸ `Protected`**_getProtocol**(): *string*
+▸ `Protected` **_getProtocol**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:57](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L57)
+`string`
+
+#### Defined in
+
+[src/ServiceProvider.ts:57](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L57)
 
 ___
 
 ### delete
 
-▸ **delete**(`url`: *string*, `accessToken`: *string*, `data?`: *any*, `headers?`: [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md), `additionalOptions?`: *any*): *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+▸ **delete**(`url`, `accessToken`, `data?`, `headers?`, `additionalOptions?`): `Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `url` | *string* |
-| `accessToken` | *string* |
-| `data?` | *any* |
-| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-| `additionalOptions?` | *any* |
+| `url` | `string` |
+| `accessToken` | `string` |
+| `data?` | `any` |
+| `headers?` | [`IServiceHeaders`](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | `any` |
 
-**Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:158](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L158)
+`Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
+
+#### Defined in
+
+[src/ServiceProvider.ts:158](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L158)
 
 ___
 
 ### get
 
-▸ **get**(`url`: *string*, `accessToken`: *string*, `data?`: *any*, `headers?`: [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md), `additionalOptions?`: *any*): *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+▸ **get**(`url`, `accessToken`, `data?`, `headers?`, `additionalOptions?`): `Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `url` | *string* |
-| `accessToken` | *string* |
-| `data?` | *any* |
-| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-| `additionalOptions?` | *any* |
+| `url` | `string` |
+| `accessToken` | `string` |
+| `data?` | `any` |
+| `headers?` | [`IServiceHeaders`](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | `any` |
 
-**Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:143](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L143)
+`Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
+
+#### Defined in
+
+[src/ServiceProvider.ts:143](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L143)
 
 ___
 
 ### getApp
 
-▸ **getApp**(): [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>
+▸ **getApp**(): [`Application`](application.application-1.md)<[`IConfig`](../interfaces/iconfig.iconfig-1.md), [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md), `any`, `any`\>
 
-**Returns:** [*Application*](application.application-1.md)<[*IConfig*](../interfaces/iconfig.iconfig-1.md), [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md), any, any\>
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L41)
+[`Application`](application.application-1.md)<[`IConfig`](../interfaces/iconfig.iconfig-1.md), [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md), `any`, `any`\>
+
+#### Defined in
+
+[src/ServiceProvider.ts:41](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L41)
 
 ___
 
 ### getVersion
 
-▸ **getVersion**(): *string*
+▸ **getVersion**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:61](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L61)
+`string`
+
+#### Defined in
+
+[src/ServiceProvider.ts:61](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L61)
 
 ___
 
 ### post
 
-▸ **post**(`url`: *string*, `accessToken`: *string*, `data?`: *any*, `headers?`: [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md), `additionalOptions?`: *any*): *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+▸ **post**(`url`, `accessToken`, `data?`, `headers?`, `additionalOptions?`): `Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `url` | *string* |
-| `accessToken` | *string* |
-| `data?` | *any* |
-| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-| `additionalOptions?` | *any* |
+| `url` | `string` |
+| `accessToken` | `string` |
+| `data?` | `any` |
+| `headers?` | [`IServiceHeaders`](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | `any` |
 
-**Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:148](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L148)
+`Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
+
+#### Defined in
+
+[src/ServiceProvider.ts:148](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L148)
 
 ___
 
 ### put
 
-▸ **put**(`url`: *string*, `accessToken`: *string*, `data?`: *any*, `headers?`: [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md), `additionalOptions?`: *any*): *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+▸ **put**(`url`, `accessToken`, `data?`, `headers?`, `additionalOptions?`): `Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `url` | *string* |
-| `accessToken` | *string* |
-| `data?` | *any* |
-| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-| `additionalOptions?` | *any* |
+| `url` | `string` |
+| `accessToken` | `string` |
+| `data?` | `any` |
+| `headers?` | [`IServiceHeaders`](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | `any` |
 
-**Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:153](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L153)
+`Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
+
+#### Defined in
+
+[src/ServiceProvider.ts:153](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L153)
 
 ___
 
 ### request
 
-▸ **request**(`method`: [*HTTPMethod*](../enums/httpmethod.httpmethod-1.md), `url`: *string*, `accessToken`: *string*, `data`: *any*, `headers?`: [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md), `additionalOptions?`: *any*): *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+▸ **request**(`method`, `url`, `accessToken`, `data`, `headers?`, `additionalOptions?`): `Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `method` | [*HTTPMethod*](../enums/httpmethod.httpmethod-1.md) |
-| `url` | *string* |
-| `accessToken` | *string* |
-| `data` | *any* |
-| `headers?` | [*IServiceHeaders*](../interfaces/iserviceheaders.iserviceheaders-1.md) |
-| `additionalOptions?` | *any* |
+| `method` | [`HTTPMethod`](../enums/httpmethod.httpmethod-1.md) |
+| `url` | `string` |
+| `accessToken` | `string` |
+| `data` | `any` |
+| `headers?` | [`IServiceHeaders`](../interfaces/iserviceheaders.iserviceheaders-1.md) |
+| `additionalOptions?` | `any` |
 
-**Returns:** *Promise*<[*ServiceResponse*](serviceresponse.serviceresponse-1.md)\>
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:83](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L83)
+`Promise`<[`ServiceResponse`](serviceresponse.serviceresponse-1.md)\>
+
+#### Defined in
+
+[src/ServiceProvider.ts:83](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L83)
 
 ___
 
 ### urlSuffix
 
-▸ **urlSuffix**(): *string*
+▸ **urlSuffix**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/ServiceProvider.ts:53](https://github.com/breautek/storm/blob/2614a1c/src/ServiceProvider.ts#L53)
+`string`
+
+#### Defined in
+
+[src/ServiceProvider.ts:53](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceProvider.ts#L53)

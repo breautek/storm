@@ -6,4 +6,4 @@
 
 ## Indexable
 
-▪ [key: *string*]: *string* \| *string*[]
+▪ [field: `string`]: `string` \| `string`[]

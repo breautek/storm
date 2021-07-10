@@ -6,10 +6,10 @@
 
 ## Type parameters
 
-| Name | Type | Default |
-| :------ | :------ | :------ |
-| `TBody` | - | *any* |
-| `TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `TBody` | `any` |
+| `TAuthToken` | extends [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md)[`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md) |
 
 ## Table of contents
 
@@ -41,215 +41,283 @@
 
 ### constructor
 
-\+ **new Request**<TBody, TAuthToken\>(`request`: *Request*<ParamsDictionary, any, any, ParsedQs, Record<string, any\>\>): [*Request*](request.request-1.md)<TBody, TAuthToken\>
+• **new Request**<`TBody`, `TAuthToken`\>(`request`)
 
-#### Type parameters:
-
-| Name | Type | Default |
-| :------ | :------ | :------ |
-| `TBody` | - | *any* |
-| `TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
-
-#### Parameters:
+#### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | *Request*<ParamsDictionary, any, any, ParsedQs, Record<string, any\>\> |
+| `TBody` | `any` |
+| `TAuthToken` | extends [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md)[`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md) |
 
-**Returns:** [*Request*](request.request-1.md)<TBody, TAuthToken\>
+#### Parameters
 
-Defined in: [src/Request.ts:35](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L35)
+| Name | Type |
+| :------ | :------ |
+| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
+
+#### Defined in
+
+[src/Request.ts:40](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L40)
 
 ## Methods
 
 ### getAuthenticationToken
 
-▸ **getAuthenticationToken**(): *Promise*<TAuthToken\>
+▸ **getAuthenticationToken**(): `Promise`<`TAuthToken`\>
 
-**Returns:** *Promise*<TAuthToken\>
+#### Returns
 
-Defined in: [src/Request.ts:126](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L126)
+`Promise`<`TAuthToken`\>
+
+#### Defined in
+
+[src/Request.ts:132](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L132)
 
 ___
 
 ### getBody
 
-▸ **getBody**(): TBody
+▸ **getBody**(): `TBody`
 
-**Returns:** TBody
+#### Returns
 
-Defined in: [src/Request.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L41)
+`TBody`
+
+#### Defined in
+
+[src/Request.ts:46](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L46)
 
 ___
 
 ### getForm
 
-▸ **getForm**(): *Promise*<[*IFormData*](../interfaces/iformdata.iformdata-1.md)\>
+▸ **getForm**(): `Promise`<[`IFormData`](../interfaces/iformdata.iformdata-1.md)\>
 
-**Returns:** *Promise*<[*IFormData*](../interfaces/iformdata.iformdata-1.md)\>
+#### Returns
 
-Defined in: [src/Request.ts:45](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L45)
+`Promise`<[`IFormData`](../interfaces/iformdata.iformdata-1.md)\>
+
+#### Defined in
+
+[src/Request.ts:50](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L50)
 
 ___
 
 ### getForwardedIP
 
-▸ **getForwardedIP**(): *string*
+▸ **getForwardedIP**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Request.ts:94](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L94)
+`string`
+
+#### Defined in
+
+[src/Request.ts:100](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L100)
 
 ___
 
 ### getHeader
 
-▸ **getHeader**(`name`: *string*): *string*
+▸ **getHeader**(`name`): `string`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Request.ts:68](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L68)
+`string`
+
+#### Defined in
+
+[src/Request.ts:74](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L74)
 
 ___
 
 ### getHeaders
 
-▸ **getHeaders**(): *IncomingHttpHeaders*
+▸ **getHeaders**(): `IncomingHttpHeaders`
 
-**Returns:** *IncomingHttpHeaders*
+#### Returns
 
-Defined in: [src/Request.ts:64](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L64)
+`IncomingHttpHeaders`
+
+#### Defined in
+
+[src/Request.ts:70](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L70)
 
 ___
 
 ### getHostname
 
-▸ **getHostname**(): *string*
+▸ **getHostname**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Request.ts:98](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L98)
+`string`
+
+#### Defined in
+
+[src/Request.ts:104](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L104)
 
 ___
 
 ### getIP
 
-▸ **getIP**(): *string*
+▸ **getIP**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Request.ts:90](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L90)
+`string`
+
+#### Defined in
+
+[src/Request.ts:96](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L96)
 
 ___
 
 ### getMethod
 
-▸ **getMethod**(): *string*
+▸ **getMethod**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Request.ts:102](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L102)
+`string`
+
+#### Defined in
+
+[src/Request.ts:108](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L108)
 
 ___
 
 ### getParam
 
-▸ **getParam**(`name`: *string*): *string*
+▸ **getParam**(`name`): `string`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Request.ts:86](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L86)
+`string`
+
+#### Defined in
+
+[src/Request.ts:92](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L92)
 
 ___
 
 ### getParams
 
-▸ **getParams**(): [*IParameterMap*](../interfaces/request.iparametermap.md)
+▸ **getParams**(): [`IParameterMap`](../interfaces/request.iparametermap.md)
 
-**Returns:** [*IParameterMap*](../interfaces/request.iparametermap.md)
+#### Returns
 
-Defined in: [src/Request.ts:82](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L82)
+[`IParameterMap`](../interfaces/request.iparametermap.md)
+
+#### Defined in
+
+[src/Request.ts:88](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L88)
 
 ___
 
 ### getQueryVariables
 
-▸ **getQueryVariables**(): *any*
+▸ **getQueryVariables**(): `any`
 
-**Returns:** *any*
+#### Returns
 
-Defined in: [src/Request.ts:78](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L78)
+`any`
+
+#### Defined in
+
+[src/Request.ts:84](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L84)
 
 ___
 
 ### getRequestSource
 
-▸ **getRequestSource**(): *Request*<ParamsDictionary, any, any, ParsedQs, Record<string, any\>\>
+▸ **getRequestSource**(): `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>
 
-**Returns:** *Request*<ParamsDictionary, any, any, ParsedQs, Record<string, any\>\>
+#### Returns
 
-Defined in: [src/Request.ts:122](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L122)
+`Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>
+
+#### Defined in
+
+[src/Request.ts:128](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L128)
 
 ___
 
 ### getURL
 
-▸ **getURL**(): *string*
+▸ **getURL**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Request.ts:106](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L106)
+`string`
+
+#### Defined in
+
+[src/Request.ts:112](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L112)
 
 ___
 
 ### isSecure
 
-▸ **isSecure**(): *boolean*
+▸ **isSecure**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [src/Request.ts:110](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L110)
+`boolean`
+
+#### Defined in
+
+[src/Request.ts:116](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L116)
 
 ___
 
 ### pipe
 
-▸ **pipe**(`destination`: *Writable*): *any*
+▸ **pipe**(`destination`): `any`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `destination` | *Writable* |
+| `destination` | `Writable` |
 
-**Returns:** *any*
+#### Returns
 
-Defined in: [src/Request.ts:114](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L114)
+`any`
+
+#### Defined in
+
+[src/Request.ts:120](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L120)
 
 ___
 
 ### unpipe
 
-▸ **unpipe**(`source`: *Writable*): *void*
+▸ **unpipe**(`source`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `source` | *Writable* |
+| `source` | `Writable` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Request.ts:118](https://github.com/breautek/storm/blob/2614a1c/src/Request.ts#L118)
+`void`
+
+#### Defined in
+
+[src/Request.ts:124](https://github.com/breautek/storm/blob/fff2ea4/src/Request.ts#L124)

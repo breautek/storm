@@ -13,9 +13,9 @@
 
 ## Hierarchy
 
-* **Database**
+- **`Database`**
 
-  ↳ [*MySQLDatabase*](mysqldatabase.mysqldatabase-1.md)
+  ↳ [`MySQLDatabase`](mysqldatabase.mysqldatabase-1.md)
 
 ## Table of contents
 
@@ -39,157 +39,193 @@
 
 ### constructor
 
-\+ **new Database**<TDatabaseConfig, TConnectionAPI\>(): [*Database*](database.database-1.md)<TDatabaseConfig, TConnectionAPI\>
+• **new Database**<`TDatabaseConfig`, `TConnectionAPI`\>()
 
-#### Type parameters:
+#### Type parameters
 
 | Name |
 | :------ |
 | `TDatabaseConfig` |
 | `TConnectionAPI` |
 
-**Returns:** [*Database*](database.database-1.md)<TDatabaseConfig, TConnectionAPI\>
+#### Defined in
 
-Defined in: [src/Database.ts:26](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L26)
+[src/Database.ts:26](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L26)
 
 ## Methods
 
 ### \_addNode
 
-▸ `Protected` `Abstract`**_addNode**(`name`: *string*, `config`: TDatabaseConfig): *void*
+▸ `Protected` `Abstract` **_addNode**(`name`, `config`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
-| `config` | TDatabaseConfig |
+| `name` | `string` |
+| `config` | `TDatabaseConfig` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Database.ts:78](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L78)
+`void`
+
+#### Defined in
+
+[src/Database.ts:78](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L78)
 
 ___
 
 ### \_getConnection
 
-▸ `Protected` `Abstract`**_getConnection**(`query`: *string*, `requireWriteAccess`: *boolean*): *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TConnectionAPI\>\>
+▸ `Protected` `Abstract` **_getConnection**(`query`, `requireWriteAccess`): `Promise`<[`DatabaseConnection`](databaseconnection.databaseconnection-1.md)<`TConnectionAPI`\>\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* |
-| `requireWriteAccess` | *boolean* |
+| `query` | `string` |
+| `requireWriteAccess` | `boolean` |
 
-**Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TConnectionAPI\>\>
+#### Returns
 
-Defined in: [src/Database.ts:80](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L80)
+`Promise`<[`DatabaseConnection`](databaseconnection.databaseconnection-1.md)<`TConnectionAPI`\>\>
+
+#### Defined in
+
+[src/Database.ts:80](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L80)
 
 ___
 
 ### \_removeNode
 
-▸ `Protected` `Abstract`**_removeNode**(`name`: *string*): *void*
+▸ `Protected` `Abstract` **_removeNode**(`name`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Database.ts:79](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L79)
+`void`
+
+#### Defined in
+
+[src/Database.ts:79](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L79)
 
 ___
 
 ### addMaster
 
-▸ **addMaster**(`config`: TDatabaseConfig): *void*
+▸ **addMaster**(`config`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `config` | TDatabaseConfig |
+| `config` | `TDatabaseConfig` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L32)
+`void`
+
+#### Defined in
+
+[src/Database.ts:32](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L32)
 
 ___
 
 ### addSlave
 
-▸ **addSlave**(`slaveID`: *string*, `config`: TDatabaseConfig): *string*
+▸ **addSlave**(`slaveID`, `config`): `string`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `slaveID` | *string* |
-| `config` | TDatabaseConfig |
+| `slaveID` | `string` |
+| `config` | `TDatabaseConfig` |
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L46)
+`string`
+
+#### Defined in
+
+[src/Database.ts:46](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L46)
 
 ___
 
 ### escape
 
-▸ `Abstract`**escape**(`query`: *string*): *string*
+▸ `Abstract` **escape**(`query`): `string`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* |
+| `query` | `string` |
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Database.ts:81](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L81)
+`string`
+
+#### Defined in
+
+[src/Database.ts:81](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L81)
 
 ___
 
 ### getConnection
 
-▸ **getConnection**(`requireWriteAccess?`: *boolean*, `nodeID?`: *string*): *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TConnectionAPI\>\>
+▸ **getConnection**(`requireWriteAccess?`, `nodeID?`): `Promise`<[`DatabaseConnection`](databaseconnection.databaseconnection-1.md)<`TConnectionAPI`\>\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `requireWriteAccess` | *boolean* | false |
-| `nodeID?` | *string* | - |
+| `requireWriteAccess` | `boolean` | `false` |
+| `nodeID?` | `string` | `undefined` |
 
-**Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TConnectionAPI\>\>
+#### Returns
 
-Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L65)
+`Promise`<[`DatabaseConnection`](databaseconnection.databaseconnection-1.md)<`TConnectionAPI`\>\>
+
+#### Defined in
+
+[src/Database.ts:65](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L65)
 
 ___
 
 ### removeMaster
 
-▸ **removeMaster**(): *void*
+▸ **removeMaster**(): `void`
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L41)
+`void`
+
+#### Defined in
+
+[src/Database.ts:41](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L41)
 
 ___
 
 ### removeSlave
 
-▸ **removeSlave**(`slaveID`: *string*): *void*
+▸ **removeSlave**(`slaveID`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `slaveID` | *string* |
+| `slaveID` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L55)
+`void`
+
+#### Defined in
+
+[src/Database.ts:55](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L55)

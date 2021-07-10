@@ -6,9 +6,9 @@
 
 ## Hierarchy
 
-* **Middleware**
+- **`Middleware`**
 
-  ↳ [*CORSMiddleware*](corsmiddleware.corsmiddleware-1.md)
+  ↳ [`CORSMiddleware`](corsmiddleware.corsmiddleware-1.md)
 
 ## Table of contents
 
@@ -25,42 +25,50 @@
 
 ### constructor
 
-\+ **new Middleware**(): [*Middleware*](middleware.middleware-1.md)
+• **new Middleware**()
 
-**Returns:** [*Middleware*](middleware.middleware-1.md)
+#### Defined in
 
-Defined in: [src/Middleware.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/Middleware.ts#L21)
+[src/Middleware.ts:21](https://github.com/breautek/storm/blob/fff2ea4/src/Middleware.ts#L21)
 
 ## Methods
 
 ### \_execute
 
-▸ `Protected` `Abstract`**_execute**(`request`: [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<any, any\>\>
+▸ `Protected` `Abstract` **_execute**(`request`, `response`): `Promise`<[`IRequestResponse`](../interfaces/irequestresponse.irequestresponse-1.md)<`any`, `any`\>\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-| `response` | [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| `request` | [`Request`](request.request-1.md)<`any`, [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [`Response`](response.response-1.md)<`any`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<any, any\>\>
+#### Returns
 
-Defined in: [src/Middleware.ts:25](https://github.com/breautek/storm/blob/2614a1c/src/Middleware.ts#L25)
+`Promise`<[`IRequestResponse`](../interfaces/irequestresponse.irequestresponse-1.md)<`any`, `any`\>\>
+
+#### Defined in
+
+[src/Middleware.ts:25](https://github.com/breautek/storm/blob/fff2ea4/src/Middleware.ts#L25)
 
 ___
 
 ### execute
 
-▸ **execute**(`request`: [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<any, any\>\>
+▸ **execute**(`request`, `response`): `Promise`<[`IRequestResponse`](../interfaces/irequestresponse.irequestresponse-1.md)<`any`, `any`\>\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-| `response` | [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| `request` | [`Request`](request.request-1.md)<`any`, [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [`Response`](response.response-1.md)<`any`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<any, any\>\>
+#### Returns
 
-Defined in: [src/Middleware.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/Middleware.ts#L27)
+`Promise`<[`IRequestResponse`](../interfaces/irequestresponse.irequestresponse-1.md)<`any`, `any`\>\>
+
+#### Defined in
+
+[src/Middleware.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/Middleware.ts#L27)

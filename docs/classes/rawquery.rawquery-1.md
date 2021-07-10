@@ -6,16 +6,16 @@
 
 ## Type parameters
 
-| Name | Default |
+| Name | Type |
 | :------ | :------ |
-| `TQueryParameters` | *any* |
-| `TQueryResultSet` | *any* |
+| `TQueryParameters` | `any` |
+| `TQueryResultSet` | `any` |
 
 ## Hierarchy
 
-* [*Query*](query.query-1.md)<TQueryParameters, TQueryResultSet, TQueryResultSet\>
+- [`Query`](query.query-1.md)<`TQueryParameters`, `TQueryResultSet`, `TQueryResultSet`\>
 
-  ↳ **RawQuery**
+  ↳ **`RawQuery`**
 
 ## Table of contents
 
@@ -36,111 +36,149 @@
 
 ### constructor
 
-\+ **new RawQuery**<TQueryParameters, TQueryResultSet\>(`query`: *string*, `parameters?`: TQueryParameters): [*RawQuery*](rawquery.rawquery-1.md)<TQueryParameters, TQueryResultSet\>
+• **new RawQuery**<`TQueryParameters`, `TQueryResultSet`\>(`query`, `parameters?`)
 
-#### Type parameters:
-
-| Name | Default |
-| :------ | :------ |
-| `TQueryParameters` | *any* |
-| `TQueryResultSet` | *any* |
-
-#### Parameters:
+#### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* |
-| `parameters?` | TQueryParameters |
+| `TQueryParameters` | `any` |
+| `TQueryResultSet` | `any` |
 
-**Returns:** [*RawQuery*](rawquery.rawquery-1.md)<TQueryParameters, TQueryResultSet\>
+#### Parameters
 
-Overrides: [Query](query.query-1.md)
+| Name | Type |
+| :------ | :------ |
+| `query` | `string` |
+| `parameters?` | `TQueryParameters` |
 
-Defined in: [src/RawQuery.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/RawQuery.ts#L20)
+#### Overrides
+
+[Query](query.query-1.md).[constructor](query.query-1.md#constructor)
+
+#### Defined in
+
+[src/RawQuery.ts:20](https://github.com/breautek/storm/blob/fff2ea4/src/RawQuery.ts#L20)
 
 ## Methods
 
 ### \_getQuery
 
-▸ `Protected`**_getQuery**(): *string*
+▸ `Protected` **_getQuery**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Overrides: [Query](query.query-1.md)
+`string`
 
-Defined in: [src/RawQuery.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/RawQuery.ts#L27)
+#### Overrides
+
+[Query](query.query-1.md).[_getQuery](query.query-1.md#_getquery)
+
+#### Defined in
+
+[src/RawQuery.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/RawQuery.ts#L27)
 
 ___
 
 ### execute
 
-▸ **execute**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)): *Promise*<TQueryResultSet\>
+▸ **execute**(`connection`): `Promise`<`TQueryResultSet`\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
+| `connection` | [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
 
-**Returns:** *Promise*<TQueryResultSet\>
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`Promise`<`TQueryResultSet`\>
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L52)
+#### Inherited from
+
+[Query](query.query-1.md).[execute](query.query-1.md#execute)
+
+#### Defined in
+
+[src/Query.ts:52](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L52)
 
 ___
 
 ### getParameters
 
-▸ **getParameters**(): TQueryParameters
+▸ **getParameters**(): `TQueryParameters`
 
-**Returns:** TQueryParameters
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`TQueryParameters`
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L27)
+#### Inherited from
+
+[Query](query.query-1.md).[getParameters](query.query-1.md#getparameters)
+
+#### Defined in
+
+[src/Query.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L27)
 
 ___
 
 ### getParametersForQuery
 
-▸ **getParametersForQuery**(): *IDictionary*<any\>
+▸ **getParametersForQuery**(): `IDictionary`<`any`\>
 
-**Returns:** *IDictionary*<any\>
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`IDictionary`<`any`\>
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L31)
+#### Inherited from
+
+[Query](query.query-1.md).[getParametersForQuery](query.query-1.md#getparametersforquery)
+
+#### Defined in
+
+[src/Query.ts:31](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L31)
 
 ___
 
 ### getQuery
 
-▸ **getQuery**(): *string*
+▸ **getQuery**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`string`
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L37)
+#### Inherited from
+
+[Query](query.query-1.md).[getQuery](query.query-1.md#getquery)
+
+#### Defined in
+
+[src/Query.ts:37](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L37)
 
 ___
 
 ### onPostProcess
 
-▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: TQueryResultSet): *Promise*<TQueryResultSet\>
+▸ **onPostProcess**(`connection`, `resultSet`): `Promise`<`TQueryResultSet`\>
 
 Override to augment/manipulate the returned result set.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
-| `resultSet` | TQueryResultSet | - |
+| `connection` | [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
+| `resultSet` | `TQueryResultSet` | - |
 
-**Returns:** *Promise*<TQueryResultSet\>
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`Promise`<`TQueryResultSet`\>
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L47)
+#### Inherited from
+
+[Query](query.query-1.md).[onPostProcess](query.query-1.md#onpostprocess)
+
+#### Defined in
+
+[src/Query.ts:47](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L47)

@@ -6,9 +6,9 @@
 
 ## Hierarchy
 
-* [*Database*](database.database-1.md)<MySQL.PoolConfig, MySQL.PoolConnection\>
+- [`Database`](database.database-1.md)<`MySQL.PoolConfig`, `MySQL.PoolConnection`\>
 
-  ↳ **MySQLDatabase**
+  ↳ **`MySQLDatabase`**
 
 ## Table of contents
 
@@ -33,186 +33,246 @@
 
 ### constructor
 
-\+ **new MySQLDatabase**(): [*MySQLDatabase*](mysqldatabase.mysqldatabase-1.md)
+• **new MySQLDatabase**()
 
-**Returns:** [*MySQLDatabase*](mysqldatabase.mysqldatabase-1.md)
+#### Overrides
 
-Overrides: [Database](database.database-1.md)
+[Database](database.database-1.md).[constructor](database.database-1.md#constructor)
 
-Defined in: [src/MySQLDatabase.ts:25](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L25)
+#### Defined in
+
+[src/MySQLDatabase.ts:25](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLDatabase.ts#L25)
 
 ## Methods
 
 ### \_addNode
 
-▸ `Protected`**_addNode**(`nodeID`: *string*, `config`: PoolConfig): *void*
+▸ `Protected` **_addNode**(`nodeID`, `config`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `nodeID` | *string* |
-| `config` | PoolConfig |
+| `nodeID` | `string` |
+| `config` | `PoolConfig` |
 
-**Returns:** *void*
+#### Returns
 
-Overrides: [Database](database.database-1.md)
+`void`
 
-Defined in: [src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L49)
+#### Overrides
+
+[Database](database.database-1.md).[_addNode](database.database-1.md#_addnode)
+
+#### Defined in
+
+[src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLDatabase.ts#L49)
 
 ___
 
 ### \_getConnection
 
-▸ `Protected`**_getConnection**(`query`: *string*, `requireWriteAccess`: *boolean*): *Promise*<[*MySQLConnection*](mysqlconnection.mysqlconnection-1.md)\>
+▸ `Protected` **_getConnection**(`query`, `requireWriteAccess`): `Promise`<[`MySQLConnection`](mysqlconnection.mysqlconnection-1.md)\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* |
-| `requireWriteAccess` | *boolean* |
+| `query` | `string` |
+| `requireWriteAccess` | `boolean` |
 
-**Returns:** *Promise*<[*MySQLConnection*](mysqlconnection.mysqlconnection-1.md)\>
+#### Returns
 
-Overrides: [Database](database.database-1.md)
+`Promise`<[`MySQLConnection`](mysqlconnection.mysqlconnection-1.md)\>
 
-Defined in: [src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L59)
+#### Overrides
+
+[Database](database.database-1.md).[_getConnection](database.database-1.md#_getconnection)
+
+#### Defined in
+
+[src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLDatabase.ts#L59)
 
 ___
 
 ### \_removeNode
 
-▸ `Protected`**_removeNode**(`nodeID`: *string*): *void*
+▸ `Protected` **_removeNode**(`nodeID`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `nodeID` | *string* |
+| `nodeID` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Overrides: [Database](database.database-1.md)
+`void`
 
-Defined in: [src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L54)
+#### Overrides
+
+[Database](database.database-1.md).[_removeNode](database.database-1.md#_removenode)
+
+#### Defined in
+
+[src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLDatabase.ts#L54)
 
 ___
 
 ### addMaster
 
-▸ **addMaster**(`config`: PoolConfig): *void*
+▸ **addMaster**(`config`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `config` | PoolConfig |
+| `config` | `PoolConfig` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [Database](database.database-1.md)
+`void`
 
-Defined in: [src/Database.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L32)
+#### Inherited from
+
+[Database](database.database-1.md).[addMaster](database.database-1.md#addmaster)
+
+#### Defined in
+
+[src/Database.ts:32](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L32)
 
 ___
 
 ### addSlave
 
-▸ **addSlave**(`slaveID`: *string*, `config`: PoolConfig): *string*
+▸ **addSlave**(`slaveID`, `config`): `string`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `slaveID` | *string* |
-| `config` | PoolConfig |
+| `slaveID` | `string` |
+| `config` | `PoolConfig` |
 
-**Returns:** *string*
+#### Returns
 
-Inherited from: [Database](database.database-1.md)
+`string`
 
-Defined in: [src/Database.ts:46](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L46)
+#### Inherited from
+
+[Database](database.database-1.md).[addSlave](database.database-1.md#addslave)
+
+#### Defined in
+
+[src/Database.ts:46](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L46)
 
 ___
 
 ### escape
 
-▸ **escape**(`value`: *any*): *string*
+▸ **escape**(`value`): `string`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | *any* |
+| `value` | `any` |
 
-**Returns:** *string*
+#### Returns
 
-Overrides: [Database](database.database-1.md)
+`string`
 
-Defined in: [src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L40)
+#### Overrides
+
+[Database](database.database-1.md).[escape](database.database-1.md#escape)
+
+#### Defined in
+
+[src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLDatabase.ts#L40)
 
 ___
 
 ### getConnection
 
-▸ **getConnection**(`requireWriteAccess?`: *boolean*, `nodeID?`: *string*): *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<PoolConnection\>\>
+▸ **getConnection**(`requireWriteAccess?`, `nodeID?`): `Promise`<[`DatabaseConnection`](databaseconnection.databaseconnection-1.md)<`PoolConnection`\>\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `requireWriteAccess` | *boolean* | false |
-| `nodeID?` | *string* | - |
+| `requireWriteAccess` | `boolean` | `false` |
+| `nodeID?` | `string` | `undefined` |
 
-**Returns:** *Promise*<[*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<PoolConnection\>\>
+#### Returns
 
-Inherited from: [Database](database.database-1.md)
+`Promise`<[`DatabaseConnection`](databaseconnection.databaseconnection-1.md)<`PoolConnection`\>\>
 
-Defined in: [src/Database.ts:65](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L65)
+#### Inherited from
+
+[Database](database.database-1.md).[getConnection](database.database-1.md#getconnection)
+
+#### Defined in
+
+[src/Database.ts:65](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L65)
 
 ___
 
 ### removeMaster
 
-▸ **removeMaster**(): *void*
+▸ **removeMaster**(): `void`
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [Database](database.database-1.md)
+`void`
 
-Defined in: [src/Database.ts:41](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L41)
+#### Inherited from
+
+[Database](database.database-1.md).[removeMaster](database.database-1.md#removemaster)
+
+#### Defined in
+
+[src/Database.ts:41](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L41)
 
 ___
 
 ### removeSlave
 
-▸ **removeSlave**(`slaveID`: *string*): *void*
+▸ **removeSlave**(`slaveID`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `slaveID` | *string* |
+| `slaveID` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [Database](database.database-1.md)
+`void`
 
-Defined in: [src/Database.ts:55](https://github.com/breautek/storm/blob/2614a1c/src/Database.ts#L55)
+#### Inherited from
+
+[Database](database.database-1.md).[removeSlave](database.database-1.md#removeslave)
+
+#### Defined in
+
+[src/Database.ts:55](https://github.com/breautek/storm/blob/fff2ea4/src/Database.ts#L55)
 
 ___
 
 ### escape
 
-▸ `Static`**escape**(`value`: *any*): *string*
+▸ `Static` **escape**(`value`): `string`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | *any* |
+| `value` | `any` |
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/2614a1c/src/MySQLDatabase.ts#L45)
+`string`
+
+#### Defined in
+
+[src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLDatabase.ts#L45)

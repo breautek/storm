@@ -10,9 +10,9 @@ communicate with CORS enabled clients.
 
 ## Hierarchy
 
-* [*Middleware*](middleware.middleware-1.md)
+- [`Middleware`](middleware.middleware-1.md)
 
-  ↳ **CORSMiddleware**
+  ↳ **`CORSMiddleware`**
 
 ## Table of contents
 
@@ -32,88 +32,114 @@ communicate with CORS enabled clients.
 
 ### constructor
 
-\+ **new CORSMiddleware**(`allowedOrigin?`: *string*, `allowedHeaders?`: *string*[], `allowedMethods?`: *string*[]): [*CORSMiddleware*](corsmiddleware.corsmiddleware-1.md)
+• **new CORSMiddleware**(`allowedOrigin?`, `allowedHeaders?`, `allowedMethods?`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `allowedOrigin?` | *string* | The allowed origin. By default it will use the request origin. |
-| `allowedHeaders?` | *string*[] | Array of allowed headers. |
-| `allowedMethods?` | *string*[] | Array of allowed HTTP methods. |
+| `allowedOrigin?` | `string` | The allowed origin. By default it will use the request origin. |
+| `allowedHeaders?` | `string`[] | Array of allowed headers. |
+| `allowedMethods?` | `string`[] | Array of allowed HTTP methods. |
 
-**Returns:** [*CORSMiddleware*](corsmiddleware.corsmiddleware-1.md)
+#### Overrides
 
-Overrides: [Middleware](middleware.middleware-1.md)
+[Middleware](middleware.middleware-1.md).[constructor](middleware.middleware-1.md#constructor)
 
-Defined in: [src/CORSMiddleware.ts:31](https://github.com/breautek/storm/blob/2614a1c/src/CORSMiddleware.ts#L31)
+#### Defined in
+
+[src/CORSMiddleware.ts:31](https://github.com/breautek/storm/blob/fff2ea4/src/CORSMiddleware.ts#L31)
 
 ## Methods
 
 ### \_execute
 
-▸ `Protected`**_execute**(`request`: [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<any, any\>\>
+▸ `Protected` **_execute**(`request`, `response`): `Promise`<[`IRequestResponse`](../interfaces/irequestresponse.irequestresponse-1.md)<`any`, `any`\>\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-| `response` | [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| `request` | [`Request`](request.request-1.md)<`any`, [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [`Response`](response.response-1.md)<`any`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<any, any\>\>
+#### Returns
 
-Overrides: [Middleware](middleware.middleware-1.md)
+`Promise`<[`IRequestResponse`](../interfaces/irequestresponse.irequestresponse-1.md)<`any`, `any`\>\>
 
-Defined in: [src/CORSMiddleware.ts:75](https://github.com/breautek/storm/blob/2614a1c/src/CORSMiddleware.ts#L75)
+#### Overrides
+
+[Middleware](middleware.middleware-1.md).[_execute](middleware.middleware-1.md#_execute)
+
+#### Defined in
+
+[src/CORSMiddleware.ts:75](https://github.com/breautek/storm/blob/fff2ea4/src/CORSMiddleware.ts#L75)
 
 ___
 
 ### execute
 
-▸ **execute**(`request`: [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\>, `response`: [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\>): *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<any, any\>\>
+▸ **execute**(`request`, `response`): `Promise`<[`IRequestResponse`](../interfaces/irequestresponse.irequestresponse-1.md)<`any`, `any`\>\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [*Request*](request.request-1.md)<any, [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
-| `response` | [*Response*](response.response-1.md)<any, string \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)\> |
+| `request` | [`Request`](request.request-1.md)<`any`, [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md)\> |
+| `response` | [`Response`](response.response-1.md)<`any`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md)\> |
 
-**Returns:** *Promise*<[*IRequestResponse*](../interfaces/irequestresponse.irequestresponse-1.md)<any, any\>\>
+#### Returns
 
-Inherited from: [Middleware](middleware.middleware-1.md)
+`Promise`<[`IRequestResponse`](../interfaces/irequestresponse.irequestresponse-1.md)<`any`, `any`\>\>
 
-Defined in: [src/Middleware.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/Middleware.ts#L27)
+#### Inherited from
+
+[Middleware](middleware.middleware-1.md).[execute](middleware.middleware-1.md#execute)
+
+#### Defined in
+
+[src/Middleware.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/Middleware.ts#L27)
 
 ___
 
 ### getDefaultAllowedHeaders
 
-▸ **getDefaultAllowedHeaders**(): *string*[]
+▸ **getDefaultAllowedHeaders**(): `string`[]
 
-**Returns:** *string*[]
+#### Returns
 
-Defined in: [src/CORSMiddleware.ts:54](https://github.com/breautek/storm/blob/2614a1c/src/CORSMiddleware.ts#L54)
+`string`[]
+
+#### Defined in
+
+[src/CORSMiddleware.ts:54](https://github.com/breautek/storm/blob/fff2ea4/src/CORSMiddleware.ts#L54)
 
 ___
 
 ### getDefaultAllowedMethods
 
-▸ **getDefaultAllowedMethods**(): *string*[]
+▸ **getDefaultAllowedMethods**(): `string`[]
 
-**Returns:** *string*[]
+#### Returns
 
-Defined in: [src/CORSMiddleware.ts:64](https://github.com/breautek/storm/blob/2614a1c/src/CORSMiddleware.ts#L64)
+`string`[]
+
+#### Defined in
+
+[src/CORSMiddleware.ts:64](https://github.com/breautek/storm/blob/fff2ea4/src/CORSMiddleware.ts#L64)
 
 ___
 
 ### getDefaultAllowedOrigin
 
-▸ **getDefaultAllowedOrigin**(): *string*
+▸ **getDefaultAllowedOrigin**(): `string`
 
 Sets the allowed origin. By default,
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/CORSMiddleware.ts:50](https://github.com/breautek/storm/blob/2614a1c/src/CORSMiddleware.ts#L50)
+`string`
+
+#### Defined in
+
+[src/CORSMiddleware.ts:50](https://github.com/breautek/storm/blob/fff2ea4/src/CORSMiddleware.ts#L50)

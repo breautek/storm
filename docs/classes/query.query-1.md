@@ -6,27 +6,27 @@
 
 ## Type parameters
 
-| Name | Default |
+| Name | Type |
 | :------ | :------ |
-| `TQueryParameters` | *any* |
-| `TQueryResultSet` | *any* |
-| `TQueryPostProcessedResultSet` | TQueryResultSet |
+| `TQueryParameters` | `any` |
+| `TQueryResultSet` | `any` |
+| `TQueryPostProcessedResultSet` | `TQueryResultSet` |
 
 ## Hierarchy
 
-* **Query**
+- **`Query`**
 
-  ↳ [*DropTemporaryTableQuery*](droptemporarytablequery.droptemporarytablequery-1.md)
+  ↳ [`DropTemporaryTableQuery`](droptemporarytablequery.droptemporarytablequery-1.md)
 
-  ↳ [*RawQuery*](rawquery.rawquery-1.md)
+  ↳ [`RawQuery`](rawquery.rawquery-1.md)
 
-  ↳ [*TemporaryTableQuery*](temporarytablequery.temporarytablequery-1.md)
+  ↳ [`TemporaryTableQuery`](temporarytablequery.temporarytablequery-1.md)
 
-  ↳ [*CommitQuery*](private_commitquery.commitquery.md)
+  ↳ [`CommitQuery`](private_commitquery.commitquery.md)
 
-  ↳ [*RollbackQuery*](private_rollbackquery.rollbackquery.md)
+  ↳ [`RollbackQuery`](private_rollbackquery.rollbackquery.md)
 
-  ↳ [*StartTransactionQuery*](private_starttransactionquery.starttransactionquery.md)
+  ↳ [`StartTransactionQuery`](private_starttransactionquery.starttransactionquery.md)
 
 ## Table of contents
 
@@ -47,97 +47,121 @@
 
 ### constructor
 
-\+ **new Query**<TQueryParameters, TQueryResultSet, TQueryPostProcessedResultSet\>(`parameters?`: TQueryParameters): [*Query*](query.query-1.md)<TQueryParameters, TQueryResultSet, TQueryPostProcessedResultSet\>
+• **new Query**<`TQueryParameters`, `TQueryResultSet`, `TQueryPostProcessedResultSet`\>(`parameters?`)
 
-#### Type parameters:
-
-| Name | Default |
-| :------ | :------ |
-| `TQueryParameters` | *any* |
-| `TQueryResultSet` | *any* |
-| `TQueryPostProcessedResultSet` | TQueryResultSet |
-
-#### Parameters:
+#### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `parameters?` | TQueryParameters |
+| `TQueryParameters` | `any` |
+| `TQueryResultSet` | `any` |
+| `TQueryPostProcessedResultSet` | `TQueryResultSet` |
 
-**Returns:** [*Query*](query.query-1.md)<TQueryParameters, TQueryResultSet, TQueryPostProcessedResultSet\>
+#### Parameters
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L21)
+| Name | Type |
+| :------ | :------ |
+| `parameters?` | `TQueryParameters` |
+
+#### Defined in
+
+[src/Query.ts:21](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L21)
 
 ## Methods
 
 ### \_getQuery
 
-▸ `Protected` `Abstract`**_getQuery**(): *string*
+▸ `Protected` `Abstract` **_getQuery**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Query.ts:35](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L35)
+`string`
+
+#### Defined in
+
+[src/Query.ts:35](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L35)
 
 ___
 
 ### execute
 
-▸ **execute**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)): *Promise*<TQueryPostProcessedResultSet\>
+▸ **execute**(`connection`): `Promise`<`TQueryPostProcessedResultSet`\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
+| `connection` | [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
 
-**Returns:** *Promise*<TQueryPostProcessedResultSet\>
+#### Returns
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L52)
+`Promise`<`TQueryPostProcessedResultSet`\>
+
+#### Defined in
+
+[src/Query.ts:52](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L52)
 
 ___
 
 ### getParameters
 
-▸ **getParameters**(): TQueryParameters
+▸ **getParameters**(): `TQueryParameters`
 
-**Returns:** TQueryParameters
+#### Returns
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L27)
+`TQueryParameters`
+
+#### Defined in
+
+[src/Query.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L27)
 
 ___
 
 ### getParametersForQuery
 
-▸ **getParametersForQuery**(): *IDictionary*<any\>
+▸ **getParametersForQuery**(): `IDictionary`<`any`\>
 
-**Returns:** *IDictionary*<any\>
+#### Returns
 
-Defined in: [src/Query.ts:31](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L31)
+`IDictionary`<`any`\>
+
+#### Defined in
+
+[src/Query.ts:31](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L31)
 
 ___
 
 ### getQuery
 
-▸ **getQuery**(): *string*
+▸ **getQuery**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L37)
+`string`
+
+#### Defined in
+
+[src/Query.ts:37](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L37)
 
 ___
 
 ### onPostProcess
 
-▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: TQueryResultSet): *Promise*<TQueryPostProcessedResultSet\>
+▸ **onPostProcess**(`connection`, `resultSet`): `Promise`<`TQueryPostProcessedResultSet`\>
 
 Override to augment/manipulate the returned result set.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
-| `resultSet` | TQueryResultSet | - |
+| `connection` | [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
+| `resultSet` | `TQueryResultSet` | - |
 
-**Returns:** *Promise*<TQueryPostProcessedResultSet\>
+#### Returns
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L47)
+`Promise`<`TQueryPostProcessedResultSet`\>
+
+#### Defined in
+
+[src/Query.ts:47](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L47)

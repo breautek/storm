@@ -6,4 +6,4 @@
 
 ## Indexable
 
-▪ [key: *string*]: [*File*](api.formidable.file.md) \| [*File*](api.formidable.file.md)[]
+▪ [file: `string`]: [`File`](api.formidable.file.md) \| [`File`](api.formidable.file.md)[]

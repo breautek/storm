@@ -6,9 +6,9 @@
 
 ## Type parameters
 
-| Name | Type | Default |
-| :------ | :------ | :------ |
-| `TApplication` | [*Application*](../classes/application.application-1.md) | [*Application*](../classes/application.application-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `TApplication` | extends [`Application`](../classes/application.application-1.md)[`Application`](../classes/application.application-1.md) |
 
 ## Table of contents
 
@@ -20,14 +20,14 @@
 
 ### constructor
 
-\+ **new IHandler**(`app`: TApplication): [*Handler*](../classes/handler.handler-1.md)<[*Application*](../classes/application.application-1.md)<[*IConfig*](iconfig.iconfig-1.md), [*IAuthTokenData*](iauthtokendata.iauthtokendata-1.md), any, any\>, any, any, any, any, any, any, any, any\>
+• **new IHandler**(`app`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `app` | TApplication |
+| `app` | `TApplication` |
 
-**Returns:** [*Handler*](../classes/handler.handler-1.md)<[*Application*](../classes/application.application-1.md)<[*IConfig*](iconfig.iconfig-1.md), [*IAuthTokenData*](iauthtokendata.iauthtokendata-1.md), any, any\>, any, any, any, any, any, any, any, any\>
+#### Defined in
 
-Defined in: [src/IHandler.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/IHandler.ts#L20)
+[src/IHandler.ts:20](https://github.com/breautek/storm/blob/fff2ea4/src/IHandler.ts#L20)

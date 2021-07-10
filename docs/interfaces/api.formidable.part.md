@@ -6,9 +6,9 @@
 
 ## Hierarchy
 
-* *Stream*
+- `Stream`
 
-  ↳ **Part**
+  ↳ **`Part`**
 
 ## Table of contents
 
@@ -42,324 +42,426 @@
 
 ### filename
 
-• `Optional` **filename**: *string*
+• `Optional` **filename**: `string`
 
-Defined in: node_modules/@types/formidable/index.d.ts:43
+#### Defined in
+
+node_modules/@types/formidable/index.d.ts:184
 
 ___
 
 ### headers
 
-• **headers**: *object*
+• **headers**: `Record`<`string`, `string`\>
 
-#### Type declaration:
+#### Defined in
 
-Defined in: node_modules/@types/formidable/index.d.ts:41
+node_modules/@types/formidable/index.d.ts:185
 
 ___
 
 ### mime
 
-• `Optional` **mime**: *string*
+• `Optional` **mime**: `string`
 
-Defined in: node_modules/@types/formidable/index.d.ts:44
+#### Defined in
+
+node_modules/@types/formidable/index.d.ts:186
 
 ___
 
 ### name
 
-• **name**: *string*
+• **name**: `string`
 
-Defined in: node_modules/@types/formidable/index.d.ts:42
+#### Defined in
+
+node_modules/@types/formidable/index.d.ts:187
 
 ## Methods
 
 ### addListener
 
-▸ **addListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Part*](api.formidable.part.md)
+▸ **addListener**(`event`, `listener`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.addListener
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:62
+#### Inherited from
+
+Stream.addListener
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:72
 
 ___
 
 ### emit
 
-▸ **emit**(`event`: *string* \| *symbol*, ...`args`: *any*[]): *boolean*
+▸ **emit**(`event`, ...`args`): `boolean`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `...args` | *any*[] |
+| `event` | `string` \| `symbol` |
+| `...args` | `any`[] |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Stream.emit
+`boolean`
 
-Defined in: node_modules/@types/node/events.d.ts:72
+#### Inherited from
+
+Stream.emit
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:82
 
 ___
 
 ### eventNames
 
-▸ **eventNames**(): (*string* \| *symbol*)[]
+▸ **eventNames**(): (`string` \| `symbol`)[]
 
-**Returns:** (*string* \| *symbol*)[]
+#### Returns
 
-Inherited from: stream.Stream.eventNames
+(`string` \| `symbol`)[]
 
-Defined in: node_modules/@types/node/events.d.ts:77
+#### Inherited from
+
+Stream.eventNames
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:87
 
 ___
 
 ### getMaxListeners
 
-▸ **getMaxListeners**(): *number*
+▸ **getMaxListeners**(): `number`
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: stream.Stream.getMaxListeners
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:69
+#### Inherited from
+
+Stream.getMaxListeners
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:79
 
 ___
 
 ### listenerCount
 
-▸ **listenerCount**(`event`: *string* \| *symbol*): *number*
+▸ **listenerCount**(`event`): `number`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: stream.Stream.listenerCount
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:73
+#### Inherited from
+
+Stream.listenerCount
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:83
 
 ___
 
 ### listeners
 
-▸ **listeners**(`event`: *string* \| *symbol*): Function[]
+▸ **listeners**(`event`): `Function`[]
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: stream.Stream.listeners
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:70
+#### Inherited from
+
+Stream.listeners
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:80
 
 ___
 
 ### off
 
-▸ **off**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Part*](api.formidable.part.md)
+▸ **off**(`event`, `listener`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.off
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:66
+#### Inherited from
+
+Stream.off
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:76
 
 ___
 
 ### on
 
-▸ **on**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Part*](api.formidable.part.md)
+▸ **on**(`event`, `listener`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.on
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:63
+#### Inherited from
+
+Stream.on
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:73
 
 ___
 
 ### once
 
-▸ **once**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Part*](api.formidable.part.md)
+▸ **once**(`event`, `listener`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.once
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:64
+#### Inherited from
+
+Stream.once
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:74
 
 ___
 
 ### pipe
 
-▸ **pipe**<T\>(`destination`: T, `options?`: { `end?`: *boolean*  }): T
+▸ **pipe**<`T`\>(`destination`, `options?`): `T`
 
-#### Type parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `T` | *WritableStream*<T\> |
-
-#### Parameters:
+#### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `destination` | T |
-| `options?` | *object* |
-| `options.end?` | *boolean* |
+| `T` | extends `WritableStream`<`T`\> |
 
-**Returns:** T
+#### Parameters
 
-Inherited from: stream.Stream.pipe
+| Name | Type |
+| :------ | :------ |
+| `destination` | `T` |
+| `options?` | `Object` |
+| `options.end?` | `boolean` |
 
-Defined in: node_modules/@types/node/stream.d.ts:10
+#### Returns
+
+`T`
+
+#### Inherited from
+
+Stream.pipe
+
+#### Defined in
+
+node_modules/@types/node/stream.d.ts:6
 
 ___
 
 ### prependListener
 
-▸ **prependListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Part*](api.formidable.part.md)
+▸ **prependListener**(`event`, `listener`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.prependListener
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:75
+#### Inherited from
+
+Stream.prependListener
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:85
 
 ___
 
 ### prependOnceListener
 
-▸ **prependOnceListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Part*](api.formidable.part.md)
+▸ **prependOnceListener**(`event`, `listener`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.prependOnceListener
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:76
+#### Inherited from
+
+Stream.prependOnceListener
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:86
 
 ___
 
 ### rawListeners
 
-▸ **rawListeners**(`event`: *string* \| *symbol*): Function[]
+▸ **rawListeners**(`event`): `Function`[]
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: stream.Stream.rawListeners
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:71
+#### Inherited from
+
+Stream.rawListeners
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:81
 
 ___
 
 ### removeAllListeners
 
-▸ **removeAllListeners**(`event?`: *string* \| *symbol*): [*Part*](api.formidable.part.md)
+▸ **removeAllListeners**(`event?`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event?` | *string* \| *symbol* |
+| `event?` | `string` \| `symbol` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.removeAllListeners
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:67
+#### Inherited from
+
+Stream.removeAllListeners
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:77
 
 ___
 
 ### removeListener
 
-▸ **removeListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Part*](api.formidable.part.md)
+▸ **removeListener**(`event`, `listener`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.removeListener
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:65
+#### Inherited from
+
+Stream.removeListener
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:75
 
 ___
 
 ### setMaxListeners
 
-▸ **setMaxListeners**(`n`: *number*): [*Part*](api.formidable.part.md)
+▸ **setMaxListeners**(`n`): [`Part`](api.formidable.part.md)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `n` | *number* |
+| `n` | `number` |
 
-**Returns:** [*Part*](api.formidable.part.md)
+#### Returns
 
-Inherited from: stream.Stream.setMaxListeners
+[`Part`](api.formidable.part.md)
 
-Defined in: node_modules/@types/node/events.d.ts:68
+#### Inherited from
+
+Stream.setMaxListeners
+
+#### Defined in
+
+node_modules/@types/node/events.d.ts:78

@@ -17,30 +17,38 @@
 
 ### DELETE
 
-• **DELETE**: = "DELETE"
+• **DELETE** = `"DELETE"`
 
-Defined in: [src/HTTPMethod.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/HTTPMethod.ts#L21)
+#### Defined in
+
+[src/HTTPMethod.ts:21](https://github.com/breautek/storm/blob/fff2ea4/src/HTTPMethod.ts#L21)
 
 ___
 
 ### GET
 
-• **GET**: = "GET"
+• **GET** = `"GET"`
 
-Defined in: [src/HTTPMethod.ts:18](https://github.com/breautek/storm/blob/2614a1c/src/HTTPMethod.ts#L18)
+#### Defined in
+
+[src/HTTPMethod.ts:18](https://github.com/breautek/storm/blob/fff2ea4/src/HTTPMethod.ts#L18)
 
 ___
 
 ### POST
 
-• **POST**: = "POST"
+• **POST** = `"POST"`
 
-Defined in: [src/HTTPMethod.ts:19](https://github.com/breautek/storm/blob/2614a1c/src/HTTPMethod.ts#L19)
+#### Defined in
+
+[src/HTTPMethod.ts:19](https://github.com/breautek/storm/blob/fff2ea4/src/HTTPMethod.ts#L19)
 
 ___
 
 ### PUT
 
-• **PUT**: = "PUT"
+• **PUT** = `"PUT"`
 
-Defined in: [src/HTTPMethod.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/HTTPMethod.ts#L20)
+#### Defined in
+
+[src/HTTPMethod.ts:20](https://github.com/breautek/storm/blob/fff2ea4/src/HTTPMethod.ts#L20)

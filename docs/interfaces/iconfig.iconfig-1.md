@@ -21,78 +21,94 @@
 
 ### authentication\_header
 
-• `Optional` **authentication\_header**: *string*
+• `Optional` **authentication\_header**: `string`
 
-Defined in: [src/IConfig.ts:26](https://github.com/breautek/storm/blob/2614a1c/src/IConfig.ts#L26)
+#### Defined in
+
+[src/IConfig.ts:26](https://github.com/breautek/storm/blob/fff2ea4/src/IConfig.ts#L26)
 
 ___
 
 ### backend\_authentication\_header
 
-• `Optional` **backend\_authentication\_header**: *string*
+• `Optional` **backend\_authentication\_header**: `string`
 
-Defined in: [src/IConfig.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/IConfig.ts#L27)
+#### Defined in
+
+[src/IConfig.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/IConfig.ts#L27)
 
 ___
 
 ### backend\_authentication\_secret
 
-• `Optional` **backend\_authentication\_secret**: *string*
+• `Optional` **backend\_authentication\_secret**: `string`
 
-Defined in: [src/IConfig.ts:28](https://github.com/breautek/storm/blob/2614a1c/src/IConfig.ts#L28)
+#### Defined in
+
+[src/IConfig.ts:28](https://github.com/breautek/storm/blob/fff2ea4/src/IConfig.ts#L28)
 
 ___
 
 ### bind
 
-• `Optional` **bind**: *string*
+• `Optional` **bind**: `string`
 
-Defined in: [src/IConfig.ts:22](https://github.com/breautek/storm/blob/2614a1c/src/IConfig.ts#L22)
+#### Defined in
+
+[src/IConfig.ts:22](https://github.com/breautek/storm/blob/fff2ea4/src/IConfig.ts#L22)
 
 ___
 
 ### database
 
-• `Optional` **database**: *object*
+• `Optional` **database**: `Object`
 
-#### Type declaration:
+#### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `main?` | [*IDatabaseConfig*](idatabaseconfig.idatabaseconfig-1.md)<``"MASTER"``\> |
-| `query_timeout?` | *number* |
-| `replicationNodes?` | [*IDatabaseConfig*](idatabaseconfig.idatabaseconfig-1.md)<string\>[] |
+| `main?` | [`IDatabaseConfig`](idatabaseconfig.idatabaseconfig-1.md)<``"MASTER"``\> |
+| `query_timeout?` | `number` |
+| `replicationNodes?` | [`IDatabaseConfig`](idatabaseconfig.idatabaseconfig-1.md)<`string`\>[] |
 
-Defined in: [src/IConfig.ts:38](https://github.com/breautek/storm/blob/2614a1c/src/IConfig.ts#L38)
+#### Defined in
+
+[src/IConfig.ts:38](https://github.com/breautek/storm/blob/fff2ea4/src/IConfig.ts#L38)
 
 ___
 
 ### log
 
-• `Optional` **log**: *object*
+• `Optional` **log**: `Object`
 
-#### Type declaration:
+#### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `directory?` | *string* |
-| `filters?` | *string*[] |
-| `level?` | LogLevel |
+| `directory?` | `string` |
+| `filters?` | `string`[] |
+| `level?` | `LogLevel` |
 
-Defined in: [src/IConfig.ts:31](https://github.com/breautek/storm/blob/2614a1c/src/IConfig.ts#L31)
+#### Defined in
+
+[src/IConfig.ts:31](https://github.com/breautek/storm/blob/fff2ea4/src/IConfig.ts#L31)
 
 ___
 
 ### port
 
-• `Optional` **port**: *number*
+• `Optional` **port**: `number`
 
-Defined in: [src/IConfig.ts:23](https://github.com/breautek/storm/blob/2614a1c/src/IConfig.ts#L23)
+#### Defined in
+
+[src/IConfig.ts:23](https://github.com/breautek/storm/blob/fff2ea4/src/IConfig.ts#L23)
 
 ___
 
 ### request\_size\_limit
 
-• `Optional` **request\_size\_limit**: *number*
+• `Optional` **request\_size\_limit**: `number`
 
-Defined in: [src/IConfig.ts:45](https://github.com/breautek/storm/blob/2614a1c/src/IConfig.ts#L45)
+#### Defined in
+
+[src/IConfig.ts:45](https://github.com/breautek/storm/blob/fff2ea4/src/IConfig.ts#L45)

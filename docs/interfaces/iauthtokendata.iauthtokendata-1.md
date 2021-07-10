@@ -16,22 +16,28 @@
 
 ### \_\_bt\_\_salt
 
-• **\_\_bt\_\_salt**: *string*
+• **\_\_bt\_\_salt**: `string`
 
-Defined in: node_modules/@arashi/token/lib/IAuthTokenData.d.ts:4
+#### Defined in
+
+node_modules/@arashi/token/lib/IAuthTokenData.d.ts:4
 
 ___
 
 ### exp
 
-• **exp**: *number*
+• **exp**: `number`
 
-Defined in: node_modules/@arashi/token/lib/IAuthTokenData.d.ts:3
+#### Defined in
+
+node_modules/@arashi/token/lib/IAuthTokenData.d.ts:3
 
 ___
 
 ### iat
 
-• **iat**: *number*
+• **iat**: `number`
 
-Defined in: node_modules/@arashi/token/lib/IAuthTokenData.d.ts:2
+#### Defined in
+
+node_modules/@arashi/token/lib/IAuthTokenData.d.ts:2

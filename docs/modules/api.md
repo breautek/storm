@@ -68,6 +68,10 @@
 
 - [formidable](api.formidable.md)
 
+### Variables
+
+- [formidable](api.md#formidable)
+
 ## References
 
 ### Application
@@ -409,3 +413,13 @@ ___
 ### getInstance
 
 Re-exports: [getInstance](instance.md#getinstance)
+
+## Variables
+
+### formidable
+
+• **formidable**: (`options?`: [`Options`](../interfaces/api.formidable.options.md)) => `IncomingForm` & [`MappedParsers`](api.formidable.md#mappedparsers)
+
+#### Defined in
+
+node_modules/@types/formidable/index.d.ts:281

@@ -6,7 +6,7 @@
 
 Do not call `new Database` directly. Use `Database.getConnection` to create a `DatabaseConnection` object.
 
-**`abstract`** 
+**`abstract`**
 
 **`implements`** `IDatabaseConnection`
 
@@ -18,13 +18,13 @@ Do not call `new Database` directly. Use `Database.getConnection` to create a `D
 
 ## Hierarchy
 
-* **DatabaseConnection**
+- **`DatabaseConnection`**
 
-  ↳ [*MySQLConnection*](mysqlconnection.mysqlconnection-1.md)
+  ↳ [`MySQLConnection`](mysqlconnection.mysqlconnection-1.md)
 
 ## Implements
 
-* [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+- [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
 ## Table of contents
 
@@ -57,394 +57,494 @@ Do not call `new Database` directly. Use `Database.getConnection` to create a `D
 
 ### constructor
 
-\+ **new DatabaseConnection**<TAPI\>(`api`: TAPI, `isReadOnly`: *boolean*, `instantiationStack`: *string*): [*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TAPI\>
+• **new DatabaseConnection**<`TAPI`\>(`api`, `isReadOnly`, `instantiationStack`)
 
-#### Type parameters:
+#### Type parameters
 
 | Name |
 | :------ |
 | `TAPI` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `api` | TAPI |
-| `isReadOnly` | *boolean* |
-| `instantiationStack` | *string* |
+| `api` | `TAPI` |
+| `isReadOnly` | `boolean` |
+| `instantiationStack` | `string` |
 
-**Returns:** [*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<TAPI\>
+#### Defined in
 
-Defined in: [src/DatabaseConnection.ts:42](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L42)
+[src/DatabaseConnection.ts:42](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L42)
 
 ## Methods
 
 ### \_close
 
-▸ `Protected` `Abstract`**_close**(`forceClose`: *boolean*): *Promise*<void\>
+▸ `Protected` `Abstract` **_close**(`forceClose`): `Promise`<`void`\>
 
 Implementation to close the connection, if `forceClose` is true, close the connection no matter what.
 Silently error if it means the connection is closed.
 
-**`async`** 
+**`async`**
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `forceClose` | *boolean* | boolean, if `true`, should close the connection no matter what. |
+| `forceClose` | `boolean` | boolean, if `true`, should close the connection no matter what. |
 
-**Returns:** *Promise*<void\>
+#### Returns
+
+`Promise`<`void`\>
 
 Promise<void>
 
-Defined in: [src/DatabaseConnection.ts:238](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L238)
+#### Defined in
+
+[src/DatabaseConnection.ts:238](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L238)
 
 ___
 
 ### \_query
 
-▸ `Protected` `Abstract`**_query**<TQueryResult\>(`query`: *string*, `params?`: *any*): *Promise*<TQueryResult\>
+▸ `Protected` `Abstract` **_query**<`TQueryResult`\>(`query`, `params?`): `Promise`<`TQueryResult`\>
 
 Implementation method to return a dataset from the database
 
-**`async`** 
+**`async`**
 
-#### Type parameters:
+#### Type parameters
 
 | Name |
 | :------ |
 | `TQueryResult` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query` | *string* | The database query |
-| `params?` | *any* | The query parameters |
+| `query` | `string` | The database query |
+| `params?` | `any` | The query parameters |
 
-**Returns:** *Promise*<TQueryResult\>
+#### Returns
+
+`Promise`<`TQueryResult`\>
 
 Promise
 
-Defined in: [src/DatabaseConnection.ts:249](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L249)
+#### Defined in
+
+[src/DatabaseConnection.ts:249](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L249)
 
 ___
 
 ### \_stream
 
-▸ `Protected` `Abstract`**_stream**(`query`: *string*, `params?`: *any*, `streamOptions?`: *any*): *Readable*
+▸ `Protected` `Abstract` **_stream**(`query`, `params?`, `streamOptions?`): `Readable`
 
 Implementation method to return a dataset from the database like `query()`,
 but returns a `Readable` stream instead.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query` | *string* | The database query |
-| `params?` | *any* | The query parameters |
-| `streamOptions?` | *any* | `Readable` stream options |
+| `query` | `string` | The database query |
+| `params?` | `any` | The query parameters |
+| `streamOptions?` | `any` | `Readable` stream options |
 
-**Returns:** *Readable*
+#### Returns
 
 `Readable`
 
-Defined in: [src/DatabaseConnection.ts:261](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L261)
+`Readable`
+
+#### Defined in
+
+[src/DatabaseConnection.ts:261](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L261)
 
 ___
 
 ### close
 
-▸ **close**(`forceClose?`: *boolean*): *Promise*<void\>
+▸ **close**(`forceClose?`): `Promise`<`void`\>
 
 Closes the connection. May error if connection has an active transaction.
 if `forceClose` boolean is true, it will force close the connection, regardless
 of transaction state.
 
-**`async`** 
+**`async`**
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `forceClose` | *boolean* | false | optional boolean |
+| `forceClose` | `boolean` | `false` | optional boolean |
 
-**Returns:** *Promise*<void\>
+#### Returns
+
+`Promise`<`void`\>
 
 Promise<void>
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L168)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[close](../interfaces/idatabaseconnection.idatabaseconnection-1.md#close)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L168)
 
 ___
 
 ### commit
 
-▸ `Abstract`**commit**(): *Promise*<void\>
+▸ `Abstract` **commit**(): `Promise`<`void`\>
 
 Commits a transaction. This will end a transaction.
 
-**`abstract`** 
+**`abstract`**
 
-**`async`** 
+**`async`**
 
-**Returns:** *Promise*<void\>
+#### Returns
+
+`Promise`<`void`\>
 
 Promise<void>
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:219](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L219)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[commit](../interfaces/idatabaseconnection.idatabaseconnection-1.md#commit)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:219](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L219)
 
 ___
 
 ### endTransaction
 
-▸ `Abstract`**endTransaction**(`requiresRollback?`: *boolean*): *Promise*<void\>
+▸ `Abstract` **endTransaction**(`requiresRollback?`): `Promise`<`void`\>
 
 Ends a transaction. if `requiresRollback` is `true`, then `rollback()` is invoked. Otherwise, `commit()` is invoked.
 
-**`abstract`** 
+**`abstract`**
 
-**`async`** 
+**`async`**
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `requiresRollback?` | *boolean* | optional boolean |
+| `requiresRollback?` | `boolean` | optional boolean |
 
-**Returns:** *Promise*<void\>
+#### Returns
+
+`Promise`<`void`\>
 
 Promise<void>
 
-Defined in: [src/DatabaseConnection.ts:210](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L210)
+#### Defined in
+
+[src/DatabaseConnection.ts:210](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L210)
 
 ___
 
 ### getAPI
 
-▸ **getAPI**(): TAPI
+▸ **getAPI**(): `TAPI`
 
 Gets the underlying Database API
 
-**Returns:** TAPI
+#### Returns
+
+`TAPI`
 
 any
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L91)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[getAPI](../interfaces/idatabaseconnection.idatabaseconnection-1.md#getapi)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L91)
 
 ___
 
 ### getInstantiationStack
 
-▸ **getInstantiationStack**(): *string*
+▸ **getInstantiationStack**(): `string`
 
 Gets the callback stacktrace to determine what opened
 this connection. Useful for debugging lingering connections.
 
-**Returns:** *string*
+#### Returns
+
+`string`
 
 string - A stacktrace
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L73)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[getInstantiationStack](../interfaces/idatabaseconnection.idatabaseconnection-1.md#getinstantiationstack)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L73)
 
 ___
 
 ### getTimeout
 
-▸ **getTimeout**(): *number*
+▸ **getTimeout**(): `number`
 
 Returns the current timeout setting
 
-**Returns:** *number*
+#### Returns
+
+`number`
 
 number in milliseconds
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L121)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[getTimeout](../interfaces/idatabaseconnection.idatabaseconnection-1.md#gettimeout)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L121)
 
 ___
 
 ### isClosed
 
-▸ **isClosed**(): *boolean*
+▸ **isClosed**(): `boolean`
 
 Returns true if the connection has been closed.
 
-**Returns:** *boolean*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`boolean`
 
-Defined in: [src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L181)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[isClosed](../interfaces/idatabaseconnection.idatabaseconnection-1.md#isclosed)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L181)
 
 ___
 
 ### isReadOnly
 
-▸ **isReadOnly**(): *boolean*
+▸ **isReadOnly**(): `boolean`
 
 Returns true if connection was created without
 write access
 
-**Returns:** *boolean*
+#### Returns
+
+`boolean`
 
 boolean
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L100)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[isReadOnly](../interfaces/idatabaseconnection.idatabaseconnection-1.md#isreadonly)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L100)
 
 ___
 
 ### isTransaction
 
-▸ `Abstract`**isTransaction**(): *boolean*
+▸ `Abstract` **isTransaction**(): `boolean`
 
 Implementation method to determine if the connection is in an active transaction.
 
-**`abstract`** 
+**`abstract`**
 
-**Returns:** *boolean*
+#### Returns
+
+`boolean`
 
 boolean
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:200](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L200)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[isTransaction](../interfaces/idatabaseconnection.idatabaseconnection-1.md#istransaction)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:200](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L200)
 
 ___
 
 ### query
 
-▸ **query**<TQueryResult\>(`query`: [*Query*](query.query-1.md)<any, any, any\>): *Promise*<TQueryResult\>
+▸ **query**<`TQueryResult`\>(`query`): `Promise`<`TQueryResult`\>
 
 Queries the database for a dataset.
 
-**`async`** 
+**`async`**
 
-#### Type parameters:
+#### Type parameters
 
-| Name | Default |
+| Name | Type |
 | :------ | :------ |
-| `TQueryResult` | *any* |
+| `TQueryResult` | `any` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query` | [*Query*](query.query-1.md)<any, any, any\> | The database query |
+| `query` | [`Query`](query.query-1.md)<`any`, `any`, `any`\> | The database query |
 
-**Returns:** *Promise*<TQueryResult\>
+#### Returns
+
+`Promise`<`TQueryResult`\>
 
 Promise<TQueryResult>
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L132)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[query](../interfaces/idatabaseconnection.idatabaseconnection-1.md#query)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L132)
 
 ___
 
 ### rollback
 
-▸ `Abstract`**rollback**(): *Promise*<void\>
+▸ `Abstract` **rollback**(): `Promise`<`void`\>
 
 Rollsback a transaction. This will end a transaction.
 
-**`abstract`** 
+**`abstract`**
 
-**`async`** 
+**`async`**
 
-**Returns:** *Promise*<void\>
+#### Returns
+
+`Promise`<`void`\>
 
 Promise<void>
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:228](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L228)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[rollback](../interfaces/idatabaseconnection.idatabaseconnection-1.md#rollback)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:228](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L228)
 
 ___
 
 ### setInstantiationStack
 
-▸ **setInstantiationStack**(`stack`: *string*): *void*
+▸ **setInstantiationStack**(`stack`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `stack` | *string* |
+| `stack` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`void`
 
-Defined in: [src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L64)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[setInstantiationStack](../interfaces/idatabaseconnection.idatabaseconnection-1.md#setinstantiationstack)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L64)
 
 ___
 
 ### setTimeout
 
-▸ **setTimeout**(`timeout`: *number*): *void*
+▸ **setTimeout**(`timeout`): `void`
 
 Sets the timeout of this connectino
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `timeout` | *number* | in milliseconds |
+| `timeout` | `number` | in milliseconds |
 
-**Returns:** *void*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`void`
 
-Defined in: [src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L109)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[setTimeout](../interfaces/idatabaseconnection.idatabaseconnection-1.md#settimeout)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L109)
 
 ___
 
 ### startTransaction
 
-▸ `Abstract`**startTransaction**(): *Promise*<void\>
+▸ `Abstract` **startTransaction**(): `Promise`<`void`\>
 
 Implementation method to start a transaction.
 
-**`abstract`** 
+**`abstract`**
 
-**`async`** 
+**`async`**
 
-**Returns:** *Promise*<void\>
+#### Returns
+
+`Promise`<`void`\>
 
 Promise<void>
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:192](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L192)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[startTransaction](../interfaces/idatabaseconnection.idatabaseconnection-1.md#starttransaction)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:192](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L192)
 
 ___
 
 ### stream
 
-▸ **stream**(`query`: [*Query*](query.query-1.md)<any, any, any\>, `streamOptions?`: *any*): *Readable*
+▸ **stream**(`query`, `streamOptions?`): `Readable`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query` | [*Query*](query.query-1.md)<any, any, any\> | The database query |
-| `streamOptions?` | *any* | Stream options |
+| `query` | [`Query`](query.query-1.md)<`any`, `any`, `any`\> | The database query |
+| `streamOptions?` | `any` | Stream options |
 
-**Returns:** *Readable*
+#### Returns
+
+`Readable`
 
 Readable
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+#### Implementation of
 
-Defined in: [src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L151)
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[stream](../interfaces/idatabaseconnection.idatabaseconnection-1.md#stream)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L151)

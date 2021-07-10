@@ -16,22 +16,28 @@
 
 ### affectedRows
 
-• **affectedRows**: *number*
+• **affectedRows**: `number`
 
-Defined in: [src/IInsertQueryResult.ts:19](https://github.com/breautek/storm/blob/2614a1c/src/IInsertQueryResult.ts#L19)
+#### Defined in
+
+[src/IInsertQueryResult.ts:19](https://github.com/breautek/storm/blob/fff2ea4/src/IInsertQueryResult.ts#L19)
 
 ___
 
 ### changedRows
 
-• **changedRows**: *number*
+• **changedRows**: `number`
 
-Defined in: [src/IInsertQueryResult.ts:20](https://github.com/breautek/storm/blob/2614a1c/src/IInsertQueryResult.ts#L20)
+#### Defined in
+
+[src/IInsertQueryResult.ts:20](https://github.com/breautek/storm/blob/fff2ea4/src/IInsertQueryResult.ts#L20)
 
 ___
 
 ### insertId
 
-• **insertId**: *number*
+• **insertId**: `number`
 
-Defined in: [src/IInsertQueryResult.ts:18](https://github.com/breautek/storm/blob/2614a1c/src/IInsertQueryResult.ts#L18)
+#### Defined in
+
+[src/IInsertQueryResult.ts:18](https://github.com/breautek/storm/blob/fff2ea4/src/IInsertQueryResult.ts#L18)

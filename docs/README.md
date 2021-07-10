@@ -62,7 +62,6 @@
 - [TokenManager](modules/tokenmanager.md)
 - [UnauthorizedAccessError](modules/unauthorizedaccesserror.md)
 - [api](modules/api.md)
-- [defs/merge-change](modules/defs_merge_change.md)
 - [instance](modules/instance.md)
 - [private/CommitQuery](modules/private_commitquery.md)
 - [private/RollbackQuery](modules/private_rollbackquery.md)

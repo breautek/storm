@@ -6,7 +6,7 @@
 
 ## Implements
 
-* [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+- [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
 
 ## Table of contents
 
@@ -39,261 +39,361 @@
 
 ### constructor
 
-\+ **new ManagedDatabaseConnection**(`requiresWrite?`: *boolean*): [*ManagedDatabaseConnection*](manageddatabaseconnection.manageddatabaseconnection-1.md)
+• **new ManagedDatabaseConnection**(`requiresWrite?`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `requiresWrite` | *boolean* | false |
+| `requiresWrite` | `boolean` | `false` |
 
-**Returns:** [*ManagedDatabaseConnection*](manageddatabaseconnection.manageddatabaseconnection-1.md)
+#### Defined in
 
-Defined in: [src/ManagedDatabaseConnection.ts:34](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L34)
+[src/ManagedDatabaseConnection.ts:35](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L35)
 
 ## Methods
 
 ### close
 
-▸ **close**(`forceClose?`: *boolean*): *Promise*<void\>
+▸ **close**(`forceClose?`): `Promise`<`void`\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `forceClose?` | *boolean* |
+| `forceClose?` | `boolean` |
 
-**Returns:** *Promise*<void\>
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`Promise`<`void`\>
 
-Defined in: [src/ManagedDatabaseConnection.ts:149](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L149)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[close](../interfaces/idatabaseconnection.idatabaseconnection-1.md#close)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:150](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L150)
 
 ___
 
 ### commit
 
-▸ **commit**(): *Promise*<void\>
+▸ **commit**(): `Promise`<`void`\>
 
-**Returns:** *Promise*<void\>
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`Promise`<`void`\>
 
-Defined in: [src/ManagedDatabaseConnection.ts:186](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L186)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[commit](../interfaces/idatabaseconnection.idatabaseconnection-1.md#commit)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:187](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L187)
 
 ___
 
 ### getAPI
 
-▸ **getAPI**(): *any*
+▸ **getAPI**(): `any`
 
-**Returns:** *any*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`any`
 
-Defined in: [src/ManagedDatabaseConnection.ts:234](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L234)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[getAPI](../interfaces/idatabaseconnection.idatabaseconnection-1.md#getapi)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:235](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L235)
 
 ___
 
 ### getInstantiationStack
 
-▸ **getInstantiationStack**(): *string*
+▸ **getInstantiationStack**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`string`
 
-Defined in: [src/ManagedDatabaseConnection.ts:102](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L102)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[getInstantiationStack](../interfaces/idatabaseconnection.idatabaseconnection-1.md#getinstantiationstack)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:103](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L103)
 
 ___
 
 ### getTimeout
 
-▸ **getTimeout**(): *number*
+▸ **getTimeout**(): `number`
 
-**Returns:** *number*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`number`
 
-Defined in: [src/ManagedDatabaseConnection.ts:126](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L126)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[getTimeout](../interfaces/idatabaseconnection.idatabaseconnection-1.md#gettimeout)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:127](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L127)
 
 ___
 
 ### hasConnection
 
-▸ **hasConnection**(): *boolean*
+▸ **hasConnection**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [src/ManagedDatabaseConnection.ts:89](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L89)
+`boolean`
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:90](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L90)
 
 ___
 
 ### isClosed
 
-▸ **isClosed**(): *boolean*
+▸ **isClosed**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`boolean`
 
-Defined in: [src/ManagedDatabaseConnection.ts:72](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L72)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[isClosed](../interfaces/idatabaseconnection.idatabaseconnection-1.md#isclosed)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:73](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L73)
 
 ___
 
 ### isManaged
 
-▸ **isManaged**(): *boolean*
+▸ **isManaged**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [src/ManagedDatabaseConnection.ts:85](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L85)
+`boolean`
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:86](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L86)
 
 ___
 
 ### isReadOnly
 
-▸ **isReadOnly**(): *boolean*
+▸ **isReadOnly**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`boolean`
 
-Defined in: [src/ManagedDatabaseConnection.ts:111](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L111)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[isReadOnly](../interfaces/idatabaseconnection.idatabaseconnection-1.md#isreadonly)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:112](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L112)
 
 ___
 
 ### isTransaction
 
-▸ **isTransaction**(): *boolean*
+▸ **isTransaction**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`boolean`
 
-Defined in: [src/ManagedDatabaseConnection.ts:177](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L177)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[isTransaction](../interfaces/idatabaseconnection.idatabaseconnection-1.md#istransaction)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:178](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L178)
 
 ___
 
 ### isWriteRequired
 
-▸ **isWriteRequired**(): *boolean*
+▸ **isWriteRequired**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [src/ManagedDatabaseConnection.ts:81](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L81)
+`boolean`
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:82](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L82)
 
 ___
 
 ### query
 
-▸ **query**(`query`: *string* \| [*Query*](query.query-1.md)<any, any, any\>, `params?`: *any*): *Promise*<any\>
+▸ **query**(`query`, `params?`): `Promise`<`any`\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* \| [*Query*](query.query-1.md)<any, any, any\> |
-| `params?` | *any* |
+| `query` | [`Query`](query.query-1.md)<`any`, `any`, `any`\> |
+| `params?` | `any` |
 
-**Returns:** *Promise*<any\>
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`Promise`<`any`\>
 
-Defined in: [src/ManagedDatabaseConnection.ts:136](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L136)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[query](../interfaces/idatabaseconnection.idatabaseconnection-1.md#query)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:137](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L137)
 
 ___
 
 ### rollback
 
-▸ **rollback**(): *Promise*<void\>
+▸ **rollback**(): `Promise`<`void`\>
 
-**Returns:** *Promise*<void\>
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`Promise`<`void`\>
 
-Defined in: [src/ManagedDatabaseConnection.ts:199](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L199)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[rollback](../interfaces/idatabaseconnection.idatabaseconnection-1.md#rollback)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:200](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L200)
 
 ___
 
 ### setConnection
 
-▸ **setConnection**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)): *void*
+▸ **setConnection**(`connection`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
+| `connection` | [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/ManagedDatabaseConnection.ts:42](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L42)
+`void`
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:43](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L43)
 
 ___
 
 ### setInstantiationStack
 
-▸ **setInstantiationStack**(`stack`: *string*): *void*
+▸ **setInstantiationStack**(`stack`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `stack` | *string* |
+| `stack` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`void`
 
-Defined in: [src/ManagedDatabaseConnection.ts:93](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L93)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[setInstantiationStack](../interfaces/idatabaseconnection.idatabaseconnection-1.md#setinstantiationstack)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:94](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L94)
 
 ___
 
 ### setTimeout
 
-▸ **setTimeout**(`timeout`: *number*): *void*
+▸ **setTimeout**(`timeout`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `timeout` | *number* |
+| `timeout` | `number` |
 
-**Returns:** *void*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`void`
 
-Defined in: [src/ManagedDatabaseConnection.ts:120](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L120)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[setTimeout](../interfaces/idatabaseconnection.idatabaseconnection-1.md#settimeout)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:121](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L121)
 
 ___
 
 ### startTransaction
 
-▸ **startTransaction**(): *Promise*<void\>
+▸ **startTransaction**(): `Promise`<`void`\>
 
-**Returns:** *Promise*<void\>
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`Promise`<`void`\>
 
-Defined in: [src/ManagedDatabaseConnection.ts:164](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L164)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[startTransaction](../interfaces/idatabaseconnection.idatabaseconnection-1.md#starttransaction)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:165](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L165)
 
 ___
 
 ### stream
 
-▸ **stream**(`query`: *string* \| [*Query*](query.query-1.md)<any, any, any\>, `params?`: *any*, `streamOptions?`: *any*): *Readable*
+▸ **stream**(`query`, `params?`, `streamOptions?`): `Readable`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* \| [*Query*](query.query-1.md)<any, any, any\> |
-| `params?` | *any* |
-| `streamOptions?` | *any* |
+| `query` | [`Query`](query.query-1.md)<`any`, `any`, `any`\> |
+| `params?` | `any` |
+| `streamOptions?` | `any` |
 
-**Returns:** *Readable*
+#### Returns
 
-Implementation of: [IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md)
+`Readable`
 
-Defined in: [src/ManagedDatabaseConnection.ts:145](https://github.com/breautek/storm/blob/2614a1c/src/ManagedDatabaseConnection.ts#L145)
+#### Implementation of
+
+[IDatabaseConnection](../interfaces/idatabaseconnection.idatabaseconnection-1.md).[stream](../interfaces/idatabaseconnection.idatabaseconnection-1.md#stream)
+
+#### Defined in
+
+[src/ManagedDatabaseConnection.ts:146](https://github.com/breautek/storm/blob/fff2ea4/src/ManagedDatabaseConnection.ts#L146)

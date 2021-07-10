@@ -6,9 +6,9 @@
 
 ## Hierarchy
 
-* [*DatabaseConnection*](databaseconnection.databaseconnection-1.md)<MySQL.PoolConnection\>
+- [`DatabaseConnection`](databaseconnection.databaseconnection-1.md)<`MySQL.PoolConnection`\>
 
-  ↳ **MySQLConnection**
+  ↳ **`MySQLConnection`**
 
 ## Table of contents
 
@@ -42,346 +42,494 @@
 
 ### constructor
 
-\+ **new MySQLConnection**(`connection`: *PoolConnection*, `instantiationStack`: *string*, `isReadOnly?`: *boolean*): [*MySQLConnection*](mysqlconnection.mysqlconnection-1.md)
+• **new MySQLConnection**(`connection`, `instantiationStack`, `isReadOnly?`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `connection` | *PoolConnection* | - |
-| `instantiationStack` | *string* | - |
-| `isReadOnly` | *boolean* | true |
+| `connection` | `PoolConnection` | `undefined` |
+| `instantiationStack` | `string` | `undefined` |
+| `isReadOnly` | `boolean` | `true` |
 
-**Returns:** [*MySQLConnection*](mysqlconnection.mysqlconnection-1.md)
+#### Overrides
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[constructor](databaseconnection.databaseconnection-1.md#constructor)
 
-Defined in: [src/MySQLConnection.ts:44](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L44)
+#### Defined in
+
+[src/MySQLConnection.ts:44](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L44)
 
 ## Methods
 
 ### \_close
 
-▸ `Protected`**_close**(`forceClose`: *boolean*): *Promise*<void\>
+▸ `Protected` **_close**(`forceClose`): `Promise`<`void`\>
 
-#### Parameters:
+Implementation to close the connection, if `forceClose` is true, close the connection no matter what.
+Silently error if it means the connection is closed.
+
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `forceClose` | *boolean* |
+| `forceClose` | `boolean` |
 
-**Returns:** *Promise*<void\>
+#### Returns
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+`Promise`<`void`\>
 
-Defined in: [src/MySQLConnection.ts:190](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L190)
+Promise<void>
+
+#### Overrides
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[_close](databaseconnection.databaseconnection-1.md#_close)
+
+#### Defined in
+
+[src/MySQLConnection.ts:190](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L190)
 
 ___
 
 ### \_query
 
-▸ `Protected`**_query**(`query`: *string*, `params?`: *any*): *Promise*<any\>
+▸ `Protected` **_query**(`query`, `params?`): `Promise`<`any`\>
 
-#### Parameters:
+Implementation method to return a dataset from the database
+
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* |
-| `params?` | *any* |
+| `query` | `string` |
+| `params?` | `any` |
 
-**Returns:** *Promise*<any\>
+#### Returns
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+`Promise`<`any`\>
 
-Defined in: [src/MySQLConnection.ts:74](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L74)
+Promise
+
+#### Overrides
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[_query](databaseconnection.databaseconnection-1.md#_query)
+
+#### Defined in
+
+[src/MySQLConnection.ts:74](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L74)
 
 ___
 
 ### \_stream
 
-▸ `Protected`**_stream**(`query`: *string*, `params?`: *any*, `streamOptions?`: *any*): *Readable*
+▸ `Protected` **_stream**(`query`, `params?`, `streamOptions?`): `Readable`
 
-#### Parameters:
+Implementation method to return a dataset from the database like `query()`,
+but returns a `Readable` stream instead.
+
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* |
-| `params?` | *any* |
-| `streamOptions?` | *any* |
+| `query` | `string` |
+| `params?` | `any` |
+| `streamOptions?` | `any` |
 
-**Returns:** *Readable*
+#### Returns
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+`Readable`
 
-Defined in: [src/MySQLConnection.ts:113](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L113)
+`Readable`
+
+#### Overrides
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[_stream](databaseconnection.databaseconnection-1.md#_stream)
+
+#### Defined in
+
+[src/MySQLConnection.ts:113](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L113)
 
 ___
 
 ### close
 
-▸ **close**(`forceClose?`: *boolean*): *Promise*<void\>
+▸ **close**(`forceClose?`): `Promise`<`void`\>
 
 Closes the connection. May error if connection has an active transaction.
 if `forceClose` boolean is true, it will force close the connection, regardless
 of transaction state.
 
-**`async`** 
+**`async`**
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `forceClose` | *boolean* | false | optional boolean |
+| `forceClose` | `boolean` | `false` | optional boolean |
 
-**Returns:** *Promise*<void\>
+#### Returns
+
+`Promise`<`void`\>
 
 Promise<void>
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Inherited from
 
-Defined in: [src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L168)
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[close](databaseconnection.databaseconnection-1.md#close)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L168)
 
 ___
 
 ### commit
 
-▸ **commit**(): *Promise*<void\>
+▸ **commit**(): `Promise`<`void`\>
 
-**Returns:** *Promise*<void\>
+Commits a transaction. This will end a transaction.
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Returns
 
-Defined in: [src/MySQLConnection.ts:174](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L174)
+`Promise`<`void`\>
+
+Promise<void>
+
+#### Overrides
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[commit](databaseconnection.databaseconnection-1.md#commit)
+
+#### Defined in
+
+[src/MySQLConnection.ts:174](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L174)
 
 ___
 
 ### endTransaction
 
-▸ **endTransaction**(`requiresRollback?`: *boolean*): *Promise*<void\>
+▸ **endTransaction**(`requiresRollback?`): `Promise`<`void`\>
 
-#### Parameters:
+Ends a transaction. if `requiresRollback` is `true`, then `rollback()` is invoked. Otherwise, `commit()` is invoked.
+
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `requiresRollback` | *boolean* | false |
+| `requiresRollback` | `boolean` | `false` |
 
-**Returns:** *Promise*<void\>
+#### Returns
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+`Promise`<`void`\>
 
-Defined in: [src/MySQLConnection.ts:154](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L154)
+Promise<void>
+
+#### Overrides
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[endTransaction](databaseconnection.databaseconnection-1.md#endtransaction)
+
+#### Defined in
+
+[src/MySQLConnection.ts:154](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L154)
 
 ___
 
 ### getAPI
 
-▸ **getAPI**(): *PoolConnection*
+▸ **getAPI**(): `PoolConnection`
 
 Gets the underlying Database API
 
-**Returns:** *PoolConnection*
+#### Returns
+
+`PoolConnection`
 
 any
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Inherited from
 
-Defined in: [src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L91)
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[getAPI](databaseconnection.databaseconnection-1.md#getapi)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L91)
 
 ___
 
 ### getInstantiationStack
 
-▸ **getInstantiationStack**(): *string*
+▸ **getInstantiationStack**(): `string`
 
 Gets the callback stacktrace to determine what opened
 this connection. Useful for debugging lingering connections.
 
-**Returns:** *string*
+#### Returns
+
+`string`
 
 string - A stacktrace
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Inherited from
 
-Defined in: [src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L73)
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[getInstantiationStack](databaseconnection.databaseconnection-1.md#getinstantiationstack)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L73)
 
 ___
 
 ### getTimeout
 
-▸ **getTimeout**(): *number*
+▸ **getTimeout**(): `number`
 
 Returns the current timeout setting
 
-**Returns:** *number*
+#### Returns
+
+`number`
 
 number in milliseconds
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Inherited from
 
-Defined in: [src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L121)
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[getTimeout](databaseconnection.databaseconnection-1.md#gettimeout)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L121)
 
 ___
 
 ### isClosed
 
-▸ **isClosed**(): *boolean*
+▸ **isClosed**(): `boolean`
 
 Returns true if the connection has been closed.
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+`boolean`
 
-Defined in: [src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L181)
+#### Inherited from
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[isClosed](databaseconnection.databaseconnection-1.md#isclosed)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L181)
 
 ___
 
 ### isOpen
 
-▸ **isOpen**(): *boolean*
+▸ **isOpen**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [src/MySQLConnection.ts:69](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L69)
+`boolean`
+
+#### Defined in
+
+[src/MySQLConnection.ts:69](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L69)
 
 ___
 
 ### isReadOnly
 
-▸ **isReadOnly**(): *boolean*
+▸ **isReadOnly**(): `boolean`
 
 Returns true if connection was created without
 write access
 
-**Returns:** *boolean*
+#### Returns
+
+`boolean`
 
 boolean
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Inherited from
 
-Defined in: [src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L100)
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[isReadOnly](databaseconnection.databaseconnection-1.md#isreadonly)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L100)
 
 ___
 
 ### isTransaction
 
-▸ **isTransaction**(): *boolean*
+▸ **isTransaction**(): `boolean`
 
-**Returns:** *boolean*
+Implementation method to determine if the connection is in an active transaction.
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Returns
 
-Defined in: [src/MySQLConnection.ts:65](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L65)
+`boolean`
+
+boolean
+
+#### Overrides
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[isTransaction](databaseconnection.databaseconnection-1.md#istransaction)
+
+#### Defined in
+
+[src/MySQLConnection.ts:65](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L65)
 
 ___
 
 ### query
 
-▸ **query**<TQueryResult\>(`query`: [*Query*](query.query-1.md)<any, any, any\>): *Promise*<TQueryResult\>
+▸ **query**<`TQueryResult`\>(`query`): `Promise`<`TQueryResult`\>
 
 Queries the database for a dataset.
 
-**`async`** 
+**`async`**
 
-#### Type parameters:
+#### Type parameters
 
-| Name | Default |
+| Name | Type |
 | :------ | :------ |
-| `TQueryResult` | *any* |
+| `TQueryResult` | `any` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query` | [*Query*](query.query-1.md)<any, any, any\> | The database query |
+| `query` | [`Query`](query.query-1.md)<`any`, `any`, `any`\> | The database query |
 
-**Returns:** *Promise*<TQueryResult\>
+#### Returns
+
+`Promise`<`TQueryResult`\>
 
 Promise<TQueryResult>
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Inherited from
 
-Defined in: [src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L132)
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[query](databaseconnection.databaseconnection-1.md#query)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L132)
 
 ___
 
 ### rollback
 
-▸ **rollback**(): *Promise*<void\>
+▸ **rollback**(): `Promise`<`void`\>
 
-**Returns:** *Promise*<void\>
+Rollsback a transaction. This will end a transaction.
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Returns
 
-Defined in: [src/MySQLConnection.ts:158](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L158)
+`Promise`<`void`\>
+
+Promise<void>
+
+#### Overrides
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[rollback](databaseconnection.databaseconnection-1.md#rollback)
+
+#### Defined in
+
+[src/MySQLConnection.ts:158](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L158)
 
 ___
 
 ### setInstantiationStack
 
-▸ **setInstantiationStack**(`stack`: *string*): *void*
+▸ **setInstantiationStack**(`stack`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `stack` | *string* |
+| `stack` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+`void`
 
-Defined in: [src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L64)
+#### Inherited from
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[setInstantiationStack](databaseconnection.databaseconnection-1.md#setinstantiationstack)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L64)
 
 ___
 
 ### setTimeout
 
-▸ **setTimeout**(`timeout`: *number*): *void*
+▸ **setTimeout**(`timeout`): `void`
 
 Sets the timeout of this connectino
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `timeout` | *number* | in milliseconds |
+| `timeout` | `number` | in milliseconds |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+`void`
 
-Defined in: [src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L109)
+#### Inherited from
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[setTimeout](databaseconnection.databaseconnection-1.md#settimeout)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L109)
 
 ___
 
 ### startTransaction
 
-▸ **startTransaction**(): *Promise*<void\>
+▸ **startTransaction**(): `Promise`<`void`\>
 
-**Returns:** *Promise*<void\>
+Implementation method to start a transaction.
 
-Overrides: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Returns
 
-Defined in: [src/MySQLConnection.ts:132](https://github.com/breautek/storm/blob/2614a1c/src/MySQLConnection.ts#L132)
+`Promise`<`void`\>
+
+Promise<void>
+
+#### Overrides
+
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[startTransaction](databaseconnection.databaseconnection-1.md#starttransaction)
+
+#### Defined in
+
+[src/MySQLConnection.ts:132](https://github.com/breautek/storm/blob/fff2ea4/src/MySQLConnection.ts#L132)
 
 ___
 
 ### stream
 
-▸ **stream**(`query`: [*Query*](query.query-1.md)<any, any, any\>, `streamOptions?`: *any*): *Readable*
+▸ **stream**(`query`, `streamOptions?`): `Readable`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `query` | [*Query*](query.query-1.md)<any, any, any\> | The database query |
-| `streamOptions?` | *any* | Stream options |
+| `query` | [`Query`](query.query-1.md)<`any`, `any`, `any`\> | The database query |
+| `streamOptions?` | `any` | Stream options |
 
-**Returns:** *Readable*
+#### Returns
+
+`Readable`
 
 Readable
 
-Inherited from: [DatabaseConnection](databaseconnection.databaseconnection-1.md)
+#### Inherited from
 
-Defined in: [src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseConnection.ts#L151)
+[DatabaseConnection](databaseconnection.databaseconnection-1.md).[stream](databaseconnection.databaseconnection-1.md#stream)
+
+#### Defined in
+
+[src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseConnection.ts#L151)

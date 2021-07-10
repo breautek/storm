@@ -18,24 +18,28 @@
 
 ### constructor
 
-\+ **new Token**(`signature`: *string*): [*Token*](token.token-1.md)
+• **new Token**(`signature`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `signature` | *string* |
+| `signature` | `string` |
 
-**Returns:** [*Token*](token.token-1.md)
+#### Defined in
 
-Defined in: [src/Token.ts:18](https://github.com/breautek/storm/blob/2614a1c/src/Token.ts#L18)
+[src/Token.ts:18](https://github.com/breautek/storm/blob/fff2ea4/src/Token.ts#L18)
 
 ## Methods
 
 ### getSignature
 
-▸ **getSignature**(): *string*
+▸ **getSignature**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/Token.ts:24](https://github.com/breautek/storm/blob/2614a1c/src/Token.ts#L24)
+`string`
+
+#### Defined in
+
+[src/Token.ts:24](https://github.com/breautek/storm/blob/fff2ea4/src/Token.ts#L24)

@@ -14,14 +14,18 @@
 
 ### load
 
-▸ `Static`**load**(`path`: *string*): *Promise*<[*IConfig*](../interfaces/iconfig.iconfig-1.md)\>
+▸ `Static` **load**(`path`): `Promise`<[`IConfig`](../interfaces/iconfig.iconfig-1.md)\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `path` | *string* |
+| `path` | `string` |
 
-**Returns:** *Promise*<[*IConfig*](../interfaces/iconfig.iconfig-1.md)\>
+#### Returns
 
-Defined in: [src/ConfigLoader.ts:34](https://github.com/breautek/storm/blob/2614a1c/src/ConfigLoader.ts#L34)
+`Promise`<[`IConfig`](../interfaces/iconfig.iconfig-1.md)\>
+
+#### Defined in
+
+[src/ConfigLoader.ts:34](https://github.com/breautek/storm/blob/fff2ea4/src/ConfigLoader.ts#L34)

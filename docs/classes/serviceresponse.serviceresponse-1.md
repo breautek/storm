@@ -20,45 +20,57 @@
 
 ### constructor
 
-\+ **new ServiceResponse**(`data`: *Buffer*, `response`: *IncomingMessage*): [*ServiceResponse*](serviceresponse.serviceresponse-1.md)
+• **new ServiceResponse**(`data`, `response`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data` | *Buffer* |
-| `response` | *IncomingMessage* |
+| `data` | `Buffer` |
+| `response` | `IncomingMessage` |
 
-**Returns:** [*ServiceResponse*](serviceresponse.serviceresponse-1.md)
+#### Defined in
 
-Defined in: [src/ServiceResponse.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/ServiceResponse.ts#L21)
+[src/ServiceResponse.ts:21](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceResponse.ts#L21)
 
 ## Methods
 
 ### getJSON
 
-▸ **getJSON**(): *any*
+▸ **getJSON**(): `any`
 
-**Returns:** *any*
+#### Returns
 
-Defined in: [src/ServiceResponse.ts:36](https://github.com/breautek/storm/blob/2614a1c/src/ServiceResponse.ts#L36)
+`any`
+
+#### Defined in
+
+[src/ServiceResponse.ts:36](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceResponse.ts#L36)
 
 ___
 
 ### getRaw
 
-▸ **getRaw**(): *Buffer*
+▸ **getRaw**(): `Buffer`
 
-**Returns:** *Buffer*
+#### Returns
 
-Defined in: [src/ServiceResponse.ts:28](https://github.com/breautek/storm/blob/2614a1c/src/ServiceResponse.ts#L28)
+`Buffer`
+
+#### Defined in
+
+[src/ServiceResponse.ts:28](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceResponse.ts#L28)
 
 ___
 
 ### getUTF8
 
-▸ **getUTF8**(): *string*
+▸ **getUTF8**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/ServiceResponse.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/ServiceResponse.ts#L32)
+`string`
+
+#### Defined in
+
+[src/ServiceResponse.ts:32](https://github.com/breautek/storm/blob/fff2ea4/src/ServiceResponse.ts#L32)

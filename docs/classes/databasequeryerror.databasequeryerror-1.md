@@ -6,9 +6,9 @@
 
 ## Hierarchy
 
-* [*StormError*](stormerror.stormerror-1.md)<{ `error`: *any* ; `query`: *string*  }\>
+- [`StormError`](stormerror.stormerror-1.md)<`Object`\>
 
-  ↳ **DatabaseQueryError**
+  ↳ **`DatabaseQueryError`**
 
 ## Table of contents
 
@@ -39,201 +39,271 @@
 
 ### constructor
 
-\+ **new DatabaseQueryError**(`query`: *string*, `error`: *any*): [*DatabaseQueryError*](databasequeryerror.databasequeryerror-1.md)
+• **new DatabaseQueryError**(`query`, `error`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `query` | *string* |
-| `error` | *any* |
+| `query` | `string` |
+| `error` | `any` |
 
-**Returns:** [*DatabaseQueryError*](databasequeryerror.databasequeryerror-1.md)
+#### Overrides
 
-Overrides: [StormError](stormerror.stormerror-1.md)
+[StormError](stormerror.stormerror-1.md).[constructor](stormerror.stormerror-1.md#constructor)
 
-Defined in: [src/DatabaseQueryError.ts:23](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseQueryError.ts#L23)
+#### Defined in
+
+[src/DatabaseQueryError.ts:23](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseQueryError.ts#L23)
 
 ## Properties
 
 ### message
 
-• **message**: *string*
+• **message**: `string`
 
-Inherited from: [StormError](stormerror.stormerror-1.md).[message](stormerror.stormerror-1.md#message)
+#### Inherited from
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
+[StormError](stormerror.stormerror-1.md).[message](stormerror.stormerror-1.md#message)
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:974
 
 ___
 
 ### name
 
-• **name**: *string*
+• **name**: `string`
 
-Inherited from: [StormError](stormerror.stormerror-1.md).[name](stormerror.stormerror-1.md#name)
+#### Inherited from
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:973
+[StormError](stormerror.stormerror-1.md).[name](stormerror.stormerror-1.md#name)
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:973
 
 ___
 
 ### stack
 
-• `Optional` **stack**: *string*
+• `Optional` **stack**: `string`
 
-Inherited from: [StormError](stormerror.stormerror-1.md).[stack](stormerror.stormerror-1.md#stack)
+#### Inherited from
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
+[StormError](stormerror.stormerror-1.md).[stack](stormerror.stormerror-1.md#stack)
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:975
 
 ___
 
 ### prepareStackTrace
 
-▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => *any*
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
 
 Optional override for formatting stack traces
 
-**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+#### Type declaration
 
-#### Type declaration:
+▸ (`err`, `stackTraces`): `any`
 
-▸ (`err`: Error, `stackTraces`: CallSite[]): *any*
+Optional override for formatting stack traces
 
-#### Parameters:
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `err` | Error |
-| `stackTraces` | CallSite[] |
+| `err` | `Error` |
+| `stackTraces` | `CallSite`[] |
 
-**Returns:** *any*
+##### Returns
 
-Defined in: node_modules/@types/node/globals.d.ts:11
+`any`
 
-Inherited from: [StormError](stormerror.stormerror-1.md).[prepareStackTrace](stormerror.stormerror-1.md#preparestacktrace)
+#### Inherited from
 
-Defined in: node_modules/@types/node/globals.d.ts:11
+[StormError](stormerror.stormerror-1.md).[prepareStackTrace](stormerror.stormerror-1.md#preparestacktrace)
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:11
 
 ___
 
 ### stackTraceLimit
 
-▪ `Static` **stackTraceLimit**: *number*
+▪ `Static` **stackTraceLimit**: `number`
 
-Inherited from: [StormError](stormerror.stormerror-1.md).[stackTraceLimit](stormerror.stormerror-1.md#stacktracelimit)
+#### Inherited from
 
-Defined in: node_modules/@types/node/globals.d.ts:13
+[StormError](stormerror.stormerror-1.md).[stackTraceLimit](stormerror.stormerror-1.md#stacktracelimit)
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
 ### getCode
 
-▸ **getCode**(): *number*
+▸ **getCode**(): `number`
 
-**Returns:** *number*
+#### Returns
 
-Overrides: [StormError](stormerror.stormerror-1.md)
+`number`
 
-Defined in: [src/DatabaseQueryError.ts:36](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseQueryError.ts#L36)
+#### Overrides
+
+[StormError](stormerror.stormerror-1.md).[getCode](stormerror.stormerror-1.md#getcode)
+
+#### Defined in
+
+[src/DatabaseQueryError.ts:36](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseQueryError.ts#L36)
 
 ___
 
 ### getErrorResponse
 
-▸ **getErrorResponse**(): [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)
+▸ **getErrorResponse**(): [`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md)
 
-**Returns:** [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md)
+#### Returns
 
-Inherited from: [StormError](stormerror.stormerror-1.md)
+[`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md)
 
-Defined in: [src/StormError.ts:70](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L70)
+#### Inherited from
+
+[StormError](stormerror.stormerror-1.md).[getErrorResponse](stormerror.stormerror-1.md#geterrorresponse)
+
+#### Defined in
+
+[src/StormError.ts:70](https://github.com/breautek/storm/blob/fff2ea4/src/StormError.ts#L70)
 
 ___
 
 ### getExitCode
 
-▸ **getExitCode**(): [*ExitCode*](../enums/exitcode.exitcode-1.md)
+▸ **getExitCode**(): [`ExitCode`](../enums/exitcode.exitcode-1.md)
 
-**Returns:** [*ExitCode*](../enums/exitcode.exitcode-1.md)
+#### Returns
 
-Inherited from: [StormError](stormerror.stormerror-1.md)
+[`ExitCode`](../enums/exitcode.exitcode-1.md)
 
-Defined in: [src/StormError.ts:79](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L79)
+#### Inherited from
+
+[StormError](stormerror.stormerror-1.md).[getExitCode](stormerror.stormerror-1.md#getexitcode)
+
+#### Defined in
+
+[src/StormError.ts:79](https://github.com/breautek/storm/blob/fff2ea4/src/StormError.ts#L79)
 
 ___
 
 ### getHTTPCode
 
-▸ **getHTTPCode**(): [*StatusCode*](../enums/statuscode.statuscode-1.md)
+▸ **getHTTPCode**(): [`StatusCode`](../enums/statuscode.statuscode-1.md)
 
-**Returns:** [*StatusCode*](../enums/statuscode.statuscode-1.md)
+#### Returns
 
-Overrides: [StormError](stormerror.stormerror-1.md)
+[`StatusCode`](../enums/statuscode.statuscode-1.md)
 
-Defined in: [src/DatabaseQueryError.ts:40](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseQueryError.ts#L40)
+#### Overrides
+
+[StormError](stormerror.stormerror-1.md).[getHTTPCode](stormerror.stormerror-1.md#gethttpcode)
+
+#### Defined in
+
+[src/DatabaseQueryError.ts:40](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseQueryError.ts#L40)
 
 ___
 
 ### getMessage
 
-▸ **getMessage**(): *string*
+▸ **getMessage**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Overrides: [StormError](stormerror.stormerror-1.md)
+`string`
 
-Defined in: [src/DatabaseQueryError.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/DatabaseQueryError.ts#L32)
+#### Overrides
+
+[StormError](stormerror.stormerror-1.md).[getMessage](stormerror.stormerror-1.md#getmessage)
+
+#### Defined in
+
+[src/DatabaseQueryError.ts:32](https://github.com/breautek/storm/blob/fff2ea4/src/DatabaseQueryError.ts#L32)
 
 ___
 
 ### getPrivateDetails
 
-▸ **getPrivateDetails**(): *object*
+▸ **getPrivateDetails**(): `Object`
 
 Private details are only logged to the server log.
 They are kept secret from the client.
 
-**Returns:** *object*
+#### Returns
+
+`Object`
 
 | Name | Type |
 | :------ | :------ |
-| `error` | *any* |
-| `query` | *string* |
+| `error` | `any` |
+| `query` | `string` |
 
-Inherited from: [StormError](stormerror.stormerror-1.md)
+#### Inherited from
 
-Defined in: [src/StormError.ts:62](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L62)
+[StormError](stormerror.stormerror-1.md).[getPrivateDetails](stormerror.stormerror-1.md#getprivatedetails)
+
+#### Defined in
+
+[src/StormError.ts:62](https://github.com/breautek/storm/blob/fff2ea4/src/StormError.ts#L62)
 
 ___
 
 ### getPublicDetails
 
-▸ **getPublicDetails**(): [*IAdditionalErrorDetails*](../interfaces/stormerror.iadditionalerrordetails.md)
+▸ **getPublicDetails**(): [`IAdditionalErrorDetails`](../interfaces/stormerror.iadditionalerrordetails.md)
 
 Sends details to the client.
 
-**Returns:** [*IAdditionalErrorDetails*](../interfaces/stormerror.iadditionalerrordetails.md)
+#### Returns
 
-Inherited from: [StormError](stormerror.stormerror-1.md)
+[`IAdditionalErrorDetails`](../interfaces/stormerror.iadditionalerrordetails.md)
 
-Defined in: [src/StormError.ts:54](https://github.com/breautek/storm/blob/2614a1c/src/StormError.ts#L54)
+#### Inherited from
+
+[StormError](stormerror.stormerror-1.md).[getPublicDetails](stormerror.stormerror-1.md#getpublicdetails)
+
+#### Defined in
+
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/fff2ea4/src/StormError.ts#L54)
 
 ___
 
 ### captureStackTrace
 
-▸ `Static`**captureStackTrace**(`targetObject`: *object*, `constructorOpt?`: Function): *void*
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
 Create .stack property on a target object
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `targetObject` | *object* |
-| `constructorOpt?` | Function |
+| `targetObject` | `object` |
+| `constructorOpt?` | `Function` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [StormError](stormerror.stormerror-1.md)
+`void`
 
-Defined in: node_modules/@types/node/globals.d.ts:4
+#### Inherited from
+
+[StormError](stormerror.stormerror-1.md).[captureStackTrace](stormerror.stormerror-1.md#capturestacktrace)
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:4

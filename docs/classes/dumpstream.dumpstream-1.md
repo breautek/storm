@@ -14,8 +14,12 @@
 
 ### getWritable
 
-▸ `Static`**getWritable**(): *Writable*
+▸ `Static` **getWritable**(): `Writable`
 
-**Returns:** *Writable*
+#### Returns
 
-Defined in: [src/DumpStream.ts:25](https://github.com/breautek/storm/blob/2614a1c/src/DumpStream.ts#L25)
+`Writable`
+
+#### Defined in
+
+[src/DumpStream.ts:25](https://github.com/breautek/storm/blob/fff2ea4/src/DumpStream.ts#L25)

@@ -6,9 +6,9 @@
 
 ## Hierarchy
 
-* [*Query*](query.query-1.md)<any\>
+- [`Query`](query.query-1.md)<`any`\>
 
-  ↳ **TemporaryTableQuery**
+  ↳ **`TemporaryTableQuery`**
 
 ## Table of contents
 
@@ -29,103 +29,141 @@
 
 ### constructor
 
-\+ **new TemporaryTableQuery**(`parameters?`: *any*): [*TemporaryTableQuery*](temporarytablequery.temporarytablequery-1.md)
+• **new TemporaryTableQuery**(`parameters?`)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `parameters?` | *any* |
+| `parameters?` | `any` |
 
-**Returns:** [*TemporaryTableQuery*](temporarytablequery.temporarytablequery-1.md)
+#### Inherited from
 
-Inherited from: [Query](query.query-1.md)
+[Query](query.query-1.md).[constructor](query.query-1.md#constructor)
 
-Defined in: [src/Query.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L21)
+#### Defined in
+
+[src/Query.ts:21](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L21)
 
 ## Methods
 
 ### \_getQuery
 
-▸ `Protected`**_getQuery**(): *string*
+▸ `Protected` **_getQuery**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Overrides: [Query](query.query-1.md)
+`string`
 
-Defined in: [src/TemporaryTableQuery.ts:35](https://github.com/breautek/storm/blob/2614a1c/src/TemporaryTableQuery.ts#L35)
+#### Overrides
+
+[Query](query.query-1.md).[_getQuery](query.query-1.md#_getquery)
+
+#### Defined in
+
+[src/TemporaryTableQuery.ts:35](https://github.com/breautek/storm/blob/fff2ea4/src/TemporaryTableQuery.ts#L35)
 
 ___
 
 ### execute
 
-▸ **execute**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md)): *Promise*<any\>
+▸ **execute**(`connection`): `Promise`<`any`\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
+| `connection` | [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md) |
 
-**Returns:** *Promise*<any\>
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`Promise`<`any`\>
 
-Defined in: [src/Query.ts:52](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L52)
+#### Inherited from
+
+[Query](query.query-1.md).[execute](query.query-1.md#execute)
+
+#### Defined in
+
+[src/Query.ts:52](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L52)
 
 ___
 
 ### getParameters
 
-▸ **getParameters**(): *any*
+▸ **getParameters**(): `any`
 
-**Returns:** *any*
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`any`
 
-Defined in: [src/Query.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L27)
+#### Inherited from
+
+[Query](query.query-1.md).[getParameters](query.query-1.md#getparameters)
+
+#### Defined in
+
+[src/Query.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L27)
 
 ___
 
 ### getParametersForQuery
 
-▸ **getParametersForQuery**(): *IDictionary*<any\>
+▸ **getParametersForQuery**(): `IDictionary`<`any`\>
 
-**Returns:** *IDictionary*<any\>
+#### Returns
 
-Overrides: [Query](query.query-1.md)
+`IDictionary`<`any`\>
 
-Defined in: [src/TemporaryTableQuery.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/TemporaryTableQuery.ts#L27)
+#### Overrides
+
+[Query](query.query-1.md).[getParametersForQuery](query.query-1.md#getparametersforquery)
+
+#### Defined in
+
+[src/TemporaryTableQuery.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/TemporaryTableQuery.ts#L27)
 
 ___
 
 ### getQuery
 
-▸ **getQuery**(): *string*
+▸ **getQuery**(): `string`
 
-**Returns:** *string*
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`string`
 
-Defined in: [src/Query.ts:37](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L37)
+#### Inherited from
+
+[Query](query.query-1.md).[getQuery](query.query-1.md#getquery)
+
+#### Defined in
+
+[src/Query.ts:37](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L37)
 
 ___
 
 ### onPostProcess
 
-▸ **onPostProcess**(`connection`: [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md), `resultSet`: *any*): *Promise*<any\>
+▸ **onPostProcess**(`connection`, `resultSet`): `Promise`<`any`\>
 
 Override to augment/manipulate the returned result set.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `connection` | [*IDatabaseConnection*](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
-| `resultSet` | *any* | - |
+| `connection` | [`IDatabaseConnection`](../interfaces/idatabaseconnection.idatabaseconnection-1.md) | The connection object used for this query execution. Useful if further queries are required. |
+| `resultSet` | `any` | - |
 
-**Returns:** *Promise*<any\>
+#### Returns
 
-Inherited from: [Query](query.query-1.md)
+`Promise`<`any`\>
 
-Defined in: [src/Query.ts:47](https://github.com/breautek/storm/blob/2614a1c/src/Query.ts#L47)
+#### Inherited from
+
+[Query](query.query-1.md).[onPostProcess](query.query-1.md#onpostprocess)
+
+#### Defined in
+
+[src/Query.ts:47](https://github.com/breautek/storm/blob/fff2ea4/src/Query.ts#L47)

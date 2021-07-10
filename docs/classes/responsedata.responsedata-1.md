@@ -6,9 +6,9 @@
 
 ## Type parameters
 
-| Name | Default |
+| Name | Type |
 | :------ | :------ |
-| `TData` | *any* |
+| `TData` | `any` |
 
 ## Table of contents
 
@@ -25,41 +25,49 @@
 
 ### constructor
 
-\+ **new ResponseData**<TData\>(`status`: [*StatusCode*](../enums/statuscode.statuscode-1.md), `data?`: TData): [*ResponseData*](responsedata.responsedata-1.md)<TData\>
+• **new ResponseData**<`TData`\>(`status`, `data?`)
 
-#### Type parameters:
-
-| Name | Default |
-| :------ | :------ |
-| `TData` | *any* |
-
-#### Parameters:
+#### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `status` | [*StatusCode*](../enums/statuscode.statuscode-1.md) |
-| `data?` | TData |
+| `TData` | `any` |
 
-**Returns:** [*ResponseData*](responsedata.responsedata-1.md)<TData\>
+#### Parameters
 
-Defined in: [src/ResponseData.ts:21](https://github.com/breautek/storm/blob/2614a1c/src/ResponseData.ts#L21)
+| Name | Type |
+| :------ | :------ |
+| `status` | [`StatusCode`](../enums/statuscode.statuscode-1.md) |
+| `data?` | `TData` |
+
+#### Defined in
+
+[src/ResponseData.ts:21](https://github.com/breautek/storm/blob/fff2ea4/src/ResponseData.ts#L21)
 
 ## Methods
 
 ### getData
 
-▸ **getData**(): TData
+▸ **getData**(): `TData`
 
-**Returns:** TData
+#### Returns
 
-Defined in: [src/ResponseData.ts:32](https://github.com/breautek/storm/blob/2614a1c/src/ResponseData.ts#L32)
+`TData`
+
+#### Defined in
+
+[src/ResponseData.ts:32](https://github.com/breautek/storm/blob/fff2ea4/src/ResponseData.ts#L32)
 
 ___
 
 ### getStatus
 
-▸ **getStatus**(): [*StatusCode*](../enums/statuscode.statuscode-1.md)
+▸ **getStatus**(): [`StatusCode`](../enums/statuscode.statuscode-1.md)
 
-**Returns:** [*StatusCode*](../enums/statuscode.statuscode-1.md)
+#### Returns
 
-Defined in: [src/ResponseData.ts:28](https://github.com/breautek/storm/blob/2614a1c/src/ResponseData.ts#L28)
+[`StatusCode`](../enums/statuscode.statuscode-1.md)
+
+#### Defined in
+
+[src/ResponseData.ts:28](https://github.com/breautek/storm/blob/fff2ea4/src/ResponseData.ts#L28)

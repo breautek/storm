@@ -6,10 +6,10 @@
 
 ## Type parameters
 
-| Name | Default |
+| Name | Type |
 | :------ | :------ |
-| `TResponse` | [*SendableData*](../modules/response.md#sendabledata) |
-| `TErrorResponse` | Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md) \| *string* |
+| `TResponse` | [`SendableData`](../modules/response.md#sendabledata) |
+| `TErrorResponse` | `Error` \| [`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md) \| `string` |
 
 ## Table of contents
 
@@ -34,171 +34,211 @@
 
 ### constructor
 
-\+ **new Response**<TResponse, TErrorResponse\>(`response`: *Response*<any, Record<string, any\>\>, `requestURL`: *string*): [*Response*](response.response-1.md)<TResponse, TErrorResponse\>
+• **new Response**<`TResponse`, `TErrorResponse`\>(`response`, `requestURL`)
 
-#### Type parameters:
-
-| Name | Default |
-| :------ | :------ |
-| `TResponse` | *any* |
-| `TErrorResponse` | *string* \| Error \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md) |
-
-#### Parameters:
+#### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `response` | *Response*<any, Record<string, any\>\> |
-| `requestURL` | *string* |
+| `TResponse` | `any` |
+| `TErrorResponse` | `string` \| `Error` \| [`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md) |
 
-**Returns:** [*Response*](response.response-1.md)<TResponse, TErrorResponse\>
+#### Parameters
 
-Defined in: [src/Response.ts:35](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L35)
+| Name | Type |
+| :------ | :------ |
+| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `requestURL` | `string` |
+
+#### Defined in
+
+[src/Response.ts:35](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L35)
 
 ## Methods
 
 ### error
 
-▸ **error**(`error?`: TErrorResponse \| [*ResponseData*](responsedata.responsedata-1.md)<TErrorResponse\>): *void*
+▸ **error**(`error?`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `error?` | TErrorResponse \| [*ResponseData*](responsedata.responsedata-1.md)<TErrorResponse\> |
+| `error?` | `TErrorResponse` \| [`ResponseData`](responsedata.responsedata-1.md)<`TErrorResponse`\> |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Response.ts:101](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L101)
+`void`
+
+#### Defined in
+
+[src/Response.ts:101](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L101)
 
 ___
 
 ### getStatus
 
-▸ **getStatus**(): [*StatusCode*](../enums/statuscode.statuscode-1.md)
+▸ **getStatus**(): [`StatusCode`](../enums/statuscode.statuscode-1.md)
 
-**Returns:** [*StatusCode*](../enums/statuscode.statuscode-1.md)
+#### Returns
 
-Defined in: [src/Response.ts:48](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L48)
+[`StatusCode`](../enums/statuscode.statuscode-1.md)
+
+#### Defined in
+
+[src/Response.ts:48](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L48)
 
 ___
 
 ### isHeadersSent
 
-▸ **isHeadersSent**(): *boolean*
+▸ **isHeadersSent**(): `boolean`
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [src/Response.ts:97](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L97)
+`boolean`
+
+#### Defined in
+
+[src/Response.ts:97](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L97)
 
 ___
 
 ### pipe
 
-▸ **pipe**(`stream`: *ReadableStream*): *void*
+▸ **pipe**(`stream`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `stream` | *ReadableStream* |
+| `stream` | `ReadableStream` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Response.ts:70](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L70)
+`void`
+
+#### Defined in
+
+[src/Response.ts:70](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L70)
 
 ___
 
 ### redirect
 
-▸ **redirect**(`url`: *string*): *void*
+▸ **redirect**(`url`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `url` | *string* |
+| `url` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Response.ts:52](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L52)
+`void`
+
+#### Defined in
+
+[src/Response.ts:52](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L52)
 
 ___
 
 ### send
 
-▸ **send**(`data?`: TResponse \| TErrorResponse \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md) \| [*StormError*](stormerror.stormerror-1.md)<any\>): *void*
+▸ **send**(`data?`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data?` | TResponse \| TErrorResponse \| [*IErrorResponse*](../interfaces/stormerror.ierrorresponse.md) \| [*StormError*](stormerror.stormerror-1.md)<any\> |
+| `data?` | `TResponse` \| `TErrorResponse` \| [`IErrorResponse`](../interfaces/stormerror.ierrorresponse.md) \| [`StormError`](stormerror.stormerror-1.md)<`any`\> |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Response.ts:56](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L56)
+`void`
+
+#### Defined in
+
+[src/Response.ts:56](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L56)
 
 ___
 
 ### setHeader
 
-▸ **setHeader**(`key`: *string*, `value`: *string*): *void*
+▸ **setHeader**(`key`, `value`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `key` | *string* |
-| `value` | *string* |
+| `key` | `string` |
+| `value` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Response.ts:89](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L89)
+`void`
+
+#### Defined in
+
+[src/Response.ts:89](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L89)
 
 ___
 
 ### setHeaders
 
-▸ **setHeaders**(`keyValuePair`: [*IHeaderKeyValuePair*](../interfaces/response.iheaderkeyvaluepair.md)): *void*
+▸ **setHeaders**(`keyValuePair`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `keyValuePair` | [*IHeaderKeyValuePair*](../interfaces/response.iheaderkeyvaluepair.md) |
+| `keyValuePair` | [`IHeaderKeyValuePair`](../interfaces/response.iheaderkeyvaluepair.md) |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Response.ts:93](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L93)
+`void`
+
+#### Defined in
+
+[src/Response.ts:93](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L93)
 
 ___
 
 ### setStatus
 
-▸ **setStatus**(`status`: [*StatusCode*](../enums/statuscode.statuscode-1.md)): [*Response*](response.response-1.md)<TResponse, TErrorResponse\>
+▸ **setStatus**(`status`): [`Response`](response.response-1.md)<`TResponse`, `TErrorResponse`\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `status` | [*StatusCode*](../enums/statuscode.statuscode-1.md) |
+| `status` | [`StatusCode`](../enums/statuscode.statuscode-1.md) |
 
-**Returns:** [*Response*](response.response-1.md)<TResponse, TErrorResponse\>
+#### Returns
 
-Defined in: [src/Response.ts:43](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L43)
+[`Response`](response.response-1.md)<`TResponse`, `TErrorResponse`\>
+
+#### Defined in
+
+[src/Response.ts:43](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L43)
 
 ___
 
 ### success
 
-▸ **success**(`data?`: TResponse): *void*
+▸ **success**(`data?`): `void`
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data?` | TResponse |
+| `data?` | `TResponse` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/Response.ts:78](https://github.com/breautek/storm/blob/2614a1c/src/Response.ts#L78)
+`void`
+
+#### Defined in
+
+[src/Response.ts:78](https://github.com/breautek/storm/blob/fff2ea4/src/Response.ts#L78)

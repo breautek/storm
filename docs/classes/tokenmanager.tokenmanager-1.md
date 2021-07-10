@@ -6,9 +6,9 @@
 
 ## Type parameters
 
-| Name | Type | Default |
-| :------ | :------ | :------ |
-| `TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
+| Name | Type |
+| :------ | :------ |
+| `TAuthToken` | extends [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md)[`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md) |
 
 ## Table of contents
 
@@ -26,70 +26,82 @@
 
 ### constructor
 
-\+ **new TokenManager**<TAuthToken\>(`secret`: *string*): [*TokenManager*](tokenmanager.tokenmanager-1.md)<TAuthToken\>
+• **new TokenManager**<`TAuthToken`\>(`secret`)
 
-#### Type parameters:
-
-| Name | Type | Default |
-| :------ | :------ | :------ |
-| `TAuthToken` | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) | [*IAuthTokenData*](../interfaces/iauthtokendata.iauthtokendata-1.md) |
-
-#### Parameters:
+#### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `secret` | *string* |
+| `TAuthToken` | extends [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md)[`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md) |
 
-**Returns:** [*TokenManager*](tokenmanager.tokenmanager-1.md)<TAuthToken\>
+#### Parameters
 
-Defined in: [src/TokenManager.ts:27](https://github.com/breautek/storm/blob/2614a1c/src/TokenManager.ts#L27)
+| Name | Type |
+| :------ | :------ |
+| `secret` | `string` |
+
+#### Defined in
+
+[src/TokenManager.ts:27](https://github.com/breautek/storm/blob/fff2ea4/src/TokenManager.ts#L27)
 
 ## Methods
 
 ### decode
 
-▸ **decode**(`token`: [*Token*](token.token-1.md)): *Promise*<TAuthToken\>
+▸ **decode**(`token`): `Promise`<`TAuthToken`\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `token` | [*Token*](token.token-1.md) |
+| `token` | [`Token`](token.token-1.md) |
 
-**Returns:** *Promise*<TAuthToken\>
+#### Returns
 
-Defined in: [src/TokenManager.ts:78](https://github.com/breautek/storm/blob/2614a1c/src/TokenManager.ts#L78)
+`Promise`<`TAuthToken`\>
+
+#### Defined in
+
+[src/TokenManager.ts:78](https://github.com/breautek/storm/blob/fff2ea4/src/TokenManager.ts#L78)
 
 ___
 
 ### sign
 
-▸ **sign**(`payload`: { [key: string]: *any*;  }, `expiresIn`: *string* \| *number*): *Promise*<[*Token*](token.token-1.md)\>
+▸ **sign**(`payload`, `expiresIn`): `Promise`<[`Token`](token.token-1.md)\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `payload` | *object* |
-| `expiresIn` | *string* \| *number* |
+| `payload` | `Object` |
+| `expiresIn` | `string` \| `number` |
 
-**Returns:** *Promise*<[*Token*](token.token-1.md)\>
+#### Returns
 
-Defined in: [src/TokenManager.ts:33](https://github.com/breautek/storm/blob/2614a1c/src/TokenManager.ts#L33)
+`Promise`<[`Token`](token.token-1.md)\>
+
+#### Defined in
+
+[src/TokenManager.ts:33](https://github.com/breautek/storm/blob/fff2ea4/src/TokenManager.ts#L33)
 
 ___
 
 ### verify
 
-▸ **verify**(`token`: [*Token*](token.token-1.md), `options?`: [*IJWTVerifyOptions*](../interfaces/ijwtverifyoptions.ijwtverifyoptions-1.md)): *Promise*<TAuthToken\>
+▸ **verify**(`token`, `options?`): `Promise`<`TAuthToken`\>
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `token` | [*Token*](token.token-1.md) |
-| `options?` | [*IJWTVerifyOptions*](../interfaces/ijwtverifyoptions.ijwtverifyoptions-1.md) |
+| `token` | [`Token`](token.token-1.md) |
+| `options?` | [`IJWTVerifyOptions`](../interfaces/ijwtverifyoptions.ijwtverifyoptions-1.md) |
 
-**Returns:** *Promise*<TAuthToken\>
+#### Returns
 
-Defined in: [src/TokenManager.ts:56](https://github.com/breautek/storm/blob/2614a1c/src/TokenManager.ts#L56)
+`Promise`<`TAuthToken`\>
+
+#### Defined in
+
+[src/TokenManager.ts:56](https://github.com/breautek/storm/blob/fff2ea4/src/TokenManager.ts#L56)

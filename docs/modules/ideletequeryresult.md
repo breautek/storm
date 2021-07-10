@@ -12,6 +12,8 @@
 
 ### IDeleteQueryResult
 
-Ƭ **IDeleteQueryResult**: [*IUpdateQueryResult*](../interfaces/iupdatequeryresult.iupdatequeryresult-1.md)
+Ƭ **IDeleteQueryResult**: [`IUpdateQueryResult`](../interfaces/iupdatequeryresult.iupdatequeryresult-1.md)
 
-Defined in: [src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/2614a1c/src/IDeleteQueryResult.ts#L19)
+#### Defined in
+
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/fff2ea4/src/IDeleteQueryResult.ts#L19)
