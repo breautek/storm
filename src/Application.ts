@@ -25,7 +25,7 @@ import {Request} from './Request';
 import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
 import {IConfig} from './IConfig';
-import Commander = require('commander');
+import {Command} from 'commander';
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
@@ -54,7 +54,7 @@ export abstract class Application
     private $server: Express.Application;
     private $db: Database<TDBConfig, TDBConnectionAPI>;
     private $socket: http.Server;
-    private $program: Commander.CommanderStatic;
+    private $program: Command;
 
     /**
      * 
@@ -183,7 +183,7 @@ export abstract class Application
 
     // eslint-disable-next-line @typescript-eslint/naming-convention
     private $buildArgOptions() {
-        this.$program = Commander;
+        this.$program = new Command();
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         let pkg: any = require('../package.json');
@@ -199,9 +199,9 @@ export abstract class Application
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    protected _buildArgOptions(program: Commander.CommanderStatic): void {}
+    protected _buildArgOptions(program: Command): void {}
 
-    public getProgram(): Commander.CommanderStatic {
+    public getProgram(): Command {
         return this.$program;
     }
 
@@ -336,7 +336,7 @@ export abstract class Application
      * @returns command line arguments
      */
     public getCmdLineArgs(): TConfig {
-        let program: Commander.CommanderStatic = this.$program;
+        let program: Command = this.$program;
         let o: any = {};
 
         let opts: any = program.opts();
