@@ -13,15 +13,15 @@
 
 ### getInstance
 
-▸ `Let` **getInstance**(): [`Application`](../classes/application.application-1.md)<[`IConfig`](../interfaces/iconfig.iconfig-1.md), [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md), `any`, `any`\>
+▸ `Let` **getInstance**(): [`Application`](../classes/Application.Application-1.md)<[`IConfig`](../interfaces/IConfig.IConfig-1.md), [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md), `any`, `any`\>
 
 #### Returns
 
-[`Application`](../classes/application.application-1.md)<[`IConfig`](../interfaces/iconfig.iconfig-1.md), [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md), `any`, `any`\>
+[`Application`](../classes/Application.Application-1.md)<[`IConfig`](../interfaces/IConfig.IConfig-1.md), [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md), `any`, `any`\>
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/fff2ea4/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/7b25240/src/instance.ts#L28)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `app` | [`Application`](../classes/application.application-1.md)<[`IConfig`](../interfaces/iconfig.iconfig-1.md), [`IAuthTokenData`](../interfaces/iauthtokendata.iauthtokendata-1.md), `any`, `any`\> |
+| `app` | [`Application`](../classes/Application.Application-1.md)<[`IConfig`](../interfaces/IConfig.IConfig-1.md), [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md), `any`, `any`\> |
 
 #### Returns
 
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[src/instance.ts:21](https://github.com/breautek/storm/blob/fff2ea4/src/instance.ts#L21)
+[src/instance.ts:21](https://github.com/breautek/storm/blob/7b25240/src/instance.ts#L21)

@@ -10,13 +10,13 @@
 | :------ | :------ |
 | `TApplication` | extends [`Application`](Application.Application-1.md)[`Application`](Application.Application-1.md) |
 | `TGetRequest` | `any` |
-| `TGetResponse` | `any` |
+| `TGetResponse` | [`IHandlerResponse`](../modules/Handler.md#ihandlerresponse) |
 | `TPostRequest` | `any` |
-| `TPostResponse` | `any` |
+| `TPostResponse` | [`IHandlerResponse`](../modules/Handler.md#ihandlerresponse) |
 | `TPutRequest` | `any` |
-| `TPutResponse` | `any` |
+| `TPutResponse` | [`IHandlerResponse`](../modules/Handler.md#ihandlerresponse) |
 | `TDeleteRequest` | `any` |
-| `TDeleteResponse` | `any` |
+| `TDeleteResponse` | [`IHandlerResponse`](../modules/Handler.md#ihandlerresponse) |
 
 ## Table of contents
 
@@ -67,49 +67,47 @@
 
 #### Defined in
 
-[src/Handler.ts:46](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L46)
+[src/Handler.ts:71](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L71)
 
 ## Methods
 
 ### \_delete
 
-▸ `Protected` **_delete**(`request`, `response`): `Promise`<`void`\>
+▸ `Protected` **_delete**(`request`): `Promise`<`any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `request` | [`Request`](Request.Request-1.md)<`TDeleteRequest`, [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md)\> |
-| `response` | [`Response`](Response.Response-1.md)<`TDeleteResponse`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md)\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<`any`\>
 
 #### Defined in
 
-[src/Handler.ts:179](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L179)
+[src/Handler.ts:212](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L212)
 
 ___
 
 ### \_get
 
-▸ `Protected` **_get**(`request`, `response`): `Promise`<`void`\>
+▸ `Protected` **_get**(`request`): `Promise`<`any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `request` | [`Request`](Request.Request-1.md)<`TGetRequest`, [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md)\> |
-| `response` | [`Response`](Response.Response-1.md)<`TGetResponse`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md)\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<`any`\>
 
 #### Defined in
 
-[src/Handler.ts:164](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L164)
+[src/Handler.ts:200](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L200)
 
 ___
 
@@ -123,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:55](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L55)
+[src/Handler.ts:80](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L80)
 
 ___
 
@@ -145,49 +143,47 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:111](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L111)
+[src/Handler.ts:136](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L136)
 
 ___
 
 ### \_post
 
-▸ `Protected` **_post**(`request`, `response`): `Promise`<`void`\>
+▸ `Protected` **_post**(`request`): `Promise`<`any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `request` | [`Request`](Request.Request-1.md)<`TPostRequest`, [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md)\> |
-| `response` | [`Response`](Response.Response-1.md)<`TPostResponse`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md)\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<`any`\>
 
 #### Defined in
 
-[src/Handler.ts:169](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L169)
+[src/Handler.ts:204](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L204)
 
 ___
 
 ### \_put
 
-▸ `Protected` **_put**(`request`, `response`): `Promise`<`void`\>
+▸ `Protected` **_put**(`request`): `Promise`<`any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `request` | [`Request`](Request.Request-1.md)<`TPutRequest`, [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md)\> |
-| `response` | [`Response`](Response.Response-1.md)<`TPutResponse`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md)\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<`any`\>
 
 #### Defined in
 
-[src/Handler.ts:174](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L174)
+[src/Handler.ts:208](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L208)
 
 ___
 
@@ -208,7 +204,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:152](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L152)
+[src/Handler.ts:187](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L187)
 
 ___
 
@@ -229,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:115](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L115)
+[src/Handler.ts:148](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L148)
 
 ___
 
@@ -249,7 +245,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:59](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L59)
+[src/Handler.ts:84](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L84)
 
 ___
 
@@ -263,7 +259,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:51](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L51)
+[src/Handler.ts:76](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L76)
 
 ___
 
@@ -284,7 +280,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:140](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L140)
+[src/Handler.ts:174](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L174)
 
 ___
 
@@ -305,4 +301,4 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:128](https://github.com/breautek/storm/blob/0825061/src/Handler.ts#L128)
+[src/Handler.ts:161](https://github.com/breautek/storm/blob/7b25240/src/Handler.ts#L161)

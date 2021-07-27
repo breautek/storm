@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[src/DumpStream.ts:25](https://github.com/breautek/storm/blob/0825061/src/DumpStream.ts#L25)
+[src/DumpStream.ts:25](https://github.com/breautek/storm/blob/7b25240/src/DumpStream.ts#L25)
