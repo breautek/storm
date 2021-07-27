@@ -15,7 +15,6 @@
 */
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
   verbose: true,
   collectCoverage: true,
   testMatch: ['**/spec/**/*.spec.ts'],
@@ -27,5 +26,10 @@ module.exports = {
       statements: 75
     }
   },
-  testRunner: "jest-jasmine2"
+  testRunner: "jest-jasmine2",
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig-tests.json'
+    }
+  }
 };
