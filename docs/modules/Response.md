@@ -20,8 +20,8 @@
 
 ### SendableData
 
-Ƭ **SendableData**: [`ResponseData`](../classes/ResponseData.ResponseData-1.md) \| `Error` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md) \| `any`
+Ƭ **SendableData**: [`ResponseData`](../classes/ResponseData.ResponseData-1.md) \| `Error` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md) \| `Buffer` \| `any`
 
 #### Defined in
 
-[src/Response.ts:26](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L26)
+[src/Response.ts:27](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L27)

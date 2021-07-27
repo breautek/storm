@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[src/Response.ts:37](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L37)
+[src/Response.ts:38](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L38)
 
 ## Methods
 
@@ -72,7 +72,7 @@
 
 #### Defined in
 
-[src/Response.ts:101](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L101)
+[src/Response.ts:130](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L130)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:48](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L48)
+[src/Response.ts:49](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L49)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:97](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L97)
+[src/Response.ts:126](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L126)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:70](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L70)
+[src/Response.ts:99](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L99)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:52](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L52)
+[src/Response.ts:53](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L53)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `data?` | `TResponse` \| `TErrorResponse` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md) \| [`StormError`](StormError.StormError-1.md)<`any`\> |
+| `data?` | `TResponse` \| `TErrorResponse` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md) \| `Buffer` \| [`StormError`](StormError.StormError-1.md)<`any`\> |
 
 #### Returns
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:56](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L56)
+[src/Response.ts:94](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L94)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:89](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L89)
+[src/Response.ts:118](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L118)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:93](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L93)
+[src/Response.ts:122](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L122)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:43](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L43)
+[src/Response.ts:44](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L44)
 
 ___
 
@@ -241,4 +241,4 @@ ___
 
 #### Defined in
 
-[src/Response.ts:78](https://github.com/breautek/storm/blob/0825061/src/Response.ts#L78)
+[src/Response.ts:107](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L107)

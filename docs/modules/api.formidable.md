@@ -8,14 +8,14 @@
 
 ### Interfaces
 
-- [EmitData](../interfaces/api.formidable.emitdata.md)
-- [EventData](../interfaces/api.formidable.eventdata.md)
-- [Fields](../interfaces/api.formidable.fields.md)
-- [File](../interfaces/api.formidable.file.md)
-- [FileJSON](../interfaces/api.formidable.filejson.md)
-- [Files](../interfaces/api.formidable.files.md)
-- [Options](../interfaces/api.formidable.options.md)
-- [Part](../interfaces/api.formidable.part.md)
+- [EmitData](../interfaces/api.formidable.EmitData.md)
+- [EventData](../interfaces/api.formidable.EventData.md)
+- [Fields](../interfaces/api.formidable.Fields.md)
+- [File](../interfaces/api.formidable.File.md)
+- [FileJSON](../interfaces/api.formidable.FileJSON.md)
+- [Files](../interfaces/api.formidable.Files.md)
+- [Options](../interfaces/api.formidable.Options.md)
+- [Part](../interfaces/api.formidable.Part.md)
 
 ### Type aliases
 
@@ -42,7 +42,7 @@ ___
 
 ### DefaultOptions
 
-Ƭ **DefaultOptions**: `Required`<`Omit`<[`Options`](../interfaces/api.formidable.options.md), ``"enabledPlugins"``\>\> & { `enabledPlugins`: [`EnabledPlugins`](api.formidable.md#enabledplugins)  }
+Ƭ **DefaultOptions**: `Required`<`Omit`<[`Options`](../interfaces/api.formidable.Options.md), ``"enabledPlugins"``\>\> & { `enabledPlugins`: [`EnabledPlugins`](api.formidable.md#enabledplugins)  }
 
 #### Defined in
 
@@ -92,7 +92,7 @@ ___
 
 ### PluginFunction
 
-Ƭ **PluginFunction**: (`formidable`: `Formidable`, `options`: `Partial`<[`Options`](../interfaces/api.formidable.options.md)\>) => `void`
+Ƭ **PluginFunction**: (`formidable`: `Formidable`, `options`: `Partial`<[`Options`](../interfaces/api.formidable.Options.md)\>) => `void`
 
 #### Type declaration
 
@@ -103,7 +103,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `formidable` | `Formidable` |
-| `options` | `Partial`<[`Options`](../interfaces/api.formidable.options.md)\> |
+| `options` | `Partial`<[`Options`](../interfaces/api.formidable.Options.md)\> |
 
 ##### Returns
 
