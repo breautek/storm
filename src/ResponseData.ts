@@ -19,10 +19,22 @@ import {StatusCode} from './StatusCode';
 export class ResponseData<TData = any> {
     private $status: StatusCode;
     private $data: TData;
+    private $headers: Map<string, string>;
+    private $redirect: string;
 
     public constructor(status: StatusCode, data?: TData) {
+        this.$headers = new Map();
         this.$status = status;
         this.$data = data;
+        this.$redirect = null;
+    }
+
+    public setHeader(name: string, value: string): void {
+        this.$headers.set(name, value);
+    }
+
+    public getHeaders(): Map<string, string> {
+        return this.$headers;
     }
 
     public getStatus(): StatusCode {
@@ -31,5 +43,13 @@ export class ResponseData<TData = any> {
 
     public getData(): TData {
         return this.$data;
+    }
+
+    public redirect(url: string): void {
+        this.$redirect = url;
+    }
+
+    public getRedirect(): string {
+        return this.$redirect;
     }
 }

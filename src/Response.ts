@@ -20,10 +20,11 @@ import {StormError, IErrorResponse} from './StormError';
 import * as express from 'express';
 import { InternalError } from './InternalError';
 import { getInstance } from './instance';
+import { Stream } from 'stream';
 
 const TAG: string = 'Response';
 
-export type SendableData = ResponseData | Error | IErrorResponse | any;
+export type SendableData = ResponseData | Error | IErrorResponse | Buffer | any;
 
 export interface IHeaderKeyValuePair {
     [key: string]: string;
@@ -53,17 +54,45 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
         this.$response.redirect(url);
     }
 
-    public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse): void {
-        if (data instanceof ResponseData) {
-            this.setStatus(data.getStatus()).send(data.getData());
+    private $send(data?: TResponse | TErrorResponse | StormError | IErrorResponse | Buffer, statusOverride?: StatusCode): void {
+        if (data === null || data === undefined) {
+            this.setStatus(statusOverride || StatusCode.OK_NO_CONTENT);
+            this.$response.send()
+        }
+        else if (data instanceof Buffer || [
+            'number',
+            'string',
+            'boolean'
+        ].indexOf(typeof data) > -1) {
+            this.$response.send(data);
+        }
+        else if (data instanceof Stream.Readable) {
+            this.pipe(data);
+        }
+        else if (data instanceof ResponseData) {
+            if (data.getRedirect() !== null) {
+                this.redirect(data.getRedirect());
+                return;
+            }
+
+            let headers: Map<string, string> = data.getHeaders();
+            for (let header of headers) {
+                this.setHeader(header[0], header[1]);
+            }
+
+            this.setStatus(data.getStatus());
+            this.$send(data.getData(), data.getStatus());
         }
         else if (data instanceof StormError) {
-            this.setStatus(data.getHTTPCode()).send(data.getErrorResponse());
+            this.setStatus(statusOverride || data.getHTTPCode()).send(data.getErrorResponse());
         }
         else {
             this.$response.send(data);
         }
-        
+    }
+
+    public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse | Buffer): void {
+        this.$send(data);
         getInstance().getLogger().info(TAG, `API ${this.$requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.$created.getTime()}ms`);
     }
 
@@ -104,6 +133,10 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
                 this.send(error);
             }
             else if (error instanceof ResponseData) {
+                let headers: Map<string, string> = error.getHeaders();
+                for (let header of headers) {
+                    this.setHeader(header[0], header[1]);
+                }
                 // If it was not ResponseData<TResponse> then
                 // the method signature should have caught it
                 this.send((<TErrorResponse><unknown>error));

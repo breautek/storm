@@ -6,7 +6,6 @@ import {Logger} from '@arashi/logger';
 import {Handler} from '../../src/Handler';
 import { MockDB } from './MockDB';
 import { Request } from '../../src/Request';
-import { Response } from '../../src/Response';
 import {IHandler} from '../../src/IHandler';
 import {StatusCode} from '../../src/StatusCode';
 import {HTTPMethod} from '../../src/HTTPMethod';
@@ -27,24 +26,18 @@ class TestHandler extends Handler {
         super(app);
     }
 
-    protected _get(request: Request, response: Response): Promise<void> {
-        response.success();
-        return Promise.resolve();
+    protected async _get(request: Request): Promise<void> {}
+
+    protected async _post(request: Request): Promise<void> {
+        return request.getBody();
     }
 
-    protected _post(request: Request, response: Response): Promise<void> {
-        response.setStatus(200).send(request.getBody());
-        return Promise.resolve();
+    protected async _put(request: Request): Promise<void> {
+        return request.getBody();
     }
 
-    protected _put(request: Request, response: Response): Promise<void> {
-        response.setStatus(200).send(request.getBody());
-        return Promise.resolve();
-    }
-
-    protected _delete(request: Request, response: Response): Promise<void> {
-        response.setStatus(200).send(request.getBody());
-        return Promise.resolve();
+    protected async _delete(request: Request): Promise<void> {
+        return request.getBody();
     }
 }
 

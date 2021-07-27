@@ -25,19 +25,44 @@ import {IConfig} from './IConfig';
 import { InternalError } from './InternalError';
 import { IRequestResponse } from './IRequestResponse';
 import { Logger } from '@arashi/logger';
+import { ResponseData } from './ResponseData';
+import { ReadStream } from 'fs';
+// import { Stream } from 'stream';
 
 const TAG: string = 'Handler';
+
+/**
+ * IHandlerResponse can actually accept any arbitrary object, however it may do
+ * certain things depending on the type of object it receives.
+ * 
+ * - If the response object is a stream, it will pipe the stream to stream the HTTP response.
+ * - If the response is ResponseData, the status code and response data will be passed as the HTTP response.
+ * - Passing nothing/undefined will return a status code of 204 with no body content
+ * - Primitive data types will be passed as is
+ * - Buffers will be passed through
+ * - Any other object will be passed through JSON.stringify
+ */
+export type IHandlerResponse = ResponseData | ReadableStream | ReadStream | any | void;
+
+/**
+ * Like IHandlerResponse, an IHandlerError can be any arbitrary type of object,
+ * however it's recommended that the type be of a StormError.
+ * 
+ * If the type is not a StormError, the error will be wrapped in an InternalError object.
+ * This is to avoid accidental leakage of privilege data (e.g. snippets of database queries with sensitive information)
+ */
+export type IHandlerError = StormError | Error | any;
 
 export class Handler<
         TApplication extends Application = Application,
         TGetRequest     = any,
-        TGetResponse    = any,
+        TGetResponse    = IHandlerResponse,
         TPostRequest    = any,
-        TPostResponse   = any,
+        TPostResponse   = IHandlerResponse,
         TPutRequest     = any,
-        TPutResponse    = any,
+        TPutResponse    = IHandlerResponse,
         TDeleteRequest  = any,
-        TDeleteResponse = any
+        TDeleteResponse = IHandlerResponse,
     >  {
         
     private $app: TApplication;
@@ -73,7 +98,7 @@ export class Handler<
         try {
             for (let i: number = 0; i < this.$middlewares.length; i++) {
                 let middleware: Middleware = this.$middlewares[i];
-                logger.trace(TAG, `executing middleware ${i}`);
+                logger.info(TAG, `executing middleware ${i}`);
                 result = await middleware.execute(result.request, result.response);
             }
         }
@@ -112,72 +137,79 @@ export class Handler<
         response.error(error);
     }
 
-    public get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
-        return new Promise((resolve, reject) => {
-            this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
-            this.$executeMiddlewares(request, response).then((result: IRequestResponse<TGetRequest, TGetResponse>) => {
-                this._get(result.request, result.response);
-                resolve();
-            }).catch((error: StormError) => {
-                this._onMiddlewareReject(request, response, error);
-                reject(error);
-            });
-        });
+    private $handleResponse<TResponse>(response: Response<TResponse>, data: any): void {
+        response.send(data);
     }
 
-    public put(request: Request<TPutRequest>, response: Response<TPutResponse>): Promise<void> {
-        return new Promise((resolve, reject) => {
-            this.$executeMiddlewares(request, response).then((result: IRequestResponse<TPutRequest, TPutResponse>) => {
-                this._put(result.request, result.response);
-                resolve();
-            }).catch((error: StormError) => {
-                this._onMiddlewareReject(request, response, error);
-                reject(error);
-            });
-        });
+    private $handleResponseError<TResponse>(response: Response<TResponse>, error: any): void {
+        response.error(error);
     }
 
-    public post(request: Request<TPostRequest>, response: Response<TPostResponse>): Promise<void> {
-        return new Promise((resolve, reject) => {
-            this.$executeMiddlewares(request, response).then((result: IRequestResponse<TPostRequest, TPostResponse>) => {
-                this._post(result.request, result.response);
-                resolve();
-            }).catch((error: StormError) => {
-                this._onMiddlewareReject(request, response, error);
-                reject(error);
-            });
-        });
+    public async get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
+        this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
+
+        try {
+            let result: IRequestResponse<TGetRequest, TGetResponse> = await this.$executeMiddlewares(request, response);
+            let req: any = await this._get(result.request);
+            this.$handleResponse(response, req);
+        }
+        catch (ex) {
+            this.$handleResponseError(response, ex);
+        }
     }
 
-    public delete(request: Request<TDeleteRequest>, response: Response<TDeleteResponse>): Promise<void> {
-        return new Promise((resolve, reject) => {
-            this.$executeMiddlewares(request, response).then((result: IRequestResponse<TDeleteRequest, TDeleteResponse>) => {
-                this._delete(result.request, result.response);
-                resolve();
-            }).catch((error: StormError) => {
-                this._onMiddlewareReject(request, response, error);
-                reject(error);
-            });
-        });
+    public async put(request: Request<TPutRequest>, response: Response<TPutResponse>): Promise<void> {
+        this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
+
+        try {
+            let result: IRequestResponse<TPutRequest, TPutResponse> = await this.$executeMiddlewares(request, response);
+            let req: any = await this._put(result.request);
+            this.$handleResponse(response, req);
+        }
+        catch (ex) {
+            this.$handleResponseError(response, ex);
+        }
     }
 
-    protected _get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-        return Promise.resolve();
+    public async post(request: Request<TPostRequest>, response: Response<TPostResponse>): Promise<void> {
+        this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
+
+        try {
+            let result: IRequestResponse<TPostRequest, TPostResponse> = await this.$executeMiddlewares(request, response);
+            let req: any = await this._post(result.request);
+            this.$handleResponse(response, req);
+        }
+        catch (ex) {
+            this.$handleResponseError(response, ex);
+        }
     }
 
-    protected _post(request: Request<TPostRequest>, response: Response<TPostResponse>): Promise<void> {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-        return Promise.resolve();
+    public async delete(request: Request<TDeleteRequest>, response: Response<TDeleteResponse>): Promise<void> {
+        this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
+
+        try {
+            let result: IRequestResponse<TDeleteRequest, TDeleteResponse> = await this.$executeMiddlewares(request, response);
+            let req: any = await this._delete(result.request);
+            this.$handleResponse(response, req);
+        }
+        catch (ex) {
+            this.$handleResponseError(response, ex);
+        }
     }
 
-    protected _put(request: Request<TPutRequest>, response: Response<TPutResponse>): Promise<void> {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-        return Promise.resolve();
+    protected async _get(request: Request<TGetRequest>): Promise<IHandlerResponse> {
+        return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
     }
 
-    protected _delete(request: Request<TDeleteRequest>, response: Response<TDeleteResponse>): Promise<void> {
-        response.setStatus(StatusCode.INTERNAL_NOT_IMPLEMENTED).send();
-        return Promise.resolve();
+    protected async _post(request: Request<TPostRequest>): Promise<IHandlerResponse> {
+        return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
+    }
+
+    protected async _put(request: Request<TPutRequest>): Promise<IHandlerResponse> {
+        return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
+    }
+
+    protected async _delete(request: Request<TDeleteRequest>): Promise<IHandlerResponse> {
+        return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
     }
 }

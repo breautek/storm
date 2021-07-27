@@ -7,7 +7,7 @@ import {Request} from '../src/Request';
 import {Response} from '../src/Response';
 import { IRequestResponse } from '../src/IRequestResponse';
 import { Handler } from '../src/Handler';
-import { InternalError } from '../src/InternalError';
+// import { InternalError } from '../src/InternalError';
 import {EntityNotFoundError} from '../src/EntityNotFoundError';
 
 class TestMiddleware extends Middleware {
@@ -113,9 +113,10 @@ describe('Middlewares', () => {
         });
     });
 
-    it('handles middleware exceptions (general error)', (done) => {
+    it('handles middleware exceptions (general error)', async () => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
         let rejectionSpy: jasmine.Spy = spyOn(<any>handler, '_onMiddlewareReject');
+        let errorHandlerSpy: jasmine.Spy = spyOn(<any>handler, '$handleResponseError').and.callThrough();
         
         let next: TestMiddleware = new TestMiddleware();
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
@@ -132,14 +133,12 @@ describe('Middlewares', () => {
             });
         });
 
-        handler.get(request, response).catch((error: any) => {
-            expect(error instanceof InternalError).toBe(true);
-            expect(rejectionSpy).toHaveBeenCalled();
-            done();
-        });
+        await handler.get(request, response);
+        expect(rejectionSpy).toHaveBeenCalled();
+        expect(errorHandlerSpy).toHaveBeenCalled();
     });
 
-    it('handles middleware exceptions (storm error)', (done) => {
+    it('handles middleware exceptions (storm error)', async () => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
         let rejectionSpy: jasmine.Spy = spyOn(<any>handler, '_onMiddlewareReject').and.callThrough();
         
@@ -158,26 +157,17 @@ describe('Middlewares', () => {
             });
         });
 
-        handler.get(request, response).catch((error: any) => {
-            expect(error instanceof EntityNotFoundError).toBe(true);
-            expect(rejectionSpy).toHaveBeenCalled();
-            expect(response.error).toHaveBeenCalled();
-            return handler.post(request, response);
-        }).catch((error: any) => {
-            expect(error instanceof EntityNotFoundError).toBe(true);
-            expect(rejectionSpy).toHaveBeenCalled();
-            expect(response.error).toHaveBeenCalled();
-            return handler.put(request, response);
-        }).catch((error: any) => {
-            expect(error instanceof EntityNotFoundError).toBe(true);
-            expect(rejectionSpy).toHaveBeenCalled();
-            expect(response.error).toHaveBeenCalled();
-            return handler.delete(request, response);
-        }).catch((error: any) => {
-            expect(error instanceof EntityNotFoundError).toBe(true);
-            expect(rejectionSpy).toHaveBeenCalled();
-            expect(response.error).toHaveBeenCalled();
-            done();
-        });
+        await handler.get(request, response);
+        expect(rejectionSpy).toHaveBeenCalled();
+        expect(response.error).toHaveBeenCalled();
+        await handler.post(request, response);
+        expect(rejectionSpy).toHaveBeenCalled();
+        expect(response.error).toHaveBeenCalled();
+        await handler.put(request, response);
+        expect(rejectionSpy).toHaveBeenCalled();
+        expect(response.error).toHaveBeenCalled();
+        await handler.delete(request, response);
+        expect(rejectionSpy).toHaveBeenCalled();
+        expect(response.error).toHaveBeenCalled();
     });
 });

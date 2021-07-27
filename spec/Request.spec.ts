@@ -4,7 +4,6 @@ import {
 } from './support/TestApplication';
 
 import {Request} from '../src/Request';
-import {Response} from '../src/Response';
 import {Handler} from '../src/Handler';
 import {HTTPMethod} from '../src/HTTPMethod';
 import {IFormData} from '../src/IFormData';
@@ -20,22 +19,20 @@ import { JWTError } from '../src/JWTError';
 import { StatusCode } from '../src/StatusCode';
 import { getInstance } from '../src/instance';
 
-type HandlerCallback = (request: Request, response: Response) => void;
+type HandlerCallback = (request: Request) => Promise<void>;
 
 let makeHandler = (callback: HandlerCallback) => {
     return class MockHandler extends Handler {
-        private $handleRequest(request: Request, response: Response): void {
-            callback(request, response);
+        private async $handleRequest(request: Request): Promise<void> {
+            return callback(request);
         }
         
-        protected _get(request: Request, response: Response): Promise<void> {
-            this.$handleRequest(request, response);
-            return Promise.resolve();
+        protected async _get(request: Request): Promise<void> {
+            return this.$handleRequest(request);
         }
 
-        protected _post(request: Request, response: Response): Promise<void> {
-            this.$handleRequest(request, response);
-            return Promise.resolve();
+        protected async _post(request: Request): Promise<void> {
+            return this.$handleRequest(request);
         }
     };
 };
@@ -58,8 +55,8 @@ describe('Request', () => {
         });
     });
 
-    it('can make request()', (done) => {
-        app.attachMockHandler('/getHeaders', makeHandler((request: Request, response: Response) => {
+    it('can make request()', async () => {
+        app.attachMockHandler('/getHeaders', makeHandler(async (request: Request) => {
             let headers: http.IncomingHttpHeaders = request.getHeaders();
             expect(headers.host).toBe(`localhost:${app.getPort()}`);
             expect(request.isSecure()).toBe(false);
@@ -71,28 +68,23 @@ describe('Request', () => {
             expect(request.getForwardedIP()).toBe(null);
             expect(request.getParams()).toEqual({});
             expect(request.getHeader('Content-Type')).toBe(null);
-            response.success();
-            done();
         }));
-        app.doMockGet('/getHeaders?test=1');
+        await app.doMockGet('/getHeaders?test=1');
     });
 
-    it('can make parameter request()', (done) => {
-        app.attachMockHandler('/param/:name/', makeHandler((request: Request, response: Response) => {
+    it('can make parameter request()', async () => {
+        app.attachMockHandler('/param/:name/', makeHandler(async (request: Request) => {
             expect(request.getParams()).toEqual({name:'bob'});
             expect(request.getParam('name')).toBe('bob');
-            response.success();
-            done();
         }));
-        app.doMockGet('/param/bob/');
+        await app.doMockGet('/param/bob/');
     });
 
     it('can make form data requests', (done) => {
-        app.attachMockHandler('/form/', makeHandler((request: Request, response: Response) => {
+        app.attachMockHandler('/form/', makeHandler(async (request: Request) => {
             request.getForm().then((formData: IFormData) => {
                 expect(formData.fields.key).toBe('value');
                 expect(request.getHeader('Content-Type').indexOf('multipart/form-data')).toBeGreaterThan(-1);
-                response.success();
                 done();
             });
         }));
@@ -103,138 +95,125 @@ describe('Request', () => {
     });
 
     it('can pipe/unpipe', (done) => {
-        app.attachMockHandler('/pipes/', makeHandler((request: Request, response: Response) => {
-            let dumpFile: string = Path.resolve('./dump.txt');
-            let writable: Writable = FileSystem.createWriteStream(dumpFile);
+        app.attachMockHandler('/pipes/', makeHandler(async (request: Request) => {
+            return new Promise<void>((resolve, reject) => {
+                let dumpFile: string = Path.resolve('./dump.txt');
+                let writable: Writable = FileSystem.createWriteStream(dumpFile);
 
-            writable.on('finish', () => {
-                request.unpipe(writable);
-                response.success();
-                FileSystem.unlinkSync(dumpFile);
-                done();
+                writable.on('finish', () => {
+                    request.unpipe(writable);
+                    FileSystem.unlinkSync(dumpFile);
+                    done();
+                });
+
+                request.pipe(writable);
             });
-
-            request.pipe(writable);
         }));
         app.doMockPost('/pipes/', 'asdfasdf');
     });
 
     describe('getAuthenticationToken', () => {
-        it('can successfully get authentication token', (done) => {
-            app.signToken({
-                test: '123'
-            }).then((token: Token) => {
-                app.attachMockHandler('/auth/', makeHandler(async (request: Request, response: Response) => {
-                    try {
-                        let tokenData: any = await request.getAuthenticationToken();
-                        expect(tokenData.test).toBe('123');
-                        response.success();
-                        done();
-                    }
-                    catch (ex) {
-                        fail(ex);
-                    }
-                }));
-                app.doMockGet('/auth/', {
-                    'X-BT-AUTH': token.getSignature()
-                });
-            }).catch((error: any) => {
-                fail(error);
-            });
-        });
-
-        it('can handles invalid tokens', (done) => {
-            let tm: TokenManager = new TokenManager('badsecret');
-            tm.sign({
-                test: '123'
-            }, '1d').then((token: Token) => {
-                app.attachMockHandler('/auth/test1', makeHandler(async (request: Request, response: Response) => {
-                    try {
-                        await request.getAuthenticationToken();
-                        response.success();
-                        fail('Unexpected success');
-                    }
-                    catch (ex) {
-                        expect(ex).toBeInstanceOf(ResponseData);
-                        expect((<ResponseData>ex).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
-                        expect((<ResponseData>ex).getData()).toEqual({
-                            code: JWTError.ERR_GENERIC,
-                            reason: 'invalid signature'
-                        });
-                        response.success();
-                        done();
-                    }
-                }));
-                app.doMockGet('/auth/test1', {
-                    'X-BT-AUTH': token.getSignature()
-                });
-            }).catch((error: any) => {
-                fail(error);
-            });
-        });
-
-        it('can handles expired tokens', (done) => {
-            let tm: TokenManager = getInstance().getTokenManager();
-            tm.sign({
-                test: '123'
-            }, '1s').then((token: Token) => {
+        let sleep = function (ms: number): Promise<void> {
+            return new Promise<void>((resolve, reject) => {
                 setTimeout(() => {
-                    app.attachMockHandler('/auth/test2', makeHandler(async (request: Request, response: Response) => {
-                        try {
-                            await request.getAuthenticationToken();
-                            response.success();
-                            fail('Unexpected success');
-                        }
-                        catch (ex) {
-                            expect(ex).toBeInstanceOf(ResponseData);
-                            expect((<ResponseData>ex).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
-                            expect((<ResponseData>ex).getData()).toEqual({
-                                code: JWTError.ERR_EXPIRED,
-                                reason: 'jwt expired'
-                            });
-                            response.success();
-                            done();
-                        }
-                    }));
-                    app.doMockGet('/auth/test2', {
-                        'X-BT-AUTH': token.getSignature()
-                    });
-                }, 1100);
-            }).catch((error: any) => {
-                fail(error);
+                    resolve();
+                }, ms);
+            });
+        }
+
+        it('can successfully get authentication token', async () => {
+            let token: Token = await app.signToken({
+                test: '123'
+            });
+
+            app.attachMockHandler('/auth/', makeHandler(async (request: Request) => {
+                try {
+                    let tokenData: any = await request.getAuthenticationToken();
+                    expect(tokenData.test).toBe('123');
+                }
+                catch (ex) {
+                    fail(ex);
+                }
+            }));
+            await app.doMockGet('/auth/', {
+                'X-BT-AUTH': token.getSignature()
             });
         });
 
-        it('produces InternalError on uncaught errors', (done) => {
+        it('can handles invalid tokens', async () => {
+            let tm: TokenManager = new TokenManager('badsecret');
+            let token: Token = await tm.sign({
+                test: '123'
+            }, '1d')
+            app.attachMockHandler('/auth/test1', makeHandler(async (request: Request) => {
+                try {
+                    await request.getAuthenticationToken();
+                    fail('Unexpected success');
+                }
+                catch (ex) {
+                    expect(ex).toBeInstanceOf(ResponseData);
+                    expect((<ResponseData>ex).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
+                    expect((<ResponseData>ex).getData()).toEqual({
+                        code: JWTError.ERR_GENERIC,
+                        reason: 'invalid signature'
+                    });
+                }
+            }));
+            await app.doMockGet('/auth/test1', {
+                'X-BT-AUTH': token.getSignature()
+            });
+        });
+
+        it('can handles expired tokens', async () => {
+            let tm: TokenManager = getInstance().getTokenManager();
+            let token: Token = await tm.sign({
+                test: '123'
+            }, '1s');
+
+            app.attachMockHandler('/auth/test2', makeHandler(async (request: Request) => {
+                try {
+                    await request.getAuthenticationToken();
+                    fail('Unexpected success');
+                }
+                catch (ex) {
+                    expect(ex).toBeInstanceOf(ResponseData);
+                    expect((<ResponseData>ex).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
+                    expect((<ResponseData>ex).getData()).toEqual({
+                        code: JWTError.ERR_EXPIRED,
+                        reason: 'jwt expired'
+                    });
+                }
+            }));
+            await sleep(1100);
+            await app.doMockGet('/auth/test2', {
+                'X-BT-AUTH': token.getSignature()
+            });
+        });
+
+        it('produces InternalError on uncaught errors', async () => {
             let tm: TokenManager = getInstance().getTokenManager();
             spyOn(tm, 'verify').and.callFake(() => {
                 return Promise.reject(new Error('test'));
             });
-            tm.sign({
+            let token: Token = await tm.sign({
                 test: '123'
-            }, '1s').then((token: Token) => {
-                app.attachMockHandler('/auth/test3', makeHandler(async (request: Request, response: Response) => {
-                    try {
-                        await request.getAuthenticationToken();
-                        response.success();
-                        fail('Unexpected success');
-                    }
-                    catch (ex) {
-                        expect(ex).toBeInstanceOf(ResponseData);
-                        expect((<ResponseData>ex).getStatus()).toBe(StatusCode.INTERNAL_ERROR);
-                        expect((<ResponseData>ex).getData()).toEqual({
-                            code: 0,
-                            reason: 'An internal server error has occured. Please try again.'
-                        });
-                        response.success();
-                        done();
-                    }
-                }));
-                app.doMockGet('/auth/test3', {
-                    'X-BT-AUTH': token.getSignature()
-                });
-            }).catch((error: any) => {
-                fail(error);
+            }, '1s')
+            app.attachMockHandler('/auth/test3', makeHandler(async (request: Request) => {
+                try {
+                    await request.getAuthenticationToken();
+                    fail('Unexpected success');
+                }
+                catch (ex) {
+                    expect(ex).toBeInstanceOf(ResponseData);
+                    expect((<ResponseData>ex).getStatus()).toBe(StatusCode.INTERNAL_ERROR);
+                    expect((<ResponseData>ex).getData()).toEqual({
+                        code: 0,
+                        reason: 'An internal server error has occured. Please try again.'
+                    });
+                }
+            }));
+            await app.doMockGet('/auth/test3', {
+                'X-BT-AUTH': token.getSignature()
             });
         });
     });
