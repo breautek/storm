@@ -10,7 +10,7 @@ import {StatusCode} from '../src/StatusCode';
 import { MockDB } from './support/MockDB';
 import * as http from 'http';
 import * as AppInstance from '../src/instance';
-import { CommanderStatic } from 'commander';
+import { Command } from 'commander';
 import * as ChildProcess from 'child_process';
 
 describe('Application', () => {
@@ -161,7 +161,7 @@ describe('Application', () => {
     });
 
     it('has a program', () => {
-        let program: CommanderStatic = app.getProgram();
+        let program: Command = app.getProgram();
         expect(program).toBeTruthy();
     });
 
