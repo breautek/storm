@@ -24,4 +24,4 @@
 
 #### Defined in
 
-[src/Response.ts:27](https://github.com/breautek/storm/blob/7b25240/src/Response.ts#L27)
+[src/Response.ts:27](https://github.com/breautek/storm/blob/8fb5f8c/src/Response.ts#L27)

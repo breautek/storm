@@ -106,7 +106,7 @@ EventEmitter.constructor
 
 #### Defined in
 
-[src/Application.ts:64](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L64)
+[src/Application.ts:64](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L64)
 
 ## Properties
 
@@ -190,7 +190,7 @@ Promise<void>
 
 #### Defined in
 
-[src/Application.ts:258](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L258)
+[src/Application.ts:258](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L258)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:202](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L202)
+[src/Application.ts:202](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L202)
 
 ___
 
@@ -232,7 +232,7 @@ Subclasses are expected to override this to configure their database setup, if t
 
 #### Defined in
 
-[src/Application.ts:367](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L367)
+[src/Application.ts:367](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L367)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:165](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L165)
+[src/Application.ts:165](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L165)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:161](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L161)
+[src/Application.ts:161](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L161)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:371](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L371)
+[src/Application.ts:371](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L371)
 
 ___
 
@@ -308,7 +308,7 @@ Invoked once the config has been loaded and ready to be used.
 
 #### Defined in
 
-[src/Application.ts:311](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L311)
+[src/Application.ts:311](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L311)
 
 ___
 
@@ -324,13 +324,13 @@ Invoked when the application is considered ready for operation.
 
 #### Defined in
 
-[src/Application.ts:376](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L376)
+[src/Application.ts:376](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L376)
 
 ___
 
 ### addListener
 
-▸ **addListener**(`event`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
+▸ **addListener**(`eventName`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
 
 Alias for `emitter.on(eventName, listener)`.
 
@@ -340,7 +340,7 @@ Alias for `emitter.on(eventName, listener)`.
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -374,7 +374,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:221](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L221)
+[src/Application.ts:221](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L221)
 
 ___
 
@@ -388,13 +388,13 @@ ___
 
 #### Defined in
 
-[src/Application.ts:241](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L241)
+[src/Application.ts:241](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L241)
 
 ___
 
 ### emit
 
-▸ **emit**(`event`, ...`args`): `boolean`
+▸ **emit**(`eventName`, ...`args`): `boolean`
 
 Synchronously calls each of the listeners registered for the event named`eventName`, in the order they were registered, passing the supplied arguments
 to each.
@@ -440,7 +440,7 @@ myEmitter.emit('event', 1, 2, 3, 4, 5);
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `...args` | `any`[] |
 
 #### Returns
@@ -505,7 +505,7 @@ command line arguments
 
 #### Defined in
 
-[src/Application.ts:338](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L338)
+[src/Application.ts:338](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L338)
 
 ___
 
@@ -521,7 +521,7 @@ the config object.
 
 #### Defined in
 
-[src/Application.ts:295](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L295)
+[src/Application.ts:295](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L295)
 
 ___
 
@@ -537,7 +537,7 @@ the database pool. This will need to be casted based on your preferred database 
 
 #### Defined in
 
-[src/Application.ts:331](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L331)
+[src/Application.ts:331](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L331)
 
 ___
 
@@ -551,7 +551,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:169](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L169)
+[src/Application.ts:169](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L169)
 
 ___
 
@@ -590,7 +590,7 @@ the application name
 
 #### Defined in
 
-[src/Application.ts:284](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L284)
+[src/Application.ts:284](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L284)
 
 ___
 
@@ -604,7 +604,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:173](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L173)
+[src/Application.ts:173](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L173)
 
 ___
 
@@ -618,7 +618,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:204](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L204)
+[src/Application.ts:204](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L204)
 
 ___
 
@@ -634,7 +634,7 @@ The maximum size limit for incoming requests that this service needs to handle.
 
 #### Defined in
 
-[src/Application.ts:211](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L211)
+[src/Application.ts:211](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L211)
 
 ___
 
@@ -650,13 +650,13 @@ the token manager
 
 #### Defined in
 
-[src/Application.ts:324](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L324)
+[src/Application.ts:324](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L324)
 
 ___
 
 ### listenerCount
 
-▸ **listenerCount**(`event`): `number`
+▸ **listenerCount**(`eventName`): `number`
 
 Returns the number of listeners listening to the event named `eventName`.
 
@@ -664,9 +664,9 @@ Returns the number of listeners listening to the event named `eventName`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `eventName` | `string` \| `symbol` | The name of the event being listened for |
 
 #### Returns
 
@@ -684,7 +684,7 @@ ___
 
 ### listeners
 
-▸ **listeners**(`event`): `Function`[]
+▸ **listeners**(`eventName`): `Function`[]
 
 Returns a copy of the array of listeners for the event named `eventName`.
 
@@ -702,7 +702,7 @@ console.log(util.inspect(server.listeners('connection')));
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 
 #### Returns
 
@@ -734,13 +734,13 @@ ___
 
 #### Defined in
 
-[src/Application.ts:264](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L264)
+[src/Application.ts:264](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L264)
 
 ___
 
 ### off
 
-▸ **off**(`event`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
+▸ **off**(`eventName`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
 
 Alias for `emitter.removeListener()`.
 
@@ -750,7 +750,7 @@ Alias for `emitter.removeListener()`.
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -769,7 +769,7 @@ ___
 
 ### on
 
-▸ **on**(`event`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
+▸ **on**(`eventName`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
 
 Adds the `listener` function to the end of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -803,7 +803,7 @@ myEE.emit('foo');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `event` | `string` \| `symbol` | - |
+| `eventName` | `string` \| `symbol` | The name of the event. |
 | `listener` | (...`args`: `any`[]) => `void` | The callback function |
 
 #### Returns
@@ -822,7 +822,7 @@ ___
 
 ### once
 
-▸ **once**(`event`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
+▸ **once**(`eventName`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
 
 Adds a **one-time**`listener` function for the event named `eventName`. The
 next time `eventName` is triggered, this listener is removed and then invoked.
@@ -854,7 +854,7 @@ myEE.emit('foo');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `event` | `string` \| `symbol` | - |
+| `eventName` | `string` \| `symbol` | The name of the event. |
 | `listener` | (...`args`: `any`[]) => `void` | The callback function |
 
 #### Returns
@@ -873,7 +873,7 @@ ___
 
 ### prependListener
 
-▸ **prependListener**(`event`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
+▸ **prependListener**(`eventName`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
 
 Adds the `listener` function to the _beginning_ of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -894,7 +894,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `event` | `string` \| `symbol` | - |
+| `eventName` | `string` \| `symbol` | The name of the event. |
 | `listener` | (...`args`: `any`[]) => `void` | The callback function |
 
 #### Returns
@@ -913,7 +913,7 @@ ___
 
 ### prependOnceListener
 
-▸ **prependOnceListener**(`event`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
+▸ **prependOnceListener**(`eventName`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
 
 Adds a **one-time**`listener` function for the event named `eventName` to the_beginning_ of the listeners array. The next time `eventName` is triggered, this
 listener is removed, and then invoked.
@@ -932,7 +932,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `event` | `string` \| `symbol` | - |
+| `eventName` | `string` \| `symbol` | The name of the event. |
 | `listener` | (...`args`: `any`[]) => `void` | The callback function |
 
 #### Returns
@@ -951,7 +951,7 @@ ___
 
 ### rawListeners
 
-▸ **rawListeners**(`event`): `Function`[]
+▸ **rawListeners**(`eventName`): `Function`[]
 
 Returns a copy of the array of listeners for the event named `eventName`,
 including any wrappers (such as those created by `.once()`).
@@ -986,7 +986,7 @@ emitter.emit('log');
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 
 #### Returns
 
@@ -1038,7 +1038,7 @@ ___
 
 ### removeListener
 
-▸ **removeListener**(`event`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
+▸ **removeListener**(`eventName`, `listener`): [`Application`](Application.Application-1.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
 
 Removes the specified `listener` from the listener array for the event named`eventName`.
 
@@ -1123,7 +1123,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1191,7 +1191,7 @@ Sets the TokenManager to be used for authentication.
 
 #### Defined in
 
-[src/Application.ts:317](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L317)
+[src/Application.ts:317](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L317)
 
 ___
 
@@ -1207,7 +1207,7 @@ true if the Application should bind to an IP address
 
 #### Defined in
 
-[src/Application.ts:302](https://github.com/breautek/storm/blob/7b25240/src/Application.ts#L302)
+[src/Application.ts:302](https://github.com/breautek/storm/blob/8fb5f8c/src/Application.ts#L302)
 
 ___
 
@@ -1240,7 +1240,7 @@ ___
 
 ### listenerCount
 
-▸ `Static` **listenerCount**(`emitter`, `event`): `number`
+▸ `Static` **listenerCount**(`emitter`, `eventName`): `number`
 
 **`deprecated`** since v4.0.0
 
@@ -1249,7 +1249,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `emitter` | `EventEmitter` |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 
 #### Returns
 
@@ -1267,14 +1267,14 @@ ___
 
 ### on
 
-▸ `Static` **on**(`emitter`, `event`, `options?`): `AsyncIterableIterator`<`any`\>
+▸ `Static` **on**(`emitter`, `eventName`, `options?`): `AsyncIterableIterator`<`any`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `emitter` | `EventEmitter` |
-| `event` | `string` |
+| `eventName` | `string` |
 | `options?` | `StaticEventEmitterOptions` |
 
 #### Returns
@@ -1293,14 +1293,14 @@ ___
 
 ### once
 
-▸ `Static` **once**(`emitter`, `event`, `options?`): `Promise`<`any`[]\>
+▸ `Static` **once**(`emitter`, `eventName`, `options?`): `Promise`<`any`[]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `emitter` | `NodeEventTarget` |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `options?` | `StaticEventEmitterOptions` |
 
 #### Returns
@@ -1315,14 +1315,14 @@ EventEmitter.once
 
 node_modules/@types/node/events.d.ts:75
 
-▸ `Static` **once**(`emitter`, `event`, `options?`): `Promise`<`any`[]\>
+▸ `Static` **once**(`emitter`, `eventName`, `options?`): `Promise`<`any`[]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `emitter` | `DOMEventTarget` |
-| `event` | `string` |
+| `eventName` | `string` |
 | `options?` | `StaticEventEmitterOptions` |
 
 #### Returns

@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/IFormData.ts:20](https://github.com/breautek/storm/blob/7b25240/src/IFormData.ts#L20)
+[src/IFormData.ts:20](https://github.com/breautek/storm/blob/8fb5f8c/src/IFormData.ts#L20)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/IFormData.ts:21](https://github.com/breautek/storm/blob/7b25240/src/IFormData.ts#L21)
+[src/IFormData.ts:21](https://github.com/breautek/storm/blob/8fb5f8c/src/IFormData.ts#L21)

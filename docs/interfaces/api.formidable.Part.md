@@ -82,7 +82,7 @@ node_modules/@types/formidable/index.d.ts:187
 
 ### addListener
 
-▸ **addListener**(`event`, `listener`): [`Part`](api.formidable.Part.md)
+▸ **addListener**(`eventName`, `listener`): [`Part`](api.formidable.Part.md)
 
 Alias for `emitter.on(eventName, listener)`.
 
@@ -92,7 +92,7 @@ Alias for `emitter.on(eventName, listener)`.
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -111,7 +111,7 @@ ___
 
 ### emit
 
-▸ **emit**(`event`, ...`args`): `boolean`
+▸ **emit**(`eventName`, ...`args`): `boolean`
 
 Synchronously calls each of the listeners registered for the event named`eventName`, in the order they were registered, passing the supplied arguments
 to each.
@@ -157,7 +157,7 @@ myEmitter.emit('event', 1, 2, 3, 4, 5);
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `...args` | `any`[] |
 
 #### Returns
@@ -235,7 +235,7 @@ ___
 
 ### listenerCount
 
-▸ **listenerCount**(`event`): `number`
+▸ **listenerCount**(`eventName`): `number`
 
 Returns the number of listeners listening to the event named `eventName`.
 
@@ -243,9 +243,9 @@ Returns the number of listeners listening to the event named `eventName`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `eventName` | `string` \| `symbol` | The name of the event being listened for |
 
 #### Returns
 
@@ -263,7 +263,7 @@ ___
 
 ### listeners
 
-▸ **listeners**(`event`): `Function`[]
+▸ **listeners**(`eventName`): `Function`[]
 
 Returns a copy of the array of listeners for the event named `eventName`.
 
@@ -281,7 +281,7 @@ console.log(util.inspect(server.listeners('connection')));
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 
 #### Returns
 
@@ -299,7 +299,7 @@ ___
 
 ### off
 
-▸ **off**(`event`, `listener`): [`Part`](api.formidable.Part.md)
+▸ **off**(`eventName`, `listener`): [`Part`](api.formidable.Part.md)
 
 Alias for `emitter.removeListener()`.
 
@@ -309,7 +309,7 @@ Alias for `emitter.removeListener()`.
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -328,7 +328,7 @@ ___
 
 ### on
 
-▸ **on**(`event`, `listener`): [`Part`](api.formidable.Part.md)
+▸ **on**(`eventName`, `listener`): [`Part`](api.formidable.Part.md)
 
 Adds the `listener` function to the end of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -362,7 +362,7 @@ myEE.emit('foo');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `event` | `string` \| `symbol` | - |
+| `eventName` | `string` \| `symbol` | The name of the event. |
 | `listener` | (...`args`: `any`[]) => `void` | The callback function |
 
 #### Returns
@@ -381,7 +381,7 @@ ___
 
 ### once
 
-▸ **once**(`event`, `listener`): [`Part`](api.formidable.Part.md)
+▸ **once**(`eventName`, `listener`): [`Part`](api.formidable.Part.md)
 
 Adds a **one-time**`listener` function for the event named `eventName`. The
 next time `eventName` is triggered, this listener is removed and then invoked.
@@ -413,7 +413,7 @@ myEE.emit('foo');
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `event` | `string` \| `symbol` | - |
+| `eventName` | `string` \| `symbol` | The name of the event. |
 | `listener` | (...`args`: `any`[]) => `void` | The callback function |
 
 #### Returns
@@ -464,7 +464,7 @@ ___
 
 ### prependListener
 
-▸ **prependListener**(`event`, `listener`): [`Part`](api.formidable.Part.md)
+▸ **prependListener**(`eventName`, `listener`): [`Part`](api.formidable.Part.md)
 
 Adds the `listener` function to the _beginning_ of the listeners array for the
 event named `eventName`. No checks are made to see if the `listener` has
@@ -485,7 +485,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `event` | `string` \| `symbol` | - |
+| `eventName` | `string` \| `symbol` | The name of the event. |
 | `listener` | (...`args`: `any`[]) => `void` | The callback function |
 
 #### Returns
@@ -504,7 +504,7 @@ ___
 
 ### prependOnceListener
 
-▸ **prependOnceListener**(`event`, `listener`): [`Part`](api.formidable.Part.md)
+▸ **prependOnceListener**(`eventName`, `listener`): [`Part`](api.formidable.Part.md)
 
 Adds a **one-time**`listener` function for the event named `eventName` to the_beginning_ of the listeners array. The next time `eventName` is triggered, this
 listener is removed, and then invoked.
@@ -523,7 +523,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `event` | `string` \| `symbol` | - |
+| `eventName` | `string` \| `symbol` | The name of the event. |
 | `listener` | (...`args`: `any`[]) => `void` | The callback function |
 
 #### Returns
@@ -542,7 +542,7 @@ ___
 
 ### rawListeners
 
-▸ **rawListeners**(`event`): `Function`[]
+▸ **rawListeners**(`eventName`): `Function`[]
 
 Returns a copy of the array of listeners for the event named `eventName`,
 including any wrappers (such as those created by `.once()`).
@@ -577,7 +577,7 @@ emitter.emit('log');
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 
 #### Returns
 
@@ -629,7 +629,7 @@ ___
 
 ### removeListener
 
-▸ **removeListener**(`event`, `listener`): [`Part`](api.formidable.Part.md)
+▸ **removeListener**(`eventName`, `listener`): [`Part`](api.formidable.Part.md)
 
 Removes the specified `listener` from the listener array for the event named`eventName`.
 
@@ -714,7 +714,7 @@ Returns a reference to the `EventEmitter`, so that calls can be chained.
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `string` \| `symbol` |
+| `eventName` | `string` \| `symbol` |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
