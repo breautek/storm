@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[src/Query.ts:23](https://github.com/breautek/storm/blob/8fb5f8c/src/Query.ts#L23)
+[src/Query.ts:23](https://github.com/breautek/storm/blob/3807444/src/Query.ts#L23)
 
 ## Methods
 
@@ -61,7 +61,7 @@
 
 #### Defined in
 
-[src/private/CommitQuery.ts:20](https://github.com/breautek/storm/blob/8fb5f8c/src/private/CommitQuery.ts#L20)
+[src/private/CommitQuery.ts:20](https://github.com/breautek/storm/blob/3807444/src/private/CommitQuery.ts#L20)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:52](https://github.com/breautek/storm/blob/8fb5f8c/src/Query.ts#L52)
+[src/Query.ts:52](https://github.com/breautek/storm/blob/3807444/src/Query.ts#L52)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:27](https://github.com/breautek/storm/blob/8fb5f8c/src/Query.ts#L27)
+[src/Query.ts:27](https://github.com/breautek/storm/blob/3807444/src/Query.ts#L27)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:31](https://github.com/breautek/storm/blob/8fb5f8c/src/Query.ts#L31)
+[src/Query.ts:31](https://github.com/breautek/storm/blob/3807444/src/Query.ts#L31)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:37](https://github.com/breautek/storm/blob/8fb5f8c/src/Query.ts#L37)
+[src/Query.ts:37](https://github.com/breautek/storm/blob/3807444/src/Query.ts#L37)
 
 ___
 
@@ -166,4 +166,4 @@ Override to augment/manipulate the returned result set.
 
 #### Defined in
 
-[src/Query.ts:47](https://github.com/breautek/storm/blob/8fb5f8c/src/Query.ts#L47)
+[src/Query.ts:47](https://github.com/breautek/storm/blob/3807444/src/Query.ts#L47)

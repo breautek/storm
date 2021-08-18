@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[src/IHandler.ts:21](https://github.com/breautek/storm/blob/8fb5f8c/src/IHandler.ts#L21)
+[src/IHandler.ts:21](https://github.com/breautek/storm/blob/3807444/src/IHandler.ts#L21)
