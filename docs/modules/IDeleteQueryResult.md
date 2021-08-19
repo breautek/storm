@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/3807444/src/IDeleteQueryResult.ts#L19)
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/57f151c/src/IDeleteQueryResult.ts#L19)

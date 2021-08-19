@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/MissingConfigError.ts:27](https://github.com/breautek/storm/blob/3807444/src/MissingConfigError.ts#L27)
+[src/MissingConfigError.ts:27](https://github.com/breautek/storm/blob/57f151c/src/MissingConfigError.ts#L27)
 
 ## Properties
 
@@ -160,7 +160,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/MissingConfigError.ts:37](https://github.com/breautek/storm/blob/3807444/src/MissingConfigError.ts#L37)
+[src/MissingConfigError.ts:37](https://github.com/breautek/storm/blob/57f151c/src/MissingConfigError.ts#L37)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/3807444/src/StormError.ts#L70)
+[src/StormError.ts:70](https://github.com/breautek/storm/blob/57f151c/src/StormError.ts#L70)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/MissingConfigError.ts:45](https://github.com/breautek/storm/blob/3807444/src/MissingConfigError.ts#L45)
+[src/MissingConfigError.ts:45](https://github.com/breautek/storm/blob/57f151c/src/MissingConfigError.ts#L45)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[src/MissingConfigError.ts:41](https://github.com/breautek/storm/blob/3807444/src/MissingConfigError.ts#L41)
+[src/MissingConfigError.ts:41](https://github.com/breautek/storm/blob/57f151c/src/MissingConfigError.ts#L41)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[src/MissingConfigError.ts:33](https://github.com/breautek/storm/blob/3807444/src/MissingConfigError.ts#L33)
+[src/MissingConfigError.ts:33](https://github.com/breautek/storm/blob/57f151c/src/MissingConfigError.ts#L33)
 
 ___
 
@@ -253,7 +253,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/3807444/src/StormError.ts#L62)
+[src/StormError.ts:62](https://github.com/breautek/storm/blob/57f151c/src/StormError.ts#L62)
 
 ___
 
@@ -273,7 +273,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/3807444/src/StormError.ts#L54)
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/57f151c/src/StormError.ts#L54)
 
 ___
 

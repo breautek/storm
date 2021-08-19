@@ -32,6 +32,8 @@
 - [IErrorResponse](api.md#ierrorresponse)
 - [IFormData](api.md#iformdata)
 - [IHandler](api.md#ihandler)
+- [IHandlerError](api.md#ihandlererror)
+- [IHandlerResponse](api.md#ihandlerresponse)
 - [IInsertQueryResult](api.md#iinsertqueryresult)
 - [IJWTVerifyOptions](api.md#ijwtverifyoptions)
 - [IParameterMap](api.md#iparametermap)
@@ -227,6 +229,18 @@ ___
 ### IHandler
 
 Re-exports: [IHandler](../interfaces/IHandler.IHandler-1.md)
+
+___
+
+### IHandlerError
+
+Re-exports: [IHandlerError](Handler.md#ihandlererror)
+
+___
+
+### IHandlerResponse
+
+Re-exports: [IHandlerResponse](Handler.md#ihandlerresponse)
 
 ___
 
