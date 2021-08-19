@@ -61,7 +61,7 @@ export {Middleware} from './Middleware';
 export {Request, IParameterMap} from './Request';
 export {Response} from './Response';
 export {ResponseData} from './ResponseData';
-export {Handler} from './Handler';
+export {Handler, IHandlerError, IHandlerResponse} from './Handler';
 export {CORSMiddleware} from './CORSMiddleware';
 export {ServiceProvider} from './ServiceProvider';
 export {HTTPMethod} from './HTTPMethod';
