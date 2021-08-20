@@ -197,19 +197,19 @@ export class Handler<
         }
     }
 
-    protected async _get(request: Request<TGetRequest>): Promise<IHandlerResponse> {
+    protected async _get(request: Request<TGetRequest>): Promise<TGetResponse | IHandlerResponse> {
         return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
     }
 
-    protected async _post(request: Request<TPostRequest>): Promise<IHandlerResponse> {
+    protected async _post(request: Request<TPostRequest>): Promise<TPostResponse| IHandlerResponse> {
         return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
     }
 
-    protected async _put(request: Request<TPutRequest>): Promise<IHandlerResponse> {
+    protected async _put(request: Request<TPutRequest>): Promise<TPutResponse | IHandlerResponse> {
         return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
     }
 
-    protected async _delete(request: Request<TDeleteRequest>): Promise<IHandlerResponse> {
+    protected async _delete(request: Request<TDeleteRequest>): Promise<TDeleteResponse | IHandlerResponse> {
         return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
     }
 }
