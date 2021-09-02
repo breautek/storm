@@ -40,6 +40,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         this.$instantionStack = new Error().stack;
     }
 
+    // TODO(Breaking): Turn this API into async
     public setConnection(connection: IDatabaseConnection): void {
         if (this.$connection) {
             // Store original connection because of async,
@@ -118,6 +119,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         }
     }
 
+    // TODO: Turn this into a promise -- but the public interface also needs to change
     public setTimeout(timeout: number): void {
         this.$getConnection().then((connection: IDatabaseConnection) => {
             connection.setTimeout(timeout);

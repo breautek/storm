@@ -257,32 +257,38 @@ describe('ManagedDatabaseConnection', () => {
 
     it('will create a connection automatically', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        await mdc.setTimeout(1000);
-        expect((<any>mdc).$connection instanceof DatabaseConnection).toBe(true);
-        mdc.close().then(() => {
-            done();
-        });
+        mdc.setTimeout(1000);
+        setTimeout(() => {
+            expect((<any>mdc).$connection instanceof DatabaseConnection).toBe(true);
+            mdc.close().then(() => {
+                done();
+            });
+        }, 0);
     });
 
     it('will create a connection automatically with write access', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection(true);
-        await mdc.setTimeout(1000);
-        expect((<any>mdc).$connection instanceof DatabaseConnection).toBe(true);
-        expect((<any>mdc).$connection.isReadOnly()).toBe(false);
-        mdc.close().then(() => {
-            done();
-        });
+        mdc.setTimeout(1000);
+        setTimeout(() => {
+            expect((<any>mdc).$connection instanceof DatabaseConnection).toBe(true);
+            expect((<any>mdc).$connection.isReadOnly()).toBe(false);
+            mdc.close().then(() => {
+                done();
+            });
+        }, 0);
     });
 
     it('_getConnection will return existing connection', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
-        await mdc.setTimeout(1000);
-        expect((<any>mdc).$connection).toBe(conn1);
-        mdc.close().then(() => {
-            done();
-        });
+        mdc.setTimeout(1000);
+        setTimeout(() => {
+            expect((<any>mdc).$connection).toBe(conn1);
+            mdc.close().then(() => {
+                done();
+            });
+        }, 0);
     });
 
     it('can query', (done) => {
@@ -315,46 +321,52 @@ describe('ManagedDatabaseConnection', () => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
-        let spy: jasmine.Spy = spyOn(conn1, 'close').and.callThrough();
-        mdc.close().then(() => {
-            expect(spy).not.toHaveBeenCalled();
-            done();
-        });
+        setTimeout(() => {
+            let spy: jasmine.Spy = spyOn(conn1, 'close').and.callThrough();
+            mdc.close().then(() => {
+                expect(spy).not.toHaveBeenCalled();
+                done();
+            });
+        }, 0);
     });
 
     it('can close managed forcefully', (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         let conn1: MockConnection = new MockConnection(false, '');
         mdc.setConnection(conn1);
-        let spy: jasmine.Spy = spyOn(conn1, 'close').and.callThrough();
-        mdc.close(true).then(() => {
-            expect(spy).not.toHaveBeenCalled();
-            done();
-        });
+        setTimeout(() => {
+            let spy: jasmine.Spy = spyOn(conn1, 'close').and.callThrough();
+            mdc.close(true).then(() => {
+                expect(spy).not.toHaveBeenCalled();
+                done();
+            });
+        }, 0);
     });
 
     it('can close unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        await mdc.setTimeout(1000);
-
-        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
-        let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
-        mdc.close().then(() => {
-            expect(spy).toHaveBeenCalled();
-            done();
-        });
+        mdc.setTimeout(1000);
+        setTimeout(() => {
+            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
+            mdc.close().then(() => {
+                expect(spy).toHaveBeenCalled();
+                done();
+            });
+        }, 0);
     });
 
     it('can close unmanaged forcefully', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        await mdc.setTimeout(1000);
-
-        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
-        let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
-        mdc.close(true).then(() => {
-            expect(spy).toHaveBeenCalledWith(true);
-            done();
-        });
+        mdc.setTimeout(1000);
+        setTimeout(() => {
+            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
+            mdc.close(true).then(() => {
+                expect(spy).toHaveBeenCalledWith(true);
+                done();
+            });
+        }, 0);
     });
 
     it('can start transaction managed', (done) => {
@@ -373,15 +385,17 @@ describe('ManagedDatabaseConnection', () => {
 
     it('can start transaction unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        await mdc.setTimeout(1000);
+        mdc.setTimeout(1000);
 
-        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
-        let spy: jasmine.Spy = spyOn(conn, 'startTransaction').and.returnValue(Promise.resolve());
-        mdc.startTransaction().then(() => {
-            expect(spy).toHaveBeenCalled();
-            mdc.close(true);
-            done();
-        });
+        setTimeout(() => {
+            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let spy: jasmine.Spy = spyOn(conn, 'startTransaction').and.returnValue(Promise.resolve());
+            mdc.startTransaction().then(() => {
+                expect(spy).toHaveBeenCalled();
+                mdc.close(true);
+                done();
+            });
+        }, 0);
     });
 
     it('can commit managed', (done) => {
@@ -399,15 +413,16 @@ describe('ManagedDatabaseConnection', () => {
 
     it('can commit unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        await mdc.setTimeout(1000);
-
-        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
-        let spy: jasmine.Spy = spyOn(conn, 'commit').and.returnValue(Promise.resolve());
-        mdc.commit().then(() => {
-            expect(spy).toHaveBeenCalled();
-            mdc.close();
-            done();
-        });
+        mdc.setTimeout(1000);
+        setTimeout(() => {
+            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let spy: jasmine.Spy = spyOn(conn, 'commit').and.returnValue(Promise.resolve());
+            mdc.commit().then(() => {
+                expect(spy).toHaveBeenCalled();
+                mdc.close();
+                done();
+            });
+        }, 0);
     });
 
     it('can rollback managed', (done) => {
@@ -425,14 +440,16 @@ describe('ManagedDatabaseConnection', () => {
 
     it('can rollback unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
-        await mdc.setTimeout(1000);
+        mdc.setTimeout(1000);
 
-        let conn: DatabaseConnection<any> = (<any>mdc).$connection;
-        let spy: jasmine.Spy = spyOn(conn, 'rollback').and.returnValue(Promise.resolve());
-        mdc.rollback().then(() => {
-            expect(spy).toHaveBeenCalled();
-            mdc.close();
-            done();
-        });
+        setTimeout(() => {
+            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let spy: jasmine.Spy = spyOn(conn, 'rollback').and.returnValue(Promise.resolve());
+            mdc.rollback().then(() => {
+                expect(spy).toHaveBeenCalled();
+                mdc.close();
+                done();
+            });
+        }, 0);
     });
 });
