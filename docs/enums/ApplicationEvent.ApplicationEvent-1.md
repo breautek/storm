@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[src/ApplicationEvent.ts:18](https://github.com/breautek/storm/blob/80c9dfb/src/ApplicationEvent.ts#L18)
+[src/ApplicationEvent.ts:18](https://github.com/breautek/storm/blob/3449719/src/ApplicationEvent.ts#L18)

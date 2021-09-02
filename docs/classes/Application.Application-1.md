@@ -73,7 +73,7 @@ Main entry point for the Application. Should be extended and have the abstract m
 - [setMaxListeners](Application.Application-1.md#setmaxlisteners)
 - [setTokenManager](Application.Application-1.md#settokenmanager)
 - [shouldListen](Application.Application-1.md#shouldlisten)
-- [getEventListener](Application.Application-1.md#geteventlistener)
+- [getEventListeners](Application.Application-1.md#geteventlisteners)
 - [listenerCount](Application.Application-1.md#listenercount)
 - [on](Application.Application-1.md#on)
 - [once](Application.Application-1.md#once)
@@ -106,7 +106,7 @@ EventEmitter.constructor
 
 #### Defined in
 
-[src/Application.ts:64](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L64)
+[src/Application.ts:64](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L64)
 
 ## Properties
 
@@ -120,7 +120,7 @@ EventEmitter.captureRejectionSymbol
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:94
+node_modules/@types/node/events.d.ts:273
 
 ___
 
@@ -136,7 +136,7 @@ EventEmitter.captureRejections
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:99
+node_modules/@types/node/events.d.ts:278
 
 ___
 
@@ -150,7 +150,7 @@ EventEmitter.defaultMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:100
+node_modules/@types/node/events.d.ts:279
 
 ___
 
@@ -172,7 +172,7 @@ EventEmitter.errorMonitor
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:93
+node_modules/@types/node/events.d.ts:272
 
 ## Methods
 
@@ -190,7 +190,7 @@ Promise<void>
 
 #### Defined in
 
-[src/Application.ts:258](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L258)
+[src/Application.ts:258](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L258)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:202](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L202)
+[src/Application.ts:202](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L202)
 
 ___
 
@@ -232,7 +232,7 @@ Subclasses are expected to override this to configure their database setup, if t
 
 #### Defined in
 
-[src/Application.ts:367](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L367)
+[src/Application.ts:367](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L367)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:165](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L165)
+[src/Application.ts:165](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L165)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:161](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L161)
+[src/Application.ts:161](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L161)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:371](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L371)
+[src/Application.ts:371](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L371)
 
 ___
 
@@ -308,7 +308,7 @@ Invoked once the config has been loaded and ready to be used.
 
 #### Defined in
 
-[src/Application.ts:311](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L311)
+[src/Application.ts:311](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L311)
 
 ___
 
@@ -324,7 +324,7 @@ Invoked when the application is considered ready for operation.
 
 #### Defined in
 
-[src/Application.ts:376](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L376)
+[src/Application.ts:376](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L376)
 
 ___
 
@@ -353,7 +353,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:120
+node_modules/@types/node/events.d.ts:299
 
 ___
 
@@ -374,7 +374,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:221](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L221)
+[src/Application.ts:221](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L221)
 
 ___
 
@@ -388,7 +388,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:241](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L241)
+[src/Application.ts:241](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L241)
 
 ___
 
@@ -453,7 +453,7 @@ EventEmitter.emit
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:376
+node_modules/@types/node/events.d.ts:555
 
 ___
 
@@ -489,7 +489,7 @@ EventEmitter.eventNames
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:435
+node_modules/@types/node/events.d.ts:614
 
 ___
 
@@ -505,7 +505,7 @@ command line arguments
 
 #### Defined in
 
-[src/Application.ts:338](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L338)
+[src/Application.ts:338](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L338)
 
 ___
 
@@ -521,7 +521,7 @@ the config object.
 
 #### Defined in
 
-[src/Application.ts:295](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L295)
+[src/Application.ts:295](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L295)
 
 ___
 
@@ -537,7 +537,7 @@ the database pool. This will need to be casted based on your preferred database 
 
 #### Defined in
 
-[src/Application.ts:331](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L331)
+[src/Application.ts:331](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L331)
 
 ___
 
@@ -551,7 +551,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:169](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L169)
+[src/Application.ts:169](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L169)
 
 ___
 
@@ -574,7 +574,7 @@ EventEmitter.getMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:292
+node_modules/@types/node/events.d.ts:471
 
 ___
 
@@ -590,7 +590,7 @@ the application name
 
 #### Defined in
 
-[src/Application.ts:284](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L284)
+[src/Application.ts:284](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L284)
 
 ___
 
@@ -604,7 +604,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:173](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L173)
+[src/Application.ts:173](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L173)
 
 ___
 
@@ -618,7 +618,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:204](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L204)
+[src/Application.ts:204](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L204)
 
 ___
 
@@ -634,7 +634,7 @@ The maximum size limit for incoming requests that this service needs to handle.
 
 #### Defined in
 
-[src/Application.ts:211](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L211)
+[src/Application.ts:211](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L211)
 
 ___
 
@@ -650,7 +650,7 @@ the token manager
 
 #### Defined in
 
-[src/Application.ts:324](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L324)
+[src/Application.ts:324](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L324)
 
 ___
 
@@ -678,7 +678,7 @@ EventEmitter.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:382
+node_modules/@types/node/events.d.ts:561
 
 ___
 
@@ -714,7 +714,7 @@ EventEmitter.listeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:305
+node_modules/@types/node/events.d.ts:484
 
 ___
 
@@ -734,7 +734,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:264](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L264)
+[src/Application.ts:264](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L264)
 
 ___
 
@@ -763,7 +763,7 @@ EventEmitter.off
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:265
+node_modules/@types/node/events.d.ts:444
 
 ___
 
@@ -816,7 +816,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:151
+node_modules/@types/node/events.d.ts:330
 
 ___
 
@@ -867,7 +867,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:180
+node_modules/@types/node/events.d.ts:359
 
 ___
 
@@ -907,7 +907,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:400
+node_modules/@types/node/events.d.ts:579
 
 ___
 
@@ -945,7 +945,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:416
+node_modules/@types/node/events.d.ts:595
 
 ___
 
@@ -998,7 +998,7 @@ EventEmitter.rawListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:335
+node_modules/@types/node/events.d.ts:514
 
 ___
 
@@ -1032,7 +1032,7 @@ EventEmitter.removeAllListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:276
+node_modules/@types/node/events.d.ts:455
 
 ___
 
@@ -1136,7 +1136,7 @@ EventEmitter.removeListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:260
+node_modules/@types/node/events.d.ts:439
 
 ___
 
@@ -1169,7 +1169,7 @@ EventEmitter.setMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:286
+node_modules/@types/node/events.d.ts:465
 
 ___
 
@@ -1191,7 +1191,7 @@ Sets the TokenManager to be used for authentication.
 
 #### Defined in
 
-[src/Application.ts:317](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L317)
+[src/Application.ts:317](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L317)
 
 ___
 
@@ -1207,15 +1207,40 @@ true if the Application should bind to an IP address
 
 #### Defined in
 
-[src/Application.ts:302](https://github.com/breautek/storm/blob/80c9dfb/src/Application.ts#L302)
+[src/Application.ts:302](https://github.com/breautek/storm/blob/3449719/src/Application.ts#L302)
 
 ___
 
-### getEventListener
+### getEventListeners
 
-▸ `Static` **getEventListener**(`emitter`, `name`): `Function`[]
+▸ `Static` **getEventListeners**(`emitter`, `name`): `Function`[]
 
-Returns a list listener for a specific emitter event name.
+Returns a copy of the array of listeners for the event named `eventName`.
+
+For `EventEmitter`s this behaves exactly the same as calling `.listeners` on
+the emitter.
+
+For `EventTarget`s this is the only way to get the event listeners for the
+event target. This is useful for debugging and diagnostic purposes.
+
+```js
+const { getEventListeners, EventEmitter } = require('events');
+
+{
+  const ee = new EventEmitter();
+  const listener = () => console.log('Events are fun');
+  ee.on('foo', listener);
+  getEventListeners(ee, 'foo'); // [listener]
+}
+{
+  const et = new EventTarget();
+  const listener = () => console.log('Events are fun');
+  et.addEventListener('foo', listener);
+  getEventListeners(et, 'foo'); // [listener]
+}
+```
+
+**`since`** v15.2.0
 
 #### Parameters
 
@@ -1230,11 +1255,11 @@ Returns a list listener for a specific emitter event name.
 
 #### Inherited from
 
-EventEmitter.getEventListener
+EventEmitter.getEventListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:83
+node_modules/@types/node/events.d.ts:262
 
 ___
 
@@ -1242,14 +1267,27 @@ ___
 
 ▸ `Static` **listenerCount**(`emitter`, `eventName`): `number`
 
-**`deprecated`** since v4.0.0
+A class method that returns the number of listeners for the given `eventName`registered on the given `emitter`.
+
+```js
+const { EventEmitter, listenerCount } = require('events');
+const myEmitter = new EventEmitter();
+myEmitter.on('event', () => {});
+myEmitter.on('event', () => {});
+console.log(listenerCount(myEmitter, 'event'));
+// Prints: 2
+```
+
+**`since`** v0.9.12
+
+**`deprecated`** Since v3.2.0 - Use `listenerCount` instead.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `emitter` | `EventEmitter` |
-| `eventName` | `string` \| `symbol` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `emitter` | `EventEmitter` | The emitter to query |
+| `eventName` | `string` \| `symbol` | The event name |
 
 #### Returns
 
@@ -1261,7 +1299,7 @@ EventEmitter.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:79
+node_modules/@types/node/events.d.ts:234
 
 ___
 
@@ -1269,17 +1307,75 @@ ___
 
 ▸ `Static` **on**(`emitter`, `eventName`, `options?`): `AsyncIterableIterator`<`any`\>
 
+```js
+const { on, EventEmitter } = require('events');
+
+(async () => {
+  const ee = new EventEmitter();
+
+  // Emit later on
+  process.nextTick(() => {
+    ee.emit('foo', 'bar');
+    ee.emit('foo', 42);
+  });
+
+  for await (const event of on(ee, 'foo')) {
+    // The execution of this inner block is synchronous and it
+    // processes one event at a time (even with await). Do not use
+    // if concurrent execution is required.
+    console.log(event); // prints ['bar'] [42]
+  }
+  // Unreachable here
+})();
+```
+
+Returns an `AsyncIterator` that iterates `eventName` events. It will throw
+if the `EventEmitter` emits `'error'`. It removes all listeners when
+exiting the loop. The `value` returned by each iteration is an array
+composed of the emitted event arguments.
+
+An `AbortSignal` can be used to cancel waiting on events:
+
+```js
+const { on, EventEmitter } = require('events');
+const ac = new AbortController();
+
+(async () => {
+  const ee = new EventEmitter();
+
+  // Emit later on
+  process.nextTick(() => {
+    ee.emit('foo', 'bar');
+    ee.emit('foo', 42);
+  });
+
+  for await (const event of on(ee, 'foo', { signal: ac.signal })) {
+    // The execution of this inner block is synchronous and it
+    // processes one event at a time (even with await). Do not use
+    // if concurrent execution is required.
+    console.log(event); // prints ['bar'] [42]
+  }
+  // Unreachable here
+})();
+
+process.nextTick(() => ac.abort());
+```
+
+**`since`** v13.6.0, v12.16.0
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `emitter` | `EventEmitter` |
-| `eventName` | `string` |
-| `options?` | `StaticEventEmitterOptions` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `emitter` | `EventEmitter` | - |
+| `eventName` | `string` | The name of the event being listened for |
+| `options?` | `StaticEventEmitterOptions` | - |
 
 #### Returns
 
 `AsyncIterableIterator`<`any`\>
+
+that iterates `eventName` events emitted by the `emitter`
 
 #### Inherited from
 
@@ -1287,13 +1383,95 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:77
+node_modules/@types/node/events.d.ts:217
 
 ___
 
 ### once
 
 ▸ `Static` **once**(`emitter`, `eventName`, `options?`): `Promise`<`any`[]\>
+
+Creates a `Promise` that is fulfilled when the `EventEmitter` emits the given
+event or that is rejected if the `EventEmitter` emits `'error'` while waiting.
+The `Promise` will resolve with an array of all the arguments emitted to the
+given event.
+
+This method is intentionally generic and works with the web platform[EventTarget](https://dom.spec.whatwg.org/#interface-eventtarget) interface, which has no special`'error'` event
+semantics and does not listen to the `'error'` event.
+
+```js
+const { once, EventEmitter } = require('events');
+
+async function run() {
+  const ee = new EventEmitter();
+
+  process.nextTick(() => {
+    ee.emit('myevent', 42);
+  });
+
+  const [value] = await once(ee, 'myevent');
+  console.log(value);
+
+  const err = new Error('kaboom');
+  process.nextTick(() => {
+    ee.emit('error', err);
+  });
+
+  try {
+    await once(ee, 'myevent');
+  } catch (err) {
+    console.log('error happened', err);
+  }
+}
+
+run();
+```
+
+The special handling of the `'error'` event is only used when `events.once()`is used to wait for another event. If `events.once()` is used to wait for the
+'`error'` event itself, then it is treated as any other kind of event without
+special handling:
+
+```js
+const { EventEmitter, once } = require('events');
+
+const ee = new EventEmitter();
+
+once(ee, 'error')
+  .then(([err]) => console.log('ok', err.message))
+  .catch((err) => console.log('error', err.message));
+
+ee.emit('error', new Error('boom'));
+
+// Prints: ok boom
+```
+
+An `AbortSignal` can be used to cancel waiting for the event:
+
+```js
+const { EventEmitter, once } = require('events');
+
+const ee = new EventEmitter();
+const ac = new AbortController();
+
+async function foo(emitter, event, signal) {
+  try {
+    await once(emitter, event, { signal });
+    console.log('event emitted!');
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      console.error('Waiting for the event was canceled!');
+    } else {
+      console.error('There was an error', error.message);
+    }
+  }
+}
+
+foo(ee, 'foo', ac.signal);
+ac.abort(); // Abort waiting for the event
+ee.emit('foo'); // Prints: Waiting for the event was canceled!
+```
+
+**`since`** v11.13.0, v10.16.0
 
 #### Parameters
 
@@ -1313,7 +1491,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:75
+node_modules/@types/node/events.d.ts:157
 
 ▸ `Static` **once**(`emitter`, `eventName`, `options?`): `Promise`<`any`[]\>
 
@@ -1335,4 +1513,4 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:76
+node_modules/@types/node/events.d.ts:158

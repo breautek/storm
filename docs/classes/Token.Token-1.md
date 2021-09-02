@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/Token.ts:20](https://github.com/breautek/storm/blob/80c9dfb/src/Token.ts#L20)
+[src/Token.ts:20](https://github.com/breautek/storm/blob/3449719/src/Token.ts#L20)
 
 ## Methods
 
@@ -42,4 +42,4 @@
 
 #### Defined in
 
-[src/Token.ts:24](https://github.com/breautek/storm/blob/80c9dfb/src/Token.ts#L24)
+[src/Token.ts:24](https://github.com/breautek/storm/blob/3449719/src/Token.ts#L24)

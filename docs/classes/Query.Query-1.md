@@ -42,6 +42,7 @@
 - [getParametersForQuery](Query.Query-1.md#getparametersforquery)
 - [getQuery](Query.Query-1.md#getquery)
 - [onPostProcess](Query.Query-1.md#onpostprocess)
+- [onPreQuery](Query.Query-1.md#onprequery)
 
 ## Constructors
 
@@ -65,7 +66,7 @@
 
 #### Defined in
 
-[src/Query.ts:23](https://github.com/breautek/storm/blob/80c9dfb/src/Query.ts#L23)
+[src/Query.ts:23](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L23)
 
 ## Methods
 
@@ -79,7 +80,7 @@
 
 #### Defined in
 
-[src/Query.ts:35](https://github.com/breautek/storm/blob/80c9dfb/src/Query.ts#L35)
+[src/Query.ts:35](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L35)
 
 ___
 
@@ -99,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:52](https://github.com/breautek/storm/blob/80c9dfb/src/Query.ts#L52)
+[src/Query.ts:63](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L63)
 
 ___
 
@@ -113,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:27](https://github.com/breautek/storm/blob/80c9dfb/src/Query.ts#L27)
+[src/Query.ts:27](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L27)
 
 ___
 
@@ -127,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:31](https://github.com/breautek/storm/blob/80c9dfb/src/Query.ts#L31)
+[src/Query.ts:31](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L31)
 
 ___
 
@@ -141,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:37](https://github.com/breautek/storm/blob/80c9dfb/src/Query.ts#L37)
+[src/Query.ts:37](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L37)
 
 ___
 
@@ -164,4 +165,27 @@ Override to augment/manipulate the returned result set.
 
 #### Defined in
 
-[src/Query.ts:47](https://github.com/breautek/storm/blob/80c9dfb/src/Query.ts#L47)
+[src/Query.ts:58](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L58)
+
+___
+
+### onPreQuery
+
+▸ **onPreQuery**(`connection`): `Promise`<`void`\>
+
+Overridable to execute statements before the main query.
+Can be used to set session variables or create temporary tables, etc.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `connection` | [`IDatabaseConnection`](../interfaces/IDatabaseConnection.IDatabaseConnection-1.md) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/Query.ts:48](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L48)

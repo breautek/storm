@@ -105,7 +105,7 @@ Stream.addListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:120
+node_modules/@types/node/events.d.ts:299
 
 ___
 
@@ -170,7 +170,7 @@ Stream.emit
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:376
+node_modules/@types/node/events.d.ts:555
 
 ___
 
@@ -206,7 +206,7 @@ Stream.eventNames
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:435
+node_modules/@types/node/events.d.ts:614
 
 ___
 
@@ -229,7 +229,7 @@ Stream.getMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:292
+node_modules/@types/node/events.d.ts:471
 
 ___
 
@@ -257,7 +257,7 @@ Stream.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:382
+node_modules/@types/node/events.d.ts:561
 
 ___
 
@@ -293,7 +293,7 @@ Stream.listeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:305
+node_modules/@types/node/events.d.ts:484
 
 ___
 
@@ -322,7 +322,7 @@ Stream.off
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:265
+node_modules/@types/node/events.d.ts:444
 
 ___
 
@@ -375,7 +375,7 @@ Stream.on
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:151
+node_modules/@types/node/events.d.ts:330
 
 ___
 
@@ -426,7 +426,7 @@ Stream.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:180
+node_modules/@types/node/events.d.ts:359
 
 ___
 
@@ -458,7 +458,7 @@ Stream.pipe
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:23
+node_modules/@types/node/stream.d.ts:24
 
 ___
 
@@ -498,7 +498,7 @@ Stream.prependListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:400
+node_modules/@types/node/events.d.ts:579
 
 ___
 
@@ -536,7 +536,7 @@ Stream.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:416
+node_modules/@types/node/events.d.ts:595
 
 ___
 
@@ -589,7 +589,7 @@ Stream.rawListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:335
+node_modules/@types/node/events.d.ts:514
 
 ___
 
@@ -623,7 +623,7 @@ Stream.removeAllListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:276
+node_modules/@types/node/events.d.ts:455
 
 ___
 
@@ -727,7 +727,7 @@ Stream.removeListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:260
+node_modules/@types/node/events.d.ts:439
 
 ___
 
@@ -760,4 +760,4 @@ Stream.setMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:286
+node_modules/@types/node/events.d.ts:465

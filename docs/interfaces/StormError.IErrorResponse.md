@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[src/StormError.ts:31](https://github.com/breautek/storm/blob/80c9dfb/src/StormError.ts#L31)
+[src/StormError.ts:31](https://github.com/breautek/storm/blob/3449719/src/StormError.ts#L31)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:32](https://github.com/breautek/storm/blob/80c9dfb/src/StormError.ts#L32)
+[src/StormError.ts:32](https://github.com/breautek/storm/blob/3449719/src/StormError.ts#L32)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:30](https://github.com/breautek/storm/blob/80c9dfb/src/StormError.ts#L30)
+[src/StormError.ts:30](https://github.com/breautek/storm/blob/3449719/src/StormError.ts#L30)
 
 ___
 
@@ -51,4 +51,4 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:29](https://github.com/breautek/storm/blob/80c9dfb/src/StormError.ts#L29)
+[src/StormError.ts:29](https://github.com/breautek/storm/blob/3449719/src/StormError.ts#L29)

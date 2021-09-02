@@ -65,7 +65,7 @@
 
 #### Defined in
 
-[src/StatusCode.ts:40](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L40)
+[src/StatusCode.ts:40](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L40)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:49](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L49)
+[src/StatusCode.ts:49](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L49)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:57](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L57)
+[src/StatusCode.ts:57](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L57)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:43](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L43)
+[src/StatusCode.ts:43](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L43)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:50](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L50)
+[src/StatusCode.ts:50](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L50)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:63](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L63)
+[src/StatusCode.ts:63](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L63)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:51](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L51)
+[src/StatusCode.ts:51](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L51)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:46](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L46)
+[src/StatusCode.ts:46](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L46)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:45](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L45)
+[src/StatusCode.ts:45](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L45)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:44](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L44)
+[src/StatusCode.ts:44](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L44)
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:42](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L42)
+[src/StatusCode.ts:42](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L42)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:52](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L52)
+[src/StatusCode.ts:52](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L52)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:60](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L60)
+[src/StatusCode.ts:60](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L60)
 
 ___
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:47](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L47)
+[src/StatusCode.ts:47](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L47)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:62](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L62)
+[src/StatusCode.ts:62](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L62)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:56](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L56)
+[src/StatusCode.ts:56](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L56)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:48](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L48)
+[src/StatusCode.ts:48](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L48)
 
 ___
 
@@ -235,7 +235,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:53](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L53)
+[src/StatusCode.ts:53](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L53)
 
 ___
 
@@ -245,7 +245,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:54](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L54)
+[src/StatusCode.ts:54](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L54)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:58](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L58)
+[src/StatusCode.ts:58](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L58)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:61](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L61)
+[src/StatusCode.ts:61](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L61)
 
 ___
 
@@ -275,7 +275,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:41](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L41)
+[src/StatusCode.ts:41](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L41)
 
 ___
 
@@ -285,7 +285,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:55](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L55)
+[src/StatusCode.ts:55](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L55)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:59](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L59)
+[src/StatusCode.ts:59](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L59)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:18](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L18)
+[src/StatusCode.ts:18](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L18)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:20](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L20)
+[src/StatusCode.ts:20](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L20)
 
 ___
 
@@ -325,7 +325,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:19](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L19)
+[src/StatusCode.ts:19](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L19)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:67](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L67)
+[src/StatusCode.ts:67](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L67)
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:65](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L65)
+[src/StatusCode.ts:65](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L65)
 
 ___
 
@@ -355,7 +355,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:66](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L66)
+[src/StatusCode.ts:66](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L66)
 
 ___
 
@@ -365,7 +365,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:68](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L68)
+[src/StatusCode.ts:68](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L68)
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:69](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L69)
+[src/StatusCode.ts:69](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L69)
 
 ___
 
@@ -385,7 +385,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:22](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L22)
+[src/StatusCode.ts:22](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L22)
 
 ___
 
@@ -395,7 +395,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:24](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L24)
+[src/StatusCode.ts:24](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L24)
 
 ___
 
@@ -405,7 +405,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:30](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L30)
+[src/StatusCode.ts:30](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L30)
 
 ___
 
@@ -415,7 +415,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:23](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L23)
+[src/StatusCode.ts:23](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L23)
 
 ___
 
@@ -425,7 +425,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:29](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L29)
+[src/StatusCode.ts:29](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L29)
 
 ___
 
@@ -435,7 +435,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:25](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L25)
+[src/StatusCode.ts:25](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L25)
 
 ___
 
@@ -445,7 +445,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:26](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L26)
+[src/StatusCode.ts:26](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L26)
 
 ___
 
@@ -455,7 +455,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:28](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L28)
+[src/StatusCode.ts:28](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L28)
 
 ___
 
@@ -465,7 +465,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:27](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L27)
+[src/StatusCode.ts:27](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L27)
 
 ___
 
@@ -475,7 +475,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:34](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L34)
+[src/StatusCode.ts:34](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L34)
 
 ___
 
@@ -485,7 +485,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:33](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L33)
+[src/StatusCode.ts:33](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L33)
 
 ___
 
@@ -495,7 +495,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:32](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L32)
+[src/StatusCode.ts:32](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L32)
 
 ___
 
@@ -505,7 +505,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:36](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L36)
+[src/StatusCode.ts:36](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L36)
 
 ___
 
@@ -515,7 +515,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:35](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L35)
+[src/StatusCode.ts:35](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L35)
 
 ___
 
@@ -525,7 +525,7 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:38](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L38)
+[src/StatusCode.ts:38](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L38)
 
 ___
 
@@ -535,4 +535,4 @@ ___
 
 #### Defined in
 
-[src/StatusCode.ts:37](https://github.com/breautek/storm/blob/80c9dfb/src/StatusCode.ts#L37)
+[src/StatusCode.ts:37](https://github.com/breautek/storm/blob/3449719/src/StatusCode.ts#L37)
