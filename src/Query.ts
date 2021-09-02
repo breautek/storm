@@ -39,6 +39,17 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
     }
 
     /**
+     * Overridable to execute statements before the main query.
+     * Can be used to set session variables or create temporary tables, etc.
+     * 
+     * @param connection 
+     * @returns 
+     */
+    public onPreQuery(connection: IDatabaseConnection): Promise<void> {
+        return Promise.resolve();
+    }
+
+    /**
      * Override to augment/manipulate the returned result set.
      * 
      * @param connection The connection object used for this query execution. Useful if further queries are required.
