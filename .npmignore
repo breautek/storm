@@ -8,4 +8,4 @@ coverage
 .nojekyll
 scripts
 *.log
-
+BREAKING_CHANGES.md
