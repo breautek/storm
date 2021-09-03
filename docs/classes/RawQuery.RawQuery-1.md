@@ -59,7 +59,7 @@
 
 #### Defined in
 
-[src/RawQuery.ts:22](https://github.com/breautek/storm/blob/3449719/src/RawQuery.ts#L22)
+[src/RawQuery.ts:22](https://github.com/breautek/storm/blob/3845ece/src/RawQuery.ts#L22)
 
 ## Methods
 
@@ -77,7 +77,7 @@
 
 #### Defined in
 
-[src/RawQuery.ts:27](https://github.com/breautek/storm/blob/3449719/src/RawQuery.ts#L27)
+[src/RawQuery.ts:27](https://github.com/breautek/storm/blob/3845ece/src/RawQuery.ts#L27)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:63](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L63)
+[src/Query.ts:63](https://github.com/breautek/storm/blob/3845ece/src/Query.ts#L63)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:27](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L27)
+[src/Query.ts:27](https://github.com/breautek/storm/blob/3845ece/src/Query.ts#L27)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:31](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L31)
+[src/Query.ts:31](https://github.com/breautek/storm/blob/3845ece/src/Query.ts#L31)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:37](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L37)
+[src/Query.ts:37](https://github.com/breautek/storm/blob/3845ece/src/Query.ts#L37)
 
 ___
 
@@ -182,7 +182,7 @@ Override to augment/manipulate the returned result set.
 
 #### Defined in
 
-[src/Query.ts:58](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L58)
+[src/Query.ts:58](https://github.com/breautek/storm/blob/3845ece/src/Query.ts#L58)
 
 ___
 
@@ -209,4 +209,4 @@ Can be used to set session variables or create temporary tables, etc.
 
 #### Defined in
 
-[src/Query.ts:48](https://github.com/breautek/storm/blob/3449719/src/Query.ts#L48)
+[src/Query.ts:48](https://github.com/breautek/storm/blob/3845ece/src/Query.ts#L48)

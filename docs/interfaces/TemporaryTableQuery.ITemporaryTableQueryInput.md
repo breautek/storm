@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/TemporaryTableQuery.ts:22](https://github.com/breautek/storm/blob/3449719/src/TemporaryTableQuery.ts#L22)
+[src/TemporaryTableQuery.ts:22](https://github.com/breautek/storm/blob/3845ece/src/TemporaryTableQuery.ts#L22)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/TemporaryTableQuery.ts:21](https://github.com/breautek/storm/blob/3449719/src/TemporaryTableQuery.ts#L21)
+[src/TemporaryTableQuery.ts:21](https://github.com/breautek/storm/blob/3845ece/src/TemporaryTableQuery.ts#L21)
