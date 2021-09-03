@@ -133,9 +133,7 @@ export class Handler<
         return Promise.resolve(result);
     }
 
-    protected _onMiddlewareReject(request: Request, response: Response, error: StormError): void {
-        response.error(error);
-    }
+    protected _onMiddlewareReject(request: Request, response: Response, error: StormError): void {}
 
     private $handleResponse<TResponse>(response: Response<TResponse>, data: any): void {
         response.send(data);
