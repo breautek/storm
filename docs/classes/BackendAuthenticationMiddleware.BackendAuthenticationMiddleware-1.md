@@ -27,20 +27,19 @@ for their specific use cases.
 
 #### Defined in
 
-[src/BackendAuthenticationMiddleware.ts:36](https://github.com/breautek/storm/blob/3845ece/src/BackendAuthenticationMiddleware.ts#L36)
+[src/BackendAuthenticationMiddleware.ts:35](https://github.com/breautek/storm/blob/012dd73/src/BackendAuthenticationMiddleware.ts#L35)
 
 ## Methods
 
 ### execute
 
-▸ **execute**(`request`, `response`, `options?`): `Promise`<`any`\>
+▸ **execute**(`request`, `options?`): `Promise`<`any`\>
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `request` | [`Request`](Request.Request-1.md)<`any`, [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md)\> |  |
-| `response` | [`Response`](Response.Response-1.md)<`any`, `string` \| `Error` \| [`IErrorResponse`](../interfaces/StormError.IErrorResponse.md)\> |  |
 | `options?` | `any` | Arbituary object containing any relevant information used for authentication. |
 
 #### Returns
@@ -49,4 +48,4 @@ for their specific use cases.
 
 #### Defined in
 
-[src/BackendAuthenticationMiddleware.ts:47](https://github.com/breautek/storm/blob/3845ece/src/BackendAuthenticationMiddleware.ts#L47)
+[src/BackendAuthenticationMiddleware.ts:46](https://github.com/breautek/storm/blob/012dd73/src/BackendAuthenticationMiddleware.ts#L46)

@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[src/Middleware.ts:23](https://github.com/breautek/storm/blob/3845ece/src/Middleware.ts#L23)
+[src/Middleware.ts:23](https://github.com/breautek/storm/blob/012dd73/src/Middleware.ts#L23)
 
 ## Methods
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[src/Middleware.ts:25](https://github.com/breautek/storm/blob/3845ece/src/Middleware.ts#L25)
+[src/Middleware.ts:25](https://github.com/breautek/storm/blob/012dd73/src/Middleware.ts#L25)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 #### Defined in
 
-[src/Middleware.ts:27](https://github.com/breautek/storm/blob/3845ece/src/Middleware.ts#L27)
+[src/Middleware.ts:27](https://github.com/breautek/storm/blob/012dd73/src/Middleware.ts#L27)
