@@ -16,7 +16,6 @@
 
 import {StatusCode} from './StatusCode';
 import {Request} from './Request';
-import {Response} from './Response';
 import {ResponseData} from './ResponseData';
 import {Logger} from '@arashi/logger';
 import {getInstance} from './instance';
@@ -44,7 +43,7 @@ export class BackendAuthenticationMiddleware {
      * @param options Arbituary object containing any relevant information used for authentication.
      */
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    public execute(request: Request, response: Response, options?: any): Promise<any> {
+    public execute(request: Request, options?: any): Promise<any> {
         let config: IConfig = getInstance().getConfig();
 
         let backendAuthHeader: string = config.backend_authentication_header;
