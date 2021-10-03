@@ -19,10 +19,12 @@
 ### Methods
 
 - [\_addNode](MySQLDatabase.MySQLDatabase-1.md#_addnode)
+- [\_destroy](MySQLDatabase.MySQLDatabase-1.md#_destroy)
 - [\_getConnection](MySQLDatabase.MySQLDatabase-1.md#_getconnection)
 - [\_removeNode](MySQLDatabase.MySQLDatabase-1.md#_removenode)
 - [addMaster](MySQLDatabase.MySQLDatabase-1.md#addmaster)
 - [addSlave](MySQLDatabase.MySQLDatabase-1.md#addslave)
+- [destroy](MySQLDatabase.MySQLDatabase-1.md#destroy)
 - [escape](MySQLDatabase.MySQLDatabase-1.md#escape)
 - [getConnection](MySQLDatabase.MySQLDatabase-1.md#getconnection)
 - [removeMaster](MySQLDatabase.MySQLDatabase-1.md#removemaster)
@@ -41,7 +43,7 @@
 
 #### Defined in
 
-[src/MySQLDatabase.ts:27](https://github.com/breautek/storm/blob/012dd73/src/MySQLDatabase.ts#L27)
+[src/MySQLDatabase.ts:27](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L27)
 
 ## Methods
 
@@ -66,7 +68,25 @@
 
 #### Defined in
 
-[src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/012dd73/src/MySQLDatabase.ts#L49)
+[src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L49)
+
+___
+
+### \_destroy
+
+▸ `Protected` **_destroy**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Overrides
+
+[Database](Database.Database-1.md).[_destroy](Database.Database-1.md#_destroy)
+
+#### Defined in
+
+[src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L59)
 
 ___
 
@@ -91,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/012dd73/src/MySQLDatabase.ts#L59)
+[src/MySQLDatabase.ts:72](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L72)
 
 ___
 
@@ -115,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/012dd73/src/MySQLDatabase.ts#L54)
+[src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L54)
 
 ___
 
@@ -139,7 +159,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:32](https://github.com/breautek/storm/blob/012dd73/src/Database.ts#L32)
+[src/Database.ts:32](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L32)
 
 ___
 
@@ -164,7 +184,25 @@ ___
 
 #### Defined in
 
-[src/Database.ts:46](https://github.com/breautek/storm/blob/012dd73/src/Database.ts#L46)
+[src/Database.ts:46](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L46)
+
+___
+
+### destroy
+
+▸ **destroy**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Inherited from
+
+[Database](Database.Database-1.md).[destroy](Database.Database-1.md#destroy)
+
+#### Defined in
+
+[src/Database.ts:78](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L78)
 
 ___
 
@@ -188,7 +226,7 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/012dd73/src/MySQLDatabase.ts#L40)
+[src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L40)
 
 ___
 
@@ -213,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:65](https://github.com/breautek/storm/blob/012dd73/src/Database.ts#L65)
+[src/Database.ts:65](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L65)
 
 ___
 
@@ -231,7 +269,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:41](https://github.com/breautek/storm/blob/012dd73/src/Database.ts#L41)
+[src/Database.ts:41](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L41)
 
 ___
 
@@ -255,7 +293,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:55](https://github.com/breautek/storm/blob/012dd73/src/Database.ts#L55)
+[src/Database.ts:55](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L55)
 
 ___
 
@@ -275,4 +313,4 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/012dd73/src/MySQLDatabase.ts#L45)
+[src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L45)

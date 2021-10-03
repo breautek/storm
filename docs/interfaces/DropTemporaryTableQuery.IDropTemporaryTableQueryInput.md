@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[src/DropTemporaryTableQuery.ts:20](https://github.com/breautek/storm/blob/012dd73/src/DropTemporaryTableQuery.ts#L20)
+[src/DropTemporaryTableQuery.ts:20](https://github.com/breautek/storm/blob/477d756/src/DropTemporaryTableQuery.ts#L20)

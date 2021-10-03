@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[src/JWTVerifyOptionsParser.ts:20](https://github.com/breautek/storm/blob/012dd73/src/JWTVerifyOptionsParser.ts#L20)
+[src/JWTVerifyOptionsParser.ts:20](https://github.com/breautek/storm/blob/477d756/src/JWTVerifyOptionsParser.ts#L20)
 
 ## Methods
 
@@ -42,4 +42,4 @@
 
 #### Defined in
 
-[src/JWTVerifyOptionsParser.ts:25](https://github.com/breautek/storm/blob/012dd73/src/JWTVerifyOptionsParser.ts#L25)
+[src/JWTVerifyOptionsParser.ts:25](https://github.com/breautek/storm/blob/477d756/src/JWTVerifyOptionsParser.ts#L25)

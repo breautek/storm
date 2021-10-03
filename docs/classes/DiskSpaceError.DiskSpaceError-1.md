@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/DiskSpaceError.ts:22](https://github.com/breautek/storm/blob/012dd73/src/DiskSpaceError.ts#L22)
+[src/DiskSpaceError.ts:22](https://github.com/breautek/storm/blob/477d756/src/DiskSpaceError.ts#L22)
 
 ## Properties
 
@@ -160,7 +160,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/DiskSpaceError.ts:32](https://github.com/breautek/storm/blob/012dd73/src/DiskSpaceError.ts#L32)
+[src/DiskSpaceError.ts:32](https://github.com/breautek/storm/blob/477d756/src/DiskSpaceError.ts#L32)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/012dd73/src/StormError.ts#L70)
+[src/StormError.ts:70](https://github.com/breautek/storm/blob/477d756/src/StormError.ts#L70)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/012dd73/src/StormError.ts#L79)
+[src/StormError.ts:79](https://github.com/breautek/storm/blob/477d756/src/StormError.ts#L79)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[src/DiskSpaceError.ts:36](https://github.com/breautek/storm/blob/012dd73/src/DiskSpaceError.ts#L36)
+[src/DiskSpaceError.ts:36](https://github.com/breautek/storm/blob/477d756/src/DiskSpaceError.ts#L36)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[src/DiskSpaceError.ts:28](https://github.com/breautek/storm/blob/012dd73/src/DiskSpaceError.ts#L28)
+[src/DiskSpaceError.ts:28](https://github.com/breautek/storm/blob/477d756/src/DiskSpaceError.ts#L28)
 
 ___
 
@@ -253,7 +253,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/012dd73/src/StormError.ts#L62)
+[src/StormError.ts:62](https://github.com/breautek/storm/blob/477d756/src/StormError.ts#L62)
 
 ___
 
@@ -273,7 +273,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/012dd73/src/StormError.ts#L54)
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/477d756/src/StormError.ts#L54)
 
 ___
 

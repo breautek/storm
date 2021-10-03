@@ -58,7 +58,7 @@
 
 #### Defined in
 
-[src/Request.ts:42](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L42)
+[src/Request.ts:42](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L42)
 
 ## Methods
 
@@ -72,7 +72,7 @@
 
 #### Defined in
 
-[src/Request.ts:132](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L132)
+[src/Request.ts:132](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L132)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:46](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L46)
+[src/Request.ts:46](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L46)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:50](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L50)
+[src/Request.ts:50](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L50)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:100](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L100)
+[src/Request.ts:100](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L100)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:74](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L74)
+[src/Request.ts:74](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L74)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:70](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L70)
+[src/Request.ts:70](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L70)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:104](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L104)
+[src/Request.ts:104](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L104)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:96](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L96)
+[src/Request.ts:96](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L96)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:108](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L108)
+[src/Request.ts:108](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L108)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:92](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L92)
+[src/Request.ts:92](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L92)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:88](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L88)
+[src/Request.ts:88](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L88)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:84](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L84)
+[src/Request.ts:84](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L84)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:128](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L128)
+[src/Request.ts:128](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L128)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:112](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L112)
+[src/Request.ts:112](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L112)
 
 ___
 
@@ -280,7 +280,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:116](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L116)
+[src/Request.ts:116](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L116)
 
 ___
 
@@ -300,7 +300,7 @@ ___
 
 #### Defined in
 
-[src/Request.ts:120](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L120)
+[src/Request.ts:120](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L120)
 
 ___
 
@@ -320,4 +320,4 @@ ___
 
 #### Defined in
 
-[src/Request.ts:124](https://github.com/breautek/storm/blob/012dd73/src/Request.ts#L124)
+[src/Request.ts:124](https://github.com/breautek/storm/blob/477d756/src/Request.ts#L124)

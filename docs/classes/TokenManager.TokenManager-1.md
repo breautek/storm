@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/TokenManager.ts:29](https://github.com/breautek/storm/blob/012dd73/src/TokenManager.ts#L29)
+[src/TokenManager.ts:29](https://github.com/breautek/storm/blob/477d756/src/TokenManager.ts#L29)
 
 ## Methods
 
@@ -62,7 +62,7 @@
 
 #### Defined in
 
-[src/TokenManager.ts:78](https://github.com/breautek/storm/blob/012dd73/src/TokenManager.ts#L78)
+[src/TokenManager.ts:78](https://github.com/breautek/storm/blob/477d756/src/TokenManager.ts#L78)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/TokenManager.ts:33](https://github.com/breautek/storm/blob/012dd73/src/TokenManager.ts#L33)
+[src/TokenManager.ts:33](https://github.com/breautek/storm/blob/477d756/src/TokenManager.ts#L33)
 
 ___
 
@@ -104,4 +104,4 @@ ___
 
 #### Defined in
 
-[src/TokenManager.ts:56](https://github.com/breautek/storm/blob/012dd73/src/TokenManager.ts#L56)
+[src/TokenManager.ts:56](https://github.com/breautek/storm/blob/477d756/src/TokenManager.ts#L56)

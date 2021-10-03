@@ -38,6 +38,8 @@ Main entry point for the Application. Should be extended and have the abstract m
 
 - [\_attachHandlers](Application.Application-1.md#_attachhandlers)
 - [\_buildArgOptions](Application.Application-1.md#_buildargoptions)
+- [\_closeDatabase](Application.Application-1.md#_closedatabase)
+- [\_closeSocket](Application.Application-1.md#_closesocket)
 - [\_initDB](Application.Application-1.md#_initdb)
 - [\_initLogger](Application.Application-1.md#_initlogger)
 - [\_initialize](Application.Application-1.md#_initialize)
@@ -106,7 +108,7 @@ EventEmitter.constructor
 
 #### Defined in
 
-[src/Application.ts:64](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L64)
+[src/Application.ts:64](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L64)
 
 ## Properties
 
@@ -190,7 +192,7 @@ Promise<void>
 
 #### Defined in
 
-[src/Application.ts:258](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L258)
+[src/Application.ts:268](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L268)
 
 ___
 
@@ -210,7 +212,35 @@ ___
 
 #### Defined in
 
-[src/Application.ts:202](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L202)
+[src/Application.ts:202](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L202)
+
+___
+
+### \_closeDatabase
+
+▸ `Protected` **_closeDatabase**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/Application.ts:245](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L245)
+
+___
+
+### \_closeSocket
+
+▸ `Protected` **_closeSocket**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[src/Application.ts:251](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L251)
 
 ___
 
@@ -232,7 +262,7 @@ Subclasses are expected to override this to configure their database setup, if t
 
 #### Defined in
 
-[src/Application.ts:367](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L367)
+[src/Application.ts:377](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L377)
 
 ___
 
@@ -252,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:165](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L165)
+[src/Application.ts:165](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L165)
 
 ___
 
@@ -272,7 +302,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:161](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L161)
+[src/Application.ts:161](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L161)
 
 ___
 
@@ -286,7 +316,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:371](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L371)
+[src/Application.ts:381](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L381)
 
 ___
 
@@ -308,7 +338,7 @@ Invoked once the config has been loaded and ready to be used.
 
 #### Defined in
 
-[src/Application.ts:311](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L311)
+[src/Application.ts:321](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L321)
 
 ___
 
@@ -324,7 +354,7 @@ Invoked when the application is considered ready for operation.
 
 #### Defined in
 
-[src/Application.ts:376](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L376)
+[src/Application.ts:386](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L386)
 
 ___
 
@@ -374,7 +404,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:221](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L221)
+[src/Application.ts:221](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L221)
 
 ___
 
@@ -388,7 +418,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:241](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L241)
+[src/Application.ts:241](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L241)
 
 ___
 
@@ -505,7 +535,7 @@ command line arguments
 
 #### Defined in
 
-[src/Application.ts:338](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L338)
+[src/Application.ts:348](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L348)
 
 ___
 
@@ -521,7 +551,7 @@ the config object.
 
 #### Defined in
 
-[src/Application.ts:295](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L295)
+[src/Application.ts:305](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L305)
 
 ___
 
@@ -537,7 +567,7 @@ the database pool. This will need to be casted based on your preferred database 
 
 #### Defined in
 
-[src/Application.ts:331](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L331)
+[src/Application.ts:341](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L341)
 
 ___
 
@@ -551,7 +581,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:169](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L169)
+[src/Application.ts:169](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L169)
 
 ___
 
@@ -590,7 +620,7 @@ the application name
 
 #### Defined in
 
-[src/Application.ts:284](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L284)
+[src/Application.ts:294](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L294)
 
 ___
 
@@ -604,7 +634,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:173](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L173)
+[src/Application.ts:173](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L173)
 
 ___
 
@@ -618,7 +648,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:204](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L204)
+[src/Application.ts:204](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L204)
 
 ___
 
@@ -634,7 +664,7 @@ The maximum size limit for incoming requests that this service needs to handle.
 
 #### Defined in
 
-[src/Application.ts:211](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L211)
+[src/Application.ts:211](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L211)
 
 ___
 
@@ -650,7 +680,7 @@ the token manager
 
 #### Defined in
 
-[src/Application.ts:324](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L324)
+[src/Application.ts:334](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L334)
 
 ___
 
@@ -734,7 +764,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:264](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L264)
+[src/Application.ts:274](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L274)
 
 ___
 
@@ -1191,7 +1221,7 @@ Sets the TokenManager to be used for authentication.
 
 #### Defined in
 
-[src/Application.ts:317](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L317)
+[src/Application.ts:327](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L327)
 
 ___
 
@@ -1207,7 +1237,7 @@ true if the Application should bind to an IP address
 
 #### Defined in
 
-[src/Application.ts:302](https://github.com/breautek/storm/blob/012dd73/src/Application.ts#L302)
+[src/Application.ts:312](https://github.com/breautek/storm/blob/477d756/src/Application.ts#L312)
 
 ___
 
@@ -1396,7 +1426,7 @@ event or that is rejected if the `EventEmitter` emits `'error'` while waiting.
 The `Promise` will resolve with an array of all the arguments emitted to the
 given event.
 
-This method is intentionally generic and works with the web platform[EventTarget](https://dom.spec.whatwg.org/#interface-eventtarget) interface, which has no special`'error'` event
+This method is intentionally generic and works with the web platform [EventTarget](https://dom.spec.whatwg.org/#interface-eventtarget) interface, which has no special`'error'` event
 semantics and does not listen to the `'error'` event.
 
 ```js
