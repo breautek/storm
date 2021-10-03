@@ -56,6 +56,19 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         this.$cluster.remove(nodeID);
     }
 
+    protected _destroy(): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
+            this.$cluster.end((err: MySQL.MysqlError) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+
+                resolve();
+            });
+        });
+    }
+
     protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MySQLConnection> {
         getInstance().getLogger().trace(TAG, `Querying connection pool for "${query}".`);
         return new Promise<MySQLConnection>((resolve, reject) => {

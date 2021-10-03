@@ -18,6 +18,10 @@ export class MockDB extends Database<any, any> {
         delete this.nodes[name];
     }
 
+    protected async _destroy(): Promise<void> {
+        this.nodes = null;
+    }
+
     protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MockConnection> {
         return new Promise<MockConnection>((resolve, reject) => {
             resolve(new MockConnection(!requireWriteAccess, new Error().stack));

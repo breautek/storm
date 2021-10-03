@@ -238,7 +238,17 @@ export abstract class Application
         });
     }
 
-    public close(): Promise<void> {
+    public async close(): Promise<void> {
+        await Promise.all([ this._closeSocket(), this._closeDatabase() ]);
+    }
+
+    protected async _closeDatabase(): Promise<void> {
+        if (this.$db) {
+            await this.$db.destroy();
+        }
+    }
+
+    protected async _closeSocket(): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             if (this.$socket && this.$socket.listening) {
                 this.$socket.close(() => {

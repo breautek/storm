@@ -75,6 +75,11 @@ export abstract class Database<TDatabaseConfig, TConnectionAPI> {
         return this._getConnection(query, requireWriteAccess);
     }
 
+    public destroy(): Promise<void> {
+        return this._destroy();
+    }
+
+    protected abstract _destroy(): Promise<void>;
     protected abstract _addNode(name: string, config: TDatabaseConfig): void;
     protected abstract _removeNode(name: string): void;
     protected abstract _getConnection(query: string, requireWriteAccess: boolean): Promise<DatabaseConnection<TConnectionAPI>>;
