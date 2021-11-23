@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/477d756/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/72412c9/src/instance.ts#L28)
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[src/instance.ts:21](https://github.com/breautek/storm/blob/477d756/src/instance.ts#L21)
+[src/instance.ts:21](https://github.com/breautek/storm/blob/72412c9/src/instance.ts#L21)

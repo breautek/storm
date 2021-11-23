@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[src/MySQLDatabase.ts:27](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L27)
+[src/MySQLDatabase.ts:27](https://github.com/breautek/storm/blob/72412c9/src/MySQLDatabase.ts#L27)
 
 ## Methods
 
@@ -68,7 +68,7 @@
 
 #### Defined in
 
-[src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L49)
+[src/MySQLDatabase.ts:49](https://github.com/breautek/storm/blob/72412c9/src/MySQLDatabase.ts#L49)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L59)
+[src/MySQLDatabase.ts:59](https://github.com/breautek/storm/blob/72412c9/src/MySQLDatabase.ts#L59)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:72](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L72)
+[src/MySQLDatabase.ts:72](https://github.com/breautek/storm/blob/72412c9/src/MySQLDatabase.ts#L72)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L54)
+[src/MySQLDatabase.ts:54](https://github.com/breautek/storm/blob/72412c9/src/MySQLDatabase.ts#L54)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:32](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L32)
+[src/Database.ts:32](https://github.com/breautek/storm/blob/72412c9/src/Database.ts#L32)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:46](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L46)
+[src/Database.ts:46](https://github.com/breautek/storm/blob/72412c9/src/Database.ts#L46)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:78](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L78)
+[src/Database.ts:78](https://github.com/breautek/storm/blob/72412c9/src/Database.ts#L78)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L40)
+[src/MySQLDatabase.ts:40](https://github.com/breautek/storm/blob/72412c9/src/MySQLDatabase.ts#L40)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:65](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L65)
+[src/Database.ts:65](https://github.com/breautek/storm/blob/72412c9/src/Database.ts#L65)
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:41](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L41)
+[src/Database.ts:41](https://github.com/breautek/storm/blob/72412c9/src/Database.ts#L41)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:55](https://github.com/breautek/storm/blob/477d756/src/Database.ts#L55)
+[src/Database.ts:55](https://github.com/breautek/storm/blob/72412c9/src/Database.ts#L55)
 
 ___
 
@@ -313,4 +313,4 @@ ___
 
 #### Defined in
 
-[src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/477d756/src/MySQLDatabase.ts#L45)
+[src/MySQLDatabase.ts:45](https://github.com/breautek/storm/blob/72412c9/src/MySQLDatabase.ts#L45)
