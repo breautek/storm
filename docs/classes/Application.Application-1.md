@@ -48,6 +48,7 @@ Main entry point for the Application. Should be extended and have the abstract m
 - [\_onReady](Application.Application-1.md#_onready)
 - [addListener](Application.Application-1.md#addlistener)
 - [attachHandler](Application.Application-1.md#attachhandler)
+- [attachHandlerInstance](Application.Application-1.md#attachhandlerinstance)
 - [close](Application.Application-1.md#close)
 - [emit](Application.Application-1.md#emit)
 - [eventNames](Application.Application-1.md#eventnames)
@@ -108,7 +109,7 @@ EventEmitter.constructor
 
 #### Defined in
 
-[src/Application.ts:64](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L64)
+[src/Application.ts:64](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L64)
 
 ## Properties
 
@@ -192,7 +193,7 @@ Promise<void>
 
 #### Defined in
 
-[src/Application.ts:268](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L268)
+[src/Application.ts:272](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L272)
 
 ___
 
@@ -212,7 +213,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:202](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L202)
+[src/Application.ts:202](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L202)
 
 ___
 
@@ -226,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:245](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L245)
+[src/Application.ts:249](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L249)
 
 ___
 
@@ -240,7 +241,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:251](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L251)
+[src/Application.ts:255](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L255)
 
 ___
 
@@ -262,7 +263,7 @@ Subclasses are expected to override this to configure their database setup, if t
 
 #### Defined in
 
-[src/Application.ts:377](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L377)
+[src/Application.ts:381](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L381)
 
 ___
 
@@ -282,7 +283,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:165](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L165)
+[src/Application.ts:165](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L165)
 
 ___
 
@@ -302,7 +303,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:161](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L161)
+[src/Application.ts:161](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L161)
 
 ___
 
@@ -316,7 +317,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:381](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L381)
+[src/Application.ts:385](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L385)
 
 ___
 
@@ -338,7 +339,7 @@ Invoked once the config has been loaded and ready to be used.
 
 #### Defined in
 
-[src/Application.ts:321](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L321)
+[src/Application.ts:325](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L325)
 
 ___
 
@@ -354,7 +355,7 @@ Invoked when the application is considered ready for operation.
 
 #### Defined in
 
-[src/Application.ts:386](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L386)
+[src/Application.ts:390](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L390)
 
 ___
 
@@ -404,7 +405,28 @@ ___
 
 #### Defined in
 
-[src/Application.ts:221](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L221)
+[src/Application.ts:221](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L221)
+
+___
+
+### attachHandlerInstance
+
+▸ **attachHandlerInstance**(`path`, `handler`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `path` | `string` |
+| `handler` | [`Handler`](Handler.Handler-1.md)<[`Application`](Application.Application-1.md)<[`IConfig`](../interfaces/IConfig.IConfig-1.md), [`IAuthTokenData`](../interfaces/IAuthTokenData.IAuthTokenData-1.md), `any`, `any`\>, `any`, `any`, `any`, `any`, `any`, `any`, `any`, `any`\> |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/Application.ts:226](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L226)
 
 ___
 
@@ -418,7 +440,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:241](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L241)
+[src/Application.ts:245](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L245)
 
 ___
 
@@ -535,7 +557,7 @@ command line arguments
 
 #### Defined in
 
-[src/Application.ts:348](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L348)
+[src/Application.ts:352](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L352)
 
 ___
 
@@ -551,7 +573,7 @@ the config object.
 
 #### Defined in
 
-[src/Application.ts:305](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L305)
+[src/Application.ts:309](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L309)
 
 ___
 
@@ -567,7 +589,7 @@ the database pool. This will need to be casted based on your preferred database 
 
 #### Defined in
 
-[src/Application.ts:341](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L341)
+[src/Application.ts:345](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L345)
 
 ___
 
@@ -581,7 +603,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:169](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L169)
+[src/Application.ts:169](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L169)
 
 ___
 
@@ -620,7 +642,7 @@ the application name
 
 #### Defined in
 
-[src/Application.ts:294](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L294)
+[src/Application.ts:298](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L298)
 
 ___
 
@@ -634,7 +656,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:173](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L173)
+[src/Application.ts:173](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L173)
 
 ___
 
@@ -648,7 +670,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:204](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L204)
+[src/Application.ts:204](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L204)
 
 ___
 
@@ -664,7 +686,7 @@ The maximum size limit for incoming requests that this service needs to handle.
 
 #### Defined in
 
-[src/Application.ts:211](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L211)
+[src/Application.ts:211](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L211)
 
 ___
 
@@ -680,7 +702,7 @@ the token manager
 
 #### Defined in
 
-[src/Application.ts:334](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L334)
+[src/Application.ts:338](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L338)
 
 ___
 
@@ -764,7 +786,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:274](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L274)
+[src/Application.ts:278](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L278)
 
 ___
 
@@ -1221,7 +1243,7 @@ Sets the TokenManager to be used for authentication.
 
 #### Defined in
 
-[src/Application.ts:327](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L327)
+[src/Application.ts:331](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L331)
 
 ___
 
@@ -1237,7 +1259,7 @@ true if the Application should bind to an IP address
 
 #### Defined in
 
-[src/Application.ts:312](https://github.com/breautek/storm/blob/72412c9/src/Application.ts#L312)
+[src/Application.ts:316](https://github.com/breautek/storm/blob/621aeec/src/Application.ts#L316)
 
 ___
 

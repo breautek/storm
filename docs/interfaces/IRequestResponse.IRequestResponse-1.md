@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/IRequestResponse.ts:21](https://github.com/breautek/storm/blob/72412c9/src/IRequestResponse.ts#L21)
+[src/IRequestResponse.ts:21](https://github.com/breautek/storm/blob/621aeec/src/IRequestResponse.ts#L21)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-[src/IRequestResponse.ts:22](https://github.com/breautek/storm/blob/72412c9/src/IRequestResponse.ts#L22)
+[src/IRequestResponse.ts:22](https://github.com/breautek/storm/blob/621aeec/src/IRequestResponse.ts#L22)

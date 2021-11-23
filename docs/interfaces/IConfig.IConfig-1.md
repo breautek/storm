@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/IConfig.ts:26](https://github.com/breautek/storm/blob/72412c9/src/IConfig.ts#L26)
+[src/IConfig.ts:26](https://github.com/breautek/storm/blob/621aeec/src/IConfig.ts#L26)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[src/IConfig.ts:27](https://github.com/breautek/storm/blob/72412c9/src/IConfig.ts#L27)
+[src/IConfig.ts:27](https://github.com/breautek/storm/blob/621aeec/src/IConfig.ts#L27)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[src/IConfig.ts:28](https://github.com/breautek/storm/blob/72412c9/src/IConfig.ts#L28)
+[src/IConfig.ts:28](https://github.com/breautek/storm/blob/621aeec/src/IConfig.ts#L28)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/IConfig.ts:22](https://github.com/breautek/storm/blob/72412c9/src/IConfig.ts#L22)
+[src/IConfig.ts:22](https://github.com/breautek/storm/blob/621aeec/src/IConfig.ts#L22)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/IConfig.ts:38](https://github.com/breautek/storm/blob/72412c9/src/IConfig.ts#L38)
+[src/IConfig.ts:38](https://github.com/breautek/storm/blob/621aeec/src/IConfig.ts#L38)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/IConfig.ts:31](https://github.com/breautek/storm/blob/72412c9/src/IConfig.ts#L31)
+[src/IConfig.ts:31](https://github.com/breautek/storm/blob/621aeec/src/IConfig.ts#L31)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/IConfig.ts:23](https://github.com/breautek/storm/blob/72412c9/src/IConfig.ts#L23)
+[src/IConfig.ts:23](https://github.com/breautek/storm/blob/621aeec/src/IConfig.ts#L23)
 
 ___
 
@@ -111,4 +111,4 @@ ___
 
 #### Defined in
 
-[src/IConfig.ts:45](https://github.com/breautek/storm/blob/72412c9/src/IConfig.ts#L45)
+[src/IConfig.ts:45](https://github.com/breautek/storm/blob/621aeec/src/IConfig.ts#L45)
