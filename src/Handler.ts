@@ -143,6 +143,10 @@ export class Handler<
         response.error(error);
     }
 
+    public attach(app: Application): void {
+        
+    }
+
     public async get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
         this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
 

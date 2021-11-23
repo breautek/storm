@@ -220,6 +220,10 @@ export abstract class Application
     // eslint-disable-next-line @typescript-eslint/naming-convention
     public attachHandler(path: string, HandlerClass: IHandler): void {
         let handler: Handler = new HandlerClass(this);
+        this.attachHandlerInstance(path, handler);
+    }
+
+    public attachHandlerInstance(path: string, handler: Handler): void {
         this.$server.get(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
             handler.get(r, new Response(response, r.getURL()));
