@@ -14,4 +14,4 @@
    limitations under the License.
 */
 
-declare module 'merge-change';
+declare module '@breautek/merge-change';
