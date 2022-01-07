@@ -68,7 +68,7 @@
 
 #### Defined in
 
-[src/Handler.ts:71](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L71)
+[src/Handler.ts:71](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L71)
 
 ## Methods
 
@@ -88,7 +88,7 @@
 
 #### Defined in
 
-[src/Handler.ts:214](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L214)
+[src/Handler.ts:214](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L214)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:202](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L202)
+[src/Handler.ts:202](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L202)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:80](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L80)
+[src/Handler.ts:80](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L80)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:136](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L136)
+[src/Handler.ts:136](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L136)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:206](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L206)
+[src/Handler.ts:206](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L206)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:210](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L210)
+[src/Handler.ts:210](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L210)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:146](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L146)
+[src/Handler.ts:146](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L146)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:189](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L189)
+[src/Handler.ts:189](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L189)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:150](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L150)
+[src/Handler.ts:150](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L150)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:84](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L84)
+[src/Handler.ts:84](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L84)
 
 ___
 
@@ -280,7 +280,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:76](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L76)
+[src/Handler.ts:76](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L76)
 
 ___
 
@@ -301,7 +301,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:176](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L176)
+[src/Handler.ts:176](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L176)
 
 ___
 
@@ -322,4 +322,4 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:163](https://github.com/breautek/storm/blob/621aeec/src/Handler.ts#L163)
+[src/Handler.ts:163](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L163)

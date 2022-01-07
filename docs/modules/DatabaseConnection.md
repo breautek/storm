@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[src/DatabaseConnection.ts:27](https://github.com/breautek/storm/blob/621aeec/src/DatabaseConnection.ts#L27)
+[src/DatabaseConnection.ts:27](https://github.com/breautek/storm/blob/8c3a317/src/DatabaseConnection.ts#L27)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 #### Defined in
 
-[src/DatabaseConnection.ts:26](https://github.com/breautek/storm/blob/621aeec/src/DatabaseConnection.ts#L26)
+[src/DatabaseConnection.ts:26](https://github.com/breautek/storm/blob/8c3a317/src/DatabaseConnection.ts#L26)
