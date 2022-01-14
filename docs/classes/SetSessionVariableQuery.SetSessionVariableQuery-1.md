@@ -1,42 +1,42 @@
-[@breautek/storm](../README.md) / [private/StartTransactionQuery](../modules/private_StartTransactionQuery.md) / StartTransactionQuery
+[@breautek/storm](../README.md) / [SetSessionVariableQuery](../modules/SetSessionVariableQuery.md) / SetSessionVariableQuery
 
-# Class: StartTransactionQuery
+# Class: SetSessionVariableQuery
 
-[private/StartTransactionQuery](../modules/private_StartTransactionQuery.md).StartTransactionQuery
+[SetSessionVariableQuery](../modules/SetSessionVariableQuery.md).SetSessionVariableQuery
 
 ## Hierarchy
 
-- [`Query`](Query.Query-1.md)<`void`, `void`\>
+- [`Query`](Query.Query-1.md)<[`ISetSessionVariableQueryInput`](../interfaces/SetSessionVariableQuery.ISetSessionVariableQueryInput.md), `void`\>
 
-  ↳ **`StartTransactionQuery`**
+  ↳ **`SetSessionVariableQuery`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](private_StartTransactionQuery.StartTransactionQuery.md#constructor)
+- [constructor](SetSessionVariableQuery.SetSessionVariableQuery-1.md#constructor)
 
 ### Methods
 
-- [\_getQuery](private_StartTransactionQuery.StartTransactionQuery.md#_getquery)
-- [execute](private_StartTransactionQuery.StartTransactionQuery.md#execute)
-- [getParameters](private_StartTransactionQuery.StartTransactionQuery.md#getparameters)
-- [getParametersForQuery](private_StartTransactionQuery.StartTransactionQuery.md#getparametersforquery)
-- [getQuery](private_StartTransactionQuery.StartTransactionQuery.md#getquery)
-- [onPostProcess](private_StartTransactionQuery.StartTransactionQuery.md#onpostprocess)
-- [onPreQuery](private_StartTransactionQuery.StartTransactionQuery.md#onprequery)
+- [\_getQuery](SetSessionVariableQuery.SetSessionVariableQuery-1.md#_getquery)
+- [execute](SetSessionVariableQuery.SetSessionVariableQuery-1.md#execute)
+- [getParameters](SetSessionVariableQuery.SetSessionVariableQuery-1.md#getparameters)
+- [getParametersForQuery](SetSessionVariableQuery.SetSessionVariableQuery-1.md#getparametersforquery)
+- [getQuery](SetSessionVariableQuery.SetSessionVariableQuery-1.md#getquery)
+- [onPostProcess](SetSessionVariableQuery.SetSessionVariableQuery-1.md#onpostprocess)
+- [onPreQuery](SetSessionVariableQuery.SetSessionVariableQuery-1.md#onprequery)
 
 ## Constructors
 
 ### constructor
 
-• **new StartTransactionQuery**(`parameters?`)
+• **new SetSessionVariableQuery**(`parameters?`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `parameters?` | `void` |
+| `parameters?` | [`ISetSessionVariableQueryInput`](../interfaces/SetSessionVariableQuery.ISetSessionVariableQueryInput.md) |
 
 #### Inherited from
 
@@ -62,7 +62,7 @@
 
 #### Defined in
 
-[src/private/StartTransactionQuery.ts:20](https://github.com/breautek/storm/blob/6ea3887/src/private/StartTransactionQuery.ts#L20)
+[src/SetSessionVariableQuery.ts:13](https://github.com/breautek/storm/blob/6ea3887/src/SetSessionVariableQuery.ts#L13)
 
 ___
 
@@ -92,11 +92,11 @@ ___
 
 ### getParameters
 
-▸ **getParameters**(): `void`
+▸ **getParameters**(): [`ISetSessionVariableQueryInput`](../interfaces/SetSessionVariableQuery.ISetSessionVariableQueryInput.md)
 
 #### Returns
 
-`void`
+[`ISetSessionVariableQueryInput`](../interfaces/SetSessionVariableQuery.ISetSessionVariableQueryInput.md)
 
 #### Inherited from
 
@@ -116,13 +116,13 @@ ___
 
 `IDictionary`<`any`\>
 
-#### Inherited from
+#### Overrides
 
 [Query](Query.Query-1.md).[getParametersForQuery](Query.Query-1.md#getparametersforquery)
 
 #### Defined in
 
-[src/Query.ts:31](https://github.com/breautek/storm/blob/6ea3887/src/Query.ts#L31)
+[src/SetSessionVariableQuery.ts:24](https://github.com/breautek/storm/blob/6ea3887/src/SetSessionVariableQuery.ts#L24)
 
 ___
 

@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/ExitCode.ts:19](https://github.com/breautek/storm/blob/8c3a317/src/ExitCode.ts#L19)
+[src/ExitCode.ts:19](https://github.com/breautek/storm/blob/6ea3887/src/ExitCode.ts#L19)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/ExitCode.ts:18](https://github.com/breautek/storm/blob/8c3a317/src/ExitCode.ts#L18)
+[src/ExitCode.ts:18](https://github.com/breautek/storm/blob/6ea3887/src/ExitCode.ts#L18)

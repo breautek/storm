@@ -39,6 +39,7 @@
 - [IParameterMap](api.md#iparametermap)
 - [IRequestResponse](api.md#irequestresponse)
 - [IServiceHeaders](api.md#iserviceheaders)
+- [ISetSessionVariableQueryInput](api.md#isetsessionvariablequeryinput)
 - [ITemporaryTableQueryInput](api.md#itemporarytablequeryinput)
 - [IUpdateQueryResult](api.md#iupdatequeryresult)
 - [InternalError](api.md#internalerror)
@@ -58,6 +59,7 @@
 - [ResponseData](api.md#responsedata)
 - [ServiceProvider](api.md#serviceprovider)
 - [ServiceResponse](api.md#serviceresponse)
+- [SetSessionVariableQuery](api.md#setsessionvariablequery)
 - [StatusCode](api.md#statuscode)
 - [StormError](api.md#stormerror)
 - [TemporaryTableQuery](api.md#temporarytablequery)
@@ -274,6 +276,12 @@ Re-exports: [IServiceHeaders](../interfaces/IServiceHeaders.IServiceHeaders-1.md
 
 ___
 
+### ISetSessionVariableQueryInput
+
+Re-exports: [ISetSessionVariableQueryInput](../interfaces/SetSessionVariableQuery.ISetSessionVariableQueryInput.md)
+
+___
+
 ### ITemporaryTableQueryInput
 
 Re-exports: [ITemporaryTableQueryInput](../interfaces/TemporaryTableQuery.ITemporaryTableQueryInput.md)
@@ -385,6 +393,12 @@ ___
 ### ServiceResponse
 
 Re-exports: [ServiceResponse](../classes/ServiceResponse.ServiceResponse-1.md)
+
+___
+
+### SetSessionVariableQuery
+
+Re-exports: [SetSessionVariableQuery](../classes/SetSessionVariableQuery.SetSessionVariableQuery-1.md)
 
 ___
 

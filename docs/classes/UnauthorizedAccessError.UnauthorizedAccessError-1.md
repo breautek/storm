@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:22](https://github.com/breautek/storm/blob/8c3a317/src/UnauthorizedAccessError.ts#L22)
+[src/UnauthorizedAccessError.ts:22](https://github.com/breautek/storm/blob/6ea3887/src/UnauthorizedAccessError.ts#L22)
 
 ## Properties
 
@@ -158,7 +158,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:30](https://github.com/breautek/storm/blob/8c3a317/src/UnauthorizedAccessError.ts#L30)
+[src/UnauthorizedAccessError.ts:30](https://github.com/breautek/storm/blob/6ea3887/src/UnauthorizedAccessError.ts#L30)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/8c3a317/src/StormError.ts#L70)
+[src/StormError.ts:70](https://github.com/breautek/storm/blob/6ea3887/src/StormError.ts#L70)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/8c3a317/src/StormError.ts#L79)
+[src/StormError.ts:79](https://github.com/breautek/storm/blob/6ea3887/src/StormError.ts#L79)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:34](https://github.com/breautek/storm/blob/8c3a317/src/UnauthorizedAccessError.ts#L34)
+[src/UnauthorizedAccessError.ts:34](https://github.com/breautek/storm/blob/6ea3887/src/UnauthorizedAccessError.ts#L34)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:26](https://github.com/breautek/storm/blob/8c3a317/src/UnauthorizedAccessError.ts#L26)
+[src/UnauthorizedAccessError.ts:26](https://github.com/breautek/storm/blob/6ea3887/src/UnauthorizedAccessError.ts#L26)
 
 ___
 
@@ -251,7 +251,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/8c3a317/src/StormError.ts#L62)
+[src/StormError.ts:62](https://github.com/breautek/storm/blob/6ea3887/src/StormError.ts#L62)
 
 ___
 
@@ -271,7 +271,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/8c3a317/src/StormError.ts#L54)
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/6ea3887/src/StormError.ts#L54)
 
 ___
 

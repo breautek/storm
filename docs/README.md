@@ -55,6 +55,7 @@
 - [ResponseData](modules/ResponseData.md)
 - [ServiceProvider](modules/ServiceProvider.md)
 - [ServiceResponse](modules/ServiceResponse.md)
+- [SetSessionVariableQuery](modules/SetSessionVariableQuery.md)
 - [StatusCode](modules/StatusCode.md)
 - [StormError](modules/StormError.md)
 - [TemporaryTableQuery](modules/TemporaryTableQuery.md)

@@ -27,7 +27,7 @@ This is to avoid accidental leakage of privilege data (e.g. snippets of database
 
 #### Defined in
 
-[src/Handler.ts:54](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L54)
+[src/Handler.ts:54](https://github.com/breautek/storm/blob/6ea3887/src/Handler.ts#L54)
 
 ___
 
@@ -47,4 +47,4 @@ certain things depending on the type of object it receives.
 
 #### Defined in
 
-[src/Handler.ts:45](https://github.com/breautek/storm/blob/8c3a317/src/Handler.ts#L45)
+[src/Handler.ts:45](https://github.com/breautek/storm/blob/6ea3887/src/Handler.ts#L45)

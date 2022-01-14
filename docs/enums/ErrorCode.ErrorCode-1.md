@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/ErrorCode.ts:23](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L23)
+[src/ErrorCode.ts:23](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L23)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/ErrorCode.ts:20](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L20)
+[src/ErrorCode.ts:20](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L20)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/ErrorCode.ts:25](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L25)
+[src/ErrorCode.ts:25](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L25)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/ErrorCode.ts:18](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L18)
+[src/ErrorCode.ts:18](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L18)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/ErrorCode.ts:26](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L26)
+[src/ErrorCode.ts:26](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L26)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/ErrorCode.ts:21](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L21)
+[src/ErrorCode.ts:21](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L21)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/ErrorCode.ts:22](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L22)
+[src/ErrorCode.ts:22](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L22)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/ErrorCode.ts:19](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L19)
+[src/ErrorCode.ts:19](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L19)
 
 ___
 
@@ -106,4 +106,4 @@ ___
 
 #### Defined in
 
-[src/ErrorCode.ts:24](https://github.com/breautek/storm/blob/8c3a317/src/ErrorCode.ts#L24)
+[src/ErrorCode.ts:24](https://github.com/breautek/storm/blob/6ea3887/src/ErrorCode.ts#L24)
