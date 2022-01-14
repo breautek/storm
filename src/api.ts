@@ -34,6 +34,7 @@ export {RawQuery} from './RawQuery';
 export {IInsertQueryResult} from './IInsertQueryResult';
 export {IDeleteQueryResult} from './IDeleteQueryResult';
 export {IUpdateQueryResult} from './IUpdateQueryResult';
+export {SetSessionVariableQuery, ISetSessionVariableQueryInput} from './SetSessionVariableQuery';
 
 // Errors
 export {ErrorCode} from './ErrorCode';
