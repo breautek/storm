@@ -4,6 +4,7 @@ import {
 } from '../support/TestApplication';
 import {TemporaryTableQuery} from '../../src/TemporaryTableQuery';
 import {DropTemporaryTableQuery} from '../../src/DropTemporaryTableQuery';
+import { MySQLConnection } from '../../src/MySQLConnection';
 
 const TEMP_TABLE_QUERY_EXPECTATION: string =
 `
@@ -47,18 +48,18 @@ describe('Temporary Tables', () => {
     beforeAll(setup);
     afterAll(deconstruct);
 
-    // let mockAPI: any = null;
-    // let conn: MySQLConnection = null;
+    let mockAPI: any = null;
+    let conn: MySQLConnection = null;
 
-    // beforeEach(() => {
-    //     mockAPI = {
-    //         config: jasmine.createSpy('config'),
-    //         query: jasmine.createSpy('query').and.returnValue({sql: 'test query'}),
-    //         stream: jasmine.createSpy('stream'),
-    //         release: jasmine.createSpy('release')
-    //     };
-    //     // conn = new MySQLConnection(mockAPI, 'test stack');
-    // });
+    beforeEach(() => {
+        mockAPI = {
+            config: jasmine.createSpy('config'),
+            query: jasmine.createSpy('query').and.returnValue({sql: 'test query'}),
+            stream: jasmine.createSpy('stream'),
+            release: jasmine.createSpy('release')
+        };
+        conn = new MySQLConnection(mockAPI, 'test stack');
+    });
 
     it('can create temp table', () => {
         let mockSelect: TestSelectQuery = new TestSelectQuery({
@@ -72,7 +73,7 @@ describe('Temporary Tables', () => {
 
         jest.spyOn(mockSelect, 'getParametersForQuery');
 
-        expect(tempTable.getQuery()).toBe(TEMP_TABLE_QUERY_EXPECTATION);
+        expect(tempTable.getQuery(conn)).toBe(TEMP_TABLE_QUERY_EXPECTATION);
         expect(tempTable.getParametersForQuery()).toEqual({
             tableName: 'my_temp_table',
             name: 'testing'
@@ -85,7 +86,7 @@ describe('Temporary Tables', () => {
             tableName: 'my_temp_table'
         });
 
-        expect(query.getQuery()).toBe(TEMP_TABLE_DROP_QUERY_EXPECTATION);
+        expect(query.getQuery(conn)).toBe(TEMP_TABLE_DROP_QUERY_EXPECTATION);
         expect(query.getParameters()).toEqual({
             tableName: 'my_temp_table'
         });

@@ -133,7 +133,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         this.$armLingerWarning();
         
         let queryStr: string = null;
-        queryStr = query.getQuery();
+        queryStr = query.getQuery(this);
         let params: IDictionary = query.getParametersForQuery();
 
         await query.onPreQuery(this);
@@ -153,7 +153,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         this.$armLingerWarning();
         let queryStr: string = null;
         let params: IDictionary = query.getParametersForQuery();
-        queryStr = query.getQuery();
+        queryStr = query.getQuery(this);
         return this._stream(queryStr, params, streamOptions);
     }
 

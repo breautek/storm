@@ -15,6 +15,7 @@
 */
 
 import { IDictionary } from '@totalpave/interfaces';
+import { IDatabaseConnection } from './IDatabaseConnection';
 import {Query} from './Query';
 
 export interface ITemporaryTableQueryInput {
@@ -32,12 +33,12 @@ export class TemporaryTableQuery extends Query<any> {
         };
     }
 
-    protected _getQuery(): string {
+    protected override _getQuery(connection: IDatabaseConnection): string {
         let params: ITemporaryTableQueryInput = this.getParameters();
 
         return `
             CREATE TEMPORARY TABLE \`${params.tableName}\`
-            ${params.selectQuery.getQuery()}
+            ${params.selectQuery.getQuery(connection)}
         `;
     }
 }

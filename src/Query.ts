@@ -32,10 +32,10 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
         return this.$params;
     }
 
-    protected abstract _getQuery(): string;
+    protected abstract _getQuery(connection: IDatabaseConnection): string;
 
-    public getQuery(): string {
-        return this._getQuery();
+    public getQuery(connection: IDatabaseConnection): string {
+        return this._getQuery(connection);
     }
 
     /**
