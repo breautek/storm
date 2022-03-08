@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[src/Database.ts:28](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L28)
+[src/Database.ts:28](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L28)
 
 ## Methods
 
@@ -71,7 +71,7 @@
 
 #### Defined in
 
-[src/Database.ts:83](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L83)
+[src/Database.ts:83](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L83)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:82](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L82)
+[src/Database.ts:82](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L82)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:85](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L85)
+[src/Database.ts:85](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L85)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:84](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L84)
+[src/Database.ts:84](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L84)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:32](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L32)
+[src/Database.ts:32](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L32)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:46](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L46)
+[src/Database.ts:46](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L46)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:78](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L78)
+[src/Database.ts:78](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L78)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:86](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L86)
+[src/Database.ts:86](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L86)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:65](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L65)
+[src/Database.ts:65](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L65)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 #### Defined in
 
-[src/Database.ts:41](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L41)
+[src/Database.ts:41](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L41)
 
 ___
 
@@ -256,4 +256,4 @@ ___
 
 #### Defined in
 
-[src/Database.ts:55](https://github.com/breautek/storm/blob/2f08fb3/src/Database.ts#L55)
+[src/Database.ts:55](https://github.com/breautek/storm/blob/186ee78/src/Database.ts#L55)

@@ -85,7 +85,7 @@ Error.constructor
 
 #### Defined in
 
-[src/StormError.ts:38](https://github.com/breautek/storm/blob/2f08fb3/src/StormError.ts#L38)
+[src/StormError.ts:38](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L38)
 
 ## Properties
 
@@ -188,7 +188,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/StormError.ts:49](https://github.com/breautek/storm/blob/2f08fb3/src/StormError.ts#L49)
+[src/StormError.ts:49](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L49)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/2f08fb3/src/StormError.ts#L70)
+[src/StormError.ts:70](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L70)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/2f08fb3/src/StormError.ts#L79)
+[src/StormError.ts:79](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L79)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:66](https://github.com/breautek/storm/blob/2f08fb3/src/StormError.ts#L66)
+[src/StormError.ts:66](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L66)
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:48](https://github.com/breautek/storm/blob/2f08fb3/src/StormError.ts#L48)
+[src/StormError.ts:48](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L48)
 
 ___
 
@@ -261,7 +261,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/2f08fb3/src/StormError.ts#L62)
+[src/StormError.ts:62](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L62)
 
 ___
 
@@ -277,7 +277,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/2f08fb3/src/StormError.ts#L54)
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L54)
 
 ___
 

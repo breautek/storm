@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/JWTError.ts:18](https://github.com/breautek/storm/blob/2f08fb3/src/JWTError.ts#L18)
+[src/JWTError.ts:18](https://github.com/breautek/storm/blob/186ee78/src/JWTError.ts#L18)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/JWTError.ts:19](https://github.com/breautek/storm/blob/2f08fb3/src/JWTError.ts#L19)
+[src/JWTError.ts:19](https://github.com/breautek/storm/blob/186ee78/src/JWTError.ts#L19)

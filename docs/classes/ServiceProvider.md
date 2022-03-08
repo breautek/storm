@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[src/ServiceProvider.ts:30](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L30)
+[src/ServiceProvider.ts:30](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L30)
 
 ## Methods
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[src/ServiceProvider.ts:65](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L65)
+[src/ServiceProvider.ts:65](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L65)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:37](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L37)
+[src/ServiceProvider.ts:37](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L37)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:34](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L34)
+[src/ServiceProvider.ts:34](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L34)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:45](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L45)
+[src/ServiceProvider.ts:45](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L45)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:35](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L35)
+[src/ServiceProvider.ts:35](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L35)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:57](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L57)
+[src/ServiceProvider.ts:57](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L57)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:158](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L158)
+[src/ServiceProvider.ts:158](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L158)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:143](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L143)
+[src/ServiceProvider.ts:143](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L143)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:41](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L41)
+[src/ServiceProvider.ts:41](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L41)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:61](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L61)
+[src/ServiceProvider.ts:61](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L61)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:148](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L148)
+[src/ServiceProvider.ts:148](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L148)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:153](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L153)
+[src/ServiceProvider.ts:153](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L153)
 
 ___
 
@@ -279,7 +279,7 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:83](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L83)
+[src/ServiceProvider.ts:83](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L83)
 
 ___
 
@@ -293,4 +293,4 @@ ___
 
 #### Defined in
 
-[src/ServiceProvider.ts:53](https://github.com/breautek/storm/blob/2f08fb3/src/ServiceProvider.ts#L53)
+[src/ServiceProvider.ts:53](https://github.com/breautek/storm/blob/186ee78/src/ServiceProvider.ts#L53)

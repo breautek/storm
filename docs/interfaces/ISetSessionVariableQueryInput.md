@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/SetSessionVariableQuery.ts:8](https://github.com/breautek/storm/blob/2f08fb3/src/SetSessionVariableQuery.ts#L8)
+[src/SetSessionVariableQuery.ts:8](https://github.com/breautek/storm/blob/186ee78/src/SetSessionVariableQuery.ts#L8)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/SetSessionVariableQuery.ts:9](https://github.com/breautek/storm/blob/2f08fb3/src/SetSessionVariableQuery.ts#L9)
+[src/SetSessionVariableQuery.ts:9](https://github.com/breautek/storm/blob/186ee78/src/SetSessionVariableQuery.ts#L9)
