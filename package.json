@@ -40,7 +40,7 @@
     "node": ">= 12.0.0"
   },
   "author": "norman@normanbreau.com",
-  "license": "GPL-3.0",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/breautek/storm.git",
   "dependencies": {
     "@arashi/token": "1.0.1",
