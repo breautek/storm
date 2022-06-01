@@ -14,7 +14,6 @@
    limitations under the License.
 */
 
-import { IDictionary } from '@totalpave/interfaces';
 import { IDatabaseConnection } from './IDatabaseConnection';
 
 export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQueryPostProcessedResultSet = TQueryResultSet> {
@@ -28,7 +27,7 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
         return this.$params;
     }
 
-    public getParametersForQuery(): IDictionary {
+    public getParametersForQuery(): Record<any, any> {
         return this.$params;
     }
 

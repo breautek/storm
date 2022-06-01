@@ -16,7 +16,7 @@
 
 import {Query} from './Query';
 
-export class RawQuery<TQueryParameters = any, TQueryResultSet = any> extends Query<TQueryParameters, TQueryResultSet, TQueryResultSet> {
+export class RawQuery<TQueryParameters = any, TQueryResultSet = any, TQueryPostProcessedResultSet = TQueryResultSet> extends Query<TQueryParameters, TQueryResultSet, TQueryPostProcessedResultSet> {
     private $query: string;
 
     public constructor(query: string, parameters?: TQueryParameters) {
