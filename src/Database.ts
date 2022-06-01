@@ -14,7 +14,6 @@
    limitations under the License.
 */
 
-import { IDictionary } from '@totalpave/interfaces';
 import * as UUID from 'uuid';
 import {DatabaseConnection} from './DatabaseConnection';
 import { getInstance } from './instance';
@@ -23,7 +22,7 @@ const MASTER_NAME: string = 'MASTER';
 const TAG: string = 'Database';
 
 export abstract class Database<TDatabaseConfig, TConnectionAPI> {
-    private $clusterConfigMap: IDictionary;
+    private $clusterConfigMap: Record<any, any>;
 
     constructor() {
         this.$clusterConfigMap = {};

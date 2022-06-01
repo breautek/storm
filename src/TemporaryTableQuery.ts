@@ -14,7 +14,6 @@
    limitations under the License.
 */
 
-import { IDictionary } from '@totalpave/interfaces';
 import { IDatabaseConnection } from './IDatabaseConnection';
 import {Query} from './Query';
 
@@ -25,8 +24,8 @@ export interface ITemporaryTableQueryInput {
 
 export class TemporaryTableQuery extends Query<any> {
 
-    public getParametersForQuery(): IDictionary {
-        let params: IDictionary = this.getParameters();
+    public getParametersForQuery(): Record<any, any> {
+        let params: Record<any, any> = this.getParameters();
         return {
             ...params.selectQuery.getParametersForQuery(),
             tableName: params.tableName

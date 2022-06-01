@@ -21,7 +21,6 @@ import {Readable} from 'stream';
 import {IDatabaseConnection} from './IDatabaseConnection';
 import {Query} from './Query';
 import { IConfig } from './IConfig';
-import { IDictionary } from '@totalpave/interfaces';
 
 export const LINGER_WARNING: number = 10000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
@@ -134,7 +133,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         
         let queryStr: string = null;
         queryStr = query.getQuery(this);
-        let params: IDictionary = query.getParametersForQuery();
+        let params: Record<any, any> = query.getParametersForQuery();
 
         await query.onPreQuery(this);
         let results: TQueryResult = await this._query<TQueryResult>(queryStr, params);
@@ -152,7 +151,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     public stream(query: Query, streamOptions?: any): Readable {
         this.$armLingerWarning();
         let queryStr: string = null;
-        let params: IDictionary = query.getParametersForQuery();
+        let params: Record<any, any> = query.getParametersForQuery();
         queryStr = query.getQuery(this);
         return this._stream(queryStr, params, streamOptions);
     }

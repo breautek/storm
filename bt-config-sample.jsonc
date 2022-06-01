@@ -96,7 +96,7 @@
     },
 
     /*
-    @type IDictionary
+    @type Record<any, any>
     @description    Arbitruary object for application-specific parameters
     @default        {}
     */

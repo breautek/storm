@@ -19,7 +19,6 @@ import {IServiceHeaders} from './IServiceHeaders';
 import {HTTPMethod} from './HTTPMethod';
 import {ServiceResponse} from './ServiceResponse';
 import * as http from 'http';
-import { IDictionary } from '@totalpave/interfaces';
 
 const TAG: string = 'ServiceProvider';
 const NO_DATA: string = `|${0x0}|`;
@@ -62,7 +61,7 @@ export abstract class ServiceProvider {
         return 'v1';
     }
 
-    protected _createURL(url: string, queryParams?: IDictionary): string {
+    protected _createURL(url: string, queryParams?: Record<any, any>): string {
         let queryString: string = '';
 
         if (queryParams) {

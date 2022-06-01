@@ -2,7 +2,6 @@
 import {
     Query
 } from './Query';
-import { IDictionary } from '@totalpave/interfaces';
 
 export interface ISetSessionVariableQueryInput {
     name: string;
@@ -21,7 +20,7 @@ export class SetSessionVariableQuery extends Query<ISetSessionVariableQueryInput
         return `SET SESSION ${params.name} = :value`;
     }
 
-    public getParametersForQuery(): IDictionary {
+    public getParametersForQuery(): Record<any, any> {
         return {
             value: this.getParameters().value
         };
