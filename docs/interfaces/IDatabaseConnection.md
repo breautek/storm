@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:29](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L29)
+[src/IDatabaseConnection.ts:29](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L29)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:33](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L33)
+[src/IDatabaseConnection.ts:33](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L33)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:23](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L23)
+[src/IDatabaseConnection.ts:23](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L23)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:22](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L22)
+[src/IDatabaseConnection.ts:22](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L22)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:26](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L26)
+[src/IDatabaseConnection.ts:26](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L26)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:30](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L30)
+[src/IDatabaseConnection.ts:30](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L30)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:24](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L24)
+[src/IDatabaseConnection.ts:24](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L24)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:32](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L32)
+[src/IDatabaseConnection.ts:32](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L32)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:27](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L27)
+[src/IDatabaseConnection.ts:27](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L27)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:34](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L34)
+[src/IDatabaseConnection.ts:34](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L34)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:21](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L21)
+[src/IDatabaseConnection.ts:21](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L21)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:25](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L25)
+[src/IDatabaseConnection.ts:25](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L25)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:31](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L31)
+[src/IDatabaseConnection.ts:31](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L31)
 
 ___
 
@@ -253,4 +253,4 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConnection.ts:28](https://github.com/breautek/storm/blob/ff9b3c9/src/IDatabaseConnection.ts#L28)
+[src/IDatabaseConnection.ts:28](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConnection.ts#L28)
