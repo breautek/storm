@@ -37,7 +37,7 @@ ___
 
 ### name
 
-• **name**: ``"fileBegin"`` \| ``"file"``
+• **name**: ``"file"`` \| ``"fileBegin"``
 
 #### Defined in
 

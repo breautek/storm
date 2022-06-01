@@ -4,27 +4,27 @@
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [ERR\_EXPIRED](JWTError.md#err_expired)
 - [ERR\_GENERIC](JWTError.md#err_generic)
 
-## Enumeration members
+## Enumeration Members
 
 ### ERR\_EXPIRED
 
-• **ERR\_EXPIRED** = `"TokenExpiredError"`
+• **ERR\_EXPIRED**
 
 #### Defined in
 
-[src/JWTError.ts:18](https://github.com/breautek/storm/blob/186ee78/src/JWTError.ts#L18)
+[src/JWTError.ts:18](https://github.com/breautek/storm/blob/ff9b3c9/src/JWTError.ts#L18)
 
 ___
 
 ### ERR\_GENERIC
 
-• **ERR\_GENERIC** = `"JsonWebTokenError"`
+• **ERR\_GENERIC**
 
 #### Defined in
 
-[src/JWTError.ts:19](https://github.com/breautek/storm/blob/186ee78/src/JWTError.ts#L19)
+[src/JWTError.ts:19](https://github.com/breautek/storm/blob/ff9b3c9/src/JWTError.ts#L19)

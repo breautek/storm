@@ -15,7 +15,7 @@
 - [Options](../interfaces/formidable.Options.md)
 - [Part](../interfaces/formidable.Part.md)
 
-### Type aliases
+### Type Aliases
 
 - [BufferEncoding](formidable.md#bufferencoding)
 - [DefaultOptions](formidable.md#defaultoptions)
@@ -26,7 +26,7 @@
 - [PluginFunction](formidable.md#pluginfunction)
 - [Plugins](formidable.md#plugins)
 
-## Type aliases
+## Type Aliases
 
 ### BufferEncoding
 

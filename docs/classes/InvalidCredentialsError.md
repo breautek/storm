@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[src/InvalidCredentialsError.ts:23](https://github.com/breautek/storm/blob/186ee78/src/InvalidCredentialsError.ts#L23)
+[src/InvalidCredentialsError.ts:23](https://github.com/breautek/storm/blob/ff9b3c9/src/InvalidCredentialsError.ts#L23)
 
 ## Properties
 
@@ -65,7 +65,7 @@
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1023
+node_modules/typescript/lib/lib.es5.d.ts:1029
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1022
+node_modules/typescript/lib/lib.es5.d.ts:1028
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1024
+node_modules/typescript/lib/lib.es5.d.ts:1030
 
 ___
 
@@ -158,7 +158,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/InvalidCredentialsError.ts:31](https://github.com/breautek/storm/blob/186ee78/src/InvalidCredentialsError.ts#L31)
+[src/InvalidCredentialsError.ts:31](https://github.com/breautek/storm/blob/ff9b3c9/src/InvalidCredentialsError.ts#L31)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L70)
+[src/StormError.ts:70](https://github.com/breautek/storm/blob/ff9b3c9/src/StormError.ts#L70)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L79)
+[src/StormError.ts:79](https://github.com/breautek/storm/blob/ff9b3c9/src/StormError.ts#L79)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/InvalidCredentialsError.ts:35](https://github.com/breautek/storm/blob/186ee78/src/InvalidCredentialsError.ts#L35)
+[src/InvalidCredentialsError.ts:35](https://github.com/breautek/storm/blob/ff9b3c9/src/InvalidCredentialsError.ts#L35)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[src/InvalidCredentialsError.ts:27](https://github.com/breautek/storm/blob/186ee78/src/InvalidCredentialsError.ts#L27)
+[src/InvalidCredentialsError.ts:27](https://github.com/breautek/storm/blob/ff9b3c9/src/InvalidCredentialsError.ts#L27)
 
 ___
 
@@ -251,7 +251,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L62)
+[src/StormError.ts:62](https://github.com/breautek/storm/blob/ff9b3c9/src/StormError.ts#L62)
 
 ___
 
@@ -271,7 +271,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/186ee78/src/StormError.ts#L54)
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/ff9b3c9/src/StormError.ts#L54)
 
 ___
 

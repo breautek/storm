@@ -4,27 +4,27 @@
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [INVALID\_CONFIG](ExitCode.md#invalid_config)
 - [MISSING\_CONFIG](ExitCode.md#missing_config)
 
-## Enumeration members
+## Enumeration Members
 
 ### INVALID\_CONFIG
 
-• **INVALID\_CONFIG** = `2`
+• **INVALID\_CONFIG**
 
 #### Defined in
 
-[src/ExitCode.ts:19](https://github.com/breautek/storm/blob/186ee78/src/ExitCode.ts#L19)
+[src/ExitCode.ts:19](https://github.com/breautek/storm/blob/ff9b3c9/src/ExitCode.ts#L19)
 
 ___
 
 ### MISSING\_CONFIG
 
-• **MISSING\_CONFIG** = `1`
+• **MISSING\_CONFIG**
 
 #### Defined in
 
-[src/ExitCode.ts:18](https://github.com/breautek/storm/blob/186ee78/src/ExitCode.ts#L18)
+[src/ExitCode.ts:18](https://github.com/breautek/storm/blob/ff9b3c9/src/ExitCode.ts#L18)

@@ -25,7 +25,7 @@ for their specific use cases.
 
 #### Defined in
 
-[src/BackendAuthenticationMiddleware.ts:35](https://github.com/breautek/storm/blob/186ee78/src/BackendAuthenticationMiddleware.ts#L35)
+[src/BackendAuthenticationMiddleware.ts:35](https://github.com/breautek/storm/blob/ff9b3c9/src/BackendAuthenticationMiddleware.ts#L35)
 
 ## Methods
 
@@ -46,4 +46,4 @@ for their specific use cases.
 
 #### Defined in
 
-[src/BackendAuthenticationMiddleware.ts:46](https://github.com/breautek/storm/blob/186ee78/src/BackendAuthenticationMiddleware.ts#L46)
+[src/BackendAuthenticationMiddleware.ts:46](https://github.com/breautek/storm/blob/ff9b3c9/src/BackendAuthenticationMiddleware.ts#L46)

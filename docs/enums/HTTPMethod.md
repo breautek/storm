@@ -4,49 +4,49 @@
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [DELETE](HTTPMethod.md#delete)
 - [GET](HTTPMethod.md#get)
 - [POST](HTTPMethod.md#post)
 - [PUT](HTTPMethod.md#put)
 
-## Enumeration members
+## Enumeration Members
 
 ### DELETE
 
-• **DELETE** = `"DELETE"`
+• **DELETE**
 
 #### Defined in
 
-[src/HTTPMethod.ts:21](https://github.com/breautek/storm/blob/186ee78/src/HTTPMethod.ts#L21)
+[src/HTTPMethod.ts:21](https://github.com/breautek/storm/blob/ff9b3c9/src/HTTPMethod.ts#L21)
 
 ___
 
 ### GET
 
-• **GET** = `"GET"`
+• **GET**
 
 #### Defined in
 
-[src/HTTPMethod.ts:18](https://github.com/breautek/storm/blob/186ee78/src/HTTPMethod.ts#L18)
+[src/HTTPMethod.ts:18](https://github.com/breautek/storm/blob/ff9b3c9/src/HTTPMethod.ts#L18)
 
 ___
 
 ### POST
 
-• **POST** = `"POST"`
+• **POST**
 
 #### Defined in
 
-[src/HTTPMethod.ts:19](https://github.com/breautek/storm/blob/186ee78/src/HTTPMethod.ts#L19)
+[src/HTTPMethod.ts:19](https://github.com/breautek/storm/blob/ff9b3c9/src/HTTPMethod.ts#L19)
 
 ___
 
 ### PUT
 
-• **PUT** = `"PUT"`
+• **PUT**
 
 #### Defined in
 
-[src/HTTPMethod.ts:20](https://github.com/breautek/storm/blob/186ee78/src/HTTPMethod.ts#L20)
+[src/HTTPMethod.ts:20](https://github.com/breautek/storm/blob/ff9b3c9/src/HTTPMethod.ts#L20)

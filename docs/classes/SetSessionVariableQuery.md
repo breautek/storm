@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/Query.ts:23](https://github.com/breautek/storm/blob/186ee78/src/Query.ts#L23)
+[src/Query.ts:22](https://github.com/breautek/storm/blob/ff9b3c9/src/Query.ts#L22)
 
 ## Methods
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[src/SetSessionVariableQuery.ts:13](https://github.com/breautek/storm/blob/186ee78/src/SetSessionVariableQuery.ts#L13)
+[src/SetSessionVariableQuery.ts:12](https://github.com/breautek/storm/blob/ff9b3c9/src/SetSessionVariableQuery.ts#L12)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:63](https://github.com/breautek/storm/blob/186ee78/src/Query.ts#L63)
+[src/Query.ts:62](https://github.com/breautek/storm/blob/ff9b3c9/src/Query.ts#L62)
 
 ___
 
@@ -102,17 +102,17 @@ ___
 
 #### Defined in
 
-[src/Query.ts:27](https://github.com/breautek/storm/blob/186ee78/src/Query.ts#L27)
+[src/Query.ts:26](https://github.com/breautek/storm/blob/ff9b3c9/src/Query.ts#L26)
 
 ___
 
 ### getParametersForQuery
 
-▸ **getParametersForQuery**(): `IDictionary`<`any`\>
+▸ **getParametersForQuery**(): `Record`<`any`, `any`\>
 
 #### Returns
 
-`IDictionary`<`any`\>
+`Record`<`any`, `any`\>
 
 #### Overrides
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[src/SetSessionVariableQuery.ts:24](https://github.com/breautek/storm/blob/186ee78/src/SetSessionVariableQuery.ts#L24)
+[src/SetSessionVariableQuery.ts:23](https://github.com/breautek/storm/blob/ff9b3c9/src/SetSessionVariableQuery.ts#L23)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:37](https://github.com/breautek/storm/blob/186ee78/src/Query.ts#L37)
+[src/Query.ts:36](https://github.com/breautek/storm/blob/ff9b3c9/src/Query.ts#L36)
 
 ___
 
@@ -171,7 +171,7 @@ Override to augment/manipulate the returned result set.
 
 #### Defined in
 
-[src/Query.ts:58](https://github.com/breautek/storm/blob/186ee78/src/Query.ts#L58)
+[src/Query.ts:57](https://github.com/breautek/storm/blob/ff9b3c9/src/Query.ts#L57)
 
 ___
 
@@ -198,4 +198,4 @@ Can be used to set session variables or create temporary tables, etc.
 
 #### Defined in
 
-[src/Query.ts:48](https://github.com/breautek/storm/blob/186ee78/src/Query.ts#L48)
+[src/Query.ts:47](https://github.com/breautek/storm/blob/ff9b3c9/src/Query.ts#L47)

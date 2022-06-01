@@ -4,7 +4,7 @@
 
 ## Table of contents
 
-### Enumeration members
+### Enumeration Members
 
 - [ERR\_BAD\_REQUEST](StatusCode.md#err_bad_request)
 - [ERR\_CONFLICT](StatusCode.md#err_conflict)
@@ -55,482 +55,482 @@
 - [REDIR\_TEMP](StatusCode.md#redir_temp)
 - [REDIR\_USE\_PROXY](StatusCode.md#redir_use_proxy)
 
-## Enumeration members
+## Enumeration Members
 
 ### ERR\_BAD\_REQUEST
 
-• **ERR\_BAD\_REQUEST** = `400`
+• **ERR\_BAD\_REQUEST**
 
 #### Defined in
 
-[src/StatusCode.ts:40](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L40)
+[src/StatusCode.ts:40](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L40)
 
 ___
 
 ### ERR\_CONFLICT
 
-• **ERR\_CONFLICT** = `409`
+• **ERR\_CONFLICT**
 
 #### Defined in
 
-[src/StatusCode.ts:49](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L49)
+[src/StatusCode.ts:49](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L49)
 
 ___
 
 ### ERR\_EXPECTATION\_FAILED
 
-• **ERR\_EXPECTATION\_FAILED** = `417`
+• **ERR\_EXPECTATION\_FAILED**
 
 #### Defined in
 
-[src/StatusCode.ts:57](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L57)
+[src/StatusCode.ts:57](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L57)
 
 ___
 
 ### ERR\_FORBIDDEN
 
-• **ERR\_FORBIDDEN** = `403`
+• **ERR\_FORBIDDEN**
 
 #### Defined in
 
-[src/StatusCode.ts:43](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L43)
+[src/StatusCode.ts:43](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L43)
 
 ___
 
 ### ERR\_GONE
 
-• **ERR\_GONE** = `410`
+• **ERR\_GONE**
 
 #### Defined in
 
-[src/StatusCode.ts:50](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L50)
+[src/StatusCode.ts:50](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L50)
 
 ___
 
 ### ERR\_LEGAL
 
-• **ERR\_LEGAL** = `451`
+• **ERR\_LEGAL**
 
 #### Defined in
 
-[src/StatusCode.ts:63](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L63)
+[src/StatusCode.ts:63](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L63)
 
 ___
 
 ### ERR\_LENGTH\_REQUIRED
 
-• **ERR\_LENGTH\_REQUIRED** = `411`
+• **ERR\_LENGTH\_REQUIRED**
 
 #### Defined in
 
-[src/StatusCode.ts:51](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L51)
+[src/StatusCode.ts:51](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L51)
 
 ___
 
 ### ERR\_NOT\_ACCEPTABLE
 
-• **ERR\_NOT\_ACCEPTABLE** = `406`
+• **ERR\_NOT\_ACCEPTABLE**
 
 #### Defined in
 
-[src/StatusCode.ts:46](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L46)
+[src/StatusCode.ts:46](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L46)
 
 ___
 
 ### ERR\_NOT\_ALLOWED
 
-• **ERR\_NOT\_ALLOWED** = `405`
+• **ERR\_NOT\_ALLOWED**
 
 #### Defined in
 
-[src/StatusCode.ts:45](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L45)
+[src/StatusCode.ts:45](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L45)
 
 ___
 
 ### ERR\_NOT\_FOUND
 
-• **ERR\_NOT\_FOUND** = `404`
+• **ERR\_NOT\_FOUND**
 
 #### Defined in
 
-[src/StatusCode.ts:44](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L44)
+[src/StatusCode.ts:44](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L44)
 
 ___
 
 ### ERR\_PAYMENT\_REQUIRED
 
-• **ERR\_PAYMENT\_REQUIRED** = `402`
+• **ERR\_PAYMENT\_REQUIRED**
 
 #### Defined in
 
-[src/StatusCode.ts:42](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L42)
+[src/StatusCode.ts:42](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L42)
 
 ___
 
 ### ERR\_PRECONDITION\_FAILED
 
-• **ERR\_PRECONDITION\_FAILED** = `412`
+• **ERR\_PRECONDITION\_FAILED**
 
 #### Defined in
 
-[src/StatusCode.ts:52](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L52)
+[src/StatusCode.ts:52](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L52)
 
 ___
 
 ### ERR\_PRECONDITION\_REQUIRED
 
-• **ERR\_PRECONDITION\_REQUIRED** = `428`
+• **ERR\_PRECONDITION\_REQUIRED**
 
 #### Defined in
 
-[src/StatusCode.ts:60](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L60)
+[src/StatusCode.ts:60](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L60)
 
 ___
 
 ### ERR\_PROXY\_AUTH\_REQUIRED
 
-• **ERR\_PROXY\_AUTH\_REQUIRED** = `407`
+• **ERR\_PROXY\_AUTH\_REQUIRED**
 
 #### Defined in
 
-[src/StatusCode.ts:47](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L47)
+[src/StatusCode.ts:47](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L47)
 
 ___
 
 ### ERR\_REQUEST\_HEADERS\_TOO\_LARGE
 
-• **ERR\_REQUEST\_HEADERS\_TOO\_LARGE** = `431`
+• **ERR\_REQUEST\_HEADERS\_TOO\_LARGE**
 
 #### Defined in
 
-[src/StatusCode.ts:62](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L62)
+[src/StatusCode.ts:62](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L62)
 
 ___
 
 ### ERR\_REQUEST\_RANGE\_NOT\_SATISFIABLE
 
-• **ERR\_REQUEST\_RANGE\_NOT\_SATISFIABLE** = `416`
+• **ERR\_REQUEST\_RANGE\_NOT\_SATISFIABLE**
 
 #### Defined in
 
-[src/StatusCode.ts:56](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L56)
+[src/StatusCode.ts:56](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L56)
 
 ___
 
 ### ERR\_REQUEST\_TIMEOUT
 
-• **ERR\_REQUEST\_TIMEOUT** = `408`
+• **ERR\_REQUEST\_TIMEOUT**
 
 #### Defined in
 
-[src/StatusCode.ts:48](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L48)
+[src/StatusCode.ts:48](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L48)
 
 ___
 
 ### ERR\_REQUEST\_TOO\_LARGE
 
-• **ERR\_REQUEST\_TOO\_LARGE** = `413`
+• **ERR\_REQUEST\_TOO\_LARGE**
 
 #### Defined in
 
-[src/StatusCode.ts:53](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L53)
+[src/StatusCode.ts:53](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L53)
 
 ___
 
 ### ERR\_REQUEST\_URI\_TOO\_LONG
 
-• **ERR\_REQUEST\_URI\_TOO\_LONG** = `414`
+• **ERR\_REQUEST\_URI\_TOO\_LONG**
 
 #### Defined in
 
-[src/StatusCode.ts:54](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L54)
+[src/StatusCode.ts:54](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L54)
 
 ___
 
 ### ERR\_TEAPOT
 
-• **ERR\_TEAPOT** = `418`
+• **ERR\_TEAPOT**
 
 #### Defined in
 
-[src/StatusCode.ts:58](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L58)
+[src/StatusCode.ts:58](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L58)
 
 ___
 
 ### ERR\_TOO\_MANY\_REQUESTS
 
-• **ERR\_TOO\_MANY\_REQUESTS** = `429`
+• **ERR\_TOO\_MANY\_REQUESTS**
 
 #### Defined in
 
-[src/StatusCode.ts:61](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L61)
+[src/StatusCode.ts:61](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L61)
 
 ___
 
 ### ERR\_UNAUTHORIZED
 
-• **ERR\_UNAUTHORIZED** = `401`
+• **ERR\_UNAUTHORIZED**
 
 #### Defined in
 
-[src/StatusCode.ts:41](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L41)
+[src/StatusCode.ts:41](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L41)
 
 ___
 
 ### ERR\_UNSUPPORTED\_MEDIA\_TYPE
 
-• **ERR\_UNSUPPORTED\_MEDIA\_TYPE** = `415`
+• **ERR\_UNSUPPORTED\_MEDIA\_TYPE**
 
 #### Defined in
 
-[src/StatusCode.ts:55](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L55)
+[src/StatusCode.ts:55](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L55)
 
 ___
 
 ### ERR\_UPGRADE\_REQUIRED
 
-• **ERR\_UPGRADE\_REQUIRED** = `426`
+• **ERR\_UPGRADE\_REQUIRED**
 
 #### Defined in
 
-[src/StatusCode.ts:59](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L59)
+[src/StatusCode.ts:59](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L59)
 
 ___
 
 ### INFO\_CONTINUE
 
-• **INFO\_CONTINUE** = `100`
+• **INFO\_CONTINUE**
 
 #### Defined in
 
-[src/StatusCode.ts:18](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L18)
+[src/StatusCode.ts:18](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L18)
 
 ___
 
 ### INFO\_PROCESSING
 
-• **INFO\_PROCESSING** = `102`
+• **INFO\_PROCESSING**
 
 #### Defined in
 
-[src/StatusCode.ts:20](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L20)
+[src/StatusCode.ts:20](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L20)
 
 ___
 
 ### INFO\_SWITCHING\_PROTOCOLS
 
-• **INFO\_SWITCHING\_PROTOCOLS** = `101`
+• **INFO\_SWITCHING\_PROTOCOLS**
 
 #### Defined in
 
-[src/StatusCode.ts:19](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L19)
+[src/StatusCode.ts:19](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L19)
 
 ___
 
 ### INTERNAL\_BAD\_GATEWAY
 
-• **INTERNAL\_BAD\_GATEWAY** = `502`
+• **INTERNAL\_BAD\_GATEWAY**
 
 #### Defined in
 
-[src/StatusCode.ts:67](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L67)
+[src/StatusCode.ts:67](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L67)
 
 ___
 
 ### INTERNAL\_ERROR
 
-• **INTERNAL\_ERROR** = `500`
+• **INTERNAL\_ERROR**
 
 #### Defined in
 
-[src/StatusCode.ts:65](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L65)
+[src/StatusCode.ts:65](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L65)
 
 ___
 
 ### INTERNAL\_NOT\_IMPLEMENTED
 
-• **INTERNAL\_NOT\_IMPLEMENTED** = `501`
+• **INTERNAL\_NOT\_IMPLEMENTED**
 
 #### Defined in
 
-[src/StatusCode.ts:66](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L66)
+[src/StatusCode.ts:66](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L66)
 
 ___
 
 ### INTERNAL\_SERVICE\_UNAVAILABLE
 
-• **INTERNAL\_SERVICE\_UNAVAILABLE** = `503`
+• **INTERNAL\_SERVICE\_UNAVAILABLE**
 
 #### Defined in
 
-[src/StatusCode.ts:68](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L68)
+[src/StatusCode.ts:68](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L68)
 
 ___
 
 ### INTERNAL\_TIMEOUT
 
-• **INTERNAL\_TIMEOUT** = `504`
+• **INTERNAL\_TIMEOUT**
 
 #### Defined in
 
-[src/StatusCode.ts:69](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L69)
+[src/StatusCode.ts:69](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L69)
 
 ___
 
 ### OK
 
-• **OK** = `200`
+• **OK**
 
 #### Defined in
 
-[src/StatusCode.ts:22](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L22)
+[src/StatusCode.ts:22](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L22)
 
 ___
 
 ### OK\_ACCEPTED
 
-• **OK\_ACCEPTED** = `202`
+• **OK\_ACCEPTED**
 
 #### Defined in
 
-[src/StatusCode.ts:24](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L24)
+[src/StatusCode.ts:24](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L24)
 
 ___
 
 ### OK\_ALREADY\_REPORTED
 
-• **OK\_ALREADY\_REPORTED** = `208`
+• **OK\_ALREADY\_REPORTED**
 
 #### Defined in
 
-[src/StatusCode.ts:30](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L30)
+[src/StatusCode.ts:30](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L30)
 
 ___
 
 ### OK\_CREATED
 
-• **OK\_CREATED** = `201`
+• **OK\_CREATED**
 
 #### Defined in
 
-[src/StatusCode.ts:23](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L23)
+[src/StatusCode.ts:23](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L23)
 
 ___
 
 ### OK\_MULTI\_STATUS
 
-• **OK\_MULTI\_STATUS** = `207`
+• **OK\_MULTI\_STATUS**
 
 #### Defined in
 
-[src/StatusCode.ts:29](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L29)
+[src/StatusCode.ts:29](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L29)
 
 ___
 
 ### OK\_NON\_AUTH\_INFO
 
-• **OK\_NON\_AUTH\_INFO** = `203`
+• **OK\_NON\_AUTH\_INFO**
 
 #### Defined in
 
-[src/StatusCode.ts:25](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L25)
+[src/StatusCode.ts:25](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L25)
 
 ___
 
 ### OK\_NO\_CONTENT
 
-• **OK\_NO\_CONTENT** = `204`
+• **OK\_NO\_CONTENT**
 
 #### Defined in
 
-[src/StatusCode.ts:26](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L26)
+[src/StatusCode.ts:26](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L26)
 
 ___
 
 ### OK\_PARTIAL\_CONTENT
 
-• **OK\_PARTIAL\_CONTENT** = `206`
+• **OK\_PARTIAL\_CONTENT**
 
 #### Defined in
 
-[src/StatusCode.ts:28](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L28)
+[src/StatusCode.ts:28](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L28)
 
 ___
 
 ### OK\_RESET\_CONTENT
 
-• **OK\_RESET\_CONTENT** = `205`
+• **OK\_RESET\_CONTENT**
 
 #### Defined in
 
-[src/StatusCode.ts:27](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L27)
+[src/StatusCode.ts:27](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L27)
 
 ___
 
 ### REDIR\_FOUND
 
-• **REDIR\_FOUND** = `301`
+• **REDIR\_FOUND**
 
 #### Defined in
 
-[src/StatusCode.ts:34](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L34)
+[src/StatusCode.ts:34](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L34)
 
 ___
 
 ### REDIR\_MOVED\_PERMANENTLY
 
-• **REDIR\_MOVED\_PERMANENTLY** = `301`
+• **REDIR\_MOVED\_PERMANENTLY**
 
 #### Defined in
 
-[src/StatusCode.ts:33](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L33)
+[src/StatusCode.ts:33](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L33)
 
 ___
 
 ### REDIR\_MULTIPLE\_CHOICE
 
-• **REDIR\_MULTIPLE\_CHOICE** = `300`
+• **REDIR\_MULTIPLE\_CHOICE**
 
 #### Defined in
 
-[src/StatusCode.ts:32](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L32)
+[src/StatusCode.ts:32](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L32)
 
 ___
 
 ### REDIR\_NOT\_MODIFIED
 
-• **REDIR\_NOT\_MODIFIED** = `304`
+• **REDIR\_NOT\_MODIFIED**
 
 #### Defined in
 
-[src/StatusCode.ts:36](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L36)
+[src/StatusCode.ts:36](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L36)
 
 ___
 
 ### REDIR\_SEE\_OTHER
 
-• **REDIR\_SEE\_OTHER** = `303`
+• **REDIR\_SEE\_OTHER**
 
 #### Defined in
 
-[src/StatusCode.ts:35](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L35)
+[src/StatusCode.ts:35](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L35)
 
 ___
 
 ### REDIR\_TEMP
 
-• **REDIR\_TEMP** = `307`
+• **REDIR\_TEMP**
 
 #### Defined in
 
-[src/StatusCode.ts:38](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L38)
+[src/StatusCode.ts:38](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L38)
 
 ___
 
 ### REDIR\_USE\_PROXY
 
-• **REDIR\_USE\_PROXY** = `305`
+• **REDIR\_USE\_PROXY**
 
 #### Defined in
 
-[src/StatusCode.ts:37](https://github.com/breautek/storm/blob/186ee78/src/StatusCode.ts#L37)
+[src/StatusCode.ts:37](https://github.com/breautek/storm/blob/ff9b3c9/src/StatusCode.ts#L37)

@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/IUpdateQueryResult.ts:18](https://github.com/breautek/storm/blob/186ee78/src/IUpdateQueryResult.ts#L18)
+[src/IUpdateQueryResult.ts:18](https://github.com/breautek/storm/blob/ff9b3c9/src/IUpdateQueryResult.ts#L18)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/IUpdateQueryResult.ts:19](https://github.com/breautek/storm/blob/186ee78/src/IUpdateQueryResult.ts#L19)
+[src/IUpdateQueryResult.ts:19](https://github.com/breautek/storm/blob/ff9b3c9/src/IUpdateQueryResult.ts#L19)

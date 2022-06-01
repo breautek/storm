@@ -74,7 +74,7 @@
 - [ITemporaryTableQueryInput](interfaces/ITemporaryTableQueryInput.md)
 - [IUpdateQueryResult](interfaces/IUpdateQueryResult.md)
 
-### Type aliases
+### Type Aliases
 
 - [IDeleteQueryResult](README.md#ideletequeryresult)
 - [IHandlerError](README.md#ihandlererror)
@@ -88,7 +88,7 @@
 
 - [getInstance](README.md#getinstance)
 
-## Type aliases
+## Type Aliases
 
 ### IDeleteQueryResult
 
@@ -96,7 +96,7 @@
 
 #### Defined in
 
-[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/186ee78/src/IDeleteQueryResult.ts#L19)
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/ff9b3c9/src/IDeleteQueryResult.ts#L19)
 
 ___
 
@@ -112,7 +112,7 @@ This is to avoid accidental leakage of privilege data (e.g. snippets of database
 
 #### Defined in
 
-[src/Handler.ts:54](https://github.com/breautek/storm/blob/186ee78/src/Handler.ts#L54)
+[src/Handler.ts:54](https://github.com/breautek/storm/blob/ff9b3c9/src/Handler.ts#L54)
 
 ___
 
@@ -132,7 +132,7 @@ certain things depending on the type of object it receives.
 
 #### Defined in
 
-[src/Handler.ts:45](https://github.com/breautek/storm/blob/186ee78/src/Handler.ts#L45)
+[src/Handler.ts:45](https://github.com/breautek/storm/blob/ff9b3c9/src/Handler.ts#L45)
 
 ## Variables
 
@@ -156,4 +156,4 @@ node_modules/@types/formidable/index.d.ts:281
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/186ee78/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/ff9b3c9/src/instance.ts#L28)
