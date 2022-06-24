@@ -23,10 +23,18 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
         this.$params = parameters;
     }
 
+    /**
+     * @returns parameters that was passed into the constructor.
+     */
     public getParameters(): TQueryParameters {
         return this.$params;
     }
 
+    /**
+     * Query implementations may override this API to augment the parameters.
+     * 
+     * @returns parameters that will be used when this query is ran.
+     */
     public getParametersForQuery(): Record<any, any> {
         return this.$params;
     }
