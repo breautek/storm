@@ -63,7 +63,7 @@ export class Handler<
         TPutRequest     = any,
         TPutResponse    = IHandlerResponse,
         TDeleteRequest  = any,
-        TDeleteResponse = ResponseData,
+        TDeleteResponse = IHandlerResponse,
     >  {
         
     private $app: TApplication;
