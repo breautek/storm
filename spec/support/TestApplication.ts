@@ -28,15 +28,15 @@ class TestHandler extends Handler {
 
     protected async _get(request: Request): Promise<void> {}
 
-    protected async _post(request: Request): Promise<void> {
+    protected async _post(request: Request): Promise<any> {
         return request.getBody();
     }
 
-    protected async _put(request: Request): Promise<void> {
+    protected async _put(request: Request): Promise<any> {
         return request.getBody();
     }
 
-    protected async _delete(request: Request): Promise<void> {
+    protected async _delete(request: Request): Promise<any> {
         return request.getBody();
     }
 }

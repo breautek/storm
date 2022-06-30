@@ -14,7 +14,6 @@
    limitations under the License.
 */
 
-import {StatusCode} from './StatusCode';
 import {Application} from './Application';
 import {getInstance} from './instance';
 import {Request} from './Request';
@@ -27,6 +26,8 @@ import { IRequestResponse } from './IRequestResponse';
 import { Logger } from '@arashi/logger';
 import { ResponseData } from './ResponseData';
 import { ReadStream } from 'fs';
+import { NotImplementedError } from './NotImplementedError';
+import { HTTPMethod } from './HTTPMethod';
 // import { Stream } from 'stream';
 
 const TAG: string = 'Handler';
@@ -62,7 +63,7 @@ export class Handler<
         TPutRequest     = any,
         TPutResponse    = IHandlerResponse,
         TDeleteRequest  = any,
-        TDeleteResponse = IHandlerResponse,
+        TDeleteResponse = ResponseData,
     >  {
         
     private $app: TApplication;
@@ -199,19 +200,19 @@ export class Handler<
         }
     }
 
-    protected async _get(request: Request<TGetRequest>): Promise<TGetResponse | IHandlerResponse> {
-        return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
+    protected async _get(request: Request<TGetRequest>): Promise<TGetResponse> {
+        throw new NotImplementedError(HTTPMethod.GET);
     }
 
-    protected async _post(request: Request<TPostRequest>): Promise<TPostResponse| IHandlerResponse> {
-        return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
+    protected async _post(request: Request<TPostRequest>): Promise<TPostResponse> {
+        throw new NotImplementedError(HTTPMethod.POST);
     }
 
-    protected async _put(request: Request<TPutRequest>): Promise<TPutResponse | IHandlerResponse> {
-        return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
+    protected async _put(request: Request<TPutRequest>): Promise<TPutResponse> {
+        throw new NotImplementedError(HTTPMethod.PUT);
     }
 
-    protected async _delete(request: Request<TDeleteRequest>): Promise<TDeleteResponse | IHandlerResponse> {
-        return new ResponseData(StatusCode.INTERNAL_NOT_IMPLEMENTED);
+    protected async _delete(request: Request<TDeleteRequest>): Promise<TDeleteResponse> {
+        throw new NotImplementedError(HTTPMethod.DELETE);
     }
 }

@@ -55,6 +55,7 @@ export {DiskSpaceError} from './DiskSpaceError';
 export {DuplicateEntryError} from './DuplicateEntryError';
 export {MissingConfigError} from './MissingConfigError';
 export {DatabaseQueryError} from './DatabaseQueryError';
+export {NotImplementedError} from './NotImplementedError';
 
 // HTTP
 export {StatusCode} from './StatusCode';

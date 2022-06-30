@@ -75,4 +75,8 @@ describe('Public API', () => {
     it('DropTemporaryTableQuery', () => {
         expect(api.DropTemporaryTableQuery).toBeTruthy();
     });
+
+    it('NotImplementedError', () => {
+        expect(api.NotImplementedError).toBeTruthy();
+    });
 });
