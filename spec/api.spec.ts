@@ -79,4 +79,8 @@ describe('Public API', () => {
     it('NotImplementedError', () => {
         expect(api.NotImplementedError).toBeTruthy();
     });
+    
+    it('RawError', () => {
+        expect(api.RawError).toBeTruthy();
+    });
 });

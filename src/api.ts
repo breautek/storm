@@ -38,6 +38,7 @@ export {SetSessionVariableQuery, ISetSessionVariableQueryInput} from './SetSessi
 
 // Errors
 export {ErrorCode} from './ErrorCode';
+export {RawError} from './RawError';
 export {
     StormError,
     IErrorResponse,
