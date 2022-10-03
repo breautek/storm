@@ -66,13 +66,13 @@
 
 #### Defined in
 
-[src/Handler.ts:71](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L71)
+[src/Handler.ts:72](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L72)
 
 ## Methods
 
 ### \_delete
 
-▸ `Protected` **_delete**(`request`): `Promise`<`any`\>
+▸ `Protected` **_delete**(`request`): `Promise`<`TDeleteResponse`\>
 
 #### Parameters
 
@@ -82,17 +82,17 @@
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`<`TDeleteResponse`\>
 
 #### Defined in
 
-[src/Handler.ts:214](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L214)
+[src/Handler.ts:215](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L215)
 
 ___
 
 ### \_get
 
-▸ `Protected` **_get**(`request`): `Promise`<`any`\>
+▸ `Protected` **_get**(`request`): `Promise`<`TGetResponse`\>
 
 #### Parameters
 
@@ -102,11 +102,11 @@ ___
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`<`TGetResponse`\>
 
 #### Defined in
 
-[src/Handler.ts:202](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L202)
+[src/Handler.ts:203](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L203)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:80](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L80)
+[src/Handler.ts:81](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L81)
 
 ___
 
@@ -142,13 +142,13 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:136](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L136)
+[src/Handler.ts:137](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L137)
 
 ___
 
 ### \_post
 
-▸ `Protected` **_post**(`request`): `Promise`<`any`\>
+▸ `Protected` **_post**(`request`): `Promise`<`TPostResponse`\>
 
 #### Parameters
 
@@ -158,17 +158,17 @@ ___
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`<`TPostResponse`\>
 
 #### Defined in
 
-[src/Handler.ts:206](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L206)
+[src/Handler.ts:207](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L207)
 
 ___
 
 ### \_put
 
-▸ `Protected` **_put**(`request`): `Promise`<`any`\>
+▸ `Protected` **_put**(`request`): `Promise`<`TPutResponse`\>
 
 #### Parameters
 
@@ -178,11 +178,11 @@ ___
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`<`TPutResponse`\>
 
 #### Defined in
 
-[src/Handler.ts:210](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L210)
+[src/Handler.ts:211](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L211)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:146](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L146)
+[src/Handler.ts:147](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L147)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:189](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L189)
+[src/Handler.ts:190](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L190)
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:150](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L150)
+[src/Handler.ts:151](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L151)
 
 ___
 
@@ -264,7 +264,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:84](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L84)
+[src/Handler.ts:85](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L85)
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:76](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L76)
+[src/Handler.ts:77](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L77)
 
 ___
 
@@ -299,7 +299,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:176](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L176)
+[src/Handler.ts:177](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L177)
 
 ___
 
@@ -320,4 +320,4 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:163](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L163)
+[src/Handler.ts:164](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L164)

@@ -59,7 +59,7 @@
 
 #### Defined in
 
-[src/RawQuery.ts:22](https://github.com/breautek/storm/blob/3ad3438/src/RawQuery.ts#L22)
+[src/RawQuery.ts:22](https://github.com/breautek/storm/blob/f198938/src/RawQuery.ts#L22)
 
 ## Methods
 
@@ -77,7 +77,7 @@
 
 #### Defined in
 
-[src/RawQuery.ts:27](https://github.com/breautek/storm/blob/3ad3438/src/RawQuery.ts#L27)
+[src/RawQuery.ts:27](https://github.com/breautek/storm/blob/f198938/src/RawQuery.ts#L27)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:62](https://github.com/breautek/storm/blob/3ad3438/src/Query.ts#L62)
+[src/Query.ts:70](https://github.com/breautek/storm/blob/f198938/src/Query.ts#L70)
 
 ___
 
@@ -113,13 +113,15 @@ ___
 
 `TQueryParameters`
 
+parameters that was passed into the constructor.
+
 #### Inherited from
 
 [Query](Query.md).[getParameters](Query.md#getparameters)
 
 #### Defined in
 
-[src/Query.ts:26](https://github.com/breautek/storm/blob/3ad3438/src/Query.ts#L26)
+[src/Query.ts:29](https://github.com/breautek/storm/blob/f198938/src/Query.ts#L29)
 
 ___
 
@@ -127,9 +129,13 @@ ___
 
 ▸ **getParametersForQuery**(): `Record`<`any`, `any`\>
 
+Query implementations may override this API to augment the parameters.
+
 #### Returns
 
 `Record`<`any`, `any`\>
+
+parameters that will be used when this query is ran.
 
 #### Inherited from
 
@@ -137,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:30](https://github.com/breautek/storm/blob/3ad3438/src/Query.ts#L30)
+[src/Query.ts:38](https://github.com/breautek/storm/blob/f198938/src/Query.ts#L38)
 
 ___
 
@@ -161,7 +167,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:36](https://github.com/breautek/storm/blob/3ad3438/src/Query.ts#L36)
+[src/Query.ts:44](https://github.com/breautek/storm/blob/f198938/src/Query.ts#L44)
 
 ___
 
@@ -188,7 +194,7 @@ Override to augment/manipulate the returned result set.
 
 #### Defined in
 
-[src/Query.ts:57](https://github.com/breautek/storm/blob/3ad3438/src/Query.ts#L57)
+[src/Query.ts:65](https://github.com/breautek/storm/blob/f198938/src/Query.ts#L65)
 
 ___
 
@@ -215,4 +221,4 @@ Can be used to set session variables or create temporary tables, etc.
 
 #### Defined in
 
-[src/Query.ts:47](https://github.com/breautek/storm/blob/3ad3438/src/Query.ts#L47)
+[src/Query.ts:55](https://github.com/breautek/storm/blob/f198938/src/Query.ts#L55)

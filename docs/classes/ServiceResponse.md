@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[src/ServiceResponse.ts:23](https://github.com/breautek/storm/blob/3ad3438/src/ServiceResponse.ts#L23)
+[src/ServiceResponse.ts:23](https://github.com/breautek/storm/blob/f198938/src/ServiceResponse.ts#L23)
 
 ## Methods
 
@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[src/ServiceResponse.ts:36](https://github.com/breautek/storm/blob/3ad3438/src/ServiceResponse.ts#L36)
+[src/ServiceResponse.ts:36](https://github.com/breautek/storm/blob/f198938/src/ServiceResponse.ts#L36)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/ServiceResponse.ts:28](https://github.com/breautek/storm/blob/3ad3438/src/ServiceResponse.ts#L28)
+[src/ServiceResponse.ts:28](https://github.com/breautek/storm/blob/f198938/src/ServiceResponse.ts#L28)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 #### Defined in
 
-[src/ServiceResponse.ts:32](https://github.com/breautek/storm/blob/3ad3438/src/ServiceResponse.ts#L32)
+[src/ServiceResponse.ts:32](https://github.com/breautek/storm/blob/f198938/src/ServiceResponse.ts#L32)

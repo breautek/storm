@@ -1,95 +1,62 @@
-[@breautek/storm](../README.md) / StormError
+[@breautek/storm](../README.md) / RawError
 
-# Class: StormError<TErrorDetails\>
+# Class: RawError
 
-## Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `TErrorDetails` | `any` |
+A concrete error that accepts any arbitrary message string and optionally a code.
+It's not recommended to use this class as it will be hard to differentiate errors by
+tag name.
 
 ## Hierarchy
 
-- `Error`
+- [`StormError`](StormError.md)<{ `code?`: `number` ; `message`: `string`  }\>
 
-  ↳ **`StormError`**
-
-  ↳↳ [`RawError`](RawError.md)
-
-  ↳↳ [`MissingParameterError`](MissingParameterError.md)
-
-  ↳↳ [`InvalidCredentialsError`](InvalidCredentialsError.md)
-
-  ↳↳ [`InternalError`](InternalError.md)
-
-  ↳↳ [`ExpiredTokenError`](ExpiredTokenError.md)
-
-  ↳↳ [`InvalidValueError`](InvalidValueError.md)
-
-  ↳↳ [`UnauthorizedAccessError`](UnauthorizedAccessError.md)
-
-  ↳↳ [`EntityNotFoundError`](EntityNotFoundError.md)
-
-  ↳↳ [`DiskSpaceError`](DiskSpaceError.md)
-
-  ↳↳ [`DuplicateEntryError`](DuplicateEntryError.md)
-
-  ↳↳ [`MissingConfigError`](MissingConfigError.md)
-
-  ↳↳ [`DatabaseQueryError`](DatabaseQueryError.md)
-
-  ↳↳ [`NotImplementedError`](NotImplementedError.md)
+  ↳ **`RawError`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](StormError.md#constructor)
+- [constructor](RawError.md#constructor)
 
 ### Properties
 
-- [message](StormError.md#message)
-- [name](StormError.md#name)
-- [stack](StormError.md#stack)
-- [prepareStackTrace](StormError.md#preparestacktrace)
-- [stackTraceLimit](StormError.md#stacktracelimit)
+- [message](RawError.md#message)
+- [name](RawError.md#name)
+- [stack](RawError.md#stack)
+- [prepareStackTrace](RawError.md#preparestacktrace)
+- [stackTraceLimit](RawError.md#stacktracelimit)
 
 ### Methods
 
-- [getCode](StormError.md#getcode)
-- [getErrorResponse](StormError.md#geterrorresponse)
-- [getExitCode](StormError.md#getexitcode)
-- [getHTTPCode](StormError.md#gethttpcode)
-- [getMessage](StormError.md#getmessage)
-- [getPrivateDetails](StormError.md#getprivatedetails)
-- [getPublicDetails](StormError.md#getpublicdetails)
-- [captureStackTrace](StormError.md#capturestacktrace)
+- [getCode](RawError.md#getcode)
+- [getErrorResponse](RawError.md#geterrorresponse)
+- [getExitCode](RawError.md#getexitcode)
+- [getHTTPCode](RawError.md#gethttpcode)
+- [getMessage](RawError.md#getmessage)
+- [getPrivateDetails](RawError.md#getprivatedetails)
+- [getPublicDetails](RawError.md#getpublicdetails)
+- [captureStackTrace](RawError.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-• **new StormError**<`TErrorDetails`\>(`details?`)
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `TErrorDetails` | `any` |
+• **new RawError**(`message`, `code?`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `details?` | `TErrorDetails` |
+| `message` | `string` |
+| `code?` | `number` |
 
 #### Overrides
 
-Error.constructor
+[StormError](StormError.md).[constructor](StormError.md#constructor)
 
 #### Defined in
 
-[src/StormError.ts:38](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L38)
+[src/RawError.ts:25](https://github.com/breautek/storm/blob/f198938/src/RawError.ts#L25)
 
 ## Properties
 
@@ -99,7 +66,7 @@ Error.constructor
 
 #### Inherited from
 
-Error.message
+[StormError](StormError.md).[message](StormError.md#message)
 
 #### Defined in
 
@@ -113,7 +80,7 @@ ___
 
 #### Inherited from
 
-Error.name
+[StormError](StormError.md).[name](StormError.md#name)
 
 #### Defined in
 
@@ -127,7 +94,7 @@ ___
 
 #### Inherited from
 
-Error.stack
+[StormError](StormError.md).[stack](StormError.md#stack)
 
 #### Defined in
 
@@ -138,6 +105,8 @@ ___
 ### prepareStackTrace
 
 ▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+
+Optional override for formatting stack traces
 
 #### Type declaration
 
@@ -160,7 +129,7 @@ Optional override for formatting stack traces
 
 #### Inherited from
 
-Error.prepareStackTrace
+[StormError](StormError.md).[prepareStackTrace](StormError.md#preparestacktrace)
 
 #### Defined in
 
@@ -174,7 +143,7 @@ ___
 
 #### Inherited from
 
-Error.stackTraceLimit
+[StormError](StormError.md).[stackTraceLimit](StormError.md#stacktracelimit)
 
 #### Defined in
 
@@ -184,15 +153,19 @@ node_modules/@types/node/globals.d.ts:13
 
 ### getCode
 
-▸ `Abstract` **getCode**(): `number`
+▸ **getCode**(): `number`
 
 #### Returns
 
 `number`
 
+#### Overrides
+
+[StormError](StormError.md).[getCode](StormError.md#getcode)
+
 #### Defined in
 
-[src/StormError.ts:49](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L49)
+[src/RawError.ts:32](https://github.com/breautek/storm/blob/f198938/src/RawError.ts#L32)
 
 ___
 
@@ -203,6 +176,10 @@ ___
 #### Returns
 
 [`IErrorResponse`](../interfaces/IErrorResponse.md)
+
+#### Inherited from
+
+[StormError](StormError.md).[getErrorResponse](StormError.md#geterrorresponse)
 
 #### Defined in
 
@@ -218,6 +195,10 @@ ___
 
 [`ExitCode`](../enums/ExitCode.md)
 
+#### Inherited from
+
+[StormError](StormError.md).[getExitCode](StormError.md#getexitcode)
+
 #### Defined in
 
 [src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
@@ -232,6 +213,10 @@ ___
 
 [`StatusCode`](../enums/StatusCode.md)
 
+#### Inherited from
+
+[StormError](StormError.md).[getHTTPCode](StormError.md#gethttpcode)
+
 #### Defined in
 
 [src/StormError.ts:66](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L66)
@@ -240,28 +225,41 @@ ___
 
 ### getMessage
 
-▸ `Abstract` **getMessage**(): `string`
+▸ **getMessage**(): `string`
 
 #### Returns
 
 `string`
 
+#### Overrides
+
+[StormError](StormError.md).[getMessage](StormError.md#getmessage)
+
 #### Defined in
 
-[src/StormError.ts:48](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L48)
+[src/RawError.ts:36](https://github.com/breautek/storm/blob/f198938/src/RawError.ts#L36)
 
 ___
 
 ### getPrivateDetails
 
-▸ **getPrivateDetails**(): `TErrorDetails`
+▸ **getPrivateDetails**(): `Object`
 
 Private details are only logged to the server log.
 They are kept secret from the client.
 
 #### Returns
 
-`TErrorDetails`
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `code?` | `number` |
+| `message` | `string` |
+
+#### Inherited from
+
+[StormError](StormError.md).[getPrivateDetails](StormError.md#getprivatedetails)
 
 #### Defined in
 
@@ -278,6 +276,10 @@ Sends details to the client.
 #### Returns
 
 [`IAdditionalErrorDetails`](../interfaces/IAdditionalErrorDetails.md)
+
+#### Inherited from
+
+[StormError](StormError.md).[getPublicDetails](StormError.md#getpublicdetails)
 
 #### Defined in
 
@@ -304,7 +306,7 @@ Create .stack property on a target object
 
 #### Inherited from
 
-Error.captureStackTrace
+[StormError](StormError.md).[captureStackTrace](StormError.md#capturestacktrace)
 
 #### Defined in
 

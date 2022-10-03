@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/IDatabaseConfig.ts:21](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConfig.ts#L21)
+[src/IDatabaseConfig.ts:21](https://github.com/breautek/storm/blob/f198938/src/IDatabaseConfig.ts#L21)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConfig.ts:19](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConfig.ts#L19)
+[src/IDatabaseConfig.ts:19](https://github.com/breautek/storm/blob/f198938/src/IDatabaseConfig.ts#L19)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConfig.ts:18](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConfig.ts#L18)
+[src/IDatabaseConfig.ts:18](https://github.com/breautek/storm/blob/f198938/src/IDatabaseConfig.ts#L18)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConfig.ts:23](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConfig.ts#L23)
+[src/IDatabaseConfig.ts:23](https://github.com/breautek/storm/blob/f198938/src/IDatabaseConfig.ts#L23)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConfig.ts:20](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConfig.ts#L20)
+[src/IDatabaseConfig.ts:20](https://github.com/breautek/storm/blob/f198938/src/IDatabaseConfig.ts#L20)
 
 ___
 
@@ -77,4 +77,4 @@ ___
 
 #### Defined in
 
-[src/IDatabaseConfig.ts:22](https://github.com/breautek/storm/blob/3ad3438/src/IDatabaseConfig.ts#L22)
+[src/IDatabaseConfig.ts:22](https://github.com/breautek/storm/blob/f198938/src/IDatabaseConfig.ts#L22)

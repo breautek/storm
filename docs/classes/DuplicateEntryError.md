@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:28](https://github.com/breautek/storm/blob/3ad3438/src/DuplicateEntryError.ts#L28)
+[src/DuplicateEntryError.ts:28](https://github.com/breautek/storm/blob/f198938/src/DuplicateEntryError.ts#L28)
 
 ## Properties
 
@@ -160,7 +160,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/3ad3438/src/DuplicateEntryError.ts#L41)
+[src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/f198938/src/DuplicateEntryError.ts#L41)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/3ad3438/src/StormError.ts#L70)
+[src/StormError.ts:70](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L70)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/3ad3438/src/StormError.ts#L79)
+[src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/3ad3438/src/DuplicateEntryError.ts#L45)
+[src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/f198938/src/DuplicateEntryError.ts#L45)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/3ad3438/src/DuplicateEntryError.ts#L36)
+[src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/f198938/src/DuplicateEntryError.ts#L36)
 
 ___
 
@@ -253,7 +253,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/3ad3438/src/StormError.ts#L62)
+[src/StormError.ts:62](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L62)
 
 ___
 
@@ -273,7 +273,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/3ad3438/src/StormError.ts#L54)
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L54)
 
 ___
 

@@ -41,7 +41,9 @@
 - [MissingParameterError](classes/MissingParameterError.md)
 - [MySQLConnection](classes/MySQLConnection.md)
 - [MySQLDatabase](classes/MySQLDatabase.md)
+- [NotImplementedError](classes/NotImplementedError.md)
 - [Query](classes/Query.md)
+- [RawError](classes/RawError.md)
 - [RawQuery](classes/RawQuery.md)
 - [Request](classes/Request.md)
 - [Response](classes/Response.md)
@@ -96,7 +98,7 @@
 
 #### Defined in
 
-[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/3ad3438/src/IDeleteQueryResult.ts#L19)
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/f198938/src/IDeleteQueryResult.ts#L19)
 
 ___
 
@@ -112,7 +114,7 @@ This is to avoid accidental leakage of privilege data (e.g. snippets of database
 
 #### Defined in
 
-[src/Handler.ts:54](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L54)
+[src/Handler.ts:55](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L55)
 
 ___
 
@@ -132,7 +134,7 @@ certain things depending on the type of object it receives.
 
 #### Defined in
 
-[src/Handler.ts:45](https://github.com/breautek/storm/blob/3ad3438/src/Handler.ts#L45)
+[src/Handler.ts:46](https://github.com/breautek/storm/blob/f198938/src/Handler.ts#L46)
 
 ## Variables
 
@@ -156,4 +158,4 @@ node_modules/@types/formidable/index.d.ts:281
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/3ad3438/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/f198938/src/instance.ts#L28)
