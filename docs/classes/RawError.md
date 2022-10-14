@@ -32,6 +32,8 @@ tag name.
 - [getErrorResponse](RawError.md#geterrorresponse)
 - [getExitCode](RawError.md#getexitcode)
 - [getHTTPCode](RawError.md#gethttpcode)
+- [getLocaleCode](RawError.md#getlocalecode)
+- [getLocaleParameters](RawError.md#getlocaleparameters)
 - [getMessage](RawError.md#getmessage)
 - [getPrivateDetails](RawError.md#getprivatedetails)
 - [getPublicDetails](RawError.md#getpublicdetails)
@@ -56,7 +58,7 @@ tag name.
 
 #### Defined in
 
-[src/RawError.ts:25](https://github.com/breautek/storm/blob/f198938/src/RawError.ts#L25)
+[src/RawError.ts:25](https://github.com/breautek/storm/blob/4ac2f44/src/RawError.ts#L25)
 
 ## Properties
 
@@ -165,7 +167,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/RawError.ts:32](https://github.com/breautek/storm/blob/f198938/src/RawError.ts#L32)
+[src/RawError.ts:32](https://github.com/breautek/storm/blob/4ac2f44/src/RawError.ts#L32)
 
 ___
 
@@ -183,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L70)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L76)
 
 ___
 
@@ -201,7 +203,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L97)
 
 ___
 
@@ -219,7 +221,43 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:66](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L66)
+[src/StormError.ts:72](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L72)
+
+___
+
+### getLocaleCode
+
+▸ **getLocaleCode**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+[StormError](StormError.md).[getLocaleCode](StormError.md#getlocalecode)
+
+#### Defined in
+
+[src/StormError.ts:89](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L89)
+
+___
+
+### getLocaleParameters
+
+▸ **getLocaleParameters**(): `Record`<`string`, `string`\>
+
+#### Returns
+
+`Record`<`string`, `string`\>
+
+#### Inherited from
+
+[StormError](StormError.md).[getLocaleParameters](StormError.md#getlocaleparameters)
+
+#### Defined in
+
+[src/StormError.ts:93](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L93)
 
 ___
 
@@ -237,7 +275,7 @@ ___
 
 #### Defined in
 
-[src/RawError.ts:36](https://github.com/breautek/storm/blob/f198938/src/RawError.ts#L36)
+[src/RawError.ts:36](https://github.com/breautek/storm/blob/4ac2f44/src/RawError.ts#L36)
 
 ___
 
@@ -263,7 +301,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L62)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L68)
 
 ___
 
@@ -283,7 +321,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L54)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L60)
 
 ___
 

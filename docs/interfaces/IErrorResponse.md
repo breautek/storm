@@ -8,6 +8,7 @@
 
 - [code](IErrorResponse.md#code)
 - [details](IErrorResponse.md#details)
+- [locale](IErrorResponse.md#locale)
 - [message](IErrorResponse.md#message)
 - [name](IErrorResponse.md#name)
 
@@ -19,7 +20,7 @@
 
 #### Defined in
 
-[src/StormError.ts:31](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L31)
+[src/StormError.ts:37](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L37)
 
 ___
 
@@ -29,7 +30,17 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:32](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L32)
+[src/StormError.ts:38](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L38)
+
+___
+
+### locale
+
+• **locale**: `ILocale`
+
+#### Defined in
+
+[src/StormError.ts:36](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L36)
 
 ___
 
@@ -39,7 +50,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:30](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L30)
+[src/StormError.ts:35](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L35)
 
 ___
 
@@ -49,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:29](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L29)
+[src/StormError.ts:34](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L34)

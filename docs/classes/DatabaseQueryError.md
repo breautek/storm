@@ -28,6 +28,8 @@
 - [getErrorResponse](DatabaseQueryError.md#geterrorresponse)
 - [getExitCode](DatabaseQueryError.md#getexitcode)
 - [getHTTPCode](DatabaseQueryError.md#gethttpcode)
+- [getLocaleCode](DatabaseQueryError.md#getlocalecode)
+- [getLocaleParameters](DatabaseQueryError.md#getlocaleparameters)
 - [getMessage](DatabaseQueryError.md#getmessage)
 - [getPrivateDetails](DatabaseQueryError.md#getprivatedetails)
 - [getPublicDetails](DatabaseQueryError.md#getpublicdetails)
@@ -52,7 +54,7 @@
 
 #### Defined in
 
-[src/DatabaseQueryError.ts:25](https://github.com/breautek/storm/blob/f198938/src/DatabaseQueryError.ts#L25)
+[src/DatabaseQueryError.ts:25](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseQueryError.ts#L25)
 
 ## Properties
 
@@ -159,7 +161,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/DatabaseQueryError.ts:36](https://github.com/breautek/storm/blob/f198938/src/DatabaseQueryError.ts#L36)
+[src/DatabaseQueryError.ts:36](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseQueryError.ts#L36)
 
 ___
 
@@ -177,7 +179,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L70)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L76)
 
 ___
 
@@ -195,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L97)
 
 ___
 
@@ -213,7 +215,43 @@ ___
 
 #### Defined in
 
-[src/DatabaseQueryError.ts:40](https://github.com/breautek/storm/blob/f198938/src/DatabaseQueryError.ts#L40)
+[src/DatabaseQueryError.ts:40](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseQueryError.ts#L40)
+
+___
+
+### getLocaleCode
+
+▸ **getLocaleCode**(): `string`
+
+#### Returns
+
+`string`
+
+#### Overrides
+
+[StormError](StormError.md).[getLocaleCode](StormError.md#getlocalecode)
+
+#### Defined in
+
+[src/DatabaseQueryError.ts:44](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseQueryError.ts#L44)
+
+___
+
+### getLocaleParameters
+
+▸ **getLocaleParameters**(): `Record`<`string`, `string`\>
+
+#### Returns
+
+`Record`<`string`, `string`\>
+
+#### Inherited from
+
+[StormError](StormError.md).[getLocaleParameters](StormError.md#getlocaleparameters)
+
+#### Defined in
+
+[src/StormError.ts:93](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L93)
 
 ___
 
@@ -231,7 +269,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseQueryError.ts:32](https://github.com/breautek/storm/blob/f198938/src/DatabaseQueryError.ts#L32)
+[src/DatabaseQueryError.ts:32](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseQueryError.ts#L32)
 
 ___
 
@@ -257,7 +295,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L62)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L68)
 
 ___
 
@@ -277,7 +315,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L54)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L60)
 
 ___
 

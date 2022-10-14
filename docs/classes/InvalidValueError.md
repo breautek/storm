@@ -28,6 +28,8 @@
 - [getErrorResponse](InvalidValueError.md#geterrorresponse)
 - [getExitCode](InvalidValueError.md#getexitcode)
 - [getHTTPCode](InvalidValueError.md#gethttpcode)
+- [getLocaleCode](InvalidValueError.md#getlocalecode)
+- [getLocaleParameters](InvalidValueError.md#getlocaleparameters)
 - [getMessage](InvalidValueError.md#getmessage)
 - [getPrivateDetails](InvalidValueError.md#getprivatedetails)
 - [getPublicDetails](InvalidValueError.md#getpublicdetails)
@@ -53,7 +55,7 @@
 
 #### Defined in
 
-[src/InvalidValueError.ts:27](https://github.com/breautek/storm/blob/f198938/src/InvalidValueError.ts#L27)
+[src/InvalidValueError.ts:27](https://github.com/breautek/storm/blob/4ac2f44/src/InvalidValueError.ts#L27)
 
 ## Properties
 
@@ -160,7 +162,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/InvalidValueError.ts:40](https://github.com/breautek/storm/blob/f198938/src/InvalidValueError.ts#L40)
+[src/InvalidValueError.ts:40](https://github.com/breautek/storm/blob/4ac2f44/src/InvalidValueError.ts#L40)
 
 ___
 
@@ -178,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L70)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L76)
 
 ___
 
@@ -196,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L97)
 
 ___
 
@@ -214,7 +216,43 @@ ___
 
 #### Defined in
 
-[src/InvalidValueError.ts:44](https://github.com/breautek/storm/blob/f198938/src/InvalidValueError.ts#L44)
+[src/InvalidValueError.ts:44](https://github.com/breautek/storm/blob/4ac2f44/src/InvalidValueError.ts#L44)
+
+___
+
+### getLocaleCode
+
+▸ **getLocaleCode**(): `string`
+
+#### Returns
+
+`string`
+
+#### Overrides
+
+[StormError](StormError.md).[getLocaleCode](StormError.md#getlocalecode)
+
+#### Defined in
+
+[src/InvalidValueError.ts:48](https://github.com/breautek/storm/blob/4ac2f44/src/InvalidValueError.ts#L48)
+
+___
+
+### getLocaleParameters
+
+▸ **getLocaleParameters**(): `Record`<`string`, `string`\>
+
+#### Returns
+
+`Record`<`string`, `string`\>
+
+#### Overrides
+
+[StormError](StormError.md).[getLocaleParameters](StormError.md#getlocaleparameters)
+
+#### Defined in
+
+[src/InvalidValueError.ts:52](https://github.com/breautek/storm/blob/4ac2f44/src/InvalidValueError.ts#L52)
 
 ___
 
@@ -232,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/InvalidValueError.ts:35](https://github.com/breautek/storm/blob/f198938/src/InvalidValueError.ts#L35)
+[src/InvalidValueError.ts:35](https://github.com/breautek/storm/blob/4ac2f44/src/InvalidValueError.ts#L35)
 
 ___
 
@@ -259,7 +297,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L62)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L68)
 
 ___
 
@@ -279,7 +317,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L54)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L60)
 
 ___
 

@@ -28,6 +28,8 @@
 - [getErrorResponse](DiskSpaceError.md#geterrorresponse)
 - [getExitCode](DiskSpaceError.md#getexitcode)
 - [getHTTPCode](DiskSpaceError.md#gethttpcode)
+- [getLocaleCode](DiskSpaceError.md#getlocalecode)
+- [getLocaleParameters](DiskSpaceError.md#getlocaleparameters)
 - [getMessage](DiskSpaceError.md#getmessage)
 - [getPrivateDetails](DiskSpaceError.md#getprivatedetails)
 - [getPublicDetails](DiskSpaceError.md#getpublicdetails)
@@ -51,7 +53,7 @@
 
 #### Defined in
 
-[src/DiskSpaceError.ts:22](https://github.com/breautek/storm/blob/f198938/src/DiskSpaceError.ts#L22)
+[src/DiskSpaceError.ts:22](https://github.com/breautek/storm/blob/4ac2f44/src/DiskSpaceError.ts#L22)
 
 ## Properties
 
@@ -158,7 +160,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/DiskSpaceError.ts:32](https://github.com/breautek/storm/blob/f198938/src/DiskSpaceError.ts#L32)
+[src/DiskSpaceError.ts:32](https://github.com/breautek/storm/blob/4ac2f44/src/DiskSpaceError.ts#L32)
 
 ___
 
@@ -176,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L70)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L76)
 
 ___
 
@@ -194,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L97)
 
 ___
 
@@ -212,7 +214,43 @@ ___
 
 #### Defined in
 
-[src/DiskSpaceError.ts:36](https://github.com/breautek/storm/blob/f198938/src/DiskSpaceError.ts#L36)
+[src/DiskSpaceError.ts:36](https://github.com/breautek/storm/blob/4ac2f44/src/DiskSpaceError.ts#L36)
+
+___
+
+### getLocaleCode
+
+▸ **getLocaleCode**(): `string`
+
+#### Returns
+
+`string`
+
+#### Overrides
+
+[StormError](StormError.md).[getLocaleCode](StormError.md#getlocalecode)
+
+#### Defined in
+
+[src/DiskSpaceError.ts:40](https://github.com/breautek/storm/blob/4ac2f44/src/DiskSpaceError.ts#L40)
+
+___
+
+### getLocaleParameters
+
+▸ **getLocaleParameters**(): `Record`<`string`, `string`\>
+
+#### Returns
+
+`Record`<`string`, `string`\>
+
+#### Inherited from
+
+[StormError](StormError.md).[getLocaleParameters](StormError.md#getlocaleparameters)
+
+#### Defined in
+
+[src/StormError.ts:93](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L93)
 
 ___
 
@@ -230,7 +268,7 @@ ___
 
 #### Defined in
 
-[src/DiskSpaceError.ts:28](https://github.com/breautek/storm/blob/f198938/src/DiskSpaceError.ts#L28)
+[src/DiskSpaceError.ts:28](https://github.com/breautek/storm/blob/4ac2f44/src/DiskSpaceError.ts#L28)
 
 ___
 
@@ -251,7 +289,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L62)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L68)
 
 ___
 
@@ -271,7 +309,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L54)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L60)
 
 ___
 

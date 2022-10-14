@@ -28,6 +28,8 @@
 - [getErrorResponse](DuplicateEntryError.md#geterrorresponse)
 - [getExitCode](DuplicateEntryError.md#getexitcode)
 - [getHTTPCode](DuplicateEntryError.md#gethttpcode)
+- [getLocaleCode](DuplicateEntryError.md#getlocalecode)
+- [getLocaleParameters](DuplicateEntryError.md#getlocaleparameters)
 - [getMessage](DuplicateEntryError.md#getmessage)
 - [getPrivateDetails](DuplicateEntryError.md#getprivatedetails)
 - [getPublicDetails](DuplicateEntryError.md#getpublicdetails)
@@ -53,7 +55,7 @@
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:28](https://github.com/breautek/storm/blob/f198938/src/DuplicateEntryError.ts#L28)
+[src/DuplicateEntryError.ts:28](https://github.com/breautek/storm/blob/4ac2f44/src/DuplicateEntryError.ts#L28)
 
 ## Properties
 
@@ -160,7 +162,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/f198938/src/DuplicateEntryError.ts#L41)
+[src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/4ac2f44/src/DuplicateEntryError.ts#L41)
 
 ___
 
@@ -178,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L70)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L76)
 
 ___
 
@@ -196,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L97)
 
 ___
 
@@ -214,7 +216,43 @@ ___
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/f198938/src/DuplicateEntryError.ts#L45)
+[src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/4ac2f44/src/DuplicateEntryError.ts#L45)
+
+___
+
+### getLocaleCode
+
+▸ **getLocaleCode**(): `string`
+
+#### Returns
+
+`string`
+
+#### Overrides
+
+[StormError](StormError.md).[getLocaleCode](StormError.md#getlocalecode)
+
+#### Defined in
+
+[src/DuplicateEntryError.ts:49](https://github.com/breautek/storm/blob/4ac2f44/src/DuplicateEntryError.ts#L49)
+
+___
+
+### getLocaleParameters
+
+▸ **getLocaleParameters**(): `Record`<`string`, `string`\>
+
+#### Returns
+
+`Record`<`string`, `string`\>
+
+#### Overrides
+
+[StormError](StormError.md).[getLocaleParameters](StormError.md#getlocaleparameters)
+
+#### Defined in
+
+[src/DuplicateEntryError.ts:53](https://github.com/breautek/storm/blob/4ac2f44/src/DuplicateEntryError.ts#L53)
 
 ___
 
@@ -232,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/f198938/src/DuplicateEntryError.ts#L36)
+[src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/4ac2f44/src/DuplicateEntryError.ts#L36)
 
 ___
 
@@ -253,7 +291,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L62)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L68)
 
 ___
 
@@ -273,7 +311,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L54)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L60)
 
 ___
 

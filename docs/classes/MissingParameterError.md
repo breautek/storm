@@ -28,6 +28,8 @@
 - [getErrorResponse](MissingParameterError.md#geterrorresponse)
 - [getExitCode](MissingParameterError.md#getexitcode)
 - [getHTTPCode](MissingParameterError.md#gethttpcode)
+- [getLocaleCode](MissingParameterError.md#getlocalecode)
+- [getLocaleParameters](MissingParameterError.md#getlocaleparameters)
 - [getMessage](MissingParameterError.md#getmessage)
 - [getPrivateDetails](MissingParameterError.md#getprivatedetails)
 - [getPublicDetails](MissingParameterError.md#getpublicdetails)
@@ -51,7 +53,7 @@
 
 #### Defined in
 
-[src/MissingParameterError.ts:22](https://github.com/breautek/storm/blob/f198938/src/MissingParameterError.ts#L22)
+[src/MissingParameterError.ts:22](https://github.com/breautek/storm/blob/4ac2f44/src/MissingParameterError.ts#L22)
 
 ## Properties
 
@@ -158,7 +160,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/MissingParameterError.ts:30](https://github.com/breautek/storm/blob/f198938/src/MissingParameterError.ts#L30)
+[src/MissingParameterError.ts:30](https://github.com/breautek/storm/blob/4ac2f44/src/MissingParameterError.ts#L30)
 
 ___
 
@@ -176,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L70)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L76)
 
 ___
 
@@ -194,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L97)
 
 ___
 
@@ -212,7 +214,43 @@ ___
 
 #### Defined in
 
-[src/MissingParameterError.ts:34](https://github.com/breautek/storm/blob/f198938/src/MissingParameterError.ts#L34)
+[src/MissingParameterError.ts:34](https://github.com/breautek/storm/blob/4ac2f44/src/MissingParameterError.ts#L34)
+
+___
+
+### getLocaleCode
+
+▸ **getLocaleCode**(): `string`
+
+#### Returns
+
+`string`
+
+#### Overrides
+
+[StormError](StormError.md).[getLocaleCode](StormError.md#getlocalecode)
+
+#### Defined in
+
+[src/MissingParameterError.ts:38](https://github.com/breautek/storm/blob/4ac2f44/src/MissingParameterError.ts#L38)
+
+___
+
+### getLocaleParameters
+
+▸ **getLocaleParameters**(): `Record`<`string`, `string`\>
+
+#### Returns
+
+`Record`<`string`, `string`\>
+
+#### Overrides
+
+[StormError](StormError.md).[getLocaleParameters](StormError.md#getlocaleparameters)
+
+#### Defined in
+
+[src/MissingParameterError.ts:42](https://github.com/breautek/storm/blob/4ac2f44/src/MissingParameterError.ts#L42)
 
 ___
 
@@ -230,7 +268,7 @@ ___
 
 #### Defined in
 
-[src/MissingParameterError.ts:26](https://github.com/breautek/storm/blob/f198938/src/MissingParameterError.ts#L26)
+[src/MissingParameterError.ts:26](https://github.com/breautek/storm/blob/4ac2f44/src/MissingParameterError.ts#L26)
 
 ___
 
@@ -251,7 +289,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L62)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L68)
 
 ___
 
@@ -271,7 +309,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L54)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L60)
 
 ___
 

@@ -60,6 +60,8 @@
 - [getErrorResponse](StormError.md#geterrorresponse)
 - [getExitCode](StormError.md#getexitcode)
 - [getHTTPCode](StormError.md#gethttpcode)
+- [getLocaleCode](StormError.md#getlocalecode)
+- [getLocaleParameters](StormError.md#getlocaleparameters)
 - [getMessage](StormError.md#getmessage)
 - [getPrivateDetails](StormError.md#getprivatedetails)
 - [getPublicDetails](StormError.md#getpublicdetails)
@@ -89,7 +91,7 @@ Error.constructor
 
 #### Defined in
 
-[src/StormError.ts:38](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L38)
+[src/StormError.ts:44](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L44)
 
 ## Properties
 
@@ -192,7 +194,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/StormError.ts:49](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L49)
+[src/StormError.ts:55](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L55)
 
 ___
 
@@ -206,7 +208,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:70](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L70)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L76)
 
 ___
 
@@ -220,7 +222,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:79](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L79)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L97)
 
 ___
 
@@ -234,7 +236,35 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:66](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L66)
+[src/StormError.ts:72](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L72)
+
+___
+
+### getLocaleCode
+
+▸ **getLocaleCode**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[src/StormError.ts:89](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L89)
+
+___
+
+### getLocaleParameters
+
+▸ **getLocaleParameters**(): `Record`<`string`, `string`\>
+
+#### Returns
+
+`Record`<`string`, `string`\>
+
+#### Defined in
+
+[src/StormError.ts:93](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L93)
 
 ___
 
@@ -248,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:48](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L48)
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L54)
 
 ___
 
@@ -265,7 +295,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:62](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L62)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L68)
 
 ___
 
@@ -281,7 +311,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/f198938/src/StormError.ts#L54)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L60)
 
 ___
 

@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[src/ConfigLoader.ts:34](https://github.com/breautek/storm/blob/f198938/src/ConfigLoader.ts#L34)
+[src/ConfigLoader.ts:34](https://github.com/breautek/storm/blob/4ac2f44/src/ConfigLoader.ts#L34)
