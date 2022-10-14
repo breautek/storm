@@ -35,4 +35,8 @@ export class InvalidCredentialsError extends StormError<any> {
     public getHTTPCode(): StatusCode {
         return StatusCode.ERR_UNAUTHORIZED;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/InvalidCredentialsError/message';
+    }
 }

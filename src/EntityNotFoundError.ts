@@ -34,4 +34,14 @@ export class EntityNotFoundError extends StormError {
     public getHTTPCode(): StatusCode {
         return StatusCode.ERR_NOT_FOUND;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/EntityNotFoundError/message';
+    }
+
+    public override getLocaleParameters(): Record<string, string> {
+        return {
+            name: this.getPrivateDetails().name
+        };
+    }
 }

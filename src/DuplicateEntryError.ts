@@ -45,4 +45,17 @@ export class DuplicateEntryError extends StormError {
     public getHTTPCode(): StatusCode {
         return StatusCode.ERR_BAD_REQUEST;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/DuplicateEntryError/message';
+    }
+
+    public override getLocaleParameters(): Record<string, string> {
+        let details: IDuplicateEntryErrorOptions = this.getPrivateDetails();
+        return {
+            entity: details.entity,
+            property: details.property,
+            name: details.name
+        };
+    }
 }

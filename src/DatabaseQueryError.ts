@@ -40,4 +40,8 @@ export class DatabaseQueryError extends StormError<{
     public getHTTPCode(): StatusCode {
         return StatusCode.INTERNAL_ERROR;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/InternalError/message';
+    }
 }

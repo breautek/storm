@@ -35,4 +35,8 @@ export class InternalError extends StormError<any> {
     public getHTTPCode(): StatusCode {
         return StatusCode.INTERNAL_ERROR;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/InternalError/message';
+    }
 }

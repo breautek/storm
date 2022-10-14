@@ -34,4 +34,8 @@ export class UnauthorizedAccessError extends StormError {
     public getHTTPCode(): StatusCode {
         return StatusCode.ERR_FORBIDDEN;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/UnauthorizedAccessError/message';
+    }
 }

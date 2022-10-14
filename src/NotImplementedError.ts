@@ -42,4 +42,14 @@ export class NotImplementedError extends StormError<INotImplementedErrorOptions>
     public getHTTPCode(): StatusCode {
         return StatusCode.INTERNAL_NOT_IMPLEMENTED;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/NotImplementedError/message';
+    }
+
+    public override getLocaleParameters(): Record<string, string> {
+        return {
+            method: this.getPrivateDetails().method
+        };
+    }
 }

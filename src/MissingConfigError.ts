@@ -45,4 +45,14 @@ export class MissingConfigError extends StormError<IMissingConfigErrorDetails> {
     public getExitCode(): ExitCode {
         return ExitCode.MISSING_CONFIG;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/MissingConfigError/message';
+    }
+
+    public override getLocaleParameters(): Record<string, string> {
+        return {
+            path: this.getPrivateDetails().path
+        };
+    }
 }

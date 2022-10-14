@@ -25,9 +25,15 @@ export interface IAdditionalErrorDetails {
     [key: string]: any;
 }
 
+export interface ILocale {
+    code: string;
+    parameters: Record<string, string>;
+}
+
 export interface IErrorResponse {
     name: string;
     message: string;
+    locale: ILocale;
     code: number;
     details: IAdditionalErrorDetails;
 }
@@ -72,8 +78,20 @@ export abstract class StormError<TErrorDetails = any> extends Error {
             name: this.constructor.name,
             message : this.getMessage(),
             code : this.getCode(),
+            locale: {
+                code: this.getLocaleCode(),
+                parameters: this.getLocaleParameters()
+            },
             details: this.getPublicDetails()
         };
+    }
+
+    public getLocaleCode(): string {
+        return null;
+    }
+
+    public getLocaleParameters(): Record<string, string> {
+        return null;
     }
 
     public getExitCode(): ExitCode {

@@ -44,4 +44,17 @@ export class InvalidValueError extends StormError<{
     public getHTTPCode(): StatusCode {
         return StatusCode.ERR_BAD_REQUEST;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/InvalidValueError/message';
+    }
+
+    public override getLocaleParameters(): Record<string, string> {
+        let details = this.getPrivateDetails();
+        return {
+            variable: details.variable,
+            expected: details.expected,
+            got: details.got
+        };
+    }
 }

@@ -34,4 +34,14 @@ export class MissingParameterError extends StormError {
     public getHTTPCode(): StatusCode {
         return StatusCode.ERR_BAD_REQUEST;
     }
+
+    public override getLocaleCode(): string {
+        return '@breautek/storm/MissingParameterError/message';
+    }
+
+    public override getLocaleParameters(): Record<string, string> {
+        return {
+            parameter: this.getPrivateDetails().parameter
+        };
+    }
 }
