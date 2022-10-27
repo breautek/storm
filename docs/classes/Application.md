@@ -78,6 +78,7 @@ Main entry point for the Application. Should be extended and have the abstract m
 - [listenerCount](Application.md#listenercount-1)
 - [on](Application.md#on-1)
 - [once](Application.md#once-1)
+- [setMaxListeners](Application.md#setmaxlisteners-1)
 
 ## Constructors
 
@@ -107,7 +108,7 @@ EventEmitter.constructor
 
 #### Defined in
 
-[src/Application.ts:64](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L64)
+[src/Application.ts:64](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L64)
 
 ## Properties
 
@@ -121,7 +122,7 @@ EventEmitter.captureRejectionSymbol
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:273
+node_modules/@types/node/ts4.8/events.d.ts:328
 
 ___
 
@@ -137,7 +138,7 @@ EventEmitter.captureRejections
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:278
+node_modules/@types/node/ts4.8/events.d.ts:333
 
 ___
 
@@ -151,7 +152,7 @@ EventEmitter.defaultMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:279
+node_modules/@types/node/ts4.8/events.d.ts:334
 
 ___
 
@@ -173,7 +174,7 @@ EventEmitter.errorMonitor
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:272
+node_modules/@types/node/ts4.8/events.d.ts:327
 
 ## Methods
 
@@ -191,7 +192,7 @@ Promise<void>
 
 #### Defined in
 
-[src/Application.ts:272](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L272)
+[src/Application.ts:272](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L272)
 
 ___
 
@@ -211,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:202](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L202)
+[src/Application.ts:202](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L202)
 
 ___
 
@@ -225,7 +226,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:249](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L249)
+[src/Application.ts:249](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L249)
 
 ___
 
@@ -239,7 +240,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:255](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L255)
+[src/Application.ts:255](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L255)
 
 ___
 
@@ -261,7 +262,7 @@ Subclasses are expected to override this to configure their database setup, if t
 
 #### Defined in
 
-[src/Application.ts:381](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L381)
+[src/Application.ts:381](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L381)
 
 ___
 
@@ -281,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:165](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L165)
+[src/Application.ts:165](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L165)
 
 ___
 
@@ -301,7 +302,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:161](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L161)
+[src/Application.ts:161](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L161)
 
 ___
 
@@ -315,7 +316,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:385](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L385)
+[src/Application.ts:385](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L385)
 
 ___
 
@@ -337,7 +338,7 @@ Invoked once the config has been loaded and ready to be used.
 
 #### Defined in
 
-[src/Application.ts:325](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L325)
+[src/Application.ts:325](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L325)
 
 ___
 
@@ -353,7 +354,7 @@ Invoked when the application is considered ready for operation.
 
 #### Defined in
 
-[src/Application.ts:390](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L390)
+[src/Application.ts:390](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L390)
 
 ___
 
@@ -363,7 +364,9 @@ ___
 
 Alias for `emitter.on(eventName, listener)`.
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -382,7 +385,7 @@ EventEmitter.addListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:299
+node_modules/@types/node/ts4.8/events.d.ts:354
 
 ___
 
@@ -403,7 +406,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:221](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L221)
+[src/Application.ts:221](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L221)
 
 ___
 
@@ -424,7 +427,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:226](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L226)
+[src/Application.ts:226](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L226)
 
 ___
 
@@ -438,7 +441,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:245](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L245)
+[src/Application.ts:245](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L245)
 
 ___
 
@@ -484,7 +487,9 @@ myEmitter.emit('event', 1, 2, 3, 4, 5);
 // event with parameters 1, 2, 3, 4, 5 in third listener
 ```
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -503,7 +508,7 @@ EventEmitter.emit
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:555
+node_modules/@types/node/ts4.8/events.d.ts:610
 
 ___
 
@@ -527,7 +532,9 @@ console.log(myEE.eventNames());
 // Prints: [ 'foo', 'bar', Symbol(symbol) ]
 ```
 
-**`since`** v6.0.0
+**`Since`**
+
+v6.0.0
 
 #### Returns
 
@@ -539,7 +546,7 @@ EventEmitter.eventNames
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:614
+node_modules/@types/node/ts4.8/events.d.ts:669
 
 ___
 
@@ -555,7 +562,7 @@ command line arguments
 
 #### Defined in
 
-[src/Application.ts:352](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L352)
+[src/Application.ts:352](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L352)
 
 ___
 
@@ -571,7 +578,7 @@ the config object.
 
 #### Defined in
 
-[src/Application.ts:309](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L309)
+[src/Application.ts:309](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L309)
 
 ___
 
@@ -587,7 +594,7 @@ the database pool. This will need to be casted based on your preferred database 
 
 #### Defined in
 
-[src/Application.ts:345](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L345)
+[src/Application.ts:345](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L345)
 
 ___
 
@@ -601,7 +608,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:169](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L169)
+[src/Application.ts:169](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L169)
 
 ___
 
@@ -612,7 +619,9 @@ ___
 Returns the current max listener value for the `EventEmitter` which is either
 set by `emitter.setMaxListeners(n)` or defaults to [defaultMaxListeners](Application.md#defaultmaxlisteners).
 
-**`since`** v1.0.0
+**`Since`**
+
+v1.0.0
 
 #### Returns
 
@@ -624,7 +633,7 @@ EventEmitter.getMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:471
+node_modules/@types/node/ts4.8/events.d.ts:526
 
 ___
 
@@ -640,7 +649,7 @@ the application name
 
 #### Defined in
 
-[src/Application.ts:298](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L298)
+[src/Application.ts:298](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L298)
 
 ___
 
@@ -654,7 +663,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:173](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L173)
+[src/Application.ts:173](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L173)
 
 ___
 
@@ -668,7 +677,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:204](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L204)
+[src/Application.ts:204](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L204)
 
 ___
 
@@ -684,7 +693,7 @@ The maximum size limit for incoming requests that this service needs to handle.
 
 #### Defined in
 
-[src/Application.ts:211](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L211)
+[src/Application.ts:211](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L211)
 
 ___
 
@@ -700,7 +709,7 @@ the token manager
 
 #### Defined in
 
-[src/Application.ts:338](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L338)
+[src/Application.ts:338](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L338)
 
 ___
 
@@ -710,7 +719,9 @@ ___
 
 Returns the number of listeners listening to the event named `eventName`.
 
-**`since`** v3.2.0
+**`Since`**
+
+v3.2.0
 
 #### Parameters
 
@@ -728,7 +739,7 @@ EventEmitter.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:561
+node_modules/@types/node/ts4.8/events.d.ts:616
 
 ___
 
@@ -746,7 +757,9 @@ console.log(util.inspect(server.listeners('connection')));
 // Prints: [ [Function] ]
 ```
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -764,7 +777,7 @@ EventEmitter.listeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:484
+node_modules/@types/node/ts4.8/events.d.ts:539
 
 ___
 
@@ -784,7 +797,7 @@ ___
 
 #### Defined in
 
-[src/Application.ts:278](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L278)
+[src/Application.ts:278](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L278)
 
 ___
 
@@ -794,7 +807,9 @@ ___
 
 Alias for `emitter.removeListener()`.
 
-**`since`** v10.0.0
+**`Since`**
+
+v10.0.0
 
 #### Parameters
 
@@ -813,7 +828,7 @@ EventEmitter.off
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:444
+node_modules/@types/node/ts4.8/events.d.ts:499
 
 ___
 
@@ -847,7 +862,9 @@ myEE.emit('foo');
 //   a
 ```
 
-**`since`** v0.1.101
+**`Since`**
+
+v0.1.101
 
 #### Parameters
 
@@ -866,7 +883,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:330
+node_modules/@types/node/ts4.8/events.d.ts:385
 
 ___
 
@@ -898,7 +915,9 @@ myEE.emit('foo');
 //   a
 ```
 
-**`since`** v0.3.0
+**`Since`**
+
+v0.3.0
 
 #### Parameters
 
@@ -917,7 +936,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:359
+node_modules/@types/node/ts4.8/events.d.ts:414
 
 ___
 
@@ -938,7 +957,9 @@ server.prependListener('connection', (stream) => {
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v6.0.0
+**`Since`**
+
+v6.0.0
 
 #### Parameters
 
@@ -957,7 +978,7 @@ EventEmitter.prependListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:579
+node_modules/@types/node/ts4.8/events.d.ts:634
 
 ___
 
@@ -965,7 +986,7 @@ ___
 
 ▸ **prependOnceListener**(`eventName`, `listener`): [`Application`](Application.md)<`TConfig`, `TAuthToken`, `TDBConfig`, `TDBConnectionAPI`\>
 
-Adds a **one-time**`listener` function for the event named `eventName` to the_beginning_ of the listeners array. The next time `eventName` is triggered, this
+Adds a **one-time**`listener` function for the event named `eventName` to the _beginning_ of the listeners array. The next time `eventName` is triggered, this
 listener is removed, and then invoked.
 
 ```js
@@ -976,7 +997,9 @@ server.prependOnceListener('connection', (stream) => {
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v6.0.0
+**`Since`**
+
+v6.0.0
 
 #### Parameters
 
@@ -995,7 +1018,7 @@ EventEmitter.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:595
+node_modules/@types/node/ts4.8/events.d.ts:650
 
 ___
 
@@ -1030,7 +1053,9 @@ newListeners[0]();
 emitter.emit('log');
 ```
 
-**`since`** v9.4.0
+**`Since`**
+
+v9.4.0
 
 #### Parameters
 
@@ -1048,7 +1073,7 @@ EventEmitter.rawListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:514
+node_modules/@types/node/ts4.8/events.d.ts:569
 
 ___
 
@@ -1064,7 +1089,9 @@ component or module (e.g. sockets or file streams).
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -1082,7 +1109,7 @@ EventEmitter.removeAllListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:455
+node_modules/@types/node/ts4.8/events.d.ts:510
 
 ___
 
@@ -1107,8 +1134,8 @@ listener array for the specified `eventName`, then `removeListener()` must be
 called multiple times to remove each instance.
 
 Once an event is emitted, all listeners attached to it at the
-time of emitting are called in order. This implies that any`removeListener()` or `removeAllListeners()` calls _after_ emitting and_before_ the last listener finishes execution will
-not remove them from`emit()` in progress. Subsequent events behave as expected.
+time of emitting are called in order. This implies that any`removeListener()` or `removeAllListeners()` calls _after_ emitting and _before_ the last listener finishes execution
+will not remove them from`emit()` in progress. Subsequent events behave as expected.
 
 ```js
 const myEmitter = new MyEmitter();
@@ -1167,7 +1194,9 @@ ee.emit('ping');
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -1186,7 +1215,7 @@ EventEmitter.removeListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:439
+node_modules/@types/node/ts4.8/events.d.ts:494
 
 ___
 
@@ -1201,7 +1230,9 @@ modified for this specific `EventEmitter` instance. The value can be set to`Infi
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v0.3.5
+**`Since`**
+
+v0.3.5
 
 #### Parameters
 
@@ -1219,7 +1250,7 @@ EventEmitter.setMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:465
+node_modules/@types/node/ts4.8/events.d.ts:520
 
 ___
 
@@ -1241,7 +1272,7 @@ Sets the TokenManager to be used for authentication.
 
 #### Defined in
 
-[src/Application.ts:331](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L331)
+[src/Application.ts:331](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L331)
 
 ___
 
@@ -1257,7 +1288,7 @@ true if the Application should bind to an IP address
 
 #### Defined in
 
-[src/Application.ts:316](https://github.com/breautek/storm/blob/4ac2f44/src/Application.ts#L316)
+[src/Application.ts:316](https://github.com/breautek/storm/blob/0875c73/src/Application.ts#L316)
 
 ___
 
@@ -1290,13 +1321,15 @@ const { getEventListeners, EventEmitter } = require('events');
 }
 ```
 
-**`since`** v15.2.0
+**`Since`**
+
+v15.2.0, v14.17.0
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | `EventEmitter` \| `DOMEventTarget` |
+| `emitter` | `EventEmitter` \| `_DOMEventTarget` |
 | `name` | `string` \| `symbol` |
 
 #### Returns
@@ -1309,7 +1342,7 @@ EventEmitter.getEventListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:262
+node_modules/@types/node/ts4.8/events.d.ts:299
 
 ___
 
@@ -1328,9 +1361,13 @@ console.log(listenerCount(myEmitter, 'event'));
 // Prints: 2
 ```
 
-**`since`** v0.9.12
+**`Since`**
 
-**`deprecated`** Since v3.2.0 - Use `listenerCount` instead.
+v0.9.12
+
+**`Deprecated`**
+
+Since v3.2.0 - Use `listenerCount` instead.
 
 #### Parameters
 
@@ -1349,7 +1386,7 @@ EventEmitter.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:234
+node_modules/@types/node/ts4.8/events.d.ts:271
 
 ___
 
@@ -1411,7 +1448,9 @@ const ac = new AbortController();
 process.nextTick(() => ac.abort());
 ```
 
-**`since`** v13.6.0, v12.16.0
+**`Since`**
+
+v13.6.0, v12.16.0
 
 #### Parameters
 
@@ -1433,7 +1472,7 @@ EventEmitter.on
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:217
+node_modules/@types/node/ts4.8/events.d.ts:254
 
 ___
 
@@ -1521,13 +1560,15 @@ ac.abort(); // Abort waiting for the event
 ee.emit('foo'); // Prints: Waiting for the event was canceled!
 ```
 
-**`since`** v11.13.0, v10.16.0
+**`Since`**
+
+v11.13.0, v10.16.0
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | `NodeEventTarget` |
+| `emitter` | `_NodeEventTarget` |
 | `eventName` | `string` \| `symbol` |
 | `options?` | `StaticEventEmitterOptions` |
 
@@ -1541,7 +1582,7 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:157
+node_modules/@types/node/ts4.8/events.d.ts:194
 
 ▸ `Static` **once**(`emitter`, `eventName`, `options?`): `Promise`<`any`[]\>
 
@@ -1549,7 +1590,7 @@ node_modules/@types/node/events.d.ts:157
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | `DOMEventTarget` |
+| `emitter` | `_DOMEventTarget` |
 | `eventName` | `string` |
 | `options?` | `StaticEventEmitterOptions` |
 
@@ -1563,4 +1604,45 @@ EventEmitter.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:158
+node_modules/@types/node/ts4.8/events.d.ts:195
+
+___
+
+### setMaxListeners
+
+▸ `Static` **setMaxListeners**(`n?`, ...`eventTargets`): `void`
+
+```js
+const {
+  setMaxListeners,
+  EventEmitter
+} = require('events');
+
+const target = new EventTarget();
+const emitter = new EventEmitter();
+
+setMaxListeners(5, target, emitter);
+```
+
+**`Since`**
+
+v15.4.0
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `n?` | `number` | A non-negative number. The maximum number of listeners per `EventTarget` event. |
+| `...eventTargets` | (`EventEmitter` \| `_DOMEventTarget`)[] | - |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+EventEmitter.setMaxListeners
+
+#### Defined in
+
+node_modules/@types/node/ts4.8/events.d.ts:317

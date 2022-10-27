@@ -4,7 +4,9 @@
 
 [formidable](../modules/formidable.md).FileJSON
 
-**`link`** https://github.com/node-formidable/formidable#file
+**`Link`**
+
+https://github.com/node-formidable/formidable#file
 
 ## Hierarchy
 

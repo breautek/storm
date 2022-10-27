@@ -104,7 +104,9 @@ node_modules/@types/formidable/index.d.ts:221
 This method returns a JSON-representation of the file, allowing you to JSON.stringify() the
 file which is useful for logging and responding to requests.
 
-**`link`** https://github.com/node-formidable/formidable#filetojson
+**`Link`**
+
+https://github.com/node-formidable/formidable#filetojson
 
 #### Returns
 

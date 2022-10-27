@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:22](https://github.com/breautek/storm/blob/4ac2f44/src/UnauthorizedAccessError.ts#L22)
+[src/UnauthorizedAccessError.ts:22](https://github.com/breautek/storm/blob/0875c73/src/UnauthorizedAccessError.ts#L22)
 
 ## Properties
 
@@ -67,7 +67,7 @@
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1029
+node_modules/typescript/lib/lib.es5.d.ts:1041
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1028
+node_modules/typescript/lib/lib.es5.d.ts:1040
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1030
+node_modules/typescript/lib/lib.es5.d.ts:1042
 
 ___
 
@@ -109,7 +109,9 @@ ___
 
 Optional override for formatting stack traces
 
-**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+**`See`**
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 ##### Parameters
 
@@ -128,7 +130,7 @@ Optional override for formatting stack traces
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:11
+node_modules/@types/node/ts4.8/globals.d.ts:11
 
 ___
 
@@ -142,7 +144,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:13
+node_modules/@types/node/ts4.8/globals.d.ts:13
 
 ## Methods
 
@@ -160,7 +162,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:30](https://github.com/breautek/storm/blob/4ac2f44/src/UnauthorizedAccessError.ts#L30)
+[src/UnauthorizedAccessError.ts:30](https://github.com/breautek/storm/blob/0875c73/src/UnauthorizedAccessError.ts#L30)
 
 ___
 
@@ -178,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:76](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L76)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/0875c73/src/StormError.ts#L76)
 
 ___
 
@@ -196,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:97](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L97)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/0875c73/src/StormError.ts#L97)
 
 ___
 
@@ -214,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:34](https://github.com/breautek/storm/blob/4ac2f44/src/UnauthorizedAccessError.ts#L34)
+[src/UnauthorizedAccessError.ts:34](https://github.com/breautek/storm/blob/0875c73/src/UnauthorizedAccessError.ts#L34)
 
 ___
 
@@ -232,7 +234,7 @@ ___
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:38](https://github.com/breautek/storm/blob/4ac2f44/src/UnauthorizedAccessError.ts#L38)
+[src/UnauthorizedAccessError.ts:38](https://github.com/breautek/storm/blob/0875c73/src/UnauthorizedAccessError.ts#L38)
 
 ___
 
@@ -250,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:93](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L93)
+[src/StormError.ts:93](https://github.com/breautek/storm/blob/0875c73/src/StormError.ts#L93)
 
 ___
 
@@ -268,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:26](https://github.com/breautek/storm/blob/4ac2f44/src/UnauthorizedAccessError.ts#L26)
+[src/UnauthorizedAccessError.ts:26](https://github.com/breautek/storm/blob/0875c73/src/UnauthorizedAccessError.ts#L26)
 
 ___
 
@@ -289,7 +291,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:68](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L68)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/0875c73/src/StormError.ts#L68)
 
 ___
 
@@ -309,7 +311,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:60](https://github.com/breautek/storm/blob/4ac2f44/src/StormError.ts#L60)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/0875c73/src/StormError.ts#L60)
 
 ___
 
@@ -336,4 +338,4 @@ Create .stack property on a target object
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:4
+node_modules/@types/node/ts4.8/globals.d.ts:4

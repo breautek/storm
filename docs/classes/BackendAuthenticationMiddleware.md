@@ -4,7 +4,7 @@
 
 A base authentication strategy that handles 90% of the authentication process.
 This will verify that the token hasn't been manipulated or tainted.
-The authenticate API must be implemented by subclasses to further validate the token data
+The authenticate API must be implemented by subclasses to further validate the token data 
 for their specific use cases.
 
 ## Table of contents
@@ -25,7 +25,7 @@ for their specific use cases.
 
 #### Defined in
 
-[src/BackendAuthenticationMiddleware.ts:35](https://github.com/breautek/storm/blob/4ac2f44/src/BackendAuthenticationMiddleware.ts#L35)
+[src/BackendAuthenticationMiddleware.ts:35](https://github.com/breautek/storm/blob/0875c73/src/BackendAuthenticationMiddleware.ts#L35)
 
 ## Methods
 
@@ -46,4 +46,4 @@ for their specific use cases.
 
 #### Defined in
 
-[src/BackendAuthenticationMiddleware.ts:46](https://github.com/breautek/storm/blob/4ac2f44/src/BackendAuthenticationMiddleware.ts#L46)
+[src/BackendAuthenticationMiddleware.ts:46](https://github.com/breautek/storm/blob/0875c73/src/BackendAuthenticationMiddleware.ts#L46)

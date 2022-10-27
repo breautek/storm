@@ -25,6 +25,7 @@
 - [Database](classes/Database.md)
 - [DatabaseConnection](classes/DatabaseConnection.md)
 - [DatabaseQueryError](classes/DatabaseQueryError.md)
+- [DeadLockError](classes/DeadLockError.md)
 - [DiskSpaceError](classes/DiskSpaceError.md)
 - [DropTemporaryTableQuery](classes/DropTemporaryTableQuery.md)
 - [DumpStream](classes/DumpStream.md)
@@ -82,12 +83,9 @@
 - [IHandlerError](README.md#ihandlererror)
 - [IHandlerResponse](README.md#ihandlerresponse)
 
-### Variables
-
-- [formidable](README.md#formidable)
-
 ### Functions
 
+- [formidable](README.md#formidable)
 - [getInstance](README.md#getinstance)
 
 ## Type Aliases
@@ -98,7 +96,7 @@
 
 #### Defined in
 
-[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/4ac2f44/src/IDeleteQueryResult.ts#L19)
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/0875c73/src/IDeleteQueryResult.ts#L19)
 
 ___
 
@@ -114,7 +112,7 @@ This is to avoid accidental leakage of privilege data (e.g. snippets of database
 
 #### Defined in
 
-[src/Handler.ts:55](https://github.com/breautek/storm/blob/4ac2f44/src/Handler.ts#L55)
+[src/Handler.ts:55](https://github.com/breautek/storm/blob/0875c73/src/Handler.ts#L55)
 
 ___
 
@@ -134,19 +132,29 @@ certain things depending on the type of object it receives.
 
 #### Defined in
 
-[src/Handler.ts:46](https://github.com/breautek/storm/blob/4ac2f44/src/Handler.ts#L46)
+[src/Handler.ts:46](https://github.com/breautek/storm/blob/0875c73/src/Handler.ts#L46)
 
-## Variables
+## Functions
 
 ### formidable
 
-• **formidable**: (`options?`: [`Options`](interfaces/formidable.Options.md)) => `IncomingForm` & [`MappedParsers`](modules/formidable.md#mappedparsers)
+▸ **formidable**(`options?`): `IncomingForm`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options?` | [`Options`](interfaces/formidable.Options.md) |
+
+#### Returns
+
+`IncomingForm`
 
 #### Defined in
 
-node_modules/@types/formidable/index.d.ts:281
+node_modules/@types/formidable/index.d.ts:282
 
-## Functions
+___
 
 ### getInstance
 
@@ -158,4 +166,4 @@ node_modules/@types/formidable/index.d.ts:281
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/4ac2f44/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/0875c73/src/instance.ts#L28)

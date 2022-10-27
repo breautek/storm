@@ -29,7 +29,9 @@
 
 allow upload empty files
 
-**`default`** true
+**`Default`**
+
+true
 
 #### Defined in
 
@@ -53,7 +55,9 @@ ___
 
 sets encoding for incoming form fields
 
-**`default`** 'utf-8'
+**`Default`**
+
+'utf-8'
 
 #### Defined in
 
@@ -77,7 +81,9 @@ streamed for. If you are looking to write the file uploaded in other types of cl
 you're looking for. When this option is defined the default behavior of writing the file in the
 host machine file system is lost.
 
-**`default`** null
+**`Default`**
+
+null
 
 ##### Returns
 
@@ -96,7 +102,9 @@ ___
 include checksums calculated for incoming files, set this to some hash algorithm, see
 crypto.createHash for available algorithms
 
-**`default`** false
+**`Default`**
+
+false
 
 #### Defined in
 
@@ -110,7 +118,9 @@ ___
 
 to include the extensions of the original files or not
 
-**`default`** false
+**`Default`**
+
+false
 
 #### Defined in
 
@@ -124,7 +134,9 @@ ___
 
 limit the number of fields, set 0 for unlimited
 
-**`default`** 1000
+**`Default`**
+
+1000
 
 #### Defined in
 
@@ -138,7 +150,9 @@ ___
 
 limit the amount of memory all fields together (except files) can allocate in bytes
 
-**`default`** 20 * 1024 * 1024
+**`Default`**
+
+20 * 1024 * 1024
 
 #### Defined in
 
@@ -152,7 +166,9 @@ ___
 
 limit the size of uploaded file
 
-**`default`** 200 * 1024 * 1024
+**`Default`**
+
+200 * 1024 * 1024
 
 #### Defined in
 
@@ -166,7 +182,9 @@ ___
 
 the minium size of uploaded file
 
-**`default`** 1
+**`Default`**
+
+1
 
 #### Defined in
 
@@ -182,7 +200,9 @@ when you call the .parse method, the files argument (of the callback) will conta
 files for inputs which submit multiple files using the HTML5 multiple attribute. Also, the
 fields argument will contain arrays of values for fields that have names ending with '[]'
 
-**`default`** false
+**`Default`**
+
+false
 
 #### Defined in
 
@@ -196,7 +216,9 @@ ___
 
 the directory for placing file uploads in. You can move them later by using fs.rename()
 
-**`default`** os.tmpdir()
+**`Default`**
+
+os.tmpdir()
 
 #### Defined in
 

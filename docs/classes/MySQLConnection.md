@@ -2,6 +2,14 @@
 
 # Class: MySQLConnection
 
+Do not call `new Database` directly. Use `Database.getConnection` to create a `DatabaseConnection` object.
+
+**`Abstract`**
+
+**`Implements`**
+
+`IDatabaseConnection`
+
 ## Hierarchy
 
 - [`DatabaseConnection`](DatabaseConnection.md)<`MySQL.PoolConnection`\>
@@ -56,7 +64,7 @@
 
 #### Defined in
 
-[src/MySQLConnection.ts:46](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L46)
+[src/MySQLConnection.ts:48](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L48)
 
 ## Methods
 
@@ -67,11 +75,13 @@
 Implementation to close the connection, if `forceClose` is true, close the connection no matter what.
 Silently error if it means the connection is closed.
 
+**`Async`**
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `forceClose` | `boolean` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `forceClose` | `boolean` | boolean, if `true`, should close the connection no matter what. |
 
 #### Returns
 
@@ -85,7 +95,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:190](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L190)
+[src/MySQLConnection.ts:200](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L200)
 
 ___
 
@@ -95,12 +105,14 @@ ___
 
 Implementation method to return a dataset from the database
 
+**`Async`**
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `query` | `string` |
-| `params?` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | `string` | The database query |
+| `params?` | `any` | The query parameters |
 
 #### Returns
 
@@ -114,7 +126,7 @@ Promise
 
 #### Defined in
 
-[src/MySQLConnection.ts:74](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L74)
+[src/MySQLConnection.ts:76](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L76)
 
 ___
 
@@ -127,11 +139,11 @@ but returns a `Readable` stream instead.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `query` | `string` |
-| `params?` | `any` |
-| `streamOptions?` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | `string` | The database query |
+| `params?` | `any` | The query parameters |
+| `streamOptions?` | `any` | `Readable` stream options |
 
 #### Returns
 
@@ -145,7 +157,7 @@ but returns a `Readable` stream instead.
 
 #### Defined in
 
-[src/MySQLConnection.ts:113](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L113)
+[src/MySQLConnection.ts:123](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L123)
 
 ___
 
@@ -157,7 +169,7 @@ Closes the connection. May error if connection has an active transaction.
 if `forceClose` boolean is true, it will force close the connection, regardless
 of transaction state.
 
-**`async`**
+**`Async`**
 
 #### Parameters
 
@@ -177,7 +189,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L168)
+[src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L168)
 
 ___
 
@@ -186,6 +198,10 @@ ___
 ▸ **commit**(): `Promise`<`void`\>
 
 Commits a transaction. This will end a transaction.
+
+**`Abstract`**
+
+**`Async`**
 
 #### Returns
 
@@ -199,7 +215,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:174](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L174)
+[src/MySQLConnection.ts:184](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L184)
 
 ___
 
@@ -209,11 +225,15 @@ ___
 
 Ends a transaction. if `requiresRollback` is `true`, then `rollback()` is invoked. Otherwise, `commit()` is invoked.
 
+**`Abstract`**
+
+**`Async`**
+
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `requiresRollback` | `boolean` | `false` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `requiresRollback` | `boolean` | `false` | optional boolean |
 
 #### Returns
 
@@ -227,7 +247,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:154](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L154)
+[src/MySQLConnection.ts:164](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L164)
 
 ___
 
@@ -249,7 +269,7 @@ any
 
 #### Defined in
 
-[src/DatabaseConnection.ts:90](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L90)
+[src/DatabaseConnection.ts:90](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L90)
 
 ___
 
@@ -272,7 +292,7 @@ string - A stacktrace
 
 #### Defined in
 
-[src/DatabaseConnection.ts:72](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L72)
+[src/DatabaseConnection.ts:72](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L72)
 
 ___
 
@@ -294,7 +314,7 @@ number in milliseconds
 
 #### Defined in
 
-[src/DatabaseConnection.ts:120](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L120)
+[src/DatabaseConnection.ts:120](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L120)
 
 ___
 
@@ -314,7 +334,7 @@ Returns true if the connection has been closed.
 
 #### Defined in
 
-[src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L181)
+[src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L181)
 
 ___
 
@@ -328,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/MySQLConnection.ts:69](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L69)
+[src/MySQLConnection.ts:71](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L71)
 
 ___
 
@@ -351,7 +371,7 @@ boolean
 
 #### Defined in
 
-[src/DatabaseConnection.ts:99](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L99)
+[src/DatabaseConnection.ts:99](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L99)
 
 ___
 
@@ -360,6 +380,8 @@ ___
 ▸ **isTransaction**(): `boolean`
 
 Implementation method to determine if the connection is in an active transaction.
+
+**`Abstract`**
 
 #### Returns
 
@@ -373,7 +395,7 @@ boolean
 
 #### Defined in
 
-[src/MySQLConnection.ts:65](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L65)
+[src/MySQLConnection.ts:67](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L67)
 
 ___
 
@@ -383,7 +405,7 @@ ___
 
 Queries the database for a dataset.
 
-**`async`**
+**`Async`**
 
 #### Type parameters
 
@@ -409,7 +431,7 @@ Promise<TQueryResult>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:131](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L131)
+[src/DatabaseConnection.ts:131](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L131)
 
 ___
 
@@ -418,6 +440,10 @@ ___
 ▸ **rollback**(): `Promise`<`void`\>
 
 Rollsback a transaction. This will end a transaction.
+
+**`Abstract`**
+
+**`Async`**
 
 #### Returns
 
@@ -431,7 +457,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:158](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L158)
+[src/MySQLConnection.ts:168](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L168)
 
 ___
 
@@ -455,7 +481,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseConnection.ts:63](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L63)
+[src/DatabaseConnection.ts:63](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L63)
 
 ___
 
@@ -481,7 +507,7 @@ Sets the timeout of this connectino
 
 #### Defined in
 
-[src/DatabaseConnection.ts:108](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L108)
+[src/DatabaseConnection.ts:108](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L108)
 
 ___
 
@@ -490,6 +516,10 @@ ___
 ▸ **startTransaction**(): `Promise`<`void`\>
 
 Implementation method to start a transaction.
+
+**`Abstract`**
+
+**`Async`**
 
 #### Returns
 
@@ -503,7 +533,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:132](https://github.com/breautek/storm/blob/4ac2f44/src/MySQLConnection.ts#L132)
+[src/MySQLConnection.ts:142](https://github.com/breautek/storm/blob/0875c73/src/MySQLConnection.ts#L142)
 
 ___
 
@@ -530,4 +560,4 @@ Readable
 
 #### Defined in
 
-[src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L151)
+[src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L151)

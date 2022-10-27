@@ -1,47 +1,47 @@
-[@breautek/storm](../README.md) / DatabaseQueryError
+[@breautek/storm](../README.md) / DeadLockError
 
-# Class: DatabaseQueryError
+# Class: DeadLockError
+
+DeadLockError is a DatabaseQueryError but is subclasses for typing purposes.
 
 ## Hierarchy
 
-- [`StormError`](StormError.md)<{ `error`: `any` ; `query`: `string`  }\>
+- [`DatabaseQueryError`](DatabaseQueryError.md)
 
-  ↳ **`DatabaseQueryError`**
-
-  ↳↳ [`DeadLockError`](DeadLockError.md)
+  ↳ **`DeadLockError`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](DatabaseQueryError.md#constructor)
+- [constructor](DeadLockError.md#constructor)
 
 ### Properties
 
-- [message](DatabaseQueryError.md#message)
-- [name](DatabaseQueryError.md#name)
-- [stack](DatabaseQueryError.md#stack)
-- [prepareStackTrace](DatabaseQueryError.md#preparestacktrace)
-- [stackTraceLimit](DatabaseQueryError.md#stacktracelimit)
+- [message](DeadLockError.md#message)
+- [name](DeadLockError.md#name)
+- [stack](DeadLockError.md#stack)
+- [prepareStackTrace](DeadLockError.md#preparestacktrace)
+- [stackTraceLimit](DeadLockError.md#stacktracelimit)
 
 ### Methods
 
-- [getCode](DatabaseQueryError.md#getcode)
-- [getErrorResponse](DatabaseQueryError.md#geterrorresponse)
-- [getExitCode](DatabaseQueryError.md#getexitcode)
-- [getHTTPCode](DatabaseQueryError.md#gethttpcode)
-- [getLocaleCode](DatabaseQueryError.md#getlocalecode)
-- [getLocaleParameters](DatabaseQueryError.md#getlocaleparameters)
-- [getMessage](DatabaseQueryError.md#getmessage)
-- [getPrivateDetails](DatabaseQueryError.md#getprivatedetails)
-- [getPublicDetails](DatabaseQueryError.md#getpublicdetails)
-- [captureStackTrace](DatabaseQueryError.md#capturestacktrace)
+- [getCode](DeadLockError.md#getcode)
+- [getErrorResponse](DeadLockError.md#geterrorresponse)
+- [getExitCode](DeadLockError.md#getexitcode)
+- [getHTTPCode](DeadLockError.md#gethttpcode)
+- [getLocaleCode](DeadLockError.md#getlocalecode)
+- [getLocaleParameters](DeadLockError.md#getlocaleparameters)
+- [getMessage](DeadLockError.md#getmessage)
+- [getPrivateDetails](DeadLockError.md#getprivatedetails)
+- [getPublicDetails](DeadLockError.md#getpublicdetails)
+- [captureStackTrace](DeadLockError.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-• **new DatabaseQueryError**(`query`, `error`)
+• **new DeadLockError**(`query`, `error`)
 
 #### Parameters
 
@@ -50,9 +50,9 @@
 | `query` | `string` |
 | `error` | `any` |
 
-#### Overrides
+#### Inherited from
 
-[StormError](StormError.md).[constructor](StormError.md#constructor)
+[DatabaseQueryError](DatabaseQueryError.md).[constructor](DatabaseQueryError.md#constructor)
 
 #### Defined in
 
@@ -66,7 +66,7 @@
 
 #### Inherited from
 
-[StormError](StormError.md).[message](StormError.md#message)
+[DatabaseQueryError](DatabaseQueryError.md).[message](DatabaseQueryError.md#message)
 
 #### Defined in
 
@@ -80,7 +80,7 @@ ___
 
 #### Inherited from
 
-[StormError](StormError.md).[name](StormError.md#name)
+[DatabaseQueryError](DatabaseQueryError.md).[name](DatabaseQueryError.md#name)
 
 #### Defined in
 
@@ -94,7 +94,7 @@ ___
 
 #### Inherited from
 
-[StormError](StormError.md).[stack](StormError.md#stack)
+[DatabaseQueryError](DatabaseQueryError.md).[stack](DatabaseQueryError.md#stack)
 
 #### Defined in
 
@@ -129,7 +129,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 #### Inherited from
 
-[StormError](StormError.md).[prepareStackTrace](StormError.md#preparestacktrace)
+[DatabaseQueryError](DatabaseQueryError.md).[prepareStackTrace](DatabaseQueryError.md#preparestacktrace)
 
 #### Defined in
 
@@ -143,7 +143,7 @@ ___
 
 #### Inherited from
 
-[StormError](StormError.md).[stackTraceLimit](StormError.md#stacktracelimit)
+[DatabaseQueryError](DatabaseQueryError.md).[stackTraceLimit](DatabaseQueryError.md#stacktracelimit)
 
 #### Defined in
 
@@ -159,9 +159,9 @@ node_modules/@types/node/ts4.8/globals.d.ts:13
 
 `number`
 
-#### Overrides
+#### Inherited from
 
-[StormError](StormError.md).[getCode](StormError.md#getcode)
+[DatabaseQueryError](DatabaseQueryError.md).[getCode](DatabaseQueryError.md#getcode)
 
 #### Defined in
 
@@ -179,7 +179,7 @@ ___
 
 #### Inherited from
 
-[StormError](StormError.md).[getErrorResponse](StormError.md#geterrorresponse)
+[DatabaseQueryError](DatabaseQueryError.md).[getErrorResponse](DatabaseQueryError.md#geterrorresponse)
 
 #### Defined in
 
@@ -197,7 +197,7 @@ ___
 
 #### Inherited from
 
-[StormError](StormError.md).[getExitCode](StormError.md#getexitcode)
+[DatabaseQueryError](DatabaseQueryError.md).[getExitCode](DatabaseQueryError.md#getexitcode)
 
 #### Defined in
 
@@ -213,9 +213,9 @@ ___
 
 [`StatusCode`](../enums/StatusCode.md)
 
-#### Overrides
+#### Inherited from
 
-[StormError](StormError.md).[getHTTPCode](StormError.md#gethttpcode)
+[DatabaseQueryError](DatabaseQueryError.md).[getHTTPCode](DatabaseQueryError.md#gethttpcode)
 
 #### Defined in
 
@@ -231,9 +231,9 @@ ___
 
 `string`
 
-#### Overrides
+#### Inherited from
 
-[StormError](StormError.md).[getLocaleCode](StormError.md#getlocalecode)
+[DatabaseQueryError](DatabaseQueryError.md).[getLocaleCode](DatabaseQueryError.md#getlocalecode)
 
 #### Defined in
 
@@ -251,7 +251,7 @@ ___
 
 #### Inherited from
 
-[StormError](StormError.md).[getLocaleParameters](StormError.md#getlocaleparameters)
+[DatabaseQueryError](DatabaseQueryError.md).[getLocaleParameters](DatabaseQueryError.md#getlocaleparameters)
 
 #### Defined in
 
@@ -267,9 +267,9 @@ ___
 
 `string`
 
-#### Overrides
+#### Inherited from
 
-[StormError](StormError.md).[getMessage](StormError.md#getmessage)
+[DatabaseQueryError](DatabaseQueryError.md).[getMessage](DatabaseQueryError.md#getmessage)
 
 #### Defined in
 
@@ -295,7 +295,7 @@ They are kept secret from the client.
 
 #### Inherited from
 
-[StormError](StormError.md).[getPrivateDetails](StormError.md#getprivatedetails)
+[DatabaseQueryError](DatabaseQueryError.md).[getPrivateDetails](DatabaseQueryError.md#getprivatedetails)
 
 #### Defined in
 
@@ -315,7 +315,7 @@ Sends details to the client.
 
 #### Inherited from
 
-[StormError](StormError.md).[getPublicDetails](StormError.md#getpublicdetails)
+[DatabaseQueryError](DatabaseQueryError.md).[getPublicDetails](DatabaseQueryError.md#getpublicdetails)
 
 #### Defined in
 
@@ -342,7 +342,7 @@ Create .stack property on a target object
 
 #### Inherited from
 
-[StormError](StormError.md).[captureStackTrace](StormError.md#capturestacktrace)
+[DatabaseQueryError](DatabaseQueryError.md).[captureStackTrace](DatabaseQueryError.md#capturestacktrace)
 
 #### Defined in
 

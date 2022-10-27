@@ -86,7 +86,9 @@ node_modules/@types/formidable/index.d.ts:187
 
 Alias for `emitter.on(eventName, listener)`.
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -105,7 +107,7 @@ Stream.addListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:299
+node_modules/@types/node/ts4.8/events.d.ts:354
 
 ___
 
@@ -151,7 +153,9 @@ myEmitter.emit('event', 1, 2, 3, 4, 5);
 // event with parameters 1, 2, 3, 4, 5 in third listener
 ```
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -170,7 +174,7 @@ Stream.emit
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:555
+node_modules/@types/node/ts4.8/events.d.ts:610
 
 ___
 
@@ -194,7 +198,9 @@ console.log(myEE.eventNames());
 // Prints: [ 'foo', 'bar', Symbol(symbol) ]
 ```
 
-**`since`** v6.0.0
+**`Since`**
+
+v6.0.0
 
 #### Returns
 
@@ -206,7 +212,7 @@ Stream.eventNames
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:614
+node_modules/@types/node/ts4.8/events.d.ts:669
 
 ___
 
@@ -215,9 +221,11 @@ ___
 ▸ **getMaxListeners**(): `number`
 
 Returns the current max listener value for the `EventEmitter` which is either
-set by `emitter.setMaxListeners(n)` or defaults to [defaultMaxListeners](../classes/Application.md#defaultmaxlisteners).
+set by `emitter.setMaxListeners(n)` or defaults to defaultMaxListeners.
 
-**`since`** v1.0.0
+**`Since`**
+
+v1.0.0
 
 #### Returns
 
@@ -229,7 +237,7 @@ Stream.getMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:471
+node_modules/@types/node/ts4.8/events.d.ts:526
 
 ___
 
@@ -239,7 +247,9 @@ ___
 
 Returns the number of listeners listening to the event named `eventName`.
 
-**`since`** v3.2.0
+**`Since`**
+
+v3.2.0
 
 #### Parameters
 
@@ -257,7 +267,7 @@ Stream.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:561
+node_modules/@types/node/ts4.8/events.d.ts:616
 
 ___
 
@@ -275,7 +285,9 @@ console.log(util.inspect(server.listeners('connection')));
 // Prints: [ [Function] ]
 ```
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -293,7 +305,7 @@ Stream.listeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:484
+node_modules/@types/node/ts4.8/events.d.ts:539
 
 ___
 
@@ -303,7 +315,9 @@ ___
 
 Alias for `emitter.removeListener()`.
 
-**`since`** v10.0.0
+**`Since`**
+
+v10.0.0
 
 #### Parameters
 
@@ -322,7 +336,7 @@ Stream.off
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:444
+node_modules/@types/node/ts4.8/events.d.ts:499
 
 ___
 
@@ -356,7 +370,9 @@ myEE.emit('foo');
 //   a
 ```
 
-**`since`** v0.1.101
+**`Since`**
+
+v0.1.101
 
 #### Parameters
 
@@ -375,7 +391,7 @@ Stream.on
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:330
+node_modules/@types/node/ts4.8/events.d.ts:385
 
 ___
 
@@ -407,7 +423,9 @@ myEE.emit('foo');
 //   a
 ```
 
-**`since`** v0.3.0
+**`Since`**
+
+v0.3.0
 
 #### Parameters
 
@@ -426,7 +444,7 @@ Stream.once
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:359
+node_modules/@types/node/ts4.8/events.d.ts:414
 
 ___
 
@@ -458,7 +476,7 @@ Stream.pipe
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:24
+node_modules/@types/node/ts4.8/stream.d.ts:26
 
 ___
 
@@ -479,7 +497,9 @@ server.prependListener('connection', (stream) => {
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v6.0.0
+**`Since`**
+
+v6.0.0
 
 #### Parameters
 
@@ -498,7 +518,7 @@ Stream.prependListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:579
+node_modules/@types/node/ts4.8/events.d.ts:634
 
 ___
 
@@ -506,7 +526,7 @@ ___
 
 ▸ **prependOnceListener**(`eventName`, `listener`): [`Part`](formidable.Part.md)
 
-Adds a **one-time**`listener` function for the event named `eventName` to the_beginning_ of the listeners array. The next time `eventName` is triggered, this
+Adds a **one-time**`listener` function for the event named `eventName` to the _beginning_ of the listeners array. The next time `eventName` is triggered, this
 listener is removed, and then invoked.
 
 ```js
@@ -517,7 +537,9 @@ server.prependOnceListener('connection', (stream) => {
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v6.0.0
+**`Since`**
+
+v6.0.0
 
 #### Parameters
 
@@ -536,7 +558,7 @@ Stream.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:595
+node_modules/@types/node/ts4.8/events.d.ts:650
 
 ___
 
@@ -571,7 +593,9 @@ newListeners[0]();
 emitter.emit('log');
 ```
 
-**`since`** v9.4.0
+**`Since`**
+
+v9.4.0
 
 #### Parameters
 
@@ -589,7 +613,7 @@ Stream.rawListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:514
+node_modules/@types/node/ts4.8/events.d.ts:569
 
 ___
 
@@ -605,7 +629,9 @@ component or module (e.g. sockets or file streams).
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -623,7 +649,7 @@ Stream.removeAllListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:455
+node_modules/@types/node/ts4.8/events.d.ts:510
 
 ___
 
@@ -648,8 +674,8 @@ listener array for the specified `eventName`, then `removeListener()` must be
 called multiple times to remove each instance.
 
 Once an event is emitted, all listeners attached to it at the
-time of emitting are called in order. This implies that any`removeListener()` or `removeAllListeners()` calls _after_ emitting and_before_ the last listener finishes execution will
-not remove them from`emit()` in progress. Subsequent events behave as expected.
+time of emitting are called in order. This implies that any`removeListener()` or `removeAllListeners()` calls _after_ emitting and _before_ the last listener finishes execution
+will not remove them from`emit()` in progress. Subsequent events behave as expected.
 
 ```js
 const myEmitter = new MyEmitter();
@@ -708,7 +734,9 @@ ee.emit('ping');
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v0.1.26
+**`Since`**
+
+v0.1.26
 
 #### Parameters
 
@@ -727,7 +755,7 @@ Stream.removeListener
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:439
+node_modules/@types/node/ts4.8/events.d.ts:494
 
 ___
 
@@ -742,7 +770,9 @@ modified for this specific `EventEmitter` instance. The value can be set to`Infi
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-**`since`** v0.3.5
+**`Since`**
+
+v0.3.5
 
 #### Parameters
 
@@ -760,4 +790,4 @@ Stream.setMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:465
+node_modules/@types/node/ts4.8/events.d.ts:520

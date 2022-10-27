@@ -13,18 +13,18 @@
 
 ### INVALID\_CONFIG
 
-• **INVALID\_CONFIG**
+• **INVALID\_CONFIG** = ``2``
 
 #### Defined in
 
-[src/ExitCode.ts:19](https://github.com/breautek/storm/blob/4ac2f44/src/ExitCode.ts#L19)
+[src/ExitCode.ts:19](https://github.com/breautek/storm/blob/0875c73/src/ExitCode.ts#L19)
 
 ___
 
 ### MISSING\_CONFIG
 
-• **MISSING\_CONFIG**
+• **MISSING\_CONFIG** = ``1``
 
 #### Defined in
 
-[src/ExitCode.ts:18](https://github.com/breautek/storm/blob/4ac2f44/src/ExitCode.ts#L18)
+[src/ExitCode.ts:18](https://github.com/breautek/storm/blob/0875c73/src/ExitCode.ts#L18)

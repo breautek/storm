@@ -13,18 +13,18 @@
 
 ### ERR\_EXPIRED
 
-• **ERR\_EXPIRED**
+• **ERR\_EXPIRED** = ``"TokenExpiredError"``
 
 #### Defined in
 
-[src/JWTError.ts:18](https://github.com/breautek/storm/blob/4ac2f44/src/JWTError.ts#L18)
+[src/JWTError.ts:18](https://github.com/breautek/storm/blob/0875c73/src/JWTError.ts#L18)
 
 ___
 
 ### ERR\_GENERIC
 
-• **ERR\_GENERIC**
+• **ERR\_GENERIC** = ``"JsonWebTokenError"``
 
 #### Defined in
 
-[src/JWTError.ts:19](https://github.com/breautek/storm/blob/4ac2f44/src/JWTError.ts#L19)
+[src/JWTError.ts:19](https://github.com/breautek/storm/blob/0875c73/src/JWTError.ts#L19)

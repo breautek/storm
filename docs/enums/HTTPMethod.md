@@ -15,38 +15,38 @@
 
 ### DELETE
 
-• **DELETE**
+• **DELETE** = ``"DELETE"``
 
 #### Defined in
 
-[src/HTTPMethod.ts:21](https://github.com/breautek/storm/blob/4ac2f44/src/HTTPMethod.ts#L21)
+[src/HTTPMethod.ts:21](https://github.com/breautek/storm/blob/0875c73/src/HTTPMethod.ts#L21)
 
 ___
 
 ### GET
 
-• **GET**
+• **GET** = ``"GET"``
 
 #### Defined in
 
-[src/HTTPMethod.ts:18](https://github.com/breautek/storm/blob/4ac2f44/src/HTTPMethod.ts#L18)
+[src/HTTPMethod.ts:18](https://github.com/breautek/storm/blob/0875c73/src/HTTPMethod.ts#L18)
 
 ___
 
 ### POST
 
-• **POST**
+• **POST** = ``"POST"``
 
 #### Defined in
 
-[src/HTTPMethod.ts:19](https://github.com/breautek/storm/blob/4ac2f44/src/HTTPMethod.ts#L19)
+[src/HTTPMethod.ts:19](https://github.com/breautek/storm/blob/0875c73/src/HTTPMethod.ts#L19)
 
 ___
 
 ### PUT
 
-• **PUT**
+• **PUT** = ``"PUT"``
 
 #### Defined in
 
-[src/HTTPMethod.ts:20](https://github.com/breautek/storm/blob/4ac2f44/src/HTTPMethod.ts#L20)
+[src/HTTPMethod.ts:20](https://github.com/breautek/storm/blob/0875c73/src/HTTPMethod.ts#L20)

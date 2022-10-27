@@ -4,9 +4,11 @@
 
 Do not call `new Database` directly. Use `Database.getConnection` to create a `DatabaseConnection` object.
 
-**`abstract`**
+**`Abstract`**
 
-**`implements`** `IDatabaseConnection`
+**`Implements`**
+
+`IDatabaseConnection`
 
 ## Type parameters
 
@@ -73,7 +75,7 @@ Do not call `new Database` directly. Use `Database.getConnection` to create a `D
 
 #### Defined in
 
-[src/DatabaseConnection.ts:43](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L43)
+[src/DatabaseConnection.ts:43](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L43)
 
 ## Methods
 
@@ -84,7 +86,7 @@ Do not call `new Database` directly. Use `Database.getConnection` to create a `D
 Implementation to close the connection, if `forceClose` is true, close the connection no matter what.
 Silently error if it means the connection is closed.
 
-**`async`**
+**`Async`**
 
 #### Parameters
 
@@ -100,7 +102,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:238](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L238)
+[src/DatabaseConnection.ts:238](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L238)
 
 ___
 
@@ -110,7 +112,7 @@ ___
 
 Implementation method to return a dataset from the database
 
-**`async`**
+**`Async`**
 
 #### Type parameters
 
@@ -133,7 +135,7 @@ Promise
 
 #### Defined in
 
-[src/DatabaseConnection.ts:249](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L249)
+[src/DatabaseConnection.ts:249](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L249)
 
 ___
 
@@ -160,7 +162,7 @@ but returns a `Readable` stream instead.
 
 #### Defined in
 
-[src/DatabaseConnection.ts:261](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L261)
+[src/DatabaseConnection.ts:261](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L261)
 
 ___
 
@@ -172,7 +174,7 @@ Closes the connection. May error if connection has an active transaction.
 if `forceClose` boolean is true, it will force close the connection, regardless
 of transaction state.
 
-**`async`**
+**`Async`**
 
 #### Parameters
 
@@ -192,7 +194,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L168)
+[src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L168)
 
 ___
 
@@ -202,9 +204,9 @@ ___
 
 Commits a transaction. This will end a transaction.
 
-**`abstract`**
+**`Abstract`**
 
-**`async`**
+**`Async`**
 
 #### Returns
 
@@ -218,7 +220,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:219](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L219)
+[src/DatabaseConnection.ts:219](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L219)
 
 ___
 
@@ -228,9 +230,9 @@ ___
 
 Ends a transaction. if `requiresRollback` is `true`, then `rollback()` is invoked. Otherwise, `commit()` is invoked.
 
-**`abstract`**
+**`Abstract`**
 
-**`async`**
+**`Async`**
 
 #### Parameters
 
@@ -246,7 +248,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:210](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L210)
+[src/DatabaseConnection.ts:210](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L210)
 
 ___
 
@@ -268,7 +270,7 @@ any
 
 #### Defined in
 
-[src/DatabaseConnection.ts:90](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L90)
+[src/DatabaseConnection.ts:90](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L90)
 
 ___
 
@@ -291,7 +293,7 @@ string - A stacktrace
 
 #### Defined in
 
-[src/DatabaseConnection.ts:72](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L72)
+[src/DatabaseConnection.ts:72](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L72)
 
 ___
 
@@ -313,7 +315,7 @@ number in milliseconds
 
 #### Defined in
 
-[src/DatabaseConnection.ts:120](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L120)
+[src/DatabaseConnection.ts:120](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L120)
 
 ___
 
@@ -333,7 +335,7 @@ Returns true if the connection has been closed.
 
 #### Defined in
 
-[src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L181)
+[src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L181)
 
 ___
 
@@ -356,7 +358,7 @@ boolean
 
 #### Defined in
 
-[src/DatabaseConnection.ts:99](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L99)
+[src/DatabaseConnection.ts:99](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L99)
 
 ___
 
@@ -366,7 +368,7 @@ ___
 
 Implementation method to determine if the connection is in an active transaction.
 
-**`abstract`**
+**`Abstract`**
 
 #### Returns
 
@@ -380,7 +382,7 @@ boolean
 
 #### Defined in
 
-[src/DatabaseConnection.ts:200](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L200)
+[src/DatabaseConnection.ts:200](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L200)
 
 ___
 
@@ -390,7 +392,7 @@ ___
 
 Queries the database for a dataset.
 
-**`async`**
+**`Async`**
 
 #### Type parameters
 
@@ -416,7 +418,7 @@ Promise<TQueryResult>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:131](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L131)
+[src/DatabaseConnection.ts:131](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L131)
 
 ___
 
@@ -426,9 +428,9 @@ ___
 
 Rollsback a transaction. This will end a transaction.
 
-**`abstract`**
+**`Abstract`**
 
-**`async`**
+**`Async`**
 
 #### Returns
 
@@ -442,7 +444,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:228](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L228)
+[src/DatabaseConnection.ts:228](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L228)
 
 ___
 
@@ -466,7 +468,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseConnection.ts:63](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L63)
+[src/DatabaseConnection.ts:63](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L63)
 
 ___
 
@@ -492,7 +494,7 @@ Sets the timeout of this connectino
 
 #### Defined in
 
-[src/DatabaseConnection.ts:108](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L108)
+[src/DatabaseConnection.ts:108](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L108)
 
 ___
 
@@ -502,9 +504,9 @@ ___
 
 Implementation method to start a transaction.
 
-**`abstract`**
+**`Abstract`**
 
-**`async`**
+**`Async`**
 
 #### Returns
 
@@ -518,7 +520,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:192](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L192)
+[src/DatabaseConnection.ts:192](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L192)
 
 ___
 
@@ -545,4 +547,4 @@ Readable
 
 #### Defined in
 
-[src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/4ac2f44/src/DatabaseConnection.ts#L151)
+[src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/0875c73/src/DatabaseConnection.ts#L151)
