@@ -25,6 +25,8 @@ import { CommitQuery } from './private/CommitQuery';
 import { RollbackQuery } from './private/RollbackQuery';
 import * as SQLFormatter from 'sql-formatter';
 import { Logger, LogLevel } from '@arashi/logger';
+import { StormError } from './StormError';
+import { DeadLockError } from './DeadLockError';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -93,7 +95,15 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                             logger.warn(TAG, ex);
                         }
                     }
-                    return reject(new DatabaseQueryError(sql, error));
+
+                    let e: StormError = null;
+                    if (error.code === 'ER_LOCK_DEADLOCK') {
+                        e = new DeadLockError(sql, error);
+                    }
+                    else {
+                        e = new DatabaseQueryError(sql, error);
+                    }
+                    return reject(e);
                 }
 
                 return resolve(results);

@@ -57,6 +57,7 @@ export {DuplicateEntryError} from './DuplicateEntryError';
 export {MissingConfigError} from './MissingConfigError';
 export {DatabaseQueryError} from './DatabaseQueryError';
 export {NotImplementedError} from './NotImplementedError';
+export {DeadLockError} from './DeadLockError';
 
 // HTTP
 export {StatusCode} from './StatusCode';
