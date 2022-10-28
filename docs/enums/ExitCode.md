@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/ExitCode.ts:19](https://github.com/breautek/storm/blob/0875c73/src/ExitCode.ts#L19)
+[src/ExitCode.ts:19](https://github.com/breautek/storm/blob/306a47f/src/ExitCode.ts#L19)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/ExitCode.ts:18](https://github.com/breautek/storm/blob/0875c73/src/ExitCode.ts#L18)
+[src/ExitCode.ts:18](https://github.com/breautek/storm/blob/306a47f/src/ExitCode.ts#L18)

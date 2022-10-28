@@ -46,7 +46,7 @@ communicate with CORS enabled clients.
 
 #### Defined in
 
-[src/CORSMiddleware.ts:39](https://github.com/breautek/storm/blob/0875c73/src/CORSMiddleware.ts#L39)
+[src/CORSMiddleware.ts:39](https://github.com/breautek/storm/blob/306a47f/src/CORSMiddleware.ts#L39)
 
 ## Methods
 
@@ -71,7 +71,7 @@ communicate with CORS enabled clients.
 
 #### Defined in
 
-[src/CORSMiddleware.ts:75](https://github.com/breautek/storm/blob/0875c73/src/CORSMiddleware.ts#L75)
+[src/CORSMiddleware.ts:75](https://github.com/breautek/storm/blob/306a47f/src/CORSMiddleware.ts#L75)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/Middleware.ts:27](https://github.com/breautek/storm/blob/0875c73/src/Middleware.ts#L27)
+[src/Middleware.ts:27](https://github.com/breautek/storm/blob/306a47f/src/Middleware.ts#L27)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/CORSMiddleware.ts:54](https://github.com/breautek/storm/blob/0875c73/src/CORSMiddleware.ts#L54)
+[src/CORSMiddleware.ts:54](https://github.com/breautek/storm/blob/306a47f/src/CORSMiddleware.ts#L54)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/CORSMiddleware.ts:64](https://github.com/breautek/storm/blob/0875c73/src/CORSMiddleware.ts#L64)
+[src/CORSMiddleware.ts:64](https://github.com/breautek/storm/blob/306a47f/src/CORSMiddleware.ts#L64)
 
 ___
 
@@ -140,4 +140,4 @@ Sets the allowed origin. By default,
 
 #### Defined in
 
-[src/CORSMiddleware.ts:50](https://github.com/breautek/storm/blob/0875c73/src/CORSMiddleware.ts#L50)
+[src/CORSMiddleware.ts:50](https://github.com/breautek/storm/blob/306a47f/src/CORSMiddleware.ts#L50)

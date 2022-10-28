@@ -96,7 +96,7 @@
 
 #### Defined in
 
-[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/0875c73/src/IDeleteQueryResult.ts#L19)
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/306a47f/src/IDeleteQueryResult.ts#L19)
 
 ___
 
@@ -112,7 +112,7 @@ This is to avoid accidental leakage of privilege data (e.g. snippets of database
 
 #### Defined in
 
-[src/Handler.ts:55](https://github.com/breautek/storm/blob/0875c73/src/Handler.ts#L55)
+[src/Handler.ts:55](https://github.com/breautek/storm/blob/306a47f/src/Handler.ts#L55)
 
 ___
 
@@ -132,7 +132,7 @@ certain things depending on the type of object it receives.
 
 #### Defined in
 
-[src/Handler.ts:46](https://github.com/breautek/storm/blob/0875c73/src/Handler.ts#L46)
+[src/Handler.ts:46](https://github.com/breautek/storm/blob/306a47f/src/Handler.ts#L46)
 
 ## Functions
 
@@ -166,4 +166,4 @@ ___
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/0875c73/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/306a47f/src/instance.ts#L28)
