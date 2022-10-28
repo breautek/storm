@@ -91,6 +91,13 @@ export {TokenManager} from './TokenManager';
 export {ExitCode} from './ExitCode';
 export {DumpStream} from './DumpStream';
 
+// Database Objects
+export {TCoordinate} from './TCoordinate';
+export {DatabaseCastObject} from './DatabaseCastObject';
+export {Point} from './Point';
+export {LineString} from './LineString';
+export {Polygon} from './Polygon';
+
 // Third-party
 import * as formidable from 'formidable';
 export {formidable};
