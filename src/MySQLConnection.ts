@@ -99,6 +99,8 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                     let e: StormError = null;
                     if (error.code === 'ER_LOCK_DEADLOCK') {
                         e = new DeadLockError(sql, error);
+                        // When deadlocks occur, the transaction is automatically rollback, so we can clear transanction status.
+                        this.$transaction = false;
                     }
                     else {
                         e = new DatabaseQueryError(sql, error);
