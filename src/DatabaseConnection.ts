@@ -21,6 +21,7 @@ import {Readable} from 'stream';
 import {IDatabaseConnection} from './IDatabaseConnection';
 import {Query} from './Query';
 import { IConfig } from './IConfig';
+import { IsolationLevel } from './IsolationLevel';
 
 export const LINGER_WARNING: number = 10000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
@@ -189,7 +190,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @async
      * @returns Promise<void>
      */
-    public abstract startTransaction(): Promise<void>;
+    public abstract startTransaction(isolationLevel?: IsolationLevel): Promise<void>;
 
     /**
      * Implementation method to determine if the connection is in an active transaction.

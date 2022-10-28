@@ -27,6 +27,8 @@ import * as SQLFormatter from 'sql-formatter';
 import { Logger, LogLevel } from '@arashi/logger';
 import { StormError } from './StormError';
 import { DeadLockError } from './DeadLockError';
+import { IsolationLevel } from './IsolationLevel';
+import {SetIsolationLevelQuery} from './private/SetIsolationLevelQuery';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -141,26 +143,28 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         return queryObject.stream(streamOptions);
     }
 
-    public startTransaction(): Promise<void> {
+    public override async startTransaction(isolationLevel?: IsolationLevel): Promise<void> {
         if (this.isReadOnly()) {
-            return Promise.reject(new Error('A readonly connection cannot start a transaction.'));
+            throw new Error('A readonly connection cannot start a transaction.')
         }
 
         if (this.isTransaction()) {
-            return Promise.reject(new Error('Connection is already in a transaction.'));
+            throw new Error('Connection is already in a transaction.');
         }
 
         this.$transaction = true;
 
-        return new Promise<void>((resolve, reject) => {
-            this.query(startTransactionQuery).then(() => {
-                resolve();
-            }).catch((ex) => {
-                this.$transaction = false;
-                getInstance().getLogger().error(TAG, ex);
-                reject(ex);
-            });
-        });
+        try {
+            if (isolationLevel) {
+                await new SetIsolationLevelQuery(isolationLevel).execute(this);
+            }
+            await startTransactionQuery.execute(this);
+        }
+        catch (ex) {
+            this.$transaction = false;
+            getInstance().getLogger().error(TAG, ex);
+            throw ex;
+        }
     }
 
     public endTransaction(requiresRollback: boolean = false): Promise<void> {

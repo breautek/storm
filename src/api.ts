@@ -35,6 +35,7 @@ export {IInsertQueryResult} from './IInsertQueryResult';
 export {IDeleteQueryResult} from './IDeleteQueryResult';
 export {IUpdateQueryResult} from './IUpdateQueryResult';
 export {SetSessionVariableQuery, ISetSessionVariableQueryInput} from './SetSessionVariableQuery';
+export {IsolationLevel} from './IsolationLevel';
 
 // Errors
 export {ErrorCode} from './ErrorCode';
