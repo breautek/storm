@@ -64,7 +64,7 @@ Do not call `new Database` directly. Use `Database.getConnection` to create a `D
 
 #### Defined in
 
-[src/MySQLConnection.ts:48](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L48)
+[src/MySQLConnection.ts:50](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L50)
 
 ## Methods
 
@@ -95,7 +95,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:202](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L202)
+[src/MySQLConnection.ts:206](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L206)
 
 ___
 
@@ -126,7 +126,7 @@ Promise
 
 #### Defined in
 
-[src/MySQLConnection.ts:76](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L76)
+[src/MySQLConnection.ts:78](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L78)
 
 ___
 
@@ -157,7 +157,7 @@ but returns a `Readable` stream instead.
 
 #### Defined in
 
-[src/MySQLConnection.ts:125](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L125)
+[src/MySQLConnection.ts:127](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L127)
 
 ___
 
@@ -189,7 +189,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:168](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L168)
+[src/DatabaseConnection.ts:169](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L169)
 
 ___
 
@@ -215,7 +215,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:186](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L186)
+[src/MySQLConnection.ts:190](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L190)
 
 ___
 
@@ -247,7 +247,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:166](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L166)
+[src/MySQLConnection.ts:170](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L170)
 
 ___
 
@@ -269,7 +269,7 @@ any
 
 #### Defined in
 
-[src/DatabaseConnection.ts:90](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L90)
+[src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L91)
 
 ___
 
@@ -292,7 +292,7 @@ string - A stacktrace
 
 #### Defined in
 
-[src/DatabaseConnection.ts:72](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L72)
+[src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L73)
 
 ___
 
@@ -314,7 +314,7 @@ number in milliseconds
 
 #### Defined in
 
-[src/DatabaseConnection.ts:120](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L120)
+[src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L121)
 
 ___
 
@@ -334,7 +334,7 @@ Returns true if the connection has been closed.
 
 #### Defined in
 
-[src/DatabaseConnection.ts:181](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L181)
+[src/DatabaseConnection.ts:182](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L182)
 
 ___
 
@@ -348,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/MySQLConnection.ts:71](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L71)
+[src/MySQLConnection.ts:73](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L73)
 
 ___
 
@@ -371,7 +371,7 @@ boolean
 
 #### Defined in
 
-[src/DatabaseConnection.ts:99](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L99)
+[src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L100)
 
 ___
 
@@ -395,7 +395,7 @@ boolean
 
 #### Defined in
 
-[src/MySQLConnection.ts:67](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L67)
+[src/MySQLConnection.ts:69](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L69)
 
 ___
 
@@ -431,7 +431,7 @@ Promise<TQueryResult>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:131](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L131)
+[src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L132)
 
 ___
 
@@ -457,7 +457,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:170](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L170)
+[src/MySQLConnection.ts:174](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L174)
 
 ___
 
@@ -481,7 +481,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseConnection.ts:63](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L63)
+[src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L64)
 
 ___
 
@@ -507,19 +507,25 @@ Sets the timeout of this connectino
 
 #### Defined in
 
-[src/DatabaseConnection.ts:108](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L108)
+[src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L109)
 
 ___
 
 ### startTransaction
 
-▸ **startTransaction**(): `Promise`<`void`\>
+▸ **startTransaction**(`isolationLevel?`): `Promise`<`void`\>
 
 Implementation method to start a transaction.
 
 **`Abstract`**
 
 **`Async`**
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `isolationLevel?` | [`IsolationLevel`](../enums/IsolationLevel.md) |
 
 #### Returns
 
@@ -533,7 +539,7 @@ Promise<void>
 
 #### Defined in
 
-[src/MySQLConnection.ts:144](https://github.com/breautek/storm/blob/dc7102f/src/MySQLConnection.ts#L144)
+[src/MySQLConnection.ts:146](https://github.com/breautek/storm/blob/cf7306d/src/MySQLConnection.ts#L146)
 
 ___
 
@@ -560,4 +566,4 @@ Readable
 
 #### Defined in
 
-[src/DatabaseConnection.ts:151](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseConnection.ts#L151)
+[src/DatabaseConnection.ts:152](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseConnection.ts#L152)

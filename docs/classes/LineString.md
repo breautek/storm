@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[src/LineString.ts:23](https://github.com/breautek/storm/blob/dc7102f/src/LineString.ts#L23)
+[src/LineString.ts:23](https://github.com/breautek/storm/blob/cf7306d/src/LineString.ts#L23)
 
 ## Methods
 
@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[src/LineString.ts:29](https://github.com/breautek/storm/blob/dc7102f/src/LineString.ts#L29)
+[src/LineString.ts:29](https://github.com/breautek/storm/blob/cf7306d/src/LineString.ts#L29)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:24](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseCastObject.ts#L24)
+[src/DatabaseCastObject.ts:24](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseCastObject.ts#L24)
 
 ___
 
@@ -98,4 +98,4 @@ ___
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:20](https://github.com/breautek/storm/blob/dc7102f/src/DatabaseCastObject.ts#L20)
+[src/DatabaseCastObject.ts:20](https://github.com/breautek/storm/blob/cf7306d/src/DatabaseCastObject.ts#L20)
