@@ -18,6 +18,7 @@ import {IDatabaseConnection} from './IDatabaseConnection';
 import {getInstance} from './instance';
 import {Readable} from 'stream';
 import { Query } from './Query';
+import { IsolationLevel } from './IsolationLevel';
 
 const TAG: string = 'ManagedDatabaseConnection';
 
@@ -164,11 +165,11 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         });
     }
 
-    public startTransaction(): Promise<void> {
+    public startTransaction(isolationLevel?: IsolationLevel): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             this.$getConnection().then((connection: IDatabaseConnection) => {
                 if (!this.isManaged()) {
-                    connection.startTransaction().then(resolve).catch(reject);
+                    connection.startTransaction(isolationLevel).then(resolve).catch(reject);
                 }
                 else {
                     resolve();

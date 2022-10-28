@@ -15,6 +15,7 @@
 */
 
 import { Readable } from 'stream';
+import { IsolationLevel } from './IsolationLevel';
 import { Query } from './Query';
 
 export interface IDatabaseConnection {
@@ -28,7 +29,7 @@ export interface IDatabaseConnection {
     stream(query: string | Query, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
     isClosed(): boolean;
-    startTransaction(): Promise<void>;
+    startTransaction(level?: IsolationLevel): Promise<void>;
     isTransaction(): boolean;
     commit(): Promise<void>;
     rollback(): Promise<void>;
