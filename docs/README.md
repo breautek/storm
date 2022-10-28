@@ -23,6 +23,7 @@
 - [CORSMiddleware](classes/CORSMiddleware.md)
 - [ConfigLoader](classes/ConfigLoader.md)
 - [Database](classes/Database.md)
+- [DatabaseCastObject](classes/DatabaseCastObject.md)
 - [DatabaseConnection](classes/DatabaseConnection.md)
 - [DatabaseQueryError](classes/DatabaseQueryError.md)
 - [DeadLockError](classes/DeadLockError.md)
@@ -36,6 +37,7 @@
 - [InternalError](classes/InternalError.md)
 - [InvalidCredentialsError](classes/InvalidCredentialsError.md)
 - [InvalidValueError](classes/InvalidValueError.md)
+- [LineString](classes/LineString.md)
 - [ManagedDatabaseConnection](classes/ManagedDatabaseConnection.md)
 - [Middleware](classes/Middleware.md)
 - [MissingConfigError](classes/MissingConfigError.md)
@@ -43,6 +45,8 @@
 - [MySQLConnection](classes/MySQLConnection.md)
 - [MySQLDatabase](classes/MySQLDatabase.md)
 - [NotImplementedError](classes/NotImplementedError.md)
+- [Point](classes/Point.md)
+- [Polygon](classes/Polygon.md)
 - [Query](classes/Query.md)
 - [RawError](classes/RawError.md)
 - [RawQuery](classes/RawQuery.md)
@@ -82,6 +86,7 @@
 - [IDeleteQueryResult](README.md#ideletequeryresult)
 - [IHandlerError](README.md#ihandlererror)
 - [IHandlerResponse](README.md#ihandlerresponse)
+- [TCoordinate](README.md#tcoordinate)
 
 ### Functions
 
@@ -96,7 +101,7 @@
 
 #### Defined in
 
-[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/306a47f/src/IDeleteQueryResult.ts#L19)
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/dc7102f/src/IDeleteQueryResult.ts#L19)
 
 ___
 
@@ -112,7 +117,7 @@ This is to avoid accidental leakage of privilege data (e.g. snippets of database
 
 #### Defined in
 
-[src/Handler.ts:55](https://github.com/breautek/storm/blob/306a47f/src/Handler.ts#L55)
+[src/Handler.ts:55](https://github.com/breautek/storm/blob/dc7102f/src/Handler.ts#L55)
 
 ___
 
@@ -132,7 +137,17 @@ certain things depending on the type of object it receives.
 
 #### Defined in
 
-[src/Handler.ts:46](https://github.com/breautek/storm/blob/306a47f/src/Handler.ts#L46)
+[src/Handler.ts:46](https://github.com/breautek/storm/blob/dc7102f/src/Handler.ts#L46)
+
+___
+
+### TCoordinate
+
+Ƭ **TCoordinate**: [x: number, y: number]
+
+#### Defined in
+
+[src/TCoordinate.ts:17](https://github.com/breautek/storm/blob/dc7102f/src/TCoordinate.ts#L17)
 
 ## Functions
 
@@ -166,4 +181,4 @@ ___
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/306a47f/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/dc7102f/src/instance.ts#L28)

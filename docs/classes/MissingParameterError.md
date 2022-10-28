@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/MissingParameterError.ts:22](https://github.com/breautek/storm/blob/306a47f/src/MissingParameterError.ts#L22)
+[src/MissingParameterError.ts:22](https://github.com/breautek/storm/blob/dc7102f/src/MissingParameterError.ts#L22)
 
 ## Properties
 
@@ -162,7 +162,7 @@ node_modules/@types/node/ts4.8/globals.d.ts:13
 
 #### Defined in
 
-[src/MissingParameterError.ts:30](https://github.com/breautek/storm/blob/306a47f/src/MissingParameterError.ts#L30)
+[src/MissingParameterError.ts:30](https://github.com/breautek/storm/blob/dc7102f/src/MissingParameterError.ts#L30)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:76](https://github.com/breautek/storm/blob/306a47f/src/StormError.ts#L76)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/dc7102f/src/StormError.ts#L76)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:97](https://github.com/breautek/storm/blob/306a47f/src/StormError.ts#L97)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/dc7102f/src/StormError.ts#L97)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/MissingParameterError.ts:34](https://github.com/breautek/storm/blob/306a47f/src/MissingParameterError.ts#L34)
+[src/MissingParameterError.ts:34](https://github.com/breautek/storm/blob/dc7102f/src/MissingParameterError.ts#L34)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-[src/MissingParameterError.ts:38](https://github.com/breautek/storm/blob/306a47f/src/MissingParameterError.ts#L38)
+[src/MissingParameterError.ts:38](https://github.com/breautek/storm/blob/dc7102f/src/MissingParameterError.ts#L38)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/MissingParameterError.ts:42](https://github.com/breautek/storm/blob/306a47f/src/MissingParameterError.ts#L42)
+[src/MissingParameterError.ts:42](https://github.com/breautek/storm/blob/dc7102f/src/MissingParameterError.ts#L42)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/MissingParameterError.ts:26](https://github.com/breautek/storm/blob/306a47f/src/MissingParameterError.ts#L26)
+[src/MissingParameterError.ts:26](https://github.com/breautek/storm/blob/dc7102f/src/MissingParameterError.ts#L26)
 
 ___
 
@@ -291,7 +291,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:68](https://github.com/breautek/storm/blob/306a47f/src/StormError.ts#L68)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/dc7102f/src/StormError.ts#L68)
 
 ___
 
@@ -311,7 +311,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:60](https://github.com/breautek/storm/blob/306a47f/src/StormError.ts#L60)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/dc7102f/src/StormError.ts#L60)
 
 ___
 
