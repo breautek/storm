@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/Query.ts:22](https://github.com/breautek/storm/blob/cf7306d/src/Query.ts#L22)
+[src/Query.ts:22](https://github.com/breautek/storm/blob/daf9166/src/Query.ts#L22)
 
 ## Methods
 
@@ -66,7 +66,7 @@
 
 #### Defined in
 
-[src/TemporaryTableQuery.ts:35](https://github.com/breautek/storm/blob/cf7306d/src/TemporaryTableQuery.ts#L35)
+[src/TemporaryTableQuery.ts:35](https://github.com/breautek/storm/blob/daf9166/src/TemporaryTableQuery.ts#L35)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:70](https://github.com/breautek/storm/blob/cf7306d/src/Query.ts#L70)
+[src/Query.ts:70](https://github.com/breautek/storm/blob/daf9166/src/Query.ts#L70)
 
 ___
 
@@ -110,7 +110,7 @@ parameters that was passed into the constructor.
 
 #### Defined in
 
-[src/Query.ts:29](https://github.com/breautek/storm/blob/cf7306d/src/Query.ts#L29)
+[src/Query.ts:29](https://github.com/breautek/storm/blob/daf9166/src/Query.ts#L29)
 
 ___
 
@@ -132,7 +132,7 @@ parameters that will be used when this query is ran.
 
 #### Defined in
 
-[src/TemporaryTableQuery.ts:27](https://github.com/breautek/storm/blob/cf7306d/src/TemporaryTableQuery.ts#L27)
+[src/TemporaryTableQuery.ts:27](https://github.com/breautek/storm/blob/daf9166/src/TemporaryTableQuery.ts#L27)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:44](https://github.com/breautek/storm/blob/cf7306d/src/Query.ts#L44)
+[src/Query.ts:44](https://github.com/breautek/storm/blob/daf9166/src/Query.ts#L44)
 
 ___
 
@@ -183,7 +183,7 @@ Override to augment/manipulate the returned result set.
 
 #### Defined in
 
-[src/Query.ts:65](https://github.com/breautek/storm/blob/cf7306d/src/Query.ts#L65)
+[src/Query.ts:65](https://github.com/breautek/storm/blob/daf9166/src/Query.ts#L65)
 
 ___
 
@@ -210,4 +210,4 @@ Can be used to set session variables or create temporary tables, etc.
 
 #### Defined in
 
-[src/Query.ts:55](https://github.com/breautek/storm/blob/cf7306d/src/Query.ts#L55)
+[src/Query.ts:55](https://github.com/breautek/storm/blob/daf9166/src/Query.ts#L55)
