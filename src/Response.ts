@@ -59,11 +59,12 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
             this.setStatus(statusOverride || StatusCode.OK_NO_CONTENT);
             this.$response.send()
         }
-        else if (data instanceof Buffer || [
-            'number',
-            'string',
-            'boolean'
-        ].indexOf(typeof data) > -1) {
+        else if (typeof data === 'number') {
+            // Numbers needs to be toString as
+            // express will interpet them as a status code
+            this.$response.send(data.toString());
+        }
+        else if (data instanceof Buffer || [ 'string', 'boolean' ].indexOf(typeof data) > -1) {
             this.$response.send(data);
         }
         else if (data instanceof Stream.Readable) {

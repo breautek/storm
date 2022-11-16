@@ -75,6 +75,16 @@ describe('Response', () => {
         });
     });
 
+    it('can send number', async () => {
+        app.attachMockHandler('/sendNumber', makeHandler(async (request: Request) => {
+            return 123;
+        }));
+        await app.doMockGet('/sendNumber').then((response: IMockResponse) => {
+            expect(response.status).toBe(200);
+            expect(response.data).toBe("123");
+        });
+    });
+
     it('can send ResponseData', async () => {
         app.attachMockHandler('/withResponseData', makeHandler(async (request: Request) => {
             let responseData: ResponseData = new ResponseData(400, 'test123');
