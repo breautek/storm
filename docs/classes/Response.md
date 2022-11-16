@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[src/Response.ts:38](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L38)
+[src/Response.ts:38](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L38)
 
 ## Methods
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[src/Response.ts:130](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L130)
+[src/Response.ts:131](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L131)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:49](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L49)
+[src/Response.ts:49](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L49)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:126](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L126)
+[src/Response.ts:127](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L127)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:99](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L99)
+[src/Response.ts:100](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L100)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:53](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L53)
+[src/Response.ts:53](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L53)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:94](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L94)
+[src/Response.ts:95](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L95)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:118](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L118)
+[src/Response.ts:119](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L119)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:122](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L122)
+[src/Response.ts:123](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L123)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[src/Response.ts:44](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L44)
+[src/Response.ts:44](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L44)
 
 ___
 
@@ -239,4 +239,4 @@ ___
 
 #### Defined in
 
-[src/Response.ts:107](https://github.com/breautek/storm/blob/daf9166/src/Response.ts#L107)
+[src/Response.ts:108](https://github.com/breautek/storm/blob/4b2254f/src/Response.ts#L108)

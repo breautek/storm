@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:28](https://github.com/breautek/storm/blob/daf9166/src/DatabaseCastObject.ts#L28)
+[src/DatabaseCastObject.ts:28](https://github.com/breautek/storm/blob/4b2254f/src/DatabaseCastObject.ts#L28)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:24](https://github.com/breautek/storm/blob/daf9166/src/DatabaseCastObject.ts#L24)
+[src/DatabaseCastObject.ts:24](https://github.com/breautek/storm/blob/4b2254f/src/DatabaseCastObject.ts#L24)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:20](https://github.com/breautek/storm/blob/daf9166/src/DatabaseCastObject.ts#L20)
+[src/DatabaseCastObject.ts:20](https://github.com/breautek/storm/blob/4b2254f/src/DatabaseCastObject.ts#L20)
