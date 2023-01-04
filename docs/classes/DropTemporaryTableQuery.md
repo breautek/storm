@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/Query.ts:22](https://github.com/breautek/storm/blob/4b2254f/src/Query.ts#L22)
+[src/Query.ts:22](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L22)
 
 ## Methods
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[src/DropTemporaryTableQuery.ts:29](https://github.com/breautek/storm/blob/4b2254f/src/DropTemporaryTableQuery.ts#L29)
+[src/DropTemporaryTableQuery.ts:29](https://github.com/breautek/storm/blob/5fbba2d/src/DropTemporaryTableQuery.ts#L29)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:70](https://github.com/breautek/storm/blob/4b2254f/src/Query.ts#L70)
+[src/Query.ts:70](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L70)
 
 ___
 
@@ -104,7 +104,7 @@ parameters that was passed into the constructor.
 
 #### Defined in
 
-[src/DropTemporaryTableQuery.ts:25](https://github.com/breautek/storm/blob/4b2254f/src/DropTemporaryTableQuery.ts#L25)
+[src/DropTemporaryTableQuery.ts:25](https://github.com/breautek/storm/blob/5fbba2d/src/DropTemporaryTableQuery.ts#L25)
 
 ___
 
@@ -126,7 +126,7 @@ parameters that will be used when this query is ran.
 
 #### Defined in
 
-[src/Query.ts:38](https://github.com/breautek/storm/blob/4b2254f/src/Query.ts#L38)
+[src/Query.ts:38](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L38)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/Query.ts:44](https://github.com/breautek/storm/blob/4b2254f/src/Query.ts#L44)
+[src/Query.ts:44](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L44)
 
 ___
 
@@ -177,7 +177,7 @@ Override to augment/manipulate the returned result set.
 
 #### Defined in
 
-[src/Query.ts:65](https://github.com/breautek/storm/blob/4b2254f/src/Query.ts#L65)
+[src/Query.ts:65](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L65)
 
 ___
 
@@ -204,4 +204,4 @@ Can be used to set session variables or create temporary tables, etc.
 
 #### Defined in
 
-[src/Query.ts:55](https://github.com/breautek/storm/blob/4b2254f/src/Query.ts#L55)
+[src/Query.ts:55](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L55)

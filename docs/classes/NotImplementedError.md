@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/NotImplementedError.ts:27](https://github.com/breautek/storm/blob/4b2254f/src/NotImplementedError.ts#L27)
+[src/NotImplementedError.ts:27](https://github.com/breautek/storm/blob/5fbba2d/src/NotImplementedError.ts#L27)
 
 ## Properties
 
@@ -67,7 +67,7 @@
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1041
+node_modules/typescript/lib/lib.es5.d.ts:1054
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1040
+node_modules/typescript/lib/lib.es5.d.ts:1053
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1042
+node_modules/typescript/lib/lib.es5.d.ts:1055
 
 ___
 
@@ -130,7 +130,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/globals.d.ts:11
+node_modules/@types/node/globals.d.ts:11
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/globals.d.ts:13
+node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
@@ -162,7 +162,7 @@ node_modules/@types/node/ts4.8/globals.d.ts:13
 
 #### Defined in
 
-[src/NotImplementedError.ts:38](https://github.com/breautek/storm/blob/4b2254f/src/NotImplementedError.ts#L38)
+[src/NotImplementedError.ts:38](https://github.com/breautek/storm/blob/5fbba2d/src/NotImplementedError.ts#L38)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:76](https://github.com/breautek/storm/blob/4b2254f/src/StormError.ts#L76)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L76)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:97](https://github.com/breautek/storm/blob/4b2254f/src/StormError.ts#L97)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L97)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/NotImplementedError.ts:42](https://github.com/breautek/storm/blob/4b2254f/src/NotImplementedError.ts#L42)
+[src/NotImplementedError.ts:42](https://github.com/breautek/storm/blob/5fbba2d/src/NotImplementedError.ts#L42)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-[src/NotImplementedError.ts:46](https://github.com/breautek/storm/blob/4b2254f/src/NotImplementedError.ts#L46)
+[src/NotImplementedError.ts:46](https://github.com/breautek/storm/blob/5fbba2d/src/NotImplementedError.ts#L46)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/NotImplementedError.ts:50](https://github.com/breautek/storm/blob/4b2254f/src/NotImplementedError.ts#L50)
+[src/NotImplementedError.ts:50](https://github.com/breautek/storm/blob/5fbba2d/src/NotImplementedError.ts#L50)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/NotImplementedError.ts:33](https://github.com/breautek/storm/blob/4b2254f/src/NotImplementedError.ts#L33)
+[src/NotImplementedError.ts:33](https://github.com/breautek/storm/blob/5fbba2d/src/NotImplementedError.ts#L33)
 
 ___
 
@@ -291,7 +291,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:68](https://github.com/breautek/storm/blob/4b2254f/src/StormError.ts#L68)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L68)
 
 ___
 
@@ -311,7 +311,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:60](https://github.com/breautek/storm/blob/4b2254f/src/StormError.ts#L60)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L60)
 
 ___
 
@@ -338,4 +338,4 @@ Create .stack property on a target object
 
 #### Defined in
 
-node_modules/@types/node/ts4.8/globals.d.ts:4
+node_modules/@types/node/globals.d.ts:4
