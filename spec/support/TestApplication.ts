@@ -1,5 +1,5 @@
 
-import {Application} from '../../src/Application';
+import {HTTPApplication} from '../../src/HTTPApplication';
 import {Database} from '../../src/Database';
 import {IConfig} from '../../src/IConfig';
 import {Logger} from '@arashi/logger';
@@ -22,7 +22,7 @@ export interface IMockResponse {
 }
 
 class TestHandler extends Handler {
-    public constructor(app: Application) {
+    public constructor(app: HTTPApplication) {
         super(app);
     }
 
@@ -41,7 +41,7 @@ class TestHandler extends Handler {
     }
 }
 
-export class TestApplication extends Application {
+export class TestApplication extends HTTPApplication {
     constructor() {
         super("TestApplication", "./spec/support/");
     }
@@ -60,7 +60,7 @@ export class TestApplication extends Application {
     }
 }
 
-export class MockApplication extends Application {
+export class MockApplication extends HTTPApplication {
     constructor() {
         super("TestApplication", "./spec/support/");
 
@@ -155,7 +155,7 @@ export class MockApplication extends Application {
     }
 }
 
-export class NoServerApp extends Application {
+export class NoServerApp extends HTTPApplication {
     constructor() {
         super('NoServerApp', './spec/support/');
     }
@@ -170,7 +170,7 @@ export class NoServerApp extends Application {
     }
 }
 
-export class ConfigTestApp extends Application {
+export class ConfigTestApp extends HTTPApplication {
     public testConfig: IConfig;
 
     constructor(jsonConfig: string) {

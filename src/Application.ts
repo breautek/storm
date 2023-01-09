@@ -14,21 +14,22 @@
    limitations under the License.
 */
 
+import {IApplication} from './IApplication';
 import {EventEmitter} from 'events';
 import {setInstance} from './instance';
 import {TokenManager} from './TokenManager';
 import {ApplicationEvent} from './ApplicationEvent';
 import {Database} from './Database';
-import {Handler} from './Handler';
-import {IHandler} from './IHandler';
-import {Request} from './Request';
-import {Response} from './Response';
+// import {Handler} from './Handler';
+// import {IHandler} from './IHandler';
+// import {Request} from './Request';
+// import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
 import {IConfig} from './IConfig';
 import {Command} from 'commander';
-import * as Express from 'express';
-import * as BodyParser from 'body-parser';
-import * as http from 'http';
+// import * as Express from 'express';
+// import * as BodyParser from 'body-parser';
+// import * as http from 'http';
 import { IAuthTokenData } from '@arashi/token';
 import { Logger } from '@arashi/logger';
 import { StormError } from './StormError';
@@ -45,15 +46,16 @@ export abstract class Application
         TDBConfig = any,
         TDBConnectionAPI = any
     >
-    extends EventEmitter {
+    extends EventEmitter
+    implements IApplication<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI> {
     private $logger: Logger;
     private $name: string;
     private $configPath: string;
     private $config: TConfig;
     private $tokenManager: TokenManager<TAuthToken>;
-    private $server: Express.Application;
+    // private $server: Express.Application;
     private $db: Database<TDBConfig, TDBConnectionAPI>;
-    private $socket: http.Server;
+    // private $socket: http.Server;
     private $program: Command;
 
     /**
@@ -86,6 +88,8 @@ export abstract class Application
         this.$load();
     }
 
+    protected abstract _initSocket(): Promise<void>;
+
     private $load(): void {
         this.loadConfig(this.$configPath).then((config: TConfig) => {
             this.$config = config;
@@ -109,17 +113,18 @@ export abstract class Application
             return Promise.resolve();
         }).then(() => {
             this.$getLogger().trace(TAG, 'Starting server...');
-            this.$server = Express();
-            this.$server.use(BodyParser.json({
-                type : 'application/json',
-                limit : this.getRequestSizeLimit()
-            }));
-            this.$server.use(BodyParser.text({
-                type : 'text/*',
-                limit : this.getRequestSizeLimit()
-            }));
+            return this._initSocket();
+            // this.$server = Express();
+            // this.$server.use(BodyParser.json({
+            //     type : 'application/json',
+            //     limit : this.getRequestSizeLimit()
+            // }));
+            // this.$server.use(BodyParser.text({
+            //     type : 'text/*',
+            //     limit : this.getRequestSizeLimit()
+            // }));
 
-            return Promise.resolve();
+            // return Promise.resolve();
         }).then(() => {
             this.$getLogger().trace(TAG, 'Attaching handlers...');
             return this._attachHandlers();
@@ -132,11 +137,15 @@ export abstract class Application
 
                 if (bindingIP !== null && bindingIP !== 'null') {
                     if (this.shouldListen()) {
-                        this.$socket = http.createServer(this.$server);
-                        this.$socket.listen(port, bindingIP, () => {
+                        this._bindSocket(bindingIP, port).then(() => {
                             this.$getLogger().trace(TAG, `Server started on ${bindingIP}:${this.getPort()}`);
                             resolve();
-                        });
+                        }).catch(reject);
+                        // this.$socket = http.createServer(this.$server);
+                        // this.$socket.listen(port, bindingIP, () => {
+                        //     this.$getLogger().trace(TAG, `Server started on ${bindingIP}:${this.getPort()}`);
+                        //     resolve();
+                        // });
                     }
                     else {
                         this.$getLogger().trace(TAG, 'Server did not bind because shouldListen() returned false.');
@@ -158,6 +167,8 @@ export abstract class Application
         });
     }
 
+    protected abstract _bindSocket(ip: string, port: number): Promise<void>;
+
     protected _initialize(config: TConfig): Promise<void> {
         return Promise.resolve();
     }
@@ -170,15 +181,18 @@ export abstract class Application
         return this.$logger;
     }
 
+    protected abstract _getPort(): number;
+
     public getPort(): number {
-        let port: number = null;
-        if (this.$socket && this.$socket.listening) {
-            let address = this.$socket.address();
-            if (typeof address !== 'string') {
-                port = address.port;
-            }
-        }
-        return port;
+        return this._getPort();
+        // let port: number = null;
+        // if (this.$socket && this.$socket.listening) {
+        //     let address = this.$socket.address();
+        //     if (typeof address !== 'string') {
+        //         port = address.port;
+        //     }
+        // }
+        // return port;
     }
 
     // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -212,35 +226,35 @@ export abstract class Application
         return this.getConfig().request_size_limit;
     }
 
-    /**
-     * 
-     * @param path The URL API path. E.g. /api/myService/myCommand/
-     * @param HandlerClass The concrete class (not the instance) of Handler to be used for this API.
-     */
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    public attachHandler(path: string, HandlerClass: IHandler): void {
-        let handler: Handler = new HandlerClass(this);
-        this.attachHandlerInstance(path, handler);
-    }
+    // /**
+    //  * 
+    //  * @param path The URL API path. E.g. /api/myService/myCommand/
+    //  * @param HandlerClass The concrete class (not the instance) of Handler to be used for this API.
+    //  */
+    // // eslint-disable-next-line @typescript-eslint/naming-convention
+    // public attachHandler(path: string, HandlerClass: IHandler): void {
+    //     let handler: Handler = new HandlerClass(this);
+    //     this.attachHandlerInstance(path, handler);
+    // }
 
-    public attachHandlerInstance(path: string, handler: Handler): void {
-        this.$server.get(path, (request: Express.Request, response: Express.Response) => {
-            let r: Request = new Request(request);
-            handler.get(r, new Response(response, r.getURL()));
-        });
-        this.$server.post(path, (request: Express.Request, response: Express.Response) => {
-            let r: Request = new Request(request);
-            handler.post(r, new Response(response, r.getURL()));
-        });
-        this.$server.put(path, (request: Express.Request, response: Express.Response) => {
-            let r: Request = new Request(request);
-            handler.put(r, new Response(response, r.getURL()));
-        });
-        this.$server.delete(path, (request: Express.Request, response: Express.Response) => {
-            let r: Request = new Request(request);
-            handler.delete(r, new Response(response, r.getURL()));
-        });
-    }
+    // public attachHandlerInstance(path: string, handler: Handler): void {
+    //     this.$server.get(path, (request: Express.Request, response: Express.Response) => {
+    //         let r: Request = new Request(request);
+    //         handler.get(r, new Response(response, r.getURL()));
+    //     });
+    //     this.$server.post(path, (request: Express.Request, response: Express.Response) => {
+    //         let r: Request = new Request(request);
+    //         handler.post(r, new Response(response, r.getURL()));
+    //     });
+    //     this.$server.put(path, (request: Express.Request, response: Express.Response) => {
+    //         let r: Request = new Request(request);
+    //         handler.put(r, new Response(response, r.getURL()));
+    //     });
+    //     this.$server.delete(path, (request: Express.Request, response: Express.Response) => {
+    //         let r: Request = new Request(request);
+    //         handler.delete(r, new Response(response, r.getURL()));
+    //     });
+    // }
 
     public async close(): Promise<void> {
         await Promise.all([ this._closeSocket(), this._closeDatabase() ]);
@@ -252,7 +266,7 @@ export abstract class Application
         }
     }
 
-    protected async _closeSocket(): Promise<void> {
+    protected abstract _closeSocket(): Promise<void>;/* {
         return new Promise<void>((resolve, reject) => {
             if (this.$socket && this.$socket.listening) {
                 this.$socket.close(() => {
@@ -263,7 +277,7 @@ export abstract class Application
                 resolve();
             }
         });
-    }
+    }*/
 
     /**
      * Subclasses are expected to attach the API handlers for their service. This will be invoked during application startup.

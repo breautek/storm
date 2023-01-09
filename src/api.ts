@@ -17,6 +17,8 @@
 // Application
 export {getInstance} from './instance';
 export {Application} from './Application';
+export {IApplication} from './IApplication';
+export {HTTPApplication} from './HTTPApplication';
 
 // Config
 export {ConfigLoader} from './ConfigLoader';

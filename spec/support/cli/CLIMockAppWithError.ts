@@ -1,7 +1,7 @@
 
-import { Application } from "../../../src/Application";
+import { HTTPApplication } from "../../../src/HTTPApplication";
 
-class CLIMockAppWithError extends Application {
+class CLIMockAppWithError extends HTTPApplication {
     protected async _attachHandlers(): Promise<void> {}
     
     protected _onReady(): void {

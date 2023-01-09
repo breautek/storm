@@ -14,9 +14,9 @@
    limitations under the License.
 */
 
-import {Application} from './Application';
+import {HTTPApplication} from './HTTPApplication';
 import {Handler} from './Handler';
 
-export interface IHandler<TApplication extends Application = Application> {
+export interface IHandler<TApplication extends HTTPApplication = HTTPApplication> {
     new (app: TApplication): Handler;
 }
