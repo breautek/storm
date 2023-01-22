@@ -126,9 +126,6 @@ export abstract class Application
 
             // return Promise.resolve();
         }).then(() => {
-            this.$getLogger().trace(TAG, 'Attaching handlers...');
-            return this._attachHandlers();
-        }).then(() => {
             return this._onBeforeReadyAsync();
         }).then(() => {
             return new Promise<void>((resolve, reject) => {
@@ -283,7 +280,7 @@ export abstract class Application
      * Subclasses are expected to attach the API handlers for their service. This will be invoked during application startup.
      * @returns Promise<void>
      */
-    protected abstract _attachHandlers(): Promise<void>;
+    // protected abstract _attachHandlers(): Promise<void>;
 
     /**
      * 

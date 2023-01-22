@@ -22,8 +22,17 @@ import {IHandler} from './IHandler';
 import {Request} from './Request';
 import {Response} from './Response';
 import * as http from 'http';
+import { IConfig } from './IConfig';
+import { IAuthTokenData } from '@arashi/token';
 
-export abstract class HTTPApplication extends Application {
+const TAG: string = 'HTTPApplication';
+
+export abstract class HTTPApplication<
+    TConfig extends IConfig = IConfig,
+    TAuthToken extends IAuthTokenData = IAuthTokenData,
+    TDBConfig = any,
+    TDBConnectionAPI = any
+> extends Application<TConfig, TAuthToken, TDBConfig, TDBConnectionAPI> {
     private $server: Express.Application;
     private $socket: http.Server;
 
@@ -37,7 +46,12 @@ export abstract class HTTPApplication extends Application {
             type : 'text/*',
             limit : this.getRequestSizeLimit()
         }));
+
+        this.getLogger().trace(TAG, 'Attaching handlers...');
+        await this._attachHandlers();
     }
+
+    protected abstract _attachHandlers(): Promise<void>;
 
     /**
      * 
