@@ -12,12 +12,12 @@ export class SetSessionVariableQuery extends Query<ISetSessionVariableQueryInput
     protected _getQuery(): string {
         let params: ISetSessionVariableQueryInput = this.getParameters();
 
-        if (!/[a-zA-Z_]/ig.test(params.name)) {
+        if (!/^([A-Za-z_])+([a-zA-Z0-9_])+$/g.test(params.name)) {
             throw new Error('Illegal Variable Name');
         }
 
         // Only allow alpha letters & underscores for variable names
-        return `SET SESSION ${params.name} = :value`;
+        return `SET SESSION \`${params.name}\` = :value`;
     }
 
     public getParametersForQuery(): Record<any, any> {

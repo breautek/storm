@@ -21,6 +21,10 @@ import {Query} from './Query';
 export class TransactionStep<TQueryParams = any, TQueryResultSet = any, TQueryPostProcessedResultSet = TQueryResultSet> implements IQueryable<TQueryPostProcessedResultSet> {
     private $query: Query<TQueryParams, TQueryResultSet, TQueryPostProcessedResultSet>;
 
+    public constructor(query: Query<TQueryParams, TQueryResultSet, TQueryPostProcessedResultSet>) {
+        this.$query = query;
+    }
+
     public onPreQuery(connection: IDatabaseConnection): Promise<void> {
         return this.$query.onPreQuery(connection);
     }

@@ -21,6 +21,7 @@ import { RollbackQuery } from './private/RollbackQuery';
 import { StartTransactionQuery } from './private/StartTransactionQuery';
 import { CommitQuery } from './private/CommitQuery';
 import { Application } from './Application';
+import {Query} from './Query';
 import { IsolationLevel } from './IsolationLevel';
 import { SetIsolationLevelQuery } from './private/SetIsolationLevelQuery';
 import { InternalError } from './InternalError';
@@ -29,6 +30,13 @@ import { InvalidValueError } from './InvalidValueError';
 
 const TAG: string = 'Transaction';
 
+/**
+ * A class encapsulating an entire transaction from beginning to commitment.
+ * 
+ * This encapsulates a series of Query steps to conduct for the transaction.
+ * Should the transaction fail due to a deadlock, the transaction will automatically
+ * 
+ */
 export class Transaction implements IQueryable<void> {
     private $steps: Array<TransactionStep>;
     private $retryLimit: number;
@@ -48,6 +56,10 @@ export class Transaction implements IQueryable<void> {
 
         this.$retryLimit = retryLimit;
         this.$isolationLevel = isolationLevel;
+    }
+
+    public addStep(query: Query): void {
+        this.$steps.push(new TransactionStep(query));
     }
     
     public async onPreQuery(connection: IDatabaseConnection): Promise<void> {}
@@ -79,6 +91,9 @@ export class Transaction implements IQueryable<void> {
                     await step.execute(connection);
                 }
                 await new CommitQuery().execute(connection);
+
+                // If we made it here, we can break out of our retry loop
+                break;
             }
             catch (ex) {
                 if (ex instanceof DeadLockError) {
@@ -86,13 +101,9 @@ export class Transaction implements IQueryable<void> {
                 }
                 else {
                     await new RollbackQuery().execute(connection);
+                    throw ex;
                 }
-                
-                throw ex;
             }
-
-            // If we made it here, we can break out of our retry loop
-            break;
         } while (attemptCount < this.$retryLimit);
     }
 }
