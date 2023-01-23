@@ -9,6 +9,8 @@ This document describes high overview of breaking changes in between major versi
 
 Use `RawQuery` if you want to use a one-off artibrary query that you do not care to unit test.
 
+NodeJS 14.x is now required.
+
 # 3.x -> 4.x
 
 My apologies, I forget about this document and I no longer remember the specific details surrouding the breaking change.
