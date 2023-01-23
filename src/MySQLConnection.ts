@@ -34,9 +34,17 @@ const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
 
 const SQL_FORMATTING_OPTIONS: SQLFormatter.FormatOptions = {
-    language: 'mysql',
-    indent: '    ',
-    uppercase: true
+    tabWidth: 4,
+    keywordCase: 'upper',
+    useTabs: false,
+    indentStyle: 'standard',
+    logicalOperatorNewline: 'after',
+    commaPosition: 'before',
+    linesBetweenQueries: 1,
+    denseOperators: false,
+    newlineBeforeSemicolon: false,
+    tabulateAlias: true,
+    expressionWidth: 4
 };
 
 let startTransactionQuery: Query = new StartTransactionQuery();
