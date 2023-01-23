@@ -96,6 +96,8 @@ export abstract class ServiceProvider {
                 httpOpts.headers['Content-Type'] = 'application/json';
             }
 
+            console.log('HTTP OPTS', httpOpts);
+
             this.$app.getLogger().trace(TAG, `ServiceProvider Request`);
             this.$app.getLogger().trace(TAG, `METHOD: ${httpOpts.method}`);
             this.$app.getLogger().trace(TAG, `HOSTNAME: ${httpOpts.hostname}`);
@@ -115,6 +117,7 @@ export abstract class ServiceProvider {
                 });
 
                 response.on('end', () => {
+                    console.log('COMPLETION', responseData.byteLength, responseData.toString('utf8'));
                     this.$app.getLogger().trace(TAG, `ServiceProvider request has completed.`);
                     resolve(new ServiceResponse(responseData, response));
                 });

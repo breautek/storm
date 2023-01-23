@@ -15,8 +15,8 @@
 */
 
 import { Readable } from 'stream';
+import { IQueryable } from './IQueryable';
 import { IsolationLevel } from './IsolationLevel';
-import { Query } from './Query';
 
 export interface IDatabaseConnection {
     setInstantiationStack(stack: string): void;
@@ -25,8 +25,8 @@ export interface IDatabaseConnection {
     isReadOnly(): boolean;
     setTimeout(timeout: number): void;
     getTimeout(): number;
-    query(query: string | Query, params?: any): Promise<any>;
-    stream(query: string | Query, params?: any, streamOptions?: any): Readable;
+    query(query: IQueryable<any>, params?: any): Promise<any>;
+    stream(query: IQueryable<any>, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
     isClosed(): boolean;
     startTransaction(level?: IsolationLevel): Promise<void>;

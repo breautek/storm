@@ -15,6 +15,7 @@
 */
 
 import {IncomingMessage} from 'http';
+import { StatusCode } from './StatusCode';
 
 export class ServiceResponse {
     private $data: Buffer;
@@ -35,5 +36,9 @@ export class ServiceResponse {
 
     public getJSON(): any {
         return JSON.parse(this.getUTF8());
+    }
+
+    public getStatusCode(): StatusCode {
+        return this.$response.statusCode;
     }
 }

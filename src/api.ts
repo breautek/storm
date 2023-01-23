@@ -36,6 +36,8 @@ export {IDeleteQueryResult} from './IDeleteQueryResult';
 export {IUpdateQueryResult} from './IUpdateQueryResult';
 export {SetSessionVariableQuery, ISetSessionVariableQueryInput} from './SetSessionVariableQuery';
 export {IsolationLevel} from './IsolationLevel';
+export {Transaction} from './Transaction';
+export {TransactionStep} from './TransactionStep';
 
 // Errors
 export {ErrorCode} from './ErrorCode';
@@ -83,6 +85,7 @@ export {IFormData} from './IFormData';
 export {IDatabaseConnection} from './IDatabaseConnection';
 export {IServiceHeaders} from './IServiceHeaders';
 export {IAuthTokenData} from './IAuthTokenData';
+export {IQueryable} from './IQueryable';
 
 // Token
 export {Token} from './Token';

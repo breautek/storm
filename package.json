@@ -1,6 +1,6 @@
 {
   "name": "@breautek/storm",
-  "version": "4.6.3",
+  "version": "5.0.0-dev",
   "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
   "types": "lib/api.d.ts",
@@ -37,7 +37,7 @@
     "breautek"
   ],
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">= 14.0.0"
   },
   "author": "norman@normanbreau.com",
   "license": "Apache-2.0",

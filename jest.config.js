@@ -32,9 +32,17 @@ module.exports = {
     '/spec/'
   ],
   testRunner: "jest-jasmine2",
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig-tests.json'
-    }
+  transform: {
+    '\\.ts$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig-tests.json'
+      }
+    ]
   }
+  // globals: {
+  //   'ts-jest': {
+  //     tsconfig: 'tsconfig-tests.json'
+  //   }
+  // }
 };
