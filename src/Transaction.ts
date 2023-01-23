@@ -17,13 +17,13 @@
 import {TransactionStep} from './TransactionStep';
 import { IDatabaseConnection } from './IDatabaseConnection';
 import {IQueryable} from './IQueryable';
-import { RollbackQuery } from './private/RollbackQuery';
-import { StartTransactionQuery } from './private/StartTransactionQuery';
-import { CommitQuery } from './private/CommitQuery';
+// import { RollbackQuery } from './private/RollbackQuery';
+// import { StartTransactionQuery } from './private/StartTransactionQuery';
+// import { CommitQuery } from './private/CommitQuery';
 import { Application } from './Application';
 import {Query} from './Query';
 import { IsolationLevel } from './IsolationLevel';
-import { SetIsolationLevelQuery } from './private/SetIsolationLevelQuery';
+// import { SetIsolationLevelQuery } from './private/SetIsolationLevelQuery';
 import { InternalError } from './InternalError';
 import { DeadLockError } from './DeadLockError';
 import { InvalidValueError } from './InvalidValueError';
@@ -83,24 +83,23 @@ export class Transaction implements IQueryable<void> {
         do {
             attemptCount++;
             this.$application.getLogger().info(TAG, `Starting transaction attempt ${attemptCount} of ${this.$retryLimit === Infinity ? 'Infinity' : this.$retryLimit.toString()}`);
-            await new SetIsolationLevelQuery(this.$isolationLevel).execute(connection);
-            await new StartTransactionQuery().execute(connection);
+            await connection.startTransaction(this.$isolationLevel);
             try {
                 for (let i: number = 0; i < this.$steps.length; i++) {
                     let step: TransactionStep = this.$steps[i];
                     await step.execute(connection);
                 }
-                await new CommitQuery().execute(connection);
+                await connection.commit();
 
                 // If we made it here, we can break out of our retry loop
                 break;
             }
             catch (ex) {
-                if (ex instanceof DeadLockError) {
+                if (attemptCount < this.$retryLimit && ex instanceof DeadLockError) {
                     this.$application.getLogger().warn(TAG, `Deadlock received... retrying transaction`);
                 }
                 else {
-                    await new RollbackQuery().execute(connection);
+                    await connection.rollback();
                     throw ex;
                 }
             }
