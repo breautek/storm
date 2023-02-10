@@ -40,9 +40,4 @@ module.exports = {
       }
     ]
   }
-  // globals: {
-  //   'ts-jest': {
-  //     tsconfig: 'tsconfig-tests.json'
-  //   }
-  // }
 };
