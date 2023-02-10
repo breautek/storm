@@ -13,10 +13,11 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+
 module.exports = {
   preset: 'ts-jest',
   verbose: true,
-  collectCoverage: true,
+  collectCoverage: process.argv.length === 2,
   testMatch: ['**/spec/**/*.spec.ts'],
   coverageThreshold: {
     global: {
