@@ -39,7 +39,7 @@ describe('Transaction', () => {
         let t: Transaction = null;
 
         beforeEach(() => {
-            t = new Transaction(app);
+            t = new Transaction(app, async () => {});
         });
 
         it('getQuery', () => {
@@ -57,24 +57,24 @@ describe('Transaction', () => {
 
     it('retryLimit must be greater than 0', () => {
         expect(() => {
-            new Transaction(app, 0);
+            new Transaction(app, async () => {}, 0);
         }).toThrowError(InvalidValueError);
     });
 
     describe('retryLimit should default to Infinity if null/undefined', () => {
         it('null', () => {
-            let t: Transaction = new Transaction(app, null);
+            let t: Transaction = new Transaction(app, async () => {}, null);
             expect((<any>t).$retryLimit).toBe(Infinity);
         });
 
         it('undefined', () => {
-            let t: Transaction = new Transaction(app, undefined);
+            let t: Transaction = new Transaction(app, async () => undefined);
             expect((<any>t).$retryLimit).toBe(Infinity);
         });
     });
 
     it('should throw InternalError if connection is already in transaction state', async () => {
-        let t: Transaction = new Transaction(app);
+        let t: Transaction = new Transaction(app, async () => {});
         let conn: IDatabaseConnection = await app.getDB().getConnection(true);
         await conn.startTransaction();
         expect(async () => {
@@ -86,10 +86,12 @@ describe('Transaction', () => {
         spyOn(SetIsolationLevelQuery.prototype, 'execute').and.callThrough();
         spyOn(StartTransactionQuery.prototype, 'execute').and.callThrough();
         spyOn(CommitQuery.prototype, 'execute').and.callThrough();
-        let transaction: Transaction = new Transaction(app);
         let query: Query = new RawQuery('SELECT 1');
+        let transaction: Transaction = new Transaction(app, async (connection: IDatabaseConnection) => {
+            await query.execute(connection);
+        });
+        
         spyOn(query, 'execute').and.callThrough();
-        transaction.addStep(query);
 
         let conn: IDatabaseConnection = await app.getDB().getConnection(true);
         await transaction.execute(conn);
@@ -101,10 +103,12 @@ describe('Transaction', () => {
     });
 
     it('should retry automatically on DeadLockError', async () => {
-        let transaction: Transaction = new Transaction(app);
-        let conn: IDatabaseConnection = await app.getDB().getConnection(true);
         let query: Query = new RawQuery('SELECT 1');
-        transaction.addStep(query);
+        let transaction: Transaction = new Transaction(app, async (conn: IDatabaseConnection) => {
+            await query.execute(conn);
+        });
+        let conn: IDatabaseConnection = await app.getDB().getConnection(true);
+        
         let shouldThrowError: boolean = true;
         spyOn(query, 'execute').and.callFake(() => {
             if (shouldThrowError) {
@@ -122,11 +126,13 @@ describe('Transaction', () => {
     });
 
     it('should rollback on retry limit', async () => {
-        let transaction: Transaction = new Transaction(app, 3);
-        let conn: IDatabaseConnection = await app.getDB().getConnection(true);
         let query: Query = new RawQuery('SELECT 1');
+        let transaction: Transaction = new Transaction(app, async (conn: IDatabaseConnection) => {
+            await query.execute(conn);
+        }, 3);
+        let conn: IDatabaseConnection = await app.getDB().getConnection(true);
+        
         spyOn(RollbackQuery.prototype, 'execute').and.callThrough();
-        transaction.addStep(query);
         spyOn(query, 'execute').and.callFake(() => {
             return Promise.reject(new DeadLockError(query.getQuery(conn), new Error('dummy error')));
         });

@@ -2,6 +2,9 @@
 import * as api from '../src/api';
 import {Application} from '../src/Application';
 
+// TODO: Rework this to actually check the Public API,
+// not just truthy values.
+
 describe('Public API', () => {
 
     it('Application', () => {

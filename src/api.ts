@@ -37,7 +37,6 @@ export {IUpdateQueryResult} from './IUpdateQueryResult';
 export {SetSessionVariableQuery, ISetSessionVariableQueryInput} from './SetSessionVariableQuery';
 export {IsolationLevel} from './IsolationLevel';
 export {Transaction} from './Transaction';
-export {TransactionStep} from './TransactionStep';
 
 // Errors
 export {ErrorCode} from './ErrorCode';

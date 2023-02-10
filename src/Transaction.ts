@@ -14,21 +14,17 @@
    limitations under the License.
 */
 
-import {TransactionStep} from './TransactionStep';
 import { IDatabaseConnection } from './IDatabaseConnection';
 import {IQueryable} from './IQueryable';
-// import { RollbackQuery } from './private/RollbackQuery';
-// import { StartTransactionQuery } from './private/StartTransactionQuery';
-// import { CommitQuery } from './private/CommitQuery';
 import { Application } from './Application';
-import {Query} from './Query';
 import { IsolationLevel } from './IsolationLevel';
-// import { SetIsolationLevelQuery } from './private/SetIsolationLevelQuery';
 import { InternalError } from './InternalError';
 import { DeadLockError } from './DeadLockError';
 import { InvalidValueError } from './InvalidValueError';
 
 const TAG: string = 'Transaction';
+
+export type ITransactionExecutor = (connection: IDatabaseConnection) => Promise<void>;
 
 /**
  * A class encapsulating an entire transaction from beginning to commitment.
@@ -38,14 +34,14 @@ const TAG: string = 'Transaction';
  * 
  */
 export class Transaction implements IQueryable<void> {
-    private $steps: Array<TransactionStep>;
     private $retryLimit: number;
     private $application: Application;
     private $isolationLevel: IsolationLevel;
+    private $executor: ITransactionExecutor;
 
-    public constructor(app: Application, retryLimit: number = Infinity, isolationLevel: IsolationLevel = IsolationLevel.REPEATABLE_READ) {
+    public constructor(app: Application, executor: ITransactionExecutor, retryLimit: number = Infinity, isolationLevel: IsolationLevel = IsolationLevel.REPEATABLE_READ) {
         this.$application = app;
-        this.$steps = [];
+        this.$executor = executor;
 
         if (retryLimit === null || retryLimit === undefined) {
             retryLimit = Infinity;
@@ -56,10 +52,6 @@ export class Transaction implements IQueryable<void> {
 
         this.$retryLimit = retryLimit;
         this.$isolationLevel = isolationLevel;
-    }
-
-    public addStep(query: Query): void {
-        this.$steps.push(new TransactionStep(query));
     }
     
     public async onPreQuery(connection: IDatabaseConnection): Promise<void> {}
@@ -85,10 +77,7 @@ export class Transaction implements IQueryable<void> {
             this.$application.getLogger().info(TAG, `Starting transaction attempt ${attemptCount} of ${this.$retryLimit === Infinity ? 'Infinity' : this.$retryLimit.toString()}`);
             await connection.startTransaction(this.$isolationLevel);
             try {
-                for (let i: number = 0; i < this.$steps.length; i++) {
-                    let step: TransactionStep = this.$steps[i];
-                    await step.execute(connection);
-                }
+                await this.$executor(connection);
                 await connection.commit();
 
                 // If we made it here, we can break out of our retry loop
