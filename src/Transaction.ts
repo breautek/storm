@@ -29,9 +29,9 @@ export type ITransactionExecutor = (connection: IDatabaseConnection) => Promise<
 /**
  * A class encapsulating an entire transaction from beginning to commitment.
  * 
- * This encapsulates a series of Query steps to conduct for the transaction.
+ * This encapsulates a routine to conduct for the transaction.
  * Should the transaction fail due to a deadlock, the transaction will automatically
- * 
+ * be tried.
  */
 export class Transaction implements IQueryable<void> {
     private $retryLimit: number;

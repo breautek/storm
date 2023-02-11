@@ -98,7 +98,10 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                             // SQLFormatter doesn't understand all MySQL syntaxes, so this is to prevent
                             // potentially valid queries from becoming errors simply because we couldn't
                             // log them.
-                            sql = SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS);
+                            sql = SQLFormatter.formatDialect(queryObject.sql, {
+                                ...SQL_FORMATTING_OPTIONS,
+                                dialect: SQLFormatter.mysql
+                            });
                         }
                         catch (ex) {
                             logger.warn(TAG, 'Unable to format query...');

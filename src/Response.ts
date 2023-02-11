@@ -65,7 +65,6 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
             this.$response.send(data.toString());
         }
         else if (data instanceof Buffer || [ 'string', 'boolean' ].indexOf(typeof data) > -1) {
-            console.log('RETURNING ', data);
             this.$response.send(data);
         }
         else if (data instanceof Stream.Readable) {
