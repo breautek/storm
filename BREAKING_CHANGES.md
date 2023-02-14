@@ -3,6 +3,18 @@
 
 This document describes high overview of breaking changes in between major versions. View the [CHANGELOG.md](./CHANGELOG.md) for more granular changes at the commit level.
 
+# 4.x -> 5.x
+
+`DatabaseConnection` no longer accept strings for Queries. New `IQueryably` interface has been added and is what `DatabaseConnection` now accepts. The `Query` class implements `IQueryable` so if you have already refactored the code to use `Query` classes, then this change shouldn't affect you much.
+
+Use `RawQuery` if you want to use a one-off artibrary query that you do not care to unit test.
+
+NodeJS 14.x is now required.
+
+# 3.x -> 4.x
+
+My apologies, I forget about this document and I no longer remember the specific details surrouding the breaking change.
+
 # 2.x -> 3.x
 
 ## Generic Handlers

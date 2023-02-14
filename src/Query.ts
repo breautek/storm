@@ -15,8 +15,9 @@
 */
 
 import { IDatabaseConnection } from './IDatabaseConnection';
+import { IQueryable } from './IQueryable';
 
-export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQueryPostProcessedResultSet = TQueryResultSet> {
+export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQueryPostProcessedResultSet = TQueryResultSet> implements IQueryable<TQueryPostProcessedResultSet> {
     private $params: TQueryParameters;
 
     public constructor(parameters?: TQueryParameters) {
@@ -35,7 +36,7 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
      * 
      * @returns parameters that will be used when this query is ran.
      */
-    public getParametersForQuery(): Record<any, any> {
+    public getParametersForQuery(): Record<string, any> {
         return this.$params;
     }
 

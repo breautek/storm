@@ -1,13 +1,54 @@
 
-// import {SetSessionVariableQuery} from '../../src/SetSessionVariableQuery';
+import {SetSessionVariableQuery} from '../../src/SetSessionVariableQuery';
 
-// TODO: Figure out how to mock the database to the point that I can actually test resolved queries.
 describe('SetSessionVariableQuery', () => {
-    xit('SetSessionVariableQuery', async () => {
-        // let query: SetSessionVariableQuery = new SetSessionVariableQuery({
-        //     name: 'testVar',
-        //     value: 'testValue'
-        // });
-        // expect(query.getQuery()).toBe('SET SESSION');
+    it('SetSessionVariableQuery', async () => {
+        let query: SetSessionVariableQuery = new SetSessionVariableQuery({
+            name: 'testVar',
+            value: 'testValue'
+        });
+        expect(query.getQuery(null)).toBe('SET SESSION `testVar` = :value');
+    });
+
+    describe('variable names', () => {
+        let testCases: Record<string, boolean> = {
+            'test': true,
+            'test1': true,
+            '1test': false,
+            'test test': false,
+            'test_123': true,
+            '_test': true,
+            'test$': false
+        };
+
+        for (let i in testCases) {
+            it(`${i} should ${testCases[i] ? 'pass' : 'error'}`, () => {
+                let query: SetSessionVariableQuery = new SetSessionVariableQuery({
+                    name: i,
+                    value: 'testValue'
+                });
+
+                let expectation: jest.JestMatchers<() => void> = expect(() => {
+                    query.getQuery(null);
+                });
+
+                if (testCases[i]) {
+                    expectation.not.toThrowError();
+                }
+                else {
+                    expectation.toThrowError('Illegal Variable Name');
+                }
+            });
+        }
+    });
+
+    it('getParametersForQuery', () => {
+        let query: SetSessionVariableQuery = new SetSessionVariableQuery({
+            name: 'testVar',
+            value: 'testValue'
+        });
+        expect(query.getParametersForQuery()).toEqual({
+            value: 'testValue'
+        });
     });
 });

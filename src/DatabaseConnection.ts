@@ -19,7 +19,7 @@ import {
 } from './instance';
 import {Readable} from 'stream';
 import {IDatabaseConnection} from './IDatabaseConnection';
-import {Query} from './Query';
+import {IQueryable} from './IQueryable';
 import { IConfig } from './IConfig';
 import { IsolationLevel } from './IsolationLevel';
 
@@ -129,12 +129,12 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @async
      * @returns Promise<TQueryResult>
      */
-    public async query<TQueryResult = any>(query: Query): Promise<TQueryResult> {
+    public async query<TQueryResult = any>(query: IQueryable<TQueryResult>): Promise<TQueryResult> {
         this.$armLingerWarning();
         
         let queryStr: string = null;
         queryStr = query.getQuery(this);
-        let params: Record<any, any> = query.getParametersForQuery();
+        let params: Record<string, any> = query.getParametersForQuery();
 
         await query.onPreQuery(this);
         let results: TQueryResult = await this._query<TQueryResult>(queryStr, params);
@@ -149,7 +149,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @returns Readable
      */
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    public stream(query: Query, streamOptions?: any): Readable {
+    public stream(query: IQueryable<any>, streamOptions?: any): Readable {
         this.$armLingerWarning();
         let queryStr: string = null;
         let params: Record<any, any> = query.getParametersForQuery();

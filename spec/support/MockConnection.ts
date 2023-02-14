@@ -1,5 +1,10 @@
 import { DatabaseConnection } from '../../src/DatabaseConnection';
 import { Readable } from 'stream';
+import { CommitQuery } from '../../src/private/CommitQuery';
+import { RollbackQuery } from '../../src/private/RollbackQuery';
+import { StartTransactionQuery } from '../../src/private/StartTransactionQuery';
+import { IsolationLevel } from '../../src/IsolationLevel';
+import { SetIsolationLevelQuery } from '../../src/private/SetIsolationLevelQuery';
 
 export class MockConnection extends DatabaseConnection<any> {
     public transaction: boolean;
@@ -11,23 +16,24 @@ export class MockConnection extends DatabaseConnection<any> {
         this.closed = false;
     }
 
-    public startTransaction(): Promise<void> {
+    public async startTransaction(isolationLevel?: IsolationLevel): Promise<void> {
         this.transaction = true;
-        return Promise.resolve();
+        await new SetIsolationLevelQuery(isolationLevel).execute(this);
+        await new StartTransactionQuery().execute(this);
     }
 
     public isTransaction(): boolean {
         return this.transaction;
     }
 
-    public commit(): Promise<void> {
+    public async commit(): Promise<void> {
+        await new CommitQuery().execute(this);
         this.transaction = false;
-        return Promise.resolve();
     }
 
-    public rollback(): Promise<void> {
+    public async rollback(): Promise<void> {
+        await new RollbackQuery().execute(this);
         this.transaction = false;
-        return Promise.resolve();
     }
 
     protected _close(): Promise<void> {
@@ -39,8 +45,7 @@ export class MockConnection extends DatabaseConnection<any> {
         if (requiresRollback) {
             await this.rollback();
         }
-        this.transaction = false;
-        return Promise.resolve();
+        await this.commit();
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

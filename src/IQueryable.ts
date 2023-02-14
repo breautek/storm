@@ -1,5 +1,5 @@
 /*
-   Copyright 2017-2021 Norman Breau
+   Copyright 2017-2023 Norman Breau
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,30 +14,12 @@
    limitations under the License.
 */
 
-module.exports = {
-  preset: 'ts-jest',
-  verbose: true,
-  collectCoverage: process.argv.length === 2,
-  testMatch: ['**/spec/**/*.spec.ts'],
-  coverageThreshold: {
-    global: {
-      branches: 75,
-      functions: 75,
-      lines: 75,
-      statements: 75
-    },
-  },
-  coveragePathIgnorePatterns: [
-    '/node_modules/',
-    '/spec/'
-  ],
-  testRunner: "jest-jasmine2",
-  transform: {
-    '\\.ts$': [
-      'ts-jest',
-      {
-        tsconfig: 'tsconfig-tests.json'
-      }
-    ]
-  }
-};
+import { IDatabaseConnection } from './IDatabaseConnection';
+
+export interface IQueryable<T> {
+    onPreQuery(connection: IDatabaseConnection): Promise<void>;
+    getQuery(connection: IDatabaseConnection): string;
+    execute(connection: IDatabaseConnection): Promise<T>;
+    getParametersForQuery(): Record<string, any>;
+    onPostProcess(connection: IDatabaseConnection, results: any): Promise<T>;
+}

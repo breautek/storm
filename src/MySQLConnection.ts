@@ -34,9 +34,17 @@ const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
 
 const SQL_FORMATTING_OPTIONS: SQLFormatter.FormatOptions = {
-    language: 'mysql',
-    indent: '    ',
-    uppercase: true
+    tabWidth: 4,
+    keywordCase: 'upper',
+    useTabs: false,
+    indentStyle: 'standard',
+    logicalOperatorNewline: 'after',
+    commaPosition: 'before',
+    linesBetweenQueries: 1,
+    denseOperators: false,
+    newlineBeforeSemicolon: false,
+    tabulateAlias: true,
+    expressionWidth: 4
 };
 
 let startTransactionQuery: Query = new StartTransactionQuery();
@@ -90,7 +98,10 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                             // SQLFormatter doesn't understand all MySQL syntaxes, so this is to prevent
                             // potentially valid queries from becoming errors simply because we couldn't
                             // log them.
-                            sql = SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS);
+                            sql = SQLFormatter.formatDialect(queryObject.sql, {
+                                ...SQL_FORMATTING_OPTIONS,
+                                dialect: SQLFormatter.mysql
+                            });
                         }
                         catch (ex) {
                             logger.warn(TAG, 'Unable to format query...');
