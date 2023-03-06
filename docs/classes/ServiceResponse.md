@@ -12,6 +12,7 @@
 
 - [getJSON](ServiceResponse.md#getjson)
 - [getRaw](ServiceResponse.md#getraw)
+- [getStatusCode](ServiceResponse.md#getstatuscode)
 - [getUTF8](ServiceResponse.md#getutf8)
 
 ## Constructors
@@ -29,7 +30,7 @@
 
 #### Defined in
 
-[src/ServiceResponse.ts:23](https://github.com/breautek/storm/blob/5fbba2d/src/ServiceResponse.ts#L23)
+[src/ServiceResponse.ts:24](https://github.com/breautek/storm/blob/3748147/src/ServiceResponse.ts#L24)
 
 ## Methods
 
@@ -43,7 +44,7 @@
 
 #### Defined in
 
-[src/ServiceResponse.ts:36](https://github.com/breautek/storm/blob/5fbba2d/src/ServiceResponse.ts#L36)
+[src/ServiceResponse.ts:37](https://github.com/breautek/storm/blob/3748147/src/ServiceResponse.ts#L37)
 
 ___
 
@@ -57,7 +58,21 @@ ___
 
 #### Defined in
 
-[src/ServiceResponse.ts:28](https://github.com/breautek/storm/blob/5fbba2d/src/ServiceResponse.ts#L28)
+[src/ServiceResponse.ts:29](https://github.com/breautek/storm/blob/3748147/src/ServiceResponse.ts#L29)
+
+___
+
+### getStatusCode
+
+▸ **getStatusCode**(): [`StatusCode`](../enums/StatusCode.md)
+
+#### Returns
+
+[`StatusCode`](../enums/StatusCode.md)
+
+#### Defined in
+
+[src/ServiceResponse.ts:41](https://github.com/breautek/storm/blob/3748147/src/ServiceResponse.ts#L41)
 
 ___
 
@@ -71,4 +86,4 @@ ___
 
 #### Defined in
 
-[src/ServiceResponse.ts:32](https://github.com/breautek/storm/blob/5fbba2d/src/ServiceResponse.ts#L32)
+[src/ServiceResponse.ts:33](https://github.com/breautek/storm/blob/3748147/src/ServiceResponse.ts#L33)

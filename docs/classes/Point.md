@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[src/Point.ts:23](https://github.com/breautek/storm/blob/5fbba2d/src/Point.ts#L23)
+[src/Point.ts:23](https://github.com/breautek/storm/blob/3748147/src/Point.ts#L23)
 
 ## Methods
 
@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[src/Point.ts:30](https://github.com/breautek/storm/blob/5fbba2d/src/Point.ts#L30)
+[src/Point.ts:30](https://github.com/breautek/storm/blob/3748147/src/Point.ts#L30)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:24](https://github.com/breautek/storm/blob/5fbba2d/src/DatabaseCastObject.ts#L24)
+[src/DatabaseCastObject.ts:24](https://github.com/breautek/storm/blob/3748147/src/DatabaseCastObject.ts#L24)
 
 ___
 
@@ -99,4 +99,4 @@ ___
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:20](https://github.com/breautek/storm/blob/5fbba2d/src/DatabaseCastObject.ts#L20)
+[src/DatabaseCastObject.ts:20](https://github.com/breautek/storm/blob/3748147/src/DatabaseCastObject.ts#L20)

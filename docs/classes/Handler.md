@@ -30,7 +30,6 @@
 - [\_onMiddlewareReject](Handler.md#_onmiddlewarereject)
 - [\_post](Handler.md#_post)
 - [\_put](Handler.md#_put)
-- [attach](Handler.md#attach)
 - [delete](Handler.md#delete)
 - [get](Handler.md#get)
 - [getAccessToken](Handler.md#getaccesstoken)
@@ -66,7 +65,7 @@
 
 #### Defined in
 
-[src/Handler.ts:72](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L72)
+[src/Handler.ts:72](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L72)
 
 ## Methods
 
@@ -86,7 +85,7 @@
 
 #### Defined in
 
-[src/Handler.ts:215](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L215)
+[src/Handler.ts:211](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L211)
 
 ___
 
@@ -106,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:203](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L203)
+[src/Handler.ts:199](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L199)
 
 ___
 
@@ -120,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:81](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L81)
+[src/Handler.ts:81](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L81)
 
 ___
 
@@ -142,7 +141,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:137](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L137)
+[src/Handler.ts:137](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L137)
 
 ___
 
@@ -162,7 +161,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:207](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L207)
+[src/Handler.ts:203](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L203)
 
 ___
 
@@ -182,27 +181,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:211](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L211)
-
-___
-
-### attach
-
-▸ **attach**(`app`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `app` | [`Application`](Application.md)<[`IConfig`](../interfaces/IConfig.md), [`IAuthTokenData`](../interfaces/IAuthTokenData.md), `any`, `any`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/Handler.ts:147](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L147)
+[src/Handler.ts:207](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L207)
 
 ___
 
@@ -223,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:190](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L190)
+[src/Handler.ts:186](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L186)
 
 ___
 
@@ -244,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:151](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L151)
+[src/Handler.ts:147](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L147)
 
 ___
 
@@ -264,7 +243,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:85](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L85)
+[src/Handler.ts:85](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L85)
 
 ___
 
@@ -278,7 +257,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:77](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L77)
+[src/Handler.ts:77](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L77)
 
 ___
 
@@ -299,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:177](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L177)
+[src/Handler.ts:173](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L173)
 
 ___
 
@@ -320,4 +299,4 @@ ___
 
 #### Defined in
 
-[src/Handler.ts:164](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L164)
+[src/Handler.ts:160](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L160)

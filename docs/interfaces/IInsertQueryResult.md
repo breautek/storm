@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[src/IInsertQueryResult.ts:19](https://github.com/breautek/storm/blob/5fbba2d/src/IInsertQueryResult.ts#L19)
+[src/IInsertQueryResult.ts:19](https://github.com/breautek/storm/blob/3748147/src/IInsertQueryResult.ts#L19)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/IInsertQueryResult.ts:20](https://github.com/breautek/storm/blob/5fbba2d/src/IInsertQueryResult.ts#L20)
+[src/IInsertQueryResult.ts:20](https://github.com/breautek/storm/blob/3748147/src/IInsertQueryResult.ts#L20)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/IInsertQueryResult.ts:18](https://github.com/breautek/storm/blob/5fbba2d/src/IInsertQueryResult.ts#L18)
+[src/IInsertQueryResult.ts:18](https://github.com/breautek/storm/blob/3748147/src/IInsertQueryResult.ts#L18)

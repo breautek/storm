@@ -22,6 +22,10 @@
 
   ↳ [`SetSessionVariableQuery`](SetSessionVariableQuery.md)
 
+## Implements
+
+- [`IQueryable`](../interfaces/IQueryable.md)<`TQueryPostProcessedResultSet`\>
+
 ## Table of contents
 
 ### Constructors
@@ -60,7 +64,7 @@
 
 #### Defined in
 
-[src/Query.ts:22](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L22)
+[src/Query.ts:23](https://github.com/breautek/storm/blob/3748147/src/Query.ts#L23)
 
 ## Methods
 
@@ -80,7 +84,7 @@
 
 #### Defined in
 
-[src/Query.ts:42](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L42)
+[src/Query.ts:43](https://github.com/breautek/storm/blob/3748147/src/Query.ts#L43)
 
 ___
 
@@ -98,9 +102,13 @@ ___
 
 `Promise`<`TQueryPostProcessedResultSet`\>
 
+#### Implementation of
+
+[IQueryable](../interfaces/IQueryable.md).[execute](../interfaces/IQueryable.md#execute)
+
 #### Defined in
 
-[src/Query.ts:70](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L70)
+[src/Query.ts:71](https://github.com/breautek/storm/blob/3748147/src/Query.ts#L71)
 
 ___
 
@@ -116,25 +124,29 @@ parameters that was passed into the constructor.
 
 #### Defined in
 
-[src/Query.ts:29](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L29)
+[src/Query.ts:30](https://github.com/breautek/storm/blob/3748147/src/Query.ts#L30)
 
 ___
 
 ### getParametersForQuery
 
-▸ **getParametersForQuery**(): `Record`<`any`, `any`\>
+▸ **getParametersForQuery**(): `Record`<`string`, `any`\>
 
 Query implementations may override this API to augment the parameters.
 
 #### Returns
 
-`Record`<`any`, `any`\>
+`Record`<`string`, `any`\>
 
 parameters that will be used when this query is ran.
 
+#### Implementation of
+
+[IQueryable](../interfaces/IQueryable.md).[getParametersForQuery](../interfaces/IQueryable.md#getparametersforquery)
+
 #### Defined in
 
-[src/Query.ts:38](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L38)
+[src/Query.ts:39](https://github.com/breautek/storm/blob/3748147/src/Query.ts#L39)
 
 ___
 
@@ -152,9 +164,13 @@ ___
 
 `string`
 
+#### Implementation of
+
+[IQueryable](../interfaces/IQueryable.md).[getQuery](../interfaces/IQueryable.md#getquery)
+
 #### Defined in
 
-[src/Query.ts:44](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L44)
+[src/Query.ts:45](https://github.com/breautek/storm/blob/3748147/src/Query.ts#L45)
 
 ___
 
@@ -175,9 +191,13 @@ Override to augment/manipulate the returned result set.
 
 `Promise`<`TQueryPostProcessedResultSet`\>
 
+#### Implementation of
+
+[IQueryable](../interfaces/IQueryable.md).[onPostProcess](../interfaces/IQueryable.md#onpostprocess)
+
 #### Defined in
 
-[src/Query.ts:65](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L65)
+[src/Query.ts:66](https://github.com/breautek/storm/blob/3748147/src/Query.ts#L66)
 
 ___
 
@@ -198,6 +218,10 @@ Can be used to set session variables or create temporary tables, etc.
 
 `Promise`<`void`\>
 
+#### Implementation of
+
+[IQueryable](../interfaces/IQueryable.md).[onPreQuery](../interfaces/IQueryable.md#onprequery)
+
 #### Defined in
 
-[src/Query.ts:55](https://github.com/breautek/storm/blob/5fbba2d/src/Query.ts#L55)
+[src/Query.ts:56](https://github.com/breautek/storm/blob/3748147/src/Query.ts#L56)

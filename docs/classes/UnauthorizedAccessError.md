@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:22](https://github.com/breautek/storm/blob/5fbba2d/src/UnauthorizedAccessError.ts#L22)
+[src/UnauthorizedAccessError.ts:22](https://github.com/breautek/storm/blob/3748147/src/UnauthorizedAccessError.ts#L22)
 
 ## Properties
 
@@ -162,7 +162,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:30](https://github.com/breautek/storm/blob/5fbba2d/src/UnauthorizedAccessError.ts#L30)
+[src/UnauthorizedAccessError.ts:30](https://github.com/breautek/storm/blob/3748147/src/UnauthorizedAccessError.ts#L30)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:76](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L76)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L76)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:97](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L97)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L97)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:34](https://github.com/breautek/storm/blob/5fbba2d/src/UnauthorizedAccessError.ts#L34)
+[src/UnauthorizedAccessError.ts:34](https://github.com/breautek/storm/blob/3748147/src/UnauthorizedAccessError.ts#L34)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:38](https://github.com/breautek/storm/blob/5fbba2d/src/UnauthorizedAccessError.ts#L38)
+[src/UnauthorizedAccessError.ts:38](https://github.com/breautek/storm/blob/3748147/src/UnauthorizedAccessError.ts#L38)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:93](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L93)
+[src/StormError.ts:93](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L93)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/UnauthorizedAccessError.ts:26](https://github.com/breautek/storm/blob/5fbba2d/src/UnauthorizedAccessError.ts#L26)
+[src/UnauthorizedAccessError.ts:26](https://github.com/breautek/storm/blob/3748147/src/UnauthorizedAccessError.ts#L26)
 
 ___
 
@@ -291,7 +291,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:68](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L68)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L68)
 
 ___
 
@@ -311,7 +311,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:60](https://github.com/breautek/storm/blob/5fbba2d/src/StormError.ts#L60)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L60)
 
 ___
 

@@ -61,6 +61,7 @@
 - [TemporaryTableQuery](classes/TemporaryTableQuery.md)
 - [Token](classes/Token.md)
 - [TokenManager](classes/TokenManager.md)
+- [Transaction](classes/Transaction.md)
 - [UnauthorizedAccessError](classes/UnauthorizedAccessError.md)
 
 ### Interfaces
@@ -76,6 +77,7 @@
 - [IInsertQueryResult](interfaces/IInsertQueryResult.md)
 - [IJWTVerifyOptions](interfaces/IJWTVerifyOptions.md)
 - [IParameterMap](interfaces/IParameterMap.md)
+- [IQueryable](interfaces/IQueryable.md)
 - [IRequestResponse](interfaces/IRequestResponse.md)
 - [IServiceHeaders](interfaces/IServiceHeaders.md)
 - [ISetSessionVariableQueryInput](interfaces/ISetSessionVariableQueryInput.md)
@@ -102,7 +104,7 @@
 
 #### Defined in
 
-[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/5fbba2d/src/IDeleteQueryResult.ts#L19)
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/3748147/src/IDeleteQueryResult.ts#L19)
 
 ___
 
@@ -118,7 +120,7 @@ This is to avoid accidental leakage of privilege data (e.g. snippets of database
 
 #### Defined in
 
-[src/Handler.ts:55](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L55)
+[src/Handler.ts:55](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L55)
 
 ___
 
@@ -138,7 +140,7 @@ certain things depending on the type of object it receives.
 
 #### Defined in
 
-[src/Handler.ts:46](https://github.com/breautek/storm/blob/5fbba2d/src/Handler.ts#L46)
+[src/Handler.ts:46](https://github.com/breautek/storm/blob/3748147/src/Handler.ts#L46)
 
 ___
 
@@ -148,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/TCoordinate.ts:17](https://github.com/breautek/storm/blob/5fbba2d/src/TCoordinate.ts#L17)
+[src/TCoordinate.ts:17](https://github.com/breautek/storm/blob/3748147/src/TCoordinate.ts#L17)
 
 ## Functions
 
@@ -182,4 +184,4 @@ ___
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/5fbba2d/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/3748147/src/instance.ts#L28)
