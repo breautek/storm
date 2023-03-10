@@ -60,6 +60,7 @@ export {MissingConfigError} from './MissingConfigError';
 export {DatabaseQueryError} from './DatabaseQueryError';
 export {NotImplementedError} from './NotImplementedError';
 export {DeadLockError} from './DeadLockError';
+export {LockWaitTimeoutError} from './LockWaitTimeoutError';
 
 // HTTP
 export {StatusCode} from './StatusCode';

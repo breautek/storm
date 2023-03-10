@@ -29,6 +29,7 @@ import { StormError } from './StormError';
 import { DeadLockError } from './DeadLockError';
 import { IsolationLevel } from './IsolationLevel';
 import {SetIsolationLevelQuery} from './private/SetIsolationLevelQuery';
+import { LockWaitTimeoutError } from './LockWaitTimeoutError';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -114,6 +115,12 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                         e = new DeadLockError(sql, error);
                         // When deadlocks occur, the transaction is automatically rollback, so we can clear transanction status.
                         this.$transaction = false;
+                    }
+                    else if (error.code === 'ER_LOCK_WAIT_TIMEOUT') {
+                        // lock wait may not rollback the transaction (depends on how the server is configured)
+                        // however the transaction is retryable. The user shall configure
+                        // if they want to retry on timeouts.
+                        e = new LockWaitTimeoutError(sql, error);
                     }
                     else {
                         e = new DatabaseQueryError(sql, error);

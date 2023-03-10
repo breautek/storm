@@ -21,6 +21,7 @@ import { IsolationLevel } from './IsolationLevel';
 import { InternalError } from './InternalError';
 import { DeadLockError } from './DeadLockError';
 import { InvalidValueError } from './InvalidValueError';
+import { LockWaitTimeoutError } from './LockWaitTimeoutError';
 
 const TAG: string = 'Transaction';
 
@@ -86,6 +87,11 @@ export class Transaction implements IQueryable<void> {
             catch (ex) {
                 if (attemptCount < this.$retryLimit && ex instanceof DeadLockError) {
                     this.$application.getLogger().warn(TAG, `Deadlock received... retrying transaction`);
+                }
+                else if (attemptCount < this.$retryLimit && ex instanceof LockWaitTimeoutError) {
+                    this.$application.getLogger().warn(TAG, `Lock timeout... retrying transaction`);
+                    // The server does not auto rollback a timeout (it may be configured to do so, but we will assume that it's not)
+                    await connection.rollback();
                 }
                 else {
                     await connection.rollback();
