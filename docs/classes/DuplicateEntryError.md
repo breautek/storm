@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:28](https://github.com/breautek/storm/blob/eca48f5/src/DuplicateEntryError.ts#L28)
+[src/DuplicateEntryError.ts:28](https://github.com/breautek/storm/blob/d45307d/src/DuplicateEntryError.ts#L28)
 
 ## Properties
 
@@ -164,7 +164,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/eca48f5/src/DuplicateEntryError.ts#L41)
+[src/DuplicateEntryError.ts:41](https://github.com/breautek/storm/blob/d45307d/src/DuplicateEntryError.ts#L41)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:76](https://github.com/breautek/storm/blob/eca48f5/src/StormError.ts#L76)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L76)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:97](https://github.com/breautek/storm/blob/eca48f5/src/StormError.ts#L97)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L97)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/eca48f5/src/DuplicateEntryError.ts#L45)
+[src/DuplicateEntryError.ts:45](https://github.com/breautek/storm/blob/d45307d/src/DuplicateEntryError.ts#L45)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:49](https://github.com/breautek/storm/blob/eca48f5/src/DuplicateEntryError.ts#L49)
+[src/DuplicateEntryError.ts:49](https://github.com/breautek/storm/blob/d45307d/src/DuplicateEntryError.ts#L49)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:53](https://github.com/breautek/storm/blob/eca48f5/src/DuplicateEntryError.ts#L53)
+[src/DuplicateEntryError.ts:53](https://github.com/breautek/storm/blob/d45307d/src/DuplicateEntryError.ts#L53)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/eca48f5/src/DuplicateEntryError.ts#L36)
+[src/DuplicateEntryError.ts:36](https://github.com/breautek/storm/blob/d45307d/src/DuplicateEntryError.ts#L36)
 
 ___
 
@@ -293,7 +293,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:68](https://github.com/breautek/storm/blob/eca48f5/src/StormError.ts#L68)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L68)
 
 ___
 
@@ -313,7 +313,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:60](https://github.com/breautek/storm/blob/eca48f5/src/StormError.ts#L60)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L60)
 
 ___
 

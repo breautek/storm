@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/MissingConfigError.ts:27](https://github.com/breautek/storm/blob/eca48f5/src/MissingConfigError.ts#L27)
+[src/MissingConfigError.ts:27](https://github.com/breautek/storm/blob/d45307d/src/MissingConfigError.ts#L27)
 
 ## Properties
 
@@ -162,7 +162,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/MissingConfigError.ts:37](https://github.com/breautek/storm/blob/eca48f5/src/MissingConfigError.ts#L37)
+[src/MissingConfigError.ts:37](https://github.com/breautek/storm/blob/d45307d/src/MissingConfigError.ts#L37)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:76](https://github.com/breautek/storm/blob/eca48f5/src/StormError.ts#L76)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L76)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/MissingConfigError.ts:45](https://github.com/breautek/storm/blob/eca48f5/src/MissingConfigError.ts#L45)
+[src/MissingConfigError.ts:45](https://github.com/breautek/storm/blob/d45307d/src/MissingConfigError.ts#L45)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/MissingConfigError.ts:41](https://github.com/breautek/storm/blob/eca48f5/src/MissingConfigError.ts#L41)
+[src/MissingConfigError.ts:41](https://github.com/breautek/storm/blob/d45307d/src/MissingConfigError.ts#L41)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-[src/MissingConfigError.ts:49](https://github.com/breautek/storm/blob/eca48f5/src/MissingConfigError.ts#L49)
+[src/MissingConfigError.ts:49](https://github.com/breautek/storm/blob/d45307d/src/MissingConfigError.ts#L49)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/MissingConfigError.ts:53](https://github.com/breautek/storm/blob/eca48f5/src/MissingConfigError.ts#L53)
+[src/MissingConfigError.ts:53](https://github.com/breautek/storm/blob/d45307d/src/MissingConfigError.ts#L53)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[src/MissingConfigError.ts:33](https://github.com/breautek/storm/blob/eca48f5/src/MissingConfigError.ts#L33)
+[src/MissingConfigError.ts:33](https://github.com/breautek/storm/blob/d45307d/src/MissingConfigError.ts#L33)
 
 ___
 
@@ -291,7 +291,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:68](https://github.com/breautek/storm/blob/eca48f5/src/StormError.ts#L68)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L68)
 
 ___
 
@@ -311,7 +311,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:60](https://github.com/breautek/storm/blob/eca48f5/src/StormError.ts#L60)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L60)
 
 ___
 

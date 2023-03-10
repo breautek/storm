@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[src/IQueryable.ts:22](https://github.com/breautek/storm/blob/eca48f5/src/IQueryable.ts#L22)
+[src/IQueryable.ts:22](https://github.com/breautek/storm/blob/d45307d/src/IQueryable.ts#L22)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/IQueryable.ts:23](https://github.com/breautek/storm/blob/eca48f5/src/IQueryable.ts#L23)
+[src/IQueryable.ts:23](https://github.com/breautek/storm/blob/d45307d/src/IQueryable.ts#L23)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/IQueryable.ts:21](https://github.com/breautek/storm/blob/eca48f5/src/IQueryable.ts#L21)
+[src/IQueryable.ts:21](https://github.com/breautek/storm/blob/d45307d/src/IQueryable.ts#L21)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/IQueryable.ts:24](https://github.com/breautek/storm/blob/eca48f5/src/IQueryable.ts#L24)
+[src/IQueryable.ts:24](https://github.com/breautek/storm/blob/d45307d/src/IQueryable.ts#L24)
 
 ___
 
@@ -116,4 +116,4 @@ ___
 
 #### Defined in
 
-[src/IQueryable.ts:20](https://github.com/breautek/storm/blob/eca48f5/src/IQueryable.ts#L20)
+[src/IQueryable.ts:20](https://github.com/breautek/storm/blob/d45307d/src/IQueryable.ts#L20)
