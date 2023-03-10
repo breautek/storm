@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[src/IJWTVerifyOptions.ts:18](https://github.com/breautek/storm/blob/c3ad7fa/src/IJWTVerifyOptions.ts#L18)
+[src/IJWTVerifyOptions.ts:18](https://github.com/breautek/storm/blob/eca48f5/src/IJWTVerifyOptions.ts#L18)

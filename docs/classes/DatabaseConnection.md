@@ -75,7 +75,7 @@ Do not call `new Database` directly. Use `Database.getConnection` to create a `D
 
 #### Defined in
 
-[src/DatabaseConnection.ts:44](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L44)
+[src/DatabaseConnection.ts:44](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L44)
 
 ## Methods
 
@@ -102,7 +102,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:239](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L239)
+[src/DatabaseConnection.ts:239](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L239)
 
 ___
 
@@ -135,7 +135,7 @@ Promise
 
 #### Defined in
 
-[src/DatabaseConnection.ts:250](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L250)
+[src/DatabaseConnection.ts:250](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L250)
 
 ___
 
@@ -162,7 +162,7 @@ but returns a `Readable` stream instead.
 
 #### Defined in
 
-[src/DatabaseConnection.ts:262](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L262)
+[src/DatabaseConnection.ts:262](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L262)
 
 ___
 
@@ -194,7 +194,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:169](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L169)
+[src/DatabaseConnection.ts:169](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L169)
 
 ___
 
@@ -220,7 +220,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:220](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L220)
+[src/DatabaseConnection.ts:220](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L220)
 
 ___
 
@@ -248,7 +248,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:211](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L211)
+[src/DatabaseConnection.ts:211](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L211)
 
 ___
 
@@ -270,7 +270,7 @@ any
 
 #### Defined in
 
-[src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L91)
+[src/DatabaseConnection.ts:91](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L91)
 
 ___
 
@@ -293,7 +293,7 @@ string - A stacktrace
 
 #### Defined in
 
-[src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L73)
+[src/DatabaseConnection.ts:73](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L73)
 
 ___
 
@@ -315,7 +315,7 @@ number in milliseconds
 
 #### Defined in
 
-[src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L121)
+[src/DatabaseConnection.ts:121](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L121)
 
 ___
 
@@ -335,7 +335,7 @@ Returns true if the connection has been closed.
 
 #### Defined in
 
-[src/DatabaseConnection.ts:182](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L182)
+[src/DatabaseConnection.ts:182](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L182)
 
 ___
 
@@ -358,7 +358,7 @@ boolean
 
 #### Defined in
 
-[src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L100)
+[src/DatabaseConnection.ts:100](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L100)
 
 ___
 
@@ -382,7 +382,7 @@ boolean
 
 #### Defined in
 
-[src/DatabaseConnection.ts:201](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L201)
+[src/DatabaseConnection.ts:201](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L201)
 
 ___
 
@@ -418,7 +418,7 @@ Promise<TQueryResult>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L132)
+[src/DatabaseConnection.ts:132](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L132)
 
 ___
 
@@ -444,7 +444,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:229](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L229)
+[src/DatabaseConnection.ts:229](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L229)
 
 ___
 
@@ -468,7 +468,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L64)
+[src/DatabaseConnection.ts:64](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L64)
 
 ___
 
@@ -494,7 +494,7 @@ Sets the timeout of this connectino
 
 #### Defined in
 
-[src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L109)
+[src/DatabaseConnection.ts:109](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L109)
 
 ___
 
@@ -526,7 +526,7 @@ Promise<void>
 
 #### Defined in
 
-[src/DatabaseConnection.ts:193](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L193)
+[src/DatabaseConnection.ts:193](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L193)
 
 ___
 
@@ -553,4 +553,4 @@ Readable
 
 #### Defined in
 
-[src/DatabaseConnection.ts:152](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseConnection.ts#L152)
+[src/DatabaseConnection.ts:152](https://github.com/breautek/storm/blob/eca48f5/src/DatabaseConnection.ts#L152)
