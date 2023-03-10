@@ -1,6 +1,6 @@
-[@breautek/storm](../README.md) / DeadLockError
+[@breautek/storm](../README.md) / LockWaitTimeoutError
 
-# Class: DeadLockError
+# Class: LockWaitTimeoutError
 
 DeadLockError is a DatabaseQueryError but is subclasses for typing purposes.
 
@@ -8,40 +8,40 @@ DeadLockError is a DatabaseQueryError but is subclasses for typing purposes.
 
 - [`DatabaseQueryError`](DatabaseQueryError.md)
 
-  ↳ **`DeadLockError`**
+  ↳ **`LockWaitTimeoutError`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](DeadLockError.md#constructor)
+- [constructor](LockWaitTimeoutError.md#constructor)
 
 ### Properties
 
-- [message](DeadLockError.md#message)
-- [name](DeadLockError.md#name)
-- [stack](DeadLockError.md#stack)
-- [prepareStackTrace](DeadLockError.md#preparestacktrace)
-- [stackTraceLimit](DeadLockError.md#stacktracelimit)
+- [message](LockWaitTimeoutError.md#message)
+- [name](LockWaitTimeoutError.md#name)
+- [stack](LockWaitTimeoutError.md#stack)
+- [prepareStackTrace](LockWaitTimeoutError.md#preparestacktrace)
+- [stackTraceLimit](LockWaitTimeoutError.md#stacktracelimit)
 
 ### Methods
 
-- [getCode](DeadLockError.md#getcode)
-- [getErrorResponse](DeadLockError.md#geterrorresponse)
-- [getExitCode](DeadLockError.md#getexitcode)
-- [getHTTPCode](DeadLockError.md#gethttpcode)
-- [getLocaleCode](DeadLockError.md#getlocalecode)
-- [getLocaleParameters](DeadLockError.md#getlocaleparameters)
-- [getMessage](DeadLockError.md#getmessage)
-- [getPrivateDetails](DeadLockError.md#getprivatedetails)
-- [getPublicDetails](DeadLockError.md#getpublicdetails)
-- [captureStackTrace](DeadLockError.md#capturestacktrace)
+- [getCode](LockWaitTimeoutError.md#getcode)
+- [getErrorResponse](LockWaitTimeoutError.md#geterrorresponse)
+- [getExitCode](LockWaitTimeoutError.md#getexitcode)
+- [getHTTPCode](LockWaitTimeoutError.md#gethttpcode)
+- [getLocaleCode](LockWaitTimeoutError.md#getlocalecode)
+- [getLocaleParameters](LockWaitTimeoutError.md#getlocaleparameters)
+- [getMessage](LockWaitTimeoutError.md#getmessage)
+- [getPrivateDetails](LockWaitTimeoutError.md#getprivatedetails)
+- [getPublicDetails](LockWaitTimeoutError.md#getpublicdetails)
+- [captureStackTrace](LockWaitTimeoutError.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-• **new DeadLockError**(`query`, `error`)
+• **new LockWaitTimeoutError**(`query`, `error`)
 
 #### Parameters
 

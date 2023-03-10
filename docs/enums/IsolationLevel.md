@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/IsolationLevel.ts:19](https://github.com/breautek/storm/blob/3748147/src/IsolationLevel.ts#L19)
+[src/IsolationLevel.ts:19](https://github.com/breautek/storm/blob/c3ad7fa/src/IsolationLevel.ts#L19)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[src/IsolationLevel.ts:20](https://github.com/breautek/storm/blob/3748147/src/IsolationLevel.ts#L20)
+[src/IsolationLevel.ts:20](https://github.com/breautek/storm/blob/c3ad7fa/src/IsolationLevel.ts#L20)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/IsolationLevel.ts:18](https://github.com/breautek/storm/blob/3748147/src/IsolationLevel.ts#L18)
+[src/IsolationLevel.ts:18](https://github.com/breautek/storm/blob/c3ad7fa/src/IsolationLevel.ts#L18)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[src/IsolationLevel.ts:21](https://github.com/breautek/storm/blob/3748147/src/IsolationLevel.ts#L21)
+[src/IsolationLevel.ts:21](https://github.com/breautek/storm/blob/c3ad7fa/src/IsolationLevel.ts#L21)

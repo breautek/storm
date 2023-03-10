@@ -91,7 +91,7 @@ Error.constructor
 
 #### Defined in
 
-[src/StormError.ts:44](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L44)
+[src/StormError.ts:44](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L44)
 
 ## Properties
 
@@ -196,7 +196,7 @@ node_modules/@types/node/globals.d.ts:13
 
 #### Defined in
 
-[src/StormError.ts:55](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L55)
+[src/StormError.ts:55](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L55)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:76](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L76)
+[src/StormError.ts:76](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L76)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:97](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L97)
+[src/StormError.ts:97](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L97)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:72](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L72)
+[src/StormError.ts:72](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L72)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:89](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L89)
+[src/StormError.ts:89](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L89)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:93](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L93)
+[src/StormError.ts:93](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L93)
 
 ___
 
@@ -280,7 +280,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:54](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L54)
+[src/StormError.ts:54](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L54)
 
 ___
 
@@ -297,7 +297,7 @@ They are kept secret from the client.
 
 #### Defined in
 
-[src/StormError.ts:68](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L68)
+[src/StormError.ts:68](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L68)
 
 ___
 
@@ -313,7 +313,7 @@ Sends details to the client.
 
 #### Defined in
 
-[src/StormError.ts:60](https://github.com/breautek/storm/blob/3748147/src/StormError.ts#L60)
+[src/StormError.ts:60](https://github.com/breautek/storm/blob/c3ad7fa/src/StormError.ts#L60)
 
 ___
 

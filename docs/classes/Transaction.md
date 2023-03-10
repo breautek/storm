@@ -43,7 +43,7 @@ be tried.
 
 #### Defined in
 
-[src/Transaction.ts:42](https://github.com/breautek/storm/blob/3748147/src/Transaction.ts#L42)
+[src/Transaction.ts:43](https://github.com/breautek/storm/blob/c3ad7fa/src/Transaction.ts#L43)
 
 ## Methods
 
@@ -67,7 +67,7 @@ be tried.
 
 #### Defined in
 
-[src/Transaction.ts:69](https://github.com/breautek/storm/blob/3748147/src/Transaction.ts#L69)
+[src/Transaction.ts:70](https://github.com/breautek/storm/blob/c3ad7fa/src/Transaction.ts#L70)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/Transaction.ts:62](https://github.com/breautek/storm/blob/3748147/src/Transaction.ts#L62)
+[src/Transaction.ts:63](https://github.com/breautek/storm/blob/c3ad7fa/src/Transaction.ts#L63)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[src/Transaction.ts:59](https://github.com/breautek/storm/blob/3748147/src/Transaction.ts#L59)
+[src/Transaction.ts:60](https://github.com/breautek/storm/blob/c3ad7fa/src/Transaction.ts#L60)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/Transaction.ts:65](https://github.com/breautek/storm/blob/3748147/src/Transaction.ts#L65)
+[src/Transaction.ts:66](https://github.com/breautek/storm/blob/c3ad7fa/src/Transaction.ts#L66)
 
 ___
 
@@ -158,4 +158,4 @@ ___
 
 #### Defined in
 
-[src/Transaction.ts:57](https://github.com/breautek/storm/blob/3748147/src/Transaction.ts#L57)
+[src/Transaction.ts:58](https://github.com/breautek/storm/blob/c3ad7fa/src/Transaction.ts#L58)

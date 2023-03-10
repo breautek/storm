@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[src/Polygon.ts:23](https://github.com/breautek/storm/blob/3748147/src/Polygon.ts#L23)
+[src/Polygon.ts:23](https://github.com/breautek/storm/blob/c3ad7fa/src/Polygon.ts#L23)
 
 ## Methods
 
@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[src/Polygon.ts:29](https://github.com/breautek/storm/blob/3748147/src/Polygon.ts#L29)
+[src/Polygon.ts:29](https://github.com/breautek/storm/blob/c3ad7fa/src/Polygon.ts#L29)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:24](https://github.com/breautek/storm/blob/3748147/src/DatabaseCastObject.ts#L24)
+[src/DatabaseCastObject.ts:24](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseCastObject.ts#L24)
 
 ___
 
@@ -98,4 +98,4 @@ ___
 
 #### Defined in
 
-[src/DatabaseCastObject.ts:20](https://github.com/breautek/storm/blob/3748147/src/DatabaseCastObject.ts#L20)
+[src/DatabaseCastObject.ts:20](https://github.com/breautek/storm/blob/c3ad7fa/src/DatabaseCastObject.ts#L20)
