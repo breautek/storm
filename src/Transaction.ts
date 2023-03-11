@@ -33,6 +33,8 @@ export type ITransactionExecutor = (connection: IDatabaseConnection) => Promise<
  * This encapsulates a routine to conduct for the transaction.
  * Should the transaction fail due to a deadlock, the transaction will automatically
  * be tried.
+ * 
+ * NOTE: It is unsafe to run two transactions on the same connection concurrently
  */
 export class Transaction implements IQueryable<void> {
     private $retryLimit: number;
