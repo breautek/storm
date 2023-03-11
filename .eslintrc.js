@@ -18,8 +18,8 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-        // "plugin:@totalpave/recommendedTS"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@totalpave/recommendedTS"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -28,16 +28,14 @@ module.exports = {
         "tsconfigRootDir": __dirname
     },
     "plugins": [
-        "@typescript-eslint"
-        // "@totalpave"
+        "@typescript-eslint",
+        "@totalpave"
     ],
     "env": {
         "node": true,
         "jasmine": true
     },
     "rules": {
-        "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/triple-slash-reference": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-inferrable-types": "off",
