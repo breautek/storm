@@ -105,7 +105,7 @@
 
 #### Defined in
 
-[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/d45307d/src/IDeleteQueryResult.ts#L19)
+[src/IDeleteQueryResult.ts:19](https://github.com/breautek/storm/blob/3dcafe4/src/IDeleteQueryResult.ts#L19)
 
 ___
 
@@ -121,7 +121,7 @@ This is to avoid accidental leakage of privilege data (e.g. snippets of database
 
 #### Defined in
 
-[src/Handler.ts:55](https://github.com/breautek/storm/blob/d45307d/src/Handler.ts#L55)
+[src/Handler.ts:55](https://github.com/breautek/storm/blob/3dcafe4/src/Handler.ts#L55)
 
 ___
 
@@ -141,7 +141,7 @@ certain things depending on the type of object it receives.
 
 #### Defined in
 
-[src/Handler.ts:46](https://github.com/breautek/storm/blob/d45307d/src/Handler.ts#L46)
+[src/Handler.ts:46](https://github.com/breautek/storm/blob/3dcafe4/src/Handler.ts#L46)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/TCoordinate.ts:17](https://github.com/breautek/storm/blob/d45307d/src/TCoordinate.ts#L17)
+[src/TCoordinate.ts:17](https://github.com/breautek/storm/blob/3dcafe4/src/TCoordinate.ts#L17)
 
 ## Functions
 
@@ -185,4 +185,4 @@ ___
 
 #### Defined in
 
-[src/instance.ts:28](https://github.com/breautek/storm/blob/d45307d/src/instance.ts#L28)
+[src/instance.ts:28](https://github.com/breautek/storm/blob/3dcafe4/src/instance.ts#L28)

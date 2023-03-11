@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/StormError.ts:37](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L37)
+[src/StormError.ts:37](https://github.com/breautek/storm/blob/3dcafe4/src/StormError.ts#L37)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:38](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L38)
+[src/StormError.ts:38](https://github.com/breautek/storm/blob/3dcafe4/src/StormError.ts#L38)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:36](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L36)
+[src/StormError.ts:36](https://github.com/breautek/storm/blob/3dcafe4/src/StormError.ts#L36)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:35](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L35)
+[src/StormError.ts:35](https://github.com/breautek/storm/blob/3dcafe4/src/StormError.ts#L35)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/StormError.ts:34](https://github.com/breautek/storm/blob/d45307d/src/StormError.ts#L34)
+[src/StormError.ts:34](https://github.com/breautek/storm/blob/3dcafe4/src/StormError.ts#L34)

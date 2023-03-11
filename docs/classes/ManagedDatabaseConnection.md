@@ -47,7 +47,7 @@
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:38](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L38)
+[src/ManagedDatabaseConnection.ts:38](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L38)
 
 ## Methods
 
@@ -71,7 +71,7 @@
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:153](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L153)
+[src/ManagedDatabaseConnection.ts:153](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L153)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:190](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L190)
+[src/ManagedDatabaseConnection.ts:190](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L190)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:238](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L238)
+[src/ManagedDatabaseConnection.ts:238](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L238)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:105](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L105)
+[src/ManagedDatabaseConnection.ts:105](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L105)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:130](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L130)
+[src/ManagedDatabaseConnection.ts:130](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L130)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:92](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L92)
+[src/ManagedDatabaseConnection.ts:92](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L92)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:75](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L75)
+[src/ManagedDatabaseConnection.ts:75](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L75)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:88](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L88)
+[src/ManagedDatabaseConnection.ts:88](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L88)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:114](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L114)
+[src/ManagedDatabaseConnection.ts:114](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L114)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:181](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L181)
+[src/ManagedDatabaseConnection.ts:181](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L181)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:84](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L84)
+[src/ManagedDatabaseConnection.ts:84](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L84)
 
 ___
 
@@ -264,7 +264,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:140](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L140)
+[src/ManagedDatabaseConnection.ts:140](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L140)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:203](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L203)
+[src/ManagedDatabaseConnection.ts:203](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L203)
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:45](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L45)
+[src/ManagedDatabaseConnection.ts:45](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L45)
 
 ___
 
@@ -326,7 +326,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:96](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L96)
+[src/ManagedDatabaseConnection.ts:96](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L96)
 
 ___
 
@@ -350,7 +350,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:124](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L124)
+[src/ManagedDatabaseConnection.ts:124](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L124)
 
 ___
 
@@ -374,7 +374,7 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:168](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L168)
+[src/ManagedDatabaseConnection.ts:168](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L168)
 
 ___
 
@@ -400,4 +400,4 @@ ___
 
 #### Defined in
 
-[src/ManagedDatabaseConnection.ts:149](https://github.com/breautek/storm/blob/d45307d/src/ManagedDatabaseConnection.ts#L149)
+[src/ManagedDatabaseConnection.ts:149](https://github.com/breautek/storm/blob/3dcafe4/src/ManagedDatabaseConnection.ts#L149)
