@@ -144,4 +144,25 @@ describe('Transaction', () => {
         expect(query.execute).toHaveBeenCalledTimes(3);
         expect(RollbackQuery.prototype.execute).toHaveBeenCalled();
     });
+
+    it('should fail gracefully if transaction cannot be started', async () => {
+        spyOn(StartTransactionQuery.prototype, 'execute').and.returnValue(Promise.reject({
+            code: 'PROTOCOL_ENQUEUE_AFTER_QUIT',
+            fatal: false
+        }));
+
+        let query: Query = new RawQuery('SELECT 1');
+        let transaction: Transaction = new Transaction(app, async (conn: IDatabaseConnection) => {
+            await query.execute(conn);
+        });
+        let conn: IDatabaseConnection = await app.getDB().getConnection(true);
+
+        try {
+            await transaction.execute(conn);
+            fail('Should not have resolved');
+        }
+        catch (ex) {
+            // intentionally empty
+        }
+    });
 });
