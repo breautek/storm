@@ -126,7 +126,7 @@ describe('Response', () => {
 
     it('can redirect', async () => {
         app.attachMockHandler('/redirect', makeHandler(async (request: Request) => {
-            let response: ResponseData = new ResponseData(302);
+            let response: ResponseData = new ResponseData(StatusCode.REDIR_FOUND);
             response.redirect('http://google.com');
             return response;
         }));
