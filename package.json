@@ -65,10 +65,10 @@
     "uuid": "9.0.0"
   },
   "peerDependencies": {
-    "@arashi/logger": "file:../../arashi/logger/arashi-logger-4.0.0-dev.0.tgz"
+    "@arashi/logger": "4.x"
   },
   "devDependencies": {
-    "@arashi/logger": "file:../../arashi/logger/arashi-logger-4.0.0-dev.0.tgz",
+    "@arashi/logger": "4.0.0",
     "@totalpave/eslint-plugin": "6.0.10",
     "@types/jest": "29.5.1",
     "@typescript-eslint/eslint-plugin": "5.59.6",
