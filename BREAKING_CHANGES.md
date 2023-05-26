@@ -3,6 +3,21 @@
 
 This document describes high overview of breaking changes in between major versions. View the [CHANGELOG.md](./CHANGELOG.md) for more granular changes at the commit level.
 
+# 5.x -> 6.x
+
+`@arashi/logger` version 4.x is now needed which revamps how logging is done.
+
+`Logger` has been renamed to `BaseLogger` and there is a new `Logger` class in it's place that behaves similar to the old logger.
+`BaseLogger` is now a stream, which operates in object mode. Writable streams in object mode can piped to `BaseLogger` which will receive
+an `ILogObject`. The new `Logger` is simply just a class that attaches a `ConsoleStream`, which takes the `ILogObject`, formats them for
+console print.
+
+`BaseLogger` no longer accepts a directory and no longer writes to a file on disk by default. However, a transform stream can be created
+to convert the `ILogObject` into a buffer/string for a file stream.
+
+Settings introduces a `cloudwatch` object that allows you to configure cloudwatch credentials, region, and log group and stream names.
+If configured, a `CloudWatchStream` will be attached and will push log events directly into cloudwatch.
+
 # 4.x -> 5.x
 
 `DatabaseConnection` no longer accept strings for Queries. New `IQueryably` interface has been added and is what `DatabaseConnection` now accepts. The `Query` class implements `IQueryable` so if you have already refactored the code to use `Query` classes, then this change shouldn't affect you much.
