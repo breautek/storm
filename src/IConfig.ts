@@ -15,7 +15,7 @@
 */
 
 import { IDatabaseConfig } from './IDatabaseConfig';
-import {LogLevel} from '@arashi/logger';
+import {LogLevel} from '@arashi/interfaces';
 
 export interface IConfig {
     // Server exposability
@@ -31,7 +31,6 @@ export interface IConfig {
     log?: {
         level?: LogLevel;
         filters?: Array<string>;
-        directory?: string;
     },
 
     // Database

@@ -45,16 +45,50 @@
         "level": "info",
 
         /*
-        @type string
-        @description Location for log output
-        */
-        "directory": "./",
-
-        /*
         @type Array<string>
         @description 	Suppresses logging to log messages matching the listed regex patterns 
         */
-        "filters": ["/TokenExpiredError/g"]
+        "filters": ["/TokenExpiredError/g"],
+
+        /**
+        Object containing cloudwatch settings for cloudwatch transport
+        */
+        "cloudwatch": {
+            /**
+            @description The cloudwatch region
+            @type string
+            */
+            "region": "string",
+
+
+            "credentials": {
+                /**
+                @description The access key
+                @type string
+                */
+                "accessKeyId": "string",
+
+                /**
+                @description The secret key
+                @type string
+                */
+                "secretAccessKey": "string"
+            },
+
+            "stream": {
+                /**
+                @description The log group
+                @type string
+                */
+                "group": "string",
+
+                /**
+                @description The stream name
+                @type string
+                */
+                "name": "string"
+            }
+        }
     },
 
     /*

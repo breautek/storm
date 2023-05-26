@@ -163,7 +163,7 @@ export abstract class Application
     }
     
     protected _initLogger(config: TConfig): Logger {
-        return new Logger(this.getName(), config.log?.level, config.log?.directory);
+        return new Logger(this.getName(), config.log?.level);
     }
 
     public getLogger(): Logger {
@@ -244,6 +244,7 @@ export abstract class Application
 
     public async close(): Promise<void> {
         await Promise.all([ this._closeSocket(), this._closeDatabase() ]);
+        this.$logger.destroy();
     }
 
     protected async _closeDatabase(): Promise<void> {

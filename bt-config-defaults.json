@@ -8,7 +8,6 @@
 
     "log": {
         "level": "info",
-        "directory": null,
         "filters": ["/TokenExpiredError/g"]
     },
     

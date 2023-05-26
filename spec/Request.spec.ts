@@ -91,7 +91,7 @@ describe('Request', () => {
 
         let form = new FormData();
         form.append('key', 'value');
-        form.submit(`http://localhost:${app.getPort()}/form/`);
+        form.submit(`http://127.0.0.1:${app.getPort()}/form/`);
     });
 
     it('can pipe/unpipe', (done) => {
