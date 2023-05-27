@@ -18,6 +18,10 @@ import {Application} from './Application';
 
 let instance: Application;
 
+/**
+ * @deprecated No replacement.
+ * @param app 
+ */
 let setInstance = (app: Application): void => {
     if (instance) {
         instance.getLogger().warn('ApplicationInstance', 'Storm application already initialized');
@@ -25,6 +29,10 @@ let setInstance = (app: Application): void => {
     instance = app;
 };
 
+/**
+ * @deprecated Pass down Application via constructors/factory methods, when applicable.
+ * @returns 
+ */
 let getInstance = (): Application => {
     return instance;
 };

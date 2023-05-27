@@ -15,7 +15,7 @@
 */
 
 import {getInstance} from './instance';
-import {Logger} from '@arashi/logger';
+import {BaseLogger} from '@arashi/logger';
 import {StatusCode} from './StatusCode';
 import { ExitCode } from './ExitCode';
 
@@ -46,7 +46,7 @@ export abstract class StormError<TErrorDetails = any> extends Error {
 
         this.$details = details;
 
-        let logger: Logger = getInstance().getLogger();
+        let logger: BaseLogger = getInstance().getLogger();
         logger.error(TAG, `${this.getMessage()}... See details below:`);
         logger.info(TAG, this.getPrivateDetails());
     }

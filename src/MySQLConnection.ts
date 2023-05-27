@@ -24,7 +24,7 @@ import { StartTransactionQuery } from './private/StartTransactionQuery';
 import { CommitQuery } from './private/CommitQuery';
 import { RollbackQuery } from './private/RollbackQuery';
 import * as SQLFormatter from 'sql-formatter';
-import { Logger } from '@arashi/logger';
+import { BaseLogger } from '@arashi/logger';
 import {LogLevel} from '@arashi/interfaces';
 import { StormError } from './StormError';
 import { DeadLockError } from './DeadLockError';
@@ -86,7 +86,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _query(query: string, params?: any): Promise<any> {
-        let logger: Logger = getInstance().getLogger();
+        let logger: BaseLogger = getInstance().getLogger();
         return new Promise((resolve, reject) => {
             let queryObject: MySQL.Query = this.getAPI().query({
                 sql: query,

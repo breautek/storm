@@ -23,12 +23,11 @@ import {StormError} from './StormError';
 import {IConfig} from './IConfig';
 import { InternalError } from './InternalError';
 import { IRequestResponse } from './IRequestResponse';
-import { Logger } from '@arashi/logger';
+import { BaseLogger } from '@arashi/logger';
 import { ResponseData } from './ResponseData';
 import { ReadStream } from 'fs';
 import { NotImplementedError } from './NotImplementedError';
 import { HTTPMethod } from './HTTPMethod';
-// import { Stream } from 'stream';
 
 const TAG: string = 'Handler';
 
@@ -94,7 +93,7 @@ export class Handler<
             response
         };
 
-        let logger: Logger = getInstance().getLogger();
+        let logger: BaseLogger = getInstance().getLogger();
 
         try {
             for (let i: number = 0; i < this.$middlewares.length; i++) {

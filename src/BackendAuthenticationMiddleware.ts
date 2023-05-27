@@ -17,7 +17,7 @@
 import {StatusCode} from './StatusCode';
 import {Request} from './Request';
 import {ResponseData} from './ResponseData';
-import {Logger} from '@arashi/logger';
+import {BaseLogger} from '@arashi/logger';
 import {getInstance} from './instance';
 import {IConfig} from './IConfig';
 
@@ -30,7 +30,7 @@ const TAG: string = 'BackendAuthenticationMiddleware';
  * for their specific use cases.
  */
 export class BackendAuthenticationMiddleware {
-    private $logger: Logger;
+    private $logger: BaseLogger;
 
     public constructor() {
         this.$logger = getInstance().getLogger();

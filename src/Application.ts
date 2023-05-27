@@ -32,7 +32,8 @@ import * as http from 'http';
 import { IAuthTokenData } from '@arashi/token';
 import {
     Logger,
-    CloudWatchStream
+    CloudWatchStream,
+    BaseLogger
 } from '@arashi/logger';
 import { StormError } from './StormError';
 
@@ -49,7 +50,7 @@ export abstract class Application
         TDBConnectionAPI = any
     >
     extends EventEmitter {
-    private $logger: Logger;
+    private $logger: BaseLogger;
     private $name: string;
     private $configPath: string;
     private $config: TConfig;
@@ -161,9 +162,13 @@ export abstract class Application
     protected _initialize(config: TConfig): Promise<void> {
         return Promise.resolve();
     }
+
+    protected _createLogger(config: TConfig): BaseLogger {
+        return new Logger(this.getName(), config.log?.level);
+    }
     
-    protected _initLogger(config: TConfig): Logger {
-        let logger: Logger = new Logger(this.getName(), config.log?.level);
+    protected _initLogger(config: TConfig): BaseLogger {
+        let logger: BaseLogger = this._createLogger(config);
 
         if (config?.log?.cloudwatch) {
             let cwConfig: ICloudwatchConfig = config.log.cloudwatch;
@@ -179,7 +184,7 @@ export abstract class Application
         return logger;
     }
 
-    private $connectCW(logger: Logger, cwConfig: ICloudwatchConfig): void {
+    private $connectCW(logger: BaseLogger, cwConfig: ICloudwatchConfig): void {
         logger.pipe(new CloudWatchStream({
             region: cwConfig.region,
             credentials: {
@@ -226,7 +231,7 @@ export abstract class Application
         return null;
     }
 
-    public getLogger(): Logger {
+    public getLogger(): BaseLogger {
         return this.$logger;
     }
 
@@ -362,7 +367,7 @@ export abstract class Application
         return this.$name;
     }
 
-    private $getLogger(): Logger {
+    private $getLogger(): BaseLogger {
         return this.$logger;
     }
 
