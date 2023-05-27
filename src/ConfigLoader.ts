@@ -138,7 +138,29 @@ export class ConfigLoader {
                                 null
                             ]
                         },
-                        directory: { type: [ 'string', 'null' ] },
+                        cloudwatch: {
+                            type: [ 'object', 'null' ],
+                            additionalProperties: false,
+                            properties: {
+                                region: { type: 'string' },
+                                credentials: {
+                                    type: 'object',
+                                    additionalProperties: false,
+                                    properties: {
+                                        accessKeyId: { type: 'string' },
+                                        secretAccessKey: { type: 'string' }
+                                    }
+                                },
+                                stream: {
+                                    type: 'object',
+                                    additionalProperties: false,
+                                    properties: {
+                                        group: { type: 'string' },
+                                        name: { type: 'string' }
+                                    }
+                                }
+                            }
+                        },
                         filters: {
                             type: [ 'array', 'null' ],
                             items: { type: 'string' }
