@@ -10,4 +10,7 @@ class CLIMockApp extends Application {
     }
 }
 
-new CLIMockApp('CLIMockApp', './spec/support/');
+let app = new CLIMockApp('CLIMockApp', './spec/support/');
+(async () => {
+    await app.start();
+})();

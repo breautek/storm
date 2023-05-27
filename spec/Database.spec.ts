@@ -7,19 +7,14 @@ import { DatabaseConnection } from '../src/DatabaseConnection';
 describe('Database', () => {
     let app: MockApplication = null;
 
-    beforeAll((done) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            done();
-        });
+        await app.start();
     });
 
-    afterAll((done) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
+    afterAll(async () => {
+        await app.close();
     });
 
     it('has timeout', (done) => {

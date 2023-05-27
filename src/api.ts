@@ -80,7 +80,12 @@ export {IDatabaseConfig} from './IDatabaseConfig';
 export {IJWTVerifyOptions} from './IJWTVerifyOptions';
 export {IHandler} from './IHandler';
 export {IRequestResponse} from './IRequestResponse';
-export {IConfig} from './IConfig';
+export {
+    IConfig,
+    ICloudwatchConfig,
+    ICloudwatchCredentials,
+    ICloudwatchStreamConfig
+} from './IConfig';
 export {IFormData} from './IFormData';
 export {IDatabaseConnection} from './IDatabaseConnection';
 export {IServiceHeaders} from './IServiceHeaders';
@@ -93,7 +98,6 @@ export {TokenManager} from './TokenManager';
 
 // Utils
 export {ExitCode} from './ExitCode';
-export {DumpStream} from './DumpStream';
 
 // Database Objects
 export {TCoordinate} from './TCoordinate';

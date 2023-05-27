@@ -24,13 +24,16 @@ import {IHandler} from './IHandler';
 import {Request} from './Request';
 import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
-import {IConfig} from './IConfig';
+import {ICloudwatchConfig, IConfig} from './IConfig';
 import {Command} from 'commander';
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
 import { IAuthTokenData } from '@arashi/token';
-import { Logger } from '@arashi/logger';
+import {
+    Logger,
+    CloudWatchStream
+} from '@arashi/logger';
 import { StormError } from './StormError';
 
 const TAG: string = 'Application';
@@ -77,85 +80,82 @@ export abstract class Application
         });
 
         this.$configPath = configPath || process.cwd();
+    }
 
+    public async start(): Promise<void> {
         this.$logger = new Logger(this.constructor.name);
 
         this.$logger.info(TAG, 'Application is booting...');
         this.$logger.info(TAG, 'Loading Configuration...');
 
-        this.$load();
+        try {
+            await this.$load();
+        }
+        catch (error) {
+            this.$getLogger().error(TAG, error);
+        }
     }
 
-    private $load(): void {
-        this.loadConfig(this.$configPath).then((config: TConfig) => {
-            this.$config = config;
-            this.$logger = this._initLogger(config);
-            this.$getLogger().trace(TAG, 'Configuration loaded.');
-            this.emit(ApplicationEvent.CONFIG_LOADED);
-            this._onConfigLoad(this.$config);
-            return Promise.resolve();
-        }).then(() => {
-            this.$getLogger().trace(TAG, 'Initializing DB...');
-            return this._initDB(this.getConfig());
-        }).then((db: Database<TDBConfig, TDBConnectionAPI>) => {
-            if (db) {
-                this.$getLogger().trace(TAG, 'DB Initialized.');
-            }
-            else {
-                this.$getLogger().trace(TAG, 'DB is not initialized.');
-            }
-            this.$db = db;
+    private async $load(): Promise<void> {
+        this.$config = await this.loadConfig(this.$configPath);
+        this.$logger = this._initLogger(this.$config);
 
-            return Promise.resolve();
-        }).then(() => {
-            this.$getLogger().trace(TAG, 'Starting server...');
-            this.$server = Express();
-            this.$server.use(BodyParser.json({
-                type : 'application/json',
-                limit : this.getRequestSizeLimit()
-            }));
-            this.$server.use(BodyParser.text({
-                type : 'text/*',
-                limit : this.getRequestSizeLimit()
-            }));
+        this.$getLogger().trace(TAG, 'Configuration loaded.');
+        this.emit(ApplicationEvent.CONFIG_LOADED);
+        this._onConfigLoad(this.$config);
 
-            return Promise.resolve();
-        }).then(() => {
-            this.$getLogger().trace(TAG, 'Attaching handlers...');
-            return this._attachHandlers();
-        }).then(() => {
-            return this._onBeforeReadyAsync();
-        }).then(() => {
-            return new Promise<void>((resolve, reject) => {
-                let bindingIP: string = this.getConfig().bind;
-                let port: number = this.getConfig().port;
+        this.$getLogger().trace(TAG, 'Initializing DB...');
+        this.$db = await this._initDB(this.getConfig());
+        if (this.$db) {
+            this.$getLogger().trace(TAG, 'DB Initialized.');
+        }
+        else {
+            this.$getLogger().trace(TAG, 'DB is not initialized.');
+        }
 
-                if (bindingIP !== null && bindingIP !== 'null') {
-                    if (this.shouldListen()) {
-                        this.$socket = http.createServer(this.$server);
-                        this.$socket.listen(port, bindingIP, () => {
-                            this.$getLogger().trace(TAG, `Server started on ${bindingIP}:${this.getPort()}`);
-                            resolve();
-                        });
-                    }
-                    else {
-                        this.$getLogger().trace(TAG, 'Server did not bind because shouldListen() returned false.');
+        this.$getLogger().trace(TAG, 'Starting server...');
+        this.$server = Express();
+        this.$server.use(BodyParser.json({
+            type : 'application/json',
+            limit : this.getRequestSizeLimit()
+        }));
+        this.$server.use(BodyParser.text({
+            type : 'text/*',
+            limit : this.getRequestSizeLimit()
+        }));
+
+        this.$getLogger().trace(TAG, 'Attaching handlers...');
+        await this._attachHandlers();
+
+        await this._onBeforeReadyAsync();
+
+        await new Promise<void>((resolve, reject) => {
+            let bindingIP: string = this.getConfig().bind;
+            let port: number = this.getConfig().port;
+
+            if (bindingIP !== null && bindingIP !== 'null') {
+                if (this.shouldListen()) {
+                    this.$socket = http.createServer(this.$server);
+                    this.$socket.listen(port, bindingIP, () => {
+                        this.$getLogger().trace(TAG, `Server started on ${bindingIP}:${this.getPort()}`);
                         resolve();
-                    }
+                    });
                 }
                 else {
-                    this.$getLogger().info(TAG, `Server does not have a bounding IP set. The server will not be listening for connections.`);
+                    this.$getLogger().trace(TAG, 'Server did not bind because shouldListen() returned false.');
                     resolve();
                 }
-            });
-        }).then(() => {
-            return this._initialize(this.getConfig());
-        }).then(() => {
-            this._onReady();
-            this.emit('ready');
-        }).catch((error) => {
-            this.$getLogger().error(TAG, error);
+            }
+            else {
+                this.$getLogger().info(TAG, `Server does not have a bounding IP set. The server will not be listening for connections.`);
+                resolve();
+            }
         });
+
+        await this._initialize(this.getConfig());
+
+        this._onReady();
+        this.emit('ready');
     }
 
     protected _initialize(config: TConfig): Promise<void> {
@@ -163,7 +163,67 @@ export abstract class Application
     }
     
     protected _initLogger(config: TConfig): Logger {
-        return new Logger(this.getName(), config.log?.level);
+        let logger: Logger = new Logger(this.getName(), config.log?.level);
+
+        if (config?.log?.cloudwatch) {
+            let cwConfig: ICloudwatchConfig = config.log.cloudwatch;
+            let cwCheck: string = this.$validateCWConfig(cwConfig);
+            if (cwCheck === null) {
+                this.$connectCW(logger, cwConfig);
+            }
+            else {
+                logger.warn(TAG, `Skipped configuration cloudwatch: ${cwCheck}`);
+            }
+        }
+
+        return logger;
+    }
+
+    private $connectCW(logger: Logger, cwConfig: ICloudwatchConfig): void {
+        logger.pipe(new CloudWatchStream({
+            region: cwConfig.region,
+            credentials: {
+                accessKeyId: cwConfig.credentials.accessKeyId,
+                secretAccessKey: cwConfig.credentials.secretAccessKey
+            }
+        }, {
+            group: cwConfig.stream.group,
+            stream: cwConfig.stream.name
+        }));
+    }
+
+    private $validateCWConfig(config: ICloudwatchConfig): string {
+        const BASE: string = 'missing $.log.cloudwatch.';
+
+        if (!config.region) {
+            return BASE + 'region';
+        }
+
+        if (!config.credentials) {
+            return BASE + 'credentials';
+        }
+
+        if (!config.credentials.accessKeyId) {
+            return BASE + 'credentials.accessKeyId';
+        }
+
+        if (!config.credentials.secretAccessKey) {
+            return BASE + 'credentials.secretAccessKey';
+        }
+
+        if (!config.stream) {
+            return BASE + 'stream';
+        }
+
+        if (!config.stream.group) {
+            return BASE + 'stream.group';
+        }
+
+        if (!config.stream.name) {
+            return BASE + 'stream.name';
+        }
+
+        return null;
     }
 
     public getLogger(): Logger {
@@ -244,7 +304,9 @@ export abstract class Application
 
     public async close(): Promise<void> {
         await Promise.all([ this._closeSocket(), this._closeDatabase() ]);
-        this.$logger.destroy();
+        if (this.$logger) {
+            this.$logger.destroy();
+        }
     }
 
     protected async _closeDatabase(): Promise<void> {

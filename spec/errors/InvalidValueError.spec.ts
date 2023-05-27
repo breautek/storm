@@ -10,24 +10,15 @@ describe('InvalidValueError', () => {
     let error: InvalidValueError = null;
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            error = new InvalidValueError('testVariable', 'number', 'string');
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+        error = new InvalidValueError('testVariable', 'number', 'string');
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     it('has message', () => {
         expect(error.getMessage()).toBe('Unexpected value for "testVariable". Expected number but got "string".');

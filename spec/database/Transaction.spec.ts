@@ -17,23 +17,14 @@ import { RollbackQuery } from '../../src/private/RollbackQuery';
 describe('Transaction', () => {
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     describe('APIs should simply return null', () => {
         let t: Transaction = null;

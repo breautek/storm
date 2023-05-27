@@ -12,23 +12,14 @@ import { DatabaseConnection } from '../../src/DatabaseConnection';
 describe('MySQLDatabase', () => {
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     beforeEach(() => {
         jest.spyOn(<any>DatabaseConnection.prototype, '$armLingerWarning').mockImplementation(() => {});

@@ -12,24 +12,15 @@ describe('InvalidConfigError', () => {
     let error: InvalidConfigError<IConfig> = null;
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            error = new InvalidConfigError(app.getConfig(), []);
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+        error = new InvalidConfigError(app.getConfig(), []);
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     it('has message', () => {
         expect(error.getMessage()).toMatch(/Storm config has issues:/);

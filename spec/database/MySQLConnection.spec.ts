@@ -13,23 +13,14 @@ import { DatabaseConnection } from '../../src/DatabaseConnection';
 describe('MySQLConnection', () => {
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     let mockAPI: any = null;
     let conn: MySQLConnection = null;

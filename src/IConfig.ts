@@ -17,6 +17,22 @@
 import { IDatabaseConfig } from './IDatabaseConfig';
 import {LogLevel} from '@arashi/interfaces';
 
+export interface ICloudwatchCredentials {
+    accessKeyId: string;
+    secretAccessKey: string;
+}
+
+export interface ICloudwatchStreamConfig {
+    group: string;
+    name: string;
+}
+
+export interface ICloudwatchConfig {
+    region: string;
+    credentials: ICloudwatchCredentials;
+    stream: ICloudwatchStreamConfig;
+}
+
 export interface IConfig {
     // Server exposability
     bind?: string;
@@ -31,6 +47,7 @@ export interface IConfig {
     log?: {
         level?: LogLevel;
         filters?: Array<string>;
+        cloudwatch?: ICloudwatchConfig;
     },
 
     // Database

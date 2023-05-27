@@ -26,26 +26,16 @@ class TestServiceProvider extends ServiceProvider {
 describe('ServiceProvider', () => {
     let app: MockApplication = null;
     let sp: TestServiceProvider = null;
-    
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            sp = new TestServiceProvider(app);
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+        sp = new TestServiceProvider(app);
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     it('urlSuffix', () => {
         expect(sp.urlSuffix()).toBe('/');

@@ -10,4 +10,7 @@ class CLIMockAppWithError extends Application {
     }
 }
 
-new CLIMockAppWithError('CLIMockApp', './');
+let app = new CLIMockAppWithError('CLIMockApp', './');
+(async () => {
+    await app.start();
+})();

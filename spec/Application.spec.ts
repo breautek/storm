@@ -16,7 +16,7 @@ import * as ChildProcess from 'child_process';
 describe('Application', () => {
     let app: TestApplication = null;
 
-    beforeAll((done) => {
+    beforeAll(async () => {
         process.argv = [];
 
         try {
@@ -26,17 +26,12 @@ describe('Application', () => {
             console.error(ex);
             process.exit();
         }
-        
-        app.on('ready', () => {
-            done();
-        });
+
+        await app.start();
     });
 
-    afterAll((done) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
+    afterAll(async () => {
+        await app.close();
     });
 
     it('getRequestSizeLimit returns a number by default', () => {

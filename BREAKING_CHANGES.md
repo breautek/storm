@@ -5,6 +5,16 @@ This document describes high overview of breaking changes in between major versi
 
 # 5.x -> 6.x
 
+## Application bootstrapping
+
+Application now doesn't auto bootstrap during the constructor.
+This created for an awkward API because during construction, asynchronous APIs were being done, and the constructor isn't
+an async function.
+
+Now there is a async `start` method to begin bootstrapping the application.
+
+## Logger
+
 `@arashi/logger` version 4.x is now needed which revamps how logging is done.
 
 `Logger` has been renamed to `BaseLogger` and there is a new `Logger` class in it's place that behaves similar to the old logger.

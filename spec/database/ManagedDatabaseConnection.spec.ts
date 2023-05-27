@@ -14,23 +14,14 @@ const ROLLBACK_WARN_EXPECTATION = 'Rolling back a transaction because setConnect
 describe('ManagedDatabaseConnection', () => {
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     it('constructs read / no write require', (done) => {
         let connection: ManagedDatabaseConnection = new ManagedDatabaseConnection();

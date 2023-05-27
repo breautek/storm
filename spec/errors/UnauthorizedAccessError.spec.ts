@@ -11,24 +11,15 @@ describe('UnauthorizedAccessError', () => {
     let error: UnauthorizedAccessError = null;
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            error = new UnauthorizedAccessError('test');
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+        error = new UnauthorizedAccessError('test');
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     it('has message', () => {
         expect(error.getMessage()).toBe('Access Denied.');

@@ -11,24 +11,15 @@ describe('DuplicateEntryError', () => {
     let error: DuplicateEntryError = null;
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            error = new DuplicateEntryError('User', 'John');
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+        error = new DuplicateEntryError('User', 'John');
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     it('has message', () => {
         expect(error.getMessage()).toBe('User with the name "John" already exists.');

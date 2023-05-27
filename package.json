@@ -65,9 +65,11 @@
     "uuid": "9.0.0"
   },
   "peerDependencies": {
-    "@arashi/logger": "4.x"
+    "@arashi/logger": "4.x",
+    "@arashi/interfaces": "1.x"
   },
   "devDependencies": {
+    "@arashi/interfaces": "1.2.1",
     "@arashi/logger": "4.0.0",
     "@totalpave/eslint-plugin": "6.0.10",
     "@types/jest": "29.5.1",

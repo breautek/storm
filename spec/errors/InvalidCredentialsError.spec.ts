@@ -11,24 +11,15 @@ describe('InvalidCredentialsError', () => {
     let error: InvalidCredentialsError = null;
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            error = new InvalidCredentialsError();
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+        error = new InvalidCredentialsError();
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     it('has message', () => {
         expect(error.getMessage()).toBe('Username or password is incorrect. Please check your username and password.');

@@ -12,25 +12,15 @@ describe('NotImplementedError', () => {
     let error: NotImplementedError = null;
     let app: MockApplication = null;
 
-    let setup = (done: any) => {
+    beforeAll(async () => {
         process.argv = [];
         app = new MockApplication();
-        app.on('ready', () => {
-            error = new NotImplementedError(HTTPMethod.GET);
-            done();
-        });
-    };
-
-    let deconstruct = (done: any) => {
-        app.close().then(() => {
-            app = null;
-            error = null;
-            done();
-        });
-    };
-
-    beforeAll(setup);
-    afterAll(deconstruct);
+        await app.start();
+        error = new NotImplementedError(HTTPMethod.GET);
+    });
+    afterAll(async () => {
+        await app.close();
+    });
 
     it('GET has error message', () => {
         expect(new NotImplementedError(HTTPMethod.GET).getMessage()).toBe('Handler does not implement "GET".');

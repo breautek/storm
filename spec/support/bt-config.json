@@ -7,6 +7,6 @@
     "backend_authentication_secret": null,
 
     "log": {
-        "level": "silly"
+        "level": "info"
     }
 }
