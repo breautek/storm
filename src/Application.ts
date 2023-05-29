@@ -77,7 +77,12 @@ export abstract class Application
         this.$name = name;
 
         process.on('unhandledRejection', (error: any) => {
-            this.$getLogger().error(TAG, error);
+            try {
+                this.$getLogger().error(TAG, error);
+            }
+            catch (ex) {
+                console.error('Unhandled Exception:', ex);
+            }
         });
 
         this.$configPath = configPath || process.cwd();
