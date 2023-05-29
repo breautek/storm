@@ -70,7 +70,7 @@
   },
   "devDependencies": {
     "@arashi/interfaces": "1.2.1",
-    "@arashi/logger": "4.0.0",
+    "@arashi/logger": "4.0.1",
     "@totalpave/eslint-plugin": "6.0.10",
     "@types/jest": "29.5.1",
     "@typescript-eslint/eslint-plugin": "5.59.7",
