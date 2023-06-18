@@ -104,7 +104,7 @@ export abstract class Application
 
     private async $load(): Promise<void> {
         this.$config = await this.loadConfig(this.$configPath);
-        this.$logger = this._initLogger(this.$config);
+        this.$logger = await this._initLogger(this.$config);
 
         this.$getLogger().trace(TAG, 'Configuration loaded.');
         this.emit(ApplicationEvent.CONFIG_LOADED);
@@ -172,14 +172,14 @@ export abstract class Application
         return new Logger(this.getName(), config.log?.level);
     }
     
-    protected _initLogger(config: TConfig): BaseLogger {
+    protected async _initLogger(config: TConfig): Promise<BaseLogger> {
         let logger: BaseLogger = this._createLogger(config);
 
         if (config?.log?.cloudwatch) {
             let cwConfig: ICloudwatchConfig = config.log.cloudwatch;
             let cwCheck: string = this.$validateCWConfig(cwConfig);
             if (cwCheck === null) {
-                this.$connectCW(logger, cwConfig);
+                await this.$connectCW(logger, cwConfig);
             }
             else {
                 logger.warn(TAG, `Skipped configuration cloudwatch: ${cwCheck}`);
@@ -189,8 +189,8 @@ export abstract class Application
         return logger;
     }
 
-    private $connectCW(logger: BaseLogger, cwConfig: ICloudwatchConfig): void {
-        logger.pipe(new CloudWatchStream({
+    private async $connectCW(logger: BaseLogger, cwConfig: ICloudwatchConfig): Promise<void> {
+        let cw: CloudWatchStream = await CloudWatchStream.create({
             region: cwConfig.region,
             credentials: {
                 accessKeyId: cwConfig.credentials.accessKeyId,
@@ -199,7 +199,8 @@ export abstract class Application
         }, {
             group: cwConfig.stream.group,
             stream: cwConfig.stream.name
-        }));
+        });
+        logger.pipe(cw);
     }
 
     private $validateCWConfig(config: ICloudwatchConfig): string {
