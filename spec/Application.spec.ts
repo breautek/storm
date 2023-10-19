@@ -191,19 +191,19 @@ describe('Application', () => {
         });
 
         it('option --port', () => {
-            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --port 0').toString().split('\n');
+            let lines: string[] = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --port 0').toString().split('\n');
             let opts: any = JSON.parse(lines[lines.length - 2]);
             expect(opts.port).toEqual(0);
         });
 
         it('option --bind', () => {
-            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --bind \'127.0.0.1\'').toString().split('\n');
+            let lines: string[] = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --bind \'127.0.0.1\'').toString().split('\n');
             let opts: any = JSON.parse(lines[lines.length - 2]);
             expect(opts.bind).toEqual('127.0.0.1');
         });
 
         it('option --authentication_header', () => {
-            let lines: Array<string> = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --authentication_header newHeader').toString().split('\n');
+            let lines: string[] = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --authentication_header newHeader').toString().split('\n');
             let opts: any = JSON.parse(lines[lines.length - 2]);
             expect(opts.authentication_header).toEqual('newHeader');
         });

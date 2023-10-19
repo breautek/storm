@@ -55,7 +55,7 @@ describe('MySQLConnection', () => {
                 sql: 'test sql'
             };
         });
-        conn.query(new DummyQuery()).then((results: Array<any>) => {
+        conn.query(new DummyQuery()).then((results: any[]) => {
             expect(results).toEqual([ 1 ]);
             done();
         });
@@ -382,12 +382,12 @@ describe('MySQLConnection', () => {
     });
 
     describe('post processing', () => {
-        class QueryWithPostProcessing extends Query<void, Array<1>, Array<number>> {
+        class QueryWithPostProcessing extends Query<void, Array<1>, number[]> {
             protected _getQuery(): string {
                 return 'SELECT 1';
             }
 
-            public onPostProcess(conn: IDatabaseConnection, results: Array<1>): Promise<Array<number>> {
+            public onPostProcess(conn: IDatabaseConnection, results: Array<1>): Promise<number[]> {
                 return Promise.resolve([
                     1,
                     2,
@@ -427,7 +427,7 @@ describe('MySQLConnection', () => {
         it('execute', async () => {
             let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
             let query: QueryWithPostProcessing = new QueryWithPostProcessing();
-            let results: Array<number> = await query.execute(conn);
+            let results: number[] = await query.execute(conn);
             expect(results).toEqual([
                 1,
                 2,

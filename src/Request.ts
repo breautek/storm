@@ -72,7 +72,7 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     public getHeader(name: string): string {
-        let value: string | Array<string> = this.$request.headers[name.toLowerCase()];
+        let value: string | string[] = this.$request.headers[name.toLowerCase()];
         if (typeof value === 'string') {
             return value;
         }

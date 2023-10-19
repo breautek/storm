@@ -18,9 +18,9 @@ import {DatabaseCastObject} from './DatabaseCastObject';
 import {TCoordinate} from './TCoordinate';
 
 export class LineString extends DatabaseCastObject {
-    private $coords: Array<TCoordinate>;
+    private $coords: TCoordinate[];
 
-    public constructor(coordinates?: Array<TCoordinate>) {
+    public constructor(coordinates?: TCoordinate[]) {
         super();
 
         this.$coords = coordinates || [];

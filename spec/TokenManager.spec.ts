@@ -18,7 +18,7 @@ describe('TokenManager', () => {
     let manager: TokenManager = new TokenManager('secret');
 
     let parseJWT = (jwt: string): IJWTParts => {
-        let parts: Array<string> = jwt.split('.');
+        let parts: string[] = jwt.split('.');
         let headers: Buffer = Buffer.from(parts[0], 'base64');
         let payload: Buffer = Buffer.from(parts[1], 'base64');
 
@@ -47,7 +47,7 @@ describe('TokenManager', () => {
         it('will have unique signatures', (done) => {
             let promises: Array<Promise<Token>> = [ manager.sign({test: true}, '1y'), manager.sign({test: true}, '1y') ];
 
-            Promise.all(promises).then((results: Array<Token>) => {
+            Promise.all(promises).then((results: Token[]) => {
                 let a: Token = results[0];
                 let b: Token = results[1];
 

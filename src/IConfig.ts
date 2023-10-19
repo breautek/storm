@@ -46,7 +46,7 @@ export interface IConfig {
     // Logging
     log?: {
         level?: LogLevel;
-        filters?: Array<string>;
+        filters?: string[];
         cloudwatch?: ICloudwatchConfig;
     },
 
@@ -54,7 +54,7 @@ export interface IConfig {
     database?: {
         query_timeout?: number;
         main?: IDatabaseConfig<"MASTER">;
-        replicationNodes?: Array<IDatabaseConfig>;
+        replicationNodes?: IDatabaseConfig[];
     };
     
 

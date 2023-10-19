@@ -23,11 +23,11 @@ import { ExitCode } from './ExitCode';
 
 interface IInvalidConfigErrorDetails<TConfig extends IConfig> {
     config: TConfig;
-    errors: Array<ErrorObject>;
+    errors: ErrorObject[];
 }
 
 export class InvalidConfigError<TConfig extends IConfig> extends StormError<IInvalidConfigErrorDetails<TConfig>> {
-    public constructor(config: TConfig, errors: Array<ErrorObject>) {
+    public constructor(config: TConfig, errors: ErrorObject[]) {
         super({
             config,
             errors

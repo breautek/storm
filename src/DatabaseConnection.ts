@@ -37,7 +37,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     private $api: any;
     private $readOnly: boolean;
     private $timeout: number;
-    private $lingerTimer: NodeJS.Timer;
+    private $lingerTimer: NodeJS.Timeout;
     private $instantiationStack: string;
     private $open: boolean;
 

@@ -85,7 +85,7 @@ describe('ConfigLoader', () => {
             expect(config.log.level).toBe('info');
         });
 
-        let validLevels: Array<string> = [
+        let validLevels: string[] = [
             'silly',
             'debug',
             'verbose',

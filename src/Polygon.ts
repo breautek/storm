@@ -18,9 +18,9 @@ import {DatabaseCastObject} from './DatabaseCastObject';
 import {TCoordinate} from './TCoordinate';
 
 export class Polygon extends DatabaseCastObject {
-    private $rings: Array<Array<TCoordinate>>;
+    private $rings: TCoordinate[][];
 
-    public constructor(coordinates?: Array<Array<TCoordinate>>) {
+    public constructor(coordinates?: TCoordinate[][]) {
         super();
 
         this.$rings = coordinates || [];
@@ -30,7 +30,7 @@ export class Polygon extends DatabaseCastObject {
         let str: string = 'POLYGON(';
 
         for (let i: number = 0; i < this.$rings.length; i++) {
-            let ring: Array<TCoordinate> = this.$rings[i];
+            let ring: TCoordinate[] = this.$rings[i];
             let strRing: string = '(';
 
             for (let y: number = 0; y < ring.length; y++) {

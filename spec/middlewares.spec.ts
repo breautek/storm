@@ -19,7 +19,7 @@ class TestMiddleware extends Middleware {
 }
 
 class TestHandler extends Handler {
-    public _initMiddlewares(): Array<Middleware> {
+    public _initMiddlewares(): Middleware[] {
         return [];
     }
 }

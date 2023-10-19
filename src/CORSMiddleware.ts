@@ -27,8 +27,8 @@ import {getInstance} from './instance';
  */
 export class CORSMiddleware extends Middleware {
     private $allowedOrigin: string;
-    private $allowedHeaders: Array<string>;
-    private $allowedMethods: Array<string>;
+    private $allowedHeaders: string[];
+    private $allowedMethods: string[];
 
     /**
      * @constructor
@@ -36,7 +36,7 @@ export class CORSMiddleware extends Middleware {
      * @param allowedHeaders    Array of allowed headers. 
      * @param allowedMethods    Array of allowed HTTP methods.
      */
-    public constructor(allowedOrigin?: string, allowedHeaders?: Array<string>, allowedMethods?: Array<string>) {
+    public constructor(allowedOrigin?: string, allowedHeaders?: string[], allowedMethods?: string[]) {
         super();
         
         this.$allowedOrigin = (!allowedOrigin) ? this.getDefaultAllowedOrigin() : allowedOrigin;
@@ -51,7 +51,7 @@ export class CORSMiddleware extends Middleware {
         return null;
     }
 
-    public getDefaultAllowedHeaders(): Array<string> {
+    public getDefaultAllowedHeaders(): string[] {
         return [
             'Accept',
             getInstance().getConfig().authentication_header,
@@ -61,7 +61,7 @@ export class CORSMiddleware extends Middleware {
         ];
     }
 
-    public getDefaultAllowedMethods(): Array<string> {
+    public getDefaultAllowedMethods(): string[] {
         return [
             'GET',
             'POST',

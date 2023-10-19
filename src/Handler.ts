@@ -66,7 +66,7 @@ export class Handler<
     >  {
         
     private $app: TApplication;
-    private $middlewares: Array<Middleware>;
+    private $middlewares: Middleware[];
 
     constructor(app: TApplication) {
         this.$app = app;
@@ -77,7 +77,7 @@ export class Handler<
         return this.$app;
     }
 
-    protected _initMiddlewares(): Array<Middleware> {
+    protected _initMiddlewares(): Middleware[] {
         return [];
     }
 
