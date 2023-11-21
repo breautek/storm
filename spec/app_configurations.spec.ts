@@ -4,10 +4,6 @@ import {
 import {
     LogLevel
 } from '@arashi/interfaces'
-// import {
-//     Logger,
-//     CloudWatchStream
-// } from '@arashi/logger';
 import {
     ConfigLoader
 } from '../src/api';
@@ -16,7 +12,7 @@ describe('Configurations', () => {
     let clSpy: jest.SpyInstance = null;
     
     beforeEach(() => {
-        clSpy = jest.spyOn(ConfigLoader, 'load');
+        clSpy = jest.spyOn(ConfigLoader.prototype, 'load');
     });
 
     it('should skip cloudwatch configuration', async () => {

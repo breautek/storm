@@ -26,17 +26,17 @@ class TestHandler extends Handler {
         super(app);
     }
 
-    protected async _get(request: Request): Promise<void> {}
+    protected override async _get(request: Request): Promise<void> {}
 
-    protected async _post(request: Request): Promise<any> {
+    protected override async _post(request: Request): Promise<any> {
         return request.getBody();
     }
 
-    protected async _put(request: Request): Promise<any> {
+    protected override async _put(request: Request): Promise<any> {
         return request.getBody();
     }
 
-    protected async _delete(request: Request): Promise<any> {
+    protected override async _delete(request: Request): Promise<any> {
         return request.getBody();
     }
 }
@@ -46,16 +46,20 @@ export class TestApplication extends Application {
         super("TestApplication", "./spec/support/");
     }
 
-    protected _attachHandlers(): Promise<void> {
+    protected override _getVersion(): string {
+        return '1.2.3';
+    }
+
+    protected override _attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         return Promise.resolve();
     }
 
-    protected _createLogger(): Logger {
+    protected override _createLogger(): Logger {
         return new Logger(this.getName());
     }
 
-    protected _initDB(config: IConfig): Promise<Database<any, any>> {
+    protected override _initDB(config: IConfig): Promise<Database<any, any>> {
         return Promise.resolve(new MockDB());
     }
 }
@@ -69,12 +73,15 @@ export class MockApplication extends Application {
         this.setTokenManager(new TokenManager(VERY_SECRET_KEY));
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    protected override _getVersion(): string {
+        return '1.2.3';
+    }
+
     public async signToken(payload?: any): Promise<Token> {
         return await this.getTokenManager().sign(payload, '1d');
     }
 
-    protected _attachHandlers(): Promise<void> {
+    protected override _attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         this.attachHandler('/api/mock/v1/echo', TestHandler);
         return Promise.resolve();
@@ -160,12 +167,16 @@ export class NoServerApp extends Application {
         super('NoServerApp', './spec/support/');
     }
 
-    protected _attachHandlers(): Promise<void> {
+    protected override _getVersion(): string {
+        return '1.2.3';
+    }
+
+    protected override _attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         return Promise.resolve();
     }
 
-    public shouldListen(): boolean {
+    public override shouldListen(): boolean {
         return false;
     }
 }
@@ -173,20 +184,20 @@ export class NoServerApp extends Application {
 export class ConfigTestApp extends Application {
     public testConfig: IConfig;
 
-    constructor(jsonConfig: string) {
+    public constructor(jsonConfig: string) {
         super('ConfigTestApp', jsonConfig);
     }
 
-    protected _attachHandlers(): Promise<void> {
+    protected override _getVersion(): string {
+        return '1.2.3';
+    }
+
+    protected override _attachHandlers(): Promise<void> {
         this.attachHandler('/echo', TestHandler);
         return Promise.resolve();
     }
 
-    public shouldListen(): boolean {
+    public override shouldListen(): boolean {
         return false;
-    }
-
-    public loadConfig(path: string): Promise<IConfig> {
-        return Promise.resolve(JSON.parse(path));
     }
 }

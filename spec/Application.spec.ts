@@ -209,13 +209,13 @@ describe('Application', () => {
         });
 
         it('option -v', () => {
-            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp -v').toString();
-            expect(buf).toBe(require('../package.json').version + '\n');
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp -v').toString().trim();
+            expect(buf).toMatch(/^1\.2\.3 \(Storm [0-9]\.[0-9]\.[0-9](.+)?\)$/);
         });
 
         it('option --version', () => {
-            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --version').toString();
-            expect(buf).toBe(require('../package.json').version + '\n');
+            let buf: string = ChildProcess.execSync('npx ts-node ./spec/support/cli/CLIMockApp --version').toString().trim();
+            expect(buf).toMatch(/^1\.2\.3 \(Storm [0-9]\.[0-9]\.[0-9](.+)?\)$/);
         });
 
         it('option -h', () => {

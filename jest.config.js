@@ -36,7 +36,7 @@ module.exports = {
     '\\.ts$': [
       'ts-jest',
       {
-        tsconfig: 'tsconfig-tests.json'
+        tsconfig: './spec/tsconfig.json'
       }
     ]
   }

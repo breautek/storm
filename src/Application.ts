@@ -29,6 +29,7 @@ import {Command} from 'commander';
 import * as Express from 'express';
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
+import * as Path from 'path';
 import { IAuthTokenData } from '@arashi/token';
 import {
     Logger,
@@ -36,6 +37,14 @@ import {
     BaseLogger
 } from '@arashi/logger';
 import { StormError } from './StormError';
+
+export interface IStormCLIArgs {
+    bind?: string;
+    port?: number;
+    authentication_header?: string;
+    configFile?: string;
+    localConfigFile?: string;
+}
 
 const TAG: string = 'Application';
 
@@ -52,7 +61,24 @@ export abstract class Application
     extends EventEmitter {
     private $logger: BaseLogger;
     private $name: string;
+
+    /**
+     * Path to the config directory.
+     * This is used as a fallback and it will be expected that
+     * bt-config.json and bt-local-config.json are found.
+     */
+    private $configDir: string;
+
+    /**
+     * Path to a bt-config.json file
+     */
     private $configPath: string;
+
+    /**
+     * Path to a bt-local-config.json file
+     */
+    private $localConfigPath: string;
+
     private $config: TConfig;
     private $tokenManager: TokenManager<TAuthToken>;
     private $server: Express.Application;
@@ -60,17 +86,21 @@ export abstract class Application
     private $socket: http.Server;
     private $program: Command;
 
+    private $usingDeprecatedConfigPath: boolean;
+
     /**
      * 
      * @param name The application name
-     * @param configPath The directory where bt-config.json and bt-local-config.json can be found. Defaults to current working directory.
+     * @param configPath @deprecated The directory where bt-config.json and bt-local-config.json can be found. Defaults to current working directory.
      */
-    public constructor(name: string, configPath: string) {
+    public constructor(name: string, configPath?: string) {
         super();
 
         setInstance(this);
         
         this.$buildArgOptions();
+
+        this.$usingDeprecatedConfigPath = !!configPath;
         
         this.$program.parse(process.argv);
 
@@ -85,7 +115,7 @@ export abstract class Application
             }
         });
 
-        this.$configPath = configPath || process.cwd();
+        this.$configDir = configPath || process.cwd();
     }
 
     public async start(): Promise<void> {
@@ -93,6 +123,10 @@ export abstract class Application
 
         this.$logger.info(TAG, 'Application is booting...');
         this.$logger.info(TAG, 'Loading Configuration...');
+
+        if (this.$usingDeprecatedConfigPath) {
+            this.$getLogger().warn(TAG, `configPath constructor argument is deprecated. Use --config and --local_config instead.`);
+        }
 
         try {
             await this.$load();
@@ -103,7 +137,7 @@ export abstract class Application
     }
 
     private async $load(): Promise<void> {
-        this.$config = await this.loadConfig(this.$configPath);
+        this.$config = await this.$loadConfig();
         this.$logger = await this._initLogger(this.$config);
 
         this.$getLogger().trace(TAG, 'Configuration loaded.');
@@ -252,24 +286,31 @@ export abstract class Application
         return port;
     }
 
-    // eslint-disable-next-line @typescript-eslint/naming-convention
+    protected _getVersion(): string {
+        console.warn(TAG, `_getVersion will be an abstract method in the next major release. Override this method and pass a version string.`);
+        return '0.0.0';
+    }
+
+    private $getVersionString(): string {
+        let pkg: any = require('../package.json');
+        return `${this._getVersion()} (Storm ${pkg.version})`;
+    }
+
     private $buildArgOptions() {
         this.$program = new Command();
-
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        let pkg: any = require('../package.json');
         
-        this.$program.version(pkg.version, '-v, --version');
+        this.$program.version(this.$getVersionString(), '-v, --version');
         this.$program.allowUnknownOption(true);
         this.$program.allowExcessArguments(true);
         this.$program.option('--port <port>', 'The running port to consume');
         this.$program.option('--bind <ip>', 'The binding IP to listen on');
         this.$program.option('--authentication_header <header>', 'The header name of the authentication token');
+        this.$program.option('--config <path>', 'The path to the bt-config.json file');
+        this.$program.option('--local-config <path>', 'The path to the bt-local-config.json file.');
 
         this._buildArgOptions(this.$program);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     protected _buildArgOptions(program: Command): void {}
 
     public getProgram(): Command {
@@ -346,6 +387,7 @@ export abstract class Application
     protected abstract _attachHandlers(): Promise<void>;
 
     /**
+     * @deprecated Supply the configs via --config and --local-config arguments
      * 
      * @param path The directory path that contains bt-config.json and bt-local-config.json
      */
@@ -364,6 +406,38 @@ export abstract class Application
                 }
             });
         });
+    }
+
+    private async $loadConfig(): Promise<TConfig> {
+        let loader: ConfigLoader<TConfig> = new ConfigLoader<TConfig>(this);
+        return await loader.load(this.$getConfigFilePath(), this.$getLocalConfigFilePath());
+    }
+
+    private $getLocalConfigFilePath(): string {
+        if (!this.$localConfigPath) {
+            let filePath: string = this.getCmdLineArgs().localConfigFile;
+            if (!filePath) {
+                filePath = Path.resolve(this.$configDir, 'bt-local-config.json');
+            }
+
+            this.$localConfigPath = filePath;
+        }
+
+        return this.$localConfigPath;
+    }
+
+    private $getConfigFilePath(): string {
+        if (!this.$configPath) {
+            let filePath: string = this.getCmdLineArgs().configFile;
+
+            if (!filePath) {
+                filePath = Path.resolve(this.$configDir, 'bt-config.json');
+            }
+
+            this.$configPath = filePath;
+        }
+
+        return this.$configPath;
     }
 
     /**
@@ -423,9 +497,9 @@ export abstract class Application
     /**
      * @returns command line arguments
      */
-    public getCmdLineArgs(): TConfig {
+    public getCmdLineArgs(): IStormCLIArgs {
         let program: Command = this.$program;
-        let o: any = {};
+        let o: IStormCLIArgs = {};
 
         let opts: any = program.opts();
 
@@ -443,6 +517,14 @@ export abstract class Application
 
         if (opts.authentication_header !== undefined) {
             o.authentication_header = opts.authentication_header;
+        }
+
+        if (opts.configFile !== undefined) {
+            o.configFile = opts.config;
+        }
+
+        if (opts.localConfigFile !== undefined) {
+            o.localConfigFile = opts.localConfig;
         }
 
         return o;

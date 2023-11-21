@@ -17,9 +17,9 @@
 */
 
 import {getInstance} from './instance';
-import {Logger} from '@arashi/logger';
+import {BaseLogger} from '@arashi/logger';
 import * as Path from 'path';
-import {Application} from './Application';
+import {Application, IStormCLIArgs} from './Application';
 import {IConfig} from './IConfig';
 import Ajv from 'ajv';
 import * as MergeChange from '@breautek/merge-change';
@@ -28,18 +28,24 @@ import { MissingConfigError } from './MissingConfigError';
 
 const TAG: string = 'ConfigLoader';
 
-export class ConfigLoader {
-    private constructor() {}
+export class ConfigLoader<TConfig extends IConfig = IConfig> {
+    private $logger: BaseLogger;
+    private $app: Application;
 
-    public static async load(path: string): Promise<IConfig> {
-        let logger: Logger = ConfigLoader.$getLogger();
+    public constructor(app: Application) {
+        this.$app = app;
+        this.$logger = app.getLogger();
+    }
+
+    public async load(configFile: string, localConfigFile: string): Promise<TConfig> {
+        let logger: BaseLogger = this.$logger;
 
         logger.trace(TAG, 'Configuration loaded.');
         
-        let config: IConfig = {};
+        let config: Partial<TConfig> = {};
 
-        let cPath: string = Path.resolve(path, 'bt-config.json');
-        let lPath: string = Path.resolve(path, 'bt-local-config.json');
+        let cPath: string = configFile;
+        let lPath: string = localConfigFile;
         
         let c: IConfig;
         let l: IConfig;
@@ -59,7 +65,7 @@ export class ConfigLoader {
         }
 
         logger.trace(TAG, 'Reading command line arguments...');
-        config = MergeChange.merge(config, ConfigLoader.$getCmdLineArgs());
+        config = MergeChange.merge(config, this.$getCmdLineArgs());
 
         if (config.log.level === null) {
             config.log.level = defaults.log.level;
@@ -68,31 +74,81 @@ export class ConfigLoader {
         logger.trace(TAG, 'Configurations merged.');
         logger.trace(TAG, config);
 
-        await ConfigLoader.$validateSchema(config);
+        await this.$validateSchema(config);
 
-        return config;
+        return <TConfig>config;
     }
 
-    private static $getLocalConfig(path: string): IConfig {
+    /**
+     * @deprecated Instantiate ConfigLoader with the proper params
+     * @param path 
+     * @returns 
+     */
+    public static async load(path: string): Promise<IConfig> {
+        let loader: ConfigLoader = new ConfigLoader<IConfig>(getInstance());
+        return await loader.load(Path.resolve(path, 'bt-config.json'), Path.resolve('bt-local-config.json'));
+
+        // let logger: Logger = ConfigLoader.$getLogger();
+
+        // logger.trace(TAG, 'Configuration loaded.');
+        
+        // let config: IConfig = {};
+
+        // let cPath: string = Path.resolve(path, 'bt-config.json');
+        // let lPath: string = Path.resolve(path, 'bt-local-config.json');
+        
+        // let c: IConfig;
+        // let l: IConfig;
+        // let defaults: IConfig = this.$getDefaults();
+
+        // logger.trace(TAG, `Main Config Path:\t ${cPath}`);
+        // logger.trace(TAG, `Local Config Path:\t ${lPath}`);
+
+        // c = this.$getMainConfig(cPath);
+        // l = this.$getLocalConfig(lPath);
+
+        // if (l) {
+        //     config = MergeChange.merge(defaults, c, l);
+        // }
+        // else {
+        //     config = MergeChange.merge(defaults, c);
+        // }
+
+        // logger.trace(TAG, 'Reading command line arguments...');
+        // config = MergeChange.merge(config, ConfigLoader.$getCmdLineArgs());
+
+        // if (config.log.level === null) {
+        //     config.log.level = defaults.log.level;
+        // }
+
+        // logger.trace(TAG, 'Configurations merged.');
+        // logger.trace(TAG, config);
+
+        // await ConfigLoader.$validateSchema(config);
+
+        // return config;
+    }
+
+    private $getLocalConfig(path: string): IConfig {
         let config: IConfig = null;
-        this.$getLogger().trace(TAG, 'Loading optional local config.');
+        this.$logger.trace(TAG, 'Loading optional local config.');
         try {
             config = require(path);
-            this.$getLogger().trace(TAG, 'Local config loaded.');
+            this.$logger.trace(TAG, 'Local config loaded.');
         }
         catch (ex) {
-            this.$getLogger().trace(TAG, 'Local config could not be loaded.');
-            this.$getLogger().trace(TAG, ex);
+            this.$logger.trace(TAG, 'Local config could not be loaded.');
+            this.$logger.trace(TAG, ex);
         }
         return config;
     }
 
-    private static $getMainConfig(path: string): IConfig {
-        this.$getLogger().trace(TAG, 'Loading main confing...');
+    private $getMainConfig(path: string): IConfig {
+        this.$logger.trace(TAG, 'Loading main confing...');
         let c: IConfig = null;
         try {
             c = require(path);
-            this.$getLogger().trace(TAG, 'Main config loaded.');
+            this.$logger.trace(TAG, 'Main config loaded.');
         }
         catch (ex) {
             throw new MissingConfigError(path);
@@ -101,12 +157,12 @@ export class ConfigLoader {
         return c;
     }
 
-    private static $getDefaults(): IConfig {
-        this.$getLogger().trace(TAG, 'Loading configuration defaults.');
+    private $getDefaults(): IConfig {
+        this.$logger.trace(TAG, 'Loading configuration defaults.');
         return require(Path.resolve(__dirname, '../bt-config-defaults.json'));
     }
 
-    private static async $validateSchema(config: IConfig): Promise<void> {
+    private async $validateSchema(config: IConfig): Promise<void> {
         let ajv: Ajv = new Ajv({
             allErrors: true
         });
@@ -215,22 +271,7 @@ export class ConfigLoader {
         }
     }
 
-    private static $getCmdLineArgs(): any {
-        let app: Application = getInstance();
-        if (!app) {
-            return {};
-        }
-
-        return app.getCmdLineArgs();
-    }
-
-    private static $getLogger(): Logger {
-        let logger: Logger;
-        
-        if (!logger) {
-            logger = new Logger('ConfigLoader');
-        }
-
-        return logger;
+    private $getCmdLineArgs(): IStormCLIArgs {
+        return this.$app.getCmdLineArgs();
     }
 }

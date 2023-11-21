@@ -3,7 +3,7 @@ import { RawQuery } from '../../src/RawQuery';
 import {Transaction} from '../../src/Transaction';
 import {Query} from '../../src/Query';
 import {
-    MockApplication
+    TestApplication
 } from '../support/TestApplication';
 import { IDatabaseConnection } from '../../src/IDatabaseConnection';
 import { InvalidValueError } from '../../src/InvalidValueError';
@@ -15,13 +15,20 @@ import { DeadLockError } from '../../src/DeadLockError';
 import { RollbackQuery } from '../../src/private/RollbackQuery';
 
 describe('Transaction', () => {
-    let app: MockApplication = null;
+    let app: TestApplication = null;
 
     beforeAll(async () => {
         process.argv = [];
-        app = new MockApplication();
-        await app.start();
+        app = new TestApplication();
+        try {
+            await app.start();
+        }
+        catch (ex) {
+            console.error(ex);
+            throw ex;
+        }
     });
+
     afterAll(async () => {
         await app.close();
     });
@@ -49,7 +56,7 @@ describe('Transaction', () => {
     it('retryLimit must be greater than 0', () => {
         expect(() => {
             new Transaction(app, async () => {}, 0);
-        }).toThrowError(InvalidValueError);
+        }).toThrow(InvalidValueError);
     });
 
     describe('retryLimit should default to Infinity if null/undefined', () => {
@@ -70,7 +77,7 @@ describe('Transaction', () => {
         await conn.startTransaction();
         expect(async () => {
             await t.execute(conn);
-        }).rejects.toThrowError(InternalError);
+        }).rejects.toThrow(InternalError);
     });
 
     it('can execute simple transaction', async () => {
