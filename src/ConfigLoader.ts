@@ -271,7 +271,23 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
         }
     }
 
-    private $getCmdLineArgs(): IStormCLIArgs {
-        return this.$app.getCmdLineArgs();
+    private $getCmdLineArgs(): Partial<IConfig> {
+        let cliArgs: IStormCLIArgs = this.$app.getCmdLineArgs();
+
+        let out: Partial<IConfig> = {}
+
+        if (cliArgs.bind !== undefined) {
+            out.bind = cliArgs.bind;
+        }
+
+        if (cliArgs.port !== undefined) {
+            out.port = cliArgs.port;
+        }
+
+        if (cliArgs.authentication_header !== undefined) {
+            out.authentication_header = cliArgs.authentication_header;
+        }
+
+        return out;
     }
 }
