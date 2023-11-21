@@ -74,7 +74,7 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
         }
 
         // This will pull all custom configurations into customConfig
-        config.customConfig = MergeChange.merge(config.customConfig, this.$app.getConfigFromCLIArgs(this.$app.getCmdLineArgs()));
+        config.customConfig = MergeChange.merge(config.customConfig, this.$app.getConfigFromCLIArgs(this.$app.getCmdLineArgs().custom));
 
         if (config.log.level === null) {
             config.log.level = defaults.log.level;
