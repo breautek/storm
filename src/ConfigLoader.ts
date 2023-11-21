@@ -65,7 +65,16 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
         }
 
         logger.trace(TAG, 'Reading command line arguments...');
+        
+        // This pulls IConfig rules into the base config as expected
         config = MergeChange.merge(config, this.$getCmdLineArgs());
+
+        if (!config.customConfig) {
+            config.customConfig = {};
+        }
+
+        // This will pull all custom configurations into customConfig
+        config.customConfig = MergeChange.merge(config.customConfig, this.$app.getCmdLineArgs());
 
         if (config.log.level === null) {
             config.log.level = defaults.log.level;
@@ -87,46 +96,6 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
     public static async load(path: string): Promise<IConfig> {
         let loader: ConfigLoader = new ConfigLoader<IConfig>(getInstance());
         return await loader.load(Path.resolve(path, 'bt-config.json'), Path.resolve('bt-local-config.json'));
-
-        // let logger: Logger = ConfigLoader.$getLogger();
-
-        // logger.trace(TAG, 'Configuration loaded.');
-        
-        // let config: IConfig = {};
-
-        // let cPath: string = Path.resolve(path, 'bt-config.json');
-        // let lPath: string = Path.resolve(path, 'bt-local-config.json');
-        
-        // let c: IConfig;
-        // let l: IConfig;
-        // let defaults: IConfig = this.$getDefaults();
-
-        // logger.trace(TAG, `Main Config Path:\t ${cPath}`);
-        // logger.trace(TAG, `Local Config Path:\t ${lPath}`);
-
-        // c = this.$getMainConfig(cPath);
-        // l = this.$getLocalConfig(lPath);
-
-        // if (l) {
-        //     config = MergeChange.merge(defaults, c, l);
-        // }
-        // else {
-        //     config = MergeChange.merge(defaults, c);
-        // }
-
-        // logger.trace(TAG, 'Reading command line arguments...');
-        // config = MergeChange.merge(config, ConfigLoader.$getCmdLineArgs());
-
-        // if (config.log.level === null) {
-        //     config.log.level = defaults.log.level;
-        // }
-
-        // logger.trace(TAG, 'Configurations merged.');
-        // logger.trace(TAG, config);
-
-        // await ConfigLoader.$validateSchema(config);
-
-        // return config;
     }
 
     private $getLocalConfig(path: string): IConfig {
@@ -162,7 +131,7 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
         return require(Path.resolve(__dirname, '../bt-config-defaults.json'));
     }
 
-    private async $validateSchema(config: IConfig): Promise<void> {
+    private async $validateSchema(config: Partial<TConfig>): Promise<void> {
         let ajv: Ajv = new Ajv({
             allErrors: true
         });

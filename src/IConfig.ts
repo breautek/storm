@@ -57,6 +57,7 @@ export interface IConfig {
         replicationNodes?: IDatabaseConfig[];
     };
     
-
     request_size_limit?: number;
+
+    customConfig?: Record<string, any>;
 }
