@@ -420,7 +420,7 @@ export abstract class Application
                 filePath = Path.resolve(this.$configDir, 'bt-local-config.json');
             }
 
-            this.$localConfigPath = filePath;
+            this.$localConfigPath = Path.resolve(filePath);
         }
 
         return this.$localConfigPath;
@@ -434,7 +434,7 @@ export abstract class Application
                 filePath = Path.resolve(this.$configDir, 'bt-config.json');
             }
 
-            this.$configPath = filePath;
+            this.$configPath = Path.resolve(filePath);
         }
 
         return this.$configPath;
@@ -501,11 +501,11 @@ export abstract class Application
         let program: Command = this.$program;
         let o: IStormCLIArgs = {};
 
-        let opts: any = program.opts();
-
         if (!program) {
             return o;
         }
+
+        let opts: any = program.opts();
 
         if (opts.bind !== undefined) {
             o.bind = opts.bind;
@@ -519,11 +519,11 @@ export abstract class Application
             o.authentication_header = opts.authentication_header;
         }
 
-        if (opts.configFile !== undefined) {
+        if (opts.config !== undefined) {
             o.configFile = opts.config;
         }
 
-        if (opts.localConfigFile !== undefined) {
+        if (opts.localConfig !== undefined) {
             o.localConfigFile = opts.localConfig;
         }
 
