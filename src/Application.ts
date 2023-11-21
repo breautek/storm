@@ -44,6 +44,7 @@ export interface IStormCLIArgs {
     authentication_header?: string;
     configFile?: string;
     localConfigFile?: string;
+    custom: Record<string, any>;
 }
 
 const TAG: string = 'Application';
@@ -507,13 +508,16 @@ export abstract class Application
      */
     public getCmdLineArgs(): IStormCLIArgs {
         let program: Command = this.$program;
-        let o: IStormCLIArgs = {};
+        let o: IStormCLIArgs = {
+            custom: null
+        };
 
         if (!program) {
             return o;
         }
 
         let opts: any = program.opts();
+        o.custom = opts;
 
         if (opts.bind !== undefined) {
             o.bind = opts.bind;
