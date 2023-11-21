@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run lint && tsc",
     "build:release": "NODE_ENV=production tsc",
-    "build-lib": "rm -r ./lib && tsc",
+    "build-lib": "rm -rf ./lib && tsc",
     "build-docs": "typedoc --excludePrivate --readme none --out ./docs ./src/api.ts",
     "lint": "eslint --ext .ts '?(src|spec)/**/*.ts' --cache",
     "lint:fix": "eslint --ext .ts '?(src|spec)/**/*.ts' --fix",
