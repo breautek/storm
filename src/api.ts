@@ -16,7 +16,10 @@
 
 // Application
 export {getInstance} from './instance';
-export {Application} from './Application';
+export {
+    Application,
+    IStormCLIArgs
+} from './Application';
 
 // Config
 export {ConfigLoader} from './ConfigLoader';
