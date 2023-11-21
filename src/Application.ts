@@ -318,6 +318,14 @@ export abstract class Application
     }
 
     /**
+     * Override this method to map CLI args to customConfig
+     * @param args 
+     */
+    public getConfigFromCLIArgs(args: any): Record<string, any> {
+        return {};
+    }
+
+    /**
      * The maximum size limit for incoming requests that this service needs to handle.
      */
     public getRequestSizeLimit(): number {
