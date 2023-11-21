@@ -38,14 +38,13 @@ const TAG: string = 'MySQLConnection';
 const SQL_FORMATTING_OPTIONS: SQLFormatter.FormatOptions = {
     tabWidth: 4,
     keywordCase: 'upper',
+    identifierCase: 'preserve',
     useTabs: false,
     indentStyle: 'standard',
     logicalOperatorNewline: 'after',
-    commaPosition: 'before',
     linesBetweenQueries: 1,
     denseOperators: false,
     newlineBeforeSemicolon: false,
-    tabulateAlias: true,
     expressionWidth: 4
 };
 
