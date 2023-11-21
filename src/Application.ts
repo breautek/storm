@@ -422,6 +422,14 @@ export abstract class Application
         return await loader.load(this.$getConfigFilePath(), this.$getLocalConfigFilePath());
     }
 
+    public getConfigFilePath(): string {
+        return this.$getConfigFilePath();
+    }
+
+    public getLocalConfigFilePath(): string {
+        return this.$getLocalConfigFilePath();
+    }
+
     private $getLocalConfigFilePath(): string {
         if (!this.$localConfigPath) {
             let filePath: string = this.getCmdLineArgs().localConfigFile;
