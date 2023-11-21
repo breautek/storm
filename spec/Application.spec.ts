@@ -81,7 +81,7 @@ describe('Application', () => {
 
     it('getCmdLineArgs()', () => {
         // Test offers no command line args
-        expect(JSON.stringify(app.getCmdLineArgs())).toBe('{}');
+        expect(JSON.stringify(app.getCmdLineArgs())).toBe('{"custom":{}}');
     });
 
     it('it has a MockDB', () => {
