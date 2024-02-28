@@ -40,6 +40,8 @@ export {IUpdateQueryResult} from './IUpdateQueryResult';
 export {SetSessionVariableQuery, ISetSessionVariableQueryInput} from './SetSessionVariableQuery';
 export {IsolationLevel} from './IsolationLevel';
 export {Transaction} from './Transaction';
+export {IOKPacket} from './IOKPacket';
+export {IStoredProcedureResult} from './IStoredProcedureResult';
 
 // Errors
 export {ErrorCode} from './ErrorCode';
