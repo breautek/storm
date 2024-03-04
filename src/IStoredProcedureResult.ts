@@ -18,5 +18,10 @@ import {IOKPacket} from './IOKPacket';
 
 /**
  * @since 7.1.0
+ * 
+ * @remarks
+ * 
+ * Symbol introduced in 7.1.0 but did not accurately represent the actual call
+ * result. Symbol was (breakingly) changed in 7.1.1 to fix this issue.
  */
-export type IStoredProcedureResult<T = unknown> = [T, IOKPacket];
+export type IStoredProcedureResult<T extends unknown[] = unknown[]> = [...T, IOKPacket];
