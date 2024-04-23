@@ -22,7 +22,7 @@ import * as Path from 'path';
 import {Application, IStormCLIArgs} from './Application';
 import {IConfig} from './IConfig';
 import Ajv from 'ajv';
-import * as MergeChange from '@breautek/merge-change';
+import MergeChange from '@breautek/merge-change';
 import { InvalidConfigError } from './InvalidConfigError';
 import { MissingConfigError } from './MissingConfigError';
 

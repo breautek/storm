@@ -26,7 +26,7 @@ import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
 import {ICloudwatchConfig, IConfig} from './IConfig';
 import {Command} from 'commander';
-import * as Express from 'express';
+import Express = require('express');
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
 import * as Path from 'path';
@@ -139,6 +139,9 @@ export abstract class Application
 
     private async $load(): Promise<void> {
         this.$config = await this.$loadConfig();
+
+        // console.log('WTF', this.$config);
+
         this.$logger = await this._initLogger(this.$config);
 
         this.$getLogger().trace(TAG, 'Configuration loaded.');

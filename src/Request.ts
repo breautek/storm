@@ -21,7 +21,7 @@ import {
     Fields,
     Files
 } from 'formidable';
-import formidable = require('formidable');
+import formidable from 'formidable';
 import {IFormData} from './IFormData';
 import { IAuthTokenData } from './IAuthTokenData';
 import { getInstance } from './instance';
@@ -51,7 +51,7 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
         return new Promise<IFormData>((resolve, reject) => {
             let r: express.Request = this.getRequestSource();
             let form: IncomingForm = formidable({
-                hash: 'md5'
+                hashAlgorithm: 'md5'
             });
 
             form.parse(r, (error: any, fields: Fields, files: Files): any => {

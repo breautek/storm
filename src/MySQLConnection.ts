@@ -45,7 +45,9 @@ const SQL_FORMATTING_OPTIONS: SQLFormatter.FormatOptions = {
     linesBetweenQueries: 1,
     denseOperators: false,
     newlineBeforeSemicolon: false,
-    expressionWidth: 4
+    expressionWidth: 4,
+    dataTypeCase: 'upper',
+    functionCase: 'upper'
 };
 
 let startTransactionQuery: Query = new StartTransactionQuery();

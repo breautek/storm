@@ -10,6 +10,7 @@
         "noImplicitThis": true,
         "alwaysStrict": true,
         "noImplicitReturns": true,
+        "esModuleInterop": true,
         "moduleResolution": "node"
     },
     "exclude": [

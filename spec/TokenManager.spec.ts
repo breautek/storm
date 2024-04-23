@@ -45,7 +45,7 @@ describe('TokenManager', () => {
             should create 2 different signatures.
         */
         it('will have unique signatures', (done) => {
-            let promises: Array<Promise<Token>> = [ manager.sign({test: true}, '1y'), manager.sign({test: true}, '1y') ];
+            let promises: Promise<Token>[] = [ manager.sign({test: true}, '1y'), manager.sign({test: true}, '1y') ];
 
             Promise.all(promises).then((results: Token[]) => {
                 let a: Token = results[0];

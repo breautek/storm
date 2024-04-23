@@ -382,12 +382,12 @@ describe('MySQLConnection', () => {
     });
 
     describe('post processing', () => {
-        class QueryWithPostProcessing extends Query<void, Array<1>, number[]> {
+        class QueryWithPostProcessing extends Query<void, 1[], number[]> {
             protected _getQuery(): string {
                 return 'SELECT 1';
             }
 
-            public onPostProcess(conn: IDatabaseConnection, results: Array<1>): Promise<number[]> {
+            public onPostProcess(conn: IDatabaseConnection, results: 1[]): Promise<number[]> {
                 return Promise.resolve([
                     1,
                     2,

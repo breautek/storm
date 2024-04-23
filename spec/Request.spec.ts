@@ -78,7 +78,7 @@ describe('Request', () => {
     it('can make form data requests', (done) => {
         app.attachMockHandler('/form/', makeHandler(async (request: Request) => {
             request.getForm().then((formData: IFormData) => {
-                expect(formData.fields.key).toBe('value');
+                expect(formData.fields.key).toEqual([ 'value' ]);
                 expect(request.getHeader('Content-Type').indexOf('multipart/form-data')).toBeGreaterThan(-1);
                 done();
             });
