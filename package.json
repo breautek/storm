@@ -38,7 +38,7 @@
     "breautek"
   ],
   "engines": {
-    "node": ">= 14.0.0"
+    "node": ">= 20.0.0"
   },
   "author": "norman@normanbreau.com",
   "license": "Apache-2.0",
