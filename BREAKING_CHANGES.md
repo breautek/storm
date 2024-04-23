@@ -3,6 +3,18 @@
 
 This document describes high overview of breaking changes in between major versions. View the [CHANGELOG.md](./CHANGELOG.md) for more granular changes at the commit level.
 
+# 7.x -> 8.x
+
+## Formidable
+
+Formidable, the underlying library that Storm uses to handle form data, has a severe vulnerability allowing executing arbitrary code by crafting special filenames.
+
+Storm has updated this package to a version that solves this vulnerability, but we are also moving across breaking changes. These breaking changes are exposed through our breaking API since Storm users will receive Formidable's `IFormData` object.
+
+## NodeJS
+
+Minimum NodeJS was previously set to 14.x and now is set to 20, the current LTS at the time of release.
+
 # 5.x -> 6.x
 
 ## Application bootstrapping
