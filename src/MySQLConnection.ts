@@ -31,6 +31,10 @@ import { DeadLockError } from './DeadLockError';
 import { IsolationLevel } from './IsolationLevel';
 import {SetIsolationLevelQuery} from './private/SetIsolationLevelQuery';
 import { LockWaitTimeoutError } from './LockWaitTimeoutError';
+import { IDatabasePosition } from './IDatabasePosition';
+import { GetBinLogPositionQuery } from './private/GetBinLogPositionQuery';
+import { GetSlavePositionQuery } from './private/GetSlavePositionQuery';
+import { GetMasterPositionQuery } from './private/GetMasterPositionQuery';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -83,6 +87,11 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
     public isOpen(): boolean {
         return this.$opened;
+    }
+
+    public override async getCurrentDatabasePosition(): Promise<IDatabasePosition> {
+        let statusQuery: GetBinLogPositionQuery = this.isReadOnly() ? new GetSlavePositionQuery() : new GetMasterPositionQuery();
+        return await statusQuery.execute(this);
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

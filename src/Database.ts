@@ -17,6 +17,7 @@
 import * as UUID from 'uuid';
 import {DatabaseConnection} from './DatabaseConnection';
 import { getInstance } from './instance';
+import { IDatabasePosition } from './IDatabasePosition';
 
 const MASTER_NAME: string = 'MASTER';
 const TAG: string = 'Database';
@@ -61,7 +62,7 @@ export abstract class Database<TDatabaseConfig, TConnectionAPI> {
         this._removeNode(slaveID);
     }
 
-    public getConnection(requireWriteAccess: boolean = false, nodeID?: string): Promise<DatabaseConnection<TConnectionAPI>> {
+    public getConnection(requireWriteAccess: boolean = false, nodeID?: string, requiredPosition?: IDatabasePosition): Promise<DatabaseConnection<TConnectionAPI>> {
         let query: string = 'SLAVE*';
         
         if (nodeID) {
@@ -71,7 +72,7 @@ export abstract class Database<TDatabaseConfig, TConnectionAPI> {
             query = 'MASTER';
         }
 
-        return this._getConnection(query, requireWriteAccess);
+        return this._getConnection(query, requireWriteAccess, requiredPosition);
     }
 
     public destroy(): Promise<void> {
@@ -81,6 +82,6 @@ export abstract class Database<TDatabaseConfig, TConnectionAPI> {
     protected abstract _destroy(): Promise<void>;
     protected abstract _addNode(name: string, config: TDatabaseConfig): void;
     protected abstract _removeNode(name: string): void;
-    protected abstract _getConnection(query: string, requireWriteAccess: boolean): Promise<DatabaseConnection<TConnectionAPI>>;
+    protected abstract _getConnection(query: string, requireWriteAccess: boolean, requiredPosition?: IDatabasePosition): Promise<DatabaseConnection<TConnectionAPI>>;
     public abstract escape(query: string): string;
 }

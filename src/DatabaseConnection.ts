@@ -22,6 +22,7 @@ import {IDatabaseConnection} from './IDatabaseConnection';
 import {IQueryable} from './IQueryable';
 import { IConfig } from './IConfig';
 import { IsolationLevel } from './IsolationLevel';
+import { IDatabasePosition } from './IDatabasePosition';
 
 export const LINGER_WARNING: number = 10000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
@@ -260,4 +261,9 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      */
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected abstract _stream(query: string, params?: any, streamOptions?: any): Readable;
+
+    /**
+     * @since 8.1.0
+     */
+    public abstract getCurrentDatabasePosition(): Promise<IDatabasePosition>;
 }

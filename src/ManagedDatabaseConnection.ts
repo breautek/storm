@@ -19,6 +19,7 @@ import {getInstance} from './instance';
 import {Readable} from 'stream';
 import { Query } from './Query';
 import { IsolationLevel } from './IsolationLevel';
+import { IDatabasePosition } from './IDatabasePosition';
 
 const TAG: string = 'ManagedDatabaseConnection';
 
@@ -79,6 +80,11 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         else {
             return true;
         }
+    }
+
+    public async getCurrentDatabasePosition(): Promise<IDatabasePosition> {
+        let conn: IDatabaseConnection = await this.$getConnection();
+        return await conn.getCurrentDatabasePosition();
     }
 
     public isWriteRequired(): boolean {

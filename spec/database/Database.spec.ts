@@ -87,7 +87,7 @@ describe('Database', () => {
         let spy: jasmine.Spy = spyOn(<any>db, '_getConnection');
         db.getConnection();
         
-        expect(spy).toHaveBeenCalledWith('SLAVE*', false);
+        expect(spy).toHaveBeenCalledWith('SLAVE*', false, undefined);
     });
 
     it('Can get connection via custom query', () => {
@@ -96,7 +96,7 @@ describe('Database', () => {
         let spy: jasmine.Spy = spyOn(<any>db, '_getConnection');
         db.getConnection(false, 'test');
         
-        expect(spy).toHaveBeenCalledWith('test', false);
+        expect(spy).toHaveBeenCalledWith('test', false, undefined);
     });
 
     it('can get write connection', () => {
@@ -105,6 +105,6 @@ describe('Database', () => {
         let spy: jasmine.Spy = spyOn(<any>db, '_getConnection');
         db.getConnection(true);
         
-        expect(spy).toHaveBeenCalledWith(MASTER, true);
+        expect(spy).toHaveBeenCalledWith(MASTER, true, undefined);
     });
 });
