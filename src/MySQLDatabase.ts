@@ -71,20 +71,34 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         });
     }
 
-    protected override async _getConnection(query: string, requireWriteAccess: boolean, position?: IDatabasePosition): Promise<MySQLConnection> {
-        getInstance().getLogger().trace(TAG, `Querying connection pool for "${query}".`);
-        let instantationStack: string = new Error().stack;
-
-        let conn: MySQLConnection = await new Promise<MySQLConnection>((resolve, reject) => {
+    private $getConnectionFromPool(query: string, requireWriteAccess: boolean, instantationStack: string): Promise<MySQLConnection> {
+        return new Promise<MySQLConnection>((resolve, reject) => {
             this.$cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
                 if (error) {
                     reject(error);
                     return;
                 }
-
+    
                 resolve(new MySQLConnection(connection, instantationStack, !requireWriteAccess));
             });
         });
+    }
+
+    protected override async _getConnection(query: string, requireWriteAccess: boolean, position?: IDatabasePosition): Promise<MySQLConnection> {
+        getInstance().getLogger().trace(TAG, `Querying connection pool for "${query}".`);
+        let instantationStack: string = new Error().stack;
+
+        let conn: MySQLConnection = await this.$getConnectionFromPool(query, requireWriteAccess, instantationStack);
+        // let conn: MySQLConnection = await new Promise<MySQLConnection>((resolve, reject) => {
+        //     this.$cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
+        //         if (error) {
+        //             reject(error);
+        //             return;
+        //         }
+
+        //         resolve(new MySQLConnection(connection, instantationStack, !requireWriteAccess));
+        //     });
+        // });
 
         if (conn.isReadOnly()) {
             // master connections will not wait on database positions

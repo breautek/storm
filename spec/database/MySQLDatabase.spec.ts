@@ -8,6 +8,8 @@ import {EventEmitter} from 'events';
 import { getInstance } from '../../src/instance';
 import { IDatabaseConnection } from '../../src/IDatabaseConnection';
 import { DatabaseConnection } from '../../src/DatabaseConnection';
+import { ConnectionReplicationWaiter } from '../../src/private/ConnectionReplicationWaiter';
+import { MySQLConnection } from '../../src/MySQLConnection';
 
 describe('MySQLDatabase', () => {
     let app: MockApplication = null;
@@ -96,6 +98,26 @@ describe('MySQLDatabase', () => {
 
         (<EventEmitter>(<any>db).$cluster).emit('enqueue');
 
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('will wait for replication lag', async () => {
+        let spy = jest.spyOn(ConnectionReplicationWaiter.prototype, 'wait').mockImplementation(() => {
+            return Promise.resolve();
+        });
+
+        let db: MySQLDatabase = new MySQLDatabase();
+        jest.spyOn(<any>db, '$getConnectionFromPool').mockImplementation(() => {
+            return Promise.resolve(new MySQLConnection(<any>{
+                config: {}
+            }, '', true))
+        });
+
+        await db.getConnection(false, null, {
+            page: 2,
+            position: 2
+        });
+        
         expect(spy).toHaveBeenCalled();
     });
 });
