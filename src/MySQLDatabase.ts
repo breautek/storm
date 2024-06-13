@@ -18,6 +18,8 @@ import {Database} from './Database';
 import {MySQLConnection} from './MySQLConnection';
 import * as MySQL from 'mysql';
 import {getInstance} from './instance';
+import { IDatabasePosition } from './IDatabasePosition';
+import { ConnectionReplicationWaiter } from './private/ConnectionReplicationWaiter';
 
 const TAG: string = 'MySQLDatabase';
 
@@ -69,18 +71,44 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         });
     }
 
-    protected _getConnection(query: string, requireWriteAccess: boolean): Promise<MySQLConnection> {
-        getInstance().getLogger().trace(TAG, `Querying connection pool for "${query}".`);
+    private $getConnectionFromPool(query: string, requireWriteAccess: boolean, instantationStack: string): Promise<MySQLConnection> {
         return new Promise<MySQLConnection>((resolve, reject) => {
-            let instantationStack: string = new Error().stack;
             this.$cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
                 if (error) {
                     reject(error);
                     return;
                 }
-
+    
                 resolve(new MySQLConnection(connection, instantationStack, !requireWriteAccess));
             });
         });
+    }
+
+    protected override async _getConnection(query: string, requireWriteAccess: boolean, position?: IDatabasePosition): Promise<MySQLConnection> {
+        getInstance().getLogger().trace(TAG, `Querying connection pool for "${query}".`);
+        let instantationStack: string = new Error().stack;
+
+        let conn: MySQLConnection = await this.$getConnectionFromPool(query, requireWriteAccess, instantationStack);
+        await conn.__internal_init();
+
+        if (conn.isReplication()) {
+            // master connections will not wait on database positions
+            // they are guarenteed to be at the tip.
+            // readonly, or otherwise known as replication connections
+            // may have replication lag. If we have a desired position target,
+            // then await for the connection to catch up to that target.
+            if (position && position.page && position.position) {
+                let waiter: ConnectionReplicationWaiter = new ConnectionReplicationWaiter(conn);
+                try {
+                    await waiter.wait(position);
+                }
+                catch (ex) {
+                    conn.close(true);
+                    throw ex;
+                }
+            }
+        }
+
+        return conn;
     }
 }

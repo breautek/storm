@@ -5,10 +5,15 @@ import { RollbackQuery } from '../../src/private/RollbackQuery';
 import { StartTransactionQuery } from '../../src/private/StartTransactionQuery';
 import { IsolationLevel } from '../../src/IsolationLevel';
 import { SetIsolationLevelQuery } from '../../src/private/SetIsolationLevelQuery';
+import { IDatabasePosition } from '../../src/IDatabasePosition';
 
 export class MockConnection extends DatabaseConnection<any> {
     public transaction: boolean;
     public closed: boolean;
+    public pos: IDatabasePosition = {
+        page: 1,
+        position: 1
+    };
 
     public constructor(readonly: boolean, instantiationStack: string) {
         super(null, readonly, instantiationStack);
@@ -46,6 +51,10 @@ export class MockConnection extends DatabaseConnection<any> {
             await this.rollback();
         }
         await this.commit();
+    }
+
+    public async getCurrentDatabasePosition(): Promise<IDatabasePosition> {
+        return this.pos;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

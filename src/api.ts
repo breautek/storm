@@ -51,6 +51,7 @@ export {
     IErrorResponse,
     IAdditionalErrorDetails
 } from './StormError';
+export {TimeoutError} from './TimeoutError';
 export {JWTError} from './JWTError';
 export {MissingParameterError} from './MissingParameterError';
 export {InvalidCredentialsError} from './InvalidCredentialsError';
@@ -96,6 +97,7 @@ export {IDatabaseConnection} from './IDatabaseConnection';
 export {IServiceHeaders} from './IServiceHeaders';
 export {IAuthTokenData} from './IAuthTokenData';
 export {IQueryable} from './IQueryable';
+export {IDatabasePosition} from './IDatabasePosition';
 
 // Token
 export {Token} from './Token';

@@ -17,6 +17,7 @@
 import { Readable } from 'stream';
 import { IQueryable } from './IQueryable';
 import { IsolationLevel } from './IsolationLevel';
+import { IDatabasePosition } from './IDatabasePosition';
 
 export interface IDatabaseConnection {
     setInstantiationStack(stack: string): void;
@@ -33,4 +34,9 @@ export interface IDatabaseConnection {
     isTransaction(): boolean;
     commit(): Promise<void>;
     rollback(): Promise<void>;
+
+    /**
+     * @since 8.1.0
+     */
+    getCurrentDatabasePosition(): Promise<IDatabasePosition>;
 }

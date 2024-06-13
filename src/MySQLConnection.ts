@@ -31,6 +31,10 @@ import { DeadLockError } from './DeadLockError';
 import { IsolationLevel } from './IsolationLevel';
 import {SetIsolationLevelQuery} from './private/SetIsolationLevelQuery';
 import { LockWaitTimeoutError } from './LockWaitTimeoutError';
+import { IDatabasePosition } from './IDatabasePosition';
+import { GetBinLogPositionQuery } from './private/GetBinLogPositionQuery';
+import { GetSlavePositionQuery } from './private/GetSlavePositionQuery';
+import { GetMasterPositionQuery } from './private/GetMasterPositionQuery';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -57,12 +61,14 @@ let rollbackQuery: Query = new RollbackQuery();
 export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     private $transaction: boolean;
     private $opened: boolean;
+    private $isMasterConnection: boolean;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         super(connection, isReadOnly, instantiationStack);
 
         this.$opened = true;
         this.$transaction = false;
+        this.$isMasterConnection = null;
 
         connection.config.queryFormat = function(query: string, values: any) {
             if (!values) return query;
@@ -77,12 +83,33 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         };
     }
 
+    /**
+     * @internal - Do not use in application code
+     */
+    public async __internal_init(): Promise<void> {
+        let result = await new GetSlavePositionQuery().execute(this);
+        this.$isMasterConnection = result === null;
+    }
+
+    public isMaster(): boolean {
+        return this.$isMasterConnection;
+    }
+
+    public isReplication(): boolean {
+        return !this.isMaster();
+    }
+
     public isTransaction(): boolean {
         return this.$transaction;
     }
 
     public isOpen(): boolean {
         return this.$opened;
+    }
+
+    public override async getCurrentDatabasePosition(): Promise<IDatabasePosition> {
+        let statusQuery: GetBinLogPositionQuery = this.isReplication() ? new GetSlavePositionQuery() : new GetMasterPositionQuery();
+        return await statusQuery.execute(this);
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
