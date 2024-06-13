@@ -89,6 +89,8 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         let instantationStack: string = new Error().stack;
 
         let conn: MySQLConnection = await this.$getConnectionFromPool(query, requireWriteAccess, instantationStack);
+        await conn.__internal_init();
+
         // let conn: MySQLConnection = await new Promise<MySQLConnection>((resolve, reject) => {
         //     this.$cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
         //         if (error) {
@@ -100,7 +102,7 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         //     });
         // });
 
-        if (conn.isReadOnly()) {
+        if (conn.isReplication()) {
             // master connections will not wait on database positions
             // they are guarenteed to be at the tip.
             // readonly, or otherwise known as replication connections

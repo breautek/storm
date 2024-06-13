@@ -108,9 +108,19 @@ describe('MySQLDatabase', () => {
 
         let db: MySQLDatabase = new MySQLDatabase();
         jest.spyOn(<any>db, '$getConnectionFromPool').mockImplementation(() => {
-            return Promise.resolve(new MySQLConnection(<any>{
+            let c: MySQLConnection = new MySQLConnection(<any>{
                 config: {}
-            }, '', true))
+            }, '', true);
+
+            jest.spyOn(c, '__internal_init').mockImplementation(() => {
+                return Promise.resolve();
+            });
+
+            jest.spyOn(c, 'isMaster').mockImplementation(() => {
+                return false;
+            });
+
+            return Promise.resolve(c);
         });
 
         await db.getConnection(false, null, {

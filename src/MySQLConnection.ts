@@ -61,12 +61,14 @@ let rollbackQuery: Query = new RollbackQuery();
 export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     private $transaction: boolean;
     private $opened: boolean;
+    private $isMasterConnection: boolean;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         super(connection, isReadOnly, instantiationStack);
 
         this.$opened = true;
         this.$transaction = false;
+        this.$isMasterConnection = null;
 
         connection.config.queryFormat = function(query: string, values: any) {
             if (!values) return query;
@@ -81,6 +83,22 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         };
     }
 
+    /**
+     * @internal - Do not use in application code
+     */
+    public async __internal_init(): Promise<void> {
+        let result = await new GetSlavePositionQuery().execute(this);
+        this.$isMasterConnection = result === null;
+    }
+
+    public isMaster(): boolean {
+        return this.$isMasterConnection;
+    }
+
+    public isReplication(): boolean {
+        return !this.isMaster();
+    }
+
     public isTransaction(): boolean {
         return this.$transaction;
     }
@@ -90,7 +108,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     }
 
     public override async getCurrentDatabasePosition(): Promise<IDatabasePosition> {
-        let statusQuery: GetBinLogPositionQuery = this.isReadOnly() ? new GetSlavePositionQuery() : new GetMasterPositionQuery();
+        let statusQuery: GetBinLogPositionQuery = this.isReplication() ? new GetSlavePositionQuery() : new GetMasterPositionQuery();
         return await statusQuery.execute(this);
     }
 
