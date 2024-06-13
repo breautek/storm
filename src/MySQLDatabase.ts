@@ -91,17 +91,6 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         let conn: MySQLConnection = await this.$getConnectionFromPool(query, requireWriteAccess, instantationStack);
         await conn.__internal_init();
 
-        // let conn: MySQLConnection = await new Promise<MySQLConnection>((resolve, reject) => {
-        //     this.$cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
-        //         if (error) {
-        //             reject(error);
-        //             return;
-        //         }
-
-        //         resolve(new MySQLConnection(connection, instantationStack, !requireWriteAccess));
-        //     });
-        // });
-
         if (conn.isReplication()) {
             // master connections will not wait on database positions
             // they are guarenteed to be at the tip.
@@ -121,9 +110,5 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         }
 
         return conn;
-    }
-
-    private async $assertPosition(conn: MySQLConnection): Promise<void> {
-
     }
 }
