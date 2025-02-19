@@ -290,6 +290,10 @@ export abstract class Application
         return port;
     }
 
+    public getVersion(): string {
+        return this._getVersion();
+    }
+
     protected _getVersion(): string {
         console.warn(TAG, `_getVersion will be an abstract method in the next major release. Override this method and pass a version string.`);
         return '0.0.0';
