@@ -18,6 +18,7 @@ import { IDatabaseConnection } from './IDatabaseConnection';
 
 export interface IQueryable<T> {
     onPreQuery(connection: IDatabaseConnection): Promise<void>;
+    onPostQuery(connection: IDatabaseConnection): Promise<void>;
     getQuery(connection: IDatabaseConnection): string;
     execute(connection: IDatabaseConnection): Promise<T>;
     getParametersForQuery(): Record<string, any>;

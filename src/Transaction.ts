@@ -60,6 +60,7 @@ export class Transaction implements IQueryable<void> {
     }
     
     public async onPreQuery(connection: IDatabaseConnection): Promise<void> {}
+    public async onPostQuery(connection: IDatabaseConnection): Promise<void> {}
 
     public getQuery(connection: IDatabaseConnection): string {
         return null;

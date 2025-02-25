@@ -58,6 +58,22 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
     }
 
     /**
+     * Overridable to execute statements after the main query.
+     * Can be used to clean up session variables or temporary tables, etc
+     * 
+     * Unlike {@link onPostProcess}, this hook does not provide the result set,
+     * and will be invoked even if the main query produces an error.
+     * 
+     * @since 8.3.0
+     * 
+     * @param connection 
+     * @returns {void}
+     */
+    public onPostQuery(connection: IDatabaseConnection): Promise<void> {
+        return Promise.resolve();
+    }
+
+    /**
      * Override to augment/manipulate the returned result set.
      * 
      * @param connection The connection object used for this query execution. Useful if further queries are required.

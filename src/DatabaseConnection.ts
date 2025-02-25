@@ -138,8 +138,24 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         let params: Record<string, any> = query.getParametersForQuery();
 
         await query.onPreQuery(this);
-        let results: TQueryResult = await this._query<TQueryResult>(queryStr, params);
-        return await (<any>query.onPostProcess(this, <any>results));
+        
+        let out: TQueryResult = null;
+        let e: unknown = null;
+        try {
+            let results: TQueryResult = await this._query<TQueryResult>(queryStr, params);
+            out = await (<any>query.onPostProcess(this, <any>results));
+        }
+        catch (ex) {
+            e = ex;
+        }
+        
+        await query.onPostQuery(this);
+
+        if (e !== null) {
+            throw e;
+        }
+
+        return out;
     }
 
     /**
