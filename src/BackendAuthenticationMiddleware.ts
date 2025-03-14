@@ -42,7 +42,6 @@ export class BackendAuthenticationMiddleware {
      * @param response 
      * @param options Arbituary object containing any relevant information used for authentication.
      */
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public execute(request: Request, options?: any): Promise<any> {
         let config: IConfig = getInstance().getConfig();
 

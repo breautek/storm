@@ -66,7 +66,6 @@ export class ConnectionReplicationWaiter {
             shouldTimeout = true;
         }, timeout);
 
-        // eslint-disable-next-line no-constant-condition
         while (true) {
             if (shouldTimeout) {
                 didTimeout = true;

@@ -38,12 +38,10 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public escape(value: any): string {
         return MySQLDatabase.escape(value);
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public static escape(value: any): string {
         return MySQL.escape(value);
     }

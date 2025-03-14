@@ -120,7 +120,6 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         return await statusQuery.execute(this);
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _query(query: string, params?: any): Promise<any> {
         let logger: BaseLogger = getInstance().getLogger();
         return new Promise((resolve, reject) => {
@@ -178,7 +177,6 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _stream(query: string, params?: any, streamOptions?: any): Readable {
         if (!streamOptions) {
             streamOptions = {};

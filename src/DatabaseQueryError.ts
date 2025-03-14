@@ -21,7 +21,6 @@ export class DatabaseQueryError extends StormError<{
     query: string;
     error: any;
 }> {
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public constructor(query: string, error: any) {
         super({
             query: query,

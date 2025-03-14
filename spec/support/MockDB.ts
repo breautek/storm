@@ -9,7 +9,6 @@ export class MockDB extends Database<any, any> {
         this.nodes = {};
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _addNode(name: string, config: any): void {
         this.nodes[name] = config;
     }

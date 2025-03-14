@@ -133,22 +133,18 @@ export class MockApplication extends Application {
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockGet(url: string, headers?: any): Promise<IMockResponse> {
         return this.$doMock(HTTPMethod.GET, url, null, headers);
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockPost(url: string, data?: any): Promise<IMockResponse> {
         return this.$doMock(HTTPMethod.POST, url, data);
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockPut(url: string, data?: any): Promise<IMockResponse> {
         return this.$doMock(HTTPMethod.PUT, url, data);
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public doMockDelete(url: string, data?: any): Promise<IMockResponse> {
         return this.$doMock(HTTPMethod.DELETE, url, data);
     }

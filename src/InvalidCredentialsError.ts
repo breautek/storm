@@ -19,7 +19,6 @@ import {ErrorCode} from './ErrorCode';
 import {StatusCode} from './StatusCode';
 
 export class InvalidCredentialsError extends StormError<any> {
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public constructor(details?: any) {
         super(details);
     }

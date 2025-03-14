@@ -78,7 +78,6 @@ export abstract class ServiceProvider {
         return `/api/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return new Promise<ServiceResponse>((resolve, reject) => {
             let httpOpts: http.RequestOptions = {
@@ -138,22 +137,18 @@ export abstract class ServiceProvider {
         request.end();
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public get(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.GET, this._createURL(url, data), accessToken, NO_DATA, headers, additionalOptions);
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public post(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.POST, this._createURL(url), accessToken, data, headers, additionalOptions);
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public put(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.PUT, this._createURL(url), accessToken, data, headers, additionalOptions);
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public delete(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.DELETE, this._createURL(url), accessToken, data, headers, additionalOptions);
     }

@@ -167,7 +167,6 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @param streamOptions Stream options
      * @returns Readable
      */
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public stream(query: IQueryable<any>, streamOptions?: any): Readable {
         this.$armLingerWarning();
         let queryStr: string = null;
@@ -265,7 +264,6 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @async
      * @returns Promise
      */
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected abstract _query<TQueryResult>(query: string, params?: any): Promise<TQueryResult>;
 
     /**
@@ -277,7 +275,6 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @param streamOptions `Readable` stream options
      * @returns `Readable`
      */
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected abstract _stream(query: string, params?: any, streamOptions?: any): Readable;
 
     /**

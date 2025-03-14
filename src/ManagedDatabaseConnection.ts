@@ -149,7 +149,6 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public query(query: Query, params?: any): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             this.$getConnection().then((connection: IDatabaseConnection) => {
@@ -158,7 +157,6 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         })
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public stream(query: Query, params?: any, streamOptions?: any): Readable {
         throw new Error('stream is not supported on Managed Connections');
     }

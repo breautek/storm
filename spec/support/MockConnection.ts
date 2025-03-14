@@ -64,7 +64,6 @@ export class MockConnection extends DatabaseConnection<any> {
         return this.pos;
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _query(query: string, params?: any): Promise<any> {
         return Promise.resolve({
             query: query,
@@ -72,7 +71,6 @@ export class MockConnection extends DatabaseConnection<any> {
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     protected _stream(query: string, params?: any, streamOptions?: any): Readable {
         return null;
     }

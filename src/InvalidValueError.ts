@@ -23,7 +23,6 @@ export class InvalidValueError extends StormError<{
     expected: any;
     got: any;
 }> {
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public constructor(variable: string, expected: any, got: any) {
         super({
             variable: variable,

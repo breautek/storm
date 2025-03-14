@@ -19,7 +19,6 @@ import {Response} from './Response';
 import {IRequestResponse} from './IRequestResponse';
 
 export abstract class Middleware {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     public constructor() {}
 
     protected abstract _execute(request: Request, response: Response): Promise<IRequestResponse>;
