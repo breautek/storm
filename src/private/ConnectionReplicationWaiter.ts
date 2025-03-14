@@ -75,6 +75,8 @@ export class ConnectionReplicationWaiter {
 
             let currentPos: IDatabasePosition = await this.$conn.getCurrentDatabasePosition();
 
+            // TODO: I have no idea what my intent is here, but it's obviously wrong
+            // eslint-disable-next-line no-constant-binary-expression
             if (currentPos === null || (currentPos && !currentPos.page === null) || (currentPos && !currentPos.position === null)) {
                 throw new InternalError('Database Position not supported');
             }

@@ -140,7 +140,7 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
                 }
                 // If it was not ResponseData<TResponse> then
                 // the method signature should have caught it
-                this.send((<TErrorResponse><unknown>error));
+                this.send((error as unknown as TErrorResponse));
             }
             else {
                 this.send(new InternalError(error));

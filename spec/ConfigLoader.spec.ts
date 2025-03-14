@@ -40,7 +40,7 @@ describe('ConfigLoader', () => {
             expect(config.customConfig.meta.contributors[0]).toBe('norman');
 
             done();
-        });
+        }).catch(fail);
     });
 
     it('missing local config', (done) => {
@@ -49,7 +49,7 @@ describe('ConfigLoader', () => {
             expect(config.customConfig.meta.name).toBe('test');
             expect(config.customConfig.meta.debug).toBe(false);
             done();
-        });
+        }).catch(fail);
     });
 
     it('Missing both configs', async () => {
@@ -77,7 +77,7 @@ describe('ConfigLoader', () => {
             expect(config.customConfig.meta.contributors[0]).toBe('norman');
 
             done();
-        });
+        }).catch(fail);
     });
 
     describe('log settings', () => {

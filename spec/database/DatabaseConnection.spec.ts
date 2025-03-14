@@ -26,7 +26,7 @@ describe('DatabaseConnection', () => {
 
     beforeEach(() => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
-        triggerSpy = jest.spyOn(<any>DatabaseConnection.prototype, '$armLingerWarning').mockImplementation(() => {});
+        triggerSpy = jest.spyOn((DatabaseConnection.prototype as any), '$armLingerWarning').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -66,7 +66,7 @@ describe('DatabaseConnection', () => {
 
     it('defaults to default timeout on invalid timeout setting', () => {
         let app: Application = getInstance();
-        spyOn(app, 'getConfig').and.returnValue(<IConfig>({database: {query_timeout: NaN}}));
+        spyOn(app, 'getConfig').and.returnValue(({database: {query_timeout: NaN}} as IConfig));
         let connection: MockConnection = new MockConnection(true, 'test stack');
         expect(connection.getTimeout()).toBe(DEFAULT_QUERY_TIMEOUT);
         connection.close();
@@ -113,14 +113,14 @@ describe('DatabaseConnection', () => {
 
     it('can force close', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(<any>connection, '_close');
+        let spy: jasmine.Spy = spyOn((connection as any), '_close');
         connection.close(true);
         expect(spy).toHaveBeenCalledWith(true);
     });
 
     it('query arms linger warning', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(<any>connection, '$armLingerWarning');
+        let spy: jasmine.Spy = spyOn((connection as any), '$armLingerWarning');
         connection.query(new DummyQuery());
         expect(spy).toHaveBeenCalled();
         connection.close();
@@ -128,7 +128,7 @@ describe('DatabaseConnection', () => {
 
     it('stream arms linger warming', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(<any>connection, '$armLingerWarning');
+        let spy: jasmine.Spy = spyOn((connection as any), '$armLingerWarning');
         connection.query(new DummyQuery());
         expect(spy).toHaveBeenCalled();
         connection.close();

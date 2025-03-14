@@ -62,12 +62,12 @@ describe('Transaction', () => {
     describe('retryLimit should default to Infinity if null/undefined', () => {
         it('null', () => {
             let t: Transaction = new Transaction(app, async () => {}, null);
-            expect((<any>t).$retryLimit).toBe(Infinity);
+            expect((t as any).$retryLimit).toBe(Infinity);
         });
 
         it('undefined', () => {
             let t: Transaction = new Transaction(app, async () => undefined);
-            expect((<any>t).$retryLimit).toBe(Infinity);
+            expect((t as any).$retryLimit).toBe(Infinity);
         });
     });
 

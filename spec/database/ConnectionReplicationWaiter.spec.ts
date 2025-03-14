@@ -42,7 +42,7 @@ describe('ConnectionReplicationWaiter', () => {
         let conn: MockConnection = new MockConnection(true, new Error().stack);
         let waiter: ConnectionReplicationWaiter = new ConnectionReplicationWaiter(conn, 1000);
 
-        let spy = jest.spyOn(<any>waiter, '$sleep');
+        let spy = jest.spyOn((waiter as any), '$sleep');
 
         let p: Promise<void> = waiter.wait({
             page: 2,

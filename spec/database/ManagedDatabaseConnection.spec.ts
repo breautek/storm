@@ -29,7 +29,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(connection.isWriteRequired()).toBe(false);
         connection.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('constructs read / write required', (done) => {
@@ -38,7 +38,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(connection.isWriteRequired()).toBe(true);
         connection.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('originally not managed', (done) => {
@@ -46,7 +46,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(connection.isManaged()).toBe(false);
         connection.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('can set connection', (done) => {
@@ -56,7 +56,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.isManaged()).toBe(true);
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('is write enabled if connection has write', (done) => {
@@ -66,7 +66,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.isReadOnly()).toBe(false);
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('get instantation stack (no connection)', (done) => {
@@ -74,7 +74,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.getInstantiationStack()).toContain('at new ManagedDatabaseConnection');
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('get instantation stack (connection)', (done) => {
@@ -84,7 +84,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.getInstantiationStack()).toBe('test stack');
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('get timeout (no connection)', (done) => {
@@ -92,7 +92,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.getTimeout()).toBe(null);
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('get timeout (connection)', (done) => {
@@ -102,7 +102,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.getTimeout()).toBe(DEFAULT_QUERY_TIMEOUT);
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('is transaction (no connection)', (done) => {
@@ -110,7 +110,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.isTransaction()).toBe(false);
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('is transaction (with connection/no transaction)', (done) => {
@@ -120,7 +120,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.isTransaction()).toBe(false);
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('is transaction (with connection/transaction)', async (done) => {
@@ -131,7 +131,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.isTransaction()).toBe(true);
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('get api (no connection)', (done) => {
@@ -139,7 +139,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.getAPI()).toBe(null);
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('get api (connection)', (done) => {
@@ -150,7 +150,7 @@ describe('ManagedDatabaseConnection', () => {
         expect(mdc.getAPI()).toEqual({});
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('can set connection over connection (no transaction)', (done) => {
@@ -164,11 +164,11 @@ describe('ManagedDatabaseConnection', () => {
 
         mdc.setConnection(conn2);
 
-        expect((<any>mdc).$connection).toBe(conn2);
+        expect((mdc as any).$connection).toBe(conn2);
         expect(spy).toHaveBeenCalled();
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('can set connection over connection (transaction rollback successfully)', (done) => {
@@ -190,11 +190,11 @@ describe('ManagedDatabaseConnection', () => {
         setTimeout(() => {
             expect(warnSpy).toHaveBeenCalledWith('ManagedDatabaseConnection', ROLLBACK_WARN_EXPECTATION);
             expect(rollbackSpy).toHaveBeenCalled();
-            expect((<any>mdc).$connection).toBe(conn2);
+            expect((mdc as any).$connection).toBe(conn2);
             expect(spy).toHaveBeenCalled();
             mdc.close().then(() => {
                 done();
-            });
+            }).catch(fail);
         }, 100);
     });
 
@@ -210,11 +210,11 @@ describe('ManagedDatabaseConnection', () => {
 
         mdc.setConnection(conn2);
 
-        expect((<any>mdc).$connection).toBe(conn2);
+        expect((mdc as any).$connection).toBe(conn2);
         expect(spy).toHaveBeenCalled();
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('can set connection over connection (transaction rollback failure)', (done) => {
@@ -238,11 +238,11 @@ describe('ManagedDatabaseConnection', () => {
             expect(rollbackSpy).toHaveBeenCalled();
             expect(warnSpy).toHaveBeenCalledWith('ManagedDatabaseConnection', ROLLBACK_WARN_EXPECTATION);
             expect(logSpy).toHaveBeenCalledWith('ManagedDatabaseConnection', testError);
-            expect((<any>mdc).$connection).toBe(conn2);
+            expect((mdc as any).$connection).toBe(conn2);
             expect(spy).toHaveBeenCalledWith(true);
             mdc.close().then(() => {
                 done();
-            });
+            }).catch(fail);
         }, 100);
     });
 
@@ -250,10 +250,10 @@ describe('ManagedDatabaseConnection', () => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         mdc.setTimeout(1000);
         setTimeout(() => {
-            expect((<any>mdc).$connection instanceof DatabaseConnection).toBe(true);
+            expect((mdc as any).$connection instanceof DatabaseConnection).toBe(true);
             mdc.close().then(() => {
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -261,11 +261,11 @@ describe('ManagedDatabaseConnection', () => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection(true);
         mdc.setTimeout(1000);
         setTimeout(() => {
-            expect((<any>mdc).$connection instanceof DatabaseConnection).toBe(true);
-            expect((<any>mdc).$connection.isReadOnly()).toBe(false);
+            expect((mdc as any).$connection instanceof DatabaseConnection).toBe(true);
+            expect((mdc as any).$connection.isReadOnly()).toBe(false);
             mdc.close().then(() => {
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -275,10 +275,10 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setConnection(conn1);
         mdc.setTimeout(1000);
         setTimeout(() => {
-            expect((<any>mdc).$connection).toBe(conn1);
+            expect((mdc as any).$connection).toBe(conn1);
             mdc.close().then(() => {
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -292,8 +292,8 @@ describe('ManagedDatabaseConnection', () => {
             expect(spy).toHaveBeenCalledWith(query, undefined);
             mdc.close().then(() => {
                 done();
-            });
-        });
+            }).catch(fail);
+        }).catch(fail);
     });
 
     it('stream should throw (not supported/implemented)', (done) => {
@@ -302,10 +302,10 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setConnection(conn1);
         expect(() => {
             mdc.stream(new RawQuery('SELECT 1'));
-        }).toThrowError('stream is not supported on Managed Connections');
+        }).toThrow('stream is not supported on Managed Connections');
         mdc.close().then(() => {
             done();
-        });
+        }).catch(fail);
     });
 
     it('can close managed', (done) => {
@@ -317,7 +317,7 @@ describe('ManagedDatabaseConnection', () => {
             mdc.close().then(() => {
                 expect(spy).not.toHaveBeenCalled();
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -330,7 +330,7 @@ describe('ManagedDatabaseConnection', () => {
             mdc.close(true).then(() => {
                 expect(spy).not.toHaveBeenCalled();
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -338,12 +338,12 @@ describe('ManagedDatabaseConnection', () => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         mdc.setTimeout(1000);
         setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let conn: DatabaseConnection<any> = (mdc as any).$connection;
             let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
             mdc.close().then(() => {
                 expect(spy).toHaveBeenCalled();
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -351,12 +351,12 @@ describe('ManagedDatabaseConnection', () => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         mdc.setTimeout(1000);
         setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let conn: DatabaseConnection<any> = (mdc as any).$connection;
             let spy: jasmine.Spy = spyOn(conn, 'close').and.callThrough();
             mdc.close(true).then(() => {
                 expect(spy).toHaveBeenCalledWith(true);
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -370,8 +370,8 @@ describe('ManagedDatabaseConnection', () => {
             mdc.close().then(() => {
                 expect(spy).not.toHaveBeenCalled();
                 done();
-            });
-        });
+            }).catch(fail);
+        }).catch(fail);
     });
 
     it('can start transaction unmanaged', async (done) => {
@@ -379,13 +379,13 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setTimeout(1000);
 
         setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let conn: DatabaseConnection<any> = (mdc as any).$connection;
             let spy: jasmine.Spy = spyOn(conn, 'startTransaction').and.returnValue(Promise.resolve());
             mdc.startTransaction().then(() => {
                 expect(spy).toHaveBeenCalled();
                 mdc.close(true);
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -399,20 +399,20 @@ describe('ManagedDatabaseConnection', () => {
             expect(spy).not.toHaveBeenCalled();
             mdc.close();
             done();
-        });
+        }).catch(fail);
     });
 
     it('can commit unmanaged', async (done) => {
         let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
         mdc.setTimeout(1000);
         setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let conn: DatabaseConnection<any> = (mdc as any).$connection;
             let spy: jasmine.Spy = spyOn(conn, 'commit').and.returnValue(Promise.resolve());
             mdc.commit().then(() => {
                 expect(spy).toHaveBeenCalled();
                 mdc.close();
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 
@@ -426,7 +426,7 @@ describe('ManagedDatabaseConnection', () => {
             expect(spy).not.toHaveBeenCalled();
             mdc.close();
             done();
-        });
+        }).catch(fail);
     });
 
     it('can rollback unmanaged', async (done) => {
@@ -434,13 +434,13 @@ describe('ManagedDatabaseConnection', () => {
         mdc.setTimeout(1000);
 
         setTimeout(() => {
-            let conn: DatabaseConnection<any> = (<any>mdc).$connection;
+            let conn: DatabaseConnection<any> = (mdc as any).$connection;
             let spy: jasmine.Spy = spyOn(conn, 'rollback').and.returnValue(Promise.resolve());
             mdc.rollback().then(() => {
                 expect(spy).toHaveBeenCalled();
                 mdc.close();
                 done();
-            });
+            }).catch(fail);
         }, 0);
     });
 });

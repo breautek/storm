@@ -22,11 +22,11 @@ export interface IDropTemporaryTableQueryInput {
 
 export class DropTemporaryTableQuery extends Query<IDropTemporaryTableQueryInput> {
 
-    public getParameters(): IDropTemporaryTableQueryInput {
-        return <IDropTemporaryTableQueryInput>super.getParameters();
+    public override getParameters(): IDropTemporaryTableQueryInput {
+        return super.getParameters();
     }
 
-    protected _getQuery(): string {
+    protected override _getQuery(): string {
         return `
             DROP TEMPORARY TABLE \`${this.getParameters().tableName}\`
         `;

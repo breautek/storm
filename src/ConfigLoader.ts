@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 /// <reference path="./defs/merge-change.d.ts" />
 
 /*
@@ -85,7 +86,7 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
 
         await this.$validateSchema(config);
 
-        return <TConfig>config;
+        return config as TConfig;
     }
 
     /**

@@ -37,7 +37,7 @@ describe('TokenManager', () => {
                 expect(parts.payload.test).toBe(true);
                 expect(new Date(parts.payload.exp * 1000).getFullYear()).toBe(new Date().getFullYear() + 1);
                 done();
-            });
+            }).catch(fail);
         });
 
         /*
@@ -53,7 +53,7 @@ describe('TokenManager', () => {
 
                 expect(a.getSignature()).not.toBe(b.getSignature());
                 done();
-            });
+            }).catch(fail);
         });
     });
 
@@ -64,7 +64,7 @@ describe('TokenManager', () => {
             }).then((data: any) => {
                 expect(data.test).toBe(true);
                 done();
-            });
+            }).catch(fail);
         });
     
         it('explicit enableExpiration=true', (done) => {
@@ -73,7 +73,7 @@ describe('TokenManager', () => {
             }).then((data: any) => {
                 expect(data.test).toBe(true);
                 done();
-            });
+            }).catch(fail);
         });
     
         it('explicit enableExpiration=false', (done) => {
@@ -90,7 +90,7 @@ describe('TokenManager', () => {
                 // The lifespan is 1ms and we added a 100ms delay. token should be expired by now.
                 expect(data.test).toBe(true);
                 done();
-            });
+            }).catch(fail);
         });
     
         it('failure, expired token (no opts)', (done) => {
@@ -121,6 +121,6 @@ describe('TokenManager', () => {
         manager.decode(INVALID_TOKEN).then((data: any) => {
             expect(data.test).toBe(true);
             done();
-        });
+        }).catch(fail);
     });
 });

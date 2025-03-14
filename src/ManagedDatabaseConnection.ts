@@ -135,6 +135,8 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     public setTimeout(timeout: number): void {
         this.$getConnection().then((connection: IDatabaseConnection) => {
             connection.setTimeout(timeout);
+        }).catch((error: unknown) => {
+            console.error(error);
         });
     }
 

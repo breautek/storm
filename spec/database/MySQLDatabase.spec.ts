@@ -24,7 +24,7 @@ describe('MySQLDatabase', () => {
     });
 
     beforeEach(() => {
-        jest.spyOn(<any>DatabaseConnection.prototype, '$armLingerWarning').mockImplementation(() => {});
+        jest.spyOn((DatabaseConnection.prototype as any), '$armLingerWarning').mockImplementation(() => {});
     });
 
     it('can construct', () => {
@@ -38,7 +38,7 @@ describe('MySQLDatabase', () => {
 
     it('add master', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'add');
+        let spy: jasmine.Spy = spyOn((db as any).$cluster, 'add');
 
         let config: MySQL.PoolConfig = {
             acquireTimeout: 3000
@@ -51,7 +51,7 @@ describe('MySQLDatabase', () => {
 
     it('add slave', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'add');
+        let spy: jasmine.Spy = spyOn((db as any).$cluster, 'add');
 
         let nodeID: string = 'test';
         let config: MySQL.PoolConfig = {
@@ -65,7 +65,7 @@ describe('MySQLDatabase', () => {
 
     it('remove node', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'remove');
+        let spy: jasmine.Spy = spyOn((db as any).$cluster, 'remove');
 
         db.removeMaster();
 
@@ -74,7 +74,7 @@ describe('MySQLDatabase', () => {
 
     it('get read only connection', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'getConnection');
+        let spy: jasmine.Spy = spyOn((db as any).$cluster, 'getConnection');
 
         db.getConnection();
 
@@ -83,11 +83,11 @@ describe('MySQLDatabase', () => {
 
     it('get write accessible connection', () => {
         let db: MySQLDatabase = new MySQLDatabase();
-        let spy: jasmine.Spy = spyOn((<any>db).$cluster, 'getConnection');
+        let spy: jasmine.Spy = spyOn((db as any).$cluster, 'getConnection');
 
         db.getConnection(true).then((connection: IDatabaseConnection) => {
             connection.close();
-        });
+        }).catch(fail);
 
         expect(spy).toHaveBeenCalledWith('MASTER', jasmine.any(Function));
     });
@@ -96,7 +96,7 @@ describe('MySQLDatabase', () => {
         let db: MySQLDatabase = new MySQLDatabase();
         let spy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
 
-        (<EventEmitter>(<any>db).$cluster).emit('enqueue');
+        ((db as any).$cluster as EventEmitter).emit('enqueue');
 
         expect(spy).toHaveBeenCalled();
     });
@@ -107,10 +107,10 @@ describe('MySQLDatabase', () => {
         });
 
         let db: MySQLDatabase = new MySQLDatabase();
-        jest.spyOn(<any>db, '$getConnectionFromPool').mockImplementation(() => {
-            let c: MySQLConnection = new MySQLConnection(<any>{
+        jest.spyOn((db as any), '$getConnectionFromPool').mockImplementation(() => {
+            let c: MySQLConnection = new MySQLConnection(({
                 config: {}
-            }, '', true);
+            } as any), '', true);
 
             jest.spyOn(c, '__internal_init').mockImplementation(() => {
                 return Promise.resolve();

@@ -81,7 +81,7 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
      */
     public async onPostProcess(connection: IDatabaseConnection, resultSet: TQueryResultSet): Promise<TQueryPostProcessedResultSet> {
         // By default, simply return the result set without any post processing.
-        return Promise.resolve(<any>resultSet);
+        return Promise.resolve(resultSet as any);
     }
 
     public async execute(connection: IDatabaseConnection): Promise<TQueryPostProcessedResultSet> {

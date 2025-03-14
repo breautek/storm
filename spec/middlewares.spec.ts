@@ -68,7 +68,7 @@ describe('Middlewares', () => {
 
     it('executes single middleware', () => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
-        (<any>handler).$middlewares = [ middleware ];
+        (handler as any).$middlewares = [ middleware ];
 
         handler.get(request, response);
 
@@ -80,7 +80,7 @@ describe('Middlewares', () => {
 
         let next: TestMiddleware = new TestMiddleware();
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
-        (<any>handler).$middlewares = [ middleware, next ];
+        (handler as any).$middlewares = [ middleware, next ];
 
         spy.and.callFake((request: any, response: any) => {
             response.setStatus(500);
@@ -101,17 +101,19 @@ describe('Middlewares', () => {
         handler.get(request, response).then(() => {
             expect(nextSpy).toHaveBeenCalled();
             done();
+        }).catch((error: unknown) => {
+            fail(error);
         });
     });
 
     it('handles middleware exceptions (general error)', async () => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
-        let rejectionSpy: jasmine.Spy = spyOn(<any>handler, '_onMiddlewareReject');
-        let errorHandlerSpy: jasmine.Spy = spyOn(<any>handler, '$handleResponseError').and.callThrough();
+        let rejectionSpy: jasmine.Spy = spyOn((handler as any), '_onMiddlewareReject');
+        let errorHandlerSpy: jasmine.Spy = spyOn((handler as any), '$handleResponseError').and.callThrough();
         
         let next: TestMiddleware = new TestMiddleware();
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
-        (<any>handler).$middlewares = [ middleware, next ];
+        (handler as any).$middlewares = [ middleware, next ];
 
         spy.and.callFake((request: any, response: any) => {
             return Promise.reject(new Error('test'));
@@ -131,11 +133,11 @@ describe('Middlewares', () => {
 
     it('handles middleware exceptions (storm error)', async () => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
-        let rejectionSpy: jasmine.Spy = spyOn(<any>handler, '_onMiddlewareReject').and.callThrough();
+        let rejectionSpy: jasmine.Spy = spyOn((handler as any), '_onMiddlewareReject').and.callThrough();
         
         let next: TestMiddleware = new TestMiddleware();
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
-        (<any>handler).$middlewares = [ middleware, next ];
+        (handler as any).$middlewares = [ middleware, next ];
 
         spy.and.callFake((request: any, response: any) => {
             return Promise.reject(new EntityNotFoundError('test'));

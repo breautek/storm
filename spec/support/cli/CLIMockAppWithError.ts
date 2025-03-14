@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 import { Application } from "../../../src/Application";
 
@@ -15,6 +16,6 @@ class CLIMockAppWithError extends Application {
 }
 
 let app = new CLIMockAppWithError('CLIMockApp', './');
-(async () => {
+(async (): Promise<void> => {
     await app.start();
 })();

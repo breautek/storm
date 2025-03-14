@@ -26,6 +26,7 @@ import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
 import {ICloudwatchConfig, IConfig} from './IConfig';
 import {Command} from 'commander';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 import Express = require('express');
 import * as BodyParser from 'body-parser';
 import * as http from 'http';
@@ -300,11 +301,12 @@ export abstract class Application
     }
 
     private $getVersionString(): string {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
         let pkg: any = require('../package.json');
         return `${this._getVersion()} (Storm ${pkg.version})`;
     }
 
-    private $buildArgOptions() {
+    private $buildArgOptions(): void {
         this.$program = new Command();
         
         this.$program.version(this.$getVersionString(), '-v, --version');

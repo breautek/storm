@@ -30,6 +30,7 @@ import { JWTError } from './JWTError';
 import { ResponseData } from './ResponseData';
 import {StatusCode} from './StatusCode';
 import { InternalError } from './InternalError';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 import IncomingForm = require('formidable/Formidable');
 
 export interface IParameterMap {
@@ -133,7 +134,7 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
         let authHeader: string = getInstance().getConfig().authentication_header;
         let tdata: TAuthToken = null;
         try {
-            tdata = <TAuthToken>(await getInstance().getTokenManager().verify(new Token(this.getHeader(authHeader))));
+            tdata = (await getInstance().getTokenManager().verify(new Token(this.getHeader(authHeader)))) as TAuthToken;
         }
         catch (ex) {
             let error: ResponseData = null;

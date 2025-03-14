@@ -78,7 +78,7 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
     public decode(token: Token): Promise<TAuthToken> {
         return new Promise<any>((resolve, reject) => {
             try {
-                let decoded: TAuthToken = <TAuthToken>jwt.decode(token.getSignature());
+                let decoded: TAuthToken = jwt.decode(token.getSignature()) as TAuthToken;
                 resolve(decoded);
             }
             catch (ex) {

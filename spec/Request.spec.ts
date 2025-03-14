@@ -11,6 +11,7 @@ import * as FileSystem from 'fs';
 import {Writable} from 'stream';
 import * as http from 'http';
 import * as Path from 'path';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 import FormData = require('form-data');
 import { Token } from '../src/Token';
 import { TokenManager } from '../src/TokenManager';
@@ -21,7 +22,7 @@ import { getInstance } from '../src/instance';
 
 type HandlerCallback = (request: Request) => Promise<void>;
 
-let makeHandler = (callback: HandlerCallback) => {
+let makeHandler = (callback: HandlerCallback): any => {
     return class MockHandler extends Handler {
         private async $handleRequest(request: Request): Promise<void> {
             return callback(request);
@@ -81,7 +82,7 @@ describe('Request', () => {
                 expect(formData.fields.key).toEqual([ 'value' ]);
                 expect(request.getHeader('Content-Type').indexOf('multipart/form-data')).toBeGreaterThan(-1);
                 done();
-            });
+            }).catch(fail);
         }));
 
         let form = new FormData();
@@ -147,8 +148,8 @@ describe('Request', () => {
                 }
                 catch (ex) {
                     expect(ex).toBeInstanceOf(ResponseData);
-                    expect((<ResponseData>ex).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
-                    expect((<ResponseData>ex).getData()).toEqual({
+                    expect((ex as ResponseData).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
+                    expect((ex as ResponseData).getData()).toEqual({
                         code: JWTError.ERR_GENERIC,
                         reason: 'invalid signature'
                     });
@@ -172,8 +173,8 @@ describe('Request', () => {
                 }
                 catch (ex) {
                     expect(ex).toBeInstanceOf(ResponseData);
-                    expect((<ResponseData>ex).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
-                    expect((<ResponseData>ex).getData()).toEqual({
+                    expect((ex as ResponseData).getStatus()).toBe(StatusCode.ERR_UNAUTHORIZED);
+                    expect((ex as ResponseData).getData()).toEqual({
                         code: JWTError.ERR_EXPIRED,
                         reason: 'jwt expired'
                     });
@@ -200,8 +201,8 @@ describe('Request', () => {
                 }
                 catch (ex) {
                     expect(ex).toBeInstanceOf(ResponseData);
-                    expect((<ResponseData>ex).getStatus()).toBe(StatusCode.INTERNAL_ERROR);
-                    expect((<ResponseData>ex).getData()).toEqual({
+                    expect((ex as ResponseData).getStatus()).toBe(StatusCode.INTERNAL_ERROR);
+                    expect((ex as ResponseData).getData()).toEqual({
                         code: 0,
                         reason: 'An internal server error has occured. Please try again.'
                     });

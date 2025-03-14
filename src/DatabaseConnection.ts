@@ -75,7 +75,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         return this.$instantiationStack;
     }
 
-    private $armLingerWarning() {
+    private $armLingerWarning(): void {
         if (this.$lingerTimer) {
             clearTimeout(this.$lingerTimer);
         }
@@ -145,7 +145,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         let e: unknown = null;
         try {
             let results: TQueryResult = await this._query<TQueryResult>(queryStr, params);
-            out = await (<any>query.onPostProcess(this, <any>results));
+            out = await (query.onPostProcess(this, results as any) as any);
         }
         catch (ex) {
             e = ex;

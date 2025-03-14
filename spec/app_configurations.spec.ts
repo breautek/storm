@@ -26,7 +26,7 @@ describe('Configurations', () => {
 
         let app: TestApplication = new TestApplication();
 
-        let spy: jest.SpyInstance = jest.spyOn(<any>app, '$connectCW');
+        let spy: jest.SpyInstance = jest.spyOn((app as any), '$connectCW');
         
         await app.start();
 
@@ -57,7 +57,7 @@ describe('Configurations', () => {
         }));
 
         let app: TestApplication = new TestApplication();
-        let connectCWSpy: jest.SpyInstance = jest.spyOn(<any>app, '$connectCW').mockImplementation(() => {});
+        let connectCWSpy: jest.SpyInstance = jest.spyOn((app as any), '$connectCW').mockImplementation(() => {});
 
         await app.start();
 
@@ -86,7 +86,7 @@ describe('Configurations', () => {
         }));
 
         let app: TestApplication = new TestApplication();
-        let validateSpy: jest.SpyInstance = jest.spyOn(<any>app, '$validateCWConfig');
+        let validateSpy: jest.SpyInstance = jest.spyOn((app as any), '$validateCWConfig');
 
         await app.start();
 
@@ -112,7 +112,7 @@ describe('Configurations', () => {
         }));
 
         let app: TestApplication = new TestApplication();
-        let validateSpy: jest.SpyInstance = jest.spyOn(<any>app, '$validateCWConfig');
+        let validateSpy: jest.SpyInstance = jest.spyOn((app as any), '$validateCWConfig');
 
         await app.start();
 
@@ -141,7 +141,7 @@ describe('Configurations', () => {
         }));
 
         let app: TestApplication = new TestApplication();
-        let validateSpy: jest.SpyInstance = jest.spyOn(<any>app, '$validateCWConfig');
+        let validateSpy: jest.SpyInstance = jest.spyOn((app as any), '$validateCWConfig');
 
         await app.start();
 
@@ -170,7 +170,7 @@ describe('Configurations', () => {
         }));
 
         let app: TestApplication = new TestApplication();
-        let validateSpy: jest.SpyInstance = jest.spyOn(<any>app, '$validateCWConfig');
+        let validateSpy: jest.SpyInstance = jest.spyOn((app as any), '$validateCWConfig');
 
         await app.start();
 
@@ -196,7 +196,7 @@ describe('Configurations', () => {
         }));
 
         let app: TestApplication = new TestApplication();
-        let validateSpy: jest.SpyInstance = jest.spyOn(<any>app, '$validateCWConfig');
+        let validateSpy: jest.SpyInstance = jest.spyOn((app as any), '$validateCWConfig');
 
         await app.start();
 
@@ -225,7 +225,7 @@ describe('Configurations', () => {
         }));
 
         let app: TestApplication = new TestApplication();
-        let validateSpy: jest.SpyInstance = jest.spyOn(<any>app, '$validateCWConfig');
+        let validateSpy: jest.SpyInstance = jest.spyOn((app as any), '$validateCWConfig');
 
         await app.start();
 
@@ -254,7 +254,7 @@ describe('Configurations', () => {
         }));
 
         let app: TestApplication = new TestApplication();
-        let validateSpy: jest.SpyInstance = jest.spyOn(<any>app, '$validateCWConfig');
+        let validateSpy: jest.SpyInstance = jest.spyOn((app as any), '$validateCWConfig');
 
         await app.start();
 

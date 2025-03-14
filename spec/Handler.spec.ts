@@ -7,7 +7,7 @@ import {StatusCode} from '../src/StatusCode';
 
 type HandlerCallback = (handler: Handler, request: Request, method: HTTPMethod) => Promise<any>;
 
-let makeHandler = (callback: HandlerCallback) => {
+let makeHandler = (callback: HandlerCallback): any => {
     return class MockHandler extends Handler {
         private async $handleRequest(request: Request, method: HTTPMethod): Promise<any> {
             return callback(this, request, method);

@@ -34,7 +34,7 @@ describe('MySQLConnection', () => {
             release: jasmine.createSpy('release')
         };
         conn = new MySQLConnection(mockAPI, 'test stack');
-        jest.spyOn(<any>DatabaseConnection.prototype, '$armLingerWarning').mockImplementation(() => {});
+        jest.spyOn((DatabaseConnection.prototype as any), '$armLingerWarning').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -59,7 +59,7 @@ describe('MySQLConnection', () => {
         conn.query(new DummyQuery()).then((results: any[]) => {
             expect(results).toEqual([ 1 ]);
             done();
-        });
+        }).catch(fail);
     });
 
     it('query handles errors', (done) => {
@@ -147,7 +147,7 @@ describe('MySQLConnection', () => {
                 timeout: DEFAULT_QUERY_TIMEOUT
             }, undefined, jasmine.any(Function));
             done();
-        });
+        }).catch(fail);
     });
 
     it('can start transaction (query failure)', (done) => {
@@ -196,7 +196,7 @@ describe('MySQLConnection', () => {
                 timeout: DEFAULT_QUERY_TIMEOUT
             }, undefined, jasmine.any(Function));
             done();
-        });
+        }).catch(fail);
     });
 
     it('rollback query failure', (done) => {
@@ -259,7 +259,7 @@ describe('MySQLConnection', () => {
                 timeout: DEFAULT_QUERY_TIMEOUT
             }, undefined, jasmine.any(Function));
             done();
-        });
+        }).catch(fail);
     });
 
     it('commit query failure', (done) => {
@@ -310,7 +310,7 @@ describe('MySQLConnection', () => {
         conn.close().then(() => {
             expect(mockAPI.release).toHaveBeenCalled();
             done();
-        });
+        }).catch(fail);
     });
 
     it('cannot close on active transaction', (done) => {
@@ -342,7 +342,7 @@ describe('MySQLConnection', () => {
         }).then(() => {
             expect(mockAPI.release).toHaveBeenCalled();
             done();
-        });
+        }).catch(fail);
     });
 
     it('can force close connection', (done) => {
@@ -356,7 +356,7 @@ describe('MySQLConnection', () => {
         conn.close(true).then(() => {
             expect(mockAPI.release).toHaveBeenCalled();
             done();
-        });
+        }).catch(fail);
     });
 
     it('force close connection with rollback error', (done) => {
@@ -379,7 +379,7 @@ describe('MySQLConnection', () => {
         }).then(() => {
             expect(mockAPI.release).toHaveBeenCalled();
             done();
-        });
+        }).catch(fail);
     });
 
     describe('post processing', () => {
