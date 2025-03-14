@@ -36,6 +36,13 @@ export interface IDatabaseConnection {
     rollback(): Promise<void>;
 
     /**
+     * @since 8.4.0
+     * @param query 
+     * @param params 
+     */
+    formatQuery(query: IQueryable<any>): string;
+
+    /**
      * @since 8.1.0
      */
     getCurrentDatabasePosition(): Promise<IDatabasePosition>;

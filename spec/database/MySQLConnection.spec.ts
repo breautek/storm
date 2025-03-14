@@ -9,6 +9,7 @@ import { Query } from '../../src/Query';
 import { IDatabaseConnection } from '../../src/IDatabaseConnection';
 import {DummyQuery} from '../support/DummyQuery';
 import { DatabaseConnection } from '../../src/DatabaseConnection';
+import { RawQuery } from '../../src/RawQuery';
 
 describe('MySQLConnection', () => {
     let app: MockApplication = null;
@@ -433,6 +434,15 @@ describe('MySQLConnection', () => {
                 2,
                 3
             ]);
+        });
+        
+        it('can pull formatted query', async () => {
+            let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+            let query = new RawQuery('SELECT name FROM user WHERE id = :id', {
+                id: '123'
+            });
+
+            expect(conn.formatQuery(query)).toBe('SELECT name FROM user WHERE id = \'123\'');
         });
     });
 });

@@ -1,3 +1,4 @@
+
 import { DatabaseConnection } from '../../src/DatabaseConnection';
 import { Readable } from 'stream';
 import { CommitQuery } from '../../src/private/CommitQuery';
@@ -6,6 +7,8 @@ import { StartTransactionQuery } from '../../src/private/StartTransactionQuery';
 import { IsolationLevel } from '../../src/IsolationLevel';
 import { SetIsolationLevelQuery } from '../../src/private/SetIsolationLevelQuery';
 import { IDatabasePosition } from '../../src/IDatabasePosition';
+import { IQueryable } from '../../src/IQueryable';
+import { queryFormatter } from '../../src/mysql/queryFormatter';
 
 export class MockConnection extends DatabaseConnection<any> {
     public transaction: boolean;
@@ -19,6 +22,10 @@ export class MockConnection extends DatabaseConnection<any> {
         super(null, readonly, instantiationStack);
         this.transaction = false;
         this.closed = false;
+    }
+
+    public override formatQuery(query: IQueryable<any>): string {
+        return queryFormatter(query.getQuery(this), query.getParametersForQuery());
     }
 
     public async startTransaction(isolationLevel?: IsolationLevel): Promise<void> {

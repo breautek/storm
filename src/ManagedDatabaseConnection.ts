@@ -20,6 +20,7 @@ import {Readable} from 'stream';
 import { Query } from './Query';
 import { IsolationLevel } from './IsolationLevel';
 import { IDatabasePosition } from './IDatabasePosition';
+import { IQueryable } from './IQueryable';
 
 const TAG: string = 'ManagedDatabaseConnection';
 
@@ -40,6 +41,10 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         this.$managed = false;
         this.$requiresWrite = requiresWrite;
         this.$instantionStack = new Error().stack;
+    }
+
+    public formatQuery(query: IQueryable<any>): string {
+        throw new Error('Unsupported API call');
     }
 
     // TODO(Breaking): Turn this API into async

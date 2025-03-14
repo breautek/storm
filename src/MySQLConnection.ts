@@ -35,6 +35,8 @@ import { IDatabasePosition } from './IDatabasePosition';
 import { GetBinLogPositionQuery } from './private/GetBinLogPositionQuery';
 import { GetSlavePositionQuery } from './private/GetSlavePositionQuery';
 import { GetMasterPositionQuery } from './private/GetMasterPositionQuery';
+import { IQueryable } from './IQueryable';
+import { queryFormatter } from './mysql/queryFormatter';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -70,17 +72,19 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         this.$transaction = false;
         this.$isMasterConnection = null;
 
-        connection.config.queryFormat = function(query: string, values: any) {
-            if (!values) return query;
+        connection.config.queryFormat = queryFormatter.bind(this);
 
-            return query.replace(/:(\w+)/g, function(this: any, txt: string, key: string): string {
-                // eslint-disable-next-line no-prototype-builtins
-                if (values.hasOwnProperty(key)) {
-                    return this.escape(values[key]);
-                }
-                return txt;
-            }.bind(this));
-        };
+        // connection.config.queryFormat = function(query: string, values: any) {
+        //     if (!values) return query;
+
+        //     return query.replace(/:(\w+)/g, function(this: any, txt: string, key: string): string {
+        //         // eslint-disable-next-line no-prototype-builtins
+        //         if (values.hasOwnProperty(key)) {
+        //             return this.escape(values[key]);
+        //         }
+        //         return txt;
+        //     }.bind(this));
+        // };
     }
 
     /**
@@ -89,6 +93,10 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     public async __internal_init(): Promise<void> {
         let result = await new GetSlavePositionQuery().execute(this);
         this.$isMasterConnection = result === null;
+    }
+
+    public override formatQuery(query: IQueryable<any>): string {
+        return this.getAPI().config.queryFormat(query.getQuery(this), query.getParametersForQuery());
     }
 
     public isMaster(): boolean {

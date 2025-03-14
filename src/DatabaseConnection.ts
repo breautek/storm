@@ -93,6 +93,8 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         return this.$api;
     }
 
+    public abstract formatQuery(query: IQueryable<any>, params?: any): string;
+
     /**
      * Returns true if connection was created without
      * write access
