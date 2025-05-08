@@ -36,6 +36,15 @@ describe('DatabaseQueryError', () => {
         expect(error.getPrivateDetails().query).toBe('SELECT * FROM test');
     });
 
+    it('database error code should return null if not available', () => {
+        expect(error.getDBErrorCode()).toBe(null);
+    });
+
+    it('can get database error code', () => {
+        error = new DatabaseQueryError('TEST QUERY', { code: 'ERR_CODE' });
+        expect(error.getDBErrorCode()).toBe('ERR_CODE');
+    });
+
     describe('getErrorResponse()', () => {
         it('name', () => {
             let r: IErrorResponse = error.getErrorResponse();

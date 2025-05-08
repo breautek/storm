@@ -36,6 +36,15 @@ export class DatabaseQueryError extends StormError<{
         return 0;
     }
 
+    /**
+     * If the underlying error is a database error, then
+     * returns the database error code as sting.
+     * @since 8.5.0
+     */
+    public getDBErrorCode(): string | null {
+        return this.getPrivateDetails()?.error?.code || null;
+    }
+
     public getHTTPCode(): StatusCode {
         return StatusCode.INTERNAL_ERROR;
     }
