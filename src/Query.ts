@@ -76,6 +76,8 @@ export abstract class Query<TQueryParameters = any, TQueryResultSet = any, TQuer
     /**
      * Override to augment/manipulate the returned result set.
      * 
+     * @deprecated - Streaming queries does not support post processing, creating a confusing API
+     * 
      * @param connection The connection object used for this query execution. Useful if further queries are required.
      * @param resultset The original result set
      */

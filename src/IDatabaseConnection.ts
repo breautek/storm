@@ -27,6 +27,10 @@ export interface IDatabaseConnection {
     setTimeout(timeout: number): void;
     getTimeout(): number;
     query(query: IQueryable<any>, params?: any): Promise<any>;
+
+    /**
+     * @deprecated - Streaming queries does not support post processing, creating a confusing API
+     */
     stream(query: IQueryable<any>, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
     isClosed(): boolean;
