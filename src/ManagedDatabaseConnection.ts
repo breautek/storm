@@ -21,6 +21,7 @@ import { Query } from './Query';
 import { IsolationLevel } from './IsolationLevel';
 import { IDatabasePosition } from './IDatabasePosition';
 import { IQueryable } from './IQueryable';
+import { TransactionAccessLevel } from './TransactionAccessLevel';
 
 const TAG: string = 'ManagedDatabaseConnection';
 
@@ -176,11 +177,11 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         });
     }
 
-    public startTransaction(isolationLevel?: IsolationLevel): Promise<void> {
+    public startTransaction(isolationLevel?: IsolationLevel, accessLevel?: TransactionAccessLevel): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             this.$getConnection().then((connection: IDatabaseConnection) => {
                 if (!this.isManaged()) {
-                    connection.startTransaction(isolationLevel).then(resolve).catch(reject);
+                    connection.startTransaction(isolationLevel, accessLevel).then(resolve).catch(reject);
                 }
                 else {
                     resolve();

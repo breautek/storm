@@ -22,6 +22,7 @@ import { InternalError } from './InternalError';
 import { DeadLockError } from './DeadLockError';
 import { InvalidValueError } from './InvalidValueError';
 import { LockWaitTimeoutError } from './LockWaitTimeoutError';
+import { TransactionAccessLevel } from './TransactionAccessLevel';
 
 const TAG: string = 'Transaction';
 
@@ -43,8 +44,9 @@ export class Transaction implements IQueryable<void> {
     private $application: Application;
     private $isolationLevel: IsolationLevel;
     private $executor: ITransactionExecutor;
+    private $accessLevel: TransactionAccessLevel;
 
-    public constructor(app: Application, executor: ITransactionExecutor, retryLimit: number = Infinity, isolationLevel: IsolationLevel = IsolationLevel.REPEATABLE_READ) {
+    public constructor(app: Application, executor: ITransactionExecutor, retryLimit: number = Infinity, isolationLevel: IsolationLevel = IsolationLevel.REPEATABLE_READ, accessLevel: TransactionAccessLevel = TransactionAccessLevel.RW) {
         this.$application = app;
         this.$executor = executor;
 
@@ -57,6 +59,7 @@ export class Transaction implements IQueryable<void> {
 
         this.$retryLimit = retryLimit;
         this.$isolationLevel = isolationLevel;
+        this.$accessLevel = accessLevel;
     }
     
     public async onPreQuery(connection: IDatabaseConnection): Promise<void> {}
@@ -81,7 +84,7 @@ export class Transaction implements IQueryable<void> {
         do {
             attemptCount++;
             this.$application.getLogger().info(TAG, `Starting transaction attempt ${attemptCount} of ${this.$retryLimit === Infinity ? 'Infinity' : this.$retryLimit.toString()}`);
-            await connection.startTransaction(this.$isolationLevel);
+            await connection.startTransaction(this.$isolationLevel, this.$accessLevel);
             try {
                 await this.$executor(connection);
                 await connection.commit();

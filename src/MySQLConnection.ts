@@ -19,7 +19,6 @@ import {DatabaseQueryError} from './DatabaseQueryError';
 import {getInstance} from './instance';
 import * as MySQL from 'mysql';
 import {Readable} from 'stream';
-import {Query} from './Query';
 import { StartTransactionQuery } from './private/StartTransactionQuery';
 import { CommitQuery } from './private/CommitQuery';
 import { RollbackQuery } from './private/RollbackQuery';
@@ -37,6 +36,7 @@ import { GetSlavePositionQuery } from './private/GetSlavePositionQuery';
 import { GetMasterPositionQuery } from './private/GetMasterPositionQuery';
 import { IQueryable } from './IQueryable';
 import { queryFormatter } from './mysql/queryFormatter';
+import { TransactionAccessLevel } from './TransactionAccessLevel';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -56,9 +56,8 @@ const SQL_FORMATTING_OPTIONS: SQLFormatter.FormatOptions = {
     functionCase: 'upper'
 };
 
-let startTransactionQuery: Query = new StartTransactionQuery();
-let commitQuery: Query = new CommitQuery();
-let rollbackQuery: Query = new RollbackQuery();
+let commitQuery: CommitQuery = new CommitQuery();
+let rollbackQuery: RollbackQuery = new RollbackQuery();
 
 export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     private $transaction: boolean;
@@ -196,9 +195,9 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         return queryObject.stream(streamOptions);
     }
 
-    public override async startTransaction(isolationLevel?: IsolationLevel): Promise<void> {
-        if (this.isReadOnly()) {
-            throw new Error('A readonly connection cannot start a transaction.')
+    public override async startTransaction(isolationLevel?: IsolationLevel, accessLevel: TransactionAccessLevel = TransactionAccessLevel.RW): Promise<void> {
+        if (this.isReadOnly() && accessLevel === TransactionAccessLevel.RW) {
+            throw new Error('A readonly connection cannot start a read/write transaction.')
         }
 
         if (this.isTransaction()) {
@@ -211,7 +210,9 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             if (isolationLevel) {
                 await new SetIsolationLevelQuery(isolationLevel).execute(this);
             }
-            await startTransactionQuery.execute(this);
+            await new StartTransactionQuery({
+                accessLevel: accessLevel
+            }).execute(this);
         }
         catch (ex) {
             this.$transaction = false;

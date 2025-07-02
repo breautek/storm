@@ -10,6 +10,7 @@ import { IDatabaseConnection } from '../../src/IDatabaseConnection';
 import {DummyQuery} from '../support/DummyQuery';
 import { DatabaseConnection } from '../../src/DatabaseConnection';
 import { RawQuery } from '../../src/RawQuery';
+import { TransactionAccessLevel } from '../../src/TransactionAccessLevel';
 
 describe('MySQLConnection', () => {
     let app: MockApplication = null;
@@ -117,7 +118,7 @@ describe('MySQLConnection', () => {
 
     it('can start transaction (readonly failure)', (done) => {
         conn.startTransaction().catch((error: Error) => {
-            expect(error.message).toBe('A readonly connection cannot start a transaction.');
+            expect(error.message).toBe('A readonly connection cannot start a read/write transaction.');
             done();
         });
     });
@@ -143,9 +144,11 @@ describe('MySQLConnection', () => {
         conn.startTransaction().then(() => {
             expect(conn.isTransaction()).toBe(true);
             expect(mockAPI.query).toHaveBeenCalledWith({
-                sql: 'START TRANSACTION',
+                sql: 'START TRANSACTION READ WRITE',
                 timeout: DEFAULT_QUERY_TIMEOUT
-            }, undefined, jasmine.any(Function));
+            }, {
+                accessLevel: TransactionAccessLevel.RW
+            }, jasmine.any(Function));
             done();
         }).catch(fail);
     });

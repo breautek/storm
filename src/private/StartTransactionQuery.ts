@@ -1,5 +1,5 @@
 /*
-   Copyright 2017-2021 Norman Breau
+   Copyright 2017-2025 Norman Breau
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -15,9 +15,27 @@
 */
 
 import {Query} from '../Query';
+import { TransactionAccessLevel } from '../TransactionAccessLevel';
 
-export class StartTransactionQuery extends Query<void, void> {
-    protected _getQuery(): string {
-        return 'START TRANSACTION';
+/**
+ * @since 8.6.0
+ */
+export interface IStartTransactionQueryInput {
+    accessLevel?: TransactionAccessLevel;
+}
+
+export class StartTransactionQuery extends Query<IStartTransactionQueryInput, void> {
+    protected override _getQuery(): string {
+        let params: IStartTransactionQueryInput = this.getParameters();
+
+        let accessString: string;
+        if (params?.accessLevel === TransactionAccessLevel.RO) {
+            accessString = 'READ ONLY';
+        }
+        else {
+            accessString = 'READ WRITE';
+        }
+
+        return `START TRANSACTION ${accessString}`;
     }
 }

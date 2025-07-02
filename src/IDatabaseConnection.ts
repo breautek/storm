@@ -18,6 +18,7 @@ import { Readable } from 'stream';
 import { IQueryable } from './IQueryable';
 import { IsolationLevel } from './IsolationLevel';
 import { IDatabasePosition } from './IDatabasePosition';
+import { TransactionAccessLevel } from './TransactionAccessLevel';
 
 export interface IDatabaseConnection {
     setInstantiationStack(stack: string): void;
@@ -34,7 +35,7 @@ export interface IDatabaseConnection {
     stream(query: IQueryable<any>, params?: any, streamOptions?: any): Readable;
     close(forceClose?: boolean): Promise<void>;
     isClosed(): boolean;
-    startTransaction(level?: IsolationLevel): Promise<void>;
+    startTransaction(level?: IsolationLevel, accessLevel?: TransactionAccessLevel): Promise<void>;
     isTransaction(): boolean;
     commit(): Promise<void>;
     rollback(): Promise<void>;
