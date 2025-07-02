@@ -33,10 +33,10 @@ describe('SetSessionVariableQuery', () => {
                 });
 
                 if (testCases[i]) {
-                    expectation.not.toThrowError();
+                    expectation.not.toThrow();
                 }
                 else {
-                    expectation.toThrowError('Illegal Variable Name');
+                    expectation.toThrow('Illegal Variable Name');
                 }
             });
         }

@@ -137,7 +137,7 @@ describe('Transaction', () => {
 
         await expect(async () => {
             await transaction.execute(conn);
-        }).rejects.toThrowError(DeadLockError);
+        }).rejects.toThrow(DeadLockError);
 
         expect(query.execute).toHaveBeenCalledTimes(3);
         expect(RollbackQuery.prototype.execute).toHaveBeenCalled();

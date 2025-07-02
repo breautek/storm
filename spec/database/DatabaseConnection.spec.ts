@@ -89,7 +89,7 @@ describe('DatabaseConnection', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
         expect(() => {
             connection.setTimeout(NaN);
-        }).toThrowError('setTimeout expects a number in parameter 1.');
+        }).toThrow('setTimeout expects a number in parameter 1.');
         connection.close();
     });
 

@@ -36,7 +36,7 @@ describe('Database', () => {
 
         expect(() => {
             db.addMaster({test:true})
-        }).toThrowError(`Node "${MASTER}" already exists.`);
+        }).toThrow(`Node "${MASTER}" already exists.`);
     });
 
     it('Can remove master', () => {
