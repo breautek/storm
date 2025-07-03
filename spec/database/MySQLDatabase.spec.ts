@@ -116,6 +116,10 @@ describe('MySQLDatabase', () => {
                 return Promise.resolve();
             });
 
+            jest.spyOn(c, 'hasReplicationEnabled').mockImplementation(() => {
+                return true;
+            });
+
             jest.spyOn(c, 'isMaster').mockImplementation(() => {
                 return false;
             });

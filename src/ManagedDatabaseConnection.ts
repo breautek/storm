@@ -44,6 +44,18 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
         this.$instantionStack = new Error().stack;
     }
 
+    public isMaster(): boolean {
+        throw new Error('Method not implemented.');
+    }
+    
+    public isReplication(): boolean {
+        throw new Error('Method not implemented.');
+    }
+    
+    public hasReplicationEnabled(): boolean {
+        throw new Error('Method not implemented.');
+    }
+
     public formatQuery(query: IQueryable<any>): string {
         throw new Error('Unsupported API call');
     }

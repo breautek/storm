@@ -18,10 +18,26 @@ export class MockConnection extends DatabaseConnection<any> {
         position: 1
     };
 
+    public pHasReplicationEnabled: boolean;
+    public pIsMaster: boolean;
+
     public constructor(readonly: boolean, instantiationStack: string) {
         super(null, readonly, instantiationStack);
         this.transaction = false;
         this.closed = false;
+    }
+
+
+    public isMaster(): boolean {
+        return this.pIsMaster;
+    }
+    
+    public isReplication(): boolean {
+        return !this.isMaster();
+    }
+
+    public hasReplicationEnabled(): boolean {
+        return this.pHasReplicationEnabled;
     }
 
     public override formatQuery(query: IQueryable<any>): string {

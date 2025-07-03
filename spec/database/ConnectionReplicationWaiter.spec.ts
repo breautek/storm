@@ -19,18 +19,18 @@ describe('ConnectionReplicationWaiter', () => {
 
     it('will skip on master connections', async () => {
         let conn: MockConnection = new MockConnection(false, new Error().stack);
-
-        let spy = jest.spyOn(conn, 'isReadOnly');
+        conn.pHasReplicationEnabled = true;
+        conn.pIsMaster = true;
 
         let waiter: ConnectionReplicationWaiter = new ConnectionReplicationWaiter(conn);
         await waiter.wait(null);
-
-        expect(spy).toHaveBeenCalled();
     });
 
     it('will timeout after 1 second', async () => {
         let conn: MockConnection = new MockConnection(true, new Error().stack);
         let waiter: ConnectionReplicationWaiter = new ConnectionReplicationWaiter(conn);
+        conn.pHasReplicationEnabled = true;
+        conn.pIsMaster = false;
         
         await expect(waiter.wait({
             page: 2,
@@ -40,6 +40,8 @@ describe('ConnectionReplicationWaiter', () => {
 
     it('will sleep for 1 second in between retries', async () => {
         let conn: MockConnection = new MockConnection(true, new Error().stack);
+        conn.pHasReplicationEnabled = true;
+        conn.pIsMaster = false;
         let waiter: ConnectionReplicationWaiter = new ConnectionReplicationWaiter(conn, 1000);
 
         let spy = jest.spyOn((waiter as any), '$sleep');

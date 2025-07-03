@@ -57,6 +57,12 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
 
         this.$armLingerWarning();
     }
+    
+    public abstract isMaster(): boolean;
+
+    public abstract isReplication(): boolean;
+
+    public abstract hasReplicationEnabled(): boolean;
 
     private $triggerLingerWarning(): void {
         getInstance().getLogger().warn(TAG, `Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this.$instantiationStack}`);

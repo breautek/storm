@@ -25,6 +25,9 @@ export interface IDatabaseConnection {
     getInstantiationStack(): string;
     getAPI(): any;
     isReadOnly(): boolean;
+    isMaster(): boolean;
+    isReplication(): boolean;
+    hasReplicationEnabled(): boolean;
     setTimeout(timeout: number): void;
     getTimeout(): number;
     query(query: IQueryable<any>, params?: any): Promise<any>;

@@ -37,6 +37,7 @@ import { GetMasterPositionQuery } from './private/GetMasterPositionQuery';
 import { IQueryable } from './IQueryable';
 import { queryFormatter } from './mysql/queryFormatter';
 import { TransactionAccessLevel } from './TransactionAccessLevel';
+import { GetProcessList, IGetProcessListOutput } from './private/GetProcessList';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -62,11 +63,13 @@ let rollbackQuery: RollbackQuery = new RollbackQuery();
 export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     private $transaction: boolean;
     private $opened: boolean;
+    private $hasReplicationEnabled: boolean;
     private $isMasterConnection: boolean;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         super(connection, isReadOnly, instantiationStack);
 
+        this.$hasReplicationEnabled = false;
         this.$opened = true;
         this.$transaction = false;
         this.$isMasterConnection = null;
@@ -91,17 +94,47 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
      */
     public async __internal_init(): Promise<void> {
         let result = await new GetSlavePositionQuery().execute(this);
-        this.$isMasterConnection = result === null;
+        if (result !== null) {
+            this.$hasReplicationEnabled = true;
+            this.$isMasterConnection = false;
+        }
+        else {
+            this.$isMasterConnection = true;
+            let processList: IGetProcessListOutput[] = await new GetProcessList().execute(this);
+
+            for (let i: number = 0; i < processList.length; i++) {
+                let p: IGetProcessListOutput = processList[i];
+
+                if (p.Command === 'Binlog Dump') {
+                    this.$hasReplicationEnabled = true;
+                    break;
+                }
+            }
+        }
     }
 
     public override formatQuery(query: IQueryable<any>): string {
         return this.getAPI().config.queryFormat(query.getQuery(this), query.getParametersForQuery());
     }
 
+    /**
+     * Returns true if this server is the source.
+     * Will also return true if there is no replication detected.
+     */
     public isMaster(): boolean {
         return this.$isMasterConnection;
     }
 
+    /**
+     * Returns true if this server is part of a replication cluster.
+     */
+    public hasReplicationEnabled(): boolean {
+        return this.$hasReplicationEnabled;
+    }
+
+    /**
+     * Returns true if this server is a replication server.
+     */
     public isReplication(): boolean {
         return !this.isMaster();
     }

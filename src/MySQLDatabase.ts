@@ -89,21 +89,19 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         let conn: MySQLConnection = await this.$getConnectionFromPool(query, requireWriteAccess, instantationStack);
         await conn.__internal_init();
 
-        if (conn.isReplication()) {
+        if (conn.hasReplicationEnabled() && conn.isReplication() && position && position.page && position.position) {
             // master connections will not wait on database positions
             // they are guarenteed to be at the tip.
             // readonly, or otherwise known as replication connections
             // may have replication lag. If we have a desired position target,
             // then await for the connection to catch up to that target.
-            if (position && position.page && position.position) {
-                let waiter: ConnectionReplicationWaiter = new ConnectionReplicationWaiter(conn);
-                try {
-                    await waiter.wait(position);
-                }
-                catch (ex) {
-                    conn.close(true);
-                    throw ex;
-                }
+            let waiter: ConnectionReplicationWaiter = new ConnectionReplicationWaiter(conn);
+            try {
+                await waiter.wait(position);
+            }
+            catch (ex) {
+                conn.close(true);
+                throw ex;
             }
         }
 

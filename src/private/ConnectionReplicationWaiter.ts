@@ -55,7 +55,7 @@ export class ConnectionReplicationWaiter {
     }
 
     public async wait(target: IDatabasePosition, timeout: number = ConnectionReplicationWaiter.DEFAULT_TIMEOUT): Promise<void> {
-        if (!this.$conn.isReadOnly()) {
+        if (this.$conn.isMaster()) {
             return;
         }
 
