@@ -24,51 +24,28 @@ import { InternalError } from './InternalError';
 import { IRequestResponse } from './IRequestResponse';
 import { BaseLogger } from '@arashi/logger';
 import { ResponseData } from './ResponseData';
-import { ReadStream } from 'fs';
 import { NotImplementedError } from './NotImplementedError';
 import { HTTPMethod } from './HTTPMethod';
 
 const TAG: string = 'Handler';
 
-/**
- * @deprecated No longer used. Will be removed in the next major
- * 
- * IHandlerResponse can actually accept any arbitrary object, however it may do
- * certain things depending on the type of object it receives.
- * 
- * - If the response object is a stream, it will pipe the stream to stream the HTTP response.
- * - If the response is ResponseData, the status code and response data will be passed as the HTTP response.
- * - Passing nothing/undefined will return a status code of 204 with no body content
- * - Primitive data types will be passed as is
- * - Buffers will be passed through
- * - Any other object will be passed through JSON.stringify
- */
-export type IHandlerResponse = ResponseData | ReadableStream | ReadStream | any | void;
-
-/**
- * @deprecated No longer used, will be removed in the next major
- * 
- * Like IHandlerResponse, an IHandlerError can be any arbitrary type of object,
- * however it's recommended that the type be of a StormError.
- * 
- * If the type is not a StormError, the error will be wrapped in an InternalError object.
- * This is to avoid accidental leakage of privilege data (e.g. snippets of database queries with sensitive information)
- */
-export type IHandlerError = StormError | Error | any;
-
 export class Handler<
         TApplication extends Application = Application,
-        TGetRequest     extends SendableData    = void,
-        TGetResponse    extends SendableData    = void,
-        TPostRequest    extends SendableData    = void,
-        TPostResponse   extends SendableData    = void,
-        TPutRequest     extends SendableData    = void,
-        TPutResponse    extends SendableData    = void,
-        TDeleteRequest  extends SendableData    = void,
-        TDeleteResponse extends SendableData    = void,
+        TGetRequest     extends SendableData    = void | SendableData,
+        TGetResponse    extends SendableData    = void | SendableData,
+        TPostRequest    extends SendableData    = void | SendableData,
+        TPostResponse   extends SendableData    = void | SendableData,
+        TPutRequest     extends SendableData    = void | SendableData,
+        TPutResponse    extends SendableData    = void | SendableData,
+        TDeleteRequest  extends SendableData    = void | SendableData,
+        TDeleteResponse extends SendableData    = void | SendableData
     >  {
         
     private $app: TApplication;
+
+    /**
+     * @deprecated
+     */
     private $middlewares: Middleware[];
 
     constructor(app: TApplication) {
@@ -80,16 +57,25 @@ export class Handler<
         return this.$app;
     }
 
+    /**
+     * @deprecated
+     */
     protected _initMiddlewares(): Middleware[] {
         return [];
     }
 
-    public getAccessToken(request: Request): string {
+    public getAccessToken(request: Request<unknown>): string {
         let config: IConfig = this.$app.getConfig();
         let authHeader: string = config.authentication_header;
         return request.getHeader(authHeader);
     }
 
+    /**
+     * @deprecated
+     * @param request 
+     * @param response 
+     * @returns 
+     */
     private async $executeMiddlewares(request: Request, response: Response): Promise<IRequestResponse> {
         let result: IRequestResponse = {
             request,
@@ -136,6 +122,12 @@ export class Handler<
         return Promise.resolve(result);
     }
 
+    /**
+     * @deprecated
+     * @param request 
+     * @param response 
+     * @param error 
+     */
     protected _onMiddlewareReject(request: Request, response: Response, error: StormError): void {}
 
     private $handleResponse<TResponse extends SendableData>(response: Response<TResponse>, data: TResponse | ResponseData<TResponse>): void {
@@ -164,7 +156,7 @@ export class Handler<
 
         try {
             let result: IRequestResponse<TPutRequest, TPutResponse> = await this.$executeMiddlewares(request, response);
-            let req: any = await this._put(result.request);
+            let req: TPutResponse | ResponseData<TPutResponse> = await this._put(result.request);
             this.$handleResponse(response, req);
         }
         catch (ex) {

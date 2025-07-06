@@ -106,12 +106,15 @@ describe('Application', () => {
             method: HTTPMethod.POST,
             host: '127.0.0.1',
             port: app.getPort(),
-            path: '/echo'
+            path: '/echo',
+            headers: {
+                'content-type': 'text/plain'
+            }
         }, (res: http.IncomingMessage): void => {
             expect(res.statusCode).toBe(StatusCode.OK);
             done();
         });
-        req.end();
+        req.end('test data');
     });
 
     it('Accepts PUT Requests', (done) => {
@@ -119,25 +122,33 @@ describe('Application', () => {
             method: HTTPMethod.PUT,
             host: '127.0.0.1',
             port: app.getPort(),
-            path: '/echo'
+            path: '/echo',
+            headers: {
+                'content-type': 'text/plain'
+            }
         }, (res: http.IncomingMessage): void => {
             expect(res.statusCode).toBe(StatusCode.OK);
             done();
         });
-        req.end();
+        req.end('test data');
     });
 
     it('Accepts DELETE Requests', (done) => {
+        let body: string = 'test data';
         let req: http.ClientRequest = http.request({
             method: HTTPMethod.DELETE,
             host: '127.0.0.1',
             port: app.getPort(),
-            path: '/echo'
+            path: '/echo',
+            headers: {
+                'content-type': 'text/plain',
+                'content-length': body.length
+            }
         }, (res: http.IncomingMessage): void => {
             expect(res.statusCode).toBe(StatusCode.OK);
             done();
         });
-        req.end();
+        req.end(body);
     });
 
     it('has instance set', () => {

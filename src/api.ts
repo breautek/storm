@@ -75,17 +75,14 @@ export {Middleware} from './Middleware';
 export {Request, IParameterMap} from './Request';
 export {Response} from './Response';
 export {ResponseData} from './ResponseData';
-export {Handler, IHandlerError, IHandlerResponse} from './Handler';
-export {CORSMiddleware} from './CORSMiddleware';
+export {Handler} from './Handler';
 export {ServiceProvider} from './ServiceProvider';
 export {HTTPMethod} from './HTTPMethod';
 export {ServiceResponse} from './ServiceResponse';
-export {BackendAuthenticationMiddleware} from './BackendAuthenticationMiddleware';
 
 // Interfaces
 export {IDatabaseConfig} from './IDatabaseConfig';
 export {IJWTVerifyOptions} from './IJWTVerifyOptions';
-export {IHandler} from './IHandler';
 export {IRequestResponse} from './IRequestResponse';
 export {
     IConfig,
@@ -95,7 +92,6 @@ export {
 } from './IConfig';
 export {IFormData} from './IFormData';
 export {IDatabaseConnection} from './IDatabaseConnection';
-export {IServiceHeaders} from './IServiceHeaders';
 export {IAuthTokenData} from './IAuthTokenData';
 export {IQueryable} from './IQueryable';
 export {IDatabasePosition} from './IDatabasePosition';

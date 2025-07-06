@@ -7,7 +7,6 @@ import {Request} from '../src/Request';
 import {Response} from '../src/Response';
 import { IRequestResponse } from '../src/IRequestResponse';
 import { Handler } from '../src/Handler';
-// import { InternalError } from '../src/InternalError';
 import {EntityNotFoundError} from '../src/EntityNotFoundError';
 
 class TestMiddleware extends Middleware {
@@ -43,7 +42,7 @@ describe('Middlewares', () => {
     let status: any = null;
 
     beforeEach(() => {
-        middleware = new TestMiddleware();
+        middleware = new TestMiddleware(app);
         handler = new TestHandler(app);
         status = null;
         request = {
@@ -78,7 +77,7 @@ describe('Middlewares', () => {
     it('executes middleware in sequence', (done) => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
 
-        let next: TestMiddleware = new TestMiddleware();
+        let next: TestMiddleware = new TestMiddleware(app);
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
         (handler as any).$middlewares = [ middleware, next ];
 
@@ -111,7 +110,7 @@ describe('Middlewares', () => {
         let rejectionSpy: jasmine.Spy = spyOn((handler as any), '_onMiddlewareReject');
         let errorHandlerSpy: jasmine.Spy = spyOn((handler as any), '$handleResponseError').and.callThrough();
         
-        let next: TestMiddleware = new TestMiddleware();
+        let next: TestMiddleware = new TestMiddleware(app);
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
         (handler as any).$middlewares = [ middleware, next ];
 
@@ -135,7 +134,7 @@ describe('Middlewares', () => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
         let rejectionSpy: jasmine.Spy = spyOn((handler as any), '_onMiddlewareReject').and.callThrough();
         
-        let next: TestMiddleware = new TestMiddleware();
+        let next: TestMiddleware = new TestMiddleware(app);
         let nextSpy: jasmine.Spy = spyOn(next, '_execute');
         (handler as any).$middlewares = [ middleware, next ];
 

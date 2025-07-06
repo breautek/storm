@@ -14,8 +14,8 @@ import { StatusCode } from '../src/StatusCode';
 
 type HandlerCallback = (request: Request) => Promise<any>;
 
-let makeHandler = (callback: HandlerCallback): any => {
-    return class MockHandler extends Handler {
+let makeHandler = (app: MockApplication, callback: HandlerCallback): Handler => {
+    class MockHandler extends Handler {
         private async $handleRequest(request: Request): Promise<any> {
             return callback(request);
         }
@@ -28,6 +28,8 @@ let makeHandler = (callback: HandlerCallback): any => {
             return this.$handleRequest(request);
         }
     };
+
+    return new MockHandler(app);
 };
 
 describe('Response', () => {
@@ -44,14 +46,14 @@ describe('Response', () => {
     });
 
     it('can respond', async () => {
-        app.attachMockHandler('/success', makeHandler(async (request: Request) => {}));
+        app.attachMockHandler('/success', makeHandler(app, async (request: Request) => {}));
         await app.doMockGet('/success').then((response: IMockResponse) => {
             expect(response.status).toBe(204);
         });
     });
 
     it('can respond with data', async () => {
-        app.attachMockHandler('/successWithData', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/successWithData', makeHandler(app, async (request: Request) => {
             return 'hello';
         }));
         await app.doMockGet('/successWithData').then((response: IMockResponse) => {
@@ -61,7 +63,7 @@ describe('Response', () => {
     });
 
     it('can send string', async () => {
-        app.attachMockHandler('/sendString', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/sendString', makeHandler(app, async (request: Request) => {
             return 'hello123';
         }));
         await app.doMockGet('/sendString').then((response: IMockResponse) => {
@@ -71,7 +73,7 @@ describe('Response', () => {
     });
 
     it('can send number', async () => {
-        app.attachMockHandler('/sendNumber', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/sendNumber', makeHandler(app, async (request: Request) => {
             return 123;
         }));
         await app.doMockGet('/sendNumber').then((response: IMockResponse) => {
@@ -81,7 +83,7 @@ describe('Response', () => {
     });
 
     it('can send ResponseData', async () => {
-        app.attachMockHandler('/withResponseData', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/withResponseData', makeHandler(app, async (request: Request) => {
             let responseData: ResponseData = new ResponseData(400, 'test123');
             return responseData;
         }));
@@ -92,7 +94,7 @@ describe('Response', () => {
     });
 
     it('can send stormError', async () => {
-        app.attachMockHandler('/stormError', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/stormError', makeHandler(app, async (request: Request) => {
             let mockError: MockError = new MockError('mockerror');
             return mockError;
         }));
@@ -106,7 +108,7 @@ describe('Response', () => {
     });
 
     it('can throw stormError', async () => {
-        app.attachMockHandler('/stormError', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/stormError', makeHandler(app, async (request: Request) => {
             let mockError: MockError = new MockError('mockerror');
             throw mockError;
         }));
@@ -120,7 +122,7 @@ describe('Response', () => {
     });
 
     it('can redirect', async () => {
-        app.attachMockHandler('/redirect', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/redirect', makeHandler(app, async (request: Request) => {
             let response: ResponseData = new ResponseData(StatusCode.REDIR_FOUND);
             response.redirect('http://google.com');
             return response;
@@ -132,7 +134,7 @@ describe('Response', () => {
     });
 
     it('can set header', async () => {
-        app.attachMockHandler('/headers', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/headers', makeHandler(app, async (request: Request) => {
             let response: ResponseData = new ResponseData(StatusCode.OK_NO_CONTENT);
             response.setHeader('headerTest', 'headerValue');
             response.setHeader('X-Mock', 'true');
@@ -148,7 +150,7 @@ describe('Response', () => {
     });
 
     it('can error (no provided data)', async () => {
-        app.attachMockHandler('/error1', makeHandler((request: Request) => {
+        app.attachMockHandler('/error1', makeHandler(app, async (request: Request) => {
             throw new Error();
         }));
         await app.doMockGet('/error1').then((response: IMockResponse) => {
@@ -160,7 +162,7 @@ describe('Response', () => {
     });
 
     it('can error (provided string)', async () => {
-        app.attachMockHandler('/error2', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/error2', makeHandler(app, async (request: Request) => {
             throw 'mockerror';
         }));
         await app.doMockGet('/error2').then((response: IMockResponse) => {
@@ -172,7 +174,7 @@ describe('Response', () => {
     });
 
     it('can error (provided StormError)', async () => {
-        app.attachMockHandler('/error3', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/error3', makeHandler(app, async (request: Request) => {
             throw new MockError('mock');
         }));
         await app.doMockGet('/error3').then((response: IMockResponse) => {
@@ -184,7 +186,7 @@ describe('Response', () => {
     });
 
     it('can error (provided ResponseData)', async () => {
-        app.attachMockHandler('/error4', makeHandler((request: Request) => {
+        app.attachMockHandler('/error4', makeHandler(app, async (request: Request) => {
             throw new ResponseData(404, 'not found');
         }));
         await app.doMockGet('/error4').then((response: IMockResponse) => {
@@ -194,7 +196,7 @@ describe('Response', () => {
     });
 
     it('can send Error', async () => {
-        app.attachMockHandler('/internal', makeHandler((request: Request) => {
+        app.attachMockHandler('/internal', makeHandler(app, async (request: Request) => {
             throw new Error('test');
         }));
         await app.doMockGet('/internal').then((response: IMockResponse) => {
@@ -203,7 +205,7 @@ describe('Response', () => {
     });
 
     it('can pipe', async () => {
-        app.attachMockHandler('/pipe', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/pipe', makeHandler(app, async (request: Request) => {
             let response: ResponseData = new ResponseData(StatusCode.OK, FileSystem.createReadStream(Path.resolve('./spec/support/sample.txt')));
             return response;
         }));

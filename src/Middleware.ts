@@ -17,9 +17,21 @@
 import {Request} from './Request';
 import {Response} from './Response';
 import {IRequestResponse} from './IRequestResponse';
+import { Application } from './Application';
 
-export abstract class Middleware {
-    public constructor() {}
+/**
+ * @deprecated
+ */
+export abstract class Middleware<TApplication extends Application = Application> {
+    private $app: TApplication;
+
+    public constructor(app: TApplication) {
+        this.$app = app;
+    }
+
+    public getApplication(): TApplication {
+        return this.$app;
+    }
 
     protected abstract _execute(request: Request, response: Response): Promise<IRequestResponse>;
 

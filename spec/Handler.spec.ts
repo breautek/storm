@@ -7,8 +7,8 @@ import {StatusCode} from '../src/StatusCode';
 
 type HandlerCallback = (handler: Handler, request: Request, method: HTTPMethod) => Promise<any>;
 
-let makeHandler = (callback: HandlerCallback): any => {
-    return class MockHandler extends Handler {
+let makeHandler = (app: MockApplication, callback: HandlerCallback): any => {
+    class MockHandler extends Handler {
         private async $handleRequest(request: Request, method: HTTPMethod): Promise<any> {
             return callback(this, request, method);
         }
@@ -29,6 +29,8 @@ let makeHandler = (callback: HandlerCallback): any => {
             return this.$handleRequest(request, HTTPMethod.PUT);
         }
     };
+
+    return new MockHandler(app);
 }
 
 describe('Handler', () => {
@@ -45,7 +47,7 @@ describe('Handler', () => {
     });
 
     it('it has access token', async () => {
-        app.attachMockHandler('/access', makeHandler(async (handler: Handler, request: Request, method: HTTPMethod) => {
+        app.attachMockHandler('/access', makeHandler(app, async (handler: Handler, request: Request, method: HTTPMethod) => {
             expect(handler.getAccessToken(request)).toBe('secretToken');
         }));
         await app.doMockGet('/access', {
@@ -54,63 +56,63 @@ describe('Handler', () => {
     });
 
     it('it has access to app', async () => {
-        app.attachMockHandler('/app', makeHandler(async (handler: Handler, request: Request, method: HTTPMethod) => {
+        app.attachMockHandler('/app', makeHandler(app, async (handler: Handler, request: Request, method: HTTPMethod) => {
             expect(handler.getApplication() instanceof MockApplication).toBe(true);
         }));
         await app.doMockGet('/app');
     });
 
     it('can put', async () => {
-        app.attachMockHandler('/put', makeHandler(async (handler: Handler, request: Request, method: HTTPMethod) => {
+        app.attachMockHandler('/put', makeHandler(app, async (handler: Handler, request: Request, method: HTTPMethod) => {
             expect(method).toBe(HTTPMethod.PUT);
         }));
         await app.doMockPut('/put');
     });
 
     it('can get', async () => {
-        app.attachMockHandler('/get', makeHandler(async (handler: Handler, request: Request, method: HTTPMethod) => {
+        app.attachMockHandler('/get', makeHandler(app, async (handler: Handler, request: Request, method: HTTPMethod) => {
             expect(method).toBe(HTTPMethod.GET);
         }));
         await app.doMockGet('/get');
     });
 
     it('can post', async () => {
-        app.attachMockHandler('/post', makeHandler(async (handler: Handler, request: Request, method: HTTPMethod) => {
+        app.attachMockHandler('/post', makeHandler(app, async (handler: Handler, request: Request, method: HTTPMethod) => {
             expect(method).toBe(HTTPMethod.POST);
         }));
         await app.doMockPost('/post');
     });
 
     it('can delete', async () => {
-        app.attachMockHandler('/delete', makeHandler(async (handler: Handler, request: Request, method: HTTPMethod) => {
+        app.attachMockHandler('/delete', makeHandler(app, async (handler: Handler, request: Request, method: HTTPMethod) => {
             expect(method).toBe(HTTPMethod.DELETE);
         }));
         await app.doMockDelete('/delete');
     });
 
     it('get not impl', async () => {
-        app.attachMockHandler('/getNotImpl', Handler);
+        app.attachMockHandler('/getNotImpl', new Handler(app));
         await app.doMockGet('/getNotImpl').then((response: IMockResponse) => {
             expect(response.status).toBe(StatusCode.INTERNAL_NOT_IMPLEMENTED);
         });
     });
 
     it('post not impl', async () => {
-        app.attachMockHandler('/postNotImpl', Handler);
+        app.attachMockHandler('/postNotImpl', new Handler(app));
         await app.doMockPost('/postNotImpl').then((response: IMockResponse) => {
             expect(response.status).toBe(StatusCode.INTERNAL_NOT_IMPLEMENTED);
         });
     });
 
     it('delete not impl', async () => {
-        app.attachMockHandler('/deleteNotImpl', Handler);
+        app.attachMockHandler('/deleteNotImpl', new Handler(app));
         await app.doMockDelete('/deleteNotImpl').then((response: IMockResponse) => {
             expect(response.status).toBe(StatusCode.INTERNAL_NOT_IMPLEMENTED);
         });
     });
 
     it('put not impl', async () => {
-        app.attachMockHandler('/putNotImpl', Handler);
+        app.attachMockHandler('/putNotImpl', new Handler(app));
         await app.doMockPut('/putNotImpl').then((response: IMockResponse) => {
             expect(response.status).toBe(StatusCode.INTERNAL_NOT_IMPLEMENTED);
         });

@@ -19,7 +19,6 @@ import {ResponseData} from './ResponseData';
 import {StormError, IErrorResponse} from './StormError';
 import * as express from 'express';
 import { InternalError } from './InternalError';
-import { getInstance } from './instance';
 import { Stream } from 'stream';
 import { Application } from './Application';
 
@@ -108,7 +107,7 @@ export class Response<TResponse extends SendableData = SendableData, TErrorRespo
     // public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse | Buffer): void {
     public send(data?: SendableData): void {
         this.$send(data);
-        getInstance().getLogger().info(TAG, `API ${this.$requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.$created.getTime()}ms`);
+        this.$app.getLogger().info(TAG, `API ${this.$requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.$created.getTime()}ms`);
     }
 
     public pipe(stream: NodeJS.ReadableStream): void {

@@ -6,7 +6,6 @@ import {Logger} from '@arashi/logger';
 import {Handler} from '../../src/Handler';
 import { MockDB } from './MockDB';
 import { Request } from '../../src/Request';
-import {IHandler} from '../../src/IHandler';
 import {StatusCode} from '../../src/StatusCode';
 import {HTTPMethod} from '../../src/HTTPMethod';
 import * as http from 'http';
@@ -21,22 +20,28 @@ export interface IMockResponse {
     headers: any;
 }
 
-class TestHandler extends Handler {
+class TestHandler extends Handler<
+    Application,
+    void, void,
+    string, string,
+    string, string,
+    string, string
+> {
     public constructor(app: Application) {
         super(app);
     }
 
-    protected override async _get(request: Request): Promise<void> {}
+    protected override async _get(request: Request<void>): Promise<void> {}
 
-    protected override async _post(request: Request): Promise<any> {
+    protected override async _post(request: Request<string>): Promise<string> {
         return request.getBody();
     }
 
-    protected override async _put(request: Request): Promise<any> {
+    protected override async _put(request: Request<string>): Promise<string> {
         return request.getBody();
     }
 
-    protected override async _delete(request: Request): Promise<any> {
+    protected override async _delete(request: Request<string>): Promise<string> {
         return request.getBody();
     }
 }
@@ -51,7 +56,7 @@ export class TestApplication extends Application {
     }
 
     protected override _attachHandlers(): Promise<void> {
-        this.attachHandler('/echo', TestHandler);
+        this.attachHandler('/echo', new TestHandler(this));
         return Promise.resolve();
     }
 
@@ -82,12 +87,12 @@ export class MockApplication extends Application {
     }
 
     protected override _attachHandlers(): Promise<void> {
-        this.attachHandler('/echo', TestHandler);
-        this.attachHandler('/api/mock/v1/echo', TestHandler);
+        this.attachHandler('/echo', new TestHandler(this));
+        this.attachHandler('/api/mock/v1/echo', new TestHandler(this));
         return Promise.resolve();
     }
 
-    public attachMockHandler(url: string, handler: IHandler): void {
+    public attachMockHandler(url: string, handler: Handler): void {
         this.attachHandler(url, handler);
     }
 
@@ -168,7 +173,7 @@ export class NoServerApp extends Application {
     }
 
     protected override _attachHandlers(): Promise<void> {
-        this.attachHandler('/echo', TestHandler);
+        this.attachHandler('/echo', new TestHandler(this));
         return Promise.resolve();
     }
 
@@ -189,7 +194,7 @@ export class ConfigTestApp extends Application {
     }
 
     protected override _attachHandlers(): Promise<void> {
-        this.attachHandler('/echo', TestHandler);
+        this.attachHandler('/echo', new TestHandler(this));
         return Promise.resolve();
     }
 

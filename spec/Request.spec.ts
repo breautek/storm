@@ -77,13 +77,13 @@ describe('Request', () => {
     });
 
     it('can make form data requests', (done) => {
-        app.attachMockHandler('/form/', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/form/', new (makeHandler(async (request: Request) => {
             request.getForm().then((formData: IFormData) => {
                 expect(formData.fields.key).toEqual([ 'value' ]);
                 expect(request.getHeader('Content-Type').indexOf('multipart/form-data')).toBeGreaterThan(-1);
                 done();
             }).catch(fail);
-        }));
+        }))(app));
 
         let form = new FormData();
         form.append('key', 'value');
@@ -91,7 +91,7 @@ describe('Request', () => {
     });
 
     it('can pipe/unpipe', (done) => {
-        app.attachMockHandler('/pipes/', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/pipes/', new (makeHandler(async (request: Request) => {
             return new Promise<void>((resolve, reject) => {
                 let dumpFile: string = Path.resolve('./dump.txt');
                 let writable: Writable = FileSystem.createWriteStream(dumpFile);
@@ -104,7 +104,7 @@ describe('Request', () => {
 
                 request.pipe(writable);
             });
-        }));
+        }))(app));
         app.doMockPost('/pipes/', 'asdfasdf');
     });
 

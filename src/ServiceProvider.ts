@@ -15,10 +15,10 @@
 */
 
 import {Application} from './Application';
-import {IServiceHeaders} from './IServiceHeaders';
 import {HTTPMethod} from './HTTPMethod';
 import {ServiceResponse} from './ServiceResponse';
 import * as http from 'http';
+import { OutgoingHttpHeaders } from 'http2';
 
 const TAG: string = 'ServiceProvider';
 const NO_DATA: string = `|${0x0}|`;
@@ -78,8 +78,19 @@ export abstract class ServiceProvider {
         return `/api/${this._getBase()}/${this.getVersion()}/${url}${this.urlSuffix()}${queryString}`;
     }
 
-    public request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public request(method: HTTPMethod, url: string, accessToken: string, data: any, headers?: OutgoingHttpHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return new Promise<ServiceResponse>((resolve, reject) => {
+            if (!headers) {
+                headers = {};
+            }
+
+            headers[this.$app.getConfig().authentication_header] = accessToken;
+            headers[this.$app.getConfig().backend_authentication_header] = this.$getSecret();
+            
+            if (!headers['content-type']) {
+                headers['content-type'] = 'application/json';
+            }
+
             let httpOpts: http.RequestOptions = {
                 port: this._getPort(),
                 hostname: `${this._getDomain()}`,
@@ -87,13 +98,6 @@ export abstract class ServiceProvider {
                 path: url,
                 headers: headers || {}
             };
-
-            httpOpts.headers[this.$app.getConfig().authentication_header] = accessToken;
-            httpOpts.headers[this.$app.getConfig().backend_authentication_header] = this.$getSecret();
-            
-            if (!httpOpts.headers['Content-Type']) {
-                httpOpts.headers['Content-Type'] = 'application/json';
-            }
 
             this.$app.getLogger().trace(TAG, `ServiceProvider Request`);
             this.$app.getLogger().trace(TAG, `METHOD: ${httpOpts.method}`);
@@ -137,19 +141,19 @@ export abstract class ServiceProvider {
         request.end();
     }
 
-    public get(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public get(url: string, accessToken: string, data?: any, headers?: OutgoingHttpHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.GET, this._createURL(url, data), accessToken, NO_DATA, headers, additionalOptions);
     }
 
-    public post(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public post(url: string, accessToken: string, data?: any, headers?: OutgoingHttpHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.POST, this._createURL(url), accessToken, data, headers, additionalOptions);
     }
 
-    public put(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public put(url: string, accessToken: string, data?: any, headers?: OutgoingHttpHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.PUT, this._createURL(url), accessToken, data, headers, additionalOptions);
     }
 
-    public delete(url: string, accessToken: string, data?: any, headers?: IServiceHeaders, additionalOptions?: any): Promise<ServiceResponse> {
+    public delete(url: string, accessToken: string, data?: any, headers?: OutgoingHttpHeaders, additionalOptions?: any): Promise<ServiceResponse> {
         return this.request(HTTPMethod.DELETE, this._createURL(url), accessToken, data, headers, additionalOptions);
     }
 }

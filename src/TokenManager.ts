@@ -20,6 +20,7 @@ import {IJWTVerifyOptions} from './IJWTVerifyOptions';
 import {JWTVerifyOptionsParser} from './JWTVerifyOptionsParser';
 import {randomBytes} from 'crypto';
 import { IAuthTokenData } from './IAuthTokenData';
+import { StringValue } from 'ms';
 
 // const TAG: string = 'TokenManager';
 
@@ -30,7 +31,7 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
         this.$secret = secret;
     }
 
-    public sign(payload: {[key: string]: any}, expiresIn: string | number): Promise<Token> {
+    public sign(payload: {[key: string]: any}, expiresIn: StringValue | number): Promise<Token> {
         return new Promise<Token>((resolve, reject) => {
             randomBytes(64, (err: Error, buffer: Buffer) => {
                 if (err) {

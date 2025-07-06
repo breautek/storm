@@ -1,5 +1,5 @@
 /*
-   Copyright 2017-2021 Norman Breau
+   Copyright 2017-2025 Norman Breau
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import {TokenManager} from './TokenManager';
 import {ApplicationEvent} from './ApplicationEvent';
 import {Database} from './Database';
 import {Handler} from './Handler';
-import {IHandler} from './IHandler';
 import {Request} from './Request';
 import {Response} from './Response';
 import {ConfigLoader} from './ConfigLoader';
@@ -164,8 +163,24 @@ export abstract class Application
             type : 'application/json',
             limit : this.getRequestSizeLimit()
         }));
+        this.$server.use(BodyParser.urlencoded({
+            type: [
+                '*/form',
+                '*/x-www-form-urlencoded'
+            ]
+        }));
         this.$server.use(BodyParser.text({
             type : 'text/*',
+            limit : this.getRequestSizeLimit()
+        }));
+        
+        this.$server.use(BodyParser.raw({
+            type: [
+                'application/*',
+                'image/*',
+                'video/*',
+                'audio/*'
+            ],
             limit : this.getRequestSizeLimit()
         }));
 
@@ -345,11 +360,9 @@ export abstract class Application
     /**
      * 
      * @param path The URL API path. E.g. /api/myService/myCommand/
-     * @param HandlerClass The concrete class (not the instance) of Handler to be used for this API.
+     * @param Handler
      */
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    public attachHandler(path: string, HandlerClass: IHandler): void {
-        let handler: Handler = new HandlerClass(this);
+    public attachHandler(path: string, handler: Handler): void {
         this.attachHandlerInstance(path, handler);
     }
 
