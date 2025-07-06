@@ -52,6 +52,8 @@ export type TSupportedResponsePrimitives =
  * type MyInterface = TSerializableResponse<{...}>;
  * ```
  * 
+ * NOTE:    This actually will allow more than what is within the `TSupportedResponsePrimitives` union type.
+ *          TypeScript doesn't offer a way to properly restrict or infer the type.
  */
 export type TSerializableResponse<T extends object> = {
     [k in keyof T]: TSupportedResponsePrimitives;
