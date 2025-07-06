@@ -32,7 +32,7 @@ export type TSupportedResponsePrimitives =
     IErrorResponse |
     void |
     TSupportedResponsePrimitives[] |
-    {[key: string]: TSupportedResponsePrimitives; }
+    TSerializableResponse<object>
 ;
 
 /**
@@ -43,7 +43,7 @@ export type TSupportedResponsePrimitives =
  * 
  * ```typescript
  *  interface MyInterface {...}
- *  type TMyInterface = FuseSerializable<MyInterface>;
+ *  type TMyInterface = TSerializableResponse<MyInterface>;
  * ```
  * 
  *  OR
@@ -53,7 +53,7 @@ export type TSupportedResponsePrimitives =
  * ```
  * 
  */
-export type TSerializableResponse<T> = {
+export type TSerializableResponse<T extends object> = {
     [k in keyof T]: TSupportedResponsePrimitives;
 }
 

@@ -130,19 +130,27 @@ describe('Handler', () => {
                 valid: boolean;
             };
             aArray: number[];
-            db?: IDatabasePosition;
+            db: IDatabasePosition;
         }>;
         class JSONHandler extends Handler<Application, void, void, void, IJSONResponse> {}
         let handler: JSONHandler = new JSONHandler(app);
         app.attachMockHandler('/asdf', handler);
-        await app.doMockPost('/asdf', JSON.stringify({
+        let dbPos: IDatabasePosition = {
+            page: 123,
+            position: 123
+        };
+
+        let dataset: IJSONResponse = {
             aBoolean: true,
             aString: 'string',
             aNumber: 123,
             aJSON: {
                 valid: false
             },
-            aArray: [1, 2, 3]
-        }));
+            aArray: [1, 2, 3],
+            db: dbPos
+        };
+
+        await app.doMockPost('/asdf', JSON.stringify(dataset));
     });
 });
