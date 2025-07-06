@@ -21,21 +21,34 @@ import * as express from 'express';
 import { InternalError } from './InternalError';
 import { getInstance } from './instance';
 import { Stream } from 'stream';
+import { Application } from './Application';
 
 const TAG: string = 'Response';
 
-export type SendableData = ResponseData | Error | IErrorResponse | Buffer | any;
+export type SendableData =
+    ResponseData<SendableData> |
+    Error |
+    IErrorResponse |
+    Buffer |
+    string |
+    number |
+    void |
+    ReadableStream |
+    Stream.Readable
+;
 
 export interface IHeaderKeyValuePair {
     [key: string]: string;
 }
 
-export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorResponse | string> {
+export class Response<TResponse extends SendableData = SendableData, TErrorResponse extends SendableData = SendableData> {
+    private $app: Application;
     private $response: express.Response;
     private $created: Date;
     private $requestURL: string;
 
-    public constructor(response: express.Response, requestURL: string) {
+    public constructor(app: Application, response: express.Response, requestURL: string) {
+        this.$app = app;
         this.$response = response;
         this.$created = new Date();
         this.$requestURL = requestURL;
@@ -54,7 +67,7 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
         this.$response.redirect(url);
     }
 
-    private $send(data?: TResponse | TErrorResponse | StormError | IErrorResponse | Buffer, statusOverride?: StatusCode): void {
+    private $send(data?: SendableData, statusOverride?: StatusCode): void {
         if (data === null || data === undefined) {
             this.setStatus(statusOverride || StatusCode.OK_NO_CONTENT);
             this.$response.send()
@@ -92,7 +105,8 @@ export class Response<TResponse = SendableData, TErrorResponse = Error | IErrorR
         }
     }
 
-    public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse | Buffer): void {
+    // public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse | Buffer): void {
+    public send(data?: SendableData): void {
         this.$send(data);
         getInstance().getLogger().info(TAG, `API ${this.$requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.$created.getTime()}ms`);
     }

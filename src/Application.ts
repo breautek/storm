@@ -356,19 +356,19 @@ export abstract class Application
     public attachHandlerInstance(path: string, handler: Handler): void {
         this.$server.get(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
-            handler.get(r, new Response(response, r.getURL()));
+            handler.get(r, new Response(this, response, r.getURL()));
         });
         this.$server.post(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
-            handler.post(r, new Response(response, r.getURL()));
+            handler.post(r, new Response(this, response, r.getURL()));
         });
         this.$server.put(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
-            handler.put(r, new Response(response, r.getURL()));
+            handler.put(r, new Response(this, response, r.getURL()));
         });
         this.$server.delete(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
-            handler.delete(r, new Response(response, r.getURL()));
+            handler.delete(r, new Response(this, response, r.getURL()));
         });
     }
 

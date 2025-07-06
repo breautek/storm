@@ -1,5 +1,5 @@
 /*
-   Copyright 2017-2021 Norman Breau
+   Copyright 2017-2025 Norman Breau
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@
 */
 
 import {Request} from './Request';
-import {Response} from './Response';
+import {Response, SendableData} from './Response';
 
-export interface IRequestResponse<TRequest = any, TResponse = any> {
+export interface IRequestResponse<TRequest = any, TResponse extends SendableData = SendableData> {
     request: Request<TRequest>;
     response: Response<TResponse>;
 }

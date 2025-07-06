@@ -1,5 +1,5 @@
 /*
-   Copyright 2017-2021 Norman Breau
+   Copyright 2017-2025 Norman Breau
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -15,9 +15,8 @@
 */
 
 import {Application} from './Application';
-import {getInstance} from './instance';
 import {Request} from './Request';
-import {Response} from './Response';
+import {Response, SendableData} from './Response';
 import {Middleware} from './Middleware';
 import {StormError} from './StormError';
 import {IConfig} from './IConfig';
@@ -32,6 +31,8 @@ import { HTTPMethod } from './HTTPMethod';
 const TAG: string = 'Handler';
 
 /**
+ * @deprecated No longer used. Will be removed in the next major
+ * 
  * IHandlerResponse can actually accept any arbitrary object, however it may do
  * certain things depending on the type of object it receives.
  * 
@@ -45,6 +46,8 @@ const TAG: string = 'Handler';
 export type IHandlerResponse = ResponseData | ReadableStream | ReadStream | any | void;
 
 /**
+ * @deprecated No longer used, will be removed in the next major
+ * 
  * Like IHandlerResponse, an IHandlerError can be any arbitrary type of object,
  * however it's recommended that the type be of a StormError.
  * 
@@ -55,14 +58,14 @@ export type IHandlerError = StormError | Error | any;
 
 export class Handler<
         TApplication extends Application = Application,
-        TGetRequest     = any,
-        TGetResponse    = IHandlerResponse,
-        TPostRequest    = any,
-        TPostResponse   = IHandlerResponse,
-        TPutRequest     = any,
-        TPutResponse    = IHandlerResponse,
-        TDeleteRequest  = any,
-        TDeleteResponse = IHandlerResponse,
+        TGetRequest     extends SendableData    = void,
+        TGetResponse    extends SendableData    = void,
+        TPostRequest    extends SendableData    = void,
+        TPostResponse   extends SendableData    = void,
+        TPutRequest     extends SendableData    = void,
+        TPutResponse    extends SendableData    = void,
+        TDeleteRequest  extends SendableData    = void,
+        TDeleteResponse extends SendableData    = void,
     >  {
         
     private $app: TApplication;
@@ -82,7 +85,7 @@ export class Handler<
     }
 
     public getAccessToken(request: Request): string {
-        let config: IConfig = getInstance().getConfig();
+        let config: IConfig = this.$app.getConfig();
         let authHeader: string = config.authentication_header;
         return request.getHeader(authHeader);
     }
@@ -93,7 +96,7 @@ export class Handler<
             response
         };
 
-        let logger: BaseLogger = getInstance().getLogger();
+        let logger: BaseLogger = this.$app.getLogger();
 
         try {
             for (let i: number = 0; i < this.$middlewares.length; i++) {
@@ -135,11 +138,11 @@ export class Handler<
 
     protected _onMiddlewareReject(request: Request, response: Response, error: StormError): void {}
 
-    private $handleResponse<TResponse>(response: Response<TResponse>, data: any): void {
+    private $handleResponse<TResponse extends SendableData>(response: Response<TResponse>, data: TResponse | ResponseData<TResponse>): void {
         response.send(data);
     }
 
-    private $handleResponseError<TResponse>(response: Response<TResponse>, error: any): void {
+    private $handleResponseError<TResponse extends SendableData>(response: Response<TResponse>, error: any): void {
         response.error(error);
     }
 
@@ -148,7 +151,7 @@ export class Handler<
 
         try {
             let result: IRequestResponse<TGetRequest, TGetResponse> = await this.$executeMiddlewares(request, response);
-            let req: any = await this._get(result.request);
+            let req: TGetResponse | ResponseData<TGetResponse> = await this._get(result.request);
             this.$handleResponse(response, req);
         }
         catch (ex) {
@@ -187,7 +190,7 @@ export class Handler<
 
         try {
             let result: IRequestResponse<TDeleteRequest, TDeleteResponse> = await this.$executeMiddlewares(request, response);
-            let req: any = await this._delete(result.request);
+            let req: ResponseData<TDeleteResponse> | TDeleteResponse = await this._delete(result.request);
             this.$handleResponse(response, req);
         }
         catch (ex) {
@@ -195,19 +198,19 @@ export class Handler<
         }
     }
 
-    protected async _get(request: Request<TGetRequest>): Promise<TGetResponse> {
+    protected async _get(request: Request<TGetRequest>): Promise<TGetResponse | ResponseData<TGetResponse>> {
         throw new NotImplementedError(HTTPMethod.GET);
     }
 
-    protected async _post(request: Request<TPostRequest>): Promise<TPostResponse> {
+    protected async _post(request: Request<TPostRequest>): Promise<TPostResponse | ResponseData<TPostResponse>> {
         throw new NotImplementedError(HTTPMethod.POST);
     }
 
-    protected async _put(request: Request<TPutRequest>): Promise<TPutResponse> {
+    protected async _put(request: Request<TPutRequest>): Promise<TPutResponse | ResponseData<TPutResponse>> {
         throw new NotImplementedError(HTTPMethod.PUT);
     }
 
-    protected async _delete(request: Request<TDeleteRequest>): Promise<TDeleteResponse> {
+    protected async _delete(request: Request<TDeleteRequest>): Promise<TDeleteResponse | ResponseData<TDeleteResponse>> {
         throw new NotImplementedError(HTTPMethod.DELETE);
     }
 }
