@@ -24,8 +24,7 @@ import { Application } from './Application';
 
 const TAG: string = 'Response';
 
-export type SendableData =
-    ResponseData<SendableData> |
+type SendableDataPrimitives =
     Error |
     IErrorResponse |
     Buffer |
@@ -33,8 +32,15 @@ export type SendableData =
     number |
     void |
     ReadableStream |
-    Stream.Readable
-;
+    Stream.Readable |
+    SendableDataPrimitives[];
+type _SendableData = SendableDataPrimitives | Record<string, SendableDataPrimitives>;
+
+export interface IStormSendable {
+    [key: string]: _SendableData;
+}
+
+export type SendableData = IStormSendable | _SendableData | ResponseData<SendableData> | void;
 
 export interface IHeaderKeyValuePair {
     [key: string]: string;

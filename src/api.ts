@@ -73,7 +73,7 @@ export {LockWaitTimeoutError} from './LockWaitTimeoutError';
 export {StatusCode} from './StatusCode';
 export {Middleware} from './Middleware';
 export {Request, IParameterMap} from './Request';
-export {Response} from './Response';
+export {Response, IStormSendable, SendableData} from './Response';
 export {ResponseData} from './ResponseData';
 export {Handler} from './Handler';
 export {ServiceProvider} from './ServiceProvider';
