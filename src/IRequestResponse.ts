@@ -15,9 +15,9 @@
 */
 
 import {Request} from './Request';
-import {Response, SendableData} from './Response';
+import {Response, TSupportedResponseTypes} from './Response';
 
-export interface IRequestResponse<TRequest = any, TResponse extends SendableData = SendableData> {
+export interface IRequestResponse<TRequest = any, TResponse extends TSupportedResponseTypes = TSupportedResponseTypes> {
     request: Request<TRequest>;
     response: Response<TResponse>;
 }

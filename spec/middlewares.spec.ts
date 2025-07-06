@@ -4,7 +4,7 @@ import {
 } from './support/TestApplication';
 import { Middleware } from '../src/Middleware';
 import {Request} from '../src/Request';
-import {Response} from '../src/Response';
+import {Response, TSupportedResponseTypes} from '../src/Response';
 import { IRequestResponse } from '../src/IRequestResponse';
 import { Handler } from '../src/Handler';
 import {EntityNotFoundError} from '../src/EntityNotFoundError';
@@ -12,7 +12,7 @@ import {EntityNotFoundError} from '../src/EntityNotFoundError';
 class TestMiddleware extends Middleware {
     public name: string;
 
-    public _execute(request: Request, response: Response): Promise<IRequestResponse> {
+    public _execute(request: Request, response: Response<TSupportedResponseTypes>): Promise<IRequestResponse> {
         return null;
     }
 }

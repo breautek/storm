@@ -15,14 +15,14 @@
 */
 
 import {Request} from './Request';
-import {Response} from './Response';
+import {Response, TSupportedResponseTypes} from './Response';
 import {IRequestResponse} from './IRequestResponse';
 import { Application } from './Application';
 
 /**
  * @deprecated
  */
-export abstract class Middleware<TApplication extends Application = Application> {
+export abstract class Middleware<TApplication extends Application = Application, TResponse extends TSupportedResponseTypes = TSupportedResponseTypes> {
     private $app: TApplication;
 
     public constructor(app: TApplication) {
@@ -33,9 +33,9 @@ export abstract class Middleware<TApplication extends Application = Application>
         return this.$app;
     }
 
-    protected abstract _execute(request: Request, response: Response): Promise<IRequestResponse>;
+    protected abstract _execute(request: Request, response: Response<TResponse>): Promise<IRequestResponse>;
 
-    public execute(request: Request, response: Response): Promise<IRequestResponse> {
+    public execute(request: Request, response: Response<TResponse>): Promise<IRequestResponse> {
         return this._execute(request, response);
     }
 }

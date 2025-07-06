@@ -16,7 +16,7 @@
 
 import {Application} from './Application';
 import {Request} from './Request';
-import {Response, SendableData} from './Response';
+import {Response, TSupportedResponseTypes} from './Response';
 import {Middleware} from './Middleware';
 import {StormError} from './StormError';
 import {IConfig} from './IConfig';
@@ -31,14 +31,14 @@ const TAG: string = 'Handler';
 
 export class Handler<
         TApplication extends Application = Application,
-        TGetRequest     extends SendableData    = void | SendableData,
-        TGetResponse    extends SendableData    = void | SendableData,
-        TPostRequest    extends SendableData    = void | SendableData,
-        TPostResponse   extends SendableData    = void | SendableData,
-        TPutRequest     extends SendableData    = void | SendableData,
-        TPutResponse    extends SendableData    = void | SendableData,
-        TDeleteRequest  extends SendableData    = void | SendableData,
-        TDeleteResponse extends SendableData    = void | SendableData
+        TGetRequest                             = void,
+        TGetResponse    extends TSupportedResponseTypes    = TSupportedResponseTypes,
+        TPostRequest                            = void,
+        TPostResponse   extends TSupportedResponseTypes    = TSupportedResponseTypes,
+        TPutRequest                             = void,
+        TPutResponse    extends TSupportedResponseTypes    = TSupportedResponseTypes,
+        TDeleteRequest                          = void,
+        TDeleteResponse extends TSupportedResponseTypes    = TSupportedResponseTypes
     >  {
         
     private $app: TApplication;
@@ -76,7 +76,7 @@ export class Handler<
      * @param response 
      * @returns 
      */
-    private async $executeMiddlewares(request: Request, response: Response): Promise<IRequestResponse> {
+    private async $executeMiddlewares(request: Request, response: Response<any>): Promise<IRequestResponse> {
         let result: IRequestResponse = {
             request,
             response
@@ -128,13 +128,13 @@ export class Handler<
      * @param response 
      * @param error 
      */
-    protected _onMiddlewareReject(request: Request, response: Response, error: StormError): void {}
+    protected _onMiddlewareReject(request: Request, response: Response<any>, error: StormError): void {}
 
-    private $handleResponse<TResponse extends SendableData>(response: Response<TResponse>, data: TResponse | ResponseData<TResponse>): void {
+    private $handleResponse<TResponse extends TGetResponse | TPostResponse | TPutResponse | TDeleteResponse>(response: Response<TResponse>, data: TResponse | ResponseData<TResponse>): void {
         response.send(data);
     }
 
-    private $handleResponseError<TResponse extends SendableData>(response: Response<TResponse>, error: any): void {
+    private $handleResponseError(response: Response<StormError>, error: StormError | unknown): void {
         response.error(error);
     }
 
@@ -147,7 +147,7 @@ export class Handler<
             this.$handleResponse(response, req);
         }
         catch (ex) {
-            this.$handleResponseError(response, ex);
+            this.$handleResponseError(response as Response<StormError>, ex);
         }
     }
 
@@ -160,7 +160,7 @@ export class Handler<
             this.$handleResponse(response, req);
         }
         catch (ex) {
-            this.$handleResponseError(response, ex);
+            this.$handleResponseError(response as Response<StormError>, ex);
         }
     }
 
@@ -173,7 +173,7 @@ export class Handler<
             this.$handleResponse(response, req);
         }
         catch (ex) {
-            this.$handleResponseError(response, ex);
+            this.$handleResponseError(response as Response<StormError>, ex);
         }
     }
 
@@ -186,7 +186,7 @@ export class Handler<
             this.$handleResponse(response, req);
         }
         catch (ex) {
-            this.$handleResponseError(response, ex);
+            this.$handleResponseError(response as Response<StormError>, ex);
         }
     }
 

@@ -4,6 +4,9 @@ import {Request} from '../src/Request';
 import {Handler} from '../src/Handler';
 import {HTTPMethod} from '../src/HTTPMethod';
 import {StatusCode} from '../src/StatusCode';
+import { Application } from '../src/Application';
+import { TSerializableResponse } from '../src/Response';
+import { IDatabasePosition } from '../src/IDatabasePosition';
 
 type HandlerCallback = (handler: Handler, request: Request, method: HTTPMethod) => Promise<any>;
 
@@ -116,5 +119,30 @@ describe('Handler', () => {
         await app.doMockPut('/putNotImpl').then((response: IMockResponse) => {
             expect(response.status).toBe(StatusCode.INTERNAL_NOT_IMPLEMENTED);
         });
+    });
+
+    it('handler with json response', async () => {
+        type IJSONResponse = TSerializableResponse<{
+            aBoolean: boolean;
+            aString: string;
+            aNumber: number;
+            aJSON: {
+                valid: boolean;
+            };
+            aArray: number[];
+            db?: IDatabasePosition;
+        }>;
+        class JSONHandler extends Handler<Application, void, void, void, IJSONResponse> {}
+        let handler: JSONHandler = new JSONHandler(app);
+        app.attachMockHandler('/asdf', handler);
+        await app.doMockPost('/asdf', JSON.stringify({
+            aBoolean: true,
+            aString: 'string',
+            aNumber: 123,
+            aJSON: {
+                valid: false
+            },
+            aArray: [1, 2, 3]
+        }));
     });
 });

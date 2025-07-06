@@ -24,29 +24,52 @@ import { Application } from './Application';
 
 const TAG: string = 'Response';
 
-type SendableDataPrimitives =
-    Error |
-    IErrorResponse |
-    Buffer |
-    string |
+export type TSupportedResponsePrimitives =
     number |
+    boolean |
+    string |
+    Date |
+    IErrorResponse |
     void |
-    ReadableStream |
-    Stream.Readable |
-    SendableDataPrimitives[];
-type _SendableData = SendableDataPrimitives | Record<string, SendableDataPrimitives>;
+    TSupportedResponsePrimitives[] |
+    {[key: string]: TSupportedResponsePrimitives; }
+;
 
-export interface IStormSendable {
-    [key: string]: _SendableData;
+/**
+ * Utility type wrap, useful if you have a concrete interface of TSupportedResponsePrimitives properties.
+ * Use this to declare that your interface is Response Serializable.
+ * 
+ * e.g.
+ * 
+ * ```typescript
+ *  interface MyInterface {...}
+ *  type TMyInterface = FuseSerializable<MyInterface>;
+ * ```
+ * 
+ *  OR
+ * 
+ * ```typescript
+ * type MyInterface = TSerializableResponse<{...}>;
+ * ```
+ * 
+ */
+export type TSerializableResponse<T> = {
+    [k in keyof T]: TSupportedResponsePrimitives;
 }
 
-export type SendableData = IStormSendable | _SendableData | ResponseData<SendableData> | void;
+export type TSupportedResponseTypes =
+    TSupportedResponsePrimitives |
+    Error |
+    StormError |
+    Buffer |
+    ReadableStream |
+    Stream.Readable;
 
 export interface IHeaderKeyValuePair {
     [key: string]: string;
 }
 
-export class Response<TResponse extends SendableData = SendableData, TErrorResponse extends SendableData = SendableData> {
+export class Response<TResponse extends TSupportedResponseTypes> {
     private $app: Application;
     private $response: express.Response;
     private $created: Date;
@@ -59,7 +82,7 @@ export class Response<TResponse extends SendableData = SendableData, TErrorRespo
         this.$requestURL = requestURL;
     }
 
-    public setStatus(status: StatusCode): Response<TResponse, TErrorResponse> {
+    public setStatus(status: StatusCode): Response<TResponse> {
         this.$response.status(status);
         return this;
     }
@@ -72,7 +95,7 @@ export class Response<TResponse extends SendableData = SendableData, TErrorRespo
         this.$response.redirect(url);
     }
 
-    private $send(data?: SendableData, statusOverride?: StatusCode): void {
+    private $send(data?: TResponse | ResponseData<TResponse> | ResponseData<StormError> | StormError | IErrorResponse, statusOverride?: StatusCode): void {
         if (data === null || data === undefined) {
             this.setStatus(statusOverride || StatusCode.OK_NO_CONTENT);
             this.$response.send()
@@ -111,7 +134,7 @@ export class Response<TResponse extends SendableData = SendableData, TErrorRespo
     }
 
     // public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse | Buffer): void {
-    public send(data?: SendableData): void {
+    public send(data?: TResponse | ResponseData<TResponse> | ResponseData<StormError> | StormError | IErrorResponse): void {
         this.$send(data);
         this.$app.getLogger().info(TAG, `API ${this.$requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.$created.getTime()}ms`);
     }
@@ -147,7 +170,7 @@ export class Response<TResponse extends SendableData = SendableData, TErrorRespo
         return this.$response.headersSent;
     }
 
-    public error(error?: TErrorResponse | ResponseData<TErrorResponse>): void {
+    public error(error?: StormError | IErrorResponse | ResponseData<StormError> | unknown): void {
         if (error) {
             if (error instanceof StormError) {
                 this.send(error);
@@ -157,9 +180,8 @@ export class Response<TResponse extends SendableData = SendableData, TErrorRespo
                 for (let header of headers) {
                     this.setHeader(header[0], header[1]);
                 }
-                // If it was not ResponseData<TResponse> then
-                // the method signature should have caught it
-                this.send((error as unknown as TErrorResponse));
+                
+                this.send(error);
             }
             else {
                 this.send(new InternalError(error));
