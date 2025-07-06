@@ -1,6 +1,6 @@
 {
   "name": "@breautek/storm",
-  "version": "8.6.0",
+  "version": "9.0.0-dev.0",
   "description": "Object-Oriented REST API framework",
   "main": "lib/api.js",
   "types": "lib/api.d.ts",
