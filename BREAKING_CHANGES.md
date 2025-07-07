@@ -3,6 +3,41 @@
 
 This document describes high overview of breaking changes in between major versions. View the [CHANGELOG.md](./CHANGELOG.md) for more granular changes at the commit level.
 
+# 8.x -> 9.x
+
+## Attaching Handlers
+
+Attach handler now accepts an instance, not a class definition.
+
+```typescript
+// Old way
+this.attachHandler('/api/section/v1/paging/sections/list/iri/', GetIRIByPage);
+
+// New way
+this.attachHandler('/api/section/v1/paging/sections/list/iri/', new GetIRIByPage(this));
+```
+
+## Handler Request/Response types
+
+The types are now more restricted to things that can be serialized over the wire.
+The types were also adjusted so that type `T` can be declared and you can either return `T` directly, or wrap it in a `ResponseData<T>`.
+
+You don't need to explicitly declare that `ResponseData<T>` will be returned.
+
+## IServiceHeaders
+
+This interface has been removed it can replaced by Node's own `OutgoingHeaders` type, found inside the `http` package.
+
+## Middlewares
+
+The Storm middleware system is deprecated, but still supported for the time being.
+Middlewares now need an instance of the `Application` class passed in.
+
+## Transient dependency updates
+
+- `@types/jsonwebtoken` was updated and included some breaking changes in types, which shouldn't affect application projects, but may affect library projects.
+- `commander` was updated, no known breaking changes, but projects that uses the Commander API extensively may yield behaviour differences.
+
 # 7.x -> 8.x
 
 ## Formidable
