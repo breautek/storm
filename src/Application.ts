@@ -173,16 +173,6 @@ export abstract class Application
             type : 'text/*',
             limit : this.getRequestSizeLimit()
         }));
-        
-        this.$server.use(BodyParser.raw({
-            type: [
-                'application/*',
-                'image/*',
-                'video/*',
-                'audio/*'
-            ],
-            limit : this.getRequestSizeLimit()
-        }));
 
         this.$getLogger().trace(TAG, 'Attaching handlers...');
         await this._attachHandlers();
