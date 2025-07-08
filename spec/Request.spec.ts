@@ -19,6 +19,7 @@ import { ResponseData } from '../src/ResponseData';
 import { JWTError } from '../src/JWTError';
 import { StatusCode } from '../src/StatusCode';
 import { getInstance } from '../src/instance';
+import { IDatabasePosition } from '../src/IDatabasePosition';
 
 type HandlerCallback = (request: Request) => Promise<void>;
 
@@ -52,7 +53,7 @@ describe('Request', () => {
     });
 
     it('can make request()', async () => {
-        app.attachMockHandler('/getHeaders', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/getHeaders', new (makeHandler(async (request: Request) => {
             let headers: http.IncomingHttpHeaders = request.getHeaders();
             expect(headers.host).toBe(`localhost:${app.getPort()}`);
             expect(request.isSecure()).toBe(false);
@@ -64,15 +65,68 @@ describe('Request', () => {
             expect(request.getForwardedIP()).toBe(null);
             expect(request.getParams()).toEqual({});
             expect(request.getHeader('Content-Type')).toBe(null);
-        }));
+        }))(app));
         await app.doMockGet('/getHeaders?test=1');
     });
 
+    it('can fetch DB position markers', async () => {
+        app.attachMockHandler('/getDBMarkers', new (makeHandler(async (request: Request) => {
+            jest.spyOn(request, 'getHeader').mockImplementation((name: string) => {
+                if (name === 'X-DATABASE-PAGE') {
+                    return '2';
+                }
+                else if (name === 'X-DATABASE-POSITION') {
+                    return '123'
+                }
+
+                return '';
+            });
+
+            let pos: IDatabasePosition = request.getDatabasePosition();
+
+            expect(pos).toBe({
+                page: 2,
+                position: 123
+            });
+        }))(app));
+
+        await app.doMockGet('/getDBMarkers');
+    });
+
+    it('getDatabasePosition returns null if DB pos headers are not parseable', async () => {
+        app.attachMockHandler('/getDBMarkersNull', new (makeHandler(async (request: Request) => {
+            let pos: IDatabasePosition = request.getDatabasePosition();
+            expect(pos).toBe(null);
+        }))(app));
+        
+        await app.doMockGet('/getDBMarkersNull');
+    });
+
+    it('getDatabasePosition returns null if DB pos headers contains non-numbers', async () => {
+        app.attachMockHandler('/getDBMarkersNull', new (makeHandler(async (request: Request) => {
+            jest.spyOn(request, 'getHeader').mockImplementation((name: string) => {
+                if (name === 'X-DATABASE-PAGE') {
+                    return 'asdf';
+                }
+                else if (name === 'X-DATABASE-POSITION') {
+                    return 'asdf'
+                }
+
+                return '';
+            });
+
+            let pos: IDatabasePosition = request.getDatabasePosition();
+            expect(pos).toBe(null);
+        }))(app));
+        
+        await app.doMockGet('/getDBMarkersNull');
+    });
+
     it('can make parameter request()', async () => {
-        app.attachMockHandler('/param/:name/', makeHandler(async (request: Request) => {
+        app.attachMockHandler('/param/:name/', new (makeHandler(async (request: Request) => {
             expect(request.getParams()).toEqual({name:'bob'});
             expect(request.getParam('name')).toBe('bob');
-        }));
+        }))(app));
         await app.doMockGet('/param/bob/');
     });
 
@@ -122,7 +176,7 @@ describe('Request', () => {
                 test: '123'
             });
 
-            app.attachMockHandler('/auth/', makeHandler(async (request: Request) => {
+            app.attachMockHandler('/auth/', new (makeHandler(async (request: Request) => {
                 try {
                     let tokenData: any = await request.getAuthenticationToken();
                     expect(tokenData.test).toBe('123');
@@ -130,7 +184,7 @@ describe('Request', () => {
                 catch (ex) {
                     fail(ex);
                 }
-            }));
+            }))(app));
             await app.doMockGet('/auth/', {
                 'X-BT-AUTH': token.getSignature()
             });
@@ -141,7 +195,7 @@ describe('Request', () => {
             let token: Token = await tm.sign({
                 test: '123'
             }, '1d')
-            app.attachMockHandler('/auth/test1', makeHandler(async (request: Request) => {
+            app.attachMockHandler('/auth/test1', new (makeHandler(async (request: Request) => {
                 try {
                     await request.getAuthenticationToken();
                     fail('Unexpected success');
@@ -154,7 +208,7 @@ describe('Request', () => {
                         reason: 'invalid signature'
                     });
                 }
-            }));
+            }))(app));
             await app.doMockGet('/auth/test1', {
                 'X-BT-AUTH': token.getSignature()
             });
@@ -166,7 +220,7 @@ describe('Request', () => {
                 test: '123'
             }, '1s');
 
-            app.attachMockHandler('/auth/test2', makeHandler(async (request: Request) => {
+            app.attachMockHandler('/auth/test2', new (makeHandler(async (request: Request) => {
                 try {
                     await request.getAuthenticationToken();
                     fail('Unexpected success');
@@ -179,7 +233,7 @@ describe('Request', () => {
                         reason: 'jwt expired'
                     });
                 }
-            }));
+            }))(app));
             await sleep(1100);
             await app.doMockGet('/auth/test2', {
                 'X-BT-AUTH': token.getSignature()
@@ -194,7 +248,7 @@ describe('Request', () => {
             let token: Token = await tm.sign({
                 test: '123'
             }, '1s')
-            app.attachMockHandler('/auth/test3', makeHandler(async (request: Request) => {
+            app.attachMockHandler('/auth/test3', new (makeHandler(async (request: Request) => {
                 try {
                     await request.getAuthenticationToken();
                     fail('Unexpected success');
@@ -207,7 +261,7 @@ describe('Request', () => {
                         reason: 'An internal server error has occured. Please try again.'
                     });
                 }
-            }));
+            }))(app));
             await app.doMockGet('/auth/test3', {
                 'X-BT-AUTH': token.getSignature()
             });

@@ -14,6 +14,7 @@
    limitations under the License.
 */
 
+import { IDatabasePosition } from './IDatabasePosition';
 import {StatusCode} from './StatusCode';
 
 export class ResponseData<TData = any> {
@@ -27,6 +28,25 @@ export class ResponseData<TData = any> {
         this.$status = status;
         this.$data = data;
         this.$redirect = null;
+    }
+
+    /**
+     * Sets the DB position response headers
+     * 
+     * @since 9.1.0
+     * @param pos 
+     */
+    public setDatabasePosition(pos: IDatabasePosition | null): void {
+        let page: string = '0';
+        let position: string = '0';
+
+        if (pos) {
+            page = pos.page.toString();
+            position = pos.position.toString();
+        }
+
+        this.setHeader('X-DATABASE-PAGE', page);
+        this.setHeader('X-DATABASE-POSITION', position);
     }
 
     public setHeader(name: string, value: string): void {

@@ -32,6 +32,7 @@ import {StatusCode} from './StatusCode';
 import { InternalError } from './InternalError';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 import IncomingForm = require('formidable/Formidable');
+import { IDatabasePosition } from './IDatabasePosition';
 
 export interface IParameterMap {
     [key: string]: string;
@@ -118,7 +119,7 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
         return this.$request.secure;
     }
 
-    public pipe(destination: Writable): any {
+    public pipe(destination: Writable): Writable {
         return this.$request.pipe(destination);
     }
 
@@ -128,6 +129,42 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
 
     public getRequestSource(): express.Request {
         return this.$request;
+    }
+
+    /**
+     * Reads the Page/Position DB headers if present
+     * Will return null if headers are not parseable.
+     * 
+     * @since 9.1.0
+     * @returns {IDatabasePosition}
+     */
+    public getDatabasePosition(): IDatabasePosition {
+        let pageStr: string = this.getHeader('X-DATABASE-PAGE');
+        let positionStr: string = this.getHeader('X-DATABASE-POSITION');
+
+        let page: number = null;
+        let position: number = null;
+
+        let out: IDatabasePosition = null;
+
+        if (pageStr && positionStr) {
+            page = parseInt(pageStr);
+            position = parseInt(positionStr);
+
+            if (isNaN(page) || isNaN(position)) {
+                page = null;
+                position = null;
+            }
+        }
+
+        if (page && position) {
+            out = {
+                page,
+                position
+            };
+        }
+
+        return out;
     }
 
     public async getAuthenticationToken(): Promise<TAuthToken> {
