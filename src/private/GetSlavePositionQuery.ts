@@ -17,21 +17,21 @@
 import { GetBinLogPositionQuery } from './GetBinLogPositionQuery';
 
 interface IStatus {
-    Master_Log_File: string;
-    Read_Master_Log_Pos: string;
+    Relay_Source_Log_File: string;
+    Exec_Source_Log_Pos: string;
 }
 
 export class GetSlavePositionQuery extends GetBinLogPositionQuery<IStatus> {
 
     protected override _getQuery(): string {
-        return 'SHOW SLAVE STATUS';
+        return 'SHOW REPLICA STATUS';
     }
 
     protected override _getFile(row: IStatus): string {
-        return row.Master_Log_File;
+        return row.Relay_Source_Log_File;
     }
 
     protected override _getPosition(row: IStatus): string {
-        return row.Read_Master_Log_Pos;
+        return row.Exec_Source_Log_Pos;
     }
 }

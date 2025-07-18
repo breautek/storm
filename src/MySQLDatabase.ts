@@ -20,6 +20,7 @@ import * as MySQL from 'mysql';
 import {getInstance} from './instance';
 import { IDatabasePosition } from './IDatabasePosition';
 import { ConnectionReplicationWaiter } from './private/ConnectionReplicationWaiter';
+import { ILogger } from '@arashi/interfaces';
 
 const TAG: string = 'MySQLDatabase';
 
@@ -83,13 +84,19 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
     }
 
     protected override async _getConnection(query: string, requireWriteAccess: boolean, position?: IDatabasePosition): Promise<MySQLConnection> {
-        getInstance().getLogger().trace(TAG, `Querying connection pool for "${query}".`);
+        let logger: ILogger = getInstance().getLogger();
+        logger.trace(TAG, `Querying connection pool for "${query}".`);
         let instantationStack: string = new Error().stack;
 
         let conn: MySQLConnection = await this.$getConnectionFromPool(query, requireWriteAccess, instantationStack);
         await conn.__internal_init();
 
+        logger.trace(TAG, `Replication Enabled: ${conn.hasReplicationEnabled() ? 'true' : 'false'}`);
+        logger.trace(TAG, `Connection Replicating: ${conn.isReplication() ? 'true' : 'false'}`);
+
+
         if (conn.hasReplicationEnabled() && conn.isReplication() && position && position.page && position.position) {
+            logger.trace(TAG, 'Connection is waiting on Replication');
             // master connections will not wait on database positions
             // they are guarenteed to be at the tip.
             // readonly, or otherwise known as replication connections

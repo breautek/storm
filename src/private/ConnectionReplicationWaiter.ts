@@ -17,7 +17,6 @@
 
 import { IDatabaseConnection } from '../IDatabaseConnection';
 import { IDatabasePosition } from '../IDatabasePosition';
-import { InternalError } from '../InternalError';
 import { TimeoutError } from '../TimeoutError';
 
 export class ConnectionReplicationWaiter {
@@ -74,10 +73,9 @@ export class ConnectionReplicationWaiter {
 
             let currentPos: IDatabasePosition = await this.$conn.getCurrentDatabasePosition();
 
-            // TODO: I have no idea what my intent is here, but it's obviously wrong
-            // eslint-disable-next-line no-constant-binary-expression
-            if (currentPos === null || (currentPos && !currentPos.page === null) || (currentPos && !currentPos.position === null)) {
-                throw new InternalError('Database Position not supported');
+            if (!currentPos) {
+                // Replication not supported... just continue
+                break;
             }
 
             // If the current page is greater than the target page,
