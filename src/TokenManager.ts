@@ -24,6 +24,8 @@ import { StringValue } from 'ms';
 
 // const TAG: string = 'TokenManager';
 
+export type TExpiresIn = StringValue | number;
+
 export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
     private $secret: string;
 
@@ -31,7 +33,7 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
         this.$secret = secret;
     }
 
-    public sign(payload: {[key: string]: any}, expiresIn: StringValue | number): Promise<Token> {
+    public sign(payload: {[key: string]: any}, expiresIn: TExpiresIn): Promise<Token> {
         return new Promise<Token>((resolve, reject) => {
             randomBytes(64, (err: Error, buffer: Buffer) => {
                 if (err) {

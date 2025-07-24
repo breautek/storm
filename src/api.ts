@@ -98,7 +98,7 @@ export {IDatabasePosition} from './IDatabasePosition';
 
 // Token
 export {Token} from './Token';
-export {TokenManager} from './TokenManager';
+export {TokenManager, TExpiresIn} from './TokenManager';
 
 // Utils
 export {ExitCode} from './ExitCode';
