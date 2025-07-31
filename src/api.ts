@@ -68,6 +68,7 @@ export {DatabaseQueryError} from './DatabaseQueryError';
 export {NotImplementedError} from './NotImplementedError';
 export {DeadLockError} from './DeadLockError';
 export {LockWaitTimeoutError} from './LockWaitTimeoutError';
+export {IllegalStateError} from './IllegalStateError';
 
 // HTTP
 export {StatusCode} from './StatusCode';
