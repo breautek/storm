@@ -85,7 +85,7 @@ describe('Database', () => {
         let db: MockDB = new MockDB();
 
         let spy: jasmine.Spy = spyOn((db as any), '_getConnection');
-        db.getConnection();
+        void db.getConnection();
         
         expect(spy).toHaveBeenCalledWith('SLAVE*', false, undefined);
     });
@@ -94,7 +94,7 @@ describe('Database', () => {
         let db: MockDB = new MockDB();
 
         let spy: jasmine.Spy = spyOn((db as any), '_getConnection');
-        db.getConnection(false, 'test');
+        void db.getConnection(false, 'test');
         
         expect(spy).toHaveBeenCalledWith('test', false, undefined);
     });
@@ -103,7 +103,7 @@ describe('Database', () => {
         let db: MockDB = new MockDB();
 
         let spy: jasmine.Spy = spyOn((db as any), '_getConnection');
-        db.getConnection(true);
+        void db.getConnection(true);
         
         expect(spy).toHaveBeenCalledWith(MASTER, true, undefined);
     });

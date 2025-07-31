@@ -107,7 +107,7 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
                 await waiter.wait(position);
             }
             catch (ex) {
-                conn.close(true);
+                void conn.close(true);
                 throw ex;
             }
         }

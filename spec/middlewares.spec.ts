@@ -69,7 +69,7 @@ describe('Middlewares', () => {
         let spy: jasmine.Spy = spyOn(middleware, '_execute');
         (handler as any).$middlewares = [ middleware ];
 
-        handler.get(request, response);
+        void handler.get(request, response);
 
         expect(spy).toHaveBeenCalled();
     });

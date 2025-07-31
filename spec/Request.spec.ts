@@ -159,7 +159,7 @@ describe('Request', () => {
                 request.pipe(writable);
             });
         }))(app));
-        app.doMockPost('/pipes/', 'asdfasdf');
+        void app.doMockPost('/pipes/', 'asdfasdf');
     });
 
     describe('getAuthenticationToken', () => {

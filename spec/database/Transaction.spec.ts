@@ -75,7 +75,7 @@ describe('Transaction', () => {
         let t: Transaction = new Transaction(app, async () => {});
         let conn: IDatabaseConnection = await app.getDB().getConnection(true);
         await conn.startTransaction();
-        expect(async () => {
+        await expect(async () => {
             await t.execute(conn);
         }).rejects.toThrow(InternalError);
     });

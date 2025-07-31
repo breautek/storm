@@ -16,6 +16,6 @@ class CLIMockAppWithError extends Application {
 }
 
 let app = new CLIMockAppWithError('CLIMockApp', './');
-(async (): Promise<void> => {
+void (async (): Promise<void> => {
     await app.start();
 })();

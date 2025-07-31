@@ -383,7 +383,7 @@ describe('ManagedDatabaseConnection', () => {
             let spy: jasmine.Spy = spyOn(conn, 'startTransaction').and.returnValue(Promise.resolve());
             mdc.startTransaction().then(() => {
                 expect(spy).toHaveBeenCalled();
-                mdc.close(true);
+                void mdc.close(true);
                 done();
             }).catch(fail);
         }, 0);
@@ -397,7 +397,7 @@ describe('ManagedDatabaseConnection', () => {
 
         mdc.commit().then(() => {
             expect(spy).not.toHaveBeenCalled();
-            mdc.close();
+            void mdc.close();
             done();
         }).catch(fail);
     });
@@ -410,7 +410,7 @@ describe('ManagedDatabaseConnection', () => {
             let spy: jasmine.Spy = spyOn(conn, 'commit').and.returnValue(Promise.resolve());
             mdc.commit().then(() => {
                 expect(spy).toHaveBeenCalled();
-                mdc.close();
+                void mdc.close();
                 done();
             }).catch(fail);
         }, 0);
@@ -424,7 +424,7 @@ describe('ManagedDatabaseConnection', () => {
 
         mdc.rollback().then(() => {
             expect(spy).not.toHaveBeenCalled();
-            mdc.close();
+            void mdc.close();
             done();
         }).catch(fail);
     });
@@ -438,7 +438,7 @@ describe('ManagedDatabaseConnection', () => {
             let spy: jasmine.Spy = spyOn(conn, 'rollback').and.returnValue(Promise.resolve());
             mdc.rollback().then(() => {
                 expect(spy).toHaveBeenCalled();
-                mdc.close();
+                void mdc.close();
                 done();
             }).catch(fail);
         }, 0);

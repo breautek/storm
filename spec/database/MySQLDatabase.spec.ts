@@ -76,7 +76,7 @@ describe('MySQLDatabase', () => {
         let db: MySQLDatabase = new MySQLDatabase();
         let spy: jasmine.Spy = spyOn((db as any).$cluster, 'getConnection');
 
-        db.getConnection();
+        void db.getConnection();
 
         expect(spy).toHaveBeenCalledWith('SLAVE*', jasmine.any(Function));
     });
@@ -86,7 +86,7 @@ describe('MySQLDatabase', () => {
         let spy: jasmine.Spy = spyOn((db as any).$cluster, 'getConnection');
 
         db.getConnection(true).then((connection: IDatabaseConnection) => {
-            connection.close();
+            return connection.close();
         }).catch(fail);
 
         expect(spy).toHaveBeenCalledWith('MASTER', jasmine.any(Function));

@@ -76,14 +76,14 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
                 getInstance().getLogger().warn(TAG, 'Rolling back a transaction because setConnection was called on a ManagedDatabaseConnection in a transaction in progress.');
                 getInstance().getLogger().trace(TAG, new Error('Stacktrace'));
                 oldConnection.rollback().then(() => {
-                    oldConnection.close();
+                    return oldConnection.close();
                 }).catch((error: any) => {
                     getInstance().getLogger().error(TAG, error);
-                    oldConnection.close(true);
+                    void oldConnection.close(true);
                 });
             }
             else {
-                oldConnection.close();
+                void oldConnection.close();
             }
         }
 

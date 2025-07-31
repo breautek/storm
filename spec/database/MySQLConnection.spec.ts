@@ -38,8 +38,8 @@ describe('MySQLConnection', () => {
         jest.spyOn((DatabaseConnection.prototype as any), '$armLingerWarning').mockImplementation(() => {});
     });
 
-    afterEach(() => {
-        conn.close();
+    afterEach(async () => {
+        await conn.close();
     });
 
     it('sets queryFormat', () => {
@@ -172,13 +172,13 @@ describe('MySQLConnection', () => {
 
     it('end transaction calls commit', () => {
         let spy: jasmine.Spy = spyOn(conn, 'commit');
-        conn.endTransaction();
+        void conn.endTransaction();
         expect(spy).toHaveBeenCalled();
     });
 
     it('end transactinon calls rollback', () => {
         let spy: jasmine.Spy = spyOn(conn, 'rollback');
-        conn.endTransaction(true);
+        void conn.endTransaction(true);
         expect(spy).toHaveBeenCalled();
     });
 

@@ -16,6 +16,6 @@ class CLIMockApp extends Application {
 }
 
 let app = new CLIMockApp('CLIMockApp', './spec/support/');
-(async (): Promise<void> => {
+void (async (): Promise<void> => {
     await app.start();
 })();
