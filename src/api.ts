@@ -114,3 +114,5 @@ export {Polygon} from './Polygon';
 // Third-party
 import * as formidable from 'formidable';
 export {formidable};
+
+export {Command} from 'commander';
