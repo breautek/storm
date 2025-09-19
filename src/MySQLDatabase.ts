@@ -16,7 +16,7 @@
 
 import {Database} from './Database';
 import {MySQLConnection} from './MySQLConnection';
-import * as MySQL from 'mysql';
+import * as MySQL from 'mysql2';
 import {getInstance} from './instance';
 import { IDatabasePosition } from './IDatabasePosition';
 import { ConnectionReplicationWaiter } from './private/ConnectionReplicationWaiter';
@@ -24,7 +24,7 @@ import { ILogger } from '@arashi/interfaces';
 
 const TAG: string = 'MySQLDatabase';
 
-export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnection> {
+export class MySQLDatabase extends Database<MySQL.PoolOptions, MySQL.PoolConnection> {
     private $cluster: MySQL.PoolCluster;
 
     constructor() {
@@ -47,7 +47,7 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         return MySQL.escape(value);
     }
 
-    protected _addNode(nodeID: string, config: MySQL.PoolConfig): void {
+    protected _addNode(nodeID: string, config: MySQL.PoolOptions): void {
         getInstance().getLogger().trace(TAG, `Adding node to connection pool: "${nodeID}"`);
         this.$cluster.add(nodeID, config);
     }
@@ -57,22 +57,13 @@ export class MySQLDatabase extends Database<MySQL.PoolConfig, MySQL.PoolConnecti
         this.$cluster.remove(nodeID);
     }
 
-    protected _destroy(): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
-            this.$cluster.end((err: MySQL.MysqlError) => {
-                if (err) {
-                    reject(err);
-                    return;
-                }
-
-                resolve();
-            });
-        });
+    protected async _destroy(): Promise<void> {
+        this.$cluster.end();
     }
 
     private $getConnectionFromPool(query: string, requireWriteAccess: boolean, instantationStack: string): Promise<MySQLConnection> {
         return new Promise<MySQLConnection>((resolve, reject) => {
-            this.$cluster.getConnection(query, (error: MySQL.MysqlError, connection: MySQL.PoolConnection) => {
+            this.$cluster.getConnection(query, (error: MySQL.QueryError, connection: MySQL.PoolConnection) => {
                 if (error) {
                     reject(error);
                     return;

@@ -17,7 +17,7 @@
 import {DatabaseConnection} from './DatabaseConnection';
 import {DatabaseQueryError} from './DatabaseQueryError';
 import {getInstance} from './instance';
-import * as MySQL from 'mysql';
+import * as MySQL from 'mysql2';
 import {Readable} from 'stream';
 import { StartTransactionQuery } from './private/StartTransactionQuery';
 import { CommitQuery } from './private/CommitQuery';
@@ -35,7 +35,6 @@ import { GetBinLogPositionQuery } from './private/GetBinLogPositionQuery';
 import { GetSlavePositionQuery } from './private/GetSlavePositionQuery';
 import { GetMasterPositionQuery } from './private/GetMasterPositionQuery';
 import { IQueryable } from './IQueryable';
-import { queryFormatter } from './mysql/queryFormatter';
 import { TransactionAccessLevel } from './TransactionAccessLevel';
 import { GetProcessList, IGetProcessListOutput } from './private/GetProcessList';
 
@@ -67,6 +66,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     private $isMasterConnection: boolean;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
+        connection.config.namedPlaceholders = true;
         super(connection, isReadOnly, instantiationStack);
 
         this.$hasReplicationEnabled = false;
@@ -74,7 +74,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         this.$transaction = false;
         this.$isMasterConnection = null;
 
-        connection.config.queryFormat = queryFormatter.bind(this);
+        // connection.config.queryFormat = queryFormatter.bind(this);
 
         // connection.config.queryFormat = function(query: string, values: any) {
         //     if (!values) return query;
@@ -114,7 +114,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     }
 
     public override formatQuery(query: IQueryable<any>): string {
-        return this.getAPI().config.queryFormat(query.getQuery(this), query.getParametersForQuery());
+        return this.getAPI().format(query.getQuery(this), query.getParametersForQuery());
     }
 
     /**
@@ -158,7 +158,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             let queryObject: MySQL.Query = this.getAPI().query({
                 sql: query,
                 timeout: this.getTimeout()
-            }, params, (error: MySQL.MysqlError, results: any) => {
+            }, params, (error: MySQL.QueryError, results: any) => {
                 if (error) {
                     let sql: string = queryObject.sql;
                     // Formatting queries can be an expensive task, so only do it if the log level is actually silly.

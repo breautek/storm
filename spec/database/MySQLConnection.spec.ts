@@ -2,6 +2,7 @@
 import {
     MockApplication
 } from '../support/TestApplication';
+import {queryFormatter} from '../../src/mysql/queryFormatter';
 import { MySQLConnection } from '../../src/MySQLConnection';
 import { DatabaseQueryError } from '../../src/DatabaseQueryError';
 import {DEFAULT_QUERY_TIMEOUT} from '../../src/DatabaseConnection';
@@ -32,7 +33,10 @@ describe('MySQLConnection', () => {
             config: jasmine.createSpy('config'),
             query: jasmine.createSpy('query').and.returnValue({sql: 'test query'}),
             stream: jasmine.createSpy('stream'),
-            release: jasmine.createSpy('release')
+            release: jasmine.createSpy('release'),
+            format: jasmine.createSpy('format').and.callFake((sql, params) => {
+                return queryFormatter(sql, params);
+            })
         };
         conn = new MySQLConnection(mockAPI, 'test stack');
         jest.spyOn((DatabaseConnection.prototype as any), '$armLingerWarning').mockImplementation(() => {});
@@ -42,8 +46,8 @@ describe('MySQLConnection', () => {
         await conn.close();
     });
 
-    it('sets queryFormat', () => {
-        expect(mockAPI.config.queryFormat).toBeTruthy();
+    it('sets namedPlaceholders', () => {
+        expect(mockAPI.config.namedPlaceholders).toBeTruthy();
     });
 
     it('getAPI', () => {

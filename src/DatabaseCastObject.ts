@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-import * as MySQL from 'mysql';
+import * as MySQL from 'mysql2';
 
 export abstract class DatabaseCastObject {
     public toSqlString(): string {

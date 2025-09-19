@@ -1,5 +1,5 @@
 
-import * as MySQL from 'mysql';
+import * as MySQL from 'mysql2';
 
 export function queryFormatter(query: string, values: any): string {
     if (!values) return query;

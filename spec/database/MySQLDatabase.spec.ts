@@ -3,7 +3,7 @@ import {
     MockApplication
 } from '../support/TestApplication';
 import {MySQLDatabase} from '../../src/MySQLDatabase';
-import * as MySQL from 'mysql';
+import * as MySQL from 'mysql2';
 import {EventEmitter} from 'events';
 import { getInstance } from '../../src/instance';
 import { IDatabaseConnection } from '../../src/IDatabaseConnection';
@@ -40,9 +40,7 @@ describe('MySQLDatabase', () => {
         let db: MySQLDatabase = new MySQLDatabase();
         let spy: jasmine.Spy = spyOn((db as any).$cluster, 'add');
 
-        let config: MySQL.PoolConfig = {
-            acquireTimeout: 3000
-        };
+        let config: MySQL.PoolOptions = {};
 
         db.addMaster(config);
 
@@ -54,9 +52,7 @@ describe('MySQLDatabase', () => {
         let spy: jasmine.Spy = spyOn((db as any).$cluster, 'add');
 
         let nodeID: string = 'test';
-        let config: MySQL.PoolConfig = {
-            acquireTimeout: 3000
-        };
+        let config: MySQL.PoolOptions = {};
 
         db.addSlave(nodeID, config);
 
