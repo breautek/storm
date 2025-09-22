@@ -101,20 +101,6 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         this.$opened = true;
         this.$transaction = false;
         this.$isMasterConnection = null;
-
-        // connection.config.queryFormat = queryFormatter.bind(this);
-
-        // connection.config.queryFormat = function(query: string, values: any) {
-        //     if (!values) return query;
-
-        //     return query.replace(/:(\w+)/g, function(this: any, txt: string, key: string): string {
-        //         // eslint-disable-next-line no-prototype-builtins
-        //         if (values.hasOwnProperty(key)) {
-        //             return this.escape(values[key]);
-        //         }
-        //         return txt;
-        //     }.bind(this));
-        // };
     }
 
     /**
