@@ -227,6 +227,7 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
                         }
                     }
                 },
+                enableMySQL2BreakingChanges: { type: [ 'boolean', 'null' ]},
                 customConfig: {
                     type: 'object',
                     additionalProperties: true,

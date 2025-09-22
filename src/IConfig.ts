@@ -56,6 +56,23 @@ export interface IConfig {
         main?: IDatabaseConfig<"MASTER">;
         replicationNodes?: IDatabaseConfig[];
     };
+
+    /**
+     * @since 9.2.1 - defaults to false
+     * 
+     * Scheduled to default to true in 10.0.0.
+     * Scheduled to be removed completely in 11.0.0
+     * 
+     * Breaking changes includes:
+     * - DECIMAL types returned as strings.
+     * Proper solution is to use a BigNumber library of some sort to
+     * handle large numbers safely.
+     * - JSON types are parsed and returned as actual objects as strings.
+     * 
+     * When this setting is false, DECIMAL types are returned as JS numbers
+     * and JSON types are returned as strings, requiring the application to JSON parse the data.
+     */
+    enableMySQL2BreakingChanges?: boolean;
     
     request_size_limit?: number;
 

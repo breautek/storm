@@ -67,33 +67,36 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         connection.config.namedPlaceholders = true;
-        connection.config.typeCast = function (field: MySQL.TypeCastField, next: MySQL.TypeCastNext): any {
-            // TODO: Expose a setting to opt out of these backwards-compatibility type casting
-            // So we can have a chance of a rolling refactor.
-            if (
-                [
-                    'DECIMAL',
-                    'NEWDECIMAL',
-                    'DOUBLE'
-                ].indexOf(field.type) > -1
-            ) {
-                let parsed: number = parseFloat(field.string());
-                if (isNaN(parsed)) {
-                    return null;
+
+        if (!getInstance().getConfig().enableMySQL2BreakingChanges) {
+            connection.config.typeCast = function (field: MySQL.TypeCastField, next: MySQL.TypeCastNext): any {
+                // TODO: Expose a setting to opt out of these backwards-compatibility type casting
+                // So we can have a chance of a rolling refactor.
+                if (
+                    [
+                        'DECIMAL',
+                        'NEWDECIMAL',
+                        'DOUBLE'
+                    ].indexOf(field.type) > -1
+                ) {
+                    let parsed: number = parseFloat(field.string());
+                    if (isNaN(parsed)) {
+                        return null;
+                    }
+                    return parsed;
                 }
-                return parsed;
-            }
-            else if (
-                ([
-                    'JSON'
-                ]).indexOf(field.type) > -1
-            ) {
-                return field.string();
-            }
-            else {
-                return next();
-            }
-        };
+                else if (
+                    ([
+                        'JSON'
+                    ]).indexOf(field.type) > -1
+                ) {
+                    return field.string();
+                }
+                else {
+                    return next();
+                }
+            };
+        }
 
         super(connection, isReadOnly, instantiationStack);
 
