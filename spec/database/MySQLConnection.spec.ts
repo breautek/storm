@@ -12,6 +12,12 @@ import {DummyQuery} from '../support/DummyQuery';
 import { DatabaseConnection } from '../../src/DatabaseConnection';
 import { RawQuery } from '../../src/RawQuery';
 import { TransactionAccessLevel } from '../../src/TransactionAccessLevel';
+import { GetMySQLVersion, IGetMySQLVersionResult } from '../../src/GetMySQLVersion';
+import { GetSlavePositionQuery } from '../../src/private/GetSlavePositionQuery';
+import { GetMasterPositionQuery } from '../../src/private/GetMasterPositionQuery';
+import { GetPrimaryPositionQuery } from '../../src/private/GetPrimaryPositionQuery';
+import { GetProcessList } from '../../src/private/GetProcessList';
+import { getInstance } from '../../src/instance';
 
 describe('MySQLConnection', () => {
     let app: MockApplication = null;
@@ -46,12 +52,36 @@ describe('MySQLConnection', () => {
         await conn.close();
     });
 
+    it('should enable breaking changes', () => {
+        getInstance().getConfig().enableMySQL2BreakingChanges = true;
+        new MySQLConnection(mockAPI, 'test stack', false);
+        expect(mockAPI.config.typeCast).toBeInstanceOf(Function);
+    });
+
+    it('internal init - no replication', async () => {
+        jest.spyOn(GetSlavePositionQuery.prototype, 'execute').mockResolvedValue(null);
+        jest.spyOn(GetProcessList.prototype, 'execute').mockResolvedValue([]);
+
+        await conn.__internal_init();
+
+        expect((conn as any).$isMasterConnection).toBe(true);
+        expect((conn as any).$hasReplicationEnabled).toBe(false);
+    });
+
     it('sets namedPlaceholders', () => {
         expect(mockAPI.config.namedPlaceholders).toBeTruthy();
     });
 
     it('getAPI', () => {
         expect(conn.getAPI()).toBe(mockAPI);
+    });
+
+    it('isMaster', () => {
+        expect(conn.isMaster()).toBe(true);
+    });
+
+    it('hasReplicationEnabled', () => {
+        expect(conn.hasReplicationEnabled()).toBe(false);
     });
 
     it('can query successfully', (done) => {
@@ -451,5 +481,106 @@ describe('MySQLConnection', () => {
 
             expect(conn.formatQuery(query)).toBe('SELECT name FROM user WHERE id = \'123\'');
         });
+    });
+
+    it.only('getVersion show call on GetMySQLVersion query', async () => {
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+
+        jest.spyOn(GetMySQLVersion.prototype, 'execute').mockImplementation((conn: IDatabaseConnection) => {
+            return Promise.resolve({
+                major: 8,
+                minor: 0,
+                patch: 0,
+                version: '8.0.0'
+            });
+        });
+
+        let version: IGetMySQLVersionResult = await conn.getVersion();
+        expect(version).toEqual({
+            major: 8,
+            minor: 0,
+            patch: 0,
+            version: '8.0.0'
+        });
+    });
+
+    it('getCurrentDatabasePosition should call on GetSlavePositionQuery on 8.0.0 replication', async () => {
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+
+        jest.spyOn(conn, 'isReplication').mockReturnValue(true);
+        jest.spyOn(conn, 'getVersion').mockReturnValue(Promise.resolve({
+            major: 8,
+            minor: 0,
+            patch: 0,
+            version: '8.0.0'
+        }));
+
+        let spy = jest.spyOn(GetSlavePositionQuery.prototype, 'execute').mockReturnValue(Promise.resolve(null));
+
+        await conn.getCurrentDatabasePosition();
+
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('getCurrentDatabasePosition should call on GetSlavePositionQuery on 8.4.0 replication', async () => {
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+
+        jest.spyOn(conn, 'isReplication').mockReturnValue(true);
+        jest.spyOn(conn, 'getVersion').mockReturnValue(Promise.resolve({
+            major: 8,
+            minor: 4,
+            patch: 0,
+            version: '8.4.0'
+        }));
+
+        let spy = jest.spyOn(GetSlavePositionQuery.prototype, 'execute').mockReturnValue(Promise.resolve(null));
+
+        await conn.getCurrentDatabasePosition();
+
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('getCurrentDatabasePosition should call on GetMasterPositionQuery on 8.0.0 primary', async () => {
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+
+        jest.spyOn(conn, 'isReplication').mockReturnValue(false);
+        jest.spyOn(conn, 'getVersion').mockReturnValue(Promise.resolve({
+            major: 8,
+            minor: 0,
+            patch: 0,
+            version: '8.0.0'
+        }));
+
+        let spy = jest.spyOn(GetMasterPositionQuery.prototype, 'execute').mockReturnValue(Promise.resolve(null));
+
+        await conn.getCurrentDatabasePosition();
+
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('getCurrentDatabasePosition should call on GetPrimaryPositionQuery on 8.4.0 primary', async () => {
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+
+        jest.spyOn(conn, 'isReplication').mockReturnValue(false);
+        jest.spyOn(conn, 'getVersion').mockReturnValue(Promise.resolve({
+            major: 8,
+            minor: 4,
+            patch: 0,
+            version: '8.4.0'
+        }));
+
+        let spy = jest.spyOn(GetPrimaryPositionQuery.prototype, 'execute').mockReturnValue(Promise.resolve(null));
+
+        await conn.getCurrentDatabasePosition();
+
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('formatQuery calls on API\'s format API', () => {
+        let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
+
+        let spy = jest.spyOn(mockAPI, 'format');
+        conn.formatQuery(new RawQuery('Select 1'));
+        expect(spy).toHaveBeenCalled();
     });
 });

@@ -43,6 +43,7 @@ export {Transaction} from './Transaction';
 export {IOKPacket} from './IOKPacket';
 export {IStoredProcedureResult} from './IStoredProcedureResult';
 export {TransactionAccessLevel} from './TransactionAccessLevel';
+export {GetMySQLVersion, IGetMySQLVersionResult, IGetMySQLVersionRow} from './GetMySQLVersion';
 
 // Errors
 export {ErrorCode} from './ErrorCode';

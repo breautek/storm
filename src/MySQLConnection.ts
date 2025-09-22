@@ -37,6 +37,8 @@ import { GetMasterPositionQuery } from './private/GetMasterPositionQuery';
 import { IQueryable } from './IQueryable';
 import { TransactionAccessLevel } from './TransactionAccessLevel';
 import { GetProcessList, IGetProcessListOutput } from './private/GetProcessList';
+import { GetMySQLVersion, IGetMySQLVersionResult } from './GetMySQLVersion';
+import { GetPrimaryPositionQuery } from './private/GetPrimaryPositionQuery';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -64,6 +66,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     private $opened: boolean;
     private $hasReplicationEnabled: boolean;
     private $isMasterConnection: boolean;
+    private $version: IGetMySQLVersionResult;
 
     public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
         connection.config.namedPlaceholders = true;
@@ -130,6 +133,14 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         }
     }
 
+    public async getVersion(): Promise<IGetMySQLVersionResult> {
+        if (!this.$version) {
+            this.$version = await new GetMySQLVersion().execute(this);
+        }
+
+        return {...this.$version};
+    }
+
     public override formatQuery(query: IQueryable<any>): string {
         return this.getAPI().format(query.getQuery(this), query.getParametersForQuery());
     }
@@ -165,7 +176,19 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     }
 
     public override async getCurrentDatabasePosition(): Promise<IDatabasePosition> {
-        let statusQuery: GetBinLogPositionQuery = this.isReplication() ? new GetSlavePositionQuery() : new GetMasterPositionQuery();
+        let version: IGetMySQLVersionResult = await this.getVersion();
+        let statusQuery: GetBinLogPositionQuery = null;
+
+        if (
+            (version.major === 8 && version.minor >= 4) || version.major >= 9
+        ) {
+            // >= 8.4 we need to use a different setof master/slave queries
+            statusQuery = this.isReplication() ? new GetSlavePositionQuery() : new GetPrimaryPositionQuery();
+        }
+        else {
+            statusQuery = this.isReplication() ? new GetSlavePositionQuery() : new GetMasterPositionQuery();
+        }
+
         return await statusQuery.execute(this);
     }
 

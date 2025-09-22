@@ -22,13 +22,12 @@ interface IStatus {
 }
 
 /**
- * For use with MySQL 8.0 and earlier. Obsolete since MySQL 8.4
- * @deprecated
+ * For use with MySQL 8.4 and later
  */
-export class GetMasterPositionQuery extends GetBinLogPositionQuery<IStatus> {
+export class GetPrimaryPositionQuery extends GetBinLogPositionQuery<IStatus> {
 
     protected override _getQuery(): string {
-        return 'SHOW MASTER STATUS';
+        return 'SHOW BINARY LOG STATUS';
     }
 
     protected override _getFile(row: IStatus): string {
