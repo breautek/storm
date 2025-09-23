@@ -39,6 +39,7 @@ import { TransactionAccessLevel } from './TransactionAccessLevel';
 import { GetProcessList, IGetProcessListOutput } from './private/GetProcessList';
 import { GetMySQLVersion, IGetMySQLVersionResult } from './GetMySQLVersion';
 import { GetPrimaryPositionQuery } from './private/GetPrimaryPositionQuery';
+import { queryFormatter } from './mysql/queryFormatter';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -194,11 +195,19 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
 
     protected _query(query: string, params?: any): Promise<any> {
         let logger: BaseLogger = getInstance().getLogger();
+
+        // MySQL2 doesn't seem to be reliable for their named parameter support,
+        // so we will fall back to our original implementation, but prep the query
+        // string manually via queryFormatter (which makes use of MySQL.escape).
+        // This means we won't use the params argument on the main query call.
+
+        let preparedQuery: string = queryFormatter(query, params);
+
         return new Promise((resolve, reject) => {
             let queryObject: MySQL.Query = this.getAPI().query({
-                sql: query,
+                sql: preparedQuery,
                 timeout: this.getTimeout()
-            }, params, (error: MySQL.QueryError, results: any) => {
+            }, null, (error: MySQL.QueryError, results: any) => {
                 if (error) {
                     let sql: string = queryObject.sql;
                     // Formatting queries can be an expensive task, so only do it if the log level is actually silly.
@@ -207,7 +216,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                             // SQLFormatter doesn't understand all MySQL syntaxes, so this is to prevent
                             // potentially valid queries from becoming errors simply because we couldn't
                             // log them.
-                            sql = SQLFormatter.formatDialect(queryObject.sql, {
+                            sql = SQLFormatter.formatDialect(preparedQuery, {
                                 ...SQL_FORMATTING_OPTIONS,
                                 dialect: SQLFormatter.mysql
                             });
