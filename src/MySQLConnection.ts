@@ -83,7 +83,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                         'DOUBLE'
                     ].indexOf(field.type) > -1
                 ) {
-                    let parsed: number = parseFloat(field.string());
+                    let parsed: number = parseFloat(field.string('utf-8'));
                     if (isNaN(parsed)) {
                         return null;
                     }
@@ -94,7 +94,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
                         'JSON'
                     ]).indexOf(field.type) > -1
                 ) {
-                    return field.string();
+                    return field.string('utf-8');
                 }
                 else {
                     return next();
