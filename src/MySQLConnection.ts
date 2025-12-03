@@ -272,7 +272,10 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             timeout: this.getTimeout()
         }, params);
 
-        getInstance().getLogger().trace(TAG, SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS));
+        let logger: BaseLogger = getInstance().getLogger();
+        if (logger.getLogLevel() === LogLevel.SILLY) {
+            getInstance().getLogger().trace(TAG, SQLFormatter.format(queryObject.sql, SQL_FORMATTING_OPTIONS));
+        }
 
         return queryObject.stream(streamOptions);
     }
