@@ -58,7 +58,7 @@
     "express": "5.2.1",
     "form-data": "4.0.5",
     "formidable": "3.5.4",
-    "jsonwebtoken": "9.0.2",
+    "jsonwebtoken": "9.0.3",
     "mysql2": "3.15.3",
     "sql-formatter": "15.6.10",
     "tslib": "2.8.1",
