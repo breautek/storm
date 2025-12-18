@@ -83,7 +83,7 @@ export class Transaction implements IQueryable<void> {
         let attemptCount: number = 0;
         do {
             attemptCount++;
-            this.$application.getLogger().info(TAG, `Starting transaction attempt ${attemptCount} of ${this.$retryLimit === Infinity ? 'Infinity' : this.$retryLimit.toString()}`);
+            this.$application.getLogger().trace(TAG, `Starting transaction attempt ${attemptCount} of ${this.$retryLimit === Infinity ? 'Infinity' : this.$retryLimit.toString()}`);
             await connection.startTransaction(this.$isolationLevel, this.$accessLevel);
             try {
                 await this.$executor(connection);
