@@ -99,7 +99,7 @@ describe('DatabaseConnection', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
         let spy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
         void connection.query(new DummyQuery());
-        jest.advanceTimersByTime(10001);
+        jest.advanceTimersByTime(60001);
         expect(spy).toHaveBeenCalledWith('DatabaseConnection', expect.any(String));
         void connection.close();
     });

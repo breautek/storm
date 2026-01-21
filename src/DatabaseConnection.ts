@@ -24,7 +24,7 @@ import { IConfig } from './IConfig';
 import { IsolationLevel } from './IsolationLevel';
 import { IDatabasePosition } from './IDatabasePosition';
 
-export const LINGER_WARNING: number = 10000;
+export const LINGER_WARNING: number = 60000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
 const TAG: string = 'DatabaseConnection';
 
