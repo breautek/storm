@@ -17,9 +17,7 @@
 import {IJWTVerifyOptions} from './IJWTVerifyOptions';
 
 export class JWTVerifyOptionsParser {
-    constructor() {
-        throw new Error('JWTVerifyOptionsParser is an static class.');
-    }
+    private constructor() {}
 
     // Parses IJWTVerifyOptions to jwt options
     public static parse(options: IJWTVerifyOptions): any {

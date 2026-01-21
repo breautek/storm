@@ -53,4 +53,9 @@ describe('DiskSpaceError', () => {
             expect(r.details).toEqual(error.getPublicDetails());
         });
     });
+
+    it('code should default to 0', () => {
+        let e = new RawError('test');
+        expect(e.getCode()).toBe(0);
+    });
 });

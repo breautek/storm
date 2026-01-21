@@ -18,6 +18,10 @@ export class MetricStore {
         return MetricStore.$instance;
     }
 
+    public purge(): void {
+        this.$data = {};
+    }
+
     public set(key: string, value: TSupportedMetricStoreValues): void {
         this.$data[key] = value;
     }
@@ -46,7 +50,7 @@ export class MetricStore {
 
     public decrement(key: string): void {
         let value: TSupportedMetricStoreValues = this.get(key);
-        if (!value || typeof value !== 'number') {
+        if (value === null || value === undefined || typeof value !== 'number') {
             this.set(key, 0);
             return;
         }

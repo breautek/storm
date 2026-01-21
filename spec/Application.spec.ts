@@ -34,6 +34,23 @@ describe('Application', () => {
         await app.close();
     });
 
+    it('should have HealthHandler attached', (done) => {
+        let req: http.ClientRequest = http.request({
+            method: HTTPMethod.GET,
+            host: '127.0.0.1',
+            port: app.getPort(),
+            path: '/_health',
+            headers: {
+                'content-type': 'text/plain',
+                'content-length': 0
+            }
+        }, (res: http.IncomingMessage): void => {
+            expect(res.statusCode).toBe(StatusCode.OK);
+            done();
+        });
+        req.end();
+    });
+
     it('getRequestSizeLimit returns a number by default', () => {
         expect(typeof app.getRequestSizeLimit()).toBe('number');
     });
