@@ -40,6 +40,7 @@ import { GetProcessList, IGetProcessListOutput } from './private/GetProcessList'
 import { GetMySQLVersion, IGetMySQLVersionResult } from './GetMySQLVersion';
 import { GetPrimaryPositionQuery } from './private/GetPrimaryPositionQuery';
 import { queryFormatter } from './mysql/queryFormatter';
+import { MetricStore } from './MetricStore';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -342,35 +343,25 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         });
     }
 
-    protected _close(forceClose: boolean): Promise<void> {
+    protected async _close(forceClose: boolean): Promise<void> {
         if (!forceClose && this.isTransaction()) {
             return Promise.reject(new Error('Cannot close a connection while there is an active transaction. Use commit or rollback first.'));
         }
 
         this.$opened = false;
-        
-        return new Promise<void>((resolve, reject) => {
-            let rollbackPromise: Promise<void> = null;
-            if (forceClose) {
-                if (this.isTransaction()) {
-                    rollbackPromise = this.rollback();
-                }
-                else {
-                    rollbackPromise = Promise.resolve();
-                }
-            }
-            else {
-                rollbackPromise = Promise.resolve();
-            }
 
-            rollbackPromise.then(() => {
-                this.getAPI().release();
-                resolve();
-            }).catch((error: any) => {
-                getInstance().getLogger().error(TAG, error);
-                this.getAPI().release();
-                resolve();
-            });
-        });
+        if (forceClose) {
+            if (this.isTransaction()) {
+                try {
+                    await this.rollback();
+                }
+                catch (ex) {
+                    getInstance().getLogger().error(TAG, ex);
+                }
+            }
+        }
+
+        this.getAPI().release();
+        MetricStore.getInstance().decrement('mysql.active_connections');
     }
 }

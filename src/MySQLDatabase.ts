@@ -21,6 +21,7 @@ import {getInstance} from './instance';
 import { IDatabasePosition } from './IDatabasePosition';
 import { ConnectionReplicationWaiter } from './private/ConnectionReplicationWaiter';
 import { ILogger } from '@arashi/interfaces';
+import { MetricStore } from './MetricStore';
 
 const TAG: string = 'MySQLDatabase';
 
@@ -69,6 +70,7 @@ export class MySQLDatabase extends Database<MySQL.PoolOptions, MySQL.PoolConnect
                     return;
                 }
     
+                MetricStore.getInstance().increment('mysql.active_connections');
                 resolve(new MySQLConnection(connection, instantationStack, !requireWriteAccess));
             });
         });
@@ -84,7 +86,6 @@ export class MySQLDatabase extends Database<MySQL.PoolOptions, MySQL.PoolConnect
 
         logger.trace(TAG, `Replication Enabled: ${conn.hasReplicationEnabled() ? 'true' : 'false'}`);
         logger.trace(TAG, `Connection Replicating: ${conn.isReplication() ? 'true' : 'false'}`);
-
 
         if (conn.hasReplicationEnabled() && conn.isReplication() && position && position.page && position.position) {
             logger.trace(TAG, 'Connection is waiting on Replication');

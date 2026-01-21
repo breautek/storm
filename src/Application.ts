@@ -37,6 +37,7 @@ import {
     BaseLogger
 } from '@arashi/logger';
 import { StormError } from './StormError';
+import { HealthHandler } from './handlers/HealthHandler';
 
 export interface IStormCLIArgs {
     bind?: string;
@@ -175,6 +176,7 @@ export abstract class Application
         }));
 
         this.$getLogger().trace(TAG, 'Attaching handlers...');
+        await this.$attachHandlers();
         await this._attachHandlers();
 
         await this._onBeforeReadyAsync();
@@ -345,6 +347,10 @@ export abstract class Application
      */
     public getRequestSizeLimit(): number {
         return this.getConfig().request_size_limit;
+    }
+
+    private async $attachHandlers(): Promise<void> {
+        this.attachHandler('/_health', new HealthHandler(this));
     }
 
     /**

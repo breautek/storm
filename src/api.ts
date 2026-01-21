@@ -48,6 +48,7 @@ export {GetMySQLVersion, IGetMySQLVersionResult, IGetMySQLVersionRow} from './Ge
 // Errors
 export {ErrorCode} from './ErrorCode';
 export {RawError} from './RawError';
+export {ForbiddenError} from './ForbiddenError';
 export {
     StormError,
     IErrorResponse,
@@ -104,6 +105,7 @@ export {TokenManager, TExpiresIn} from './TokenManager';
 
 // Utils
 export {ExitCode} from './ExitCode';
+export {MetricStore} from './MetricStore';
 
 // Database Objects
 export {TCoordinate} from './TCoordinate';
