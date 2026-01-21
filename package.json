@@ -53,14 +53,14 @@
     "@types/mysql": "2.15.27",
     "@types/node": "24.10.1",
     "ajv": "8.17.1",
-    "body-parser": "2.2.1",
+    "body-parser": "2.2.2",
     "commander": "14.0.2",
     "express": "5.2.1",
     "form-data": "4.0.5",
     "formidable": "3.5.4",
     "jsonwebtoken": "9.0.3",
-    "mysql2": "3.15.3",
-    "sql-formatter": "15.6.10",
+    "mysql2": "3.16.1",
+    "sql-formatter": "15.7.0",
     "tslib": "2.8.1",
     "uuid": "11.1.0"
   },
@@ -80,7 +80,7 @@
     "jest-jasmine2": "30.2.0",
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
-    "typedoc": "0.28.15",
+    "typedoc": "0.28.16",
     "typedoc-plugin-markdown": "4.9.0",
     "typescript": "5.9.3"
   }
