@@ -34,8 +34,12 @@ import { InternalError } from './InternalError';
 import IncomingForm = require('formidable/Formidable');
 import { IDatabasePosition } from './IDatabasePosition';
 
+export interface IQueryParams {
+    [key: string]: undefined | string | IQueryParams | (string | IQueryParams)[];
+}
+
 export interface IParameterMap {
-    [key: string]: string;
+    [key: string]: string | string[];
 }
 
 export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthTokenData> {
@@ -83,7 +87,7 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
         }
     }
 
-    public getQueryVariables(): any {
+    public getQueryVariables(): IQueryParams {
         return this.$request.query;
     }
 
@@ -91,7 +95,7 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
         return this.$request.params;
     }
 
-    public getParam(name: string): string {
+    public getParam(name: string): string | string[] {
         return this.$request.params[name];
     }
 
