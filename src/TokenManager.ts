@@ -78,6 +78,22 @@ export class TokenManager<TAuthToken extends IAuthTokenData = IAuthTokenData> {
         });
     }
 
+    /**
+     * Decodes the token. Use this method only on verified tokens as this does not verify against tampering
+     * 
+     * @param token 
+     * @returns 
+     */
+    public decodeSync(token: Token): TAuthToken {
+        return jwt.decode(token.getSignature()) as TAuthToken;
+    }
+
+    /**
+     * Decodes the token. Use this method only on verified tokens as this does not verify against tampering
+     *
+     * @param token 
+     * @returns 
+     */
     public decode(token: Token): Promise<TAuthToken> {
         return new Promise<any>((resolve, reject) => {
             try {

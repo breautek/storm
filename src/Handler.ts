@@ -138,8 +138,17 @@ export class Handler<
         response.error(error);
     }
 
-    public async get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
+    protected _logRequestStart(request: Request<unknown>): void {
         this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
+    }
+
+    protected _logRequestEnd(request: Request<unknown>, response: Response<any>, elapsed: number): void {
+        this.$app.getLogger().info(TAG, `API ${request.getURL()} (${response.getStatus()}) responded in ${elapsed}ms`);
+    }
+
+    public async get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
+        let startTime: Date = new Date();
+        this._logRequestStart(request);
 
         try {
             let result: IRequestResponse<TGetRequest, TGetResponse> = await this.$executeMiddlewares(request, response);
@@ -149,10 +158,13 @@ export class Handler<
         catch (ex) {
             this.$handleResponseError(response as Response<StormError>, ex);
         }
+
+        this._logRequestEnd(request, response, new Date().getTime() - startTime.getTime());
     }
 
     public async put(request: Request<TPutRequest>, response: Response<TPutResponse>): Promise<void> {
-        this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
+        let startTime: Date = new Date();
+        this._logRequestStart(request);
 
         try {
             let result: IRequestResponse<TPutRequest, TPutResponse> = await this.$executeMiddlewares(request, response);
@@ -162,10 +174,13 @@ export class Handler<
         catch (ex) {
             this.$handleResponseError(response as Response<StormError>, ex);
         }
+
+        this._logRequestEnd(request, response, new Date().getTime() - startTime.getTime());
     }
 
     public async post(request: Request<TPostRequest>, response: Response<TPostResponse>): Promise<void> {
-        this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
+        let startTime: Date = new Date();
+        this._logRequestStart(request);
 
         try {
             let result: IRequestResponse<TPostRequest, TPostResponse> = await this.$executeMiddlewares(request, response);
@@ -175,10 +190,13 @@ export class Handler<
         catch (ex) {
             this.$handleResponseError(response as Response<StormError>, ex);
         }
+
+        this._logRequestEnd(request, response, new Date().getTime() - startTime.getTime());
     }
 
     public async delete(request: Request<TDeleteRequest>, response: Response<TDeleteResponse>): Promise<void> {
-        this.getApplication().getLogger().info(TAG, `${request.getForwardedIP()} (${request.getIP()}) - ${request.getMethod()} ${request.getURL()} - UA(${request.getHeader('user-agent')})`);
+        let startTime: Date = new Date();
+        this._logRequestStart(request);
 
         try {
             let result: IRequestResponse<TDeleteRequest, TDeleteResponse> = await this.$executeMiddlewares(request, response);
@@ -188,6 +206,8 @@ export class Handler<
         catch (ex) {
             this.$handleResponseError(response as Response<StormError>, ex);
         }
+
+        this._logRequestEnd(request, response, new Date().getTime() - startTime.getTime());
     }
 
     protected async _get(request: Request<TGetRequest>): Promise<TGetResponse | ResponseData<TGetResponse>> {
