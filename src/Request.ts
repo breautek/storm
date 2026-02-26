@@ -99,6 +99,37 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
         return this.$request.params[name];
     }
 
+    /**
+     * Gets a URL parameter as string. If the value is multiple
+     * then only the first value is returned.
+     * This is a convenience method over `getParam` which returns a union.
+     */
+    public getURLSingleParam(name: string): string {
+        let v: string | string[] = this.getParam(name);
+
+        if (typeof v === 'string') {
+            return v;
+        }
+        else {
+            return v[0];
+        }
+    }
+
+    /**
+     * Gets a URL parameter as string[].
+     * This is a convenience method over `getParam` which returns a union.
+     */
+    public getURLMultiParam(name: string): string[] {
+        let v: string | string[] = this.getParam(name);
+
+        if (typeof v === 'string') {
+            return [v];
+        }
+        else {
+            return v;
+        }
+    }
+
     public getIP(): string {
         return this.$request.ip;
     }

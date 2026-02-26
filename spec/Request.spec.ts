@@ -126,6 +126,8 @@ describe('Request', () => {
         app.attachMockHandler('/param/:name/', new (makeHandler(async (request: Request) => {
             expect(request.getParams()).toEqual({name:'bob'});
             expect(request.getParam('name')).toBe('bob');
+            expect(request.getURLSingleParam('name')).toBe('bob');
+            expect(request.getURLMultiParam('name')).toEqual(['bob']);
         }))(app));
         await app.doMockGet('/param/bob/');
     });
