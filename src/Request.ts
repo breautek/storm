@@ -107,6 +107,8 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     public getURLSingleParam(name: string): string {
         let v: string | string[] = this.getParam(name);
 
+        if (v === undefined || v === null) return null;
+
         if (typeof v === 'string') {
             return v;
         }
@@ -121,6 +123,8 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
      */
     public getURLMultiParam(name: string): string[] {
         let v: string | string[] = this.getParam(name);
+
+        if (v === undefined || v === null) return null;
 
         if (typeof v === 'string') {
             return [v];
