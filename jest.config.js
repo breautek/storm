@@ -14,8 +14,6 @@
    limitations under the License.
 */
 
-console.log('ARGV', process.argv.length);
-
 module.exports = {
   preset: 'ts-jest',
   verbose: true,

@@ -34,8 +34,10 @@ import { InternalError } from './InternalError';
 import IncomingForm = require('formidable/Formidable');
 import { IDatabasePosition } from './IDatabasePosition';
 
+export type IQueryParamValue = undefined | string | IQueryParams | (string | IQueryParams)[];
+
 export interface IQueryParams {
-    [key: string]: undefined | string | IQueryParams | (string | IQueryParams)[];
+    [key: string]: IQueryParamValue;
 }
 
 export interface IParameterMap {
@@ -89,6 +91,54 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
 
     public getQueryVariables(): IQueryParams {
         return this.$request.query;
+    }
+
+    public getQueryVariable(name: string): IQueryParamValue {
+        return this.$request.query[name];
+    }
+
+    public getQuerySingleVariable(name: string): string {
+        let v: IQueryParamValue = this.getQueryVariable(name);
+
+        if (v === undefined || v === null) return null;
+
+        if (typeof v === 'string') {
+            return v;
+        }
+
+        if (Array.isArray(v)) {
+            v = v[0];
+
+            if (typeof v === 'string') {
+                return v;
+            }
+        }
+
+        return null; // Not parseable
+    }
+
+    public getQueryMultiVariable(name: string): string[] {
+        let v: IQueryParamValue = this.getQueryVariable(name);
+
+        if (v === undefined || v === null) return null;
+
+        if (typeof v === 'string') {
+            return [v];
+        }
+
+        if (Array.isArray(v)) {
+            let out: string[] = [];
+
+            for (let i: number = 0; i < v.length; i++) {
+                if (typeof v[i] === 'string') {
+                    out.push(v[i] as string);
+                }
+            }
+
+            return out;
+        }
+
+        return null; // Not parseable
     }
 
     public getParams(): IParameterMap {

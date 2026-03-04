@@ -23,18 +23,39 @@ import { IDatabasePosition } from '../src/IDatabasePosition';
 
 type HandlerCallback = (request: Request) => Promise<void>;
 
+class MockHandler extends Handler {
+    private $callback: HandlerCallback;
+
+    public constructor(app: MockApplication, callback: HandlerCallback) {
+        super(app)
+        this.$callback = callback;
+    }
+
+    private async $handleRequest(request: Request): Promise<void> {
+        await this.$callback(request);
+    }
+    
+    protected override async _get(request: Request): Promise<void> {
+        await this.$handleRequest(request);
+    }
+
+    protected override async _post(request: Request): Promise<void> {
+        await this.$handleRequest(request);
+    }
+};
+
 let makeHandler = (callback: HandlerCallback): any => {
     return class MockHandler extends Handler {
         private async $handleRequest(request: Request): Promise<void> {
-            return callback(request);
+            await callback(request);
         }
         
         protected async _get(request: Request): Promise<void> {
-            return this.$handleRequest(request);
+            await this.$handleRequest(request);
         }
 
         protected async _post(request: Request): Promise<void> {
-            return this.$handleRequest(request);
+            await this.$handleRequest(request);
         }
     };
 };
@@ -53,7 +74,7 @@ describe('Request', () => {
     });
 
     it('can make request()', async () => {
-        app.attachMockHandler('/getHeaders', new (makeHandler(async (request: Request) => {
+        app.attachMockHandler('/getHeaders1', new (makeHandler(async (request: Request) => {
             let headers: http.IncomingHttpHeaders = request.getHeaders();
             expect(headers.host).toBe(`localhost:${app.getPort()}`);
             expect(request.isSecure()).toBe(false);
@@ -61,12 +82,35 @@ describe('Request', () => {
             expect(request.getIP()).toBe('127.0.0.1');
             expect(request.getHostname()).toBe('localhost');
             expect(request.getQueryVariables().test).toBe('1');
+            expect(request.getQuerySingleVariable('test')).toBe('1');
+            expect(request.getQueryVariable('test')).toBe('1');
+            expect(request.getQueryMultiVariable('test')).toEqual(['1']);
             expect(request.getRequestSource()).toBeTruthy();
             expect(request.getForwardedIP()).toBe(null);
             expect(request.getParams()).toEqual({});
             expect(request.getHeader('Content-Type')).toBe(null);
         }))(app));
-        await app.doMockGet('/getHeaders?test=1');
+        await app.doMockGet('/getHeaders1?test=1');
+    });
+
+    it('single query params', async () => {
+        app.attachMockHandler('/getHeaders2', new MockHandler(app, async (request: Request) => {
+            expect(request.getQueryVariables()).toEqual({test:'1'});
+            expect(request.getQuerySingleVariable('test')).toBe('1');
+            expect(request.getQueryVariable('test')).toBe('1');
+            expect(request.getQueryMultiVariable('test')).toEqual(['1']);
+        }));
+        await app.doMockGet('/getHeaders2?test=1');
+    });
+
+    it('multi query params', async () => {
+        app.attachMockHandler('/getHeaders3', new (makeHandler(async (request: Request) => {
+            expect(request.getQueryVariables()).toEqual({test:['1', '2']});
+            expect(request.getQuerySingleVariable('test')).toBe('1');
+            expect(request.getQueryVariable('test')).toBe(['1', '2']);
+            expect(request.getQueryMultiVariable('test')).toEqual(['1', '2']);
+        }))(app));
+        await app.doMockGet('/getHeader3?test=1&test=2');
     });
 
     it('can fetch DB position markers', async () => {
@@ -132,21 +176,27 @@ describe('Request', () => {
         await app.doMockGet('/param/bob/');
     });
 
-    it('can make form data requests', (done) => {
+    it('can make form data requests', async () => {
         app.attachMockHandler('/form/', new (makeHandler(async (request: Request) => {
-            request.getForm().then((formData: IFormData) => {
-                expect(formData.fields.key).toEqual([ 'value' ]);
-                expect(request.getHeader('Content-Type').indexOf('multipart/form-data')).toBeGreaterThan(-1);
-                done();
-            }).catch(fail);
+            let formData: IFormData = await request.getForm();
+            expect(formData.fields.key).toEqual([ 'value' ]);
+            expect(request.getHeader('Content-Type').indexOf('multipart/form-data')).toBeGreaterThan(-1);
         }))(app));
 
-        let form = new FormData();
-        form.append('key', 'value');
-        form.submit(`http://127.0.0.1:${app.getPort()}/form/`);
+        return await new Promise<void>((resolve, reject) => {
+            let form = new FormData();
+            form.append('key', 'value');
+            let req = form.submit(`http://127.0.0.1:${app.getPort()}/form/`);
+            req.on('response', () => {
+                resolve();
+            });
+            req.on('error', (err) => {
+                reject(err);
+            });
+        });
     });
 
-    it('can pipe/unpipe', (done) => {
+    it('can pipe/unpipe', async () => {
         app.attachMockHandler('/pipes/', new (makeHandler(async (request: Request) => {
             return new Promise<void>((resolve, reject) => {
                 let dumpFile: string = Path.resolve('./dump.txt');
@@ -155,13 +205,13 @@ describe('Request', () => {
                 writable.on('finish', () => {
                     request.unpipe(writable);
                     FileSystem.unlinkSync(dumpFile);
-                    done();
+                    resolve();
                 });
 
                 request.pipe(writable);
             });
         }))(app));
-        void app.doMockPost('/pipes/', 'asdfasdf');
+        await app.doMockPost('/pipes/', 'asdfasdf');
     });
 
     describe('getAuthenticationToken', () => {
