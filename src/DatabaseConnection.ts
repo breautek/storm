@@ -190,14 +190,15 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
      * @async
      * @returns Promise<void>
      */
-    public close(forceClose: boolean = false): Promise<void> {
+    public async close(forceClose: boolean = false): Promise<void> {
         if (this.isClosed()) {
-            return Promise.resolve();
+            return;
         }
+        
+        await this._close(forceClose);
         
         this.$open = false;
         clearTimeout(this.$lingerTimer);
-        return this._close(forceClose);
     }
 
     /**

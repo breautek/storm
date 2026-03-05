@@ -46,9 +46,9 @@ describe('DatabaseConnection', () => {
         void connection.close();
     });
 
-    it('is closed', () => {
+    it('is closed', async () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        void connection.close();
+        await connection.close();
         expect(connection.isClosed()).toBe(true);
     });
 
@@ -104,17 +104,17 @@ describe('DatabaseConnection', () => {
         void connection.close();
     });
 
-    it('can close', () => {
+    it('can close', async () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
         let spy: jasmine.Spy = spyOn(global, 'clearTimeout').and.callThrough();
-        void connection.close();
+        await connection.close();
         expect(spy).toHaveBeenCalled();
     });
 
-    it('can force close', () => {
+    it('can force close', async () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
         let spy: jasmine.Spy = spyOn((connection as any), '_close');
-        void connection.close(true);
+        await connection.close(true);
         expect(spy).toHaveBeenCalledWith(true);
     });
 
