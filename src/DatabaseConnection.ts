@@ -85,12 +85,8 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     }
 
     private $disarmLingerWarnings(): void {
-        if (this.$lingerTimer) {
-            clearTimeout(this.$lingerTimer);
-        }
-        if (this.$lingerInterval) {
-            clearInterval(this.$lingerInterval);
-        }
+        clearTimeout(this.$lingerTimer);
+        clearInterval(this.$lingerInterval);
     }
 
     private $armLingerWarning(): void {
