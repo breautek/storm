@@ -26,6 +26,8 @@ import { IDatabasePosition } from './IDatabasePosition';
 
 export const LINGER_WARNING: number = 60000;
 export const DEFAULT_QUERY_TIMEOUT: number = 3600000;
+export const RECURRING_WARNING_TIMER: number = 60000;
+
 const TAG: string = 'DatabaseConnection';
 
 /**
@@ -39,6 +41,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     private $readOnly: boolean;
     private $timeout: number;
     private $lingerTimer: NodeJS.Timeout;
+    private $lingerInterval: NodeJS.Timeout;
     private $instantiationStack: string;
     private $open: boolean;
 
@@ -81,13 +84,24 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         return this.$instantiationStack;
     }
 
-    private $armLingerWarning(): void {
+    private $disarmLingerWarnings(): void {
         if (this.$lingerTimer) {
             clearTimeout(this.$lingerTimer);
         }
+        if (this.$lingerInterval) {
+            clearInterval(this.$lingerInterval);
+        }
+    }
+
+    private $armLingerWarning(): void {
+        this.$disarmLingerWarnings();
 
         this.$lingerTimer = setTimeout(() => {
             this.$triggerLingerWarning();
+
+            this.$lingerInterval = setInterval(() => {
+                this.$triggerLingerWarning();
+            }, RECURRING_WARNING_TIMER);
         }, LINGER_WARNING);
     }
 
@@ -198,7 +212,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
         await this._close(forceClose);
         
         this.$open = false;
-        clearTimeout(this.$lingerTimer);
+        this.$disarmLingerWarnings();
     }
 
     /**
