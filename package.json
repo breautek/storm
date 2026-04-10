@@ -53,8 +53,8 @@
     "form-data": "4.0.5",
     "formidable": "3.5.4",
     "jsonwebtoken": "9.0.3",
-    "mysql2": "3.20.0",
-    "sql-formatter": "15.7.2",
+    "mysql2": "3.22.0",
+    "sql-formatter": "15.7.3",
     "tslib": "2.8.1",
     "uuid": "11.1.0"
   },
@@ -65,7 +65,7 @@
   "devDependencies": {
     "@types/body-parser": "1.19.6",
     "@types/express": "5.0.6",
-    "@types/formidable": "3.5.0",
+    "@types/formidable": "3.5.1",
     "@types/jsonwebtoken": "9.0.10",
     "@types/mysql": "2.15.27",
     "@types/node": "24.10.1",
@@ -78,7 +78,7 @@
     "auto-changelog": "2.5.0",
     "jest": "30.3.0",
     "jest-jasmine2": "30.3.0",
-    "ts-jest": "29.4.6",
+    "ts-jest": "29.4.9",
     "ts-node": "10.9.2",
     "typedoc": "0.28.18",
     "typedoc-plugin-markdown": "4.11.0",
