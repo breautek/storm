@@ -42,6 +42,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     private $timeout: number;
     private $lingerTimer: NodeJS.Timeout;
     private $lingerInterval: NodeJS.Timeout;
+    private $lingerTickCount: number;
     private $instantiationStack: string;
     private $open: boolean;
 
@@ -58,6 +59,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
             this.$timeout = DEFAULT_QUERY_TIMEOUT;
         }
 
+        this.$lingerTickCount = 0;
         this.$armLingerWarning();
     }
     
@@ -68,7 +70,8 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     public abstract hasReplicationEnabled(): boolean;
 
     private $triggerLingerWarning(): void {
-        getInstance().getLogger().warn(TAG, `Database connection has lingered for ${LINGER_WARNING}ms of inactivity.\n\n${this.$instantiationStack}`);
+        let elapsed = (LINGER_WARNING + (RECURRING_WARNING_TIMER * this.$lingerTickCount)) / 1000;
+        getInstance().getLogger().warn(TAG, `Database connection has lingered for ${elapsed}s of inactivity.\n\n${this.$instantiationStack}`);
     }
 
     public setInstantiationStack(stack: string): void {
@@ -87,6 +90,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
     private $disarmLingerWarnings(): void {
         clearTimeout(this.$lingerTimer);
         clearInterval(this.$lingerInterval);
+        this.$lingerTickCount = 0;
     }
 
     private $armLingerWarning(): void {
@@ -96,6 +100,7 @@ export abstract class DatabaseConnection<TAPI> implements IDatabaseConnection {
             this.$triggerLingerWarning();
 
             this.$lingerInterval = setInterval(() => {
+                this.$lingerTickCount++;
                 this.$triggerLingerWarning();
             }, RECURRING_WARNING_TIMER);
         }, LINGER_WARNING);
