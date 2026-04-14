@@ -46,6 +46,9 @@
   "dependencies": {
     "@arashi/token": "1.0.1",
     "@breautek/merge-change": "1.0.0",
+    "@types/express": "5.0.6",
+    "@types/formidable": "3.5.1",
+    "@types/ms": "2.1.0",
     "ajv": "8.18.0",
     "body-parser": "2.2.2",
     "commander": "14.0.3",
@@ -64,8 +67,6 @@
   },
   "devDependencies": {
     "@types/body-parser": "1.19.6",
-    "@types/express": "5.0.6",
-    "@types/formidable": "3.5.1",
     "@types/jsonwebtoken": "9.0.10",
     "@types/mysql": "2.15.27",
     "@types/node": "24.10.1",
@@ -74,7 +75,6 @@
     "@jest/types": "30.3.0",
     "@totalpave/eslint-plugin": "7.0.17",
     "@types/jest": "30.0.0",
-    "@types/ms": "2.1.0",
     "auto-changelog": "2.5.0",
     "jest": "30.3.0",
     "jest-jasmine2": "30.3.0",
