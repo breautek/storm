@@ -46,6 +46,7 @@ export interface IStormCLIArgs {
     configFile?: string;
     localConfigFile?: string;
     custom: Record<string, any>;
+    shard?: number;
 }
 
 const TAG: string = 'Application';
@@ -321,11 +322,16 @@ export abstract class Application
         this.$program.allowExcessArguments(true);
         this.$program.option('--port <port>', 'The running port to consume');
         this.$program.option('--bind <ip>', 'The binding IP to listen on');
+        this.$program.option('--shard <integer>', 'The shard identifier. Must be an integer');
         this.$program.option('--authentication_header <header>', 'The header name of the authentication token');
         this.$program.option('--config <path>', 'The path to the bt-config.json file');
         this.$program.option('--local-config <path>', 'The path to the bt-local-config.json file.');
 
         this._buildArgOptions(this.$program);
+    }
+
+    public getShard(): number {
+        return this.getCmdLineArgs().shard;
     }
 
     protected _buildArgOptions(program: Command): void {}
