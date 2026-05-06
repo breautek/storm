@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-import * as UUID from 'uuid';
+import * as Crypto from 'node:crypto';
 import {DatabaseConnection} from './DatabaseConnection';
 import { getInstance } from './instance';
 import { IDatabasePosition } from './IDatabasePosition';
@@ -44,7 +44,7 @@ export abstract class Database<TDatabaseConfig, TConnectionAPI> {
     }
 
     public addSlave(slaveID: string, config: TDatabaseConfig): string {
-        let id = `SLAVE.${UUID.v4()}.${slaveID}`;
+        let id = `SLAVE.${Crypto.randomUUID()}.${slaveID}`;
 
         this.$clusterConfigMap[id] = config;
         this._addNode(id, config);
