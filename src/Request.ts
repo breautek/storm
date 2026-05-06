@@ -150,6 +150,13 @@ export class Request<TBody = any, TAuthToken extends IAuthTokenData = IAuthToken
     }
 
     /**
+     * Returns the matched route
+     */
+    public getRoute(): string {
+        return this.$request.route.path;
+    }
+
+    /**
      * Gets a URL parameter as string. If the value is multiple
      * then only the first value is returned.
      * This is a convenience method over `getParam` which returns a union.

@@ -50,7 +50,8 @@ describe('Middlewares', () => {
             getMethod: jasmine.createSpy('getMethod'),
             getURL: jasmine.createSpy('getURL'),
             getHeader: jasmine.createSpy('user-agent'),
-            getIP: jasmine.createSpy('getIP')
+            getIP: jasmine.createSpy('getIP'),
+            getRoute: jasmine.createSpy('getRoute')
         };
         response = {
             error: jasmine.createSpy('error'),

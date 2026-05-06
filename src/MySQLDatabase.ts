@@ -21,12 +21,13 @@ import {getInstance} from './instance';
 import { IDatabasePosition } from './IDatabasePosition';
 import { ConnectionReplicationWaiter } from './private/ConnectionReplicationWaiter';
 import { ILogger } from '@arashi/interfaces';
-import { MetricStore } from './MetricStore';
+import { IMetricGauge, MetricStore } from './MetricStore';
 
 const TAG: string = 'MySQLDatabase';
 
 export class MySQLDatabase extends Database<MySQL.PoolOptions, MySQL.PoolConnection> {
     private $cluster: MySQL.PoolCluster;
+    private $activeConnectionsGauge: IMetricGauge;
 
     constructor() {
         super();
@@ -37,6 +38,11 @@ export class MySQLDatabase extends Database<MySQL.PoolOptions, MySQL.PoolConnect
         });
         this.$cluster.on('enqueue', () => {
             getInstance().getLogger().warn(TAG, 'Waiting for available connection...');
+        });
+
+        this.$activeConnectionsGauge = MetricStore.getInstance().createGauge({
+            name: 'storm_mysql_active_connections',
+            help: 'Number of MySQL connections currently claimed from the pool'
         });
     }
 
@@ -70,8 +76,8 @@ export class MySQLDatabase extends Database<MySQL.PoolOptions, MySQL.PoolConnect
                     return;
                 }
     
-                MetricStore.getInstance().increment('mysql.active_connections');
-                resolve(new MySQLConnection(connection, instantationStack, !requireWriteAccess));
+                this.$activeConnectionsGauge.inc();
+                resolve(new MySQLConnection(connection, instantationStack, !requireWriteAccess, this.$activeConnectionsGauge));
             });
         });
     }

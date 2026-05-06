@@ -105,7 +105,14 @@ export {TokenManager, TExpiresIn} from './TokenManager';
 
 // Utils
 export {ExitCode} from './ExitCode';
-export {MetricStore} from './MetricStore';
+export {
+    MetricStore,
+    IHistogramConfig,
+    IMetricConfig,
+    IMetricCounter,
+    IMetricGauge,
+    IMetricHistogram
+} from './MetricStore';
 
 // Database Objects
 export {TCoordinate} from './TCoordinate';

@@ -37,7 +37,9 @@ import {
     BaseLogger
 } from '@arashi/logger';
 import { StormError } from './StormError';
-import { HealthHandler } from './handlers/HealthHandler';
+import { PrometheusServer } from './PrometheusServer';
+import { MetricStore } from './MetricStore';
+import * as OS from 'node:os';
 
 export interface IStormCLIArgs {
     bind?: string;
@@ -89,6 +91,8 @@ export abstract class Application
     private $socket: http.Server;
     private $program: Command;
 
+    private $promServer: PrometheusServer;
+
     private $usingDeprecatedConfigPath: boolean;
 
     /**
@@ -139,16 +143,45 @@ export abstract class Application
         }
     }
 
+    private async $initPrometheus(): Promise<void> {
+        let config: IConfig = this.getConfig();
+
+        if (!config.prometheus?.enabled) {
+            return;
+        }
+
+        this.$getLogger().info(TAG, 'Initializing Prometheus');
+
+        this.$promServer = new PrometheusServer(this);
+        this.$promServer.start();
+    }
+
+    /**
+     * Default algorithm is to take main port, and add 595 to it.
+     * Still -- it is better to explicitly set the prometheus port.
+     * 
+     * @param mainPort 
+     * @returns 
+     */
+    public getDefaultPortForPrometheus(): number {
+        return this.getPort() + 595;
+    }
+
     private async $load(): Promise<void> {
         this.$config = await this.$loadConfig();
-
-        // console.log('WTF', this.$config);
 
         this.$logger = await this._initLogger(this.$config);
 
         this.$getLogger().trace(TAG, 'Configuration loaded.');
         this.emit(ApplicationEvent.CONFIG_LOADED);
         this._onConfigLoad(this.$config);
+
+        MetricStore.getInstance().setDefaultLabels({
+            name: this.getName(),
+            environment: process.env.NODE_ENV ?? 'development',
+            hostname: OS.hostname(),
+            shard: String(this.getShard() ?? 0)
+        });
 
         this.$getLogger().trace(TAG, 'Initializing DB...');
         this.$db = await this._initDB(this.getConfig());
@@ -175,6 +208,8 @@ export abstract class Application
             type : 'text/*',
             limit : this.getRequestSizeLimit()
         }));
+
+        await this.$initPrometheus();
 
         this.$getLogger().trace(TAG, 'Attaching handlers...');
         await this.$attachHandlers();
@@ -326,12 +361,18 @@ export abstract class Application
         this.$program.option('--authentication_header <header>', 'The header name of the authentication token');
         this.$program.option('--config <path>', 'The path to the bt-config.json file');
         this.$program.option('--local-config <path>', 'The path to the bt-local-config.json file.');
+        this.$program.option('--prometheus-port <port>', 'The port for prometheus metrics server to use.');
+        this.$program.option('--prometheus-bind <ip>', 'The bind for prometheus metrics server to use.');
 
         this._buildArgOptions(this.$program);
     }
 
     public getShard(): number {
         return this.getCmdLineArgs().shard;
+    }
+
+    public isPrometheusEnabled(): boolean {
+        return !!(this.getConfig()?.prometheus?.enabled);
     }
 
     protected _buildArgOptions(program: Command): void {}
@@ -355,9 +396,7 @@ export abstract class Application
         return this.getConfig().request_size_limit;
     }
 
-    private async $attachHandlers(): Promise<void> {
-        this.attachHandler('/_health', new HealthHandler(this));
-    }
+    private async $attachHandlers(): Promise<void> {}
 
     /**
      * 

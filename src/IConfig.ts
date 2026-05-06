@@ -42,13 +42,19 @@ export interface IConfig {
     authentication_header?: string;
     backend_authentication_header?: string;
     backend_authentication_secret?: string;
+
+    prometheus?: {
+        enabled?: boolean;
+        bind?: string;
+        port?: number;
+    };
     
     // Logging
     log?: {
         level?: LogLevel;
         filters?: string[];
         cloudwatch?: ICloudwatchConfig;
-    },
+    };
 
     // Database
     database?: {

@@ -143,10 +143,28 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
             properties: {
                 bind:                           { type: [ 'string', 'null' ] },
                 port:                           { type: [ 'number', 'null' ] },
+                shard:                          { type: [ 'number', 'null' ] },
                 authentication_header:          { type: [ 'string', 'null' ] },
                 backend_authentication_header:  { type: [ 'string', 'null' ] },
                 backend_authentication_secret:  { type: [ 'string', 'null' ] },
                 request_size_limit:             { type: [ 'number', 'null' ] },
+                prometheus: {
+                    type: [ 'object', 'null' ],
+                    additionalProperties: false,
+                    properties: {
+                        enabled: {
+                            type: [ 'boolean', 'null'],
+                            default: false
+                        },
+                        bind: {
+                            type: [ 'string', 'null' ],
+                            default: '127.0.0.1'
+                        },
+                        port: {
+                            type: [ 'number', 'null' ]
+                        }
+                    }
+                },
                 log: {
                     type: [ 'object', 'null' ],
                     additionalProperties: false,

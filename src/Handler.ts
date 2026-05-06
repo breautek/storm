@@ -26,6 +26,7 @@ import { BaseLogger } from '@arashi/logger';
 import { ResponseData } from './ResponseData';
 import { NotImplementedError } from './NotImplementedError';
 import { HTTPMethod } from './HTTPMethod';
+import { IMetricHistogram, MetricStore } from './MetricStore';
 
 const TAG: string = 'Handler';
 
@@ -41,6 +42,12 @@ export class Handler<
         TDeleteResponse extends TSupportedResponseTypes    = TSupportedResponseTypes
     >  {
         
+    private static $requestDuration: IMetricHistogram = MetricStore.getInstance().createHistogram({
+        name: 'storm_http_request_duration_seconds',
+        help: 'HTTP request duration in seconds',
+        labelNames: ['method', 'route', 'status']
+    });
+
     private $app: TApplication;
 
     /**
@@ -148,6 +155,7 @@ export class Handler<
 
     public async get(request: Request<TGetRequest>, response: Response<TGetResponse>): Promise<void> {
         let startTime: Date = new Date();
+        let stopTimer = Handler.$requestDuration.startTimer({ method: HTTPMethod.GET, route: request.getRoute() });
         this._logRequestStart(request);
 
         try {
@@ -159,11 +167,13 @@ export class Handler<
             this.$handleResponseError(response as Response<StormError>, ex);
         }
 
+        stopTimer({ status: String(response.getStatus()) });
         this._logRequestEnd(request, response, new Date().getTime() - startTime.getTime());
     }
 
     public async put(request: Request<TPutRequest>, response: Response<TPutResponse>): Promise<void> {
         let startTime: Date = new Date();
+        let stopTimer = Handler.$requestDuration.startTimer({ method: HTTPMethod.PUT, route: request.getRoute() });
         this._logRequestStart(request);
 
         try {
@@ -175,11 +185,13 @@ export class Handler<
             this.$handleResponseError(response as Response<StormError>, ex);
         }
 
+        stopTimer({ status: String(response.getStatus()) });
         this._logRequestEnd(request, response, new Date().getTime() - startTime.getTime());
     }
 
     public async post(request: Request<TPostRequest>, response: Response<TPostResponse>): Promise<void> {
         let startTime: Date = new Date();
+        let stopTimer = Handler.$requestDuration.startTimer({ method: HTTPMethod.POST, route: request.getRoute() });
         this._logRequestStart(request);
 
         try {
@@ -191,11 +203,13 @@ export class Handler<
             this.$handleResponseError(response as Response<StormError>, ex);
         }
 
+        stopTimer({ status: String(response.getStatus()) });
         this._logRequestEnd(request, response, new Date().getTime() - startTime.getTime());
     }
 
     public async delete(request: Request<TDeleteRequest>, response: Response<TDeleteResponse>): Promise<void> {
         let startTime: Date = new Date();
+        let stopTimer = Handler.$requestDuration.startTimer({ method: HTTPMethod.DELETE, route: request.getRoute() });
         this._logRequestStart(request);
 
         try {
@@ -207,6 +221,7 @@ export class Handler<
             this.$handleResponseError(response as Response<StormError>, ex);
         }
 
+        stopTimer({ status: String(response.getStatus()) });
         this._logRequestEnd(request, response, new Date().getTime() - startTime.getTime());
     }
 

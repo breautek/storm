@@ -1,4 +1,6 @@
 
+jest.mock('prom-client');
+
 import {
     MockApplication
 } from '../support/TestApplication';

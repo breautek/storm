@@ -40,7 +40,7 @@ import { GetProcessList, IGetProcessListOutput } from './private/GetProcessList'
 import { GetMySQLVersion, IGetMySQLVersionResult } from './GetMySQLVersion';
 import { GetPrimaryPositionQuery } from './private/GetPrimaryPositionQuery';
 import { queryFormatter } from './mysql/queryFormatter';
-import { MetricStore } from './MetricStore';
+import { IMetricGauge } from './MetricStore';
 
 const DEFAULT_HIGH_WATERMARK: number = 512; // in number of result objects
 const TAG: string = 'MySQLConnection';
@@ -69,8 +69,9 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
     private $hasReplicationEnabled: boolean;
     private $isMasterConnection: boolean;
     private $version: IGetMySQLVersionResult;
+    private $activeConnectionsGauge: IMetricGauge | null;
 
-    public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true) {
+    public constructor(connection: MySQL.PoolConnection, instantiationStack: string, isReadOnly: boolean = true, activeConnectionsGauge: IMetricGauge | null = null) {
         connection.config.namedPlaceholders = true;
 
         if (!getInstance().getConfig().enableMySQL2BreakingChanges) {
@@ -109,6 +110,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         this.$opened = true;
         this.$transaction = false;
         this.$isMasterConnection = null;
+        this.$activeConnectionsGauge = activeConnectionsGauge;
     }
 
     /**
@@ -349,6 +351,7 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         }
 
         this.$opened = false;
+        this.$activeConnectionsGauge?.dec();
 
         if (forceClose) {
             if (this.isTransaction()) {
@@ -362,6 +365,5 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
         }
 
         this.getAPI().release();
-        MetricStore.getInstance().decrement('mysql.active_connections');
     }
 }
