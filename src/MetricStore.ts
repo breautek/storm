@@ -125,7 +125,9 @@ class HistogramWrapper implements IMetricHistogram {
 export class MetricStore {
     private static $instance: MetricStore;
 
-    private constructor() {}
+    private constructor() {
+        prom.collectDefaultMetrics();
+    }
 
     public static getInstance(): MetricStore {
         if (!MetricStore.$instance) {

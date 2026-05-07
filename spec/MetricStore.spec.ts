@@ -3,6 +3,7 @@ import { MetricStore, IMetricCounter, IMetricGauge, IMetricHistogram } from '../
 import * as prom from 'prom-client';
 
 jest.mock('prom-client', () => ({
+    collectDefaultMetrics: jest.fn(),
     register: {
         setDefaultLabels: jest.fn(),
         metrics: jest.fn().mockResolvedValue(''),
