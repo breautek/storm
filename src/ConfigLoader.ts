@@ -263,7 +263,9 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
     private $getCmdLineArgs(): Partial<IConfig> {
         let cliArgs: IStormCLIArgs = this.$app.getCmdLineArgs();
 
-        let out: Partial<IConfig> = {}
+        let out: Partial<IConfig> = {
+            prometheus: {}
+        };
 
         if (cliArgs.bind !== undefined) {
             out.bind = cliArgs.bind;
@@ -275,6 +277,18 @@ export class ConfigLoader<TConfig extends IConfig = IConfig> {
 
         if (cliArgs.authentication_header !== undefined) {
             out.authentication_header = cliArgs.authentication_header;
+        }
+
+        if (cliArgs.custom?.shard !== undefined) {
+            out.shard = parseInt(cliArgs.custom.shard);
+        }
+
+        if (cliArgs.custom?.prometheusBind !== undefined) {
+            out.prometheus.bind = cliArgs.custom.prometheusBind;
+        }
+
+        if (cliArgs.custom?.prometheusPort !== undefined) {
+            out.prometheus.port = parseInt(cliArgs.custom.prometheusPort);
         }
 
         return out;

@@ -43,6 +43,8 @@ export interface IConfig {
     backend_authentication_header?: string;
     backend_authentication_secret?: string;
 
+    shard?: number;
+
     prometheus?: {
         enabled?: boolean;
         bind?: string;
