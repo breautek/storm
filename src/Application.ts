@@ -144,9 +144,7 @@ export abstract class Application
     }
 
     private async $initPrometheus(): Promise<void> {
-        let config: IConfig = this.getConfig();
-
-        if (!config.prometheus?.enabled) {
+        if (!this.isPrometheusEnabled()) {
             return;
         }
 
