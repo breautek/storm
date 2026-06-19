@@ -266,8 +266,8 @@ export class MySQLConnection extends DatabaseConnection<MySQL.PoolConnection> {
             streamOptions = {};
         }
 
-        if (!streamOptions.highWatermark) {
-            streamOptions.highWatermark = DEFAULT_HIGH_WATERMARK;
+        if (!streamOptions.highWaterMark) {
+            streamOptions.highWaterMark = DEFAULT_HIGH_WATERMARK;
         }
 
         let queryObject: MySQL.Query = this.getAPI().query({
