@@ -1,6 +1,8 @@
+allowBuilds:
+  unrs-resolver: true
+
 onlyBuiltDependencies:
   - unrs-resolver
 
 publicHoistPattern:
   - eslint
-
