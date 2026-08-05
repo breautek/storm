@@ -192,6 +192,7 @@ export abstract class Application
 
         this.$getLogger().trace(TAG, 'Starting server...');
         this.$server = Express();
+        this.$server.set('trust proxy', 'loopback');
         this.$server.use(BodyParser.json({
             type : 'application/json',
             limit : this.getRequestSizeLimit()
