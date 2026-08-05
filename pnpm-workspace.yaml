@@ -1,6 +1,9 @@
 allowBuilds:
   unrs-resolver: true
 
+minimumReleaseAgeExclude:
+  - '@totalpave/eslint-plugin@7.1.2'
+
 onlyBuiltDependencies:
   - unrs-resolver
 
