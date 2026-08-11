@@ -17,7 +17,6 @@
     "unit": "jest",
     "test": "npm run-script lint && jest",
     "coverage": "codecov",
-    "clean": "rm -r ./lib && rm -r ./docs",
     "prepublishOnly": "npm run-script build-lib",
     "changelog": "auto-changelog --output CHANGELOG.md -p --release-summary --ignore-commit-pattern chore",
     "preversion": "npm test",
