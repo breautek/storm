@@ -3,6 +3,7 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - '@totalpave/eslint-plugin@7.1.2'
+  - '@types/node@26.3.0'
 
 onlyBuiltDependencies:
   - unrs-resolver
