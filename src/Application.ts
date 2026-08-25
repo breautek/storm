@@ -40,6 +40,9 @@ import { StormError } from './StormError';
 import { PrometheusServer } from './PrometheusServer';
 import { MetricStore } from './MetricStore';
 import * as OS from 'node:os';
+import { IHandlerAttachBridge } from './IHandlerAttachBridge';
+import { RawHandlerAttacher } from './RawHandlerAttacher';
+import { HandlerAttacher } from './HandlerAttacher';
 
 export interface IStormCLIArgs {
     bind?: string;
@@ -193,6 +196,9 @@ export abstract class Application
         this.$getLogger().trace(TAG, 'Starting server...');
         this.$server = Express();
         this.$server.set('trust proxy', 'loopback');
+
+        await this._attachRawHandlers(new RawHandlerAttacher(this, this.$server));
+
         this.$server.use(BodyParser.json({
             type : 'application/json',
             limit : this.getRequestSizeLimit()
@@ -212,7 +218,7 @@ export abstract class Application
 
         this.$getLogger().trace(TAG, 'Attaching handlers...');
         await this.$attachHandlers();
-        await this._attachHandlers();
+        await this._attachHandlers(new HandlerAttacher(this, this.$server));
 
         await this._onBeforeReadyAsync();
 
@@ -401,11 +407,17 @@ export abstract class Application
      * 
      * @param path The URL API path. E.g. /api/myService/myCommand/
      * @param Handler
+     * @deprecated - Use {@link IHandlerAttachBridge} instead
      */
     public attachHandler(path: string, handler: Handler): void {
         this.attachHandlerInstance(path, handler);
     }
 
+    /**
+     * @deprecated - Use {@link IHandlerAttachBridge} instead
+     * @param path 
+     * @param handler 
+     */
     public attachHandlerInstance(path: string, handler: Handler): void {
         this.$server.get(path, (request: Express.Request, response: Express.Response) => {
             let r: Request = new Request(request);
@@ -455,7 +467,9 @@ export abstract class Application
      * Subclasses are expected to attach the API handlers for their service. This will be invoked during application startup.
      * @returns Promise<void>
      */
-    protected abstract _attachHandlers(): Promise<void>;
+    protected abstract _attachHandlers(attacher: IHandlerAttachBridge): Promise<void>;
+
+    protected async _attachRawHandlers(attacher: IHandlerAttachBridge): Promise<void> {}
 
     /**
      * @deprecated Supply the configs via --config and --local-config arguments
