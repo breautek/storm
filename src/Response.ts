@@ -135,13 +135,26 @@ export class Response<TResponse extends TSupportedResponseTypes> {
         }
     }
 
-    // public send(data?: TResponse | TErrorResponse | StormError | IErrorResponse | Buffer): void {
     public send(data?: TResponse | ResponseData<TResponse> | ResponseData<StormError> | StormError | IErrorResponse): void {
         this.$send(data);
         this.$app.getLogger().info(TAG, `API ${this.$requestURL} (${this.getStatus()}) responded in ${new Date().getTime() - this.$created.getTime()}ms`);
     }
 
     public pipe(stream: NodeJS.ReadableStream): void {
+        stream.on('error', (error: Error) => {
+            this.$app.getLogger().error(TAG, error);
+            stream.unpipe(this.$response);
+
+            if (this.isHeadersSent()) {
+                // Response is already committed. An abnormal termination is
+                // the only way left to signal failure to the client.
+                this.$response.destroy(error);
+            }
+            else {
+                this.error(error);
+            }
+        });
+
         stream.on('end', () => {
             stream.unpipe(this.$response);
         });
