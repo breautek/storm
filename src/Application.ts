@@ -438,11 +438,16 @@ export abstract class Application
     }
 
     public async close(): Promise<void> {
-        await Promise.all([ this._closeSocket(), this._closeDatabase() ]);
+        await Promise.all([ this._closeSocket(), this._closeDatabase(), this._close() ]);
         if (this.$logger) {
             this.$logger.destroy();
         }
     }
+
+    /**
+     * An opportunity to close up additional resources.
+     */
+    protected async _close(): Promise<void> {}
 
     protected async _closeDatabase(): Promise<void> {
         if (this.$db) {
