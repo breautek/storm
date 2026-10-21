@@ -73,6 +73,10 @@ describe('Request', () => {
         await app.close();
     });
 
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
     it('can make request()', async () => {
         app.attachMockHandler('/getHeaders1', new (makeHandler(async (request: Request) => {
             let headers: http.IncomingHttpHeaders = request.getHeaders();
@@ -229,13 +233,8 @@ describe('Request', () => {
             });
 
             app.attachMockHandler('/auth/', new (makeHandler(async (request: Request) => {
-                try {
-                    let tokenData: any = await request.getAuthenticationToken();
-                    expect(tokenData.test).toBe('123');
-                }
-                catch (ex) {
-                    fail(ex);
-                }
+                let tokenData: any = await request.getAuthenticationToken();
+                expect(tokenData.test).toBe('123');
             }))(app));
             await app.doMockGet('/auth/', {
                 'X-BT-AUTH': token.getSignature()
@@ -250,7 +249,7 @@ describe('Request', () => {
             app.attachMockHandler('/auth/test1', new (makeHandler(async (request: Request) => {
                 try {
                     await request.getAuthenticationToken();
-                    fail('Unexpected success');
+                    throw new Error('Unexpected success');
                 }
                 catch (ex) {
                     expect(ex).toBeInstanceOf(ResponseData);
@@ -275,7 +274,7 @@ describe('Request', () => {
             app.attachMockHandler('/auth/test2', new (makeHandler(async (request: Request) => {
                 try {
                     await request.getAuthenticationToken();
-                    fail('Unexpected success');
+                    throw new Error('Unexpected success');
                 }
                 catch (ex) {
                     expect(ex).toBeInstanceOf(ResponseData);
@@ -294,7 +293,7 @@ describe('Request', () => {
 
         it('produces InternalError on uncaught errors', async () => {
             let tm: TokenManager = getInstance().getTokenManager();
-            spyOn(tm, 'verify').and.callFake(() => {
+            jest.spyOn(tm, 'verify').mockImplementation(() => {
                 return Promise.reject(new Error('test'));
             });
             let token: Token = await tm.sign({
@@ -303,7 +302,7 @@ describe('Request', () => {
             app.attachMockHandler('/auth/test3', new (makeHandler(async (request: Request) => {
                 try {
                     await request.getAuthenticationToken();
-                    fail('Unexpected success');
+                    throw new Error('Unexpected success');
                 }
                 catch (ex) {
                     expect(ex).toBeInstanceOf(ResponseData);

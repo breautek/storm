@@ -76,7 +76,6 @@
     "@types/node": "26.6.5",
     "auto-changelog": "2.7.0",
     "jest": "30.5.2",
-    "jest-jasmine2": "30.5.2",
     "ts-jest": "29.4.15",
     "ts-node": "10.9.2",
     "typedoc": "0.28.20",

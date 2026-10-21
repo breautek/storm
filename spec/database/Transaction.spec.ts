@@ -33,6 +33,10 @@ describe('Transaction', () => {
         await app.close();
     });
 
+    afterEach(() => {
+        jest.restoreAllMocks();
+    });
+
     describe('APIs should simply return null', () => {
         let t: Transaction = null;
 
@@ -81,15 +85,15 @@ describe('Transaction', () => {
     });
 
     it('can execute simple transaction', async () => {
-        spyOn(SetIsolationLevelQuery.prototype, 'execute').and.callThrough();
-        spyOn(StartTransactionQuery.prototype, 'execute').and.callThrough();
-        spyOn(CommitQuery.prototype, 'execute').and.callThrough();
+        jest.spyOn(SetIsolationLevelQuery.prototype, 'execute');
+        jest.spyOn(StartTransactionQuery.prototype, 'execute');
+        jest.spyOn(CommitQuery.prototype, 'execute');
         let query: Query = new RawQuery('SELECT 1');
         let transaction: Transaction = new Transaction(app, async (connection: IDatabaseConnection) => {
             await query.execute(connection);
         });
         
-        spyOn(query, 'execute').and.callThrough();
+        jest.spyOn(query, 'execute');
 
         let conn: IDatabaseConnection = await app.getDB().getConnection(true);
         await transaction.execute(conn);
@@ -108,7 +112,7 @@ describe('Transaction', () => {
         let conn: IDatabaseConnection = await app.getDB().getConnection(true);
         
         let shouldThrowError: boolean = true;
-        spyOn(query, 'execute').and.callFake(() => {
+        jest.spyOn(query, 'execute').mockImplementation(() => {
             if (shouldThrowError) {
                 shouldThrowError = false;
                 return Promise.reject(new DeadLockError(query.getQuery(conn), new Error('dummy error')));
@@ -130,8 +134,8 @@ describe('Transaction', () => {
         }, 3);
         let conn: IDatabaseConnection = await app.getDB().getConnection(true);
         
-        spyOn(RollbackQuery.prototype, 'execute').and.callThrough();
-        spyOn(query, 'execute').and.callFake(() => {
+        jest.spyOn(RollbackQuery.prototype, 'execute');
+        jest.spyOn(query, 'execute').mockImplementation(() => {
             return Promise.reject(new DeadLockError(query.getQuery(conn), new Error('dummy error')));
         });
 
@@ -144,7 +148,7 @@ describe('Transaction', () => {
     });
 
     it('should fail gracefully if transaction cannot be started', async () => {
-        spyOn(StartTransactionQuery.prototype, 'execute').and.returnValue(Promise.reject({
+        jest.spyOn(StartTransactionQuery.prototype, 'execute').mockReturnValue(Promise.reject({
             code: 'PROTOCOL_ENQUEUE_AFTER_QUIT',
             fatal: false
         }));
@@ -155,12 +159,6 @@ describe('Transaction', () => {
         });
         let conn: IDatabaseConnection = await app.getDB().getConnection(true);
 
-        try {
-            await transaction.execute(conn);
-            fail('Should not have resolved');
-        }
-        catch (ex) {
-            // intentionally empty
-        }
+        await expect(transaction.execute(conn)).rejects.toBeTruthy();
     });
 });

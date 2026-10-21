@@ -21,7 +21,7 @@ describe('Database', () => {
     it('Can add master', () => {
         let db: MockDB = new MockDB();
 
-        let spy: jasmine.Spy = spyOn((db as any), '_addNode');
+        let spy: jest.SpyInstance = jest.spyOn((db as any), '_addNode').mockImplementation(() => {});
 
         db.addMaster({test:true});
 
@@ -31,7 +31,7 @@ describe('Database', () => {
     it('Can only have 1 master', () => {
         let db: MockDB = new MockDB();
 
-        spyOn((db as any), '_addNode');
+        jest.spyOn((db as any), '_addNode').mockImplementation(() => {});
         db.addMaster({test:true});
 
         expect(() => {
@@ -42,8 +42,8 @@ describe('Database', () => {
     it('Can remove master', () => {
         let db: MockDB = new MockDB();
 
-        spyOn((db as any), '_addNode');
-        let spy: jasmine.Spy = spyOn((db as any), '_removeNode');
+        jest.spyOn((db as any), '_addNode').mockImplementation(() => {});
+        let spy: jest.SpyInstance = jest.spyOn((db as any), '_removeNode').mockImplementation(() => {});
 
         db.addMaster({test:true});
         db.removeMaster();
@@ -54,7 +54,7 @@ describe('Database', () => {
     it('Can add slave', () => {
         let db: MockDB = new MockDB();
 
-        let spy: jasmine.Spy = spyOn((db as any), '_addNode');
+        let spy: jest.SpyInstance = jest.spyOn((db as any), '_addNode').mockImplementation(() => {});
         let id: string = db.addSlave('test', {test:true});
         
         expect(id.indexOf('test')).toBeGreaterThan(-1);
@@ -64,8 +64,8 @@ describe('Database', () => {
     it('Can remove slave', () => {
         let db: MockDB = new MockDB();
 
-        let spy: jasmine.Spy = spyOn((db as any), '_removeNode');
-        spyOn((db as any), '_addNode');
+        let spy: jest.SpyInstance = jest.spyOn((db as any), '_removeNode').mockImplementation(() => {});
+        jest.spyOn((db as any), '_addNode').mockImplementation(() => {});
         let id: string = db.addSlave('test', {test:true});
         db.removeSlave(id);
         
@@ -75,7 +75,7 @@ describe('Database', () => {
     it('Canot remove an unexisting slave', () => {
         let db: MockDB = new MockDB();
 
-        let spy: jasmine.Spy = spyOn((db as any), '_removeNode');
+        let spy: jest.SpyInstance = jest.spyOn((db as any), '_removeNode').mockImplementation(() => {});
         db.removeSlave('test');
         
         expect(spy).not.toHaveBeenCalled();
@@ -84,7 +84,7 @@ describe('Database', () => {
     it('Can get read connection', () => {
         let db: MockDB = new MockDB();
 
-        let spy: jasmine.Spy = spyOn((db as any), '_getConnection');
+        let spy: jest.SpyInstance = jest.spyOn((db as any), '_getConnection').mockImplementation(() => {});
         void db.getConnection();
         
         expect(spy).toHaveBeenCalledWith('SLAVE*', false, undefined);
@@ -93,7 +93,7 @@ describe('Database', () => {
     it('Can get connection via custom query', () => {
         let db: MockDB = new MockDB();
 
-        let spy: jasmine.Spy = spyOn((db as any), '_getConnection');
+        let spy: jest.SpyInstance = jest.spyOn((db as any), '_getConnection').mockImplementation(() => {});
         void db.getConnection(false, 'test');
         
         expect(spy).toHaveBeenCalledWith('test', false, undefined);
@@ -102,7 +102,7 @@ describe('Database', () => {
     it('can get write connection', () => {
         let db: MockDB = new MockDB();
 
-        let spy: jasmine.Spy = spyOn((db as any), '_getConnection');
+        let spy: jest.SpyInstance = jest.spyOn((db as any), '_getConnection').mockImplementation(() => {});
         void db.getConnection(true);
         
         expect(spy).toHaveBeenCalledWith(MASTER, true, undefined);

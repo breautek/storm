@@ -58,7 +58,7 @@ describe('ServiceProvider', () => {
     });
 
     it('get', (done) => {
-        let createUrlSpy: jasmine.Spy = spyOn((sp as any), '_createURL').and.callThrough();
+        let createUrlSpy: jest.SpyInstance = jest.spyOn((sp as any), '_createURL');
         
         let data: any = {
             search: 'pizza',
@@ -68,10 +68,10 @@ describe('ServiceProvider', () => {
         sp.get('echo', 'accessToken', data).then((sr: ServiceResponse) => {
             expect(sr instanceof ServiceResponse).toBe(true);
             done();
-        }).catch(fail);
+        }).catch(done);
 
         expect(createUrlSpy).toHaveBeenCalledWith('echo', data);
-        expect(createUrlSpy.calls.mostRecent().returnValue).toBe('/api/mock/v1/echo/?search=pizza&extraToppings=true');
+        expect(createUrlSpy).toHaveLastReturnedWith('/api/mock/v1/echo/?search=pizza&extraToppings=true');
     });
 
     it('post', (done) => {
@@ -83,7 +83,7 @@ describe('ServiceProvider', () => {
             expect(sr instanceof ServiceResponse).toBe(true);
             expect(sr.getJSON()).toEqual(data);
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('put', (done) => {
@@ -94,7 +94,7 @@ describe('ServiceProvider', () => {
             expect(sr instanceof ServiceResponse).toBe(true);
             expect(sr.getJSON()).toEqual(data);
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     // This randomly started failing with no obvious reasons why, other APIs still works
@@ -106,6 +106,6 @@ describe('ServiceProvider', () => {
             expect(sr instanceof ServiceResponse).toBe(true);
             expect(sr.getUTF8()).toBe('{}');
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 });

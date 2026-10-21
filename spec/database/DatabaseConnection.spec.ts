@@ -22,15 +22,14 @@ describe('DatabaseConnection', () => {
         await app.close();
     });
 
-    let originalJasmineTimeout: number = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+    jest.setTimeout(15000);
 
     beforeEach(() => {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
         triggerSpy = jest.spyOn((DatabaseConnection.prototype as any), '$armLingerWarning').mockImplementation(() => {});
     });
 
     afterEach(() => {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalJasmineTimeout;
+        jest.restoreAllMocks();
     });
 
     it('api', () => {
@@ -66,7 +65,7 @@ describe('DatabaseConnection', () => {
 
     it('defaults to default timeout on invalid timeout setting', () => {
         let app: Application = getInstance();
-        spyOn(app, 'getConfig').and.returnValue(({database: {query_timeout: NaN}} as IConfig));
+        jest.spyOn(app, 'getConfig').mockReturnValue(({database: {query_timeout: NaN}} as IConfig));
         let connection: MockConnection = new MockConnection(true, 'test stack');
         expect(connection.getTimeout()).toBe(DEFAULT_QUERY_TIMEOUT);
         void connection.close();
@@ -97,7 +96,7 @@ describe('DatabaseConnection', () => {
         jest.useFakeTimers();
         triggerSpy.mockRestore();
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(getInstance().getLogger(), 'warn');
+        let spy: jest.SpyInstance = jest.spyOn(getInstance().getLogger(), 'warn').mockImplementation(() => {});
         void connection.query(new DummyQuery());
         jest.advanceTimersByTime(60001);
         expect(spy).toHaveBeenCalledWith('DatabaseConnection', expect.any(String));
@@ -106,21 +105,21 @@ describe('DatabaseConnection', () => {
 
     it('can close', async () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn(global, 'clearTimeout').and.callThrough();
+        let spy: jest.SpyInstance = jest.spyOn(global, 'clearTimeout');
         await connection.close();
         expect(spy).toHaveBeenCalled();
     });
 
     it('can force close', async () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn((connection as any), '_close');
+        let spy: jest.SpyInstance = jest.spyOn((connection as any), '_close').mockImplementation(() => {});
         await connection.close(true);
         expect(spy).toHaveBeenCalledWith(true);
     });
 
     it('query arms linger warning', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn((connection as any), '$armLingerWarning');
+        let spy: jest.SpyInstance = jest.spyOn((connection as any), '$armLingerWarning').mockImplementation(() => {});
         void connection.query(new DummyQuery());
         expect(spy).toHaveBeenCalled();
         void connection.close();
@@ -128,7 +127,7 @@ describe('DatabaseConnection', () => {
 
     it('stream arms linger warming', () => {
         let connection: MockConnection = new MockConnection(true, 'test stack');
-        let spy: jasmine.Spy = spyOn((connection as any), '$armLingerWarning');
+        let spy: jest.SpyInstance = jest.spyOn((connection as any), '$armLingerWarning').mockImplementation(() => {});
         void connection.query(new DummyQuery());
         expect(spy).toHaveBeenCalled();
         void connection.close();

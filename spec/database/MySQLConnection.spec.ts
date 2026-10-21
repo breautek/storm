@@ -1,7 +1,5 @@
 
-import {
-    MockApplication
-} from '../support/TestApplication';
+import {MockApplication} from '../support/TestApplication';
 import {queryFormatter} from '../../src/mysql/queryFormatter';
 import { MySQLConnection } from '../../src/MySQLConnection';
 import { DatabaseQueryError } from '../../src/DatabaseQueryError';
@@ -11,7 +9,6 @@ import { IDatabaseConnection } from '../../src/IDatabaseConnection';
 import {DummyQuery} from '../support/DummyQuery';
 import { DatabaseConnection } from '../../src/DatabaseConnection';
 import { RawQuery } from '../../src/RawQuery';
-import { TransactionAccessLevel } from '../../src/TransactionAccessLevel';
 import { GetMySQLVersion, IGetMySQLVersionResult } from '../../src/GetMySQLVersion';
 import { GetSlavePositionQuery } from '../../src/private/GetSlavePositionQuery';
 import { GetMasterPositionQuery } from '../../src/private/GetMasterPositionQuery';
@@ -36,11 +33,11 @@ describe('MySQLConnection', () => {
 
     beforeEach(() => {
         mockAPI = {
-            config: jasmine.createSpy('config'),
-            query: jasmine.createSpy('query').and.returnValue({sql: 'test query'}),
-            stream: jasmine.createSpy('stream'),
-            release: jasmine.createSpy('release'),
-            format: jasmine.createSpy('format').and.callFake((sql, params) => {
+            config: jest.fn(),
+            query: jest.fn().mockReturnValue({sql: 'test query'}),
+            stream: jest.fn(),
+            release: jest.fn(),
+            format: jest.fn().mockImplementation((sql, params) => {
                 return queryFormatter(sql, params);
             })
         };
@@ -76,7 +73,12 @@ describe('MySQLConnection', () => {
         expect(conn.getAPI()).toBe(mockAPI);
     });
 
-    it('isMaster', () => {
+    it('isMaster', async () => {
+        jest.spyOn(GetSlavePositionQuery.prototype, 'execute').mockResolvedValue(null);
+        jest.spyOn(GetProcessList.prototype, 'execute').mockResolvedValue([]);
+
+        await conn.__internal_init();
+
         expect(conn.isMaster()).toBe(true);
     });
 
@@ -85,7 +87,7 @@ describe('MySQLConnection', () => {
     });
 
     it('can query successfully', (done) => {
-        mockAPI.query.and.callFake((obj: any, params: any, callback: any) => {
+        mockAPI.query.mockImplementation((obj: any, params: any, callback: any) => {
             callback(null, [ 1 ]);
             return {
                 sql: 'test sql'
@@ -94,11 +96,11 @@ describe('MySQLConnection', () => {
         conn.query(new DummyQuery()).then((results: any[]) => {
             expect(results).toEqual([ 1 ]);
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('query handles errors', (done) => {
-        mockAPI.query.and.callFake((obj: any, params: any, callback: any) => {
+        mockAPI.query.mockImplementation((obj: any, params: any, callback: any) => {
             setTimeout(() => {
                 callback(new Error('query error'));
             }, 10);
@@ -117,8 +119,8 @@ describe('MySQLConnection', () => {
     });
 
     it('can stream (default options)', () => {
-        let streamSpy: jasmine.Spy = jasmine.createSpy('stream');
-        mockAPI.query.and.returnValue({
+        let streamSpy: jest.Mock = jest.fn();
+        mockAPI.query.mockReturnValue({
             sql: 'test',
             stream: streamSpy
         });
@@ -126,13 +128,13 @@ describe('MySQLConnection', () => {
         conn.stream(new DummyQuery(), null);
 
         expect(streamSpy).toHaveBeenCalledWith({
-            highWatermark: 512
+            highWaterMark: 512
         });
     });
 
     it('can stream', () => {
-        let streamSpy: jasmine.Spy = jasmine.createSpy('stream');
-        mockAPI.query.and.returnValue({
+        let streamSpy: jest.Mock = jest.fn();
+        mockAPI.query.mockReturnValue({
             sql: 'test',
             stream: streamSpy
         });
@@ -158,7 +160,7 @@ describe('MySQLConnection', () => {
     });
 
     it('can start transaction (isTransaction failure)', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             callback(null, []);
         });
         let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
@@ -171,7 +173,7 @@ describe('MySQLConnection', () => {
     });
 
     it('can start transaction successfully', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             callback(null, []);
         });
         let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
@@ -180,15 +182,13 @@ describe('MySQLConnection', () => {
             expect(mockAPI.query).toHaveBeenCalledWith({
                 sql: 'START TRANSACTION READ WRITE',
                 timeout: DEFAULT_QUERY_TIMEOUT
-            }, {
-                accessLevel: TransactionAccessLevel.RW
-            }, jasmine.any(Function));
+            }, null, expect.any(Function));
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('can start transaction (query failure)', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             setTimeout(() => {
                 callback(new Error());
             }, 1);
@@ -205,19 +205,19 @@ describe('MySQLConnection', () => {
     });
 
     it('end transaction calls commit', () => {
-        let spy: jasmine.Spy = spyOn(conn, 'commit');
+        let spy: jest.SpyInstance = jest.spyOn(conn, 'commit').mockResolvedValue(undefined);
         void conn.endTransaction();
         expect(spy).toHaveBeenCalled();
     });
 
     it('end transactinon calls rollback', () => {
-        let spy: jasmine.Spy = spyOn(conn, 'rollback');
+        let spy: jest.SpyInstance = jest.spyOn(conn, 'rollback').mockResolvedValue(undefined);
         void conn.endTransaction(true);
         expect(spy).toHaveBeenCalled();
     });
 
     it('rollback successful', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             setTimeout(() => {
                 callback(null, []);
             }, 1);
@@ -228,16 +228,17 @@ describe('MySQLConnection', () => {
             return conn.rollback();
         }).then(() => {
             expect(conn.isTransaction()).toBe(false);
-            expect(mockAPI.query).toHaveBeenCalledWith({
+            // First call is the START TRANSACTION query
+            expect(mockAPI.query).toHaveBeenNthCalledWith(2, {
                 sql: 'ROLLBACK',
                 timeout: DEFAULT_QUERY_TIMEOUT
-            }, undefined, jasmine.any(Function));
+            }, null, expect.any(Function));
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('rollback query failure', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             if (a.sql === 'ROLLBACK') {
                 setTimeout(() => {
                     callback(new Error());
@@ -266,7 +267,7 @@ describe('MySQLConnection', () => {
     });
 
     it('rollback errors on no transaction', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             setTimeout(() => {
                 callback(null, []);
             }, 1);
@@ -280,7 +281,7 @@ describe('MySQLConnection', () => {
     });
 
     it('commit successful', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             setTimeout(() => {
                 callback(null, []);
             }, 1);
@@ -291,16 +292,17 @@ describe('MySQLConnection', () => {
             return conn.commit();
         }).then(() => {
             expect(conn.isTransaction()).toBe(false);
-            expect(mockAPI.query).toHaveBeenCalledWith({
+            // First call is the START TRANSACTION query
+            expect(mockAPI.query).toHaveBeenNthCalledWith(2, {
                 sql: 'COMMIT',
                 timeout: DEFAULT_QUERY_TIMEOUT
-            }, undefined, jasmine.any(Function));
+            }, null, expect.any(Function));
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('commit query failure', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             if (a.sql === 'COMMIT') {
                 setTimeout(() => {
                     callback(new Error());
@@ -329,7 +331,7 @@ describe('MySQLConnection', () => {
     });
 
     it('commit errors on no transaction', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             setTimeout(() => {
                 callback(null, []);
             }, 1);
@@ -347,11 +349,11 @@ describe('MySQLConnection', () => {
         conn.close().then(() => {
             expect(mockAPI.release).toHaveBeenCalled();
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('cannot close on active transaction', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             setTimeout(() => {
                 callback(null, []);
             }, 1);
@@ -367,7 +369,7 @@ describe('MySQLConnection', () => {
     });
 
     it('can force close active transaction', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             setTimeout(() => {
                 callback(null, []);
             }, 1);
@@ -379,11 +381,11 @@ describe('MySQLConnection', () => {
         }).then(() => {
             expect(mockAPI.release).toHaveBeenCalled();
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('can force close connection', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             setTimeout(() => {
                 callback(null, []);
             }, 1);
@@ -393,11 +395,11 @@ describe('MySQLConnection', () => {
         conn.close(true).then(() => {
             expect(mockAPI.release).toHaveBeenCalled();
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('force close connection with rollback error', (done) => {
-        mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+        mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
             if (a.sql === 'ROLLBACK') {
                 setTimeout(() => {
                     callback(new Error());
@@ -416,7 +418,7 @@ describe('MySQLConnection', () => {
         }).then(() => {
             expect(mockAPI.release).toHaveBeenCalled();
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     describe('post processing', () => {
@@ -435,7 +437,7 @@ describe('MySQLConnection', () => {
         }
 
         beforeEach(() => {
-            mockAPI.query.and.callFake((a: any, b: any, callback: any) => {
+            mockAPI.query.mockImplementation((a: any, b: any, callback: any) => {
                 callback(null, [
                     'a',
                     'b',
@@ -444,10 +446,10 @@ describe('MySQLConnection', () => {
             });
         })
 
-        it('return post processed results', async (done) => {
+        it('return post processed results', async () => {
             let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
             let query: Query =  new QueryWithPostProcessing();
-            spyOn(query, 'onPostProcess').and.callThrough();
+            jest.spyOn(query, 'onPostProcess');
             let results = await conn.query(query);
             expect(query.onPostProcess).toHaveBeenCalledWith(conn, [
                 'a',
@@ -459,7 +461,6 @@ describe('MySQLConnection', () => {
                 2,
                 3
             ]);
-            done();
         });
 
         it('execute', async () => {
@@ -483,7 +484,7 @@ describe('MySQLConnection', () => {
         });
     });
 
-    it.only('getVersion show call on GetMySQLVersion query', async () => {
+    it('getVersion show call on GetMySQLVersion query', async () => {
         let conn: MySQLConnection = new MySQLConnection(mockAPI, 'test stack', false);
 
         jest.spyOn(GetMySQLVersion.prototype, 'execute').mockImplementation((conn: IDatabaseConnection) => {

@@ -46,28 +46,28 @@ describe('Middlewares', () => {
         handler = new TestHandler(app);
         status = null;
         request = {
-            getForwardedIP: jasmine.createSpy('getForwardedIP').and.returnValue('127.0.0.1'),
-            getMethod: jasmine.createSpy('getMethod'),
-            getURL: jasmine.createSpy('getURL'),
-            getHeader: jasmine.createSpy('user-agent'),
-            getIP: jasmine.createSpy('getIP'),
-            getRoute: jasmine.createSpy('getRoute')
+            getForwardedIP: jest.fn().mockReturnValue('127.0.0.1'),
+            getMethod: jest.fn(),
+            getURL: jest.fn(),
+            getHeader: jest.fn(),
+            getIP: jest.fn(),
+            getRoute: jest.fn()
         };
         response = {
-            error: jasmine.createSpy('error'),
-            setStatus: jasmine.createSpy('setStatus').and.callFake((value: any) => {
+            error: jest.fn(),
+            setStatus: jest.fn().mockImplementation((value: any) => {
                 status = value;
                 return response;
             }),
-            send: jasmine.createSpy('send'),
-            getStatus: jasmine.createSpy('getStatus').and.callFake(() => {
+            send: jest.fn(),
+            getStatus: jest.fn().mockImplementation(() => {
                 return status;
             })
         };
     });
 
     it('executes single middleware', () => {
-        let spy: jasmine.Spy = spyOn(middleware, '_execute');
+        let spy: jest.SpyInstance = jest.spyOn(middleware, '_execute');
         (handler as any).$middlewares = [ middleware ];
 
         void handler.get(request, response);
@@ -76,13 +76,13 @@ describe('Middlewares', () => {
     });
 
     it('executes middleware in sequence', (done) => {
-        let spy: jasmine.Spy = spyOn(middleware, '_execute');
+        let spy: jest.SpyInstance = jest.spyOn(middleware, '_execute');
 
         let next: TestMiddleware = new TestMiddleware(app);
-        let nextSpy: jasmine.Spy = spyOn(next, '_execute');
+        let nextSpy: jest.SpyInstance = jest.spyOn(next, '_execute');
         (handler as any).$middlewares = [ middleware, next ];
 
-        spy.and.callFake((request: any, response: any) => {
+        spy.mockImplementation((request: any, response: any) => {
             response.setStatus(500);
             return Promise.resolve({
                 request,
@@ -90,7 +90,7 @@ describe('Middlewares', () => {
             });
         });
 
-        nextSpy.and.callFake((request: any, response: any) => {
+        nextSpy.mockImplementation((request: any, response: any) => {
             expect(response.getStatus()).toBe(500);
             return Promise.resolve({
                 request,
@@ -101,25 +101,23 @@ describe('Middlewares', () => {
         handler.get(request, response).then(() => {
             expect(nextSpy).toHaveBeenCalled();
             done();
-        }).catch((error: unknown) => {
-            fail(error);
-        });
+        }).catch(done);
     });
 
     it('handles middleware exceptions (general error)', async () => {
-        let spy: jasmine.Spy = spyOn(middleware, '_execute');
-        let rejectionSpy: jasmine.Spy = spyOn((handler as any), '_onMiddlewareReject');
-        let errorHandlerSpy: jasmine.Spy = spyOn((handler as any), '$handleResponseError').and.callThrough();
+        let spy: jest.SpyInstance = jest.spyOn(middleware, '_execute');
+        let rejectionSpy: jest.SpyInstance = jest.spyOn((handler as any), '_onMiddlewareReject').mockImplementation(() => {});
+        let errorHandlerSpy: jest.SpyInstance = jest.spyOn((handler as any), '$handleResponseError');
         
         let next: TestMiddleware = new TestMiddleware(app);
-        let nextSpy: jasmine.Spy = spyOn(next, '_execute');
+        let nextSpy: jest.SpyInstance = jest.spyOn(next, '_execute');
         (handler as any).$middlewares = [ middleware, next ];
 
-        spy.and.callFake((request: any, response: any) => {
+        spy.mockImplementation((request: any, response: any) => {
             return Promise.reject(new Error('test'));
         });
 
-        nextSpy.and.callFake((request: any, response: any) => {
+        nextSpy.mockImplementation((request: any, response: any) => {
             return Promise.resolve({
                 request,
                 response
@@ -132,18 +130,18 @@ describe('Middlewares', () => {
     });
 
     it('handles middleware exceptions (storm error)', async () => {
-        let spy: jasmine.Spy = spyOn(middleware, '_execute');
-        let rejectionSpy: jasmine.Spy = spyOn((handler as any), '_onMiddlewareReject').and.callThrough();
+        let spy: jest.SpyInstance = jest.spyOn(middleware, '_execute');
+        let rejectionSpy: jest.SpyInstance = jest.spyOn((handler as any), '_onMiddlewareReject');
         
         let next: TestMiddleware = new TestMiddleware(app);
-        let nextSpy: jasmine.Spy = spyOn(next, '_execute');
+        let nextSpy: jest.SpyInstance = jest.spyOn(next, '_execute');
         (handler as any).$middlewares = [ middleware, next ];
 
-        spy.and.callFake((request: any, response: any) => {
+        spy.mockImplementation((request: any, response: any) => {
             return Promise.reject(new EntityNotFoundError('test'));
         });
 
-        nextSpy.and.callFake((request: any, response: any) => {
+        nextSpy.mockImplementation((request: any, response: any) => {
             return Promise.resolve({
                 request,
                 response

@@ -31,7 +31,6 @@ module.exports = {
     '/node_modules/',
     '/spec/'
   ],
-  testRunner: "jest-jasmine2",
   coverageProvider: 'v8',
   transform: {
     '\\.ts$': [

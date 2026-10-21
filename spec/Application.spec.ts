@@ -158,7 +158,7 @@ describe('Application', () => {
     it('can close socket', (done) => {
         app.close().then(() => {
             done();
-        }).catch(fail);
+        }).catch(done);
     });
 
     it('AppInstance.setInstance', () => {

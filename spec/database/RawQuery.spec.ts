@@ -23,10 +23,10 @@ describe('RawQuery', () => {
 
     beforeEach(() => {
         mockAPI = {
-            config: jasmine.createSpy('config'),
-            query: jasmine.createSpy('query').and.returnValue({sql: 'test query'}),
-            stream: jasmine.createSpy('stream'),
-            release: jasmine.createSpy('release')
+            config: jest.fn(),
+            query: jest.fn().mockReturnValue({sql: 'test query'}),
+            stream: jest.fn(),
+            release: jest.fn()
         };
         conn = new MySQLConnection(mockAPI, 'test stack', true);
     });

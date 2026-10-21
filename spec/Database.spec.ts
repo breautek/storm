@@ -22,8 +22,6 @@ describe('Database', () => {
             expect(connection.getTimeout()).toBe(3600000);
             void connection.close();
             done();
-        }).catch((error: any) => {
-            fail(error);
-        });
+        }).catch(done);
     });
 });
