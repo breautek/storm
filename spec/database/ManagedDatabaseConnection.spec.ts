@@ -19,6 +19,7 @@ describe('ManagedDatabaseConnection', () => {
         app = new MockApplication();
         await app.start();
     });
+    
     afterAll(async () => {
         await app.close();
     });
@@ -360,6 +361,44 @@ describe('ManagedDatabaseConnection', () => {
                 done();
             }).catch(done);
         }, 0);
+    });
+
+    it('concurrent operations share a single unmanaged connection', async () => {
+        let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
+        let getConnectionSpy: jest.SpyInstance = jest.spyOn(getInstance().getDB(), 'getConnection');
+        mdc.setTimeout(1000);
+        await Promise.all([
+            mdc.getCurrentDatabasePosition(),
+            mdc.getCurrentDatabasePosition()
+        ]);
+        expect(getConnectionSpy).toHaveBeenCalledTimes(1);
+        let conn: DatabaseConnection<any> = (mdc as any).$connection;
+        await mdc.close();
+        expect(conn.isClosed()).toBe(true);
+    });
+
+    it('close waits for a pending unmanaged connection', async () => {
+        let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
+        let getConnectionSpy: jest.SpyInstance = jest.spyOn(getInstance().getDB(), 'getConnection');
+        mdc.setTimeout(1000);
+        await mdc.close();
+        let conn: DatabaseConnection<any> = await getConnectionSpy.mock.results[0].value;
+        expect(conn.isClosed()).toBe(true);
+        expect(mdc.hasConnection()).toBe(false);
+    });
+
+    it('setConnection during a pending acquisition releases the acquired connection', async () => {
+        let mdc: ManagedDatabaseConnection = new ManagedDatabaseConnection();
+        let getConnectionSpy: jest.SpyInstance = jest.spyOn(getInstance().getDB(), 'getConnection');
+        let conn1: MockConnection = new MockConnection(false, '');
+        mdc.setTimeout(1000);
+        mdc.setConnection(conn1);
+        let acquired: DatabaseConnection<any> = await getConnectionSpy.mock.results[0].value;
+        await new Promise((resolve) => setTimeout(resolve, 0));
+        expect((mdc as any).$connection).toBe(conn1);
+        expect(acquired.isClosed()).toBe(true);
+        await mdc.close();
+        expect(conn1.isClosed()).toBe(false);
     });
 
     it('can start transaction managed', (done) => {

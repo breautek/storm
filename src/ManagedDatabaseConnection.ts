@@ -27,7 +27,8 @@ const TAG: string = 'ManagedDatabaseConnection';
 
 export class ManagedDatabaseConnection implements IDatabaseConnection {
     private $connection: IDatabaseConnection;
-    
+    private $pendingConnection: Promise<IDatabaseConnection>;
+
     /**
      * When true, this class will not close the connection or
      * allow transaction starts or ends. Methods for these actions
@@ -175,7 +176,11 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     }
 
     public close(forceClose?: boolean): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
+        // If a connection is still being acquired, wait for it so that it
+        // can be closed, otherwise it would arrive after close and leak.
+        let pending: Promise<unknown> = this.$pendingConnection ? this.$pendingConnection.catch((): IDatabaseConnection => null) : Promise.resolve();
+
+        return pending.then(() => new Promise<void>((resolve, reject) => {
             if (this.hasConnection() && !this.isManaged()) {
                 this.$connection.close(forceClose).then(() => {
                     this.$connection = null;
@@ -186,7 +191,7 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
             else {
                 resolve();
             }
-        });
+        }));
     }
 
     public startTransaction(isolationLevel?: IsolationLevel, accessLevel?: TransactionAccessLevel): Promise<void> {
@@ -238,25 +243,33 @@ export class ManagedDatabaseConnection implements IDatabaseConnection {
     }
 
     private $getConnection(): Promise<IDatabaseConnection> {
-        return new Promise<IDatabaseConnection>((resolve, reject) => {
-            let promise: Promise<IDatabaseConnection> = null;
-            let shouldSetInstantationStack: boolean = false;
-            if (!this.$connection) {
-                promise = getInstance().getDB().getConnection(this.$requiresWrite);
-                shouldSetInstantationStack = true;
-            }
-            else {
-                promise = Promise.resolve(this.$connection);
-            }
+        if (this.$connection) {
+            return Promise.resolve(this.$connection);
+        }
 
-            promise.then((connection: IDatabaseConnection) => {
-                if (shouldSetInstantationStack) {
-                    connection.setInstantiationStack(this.$instantionStack);
+        // Share a single in-flight acquisition, otherwise concurrent callers
+        // would each acquire their own connection and all but one would leak.
+        if (!this.$pendingConnection) {
+            this.$pendingConnection = getInstance().getDB().getConnection(this.$requiresWrite).then((connection: IDatabaseConnection) => {
+                this.$pendingConnection = null;
+
+                // setConnection was called while we were acquiring. The given
+                // connection takes precedence, so release the one we acquired.
+                if (this.$connection) {
+                    void connection.close();
+                    return this.$connection;
                 }
+
+                connection.setInstantiationStack(this.$instantionStack);
                 this.$connection = connection;
-                resolve(this.$connection);
-            }).catch(reject);
-        });
+                return connection;
+            }, (error: unknown) => {
+                this.$pendingConnection = null;
+                throw error;
+            });
+        }
+
+        return this.$pendingConnection;
     }
 
     public getAPI(): any {
